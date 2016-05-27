@@ -4,7 +4,8 @@ import ru.evrnsky.geometry.Point;
 import static java.lang.Math.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static org.hamcrest.core.Is.is;
+import static org.hamcrest.number.IsCloseTo.closeTo;
+
 
 /**
 * 	Unit test for Point.java
@@ -25,7 +26,9 @@ public class PointTest
 		double distance = firstPoint.distanceTo(secondPoint);
 		
 		//Action block
-		assertThat(distance, is(expectedDistance));
+		assertThat(expectedDistance, closeTo(distance, 0.01));
+		
+		
 		
 	}
 }

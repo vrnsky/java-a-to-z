@@ -3,7 +3,7 @@ package ru.evrnsky.geometry;
 import ru.evrnsky.geometry.Triangle;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static org.hamcrest.core.Is.is;
+import static org.hamcrest.number.IsCloseTo.closeTo;
 
 /**
 *	Unit test for Triangle.java
@@ -25,7 +25,8 @@ public class TriangleTest
 		double actualArea = goodTriangle.area();
 		
 		//Action block
-		assertEquals(expectedArea, actualArea, 0.01);
+		assertThat(expectedArea, closeTo(actualArea,0.01));
+		
 		
 	}
 	
@@ -43,6 +44,7 @@ public class TriangleTest
 		double actualArea = badTriangle.area();
 		
 		//Action block
-		assertThat(expectedArea, is(actualArea));
+		assertThat(expectedArea, closeTo(actualArea,0.01));
+		
 	}
 }

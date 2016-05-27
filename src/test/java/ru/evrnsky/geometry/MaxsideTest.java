@@ -3,7 +3,7 @@ package ru.evrnsky.geometry;
 import ru.evrnsky.geometry.Maxside;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
+import static org.hamcrest.number.IsCloseTo.closeTo;
 /**
 	Unit test for Maxside.java
 */
@@ -25,7 +25,8 @@ public class MaxsideTest
 		double actualMax = maxSide.max(goodTriangle);
 		
 		//Action block
-		assertEquals(expectedMax, actualMax, 0.01);
+		assertThat(expectedMax, closeTo(actualMax,0.01));
+		
 	}
 	
 	/**
@@ -43,6 +44,7 @@ public class MaxsideTest
 		double actualMax = maxSide.max(badTriangle);
 		
 		//Action block
-		assertEquals(expectedMax, actualMax, 0.01);
+		assertThat(expectedMax, closeTo(actualMax,0.01));
+		
 	}
 }
