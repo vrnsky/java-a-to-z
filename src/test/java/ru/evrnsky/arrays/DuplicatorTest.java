@@ -20,13 +20,18 @@ public class DuplicatorTest
 		//Assign block
 		Duplicator deleteDuplicator = new Duplicator();
 		String[] values = new String[]{"A", "C", "C", "A", "B", "A"};
-		String[] expectedValues = new String[]{"A","B","C"};
+		String[] expectedValues = new String[]{"A","C","B"};
 		
 		//Act block
-		String[] resultArray = deleteDuplicator.removeDuplicates(values);
+		String[] result = deleteDuplicator.removeDuplicates(values);
 		
 		//Action block
-		assertThat(Arrays.toString(resultArray),is(Arrays.toString(expectedValues)));
+		assertThat(Arrays.toString(result),is(Arrays.toString(expectedValues)));
+
 	}
+
+
+
+
 	
 }

@@ -13,46 +13,61 @@ public class Duplicator
 	 */
 	public String[] removeDuplicates(String[] array)
 	{
-		sort(array);
+		int length = markDuplicates(array);
+		replaceNullToEnd(array);
+		String[] result = new String[length];
 
-		int currentElem = 0;
-		int nextElem = 1;
-		if(array.length < 2){
-			return array;
-		}
-		while(nextElem < array.length){
-			
-			if(array[nextElem].equals(array[currentElem]))
-				nextElem++;
-			
-			else
-				array[++currentElem] = array[nextElem++];
-		}
-		String[] output = new String[currentElem+1];
-		for(int index = 0; index < output.length; index++){
-			output[index] = array[index];
-		}
+		for(int index = 0; index < length; index++)
+			result[index] = array[index];
 
-		return output;
+		return result;
+
 	}
 
 	/**
-	 * Sort string array
-	 * @param array - array for sorting
-	 */
-	private void sort(String[] array)
+		Mark all duplicates null
+		@param: String[] array - array for marking duplicates
+		@return int length - count of unique values in array
+	*/
+	private int markDuplicates(String[] array)
+	{
+		int length = 0;
+		for(int index = 0; index < array.length; index++)
+		{
+			for(int barrier = index + 1; barrier < array.length; barrier++)
+			{
+				if(array[index] != null)
+				{
+					if(array[index].equals(array[barrier])) {
+						array[barrier] = null;
+						length++;
+					}
+				}
+			}
+		}
+		return length;
+	}
+
+	/**
+		Move all null to end of array
+		@param: String[] array - array for replacing null
+	*/
+	private void replaceNullToEnd(String[] array)
 	{
 		for(int index = 0; index < array.length; index++)
 		{
 			for(int barrier = index + 1; barrier < array.length; barrier++)
 			{
-				if(array[index].compareTo(array[barrier]) > 0)
+				if(array[index] == null && array[barrier] != null)
 				{
 					String copyString = array[barrier];
-					array[barrier] = array[index];
 					array[index] = copyString;
+					array[barrier] = null;
 				}
 			}
 		}
 	}
+
+
+
 }
