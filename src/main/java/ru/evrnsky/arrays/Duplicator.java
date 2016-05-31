@@ -7,37 +7,50 @@ package ru.evrnsky.arrays;
 public class Duplicator
 {
 	/**
-		Removed duplicates from string array
-		@param: String[] array - array for deleting duplicates
-	*/
+	 * This method removed duplicates from String array
+	 * @param array for remove duplicates
+	 * @return array without duplicates
+     */
 	public String[] removeDuplicates(String[] array)
 	{
-		String[] result = null;
-		StringBuffer strBuffer = new StringBuffer();
-		markDuplicates(array);
+		sort(array);
 
-		for(int index = 0; index < array.length; index++)
-		{
-			if(array[index] != null)
-				strBuffer.append(array[index] + " ");
+		int currentElem = 0;
+		int nextElem = 1;
+		if(array.length < 2){
+			return array;
 		}
-		return strBuffer.toString().split(" ");
+		while(nextElem < array.length){
+			if(array[nextElem].equals(array[currentElem])) {
+				nextElem++;
+			}
+			else{
+				array[++currentElem] = array[nextElem++];
+			}
+		}
+		String[] output = new String[currentElem+1];
+		for(int k=0; k<output.length; k++){
+			output[k] = array[k];
+		}
+
+		return output;
 	}
 
 	/**
-		Mark all duplicates null for next deleting
-		@param: String[] array  - array for marking duplicates cell in array as null
-	*/
-	private void markDuplicates(String[] array)
+	 * Sort string array
+	 * @param array - array for sorting
+     */
+	private void sort(String[] array)
 	{
-
 		for(int index = 0; index < array.length; index++)
 		{
 			for(int barrier = index + 1; barrier < array.length; barrier++)
 			{
-				if(array[index] != null && array[index].equalsIgnoreCase(array[barrier]))
+				if(array[index].compareTo(array[barrier]) > 0)
 				{
-					array[barrier] = null;
+					String copyString = array[barrier];
+					array[barrier] = array[index];
+					array[index] = copyString;
 				}
 			}
 		}
