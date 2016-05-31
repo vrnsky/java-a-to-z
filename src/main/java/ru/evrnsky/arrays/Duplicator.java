@@ -29,8 +29,8 @@ public class Duplicator
 				array[++currentElem] = array[nextElem++];
 		}
 		String[] output = new String[currentElem+1];
-		for(int k=0; k<output.length; k++){
-			output[k] = array[k];
+		for(int index = 0; index < output.length; index++){
+			output[index] = array[index];
 		}
 
 		return output;
