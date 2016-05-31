@@ -10,7 +10,7 @@ public class BubbleSort
 	/**
 	 * Sorting integer array by ascending
 	 * @param array for sorting
-     */
+	 */
 	public void sort(int[] array)
 	{
 		for(int index = 0;index < array.length; index++)
