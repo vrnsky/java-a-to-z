@@ -1,10 +1,17 @@
 package ru.evrnsky.arrays;
 
+/**
+ * Implementation of bubble sort
+ */
 
 public class BubbleSort
 {
-	
-	public void sortByAscending(int[] array)
+
+	/**
+	 * Sorting integer array by ascending
+	 * @param array for sorting
+     */
+	public void sort(int[] array)
 	{
 		for(int index = 0;index < array.length; index++)
 		{
@@ -20,19 +27,4 @@ public class BubbleSort
 		}
 	}
 	
-	public void sortByDescending(int[] array)
-	{	
-		for(int index = 0; index < array.length; index++)
-		{
-			for(int barrier = index + 1; barrier < array.length; barrier++)
-			{
-				if(array[index] < array[barrier])
-				{
-					int replaceValue = array[index];
-					array[index] = array[barrier];
-					array[barrier] = replaceValue;
-				}
-			}
-		}
-	}
 }
