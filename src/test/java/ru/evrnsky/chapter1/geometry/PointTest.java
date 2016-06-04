@@ -1,6 +1,6 @@
-package ru.evrnsky.geometry;
+package ru.evrnsky.chapter1.geometry;
 
-import ru.evrnsky.geometry.Point;
+import ru.evrnsky.chapter1.geometry.Point;
 import static java.lang.Math.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -27,8 +27,5 @@ public class PointTest
 		
 		//Action block
 		assertThat(expectedDistance, closeTo(distance, 0.01));
-		
-		
-		
 	}
 }

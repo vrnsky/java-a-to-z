@@ -1,9 +1,10 @@
-package ru.evrnsky.arrays;
+package ru.evrnsky.chapter1.arrays;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
 import org.junit.Test;
 import java.util.Arrays;
+import ru.evrnsky.chapter1.arrays.Rotate;
 
 /**
 	Unit test for Rotate.java

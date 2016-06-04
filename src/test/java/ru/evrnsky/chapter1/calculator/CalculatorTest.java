@@ -1,8 +1,10 @@
-package ru.evrnsky.calculator;
+package ru.evrnsky.chapter1.calculator;
 
 import org.junit.Test;
+import org.junit.Before;
 import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
+import ru.evrnsky.chapter1.calculator.Calculator;
 
 /**
 * Unit testing of calculator class
@@ -10,12 +12,18 @@ import static org.hamcrest.core.Is.is;
 
 public class CalculatorTest
 {
+	private Calculator calc;
+	
+	@Before
+	public void setUp()
+	{
+		calc = new Calculator();
+	}
 
 	@Test
 	public void whenAddTwoDoubleShouldGetSumOfIts()
 	{
 		//Assign block
-		Calculator calc = new Calculator();
 		double first = 1.5;
 		double second = 1.3;
 		double summ = 2.8;
@@ -31,7 +39,6 @@ public class CalculatorTest
 	public void whenSubstructTwoDoubleShouldGetDiffernceBetweenDigits()
 	{
 		//Assign block
-		Calculator calc = new Calculator();
 		double first = 2.5;
 		double second = 1.5;
 		double diff = 1.0;
@@ -47,7 +54,6 @@ public class CalculatorTest
 	public void whenMultiplyTwoDoubleShouldGetResultOfMulti()
 	{
 		//Assign block
-		Calculator calc = new Calculator();
 		double first = 1.0;
 		double second = 2.0;
 		double multiply = 2.0;
@@ -63,7 +69,6 @@ public class CalculatorTest
 	public void whenDivideTwoDoubleShouldGetResultOfDivision()
 	{
 		//Assign block
-		Calculator calc = new Calculator();
 		double first = 5.1;
 		double second = 1.7;
 		double division = 3.0;
@@ -79,7 +84,6 @@ public class CalculatorTest
 	public void whenDivideDoubleByZeroShouldReturnDividend()
 	{
 		//Assign block
-		Calculator calc = new Calculator();
 		double first = 1.0;
 		double second = 0.0;
 		double division = 1.0;

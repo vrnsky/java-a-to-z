@@ -1,4 +1,4 @@
-package ru.evrnsky.loops;
+package ru.evrnsky.chapter1.loops;
 
 import static java.lang.Math.*;
 import java.lang.StringBuffer;

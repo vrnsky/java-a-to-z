@@ -1,7 +1,8 @@
-package ru.evrnsky.loops;
+package ru.evrnsky.chapter1.loops;
 
-import ru.evrnsky.loops.Square;
+import ru.evrnsky.chapter1.loops.Square;
 import org.junit.Test;
+import org.junit.Before;
 import static org.junit.Assert.*;
 import static org.hamcrest.number.IsCloseTo.closeTo;
 import static org.hamcrest.core.Is.is;
@@ -12,6 +13,17 @@ import static org.hamcrest.core.Is.is;
 */
 public class SquareTest
 {
+	private Square goodFunction;
+
+	/**
+		Before each test call this method for initialize goodFunction variables
+	*/
+	@Before
+	public void setUp()
+	{
+		goodFunction = new Square(4,3,1);
+	}
+	
 	/**
 		Create function and calculate it value in some point
 	*/
@@ -19,7 +31,6 @@ public class SquareTest
 	public void whenCalculateValueOfFunctionShouldGetValueOfFunctionInPoints()
 	{
 		//Assign block
-		Square goodFunction = new Square(4,3,1);
 		double expectedValue = 29.00;
 		
 		//Act block
@@ -37,7 +48,6 @@ public class SquareTest
 	public void whenNeedGetStringViewOfFunctionValueShouldReturnStringWithItsValue()
 	{
 		//Assign block
-		Square goodFunction = new Square(4,3,1);
 		String expectedString = "8 29 64 ";
 		
 		//Act block

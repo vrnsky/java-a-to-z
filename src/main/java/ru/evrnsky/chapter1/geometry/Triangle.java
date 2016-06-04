@@ -1,4 +1,4 @@
-package ru.evrnsky.geometry;
+package ru.evrnsky.chapter1.geometry;
 
 import static java.lang.Math.*;
 

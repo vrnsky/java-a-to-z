@@ -1,4 +1,4 @@
-package ru.evrnsky.arrays;
+package ru.evrnsky.chapter1.arrays;
 
 /**
 	This class needed for remove duplicates in string array

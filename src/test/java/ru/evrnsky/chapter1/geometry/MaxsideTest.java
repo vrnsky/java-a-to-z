@@ -1,6 +1,6 @@
-package ru.evrnsky.geometry;
+package ru.evrnsky.chapter1.geometry;
 
-import ru.evrnsky.geometry.Maxside;
+import ru.evrnsky.chapter1.geometry.Maxside;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.hamcrest.number.IsCloseTo.closeTo;

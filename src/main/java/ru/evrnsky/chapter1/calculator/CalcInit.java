@@ -1,4 +1,4 @@
-package ru.evrnsky.calculator;
+package ru.evrnsky.chapter1.calculator;
 
 import java.io.*;
 

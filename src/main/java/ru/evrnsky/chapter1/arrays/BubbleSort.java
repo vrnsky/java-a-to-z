@@ -1,4 +1,4 @@
-package ru.evrnsky.arrays;
+package ru.evrnsky.chapter1.arrays;
 
 /**
  * Implementation of bubble sort

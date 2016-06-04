@@ -1,7 +1,7 @@
-package ru.evrnsky.geometry;
+package ru.evrnsky.chapter1.geometry;
 
 
-import ru.evrnsky.geometry.Triangle;
+import ru.evrnsky.chapter1.geometry.Triangle;
 /**
 	Class for find max side in triangle
 */

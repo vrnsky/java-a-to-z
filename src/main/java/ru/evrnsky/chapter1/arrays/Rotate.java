@@ -1,4 +1,4 @@
-package ru.evrnsky.arrays;
+package ru.evrnsky.chapter1.arrays;
 
 /**
 	This class rotate matrix on 90 degree left and 90 degree right

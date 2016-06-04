@@ -1,9 +1,10 @@
-package ru.evrnsky.arrays;
+package ru.evrnsky.chapter1.arrays;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
 import java.util.Arrays;
 import org.junit.Test;
+import ru.evrnsky.chapter1.arrays.Duplicator;
 
 /**
 	Unit test for Duplicator.java

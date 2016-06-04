@@ -1,6 +1,6 @@
-package ru.evrnsky.geometry;
+package ru.evrnsky.chapter1.geometry;
 
-import ru.evrnsky.geometry.Triangle;
+import ru.evrnsky.chapter1.geometry.Triangle;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.hamcrest.number.IsCloseTo.closeTo;
@@ -10,7 +10,7 @@ import static org.hamcrest.number.IsCloseTo.closeTo;
 */
 public class TriangleTest
 {
-
+	
 	/**
 		Create a correct triangle and calculate it area
 	*/
