@@ -22,7 +22,7 @@ public class Substring
 		{
 			for(int barrier = 0; barrier < charArray.length; barrier++)
 			{
-				if(fullSub[barrier] != '_')
+				if(fullSub[barrier] != '\u0000')
 				{
 					if(charArray[index] == fullSub[barrier])
 						count++;
@@ -48,7 +48,7 @@ public class Substring
 		System.arraycopy(findChar,0,result,0,findChar.length);
 
 		for(int index = findChar.length; index < result.length; index++)
-			result[index] = '_';
+			result[index] = '\u0000';
 
 		return result;
 	}
