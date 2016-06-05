@@ -11,10 +11,15 @@ public class Substring
 	 * @param string - In this string will search
 	 * @param find - Sub string for search
      * @return - true if find is an substring, otherwise false
-     */
+	 */
 	public boolean isSubstring(String string, String find)
 	{
-		char[] fullSub = alignment(string, find);
+		char[] fullSub = find.toCharArray();
+		if(fullSub.length < string.length())
+			fullSub = alignment(string, find);]
+		else if(fullSub.length > string.length())
+			return;
+		
 		char[] charArray = string.toCharArray();
 		int count = 0;
 
@@ -39,7 +44,7 @@ public class Substring
 	 * @param string - Use for calculate length of new array
 	 * @param find - From it copy data
      * @return - char[] with data from find, other position filled by '_'
-     */
+	 */
 	public char[] alignment(String string, String find)
 	{
 		char[] result = new char[string.length()];
