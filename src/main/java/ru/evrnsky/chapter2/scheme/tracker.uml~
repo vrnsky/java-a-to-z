@@ -26,7 +26,7 @@
       <fontname>Dialog</fontname>
       <fontsize>12</fontsize>
       <defaultstereotypeview>0</defaultstereotypeview>
-      <activediagram>Диаграмма классов</activediagram>
+      <activediagram>Main loop program</activediagram>
     </settings>
     <searchpath href="PROJECT_DIR" />
     <members>
@@ -41,7 +41,7 @@
       <member type="pgml"
               name="tracker_untitledModel1.pgml"
               diagramclass="org.argouml.uml.diagram.state.ui.UMLStateDiagram"
-              diagramname="untitledModel 1" />
+              diagramname="Main loop program" />
       <member type="todo"
               name="tracker.todo" />
     </members>
@@ -58,7 +58,7 @@
 			CodeGeneration
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sat Jun 04 21:34:48 MSK 2016'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sat Jun 04 22:14:32 MSK 2016'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.32.1(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -1571,7 +1571,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
                   </UML:StateVertex.incoming>
                 </UML:Pseudostate>
                 <UML:FinalState xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096A'
-                  isSpecification = 'false'>
+                  name = 'Program finished' isSpecification = 'false'>
                   <UML:ModelElement.taggedValue>
                     <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000098F'
                       isSpecification = 'false'>
@@ -1933,7 +1933,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
       justification="Center"
     >Item</text>
     <group name="Fig1.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[217, 49, 64, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[217, 49, 165, 0]"
          href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000867"
          fill="0"
          fillcolor="white"
@@ -1947,7 +1947,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
       <rectangle name="Fig1.2.0"
         x="217"
         y="49"
-        width="64"
+        width="165"
         height="0"
         fill="0"
         fillcolor="white"
@@ -2235,7 +2235,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
       justification="Center"
     >Bug</text>
     <group name="Fig2.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[345, 337, 64, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[345, 337, 136, 0]"
          href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000868"
          fill="0"
          fillcolor="white"
@@ -2249,7 +2249,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
       <rectangle name="Fig2.2.0"
         x="345"
         y="337"
-        width="64"
+        width="136"
         height="0"
         fill="0"
         fillcolor="white"
@@ -2361,7 +2361,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
       justification="Center"
     >Task</text>
     <group name="Fig3.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[177, 337, 64, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[177, 337, 141, 0]"
          href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000869"
          fill="0"
          fillcolor="white"
@@ -2375,7 +2375,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
       <rectangle name="Fig3.2.0"
         x="177"
         y="337"
-        width="64"
+        width="141"
         height="0"
         fill="0"
         fillcolor="white"
@@ -2467,7 +2467,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
                         offset="-10" />
     </private>
     <path name="Fig4.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -2498,7 +2498,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
                         offset="-10" />
     </private>
     <path name="Fig5.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -2648,7 +2648,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
       justification="Center"
     >Tracker</text>
     <group name="Fig7.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[649, 49, 64, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[649, 49, 191, 0]"
          href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089E"
          fill="0"
          fillcolor="white"
@@ -2662,7 +2662,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
       <rectangle name="Fig7.2.0"
         x="649"
         y="49"
-        width="64"
+        width="191"
         height="0"
         fill="0"
         fillcolor="white"
@@ -2924,7 +2924,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
                         offset="5" />
     </private>
     <path name="Fig8.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -2938,7 +2938,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
   </group>
 </pgml>
 <pgml description="org.argouml.uml.diagram.state.ui.UMLStateDiagram|-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000095F"
-      name="untitledModel 1"
+      name="Main loop program"
 >
   <group name="Fig0"
        description="org.argouml.uml.diagram.state.ui.FigInitialState[304, 32, 16, 16]pathVisible=false;stereotypeView=0;"
@@ -3438,7 +3438,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
     <path name="Fig7.2"
       description="org.tigris.gef.presentation.FigPoly"
       fill="1"
-      fillcolor="178 178 178"
+      fillcolor="white"
       stroke="1"
       strokecolor="black"
     >
@@ -3458,6 +3458,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
          fillcolor="white"
          stroke="0"
          strokecolor="black"
+         visibility="0"
     >
       <private>
       </private>
@@ -3503,7 +3504,7 @@ should show menu and execute commands</text>
       destFigNode="Fig6"
     </private>
     <path name="Fig8.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -3534,7 +3535,7 @@ should show menu and execute commands</text>
                         offset="10" />
     </private>
     <path name="Fig9.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -3607,7 +3608,7 @@ should show menu and execute commands</text>
                         offset="10" />
     </private>
     <path name="Fig11.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -3638,7 +3639,7 @@ should show menu and execute commands</text>
                         offset="10" />
     </private>
     <path name="Fig12.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -3669,7 +3670,7 @@ should show menu and execute commands</text>
                         offset="10" />
     </private>
     <path name="Fig13.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -3700,7 +3701,7 @@ should show menu and execute commands</text>
                         offset="10" />
     </private>
     <path name="Fig14.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -3731,7 +3732,7 @@ should show menu and execute commands</text>
                         offset="10" />
     </private>
     <path name="Fig15.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -3762,7 +3763,7 @@ should show menu and execute commands</text>
                         offset="10" />
     </private>
     <path name="Fig16.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -3871,7 +3872,7 @@ should show menu and execute commands</text>
                         offset="26" />
     </private>
     <path name="Fig18.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -3884,7 +3885,7 @@ should show menu and execute commands</text>
     </path>
   </group>
   <group name="Fig19"
-       description="org.argouml.uml.diagram.state.ui.FigStubState[600, 408, 45, 20]pathVisible=false;stereotypeView=0;"
+       description="org.argouml.uml.diagram.state.ui.FigStubState[600, 408, 60, 20]pathVisible=false;stereotypeView=0;"
        href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000974"
        fill="1"
        fillcolor="white"
@@ -3897,7 +3898,7 @@ should show menu and execute commands</text>
     <rectangle name="Fig19.0"
       x="600"
       y="408"
-      width="45"
+      width="60"
       height="20"
       fill="0"
       fillcolor="white"
@@ -3907,9 +3908,9 @@ should show menu and execute commands</text>
     <text name="Fig19.1"
       x="600"
       y="408"
-      width="45"
+      width="60"
       height="20"
-      fill="0"
+      fill="1"
       fillcolor="white"
       stroke="0"
       strokecolor="black"
@@ -3929,7 +3930,7 @@ should show menu and execute commands</text>
     >
       <moveto x="600"
               y="408" />
-      <lineto x="645"
+      <lineto x="660"
               y="408" />
     </path>
   </group>
@@ -3952,7 +3953,7 @@ should show menu and execute commands</text>
                         offset="10" />
     </private>
     <path name="Fig20.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -3983,7 +3984,7 @@ should show menu and execute commands</text>
                         offset="10" />
     </private>
     <path name="Fig21.0"
-      description="org.tigris.gef.presentation.FigPoly"
+      description="org.argouml.gefext.ArgoFigPoly"
       fill="0"
       fillcolor="white"
       stroke="1"
@@ -3996,7 +3997,7 @@ should show menu and execute commands</text>
     </path>
   </group>
   <group name="Fig22"
-       description="org.argouml.uml.diagram.static_structure.ui.FigComment[656, 392, 244, 56]pathVisible=false;stereotypeView=0;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigComment[656, 392, 247, 56]pathVisible=false;stereotypeView=0;"
        href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000097A"
        fill="1"
        fillcolor="white"
@@ -4009,7 +4010,7 @@ should show menu and execute commands</text>
     <rectangle name="Fig22.0"
       x="656"
       y="392"
-      width="244"
+      width="247"
       height="56"
       fill="0"
       fillcolor="white"
@@ -4025,11 +4026,11 @@ should show menu and execute commands</text>
     >
       <moveto x="656"
               y="392" />
-      <lineto x="889"
+      <lineto x="892"
               y="392" />
-      <lineto x="899"
+      <lineto x="902"
               y="402" />
-      <lineto x="899"
+      <lineto x="902"
               y="447" />
       <lineto x="656"
               y="447" />
@@ -4039,26 +4040,27 @@ should show menu and execute commands</text>
     <path name="Fig22.2"
       description="org.tigris.gef.presentation.FigPoly"
       fill="1"
-      fillcolor="178 178 178"
+      fillcolor="white"
       stroke="1"
       strokecolor="black"
     >
-      <moveto x="889"
+      <moveto x="892"
               y="392" />
-      <lineto x="899"
+      <lineto x="902"
               y="402" />
-      <lineto x="889"
+      <lineto x="892"
               y="402" />
-      <lineto x="889"
+      <lineto x="892"
               y="392" />
     </path>
     <group name="Fig22.3"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[658, 394, 230, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[658, 394, 233, 0]"
          href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000097A"
          fill="0"
          fillcolor="white"
          stroke="0"
          strokecolor="black"
+         visibility="0"
     >
       <private>
       </private>
@@ -4066,7 +4068,7 @@ should show menu and execute commands</text>
       <rectangle name="Fig22.3.0"
         x="658"
         y="394"
-        width="230"
+        width="233"
         height="0"
         fill="0"
         fillcolor="white"
@@ -4077,7 +4079,7 @@ should show menu and execute commands</text>
     <text name="Fig22.4"
       x="658"
       y="394"
-      width="230"
+      width="233"
       height="52"
       fill="0"
       fillcolor="white"

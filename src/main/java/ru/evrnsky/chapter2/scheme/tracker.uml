@@ -26,7 +26,7 @@
       <fontname>Dialog</fontname>
       <fontsize>12</fontsize>
       <defaultstereotypeview>0</defaultstereotypeview>
-      <activediagram>Main loop program</activediagram>
+      <activediagram>Диаграмма классов</activediagram>
     </settings>
     <searchpath href="PROJECT_DIR" />
     <members>
@@ -39,7 +39,7 @@
               diagramclass="org.argouml.uml.diagram.static_structure.ui.UMLClassDiagram"
               diagramname="Диаграмма классов" />
       <member type="pgml"
-              name="tracker_untitledModel1.pgml"
+              name="tracker_Mainloopprogram.pgml"
               diagramclass="org.argouml.uml.diagram.state.ui.UMLStateDiagram"
               diagramname="Main loop program" />
       <member type="todo"
@@ -58,7 +58,7 @@
 			CodeGeneration
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sat Jun 04 22:14:32 MSK 2016'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sun Jun 05 13:02:24 MSK 2016'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.32.1(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -888,6 +888,90 @@ params: String - it is name of item, String - it is description of item</UML:Tag
                       name = 'long' isSpecification = 'false' kind = 'in'/>
                   </UML:BehavioralFeature.parameter>
                 </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B68'
+                  name = 'addComment' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B6F'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B70'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B71'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>05.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B72'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Add a comment to item</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B69'
+                      name = 'return' isSpecification = 'false' kind = 'return'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B6A'
+                      name = 'String' isSpecification = 'false' kind = 'in'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B65'
+                  name = 'editItem' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B6B'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B6C'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B6D'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>05.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B6E'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Use this method for editing items</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B66'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:Class xmi.idref = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B67'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
                 <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008A1'
                   name = 'removeItemByName' visibility = 'public' isSpecification = 'false'
                   ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
@@ -1212,6 +1296,9 @@ params: String - it is name of item, String - it is description of item</UML:Tag
                 </UML:AssociationEnd>
               </UML:Association.connection>
             </UML:Association>
+            <UML:Class xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B67'
+              name = 'void' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
           </UML:Namespace.ownedElement>
         </UML:Package>
         <UML:TagDefinition xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'
@@ -2610,7 +2697,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
     ></text>
   </group>
   <group name="Fig7"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[648, 48, 240, 207]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[648, 48, 240, 241]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089E"
        fill="1"
        fillcolor="white"
@@ -2625,7 +2712,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
       x="648"
       y="48"
       width="240"
-      height="207"
+      height="241"
       fill="1"
       fillcolor="white"
       stroke="1"
@@ -2713,7 +2800,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
       strokecolor="black"
     />
     <group name="Fig7.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[649, 94, 238, 161]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[649, 94, 238, 195]"
          href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089E"
          fill="0"
          fillcolor="white"
@@ -2727,7 +2814,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
         x="649"
         y="94"
         width="238"
-        height="161"
+        height="195"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -2780,7 +2867,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
         bold="false"
         textsize="12"
         justification="Left"
-      >removeItemByName(String)</text>
+      >addComment(String)</text>
       <text name="Fig7.6.4"
         x="649"
         y="145"
@@ -2796,7 +2883,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
         bold="false"
         textsize="12"
         justification="Left"
-      >removeItem(String,String)</text>
+      >editItem() : void</text>
       <text name="Fig7.6.5"
         x="649"
         y="162"
@@ -2812,7 +2899,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
         bold="false"
         textsize="12"
         justification="Left"
-      >removeItem(String,String,long)</text>
+      >removeItemByName(String)</text>
       <text name="Fig7.6.6"
         x="649"
         y="179"
@@ -2828,7 +2915,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
         bold="false"
         textsize="12"
         justification="Left"
-      >showAll()</text>
+      >removeItem(String,String)</text>
       <text name="Fig7.6.7"
         x="649"
         y="196"
@@ -2844,7 +2931,7 @@ params: String - it is name of item, String - it is description of item</UML:Tag
         bold="false"
         textsize="12"
         justification="Left"
-      >showFilteredByText(String) : Item[]</text>
+      >removeItem(String,String,long)</text>
       <text name="Fig7.6.8"
         x="649"
         y="213"
@@ -2860,10 +2947,42 @@ params: String - it is name of item, String - it is description of item</UML:Tag
         bold="false"
         textsize="12"
         justification="Left"
-      >showFilteredByDate(long) : Item[]</text>
+      >showAll()</text>
       <text name="Fig7.6.9"
         x="649"
         y="230"
+        width="238"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >showFilteredByText(String) : Item[]</text>
+      <text name="Fig7.6.10"
+        x="649"
+        y="247"
+        width="238"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >showFilteredByDate(long) : Item[]</text>
+      <text name="Fig7.6.11"
+        x="649"
+        y="264"
         width="238"
         height="23"
         fill="0"
