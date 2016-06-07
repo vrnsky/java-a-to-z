@@ -2,6 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.vrnsky</groupId>
 	<artifactId>application</artifactId>
+	<name>Tracker</name>
 	<version>1.0</version>
 	<packaging>jar</packaging>
 	
@@ -18,4 +19,29 @@
       <version>1.3</version>
     </dependency>	
   </dependencies>
+  
+  <build>
+    <plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-jar-plugin</artifactId>
+		<configuration>
+			<archive>
+				<manifest>
+					<addClasspath>true</addClasspath>
+					<mainClass>ru.evrnsky.chapter2.start.StartUI</mainClass>
+				</manifest>
+			</archive>
+		</configuration>
+	</plugin>
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-compiler-plugin</artifactId>
+			<configuration>
+				<source>1.6</source>
+				<target>1.6</target>
+			</configuration>
+	</plugin>
+	</plugins>
+  </build>
 </project>
