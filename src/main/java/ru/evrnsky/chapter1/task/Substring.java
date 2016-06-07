@@ -15,45 +15,24 @@ public class Substring
 	public boolean isSubstring(String string, String find)
 	{
 		char[] fullSub = find.toCharArray();
-		if(fullSub.length < string.length())
-			fullSub = alignment(string, find);]
-		else if(fullSub.length > string.length())
-			return;
-		
 		char[] charArray = string.toCharArray();
+		boolean result = false;
+		if(fullSub.length > charArray.length)
+			result = false;
 		int count = 0;
 
 		for(int index = 0; index < charArray.length; index++)
 		{
-			for(int barrier = 0; barrier < charArray.length; barrier++)
+			for(int barrier = 0; barrier < fullSub.length; barrier++)
 			{
-				if(fullSub[barrier] != '\u0000')
+				if(charArray[index] == fullSub[barrier])
 				{
-					if(charArray[index] == fullSub[barrier])
-						count++;
+					count++;
+					result = count > 0;
 				}
+				
 			}
 		}
-
-		return count > 0;
-	}
-
-
-	/**
-	 * Alignment for char arrays
-	 * @param string - Use for calculate length of new array
-	 * @param find - From it copy data
-     * @return - char[] with data from find, other position filled by '_'
-	 */
-	public char[] alignment(String string, String find)
-	{
-		char[] result = new char[string.length()];
-		char[] findChar = find.toCharArray();
-
-		System.arraycopy(findChar,0,result,0,findChar.length);
-
-		for(int index = findChar.length; index < result.length; index++)
-			result[index] = '\u0000';
 
 		return result;
 	}
