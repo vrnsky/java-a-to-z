@@ -52,10 +52,12 @@ public class TrackerTest
         //Assign block
         Item item = new Item();
         tracker.addItem(item);
-		String expectedResult = "New name";
+		String expectedResult = "Edited by me";
+		
 
         //Act block
-        Item updateItem = tracker.editItem(expectedResult, "New Description");
+		item.setName(expectedResult);
+        Item updateItem = tracker.editItem(item);
 		String result = updateItem.getName();
 
 
@@ -76,7 +78,7 @@ public class TrackerTest
         tracker.addItem(item);
 
         //Act block
-        Item removed = tracker.removeItem(); //I do not know how it will works
+        Item removed = tracker.removeItem(item.getId()); //I do not know how it will works
 
         //Action block
         assertThat(removed, is(item));

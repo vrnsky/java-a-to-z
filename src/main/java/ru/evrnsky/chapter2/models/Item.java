@@ -23,7 +23,7 @@ public class Item
 	*/
 	public Item()
 	{
-		
+		this("Edit me now", "Empty item");
 	}
 	
 	/**
@@ -149,6 +149,6 @@ public class Item
 	@Override
 	public String toString()
 	{
-		return String.format("Name: %s\tDesc: %s", this.name, this.description).toString();
+		return String.format("Id:%s\tName:%s\nDesc:%s",this.id, this.name, this.description).toString();
 	}
 }

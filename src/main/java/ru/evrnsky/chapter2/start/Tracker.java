@@ -44,13 +44,21 @@ public class Tracker
 	
 	/**
 		Remove item from items array by set null at the array cell
+		@param: String itemId - it is unique string for each item
 	    @return: item - it is removed item
 	*/
-	public Item removeItem()
+	public Item removeItem(String itemId)
 	{
-		Item result = items[position];
-		items[position--] = null;
-		return result;
+		Item removed = findById(itemId);
+		for(int index = 0; index < items.length; index++)
+		{
+			if(items[index] != null)
+			{
+				if(items[index].equals(removed))
+					items[index] = null;
+			}
+		}
+		return removed;
 	}
 	
 	/**
@@ -58,13 +66,16 @@ public class Tracker
 		@param: findId - it is id for searching
 		@return: Item - it is item which id equals findId, if item not found return null
 	*/
-	private Item findById(String findId)
+	protected Item findById(String findId)
 	{
 		Item result = null;
 		for(Item item : items)
 		{
-			if(item.getId().equals(findId))
-				result = item;
+			if(item != null)
+			{
+				if(item.getId().equals(findId))
+					result = item;
+			}
 		}
 		
 		return result;
@@ -72,16 +83,29 @@ public class Tracker
 	
 	/**
 		Edit item by set name and desc given parameters
-		@params: String name - it is new name of item
-				 String desc - it is new description of item
-		@return: Item item - edited item
+		@params: Item item - item which need update
+		@return: Item item - update item
 	*/
-	public Item editItem(String name, String desc)
+	public Item editItem(Item item)
 	{
-		Item item = items[--position];
-		item.setName(name);
-		item.setDescription(desc);
+		update(item);
 		return item;
+	}
+
+	/**
+	 * Find item in array and set given item
+	 * @param item - this will set at its place
+     */
+	private void update(Item item)
+	{
+		for(int index = 0; index < items.length; index++)
+		{
+			if(items[index] != null)
+			{
+				if(items[index].getId().equals(item.getId()))
+					items[index] = item;
+			}
+		}
 	}
 	
 	/**
@@ -112,16 +136,22 @@ public class Tracker
 		}
 
 		result = new Item[size];
-		for(int index = 0; index < size; index++)
+
+		int startPosition = 0;
+		int index = 0;
+		while(index < items.length && startPosition < size)
 		{
 			Item current = items[index];
 			if(current != null)
 			{
 				if(current.getName().contains(find) || current.getDescription().contains(find))
-					result[index] = current;
+				{
+					result[startPosition] = current;
+					startPosition++;
+				}
 			}
+			index++;
 		}
-		
 		
 		return result;
 	}
@@ -165,9 +195,18 @@ public class Tracker
 		@param:comment - it comment which will be added
 		@return: comment - it is given comment
 	*/
-	public Comment addComment(Comment comment)
+	public Comment addComment(Item item, Comment comment)
 	{
-		items[--position].addComment(comment);
+		String id = item.getId();
+		for(int index = 0; index < items.length; index++)
+		{
+			if(items[index] != null)
+			{
+				if(items[index].getId().equals(id))
+					items[index].addComment(comment);
+			}
+		}
+
 		return comment;
 	}
 	
@@ -175,9 +214,9 @@ public class Tracker
 		Return array of comment for current item
 		@return: Comment[] it is array of all not null comments
 	*/
-	public Comment[] getComments()
+	public Comment[] getComments(Item item)
 	{
-		return items[position].getComments();
+		return item.getComments();
 	}
 	
 }
