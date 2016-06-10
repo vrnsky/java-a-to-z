@@ -70,7 +70,6 @@ public class TrackerTest
      When try remove item should check item was removed
      */
     @Test
-    @Ignore
     public void whenTryRemoveItemShouldTrackerReturnDeletedItem()
     {
         //Assign block
@@ -78,7 +77,7 @@ public class TrackerTest
         tracker.addItem(item);
 
         //Act block
-        Item removed = tracker.removeItem(item.getId()); //I do not know how it will works
+        Item removed = tracker.removeItem(item.getId()); 
 
         //Action block
         assertThat(removed, is(item));
