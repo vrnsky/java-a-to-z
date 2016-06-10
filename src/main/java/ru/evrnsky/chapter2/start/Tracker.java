@@ -165,8 +165,8 @@ public class Tracker
 		
 		result = new Item[size];
 		
-		for(int index = 0; index < size; index++)
-		{
+		for(int index = 0; index < size; index++) {
+			
 			Item current = items[index];
 			if(current != null) {
 				if(current.getCreateTime() > createTime)
@@ -182,8 +182,8 @@ public class Tracker
 		@param:comment - it comment which will be added
 		@return: comment - it is given comment
 	*/
-	public Comment addComment(Item item, Comment comment)
-	{
+	public Comment addComment(Item item, Comment comment) {
+		
 		String id = item.getId();
 		for(int index = 0; index < items.length; index++) {
 			if(items[index] != null) {
@@ -199,8 +199,7 @@ public class Tracker
 		Return array of comment for current item
 		@return: Comment[] it is array of all not null comments
 	*/
-	public Comment[] getComments(Item item)
-	{
+	public Comment[] getComments(Item item) {
 		return item.getComments();
 	}
 	
