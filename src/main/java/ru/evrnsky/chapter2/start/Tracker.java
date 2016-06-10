@@ -50,11 +50,9 @@ public class Tracker
 	public Item removeItem(String itemId)
 	{
 		Item removed = findById(itemId);
-		for(int index = 0; index < items.length; index++)
-		{
-			if(items[index] != null)
-			{
-				if(items[index].equals(removed))
+		for(int index = 0; index < items.length; index++) {
+			if(items[index] != null) {
+				if(items[index].getId().equals(removed.getId()))
 					items[index] = null;
 			}
 		}
@@ -69,10 +67,8 @@ public class Tracker
 	protected Item findById(String findId)
 	{
 		Item result = null;
-		for(Item item : items)
-		{
-			if(item != null)
-			{
+		for(Item item : items) {
+			if(item != null) {
 				if(item.getId().equals(findId))
 					result = item;
 			}
@@ -98,10 +94,8 @@ public class Tracker
      */
 	private void update(Item item)
 	{
-		for(int index = 0; index < items.length; index++)
-		{
-			if(items[index] != null)
-			{
+		for(int index = 0; index < items.length; index++) {
+			if(items[index] != null) {
 				if(items[index].getId().equals(item.getId()))
 					items[index] = item;
 			}
@@ -126,10 +120,8 @@ public class Tracker
 		Item[] result = null;
 		int size = 0;
 		
-		for(Item item : items)
-		{
-			if(item != null)
-			{
+		for(Item item : items) {
+			if(item != null) {
 				if(item.getName().contains(find) || item.getDescription().contains(find))
 					size++;
 			}
@@ -142,10 +134,8 @@ public class Tracker
 		while(index < items.length && startPosition < size)
 		{
 			Item current = items[index];
-			if(current != null)
-			{
-				if(current.getName().contains(find) || current.getDescription().contains(find))
-				{
+			if(current != null) {
+				if(current.getName().contains(find) || current.getDescription().contains(find)) {
 					result[startPosition] = current;
 					startPosition++;
 				}
@@ -166,10 +156,8 @@ public class Tracker
 		Item[] result = null;
 		int size = 0;
 		
-		for(Item item : items)
-		{
-			if(item != null)
-			{
+		for(Item item : items) {
+			if(item != null) {
 				if(item.getCreateTime() > createTime)
 					size++;
 			}
@@ -180,8 +168,7 @@ public class Tracker
 		for(int index = 0; index < size; index++)
 		{
 			Item current = items[index];
-			if(current != null)
-			{
+			if(current != null) {
 				if(current.getCreateTime() > createTime)
 					result[index] = current;
 			}
@@ -198,10 +185,8 @@ public class Tracker
 	public Comment addComment(Item item, Comment comment)
 	{
 		String id = item.getId();
-		for(int index = 0; index < items.length; index++)
-		{
-			if(items[index] != null)
-			{
+		for(int index = 0; index < items.length; index++) {
+			if(items[index] != null) {
 				if(items[index].getId().equals(id))
 					items[index].addComment(comment);
 			}
