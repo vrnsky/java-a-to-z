@@ -24,12 +24,10 @@ public class StartUI
 		tracker.addItem(startNewProject);
 		tracker.addItem(customerChanges);
 		userInterface.showAllItem(tracker.getAllItems());
-		System.out.println();
 
 		System.out.println("=================REMOVING ITEMS========================");
 		tracker.removeItem(addFeatures.getId());
 		userInterface.showAllItem(tracker.getAllItems());
-		System.out.println();
 
 		System.out.println("=================EDITING ITEMS==========================");
 		startNewProject.setName("You win!");
@@ -40,16 +38,13 @@ public class StartUI
 		System.out.println("=================COMMENT ITEMS===========================");
 		tracker.addComment(startNewProject, new Comment("value"));
 		userInterface.showComment(tracker.getComments(startNewProject));
-		System.out.println();
 
 
 		System.out.println("=================FILTERING BY TEXT DATA===================");
 		userInterface.showAllItem(tracker.getItemsFilteredByText("win"));
-		System.out.println();
 
 		System.out.println("=================FILTERING BY TIME=========================");
 		userInterface.showAllItem(tracker.getItemsFilteredByTime(1L));
-		System.out.println();
 	}
 	
 	/*
