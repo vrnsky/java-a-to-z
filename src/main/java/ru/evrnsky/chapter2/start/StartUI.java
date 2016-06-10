@@ -8,43 +8,27 @@ import ru.evrnsky.chapter2.models.*;
 
 public class StartUI
 {
+	private Input input;
+	
+	public StartUI(Input input) {
+		
+		this.input = input;
+	}
 	/**
 		Entry point of application
 	*/
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
+		
+		new StartUI(new ConsoleInput()).init();		
+	}
+	
+	public void init() {
+		
 		Tracker tracker = new Tracker(10);
-		StartUI userInterface = new StartUI();
-		Item addFeatures = new Item("Development", "Add new features");
-		Item startNewProject = new Item("Launch new Java Project", "Keep your mind");
-		Item customerChanges = new Item("Customer send changes", "Add more function");
-
-		System.out.println("=================ADDING NEW ITEMS====================");
-		tracker.addItem(addFeatures);
-		tracker.addItem(startNewProject);
-		tracker.addItem(customerChanges);
-		userInterface.showAllItem(tracker.getAllItems());
-
-		System.out.println("=================REMOVING ITEMS========================");
-		tracker.removeItem(addFeatures.getId());
-		userInterface.showAllItem(tracker.getAllItems());
-
-		System.out.println("=================EDITING ITEMS==========================");
-		startNewProject.setName("You win!");
-		startNewProject.setDescription("This ticket is edited");
-		tracker.editItem(addFeatures);
-		userInterface.showAllItem(tracker.getAllItems());
-
-		System.out.println("=================COMMENT ITEMS===========================");
-		tracker.addComment(startNewProject, new Comment("value"));
-		userInterface.showComment(tracker.getComments(startNewProject));
-
-
-		System.out.println("=================FILTERING BY TEXT DATA===================");
-		userInterface.showAllItem(tracker.getItemsFilteredByText("win"));
-
-		System.out.println("=================FILTERING BY TIME=========================");
-		userInterface.showAllItem(tracker.getItemsFilteredByTime(1L));
+		String name = input.ask("Enter a name of item: ");
+		Item item = new Item(name, "Item description");
+		tracker.addItem(item);
+		this.showAllItem(tracker.getAllItems());
 	}
 	
 	/*
@@ -54,8 +38,7 @@ public class StartUI
 	*/
 	private void showAllItem(Item[] items)
 	{
-		for(Item item : items)
-		{
+		for(Item item : items) {
 			if(item != null)
 			 System.out.println(item);
 		}
