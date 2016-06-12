@@ -13,7 +13,6 @@ public class StubInput implements Input {
 		@params:String[] answer - it is list of possible answers
 	*/
 	public StubInput(String[] answer) {
-		
 		this.answer = answer;
 	}
 	
@@ -22,8 +21,7 @@ public class StubInput implements Input {
 		@params: String question - it is string which show user in console
 		@retunr: String - given from user
 	*/
-	public String ask(String question)
-	{
+	public String ask(String question) {
 		return answer[position++];
 	}
 }
