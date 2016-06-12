@@ -6,8 +6,8 @@ import ru.evrnsky.chapter2.models.Comment;
 /**
 	Implementation of common item in tracker app
 */
-public class Item
-{
+public class Item {
+	
 	protected String id;
 	protected String name;
 	protected String description;
@@ -21,8 +21,7 @@ public class Item
 		Default constructor
 		
 	*/
-	public Item()
-	{
+	public Item() {
 		this("Edit me now", "Empty item");
 	}
 	
@@ -31,8 +30,7 @@ public class Item
 		@params: name - name of item	
 				 desc - description of item
 	*/
-	public Item(String name, String desc)
-	{
+	public Item(String name, String desc) {
 		id = generateId();
 		this.name = name;
 		this.description = desc;
@@ -45,8 +43,7 @@ public class Item
 		Return id of current item
 		@return: String id - it is unique string for each item
 	*/
-	public String getId()
-	{
+	public String getId() {
 		return this.id;
 	}
 	
@@ -54,8 +51,7 @@ public class Item
 		Return a name of item
 		@return: String  - name of current item
 	*/
-	public String getName()
-	{
+	public String getName() {
 		return this.name;
 	}
 	
@@ -63,8 +59,7 @@ public class Item
 		Set a name of item
 		@param: String name - new name of item
 	*/
-	public void setName(String name)
-	{
+	public void setName(String name) {
 		this.name = name;
 	}
 	
@@ -72,8 +67,7 @@ public class Item
 		Return a description of item
 		@return: String - description of current item
 	*/
-	public String getDescription()
-	{
+	public String getDescription() {
 		return this.description;
 	}
 	
@@ -81,8 +75,7 @@ public class Item
 		Set a description of item
 		@param: String description - new desc for item
 	*/
-	public void setDescription(String description)
-	{
+	public void setDescription(String description) {
 		this.description = description;
 	}
 	
@@ -90,8 +83,7 @@ public class Item
 		Return a time of creating
 		@return: long - it is time when item will be created
 	*/
-	public long getCreateTime()
-	{
+	public long getCreateTime() {
 		return createTime;
 	}
 	
@@ -99,8 +91,7 @@ public class Item
 		Add a comment to this item
 		@param: comment - it is models of comment
 	*/
-	public void addComment(Comment comment)
-	{
+	public void addComment(Comment comment) {
 		comments[commentPointer++] = comment;
 	}
 	
@@ -113,21 +104,18 @@ public class Item
 		Comment[] result;
 		int size = 0;
 		
-		for(Comment comment : comments)
-		{
+		for(Comment comment : comments) {
 			if(comment != null)
 				size++;
 		}
 		
 		result = new Comment[size];
 	
-		for(int index = 0; index < size; index++)
-		{
+		for(int index = 0; index < size; index++) {
 			Comment current = comments[index];
 			if(current != null)
-			{
 				result[index] = current;
-			}
+			
 		}
 		
 		return result;
@@ -137,8 +125,7 @@ public class Item
 		Generate a unique string
 		@return: String - it unique value string
 	*/
-	private String generateId()
-	{
+	private String generateId() {
 		return String.valueOf(System.currentTimeMillis() + RN.nextInt());
 	}
 	
@@ -147,8 +134,7 @@ public class Item
 		@return String - important data about item
 	*/
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return String.format("Id:%s\tName:%s\nDesc:%s",this.id, this.name, this.description).toString();
 	}
 }
