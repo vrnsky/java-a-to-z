@@ -14,7 +14,6 @@ public class ConsoleInput implements Input {
 		@return: String given from user
 	*/
 	public String ask(String question) {
-	
 		System.out.print(question);
 		return scanner.nextLine();
 	}
