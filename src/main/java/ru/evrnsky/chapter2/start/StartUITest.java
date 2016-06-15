@@ -7,7 +7,7 @@ import ru.evrnsky.chapter2.models.*;
 */
 public class StartUITest {
 	
-	private Input input;
+	private IO io;
 	private Tracker tracker;
 	private String userCommand = "";
 	
@@ -15,8 +15,8 @@ public class StartUITest {
 		Constructor for this class
 		@params: Input input - class which implement input interface
 	*/
-	public StartUITest(Input input) {
-		this.input = input;
+	public StartUITest(IO io) {
+		this.io = io;
 		tracker = new Tracker();
 	}
 	
@@ -25,14 +25,14 @@ public class StartUITest {
 	*/
 	public void init() {
 		
-		MenuTracker menuTracker = new MenuTracker(this.input, this.tracker);
+		MenuTracker menuTracker = new MenuTracker(this.io, this.tracker);
 		menuTracker.fillActions();
 		
 		do{
 			menuTracker.show();
-			int key = Integer.valueOf(input.ask("Type a command:"));
+			int key = Integer.valueOf(io.ask("Type a command:"));
 			menuTracker.select(key);		
-		} while(!"y".equals(input.ask("Exit(y): ")));
+		} while(!"y".equals(io.ask("Exit(y): ")));
 	}
 	
 	/**
@@ -65,6 +65,6 @@ public class StartUITest {
 										 "0", "Current item", "Current item",
 										 "y"
 		                                };
-		new StartUITest(new StubInput(answer)).init();
+		new StartUITest(new StubIO(answer)).init();
 	}
 }

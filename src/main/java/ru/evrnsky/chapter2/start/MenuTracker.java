@@ -8,17 +8,17 @@ import ru.evrnsky.chapter2.models.*;
 public class MenuTracker {
 
 	private Tracker tracker;
-	private Input input;
+	private IO io;
 	private UserAction[] actions = new UserAction[8];
 	
 	/**
 		Constructor for this class
-		@param: input - implement of input interface
+		@param: io - implement of input/output interface
 				tracker - instance of tracker API
 	*/
-	public MenuTracker(Input input, Tracker tracker){
+	public MenuTracker(IO io, Tracker tracker){
 		this.tracker = tracker;
-		this.input = input;
+		this.io = io;
 	}
 	
 	/**
@@ -40,7 +40,7 @@ public class MenuTracker {
 		It is give command to action
 	*/
 	public void select(int key){
-		this.actions[key].execute(input, tracker);
+		this.actions[key].execute(io, tracker);
 	}
 	
 	/**
@@ -49,7 +49,7 @@ public class MenuTracker {
 	public void show(){
 		for(UserAction act : actions) {
 			if(act != null)
-				System.out.println(act.info());
+				io.println(act.info());
 		}
 	}
 	
@@ -69,12 +69,13 @@ public class MenuTracker {
 		/**
 			Execute command from user by interacting with him
 			And ask about item which will added to tracker
-			@param: input - implementation of input interface
+			@param: input - implementation of input/output interface
 					tracker - instance of Tracker API
 		*/
-		public void execute(Input input, Tracker tracker) {
-			String name = input.ask("Enter a name of the new item: ");
-			String description = input.ask("Enter a description of the new item: ");
+		@Override
+		public void execute(IO io, Tracker tracker) {
+			String name = io.ask("Enter a name of the new item: ");
+			String description = io.ask("Enter a description of the new item: ");
 			tracker.addItem(new Item(name, description));
 		}
 		
@@ -103,11 +104,12 @@ public class MenuTracker {
 		/**
 			Execute a remove item command. Ask user about number of item
 			in list. Find it item and remove from tracker
-			@param: input - implementation of input interface
+			@param: input - implementation of input/output interface
 					tracker - instace of Tracker API
 		*/
-		public void execute(Input input, Tracker tracker){
-			String number = input.ask("Enter a number of item in list");
+		@Override
+		public void execute(IO io, Tracker tracker){
+			String number = io.ask("Enter a number of item in list");
 			int position = Integer.valueOf(number);
 			Item removeItem = tracker.getAllItems()[position-1];
 			tracker.removeItem(removeItem.getId());
@@ -135,13 +137,14 @@ public class MenuTracker {
 		
 		/**
 			Show all items in console
-			@param: input - in this method not use
+			@param: io - implement of input/output interface, in this method not use
 					tracker - instance of Tracker API
 		*/
-		public void execute(Input input, Tracker tracker) {
+		@Override
+		public void execute(IO io, Tracker tracker) {
 			for(Item item: tracker.getAllItems()){
 				if(item != null)
-					System.out.println(item);
+					io.println(item);
 			}
 		}
 		
@@ -171,15 +174,16 @@ public class MenuTracker {
 		/**
 			Ask user about number of item in list.
 			Further find item and edit by set new name and description
-			@param: input - implementation of input interface
+			@param: io - implementation of input/output interface
 					tracker - instance of Tracker API
 		*/
-		public void execute(Input input, Tracker tracker) {
-			String number = input.ask("Enter a number of item in list: ");
+		@Override
+		public void execute(IO io, Tracker tracker) {
+			String number = io.ask("Enter a number of item in list: ");
 			int position = Integer.valueOf(number);
 			Item item = tracker.getAllItems()[position-1];
-			item.setName(input.ask("Type new name for item :"));
-			item.setDescription(input.ask("Type new description: "));
+			item.setName(io.ask("Type new name for item :"));
+			item.setDescription(io.ask("Type new description: "));
 			tracker.editItem(item);
 		}
 		
@@ -207,12 +211,15 @@ public class MenuTracker {
 		
 		/**
 			Ask user about item and find. Further show comments about item
+			@param:io - implementation of input/output interface
+				   tracker - instance of Tracker API
 		*/
-		public void execute(Input input, Tracker tracker) {
-			String number = input.ask("Enter a number of item in list: ");
+		@Override
+		public void execute(IO io, Tracker tracker) {
+			String number = io.ask("Enter a number of item in list: ");
 			int position = Integer.valueOf(number);
 			Item item = tracker.getAllItems()[position-1];
-			tracker.addComment(item, new Comment(input.ask("Enter your comment for item: ")));
+			tracker.addComment(item, new Comment(io.ask("Enter your comment for item: ")));
 		}
 		
 		/**
@@ -239,15 +246,16 @@ public class MenuTracker {
 		
 		/**
 			Ask user about item and find it. Further show comment for this item
-			@param: input - implementation of input interface
+			@param: io - implementation of input/output interface
 					tracker - instance of Tracker API
 		*/
-		public void execute(Input input, Tracker tracker) {
-			String number = input.ask("Enter a number of item in list");
+		@Override
+		public void execute(IO io, Tracker tracker) {
+			String number = io.ask("Enter a number of item in list");
 			int position = Integer.valueOf(number);
 			Item item = tracker.getAllItems()[position-1];
 			for(Comment comment : item.getComments())
-				System.out.println(comment);
+				io.println(comment);
 		}
 		/**
 			Info about operation. Using for generate menu for user
@@ -273,14 +281,18 @@ public class MenuTracker {
 		
 		/**
 			Ask user about text which he want find and items and try to find items
-			@param: input - implementation of input interface
+			@param: io - implementation of input/output interface
 					tracker - instance of Tracker API
 		*/
-		public void execute(Input input, Tracker tracker){
-			String search = input.ask("Enter a text for search: ");
+		@Override
+		public void execute(IO io, Tracker tracker){
+			String search = io.ask("Enter a text for search: ");
 			Item[] result = tracker.getItemsFilteredByText(search);
-			for(Item item : result)
-				System.out.println(item);
+			for(Item item : result) {
+				if(item != null) {
+				io.println(item);
+				}
+			}
 		}
 		
 		/**
@@ -304,15 +316,16 @@ public class MenuTracker {
 		
 		/**
 			Ask user about time of item which he want find and try to find it
-			@param: input - implementation of input interface
+			@param: input - implementation of input/output interface
 					tracker - instance of Tracker API
 		*/
-		public void execute(Input input, Tracker tracker){
-			String stringTime = input.ask("Enter a time for search: ");
+		@Override
+		public void execute(IO io, Tracker tracker){
+			String stringTime = io.ask("Enter a time for search: ");
 			long time = Long.valueOf(stringTime);
 			Item[] result = tracker.getItemsFilteredByTime(time);
 			for(Item item : result)
-				System.out.println(item);
+				io.println(item);
 		}
 		
 		/**

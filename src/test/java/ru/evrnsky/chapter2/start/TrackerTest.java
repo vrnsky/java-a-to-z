@@ -1,7 +1,6 @@
 package ru.evrnsky.chapter2.start;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import ru.evrnsky.chapter2.models.Item;
 

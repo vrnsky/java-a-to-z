@@ -14,7 +14,7 @@ public interface UserAction {
 	/**
 		Execute action by calling methods from API Tracker
 	*/
-	void execute(Input input, Tracker tracker);
+	void execute(IO io, Tracker tracker);
 	
 	/**
 		Information about action for user
