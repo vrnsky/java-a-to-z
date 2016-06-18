@@ -11,7 +11,6 @@ public class StartUI
 {
 	private IO io;
 	private Tracker tracker;
-	private String userCommand = "";
 	
 	public StartUI(IO io) {
 		this.io = io;
@@ -21,20 +20,21 @@ public class StartUI
 		Entry point of application
 	*/
 	public static void main(String[] args) {
-		new StartUI(new ConsoleIO(new Scanner(System.in),System.out)).init();		
+		new StartUI(new Validator()).init();		
 	}
 	
 	/**
 		At this method user choose command and app execute it
 	*/
 	public void init() {
-		Tracker tracker = new Tracker();
 		MenuTracker menuTracker = new MenuTracker(this.io, this.tracker);
 		menuTracker.fillActions();
+		int start = menuTracker.getIdFirstCommand();
+		int finish = menuTracker.getIdLastCommand();
 		
 		do {
 			menuTracker.show();
-			int key = Integer.valueOf(io.ask("Type a command: "));
+			int key = io.ask("Type a command: ", start, finish);
 			menuTracker.select(key);
 		} while (!"y".equals(io.ask("Exit(y): ")));
 	}
