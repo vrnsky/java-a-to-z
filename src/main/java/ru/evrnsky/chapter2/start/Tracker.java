@@ -103,12 +103,31 @@ public class Tracker
 	}
 	
 	/**
-		Return all items of tracker
+		Return all items which not null of tracker
 		@return: Item[] - it is all items
 	*/
 	public Item[] getAllItems()
 	{
-		return items;
+		int size = 0;
+		Item[] result;
+		for(int index = 0; index != items.length; index++) {
+			if(items[index] != null)
+				size++;
+		}
+		
+		int startPosition = 0;
+		int index = 0;
+		result = new Item[size];
+		while(index < items.length && startPosition < size) {
+			Item current = items[index];
+			if(current != null) {
+				result[startPosition] = current;
+				startPosition++;
+			}
+			index++;
+		}
+		
+		return result;
 	}
 	
 	/**
@@ -131,8 +150,7 @@ public class Tracker
 
 		int startPosition = 0;
 		int index = 0;
-		while(index < items.length && startPosition < size)
-		{
+		while(index < items.length && startPosition < size) {
 			Item current = items[index];
 			if(current != null) {
 				if(current.getName().contains(find) || current.getDescription().contains(find)) {
@@ -201,6 +219,39 @@ public class Tracker
 	*/
 	public Comment[] getComments(Item item) {
 		return item.getComments();
+	}
+	
+	/**
+		Return a position of first not null item
+		@return: int position - it is position of first not null item
+	*/
+	public int getStart() {
+		int result = -1;
+		for(int index = 0; index < items.length; index++){
+			if(items[index] != null) {
+				result = index;
+				break;
+			}
+		}
+		
+		return result;
+	}
+	
+	/**
+		Return position of last no null item, if item list is empty return index of last elem
+		@return: position of last not null item or point to end of items array
+	*/
+	public int getFinish() {
+		int result = -1;
+		for(int index = items.length-1; index >= 0; index--) {
+			if(items[index] != null) {
+				result = index;
+				break;
+			}
+		}
+
+		if (result == getStart()) result = items.length-1;
+		return result;
 	}
 	
 }
