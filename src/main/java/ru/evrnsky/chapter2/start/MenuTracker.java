@@ -23,6 +23,8 @@ public class MenuTracker {
 	
 	/**
 		Fill actions array by creating new instance of actions
+		And fill array ranges for correct using menu
+		@param: ranges - 
 	*/
 	public void fillActions(){
 		actions[0] = new AddItem();
@@ -42,6 +44,37 @@ public class MenuTracker {
 	public void select(int key){
 		this.actions[key].execute(io, tracker);
 	}
+	
+	/**
+		Return id of first not null action
+		@param: int result - it is first not null action in array actions
+	*/
+	public int getIdFirstCommand() {
+		int result = -1;
+		for(int index = 0; index != actions.length; index++) {
+			if(actions[index] != null) {
+				result = index;
+				break;
+			}
+		}
+		return result;
+	}
+	
+	/**
+		Return id of last not null action
+		@param: int result - it is last not null action in array actions
+	*/
+	public int getIdLastCommand() {
+		int result = -1;
+		for(int index = actions.length-1; index >= 0; index--) {
+			if(actions[index] != null) {
+				result = index;
+				break;
+			}
+		}
+		return result;
+	}
+	
 	
 	/**
 		This method using for show user all possible action
@@ -69,7 +102,7 @@ public class MenuTracker {
 		/**
 			Execute command from user by interacting with him
 			And ask about item which will added to tracker
-			@param: input - implementation of input/output interface
+			@param: io - implementation of input/output interface
 					tracker - instance of Tracker API
 		*/
 		@Override
@@ -103,15 +136,19 @@ public class MenuTracker {
 		
 		/**
 			Execute a remove item command. Ask user about number of item
-			in list. Find it item and remove from tracker
-			@param: input - implementation of input/output interface
+			in list. Try find it item and if found remove from tracker
+			Otherwise show user message about tracker was empty or user choose wrong number
+			@param: io - implementation of input/output interface
 					tracker - instace of Tracker API
 		*/
 		@Override
 		public void execute(IO io, Tracker tracker){
-			String number = io.ask("Enter a number of item in list");
-			int position = Integer.valueOf(number);
-			Item removeItem = tracker.getAllItems()[position-1];
+			int start = tracker.getStart();
+			int finish = tracker.getFinish();
+			Item[] items = tracker.getAllItems();
+			if(items.length == 0) {io.println("Nothing to delete!"); return; }
+			int position = io.ask("Type a number of item in list: ", start+1, finish-1);
+			Item removeItem = items[position-1];
 			tracker.removeItem(removeItem.getId());
 		}
 		
@@ -172,16 +209,20 @@ public class MenuTracker {
 		}
 		
 		/**
-			Ask user about number of item in list.
+			Ask user about number of item in list and try find item.
+			If item was found try edit item, otherwise return and show user about problem
 			Further find item and edit by set new name and description
 			@param: io - implementation of input/output interface
 					tracker - instance of Tracker API
 		*/
 		@Override
 		public void execute(IO io, Tracker tracker) {
-			String number = io.ask("Enter a number of item in list: ");
-			int position = Integer.valueOf(number);
-			Item item = tracker.getAllItems()[position-1];
+			Item[] items = tracker.getAllItems();
+			if(items.length == 0) { io.println("Nothing to edit!"); return; }
+			int start = tracker.getStart();
+			int finish = tracker.getFinish();
+			int position = io.ask("Enter a number of item in list: ", start+1, finish-1);
+			Item item = items[position-1];
 			item.setName(io.ask("Type new name for item :"));
 			item.setDescription(io.ask("Type new description: "));
 			tracker.editItem(item);
@@ -210,15 +251,19 @@ public class MenuTracker {
 		}
 		
 		/**
-			Ask user about item and find. Further show comments about item
+			Ask user about item and try find it, if not found return. 
+			Further attach comments about item to the item
 			@param:io - implementation of input/output interface
 				   tracker - instance of Tracker API
 		*/
 		@Override
 		public void execute(IO io, Tracker tracker) {
-			String number = io.ask("Enter a number of item in list: ");
-			int position = Integer.valueOf(number);
-			Item item = tracker.getAllItems()[position-1];
+			Item[] items = tracker.getAllItems();
+			if(items.length == 0) {io.println("Nothing to comment!"); return; }
+			int start = tracker.getStart();
+			int finish = tracker.getFinish();
+			int position = io.ask("Enter a number of item in list", start+1, finish-1);
+			Item item = items[position-1];
 			tracker.addComment(item, new Comment(io.ask("Enter your comment for item: ")));
 		}
 		
@@ -245,14 +290,18 @@ public class MenuTracker {
 		}
 		
 		/**
-			Ask user about item and find it. Further show comment for this item
+			Ask user about item and try find it if not found return. 
+			Further show comment for this item
 			@param: io - implementation of input/output interface
 					tracker - instance of Tracker API
 		*/
 		@Override
 		public void execute(IO io, Tracker tracker) {
-			String number = io.ask("Enter a number of item in list");
-			int position = Integer.valueOf(number);
+			Item[] items = tracker.getAllItems();
+			if(items.length == 0) { io.println("Nothing to show, item list is empty!"); return; }
+			int start = tracker.getStart();
+			int finish = tracker.getFinish();
+			int position = io.ask("Choose item to show comments: ", start, finish);
 			Item item = tracker.getAllItems()[position-1];
 			for(Comment comment : item.getComments())
 				io.println(comment);
@@ -288,6 +337,7 @@ public class MenuTracker {
 		public void execute(IO io, Tracker tracker){
 			String search = io.ask("Enter a text for search: ");
 			Item[] result = tracker.getItemsFilteredByText(search);
+			if(result.length == 0) { io.println("Items with given text not found!"); return;}
 			for(Item item : result) {
 				if(item != null) {
 				io.println(item);
@@ -316,14 +366,14 @@ public class MenuTracker {
 		
 		/**
 			Ask user about time of item which he want find and try to find it
-			@param: input - implementation of input/output interface
+			@param: io - implementation of input/output interface
 					tracker - instance of Tracker API
 		*/
 		@Override
 		public void execute(IO io, Tracker tracker){
-			String stringTime = io.ask("Enter a time for search: ");
-			long time = Long.valueOf(stringTime);
+			long time = io.askForLong("Enter a time for search");
 			Item[] result = tracker.getItemsFilteredByTime(time);
+			if(result.length == 0) { io.println("Items with given time not found!"); return; }
 			for(Item item : result)
 				io.println(item);
 		}
