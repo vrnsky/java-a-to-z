@@ -1,6 +1,8 @@
 package ru.evrnsky.chapter2.start;
 
 import org.junit.Test;
+import org.omg.CORBA.LongHolder;
+
 import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
 
@@ -44,5 +46,31 @@ public class StubIOTest {
 		
 		//Action block
 		assertThat(stubIO.getOut(), is(expected));
+	}
+
+	@Test
+	public void whenAskUserAboutLongShouldGetLong() {
+
+		//Assign block
+		String[] answer = new String[]{"1"};
+		StubIO stubIO = new StubIO(answer);
+		long expected = 1L;
+
+		//Act block
+		long actual = stubIO.askForLong("Please enter a number");
+
+		//Action block
+		assertThat(actual, is(expected));
+	}
+
+	@Test(expected = OutOfTimeException.class)
+	public void whenAskUserAboutLongAndUserTypeMoreThanLongShouldThrowExpception() {
+
+		//Assign block
+		String[] answer = new String[]{String.valueOf(Long.MIN_VALUE)};
+		StubIO stubIO = new StubIO(answer);
+
+		//Act & action block
+		long actual = stubIO.askForLong("Please enter a number:");
 	}
 }

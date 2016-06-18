@@ -77,17 +77,18 @@ public class MenuTrackerTest {
 			1 - key for remove operation
 			1 - position of items which will remove
 		*/
-		String[] answer = new String[]{"0", "It is my second item", "Item","1","1"};
+		String[] answer = new String[]{"0", "It is my second item", "Item","1","1","y"};
 		StubIO stubIO = new StubIO(answer);
 		MenuTracker menuTracker = new MenuTracker(stubIO, new Tracker());
 		String expected = "";
 		
 		//Act block
 		menuTracker.fillActions();
-		String command = stubIO.ask("Type a command for Tracker: ");
-		int comm = Integer.valueOf(command);
+		int start = menuTracker.getIdFirstCommand();
+		int finish = menuTracker.getIdLastCommand();
+		int comm = stubIO.ask("Type a command for Tracker: ", start, finish);
 		menuTracker.select(comm);
-		comm = Integer.valueOf(stubIO.ask("Type a command for Tracker: "));
+		comm = stubIO.ask("Type a command for Tracker: ", start, finish);
 		menuTracker.select(comm);
 		menuTracker.select(SHOW_ALL_ITEMS);
 		
@@ -170,7 +171,7 @@ public class MenuTrackerTest {
 		show all item which contains string given text data
 	*/
 	@Test
-	public void whenTryGetItemsFileredByTextDataShouldShowItemsWithGivenTextData() {
+	public void whenTryGetItemsFilteredByTextDataShouldShowItemsWithGivenTextData() {
 		
 		/** Assign block
 			Which command will execute - see variable answer:
@@ -225,5 +226,41 @@ public class MenuTrackerTest {
 		
 		//Act block
 		assertThat(stubIO.getOut(), containsString(expected));
+	}
+	
+	/**
+		When try get id of first command should return id of first command
+	*/
+	@Test
+	public void whenTryGetIdFirstCommandShouldReturnIdOfFirstCommand() {
+		
+		//Assign block
+		String[] answer = new String[] {"Answer"};
+		StubIO stubIO = new StubIO(answer);
+		MenuTracker menuTracker = new MenuTracker(stubIO, new Tracker());
+		int expected = 0;
+		
+		//Act block
+		menuTracker.fillActions();
+		int actual = menuTracker.getIdFirstCommand();
+		
+		//Action block
+		assertThat(actual, is(expected));
+	}
+	
+	/**
+		When try get id of last command should return id of last command
+	*/
+	@Test
+	public void whenTryGetIdLastCommandShouldReturnIdOfLastCommand() {
+		String[] answer = new String[]{"answer"};
+		StubIO stubIO = new StubIO(answer);
+		MenuTracker menuTracker = new MenuTracker(stubIO, new Tracker());
+		int expected = 7;
+		
+		menuTracker.fillActions();
+		int actual = menuTracker.getIdLastCommand();
+		
+		assertThat(actual, is(expected));
 	}
 }

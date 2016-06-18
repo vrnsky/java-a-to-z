@@ -140,4 +140,39 @@ public class TrackerTest
         //Action block
         assertThat(result, is(true));
     }
+	
+	/**
+		When try get position of first item in array should get position
+		of first item in items arra
+	*/
+	@Test
+	public void whenTryToGetIdOfFirstItemShouldReturnIdOfFirstItem() {
+		
+		//Assign block
+		tracker.addItem(new Item("First name", "First item"));
+		int expected = 0;
+		
+		int actual = tracker.getStart();
+		
+		assertThat(actual, is(expected));
+	}
+	
+	/**
+		When try get a position of last item should return position of last
+		item or end position of items array
+	*/
+	@Test
+	public void whenTryToGetIdOfLastItemShouldReturnIfOfLastItem() {
+		
+		//Assign block
+		for(int index = 0; index <= 3; index++) 
+			tracker.addItem(new Item(index + "", index+ ""));
+		int expected = 3;
+			
+		//Act block
+		int actual = tracker.getFinish();
+		
+		//Assign block
+		assertThat(actual, is(expected));
+	}
 }

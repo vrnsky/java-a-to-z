@@ -11,8 +11,9 @@ import static org.junit.Assert.*;
 */
 public class StartUITest {
 
-	
-	
+	/**
+		When add item to app use UI should added item
+	*/
 	@Test
 	public void whenAddItemToAppUseUIShouldAddItemToTracker(){
 		
@@ -33,7 +34,9 @@ public class StartUITest {
 		assertThat(stubIO.getOut(), containsString("New item"));
 	}
 	
-
+	/**
+		When remove item from app use UI should remove item
+	*/
 	@Test
 	public void whenRemoveItemFromAppUseUIShouldRemoveItemFromTracker() {
 		
@@ -58,7 +61,9 @@ public class StartUITest {
 		assertThat(stubIO.getOut(), not(containsString("New item")));
 	}
 	
-	
+	/**
+		When edit item use UI should edited item and saved
+	*/
 	@Test
 	public void whenEditItemFromAppUseUIShouldEditItemAndUpdateInTracker() {
 		
@@ -67,7 +72,7 @@ public class StartUITest {
 		0 - add item, further two strings are name and description
 		n - no exit now
 		3 - edit item command
-		1 - number of item which will be edited, futher two string are new name and description for item
+		1 - number of item which will be edited, further two string are new name and description for item
 		n - no exit now
 		2 - show all items
 		y - exit now
@@ -83,6 +88,9 @@ public class StartUITest {
 		assertThat(stubIO.getOut(), containsString("Updated item"));
 	}
 	
+	/**
+		When need to show all items should show all items
+	*/
 	@Test
 	public void whenNeedShowAllItemsShouldShowAllItems() {
 		
@@ -103,7 +111,9 @@ public class StartUITest {
 		assertThat(stubIO.getOut(), containsString("New item"));
 	}
 	
-	
+	/**
+		When need comment item should attach comment to (!)existing items
+	*/
 	@Test
 	public void whenCommentItemShouldAttachCommentToTracker() {
 		
@@ -130,6 +140,9 @@ public class StartUITest {
 		assertThat(stubIO.getOut(), containsString(expected));
 	}
 	
+	/**
+		When try find item by text data use UI should show a items with given text data
+	*/
 	@Test
 	public void whenTryFindItemByTextDataShouldShowItemsWithGivenTextData() {
 		
@@ -155,6 +168,9 @@ public class StartUITest {
 		assertThat(stubIO.getOut(), containsString(expected));	
 	}
 	
+	/**
+		When try find items by time should show items with give time
+	*/
 	@Test
 	public void whenTryFindItemsByTimeShouldShowItemsWithGivenTime() {
 		
