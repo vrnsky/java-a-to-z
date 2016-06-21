@@ -45,9 +45,6 @@ public class Validator extends ConsoleIO  {
 			catch(NumberFormatException nfe) {
 				super.println("Dear user, please type a number");
 			}
-			catch(OutOfTimeException oote) {
-				super.println("Dear user, please type correct time");
-			}
 		} while(invalid);
 		return result;
 	}

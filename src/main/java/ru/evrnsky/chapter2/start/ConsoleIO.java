@@ -52,16 +52,7 @@ public class ConsoleIO implements IO {
 	*/
 	public long askForLong(String question) {
 		long key =  Long.valueOf(this.ask(question));
-		boolean exist = false;
-		if(key > Long.MIN_VALUE && key < Long.MAX_VALUE) {
-			exist = true;
-		}
-
-		if(exist) {
-			return key;
-		} else {
-			throw new OutOfTimeException("Out of time exception");
-		}
+		return key;
 	}
 	
 	/**

@@ -165,11 +165,16 @@ public class TrackerTest
 	public void whenTryToGetIdOfLastItemShouldReturnIfOfLastItem() {
 		
 		//Assign block
-		for(int index = 0; index <= 3; index++) 
-			tracker.addItem(new Item(index + "", index+ ""));
-		int expected = 3;
+		Item first = new Item("It is my first item", "It is my first item");
+		Item second = new Item("It is my second item", "It is my second item");
+		Item third = new Item("It is my third item", "It is my third item");
+		tracker.addItem(first);
+		tracker.addItem(second);
+		tracker.addItem(third);
+		int expected = 2;
 			
 		//Act block
+		tracker.removeItem(second.getId());
 		int actual = tracker.getFinish();
 		
 		//Assign block

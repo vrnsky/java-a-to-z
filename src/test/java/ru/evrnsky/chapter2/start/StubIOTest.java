@@ -66,21 +66,6 @@ public class StubIOTest {
 		//Action block
 		assertThat(actual, is(expected));
 	}
-
-	/**
-		When ask user about long and user enter a value smaller than Long.MIN_VALUE
-		or bigger than Long.MAX_VALUE should throw exception
-	*/
-	@Test(expected = OutOfTimeException.class)
-	public void whenAskUserAboutLongAndUserTypeMoreThanLongShouldThrowExpception() {
-
-		//Assign block
-		String[] answer = new String[]{String.valueOf(Long.MIN_VALUE)};
-		StubIO stubIO = new StubIO(answer);
-
-		//Act & action block
-		long actual = stubIO.askForLong("Please enter a number:");
-	}
 	
 	/**
 		When ask user about int and user enter int behind range
