@@ -139,7 +139,7 @@ public class MenuTracker {
 			in list. Try find it item and if found remove from tracker
 			Otherwise show user message about tracker was empty or user choose wrong number
 			@param: io - implementation of input/output interface
-					tracker - instace of Tracker API
+					tracker - instance of Tracker API
 		*/
 		@Override
 		public void execute(IO io, Tracker tracker){
@@ -147,7 +147,7 @@ public class MenuTracker {
 			int finish = tracker.getFinish();
 			Item[] items = tracker.getAllItems();
 			if(items.length == 0) {io.println("Nothing to delete!"); return; }
-			int position = io.ask("Type a number of item in list: ", start+1, finish-1);
+			int position = io.ask("Type a number of item in list: ", start, finish);
 			Item removeItem = items[position-1];
 			tracker.removeItem(removeItem.getId());
 		}
@@ -221,7 +221,7 @@ public class MenuTracker {
 			if(items.length == 0) { io.println("Nothing to edit!"); return; }
 			int start = tracker.getStart();
 			int finish = tracker.getFinish();
-			int position = io.ask("Enter a number of item in list: ", start+1, finish-1);
+			int position = io.ask("Enter a number of item in list: ", start, finish);
 			Item item = items[position-1];
 			item.setName(io.ask("Type new name for item :"));
 			item.setDescription(io.ask("Type new description: "));
@@ -262,7 +262,7 @@ public class MenuTracker {
 			if(items.length == 0) {io.println("Nothing to comment!"); return; }
 			int start = tracker.getStart();
 			int finish = tracker.getFinish();
-			int position = io.ask("Enter a number of item in list", start+1, finish-1);
+			int position = io.ask("Enter a number of item in list", start, finish);
 			Item item = items[position-1];
 			tracker.addComment(item, new Comment(io.ask("Enter your comment for item: ")));
 		}

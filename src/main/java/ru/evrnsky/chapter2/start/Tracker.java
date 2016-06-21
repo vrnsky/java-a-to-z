@@ -56,7 +56,32 @@ public class Tracker
 					items[index] = null;
 			}
 		}
+		//update list item
+		position = updateItemsList();
 		return removed;
+	}
+	
+	/**
+		This method move element in items array by collect not null element at the left
+		And null elements to the right. And return new position - it is first null after not null value
+		@return: int position - it is correct position for insert new elem
+	*/
+	private int updateItemsList() {
+		for(int index = 0; index < items.length; index++) {
+			for(int barrier = index + 1; barrier < items.length; barrier++) {
+				if(items[index] == null && items[barrier] != null) {
+					items[index] = items[barrier];
+					items[barrier] = null;
+				}
+			}
+		}
+		
+		int result = 0;
+		while(items[result] != null) {
+			result++;
+		}
+		
+		return result;
 	}
 	
 	/**
@@ -73,7 +98,6 @@ public class Tracker
 					result = item;
 			}
 		}
-		
 		return result;
 	}
 	
@@ -222,36 +246,19 @@ public class Tracker
 	}
 	
 	/**
-		Return a position of first not null item
-		@return: int position - it is position of first not null item
+		Return a position first position
+		@return: int position - first element in array
 	*/
 	public int getStart() {
-		int result = -1;
-		for(int index = 0; index < items.length; index++){
-			if(items[index] != null) {
-				result = index;
-				break;
-			}
-		}
-		
-		return result;
+		return 0;
 	}
 	
 	/**
-		Return position of last no null item, if item list is empty return index of last elem
-		@return: position of last not null item or point to end of items array
+		Return position - place which must insert new element
+		@return: position of last not null item
 	*/
 	public int getFinish() {
-		int result = -1;
-		for(int index = items.length-1; index >= 0; index--) {
-			if(items[index] != null) {
-				result = index;
-				break;
-			}
-		}
-
-		if (result == getStart()) result = items.length-1;
-		return result;
+		return position;
 	}
 	
 }
