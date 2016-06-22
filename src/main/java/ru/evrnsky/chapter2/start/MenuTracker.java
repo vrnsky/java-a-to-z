@@ -10,6 +10,7 @@ public class MenuTracker {
 	private Tracker tracker;
 	private IO io;
 	private UserAction[] actions = new UserAction[8];
+	int position = 0;
 	
 	/**
 		Constructor for this class
@@ -27,14 +28,24 @@ public class MenuTracker {
 		@param: ranges - 
 	*/
 	public void fillActions(){
-		actions[0] = new AddItem();
-		actions[1] = new RemoveItem();
-		actions[2] = new ShowAllItems();
-		actions[3] = new EditItem();
-		actions[4] = new CommentItem();
-		actions[5] = new ShowComments();
-		actions[6] = new FilteringByTextData();
-		actions[7] = new FilteringByTime();
+		actions[position++] = new AddItem("Add a new item");
+		actions[position++] = new RemoveItem("Remove item");
+		actions[position++] = new ShowAllItems("Show all items");
+		actions[position++] = new EditItem("Edit item");
+		actions[position++] = new CommentItem("Comment item");
+		actions[position++] = new ShowComments("Show comments");
+		actions[position++] = new FilteringByTextData("Search by text data");
+		actions[position++] = new FilteringByTime("Search by time");
+	}
+	
+	/**
+		In near future will be add feature for adding 
+		your actions to actions array. Now this N/A for correct working. 
+		Don't use this.
+		@param: BaseAction action - it is kid of BaseAction class
+	*/
+	public void addAction(BaseAction action) {
+		actions[position++] = action;
 	}
 	
 	/**
@@ -89,8 +100,16 @@ public class MenuTracker {
 	/**
 		Implementation of adding item
 	*/
-	private class AddItem implements UserAction {
+	private class AddItem extends BaseAction {
 	
+		/**
+			Init new action by calling constructor from parent
+			@param: String name - it is name of action
+		*/
+		public AddItem(String name) {
+			super(name);
+		}
+		
 		/**
 			Use for determine position in actions array
 			@param: int - position in the actions array
@@ -112,19 +131,20 @@ public class MenuTracker {
 			tracker.addItem(new Item(name, description));
 		}
 		
-		/**
-			Info about operation. Using for generate menu for user
-			@return: String - info about information and his unique key
-		*/
-		public String info() {
-			return String.format("%s. %s", this.key(), "Add a new item");
-		}
 	}
 	
 	/**
 		Implement of remove option
 	*/
-	private class RemoveItem implements UserAction {
+	private class RemoveItem extends BaseAction {
+		
+		/**
+			Init a new action - remove item
+			@param: String name - it is name of action
+		*/
+		public RemoveItem(String name) {
+			super(name);
+		}
 		
 		/**
 			Use for determine position in actions array
@@ -152,17 +172,18 @@ public class MenuTracker {
 			tracker.removeItem(removeItem.getId());
 		}
 		
-		/**
-			Info about operation. Using for generate menu for user
-			@return: String - info about information and his unique key
-		*/
-		public String info() {
-			return String.format("%s. %s", this.key(), "Remove item");
-		}
 	}
 	
-	private class ShowAllItems implements UserAction {
+	private class ShowAllItems extends BaseAction {
 		
+		
+		/**
+			Init a new action - it is show all items action
+			@param: String name - it string for naming this action
+		*/
+		public ShowAllItems(String name) {
+			super(name);
+		}
 		/**
 			Use for determine position in actions array
 			@param: int - position in the actions array
@@ -184,21 +205,20 @@ public class MenuTracker {
 					io.println(item);
 			}
 		}
-		
-		/**
-			Info about operation. Using for generate menu for user
-			@return: String - info about information and his unique key
-		*/
-		public String info(){
-			return String.format("%s. %s", this.key(), "Show all items");
-		}
 	}
 	
 	/**
 		Implementation of edit item option
 	*/
-	private class EditItem implements UserAction {
+	private class EditItem extends BaseAction {
 		
+		/**
+			Init a new action by calling constructor from the parent
+			@param: String name - it is name of action
+		*/
+		public EditItem(String name) {
+			super(name);
+		}
 		/**
 			Use for determine position in actions array
 			@param: int - position in the actions array
@@ -227,21 +247,20 @@ public class MenuTracker {
 			item.setDescription(io.ask("Type new description: "));
 			tracker.editItem(item);
 		}
-		
-		/**
-			Info about operation. Using for generate menu for user
-			@return: String - info about information and his unique key
-		*/
-		public String info(){
-			return String.format("%s. %s", this.key(), "Edit item");
-		}
 	}
 	
 	/**
 		Implementation of commenting option
 	*/
-	private class CommentItem implements UserAction {
+	private class CommentItem extends BaseAction {
 		
+		/**
+			Init a new action comment item by calling constructor from the parent
+			@param: String name - it is name of action
+		*/
+		public CommentItem(String name) {
+			super(name);
+		}
 		/**
 			Use for determine position in actions array
 			@param: int - position in the actions array
@@ -266,21 +285,20 @@ public class MenuTracker {
 			Item item = items[position-1];
 			tracker.addComment(item, new Comment(io.ask("Enter your comment for item: ")));
 		}
-		
-		/**
-			Info about operation. Using for generate menu for user
-			@return: String - info about information and his unique key
-		*/
-		public String info(){
-			return String.format("%s. %s", this.key(), "Comment item");
-		}
 	}
 	
 	/**
 		Implementation of show comments options
 	*/
-	private class ShowComments implements UserAction {
+	private class ShowComments extends BaseAction {
 		
+		/**
+			Init a new action - show comments by calling constructor from the parent
+			@param: String name - it is name of action
+		*/
+		public ShowComments(String name) {
+			super(name);
+		}
 		/**
 			Use for determine position in actions array
 			@param: int - position in the actions array
@@ -306,20 +324,20 @@ public class MenuTracker {
 			for(Comment comment : item.getComments())
 				io.println(comment);
 		}
-		/**
-			Info about operation. Using for generate menu for user
-			@return: String - info about information and his unique key
-		*/
-		public String info(){
-			return String.format("%s. %s", this.key(), "Show comments");
-		}
 	}
 	
 	/**
 		Implement of filtering by text data option
 	*/
-	private class FilteringByTextData implements UserAction {
+	private class FilteringByTextData extends BaseAction {
 		
+		/**
+			Init a new action - filtering by text data by calling constructor from the parent
+			@param: String name - it is name for action
+		*/
+		public FilteringByTextData(String name) {
+			super(name);
+		}
 		/**
 			Use for determine position in actions array
 			@param: int - position in the actions array
@@ -344,18 +362,17 @@ public class MenuTracker {
 				}
 			}
 		}
-		
-		/**
-			Info about operation. Using for generate menu for user
-			@return: String - info about information and his unique key
-		*/
-		public String info(){
-			return String.format("%s. %s", this.key(), "Search by text data");
-		}
 	}
 	
-	private class FilteringByTime implements UserAction {
+	private class FilteringByTime extends BaseAction {
 		
+		/**
+			Init a new action - filtering by time by calling constructor from the parent
+			@param: String name - it is name of action
+		*/
+		public FilteringByTime(String name) {
+			super(name);
+		}
 		/**
 			Use for determine position in actions array
 			@param: int - position in the actions array
@@ -378,13 +395,6 @@ public class MenuTracker {
 				io.println(item);
 		}
 		
-		/**
-			Info about operation. Using for generate menu for user
-			@return: String - info about information and his unique key
-		*/
-		public String info(){
-			return String.format("%s. %s", this.key(), "Search by time");
-		}
 	}
 	
 }
