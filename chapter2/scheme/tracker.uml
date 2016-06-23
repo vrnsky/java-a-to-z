@@ -1,0 +1,4223 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<uml version="6">
+  <argo version="6">
+    <documentation>
+      <authorname></authorname>
+      <authoremail></authoremail>
+      <version>0.32.1</version>
+      <description>
+        
+      </description>
+    </documentation>
+    <settings>
+      <notationlanguage>UML 1.4</notationlanguage>
+      <showboldnames>false</showboldnames>
+      <useguillemots>false</useguillemots>
+      <showassociationnames>true</showassociationnames>
+      <showvisibility>false</showvisibility>
+      <showmultiplicity>false</showmultiplicity>
+      <showinitialvalue>false</showinitialvalue>
+      <showproperties>false</showproperties>
+      <showtypes>true</showtypes>
+      <showstereotypes>false</showstereotypes>
+      <showsingularmultiplicities>true</showsingularmultiplicities>
+      <defaultshadowwidth>1</defaultshadowwidth>
+      <hidebidirectionalarrows>true</hidebidirectionalarrows>    
+      <fontname>Dialog</fontname>
+      <fontsize>12</fontsize>
+      <defaultstereotypeview>0</defaultstereotypeview>
+      <activediagram>Диаграмма классов</activediagram>
+    </settings>
+    <searchpath href="PROJECT_DIR" />
+    <members>
+      <member type="profile"
+              name="tracker_profile.profile" />
+      <member type="xmi"
+              name="tracker.xmi" />
+      <member type="pgml"
+              name="tracker_Диаграммаклассов.pgml"
+              diagramclass="org.argouml.uml.diagram.static_structure.ui.UMLClassDiagram"
+              diagramname="Диаграмма классов" />
+      <member type="pgml"
+              name="tracker_Mainloopprogram.pgml"
+              diagramclass="org.argouml.uml.diagram.state.ui.UMLStateDiagram"
+              diagramname="Main loop program" />
+      <member type="todo"
+              name="tracker.todo" />
+    </members>
+    <historyfile name="" />
+  </argo>
+<profile>
+		<plugin>
+			UML 1.4
+		</plugin>
+		<plugin>
+			GoodPractices
+		</plugin>
+		<plugin>
+			CodeGeneration
+		</plugin>
+</profile>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sun Jun 05 13:02:24 MSK 2016'>
+  <XMI.header>    <XMI.documentation>
+      <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
+      <XMI.exporterVersion>0.32.1(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
+    </XMI.documentation>
+    <XMI.metamodel xmi.name="UML" xmi.version="1.4"/></XMI.header>
+  <XMI.content>
+    <UML:Model xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000865'
+      name = 'untitledModel' isSpecification = 'false' isRoot = 'false' isLeaf = 'false'
+      isAbstract = 'false'>
+      <UML:Namespace.ownedElement>
+        <UML:Package xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000866'
+          name = 'ru.evrnsky.models' isSpecification = 'false' isRoot = 'false' isLeaf = 'false'
+          isAbstract = 'false'>
+          <UML:ModelElement.taggedValue>
+            <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D2'
+              isSpecification = 'false'>
+              <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+              <UML:TaggedValue.type>
+                <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+              </UML:TaggedValue.type>
+            </UML:TaggedValue>
+            <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D6'
+              isSpecification = 'false'>
+              <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+              <UML:TaggedValue.type>
+                <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+              </UML:TaggedValue.type>
+            </UML:TaggedValue>
+            <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DA'
+              isSpecification = 'false'>
+              <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+              <UML:TaggedValue.type>
+                <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+              </UML:TaggedValue.type>
+            </UML:TaggedValue>
+            <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DE'
+              isSpecification = 'false'>
+              <UML:TaggedValue.dataValue>Package contains model of Tracker application</UML:TaggedValue.dataValue>
+              <UML:TaggedValue.type>
+                <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+              </UML:TaggedValue.type>
+            </UML:TaggedValue>
+          </UML:ModelElement.taggedValue>
+          <UML:Namespace.ownedElement>
+            <UML:Class xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000869'
+              name = 'Task' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000913'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000914'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000915'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000916'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>This is one species of item, may be expanded by adding finish time, author and responsible person for this task</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:GeneralizableElement.generalization>
+                <UML:Generalization xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089B'/>
+              </UML:GeneralizableElement.generalization>
+            </UML:Class>
+            <UML:Class xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000867'
+              name = 'Item' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DF'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008E0'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008E1'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008E2'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>Implementation of common requirement</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:Classifier.feature>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000088A'
+                  name = 'Item' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008E3'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008E4'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008E5'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008E6'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Default constructor. Will be call from subclasses</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000088B'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:Class xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000867'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000884'
+                  name = 'Item' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008E7'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008E8'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008E9'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008EA'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Create item with next parameters: String - it is a name of item, String - it is a description of item</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000885'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:Class xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000867'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000888'
+                      name = 'String' isSpecification = 'false' kind = 'in'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000889'
+                      name = 'String' isSpecification = 'false' kind = 'in'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000886'
+                  name = 'Item' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008EB'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008EC'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008ED'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008EE'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Create item with next params: String - it is a name of item, String - it is a description of item, and long - Time when created item, hold by miliseconds</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000887'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:Class xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000867'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000894'
+                      name = 'String' isSpecification = 'false' kind = 'in'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000895'
+                      name = 'String' isSpecification = 'false' kind = 'in'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000896'
+                      name = 'long' isSpecification = 'false' kind = 'in'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000086A'
+                  name = 'getName' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008F3'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008F4'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008F5'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008F6'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Return a name of item</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000086B'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000872'
+                  name = 'getDescription' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008F7'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008F8'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008F9'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008FA'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Return a description of item</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000873'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000874'
+                  name = 'getCreateTime' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008FB'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008FC'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008FD'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008FE'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Return a time when was created item</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000875'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:Class xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CB'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000876'
+                  name = 'getComments' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008FF'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000900'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000901'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000902'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Return array of string - it is comment for item</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000877'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000878'
+                  name = 'setName' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000903'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000904'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000905'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000906'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Set a name of item</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000879'
+                      name = 'return' isSpecification = 'false' kind = 'return'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000880'
+                      name = 'String' isSpecification = 'false' kind = 'in'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000087A'
+                  name = 'setDescription' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000907'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000908'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000909'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000090A'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Set a description of item</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000087B'
+                      name = 'return' isSpecification = 'false' kind = 'return'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000881'
+                      name = 'String' isSpecification = 'false' kind = 'in'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000087C'
+                  name = 'SetCreateTime' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000090B'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000090C'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000090D'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000090E'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Set create time of item</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000087D'
+                      name = 'return' isSpecification = 'false' kind = 'return'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000882'
+                      name = 'long' isSpecification = 'false' kind = 'in'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000087E'
+                  name = 'setComments' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000090F'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000910'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000911'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000912'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Set a comments by setting private variable comments</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000087F'
+                      name = 'return' isSpecification = 'false' kind = 'return'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000883'
+                      name = 'String[]' isSpecification = 'false' kind = 'in'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+              </UML:Classifier.feature>
+            </UML:Class>
+            <UML:Class xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000868'
+              name = 'Bug' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000917'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000918'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000919'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000091A'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>One species of item. May be expanded by adding next data: project, bug verify and responsible for fix</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:GeneralizableElement.generalization>
+                <UML:Generalization xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089C'/>
+              </UML:GeneralizableElement.generalization>
+            </UML:Class>
+            <UML:Generalization xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089B'
+              name = 'Generalization Task -&gt; Item' isSpecification = 'false'>
+              <UML:Generalization.child>
+                <UML:Class xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000869'/>
+              </UML:Generalization.child>
+              <UML:Generalization.parent>
+                <UML:Class xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000867'/>
+              </UML:Generalization.parent>
+            </UML:Generalization>
+            <UML:Generalization xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089C'
+              name = 'Generalization Bug -&gt; Item' isSpecification = 'false'>
+              <UML:Generalization.child>
+                <UML:Class xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000868'/>
+              </UML:Generalization.child>
+              <UML:Generalization.parent>
+                <UML:Class xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000867'/>
+              </UML:Generalization.parent>
+            </UML:Generalization>
+            <UML:Class xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CB'
+              name = 'long' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
+            <UML:Association xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000094A'
+              name = 'Tracker has a Item instance' isSpecification = 'false' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false'>
+              <UML:Association.connection>
+                <UML:AssociationEnd xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000094B'
+                  visibility = 'public' isSpecification = 'false' isNavigable = 'true' ordering = 'unordered'
+                  aggregation = 'composite' targetScope = 'instance' changeability = 'changeable'>
+                  <UML:AssociationEnd.participant>
+                    <UML:Class xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089E'/>
+                  </UML:AssociationEnd.participant>
+                </UML:AssociationEnd>
+                <UML:AssociationEnd xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000094C'
+                  visibility = 'public' isSpecification = 'false' isNavigable = 'true' ordering = 'unordered'
+                  aggregation = 'none' targetScope = 'instance' changeability = 'changeable'>
+                  <UML:AssociationEnd.participant>
+                    <UML:Class xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089E'/>
+                  </UML:AssociationEnd.participant>
+                </UML:AssociationEnd>
+              </UML:Association.connection>
+            </UML:Association>
+          </UML:Namespace.ownedElement>
+        </UML:Package>
+        <UML:Package xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089D'
+          name = 'ru.evrnsky.start' isSpecification = 'false' isRoot = 'false' isLeaf = 'false'
+          isAbstract = 'false'>
+          <UML:ModelElement.taggedValue>
+            <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000091B'
+              isSpecification = 'false'>
+              <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+              <UML:TaggedValue.type>
+                <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+              </UML:TaggedValue.type>
+            </UML:TaggedValue>
+            <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000091C'
+              isSpecification = 'false'>
+              <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+              <UML:TaggedValue.type>
+                <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+              </UML:TaggedValue.type>
+            </UML:TaggedValue>
+            <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000091D'
+              isSpecification = 'false'>
+              <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+              <UML:TaggedValue.type>
+                <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+              </UML:TaggedValue.type>
+            </UML:TaggedValue>
+            <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000091E'
+              isSpecification = 'false'>
+              <UML:TaggedValue.dataValue>From this package application start</UML:TaggedValue.dataValue>
+              <UML:TaggedValue.type>
+                <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+              </UML:TaggedValue.type>
+            </UML:TaggedValue>
+          </UML:ModelElement.taggedValue>
+          <UML:Namespace.ownedElement>
+            <UML:Class xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089E'
+              name = 'Tracker' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+              <UML:ModelElement.taggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000091F'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000920'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000921'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+                <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000922'
+                  isSpecification = 'false'>
+                  <UML:TaggedValue.dataValue>This class is entry point of application</UML:TaggedValue.dataValue>
+                  <UML:TaggedValue.type>
+                    <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                  </UML:TaggedValue.type>
+                </UML:TaggedValue>
+              </UML:ModelElement.taggedValue>
+              <UML:Classifier.feature>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089F'
+                  name = 'addItem' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000923'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000924'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000925'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000926'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Add new item to all item
+params: String - it is name of item, String - it is description of item</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008A0'
+                      name = 'return' isSpecification = 'false' kind = 'return'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008A7'
+                      name = 'String' isSpecification = 'false' kind = 'in'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008A8'
+                      name = 'String' isSpecification = 'false' kind = 'in'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008A9'
+                  name = 'addItem' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000927'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000928'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000929'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000092A'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Add item to all item. This method accept next params: String - it is name of item, String - it is description of item, long - it is time when created item, hold in milisecond </UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008AA'
+                      name = 'return' isSpecification = 'false' kind = 'return'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008AB'
+                      name = 'String' isSpecification = 'false' kind = 'in'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008AC'
+                      name = 'String' isSpecification = 'false' kind = 'in'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008AD'
+                      name = 'long' isSpecification = 'false' kind = 'in'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B68'
+                  name = 'addComment' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B6F'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B70'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B71'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>05.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B72'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Add a comment to item</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B69'
+                      name = 'return' isSpecification = 'false' kind = 'return'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B6A'
+                      name = 'String' isSpecification = 'false' kind = 'in'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B65'
+                  name = 'editItem' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B6B'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B6C'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B6D'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>05.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B6E'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Use this method for editing items</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B66'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:Class xmi.idref = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B67'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008A1'
+                  name = 'removeItemByName' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000092F'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000930'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000931'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000932'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Remove item with name from params from all other items. Params: String - name of item</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008A2'
+                      name = 'return' isSpecification = 'false' kind = 'return'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008B4'
+                      name = 'String' isSpecification = 'false' kind = 'in'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008B5'
+                  name = 'removeItem' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000933'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000934'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000935'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000936'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Remove item from other items. Params: String - name of item, String - description of items</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008B6'
+                      name = 'return' isSpecification = 'false' kind = 'return'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008B9'
+                      name = 'String' isSpecification = 'false' kind = 'in'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008BA'
+                      name = 'String' isSpecification = 'false' kind = 'in'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008B7'
+                  name = 'removeItem' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000937'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000938'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000939'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000093A'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Remove item from other items. Params: String - name of item, String - description - of item, long - time when was created item</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008B8'
+                      name = 'return' isSpecification = 'false' kind = 'return'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008BB'
+                      name = 'String' isSpecification = 'false' kind = 'in'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008BC'
+                      name = 'String' isSpecification = 'false' kind = 'in'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008BD'
+                      name = 'long' isSpecification = 'false' kind = 'in'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008A3'
+                  name = 'showAll' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000093B'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000093C'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000093D'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000093E'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Display the console all items</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008A4'
+                      name = 'return' isSpecification = 'false' kind = 'return'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008A5'
+                  name = 'showFilteredByText' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000093F'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000940'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000941'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000942'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Return an array of item with given parameters. Params: String it searching string may be exist in name and/or description</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008A6'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:Class xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008C0'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008C3'
+                      name = 'String' isSpecification = 'false' kind = 'in'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000009AB'
+                  name = 'showFilteredByDate' visibility = 'public' isSpecification = 'false'
+                  ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+                  isLeaf = 'false' isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000009AE'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000009AF'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000009B0'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000009B1'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Return list a of items which created at the given time. Params: long - it is a time of created item</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000009AC'
+                      name = 'return' isSpecification = 'false' kind = 'return'>
+                      <UML:Parameter.type>
+                        <UML:Class xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008C0'/>
+                      </UML:Parameter.type>
+                    </UML:Parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000009AD'
+                      name = 'long' isSpecification = 'false' kind = 'in'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+                <UML:Operation xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CC'
+                  name = 'main' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'
+                  isQuery = 'false' concurrency = 'sequential' isRoot = 'false' isLeaf = 'false'
+                  isAbstract = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000943'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000944'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000945'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000946'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>It is entry point of application</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:BehavioralFeature.parameter>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CD'
+                      name = 'return' isSpecification = 'false' kind = 'return'/>
+                    <UML:Parameter xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CE'
+                      name = 'String[]' isSpecification = 'false' kind = 'in'/>
+                  </UML:BehavioralFeature.parameter>
+                </UML:Operation>
+              </UML:Classifier.feature>
+            </UML:Class>
+            <UML:Class xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008C0'
+              name = 'Item[]' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
+            <UML:Association xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000094D'
+              name = 'Tracker has instance of Item class' isSpecification = 'false' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false'>
+              <UML:Association.connection>
+                <UML:AssociationEnd xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000094E'
+                  visibility = 'public' isSpecification = 'false' isNavigable = 'true' ordering = 'unordered'
+                  aggregation = 'composite' targetScope = 'instance' changeability = 'changeable'>
+                  <UML:AssociationEnd.participant>
+                    <UML:Class xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089E'/>
+                  </UML:AssociationEnd.participant>
+                </UML:AssociationEnd>
+                <UML:AssociationEnd xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000094F'
+                  visibility = 'public' isSpecification = 'false' isNavigable = 'true' ordering = 'unordered'
+                  aggregation = 'none' targetScope = 'instance' changeability = 'changeable'>
+                  <UML:AssociationEnd.participant>
+                    <UML:Class xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000867'/>
+                  </UML:AssociationEnd.participant>
+                </UML:AssociationEnd>
+              </UML:Association.connection>
+            </UML:Association>
+            <UML:Class xmi.id = '-64--88-56-1--28358723:1551ff253c4:-8000:0000000000000B67'
+              name = 'void' visibility = 'public' isSpecification = 'false' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
+          </UML:Namespace.ownedElement>
+        </UML:Package>
+        <UML:TagDefinition xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'
+          name = 'author' isSpecification = 'false'>
+          <UML:TagDefinition.multiplicity>
+            <UML:Multiplicity xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D1'>
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D0'
+                  lower = '0' upper = '0'/>
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:TagDefinition.multiplicity>
+        </UML:TagDefinition>
+        <UML:TagDefinition xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'
+          name = 'version' isSpecification = 'false'>
+          <UML:TagDefinition.multiplicity>
+            <UML:Multiplicity xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D5'>
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D4'
+                  lower = '0' upper = '0'/>
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:TagDefinition.multiplicity>
+        </UML:TagDefinition>
+        <UML:TagDefinition xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'
+          name = 'since' isSpecification = 'false'>
+          <UML:TagDefinition.multiplicity>
+            <UML:Multiplicity xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D9'>
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D8'
+                  lower = '0' upper = '0'/>
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:TagDefinition.multiplicity>
+        </UML:TagDefinition>
+        <UML:TagDefinition xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'
+          name = 'documentation' isSpecification = 'false'>
+          <UML:TagDefinition.multiplicity>
+            <UML:Multiplicity xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DD'>
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DC'
+                  lower = '0' upper = '0'/>
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:TagDefinition.multiplicity>
+        </UML:TagDefinition>
+        <UML:StateMachine xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000095F'
+          name = 'Block - scheme main loop program' isSpecification = 'false'>
+          <UML:ModelElement.taggedValue>
+            <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000097B'
+              isSpecification = 'false'>
+              <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+              <UML:TaggedValue.type>
+                <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+              </UML:TaggedValue.type>
+            </UML:TaggedValue>
+            <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000097C'
+              isSpecification = 'false'>
+              <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+              <UML:TaggedValue.type>
+                <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+              </UML:TaggedValue.type>
+            </UML:TaggedValue>
+            <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000097D'
+              isSpecification = 'false'>
+              <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+              <UML:TaggedValue.type>
+                <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+              </UML:TaggedValue.type>
+            </UML:TaggedValue>
+            <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000097E'
+              isSpecification = 'false'>
+              <UML:TaggedValue.dataValue>This is block scheme of main program loop.</UML:TaggedValue.dataValue>
+              <UML:TaggedValue.type>
+                <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+              </UML:TaggedValue.type>
+            </UML:TaggedValue>
+          </UML:ModelElement.taggedValue>
+          <UML:StateMachine.top>
+            <UML:CompositeState xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000960'
+              name = 'top' isSpecification = 'false' isConcurrent = 'false'>
+              <UML:CompositeState.subvertex>
+                <UML:Pseudostate xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000961'
+                  name = 'Program not launched' isSpecification = 'false' kind = 'initial'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000097F'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000980'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000981'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000982'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Program not started yet.</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StateVertex.outgoing>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096E'/>
+                  </UML:StateVertex.outgoing>
+                </UML:Pseudostate>
+                <UML:SimpleState xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000962'
+                  name = 'Program started' isSpecification = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000983'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>User type in console java - jar Tracker.jar</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000984'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000985'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000986'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StateVertex.outgoing>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096F'/>
+                  </UML:StateVertex.outgoing>
+                  <UML:StateVertex.incoming>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096E'/>
+                  </UML:StateVertex.incoming>
+                </UML:SimpleState>
+                <UML:SimpleState xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000963'
+                  name = 'Greeting user by show information about version and description'
+                  isSpecification = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000987'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000988'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000989'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000098A'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>In console will be show version and description of program</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StateVertex.outgoing>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000970'/>
+                  </UML:StateVertex.outgoing>
+                  <UML:StateVertex.incoming>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096F'/>
+                  </UML:StateVertex.incoming>
+                </UML:SimpleState>
+                <UML:SimpleState xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000964'
+                  name = 'Show menu' isSpecification = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000997'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000998'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000999'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000099A'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Show menu to user</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StateVertex.outgoing>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096C'/>
+                  </UML:StateVertex.outgoing>
+                  <UML:StateVertex.incoming>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000969'/>
+                  </UML:StateVertex.incoming>
+                </UML:SimpleState>
+                <UML:SimpleState xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000965'
+                  name = 'User choose and type correct command' isSpecification = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000099B'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000099C'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000009A1'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000009A2'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>User choose and type correct command</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StateVertex.outgoing>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096D'/>
+                  </UML:StateVertex.outgoing>
+                  <UML:StateVertex.incoming>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096C'/>
+                  </UML:StateVertex.incoming>
+                </UML:SimpleState>
+                <UML:SimpleState xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000966'
+                  name = 'App execute command' isSpecification = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000009A3'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000009A4'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000009A5'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000009A6'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>App execute command</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StateVertex.outgoing>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000973'/>
+                  </UML:StateVertex.outgoing>
+                  <UML:StateVertex.incoming>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096D'/>
+                  </UML:StateVertex.incoming>
+                </UML:SimpleState>
+                <UML:Pseudostate xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000967'
+                  name = 'Main loop' isSpecification = 'false' kind = 'junction'>
+                  <UML:ModelElement.comment>
+                    <UML:Comment xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000968'/>
+                  </UML:ModelElement.comment>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000098B'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000098C'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000098D'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000098E'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>At this place program solve work next or exit</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StateVertex.outgoing>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000969'/>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096B'/>
+                  </UML:StateVertex.outgoing>
+                  <UML:StateVertex.incoming>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000970'/>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000976'/>
+                  </UML:StateVertex.incoming>
+                </UML:Pseudostate>
+                <UML:FinalState xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096A'
+                  name = 'Program finished' isSpecification = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000098F'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000990'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000991'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000992'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Program will be shutdown.</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StateVertex.incoming>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096B'/>
+                  </UML:StateVertex.incoming>
+                </UML:FinalState>
+                <UML:SimpleState xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000972'
+                  name = 'Show changes' isSpecification = 'false'>
+                  <UML:ModelElement.taggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000009A7'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000009A8'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000009A9'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                    <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000009AA'
+                      isSpecification = 'false'>
+                      <UML:TaggedValue.dataValue>Show to user changes in console</UML:TaggedValue.dataValue>
+                      <UML:TaggedValue.type>
+                        <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+                      </UML:TaggedValue.type>
+                    </UML:TaggedValue>
+                  </UML:ModelElement.taggedValue>
+                  <UML:StateVertex.outgoing>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000975'/>
+                  </UML:StateVertex.outgoing>
+                  <UML:StateVertex.incoming>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000973'/>
+                  </UML:StateVertex.incoming>
+                </UML:SimpleState>
+                <UML:StubState xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000974'
+                  name = 'Return to start of main loop' isSpecification = 'false'>
+                  <UML:StateVertex.outgoing>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000976'/>
+                  </UML:StateVertex.outgoing>
+                  <UML:StateVertex.incoming>
+                    <UML:Transition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000975'/>
+                  </UML:StateVertex.incoming>
+                </UML:StubState>
+              </UML:CompositeState.subvertex>
+            </UML:CompositeState>
+          </UML:StateMachine.top>
+          <UML:StateMachine.transitions>
+            <UML:Transition xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000969'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:Pseudostate xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000967'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:SimpleState xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000964'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096B'
+              name = 'Exit from programm' isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:Pseudostate xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000967'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:FinalState xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096A'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096C'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:SimpleState xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000964'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:SimpleState xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000965'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096D'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:SimpleState xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000965'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:SimpleState xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000966'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096E'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:Pseudostate xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000961'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:SimpleState xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000962'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096F'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:SimpleState xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000962'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:SimpleState xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000963'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000970'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:SimpleState xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000963'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:Pseudostate xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000967'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000973'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:SimpleState xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000966'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:SimpleState xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000972'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000975'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:SimpleState xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000972'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:StubState xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000974'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000976'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:StubState xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000974'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:Pseudostate xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000967'/>
+              </UML:Transition.target>
+            </UML:Transition>
+          </UML:StateMachine.transitions>
+        </UML:StateMachine>
+        <UML:Comment xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000968'
+          isSpecification = 'false' body = 'While user did not choose exit option&#10;should show menu and execute commands'>
+          <UML:ModelElement.taggedValue>
+            <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000993'
+              isSpecification = 'false'>
+              <UML:TaggedValue.dataValue>Egor</UML:TaggedValue.dataValue>
+              <UML:TaggedValue.type>
+                <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008CF'/>
+              </UML:TaggedValue.type>
+            </UML:TaggedValue>
+            <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000994'
+              isSpecification = 'false'>
+              <UML:TaggedValue.dataValue>1.0</UML:TaggedValue.dataValue>
+              <UML:TaggedValue.type>
+                <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D3'/>
+              </UML:TaggedValue.type>
+            </UML:TaggedValue>
+            <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000995'
+              isSpecification = 'false'>
+              <UML:TaggedValue.dataValue>04.06.2016</UML:TaggedValue.dataValue>
+              <UML:TaggedValue.type>
+                <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008D7'/>
+              </UML:TaggedValue.type>
+            </UML:TaggedValue>
+            <UML:TaggedValue xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000996'
+              isSpecification = 'false'>
+              <UML:TaggedValue.dataValue>Comment for better understanding how to program work</UML:TaggedValue.dataValue>
+              <UML:TaggedValue.type>
+                <UML:TagDefinition xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:00000000000008DB'/>
+              </UML:TaggedValue.type>
+            </UML:TaggedValue>
+          </UML:ModelElement.taggedValue>
+          <UML:Comment.annotatedElement>
+            <UML:Pseudostate xmi.idref = '-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000967'/>
+          </UML:Comment.annotatedElement>
+        </UML:Comment>
+        <UML:Comment xmi.id = '-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000097A'
+          name = 'When' isSpecification = 'false' body = 'This created for correct view of loop.&#10;At this point program return to start of loop.'/>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+  </XMI.content>
+</XMI>
+<pgml description="org.argouml.uml.diagram.static_structure.ui.UMLClassDiagram|-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000865"
+      name="Диаграмма классов"
+>
+  <group name="Fig0"
+       description="org.argouml.uml.diagram.static_structure.ui.FigPackage[16, 0, 528, 424]pathVisible=false;stereotypeView=0;stereotypeVisible=true;visibilityVisible=false"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000866"
+       fill="1"
+       fillcolor="white"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+    </private>
+    
+    <rectangle name="Fig0.0"
+      x="16"
+      y="0"
+      width="528"
+      height="424"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+    />
+    <path name="Fig0.1"
+      description="org.argouml.uml.diagram.static_structure.ui.FigPackage$PackageBackground"
+      fill="1"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+    >
+      <moveto x="16"
+              y="0" />
+      <lineto x="494"
+              y="0" />
+      <lineto x="494"
+              y="24" />
+      <lineto x="543"
+              y="24" />
+      <lineto x="543"
+              y="423" />
+      <lineto x="16"
+              y="423" />
+      <lineto x="16"
+              y="0" />
+    </path>
+    <text name="Fig0.2"
+      x="16"
+      y="0"
+      width="479"
+      height="25"
+      fill="0"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Left"
+    >ru.evrnsky.models</text>
+    <group name="Fig0.3"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[16, 0, 478, 1]"
+         href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000866"
+         fill="1"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+         visibility="0"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig0.3.0"
+        x="16"
+        y="0"
+        width="478"
+        height="1"
+        fill="1"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+    </group>
+    <text name="Fig0.4"
+      x="16"
+      y="24"
+      width="528"
+      height="400"
+      fill="0"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Center"
+    ></text>
+  </group>
+  <group name="Fig1"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[216, 48, 208, 262]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000867"
+       fill="1"
+       fillcolor="white"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+      enclosingFig="Fig0"
+    </private>
+    
+    <rectangle name="Fig1.0"
+      x="216"
+      y="48"
+      width="208"
+      height="262"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    />
+    <text name="Fig1.1"
+      x="217"
+      y="49"
+      width="206"
+      height="23"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Center"
+    >Item</text>
+    <group name="Fig1.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[217, 49, 165, 0]"
+         href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000867"
+         fill="0"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+         visibility="0"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig1.2.0"
+        x="217"
+        y="49"
+        width="165"
+        height="0"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+    </group>
+    <rectangle name="Fig1.3"
+      x="216"
+      y="72"
+      width="208"
+      height="1"
+      fill="1"
+      fillcolor="black"
+      stroke="1"
+      strokecolor="black"
+    />
+    <group name="Fig1.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[217, 73, 206, 30]"
+         href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000867"
+         fill="0"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig1.4.0"
+        x="217"
+        y="73"
+        width="206"
+        height="30"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+    </group>
+    <rectangle name="Fig1.5"
+      x="216"
+      y="103"
+      width="208"
+      height="1"
+      fill="1"
+      fillcolor="black"
+      stroke="1"
+      strokecolor="black"
+    />
+    <group name="Fig1.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[217, 104, 206, 204]"
+         href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000867"
+         fill="0"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig1.6.0"
+        x="217"
+        y="104"
+        width="206"
+        height="204"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+      <text name="Fig1.6.1"
+        x="217"
+        y="104"
+        width="206"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >Item() : Item</text>
+      <text name="Fig1.6.2"
+        x="217"
+        y="121"
+        width="206"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >Item(String,String) : Item</text>
+      <text name="Fig1.6.3"
+        x="217"
+        y="138"
+        width="206"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >Item(String,String,long) : Item</text>
+      <text name="Fig1.6.4"
+        x="217"
+        y="155"
+        width="206"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >getName() : String</text>
+      <text name="Fig1.6.5"
+        x="217"
+        y="172"
+        width="206"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >getDescription() : String</text>
+      <text name="Fig1.6.6"
+        x="217"
+        y="189"
+        width="206"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >getCreateTime() : long</text>
+      <text name="Fig1.6.7"
+        x="217"
+        y="206"
+        width="206"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >getComments() : String</text>
+      <text name="Fig1.6.8"
+        x="217"
+        y="223"
+        width="206"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >setName(String)</text>
+      <text name="Fig1.6.9"
+        x="217"
+        y="240"
+        width="206"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >setDescription(String)</text>
+      <text name="Fig1.6.10"
+        x="217"
+        y="257"
+        width="206"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >SetCreateTime(long)</text>
+      <text name="Fig1.6.11"
+        x="217"
+        y="274"
+        width="206"
+        height="23"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >setComments(String[])</text>
+    </group>
+  </group>
+  <group name="Fig2"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[344, 336, 66, 68]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000868"
+       fill="1"
+       fillcolor="white"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+      enclosingFig="Fig0"
+    </private>
+    
+    <rectangle name="Fig2.0"
+      x="344"
+      y="336"
+      width="66"
+      height="68"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    />
+    <text name="Fig2.1"
+      x="345"
+      y="337"
+      width="64"
+      height="23"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Center"
+    >Bug</text>
+    <group name="Fig2.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[345, 337, 136, 0]"
+         href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000868"
+         fill="0"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+         visibility="0"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig2.2.0"
+        x="345"
+        y="337"
+        width="136"
+        height="0"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+    </group>
+    <rectangle name="Fig2.3"
+      x="344"
+      y="360"
+      width="66"
+      height="1"
+      fill="1"
+      fillcolor="black"
+      stroke="1"
+      strokecolor="black"
+    />
+    <group name="Fig2.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[345, 361, 64, 21]"
+         href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000868"
+         fill="0"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig2.4.0"
+        x="345"
+        y="361"
+        width="64"
+        height="21"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+    </group>
+    <rectangle name="Fig2.5"
+      x="344"
+      y="381"
+      width="66"
+      height="1"
+      fill="1"
+      fillcolor="black"
+      stroke="1"
+      strokecolor="black"
+    />
+    <group name="Fig2.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[345, 382, 64, 21]"
+         href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000868"
+         fill="0"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig2.6.0"
+        x="345"
+        y="382"
+        width="64"
+        height="21"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+    </group>
+  </group>
+  <group name="Fig3"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[176, 336, 66, 68]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000869"
+       fill="1"
+       fillcolor="white"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+      enclosingFig="Fig0"
+    </private>
+    
+    <rectangle name="Fig3.0"
+      x="176"
+      y="336"
+      width="66"
+      height="68"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    />
+    <text name="Fig3.1"
+      x="177"
+      y="337"
+      width="64"
+      height="23"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Center"
+    >Task</text>
+    <group name="Fig3.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[177, 337, 141, 0]"
+         href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000869"
+         fill="0"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+         visibility="0"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig3.2.0"
+        x="177"
+        y="337"
+        width="141"
+        height="0"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+    </group>
+    <rectangle name="Fig3.3"
+      x="176"
+      y="360"
+      width="66"
+      height="1"
+      fill="1"
+      fillcolor="black"
+      stroke="1"
+      strokecolor="black"
+    />
+    <group name="Fig3.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[177, 361, 64, 21]"
+         href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000869"
+         fill="0"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig3.4.0"
+        x="177"
+        y="361"
+        width="64"
+        height="21"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+    </group>
+    <rectangle name="Fig3.5"
+      x="176"
+      y="381"
+      width="66"
+      height="1"
+      fill="1"
+      fillcolor="black"
+      stroke="1"
+      strokecolor="black"
+    />
+    <group name="Fig3.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[177, 382, 64, 21]"
+         href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000869"
+         fill="0"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig3.6.0"
+        x="177"
+        y="382"
+        width="64"
+        height="21"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+    </group>
+  </group>
+  <group name="Fig4"
+       description="org.argouml.uml.diagram.ui.FigGeneralization"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089B"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+      sourcePortFig="Fig3.0"
+      destPortFig="Fig1.0"
+      sourceFigNode="Fig3"
+      destFigNode="Fig1"
+      <argouml:pathitem figname="Fig4.1"
+                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
+                        figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
+                        ownerhref="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089B"
+                        angle="270.0"
+                        offset="-10" />
+    </private>
+    <path name="Fig4.0"
+      description="org.argouml.gefext.ArgoFigPoly"
+      fill="0"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="216"
+              y="336" />
+      <lineto x="216"
+              y="310" />
+    </path>
+  </group>
+  <group name="Fig5"
+       description="org.argouml.uml.diagram.ui.FigGeneralization"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089C"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+      sourcePortFig="Fig2.0"
+      destPortFig="Fig1.0"
+      sourceFigNode="Fig2"
+      destFigNode="Fig1"
+      <argouml:pathitem figname="Fig5.1"
+                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
+                        figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
+                        ownerhref="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089C"
+                        angle="270.0"
+                        offset="-10" />
+    </private>
+    <path name="Fig5.0"
+      description="org.argouml.gefext.ArgoFigPoly"
+      fill="0"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="377"
+              y="336" />
+      <lineto x="377"
+              y="310" />
+    </path>
+  </group>
+  <group name="Fig6"
+       description="org.argouml.uml.diagram.static_structure.ui.FigPackage[592, 0, 336, 424]pathVisible=false;stereotypeView=0;stereotypeVisible=true;visibilityVisible=false"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089D"
+       fill="1"
+       fillcolor="white"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+    </private>
+    
+    <rectangle name="Fig6.0"
+      x="592"
+      y="0"
+      width="336"
+      height="424"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+    />
+    <path name="Fig6.1"
+      description="org.argouml.uml.diagram.static_structure.ui.FigPackage$PackageBackground"
+      fill="1"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+    >
+      <moveto x="592"
+              y="0" />
+      <lineto x="878"
+              y="0" />
+      <lineto x="878"
+              y="24" />
+      <lineto x="927"
+              y="24" />
+      <lineto x="927"
+              y="423" />
+      <lineto x="592"
+              y="423" />
+      <lineto x="592"
+              y="0" />
+    </path>
+    <text name="Fig6.2"
+      x="592"
+      y="0"
+      width="287"
+      height="25"
+      fill="0"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Left"
+    >ru.evrnsky.start</text>
+    <group name="Fig6.3"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[592, 0, 286, 1]"
+         href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089D"
+         fill="1"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+         visibility="0"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig6.3.0"
+        x="592"
+        y="0"
+        width="286"
+        height="1"
+        fill="1"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+    </group>
+    <text name="Fig6.4"
+      x="592"
+      y="24"
+      width="336"
+      height="400"
+      fill="0"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Center"
+    ></text>
+  </group>
+  <group name="Fig7"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[648, 48, 240, 241]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089E"
+       fill="1"
+       fillcolor="white"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+      enclosingFig="Fig6"
+    </private>
+    
+    <rectangle name="Fig7.0"
+      x="648"
+      y="48"
+      width="240"
+      height="241"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    />
+    <text name="Fig7.1"
+      x="649"
+      y="49"
+      width="238"
+      height="23"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Center"
+    >Tracker</text>
+    <group name="Fig7.2"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[649, 49, 191, 0]"
+         href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089E"
+         fill="0"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+         visibility="0"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig7.2.0"
+        x="649"
+        y="49"
+        width="191"
+        height="0"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+    </group>
+    <rectangle name="Fig7.3"
+      x="648"
+      y="72"
+      width="240"
+      height="1"
+      fill="1"
+      fillcolor="black"
+      stroke="1"
+      strokecolor="black"
+    />
+    <group name="Fig7.4"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[649, 73, 238, 21]"
+         href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089E"
+         fill="0"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig7.4.0"
+        x="649"
+        y="73"
+        width="238"
+        height="21"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+    </group>
+    <rectangle name="Fig7.5"
+      x="648"
+      y="93"
+      width="240"
+      height="1"
+      fill="1"
+      fillcolor="black"
+      stroke="1"
+      strokecolor="black"
+    />
+    <group name="Fig7.6"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[649, 94, 238, 195]"
+         href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000089E"
+         fill="0"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig7.6.0"
+        x="649"
+        y="94"
+        width="238"
+        height="195"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+      <text name="Fig7.6.1"
+        x="649"
+        y="94"
+        width="238"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >addItem(String,String)</text>
+      <text name="Fig7.6.2"
+        x="649"
+        y="111"
+        width="238"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >addItem(String,String,long)</text>
+      <text name="Fig7.6.3"
+        x="649"
+        y="128"
+        width="238"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >addComment(String)</text>
+      <text name="Fig7.6.4"
+        x="649"
+        y="145"
+        width="238"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >editItem() : void</text>
+      <text name="Fig7.6.5"
+        x="649"
+        y="162"
+        width="238"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >removeItemByName(String)</text>
+      <text name="Fig7.6.6"
+        x="649"
+        y="179"
+        width="238"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >removeItem(String,String)</text>
+      <text name="Fig7.6.7"
+        x="649"
+        y="196"
+        width="238"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >removeItem(String,String,long)</text>
+      <text name="Fig7.6.8"
+        x="649"
+        y="213"
+        width="238"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >showAll()</text>
+      <text name="Fig7.6.9"
+        x="649"
+        y="230"
+        width="238"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >showFilteredByText(String) : Item[]</text>
+      <text name="Fig7.6.10"
+        x="649"
+        y="247"
+        width="238"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >showFilteredByDate(long) : Item[]</text>
+      <text name="Fig7.6.11"
+        x="649"
+        y="264"
+        width="238"
+        height="23"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >main(String[])</text>
+    </group>
+  </group>
+  <group name="Fig8"
+       description="org.argouml.uml.diagram.ui.FigAssociation"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000094D"
+       sourceConnector="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000094E"
+       destConnector="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000094F"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+      sourcePortFig="Fig7"
+      destPortFig="Fig1"
+      sourceFigNode="Fig7"
+      destFigNode="Fig1"
+      <argouml:pathitem figname="Fig8.1"
+                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
+                        figclassname="org.argouml.uml.diagram.ui.FigTextGroup"
+                        ownerhref="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000094D"
+                        angle="270.0"
+                        offset="25" />
+      <argouml:pathitem figname="Fig8.2"
+                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
+                        figclassname="org.argouml.uml.diagram.ui.FigMultiplicity"
+                        ownerhref="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000094E"
+                        angle="315.0"
+                        offset="5" />
+      <argouml:pathitem figname="Fig8.3"
+                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
+                        figclassname="org.argouml.uml.diagram.ui.FigAssociationEndAnnotation"
+                        ownerhref="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000094E"
+                        angle="45.0"
+                        offset="5" />
+      <argouml:pathitem figname="Fig8.4"
+                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
+                        figclassname="org.argouml.uml.diagram.ui.FigMultiplicity"
+                        ownerhref="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000094F"
+                        angle="225.0"
+                        offset="5" />
+      <argouml:pathitem figname="Fig8.5"
+                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
+                        figclassname="org.argouml.uml.diagram.ui.FigAssociationEndAnnotation"
+                        ownerhref="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000094F"
+                        angle="135.0"
+                        offset="5" />
+    </private>
+    <path name="Fig8.0"
+      description="org.argouml.gefext.ArgoFigPoly"
+      fill="0"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="648"
+              y="64" />
+      <lineto x="424"
+              y="64" />
+    </path>
+  </group>
+</pgml>
+<pgml description="org.argouml.uml.diagram.state.ui.UMLStateDiagram|-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000095F"
+      name="Main loop program"
+>
+  <group name="Fig0"
+       description="org.argouml.uml.diagram.state.ui.FigInitialState[304, 32, 16, 16]pathVisible=false;stereotypeView=0;"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000961"
+       fill="1"
+       fillcolor="black"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+    </private>
+    
+    <ellipse name="Fig0.0"
+      x="312"
+      y="40"
+      rx="8"
+      ry="8"
+      fill="0"
+      fillcolor="255 0 255"
+      stroke="0"
+      strokecolor="255 0 255"
+    />
+    <ellipse name="Fig0.1"
+      x="312"
+      y="40"
+      rx="8"
+      ry="8"
+      fill="1"
+      fillcolor="black"
+      stroke="1"
+      strokecolor="black"
+    />
+  </group>
+  <group name="Fig1"
+       description="org.argouml.uml.diagram.state.ui.FigSimpleState[264, 72, 101, 46]pathVisible=false;stereotypeView=0;"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000962"
+       fill="1"
+       fillcolor="white"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+    </private>
+    
+    <rectangle name="Fig1.0"
+      x="264"
+      y="72"
+      width="101"
+      height="46"
+      fill="1"
+      fillcolor="255 0 255"
+      stroke="0"
+      strokecolor="255 0 255"
+      rounding="16"
+    />
+    <rectangle name="Fig1.1"
+      x="264"
+      y="72"
+      width="101"
+      height="46"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+      rounding="16"
+    />
+    <text name="Fig1.2"
+      x="266"
+      y="72"
+      width="97"
+      height="24"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Center"
+    >Program started</text>
+    <path name="Fig1.3"
+      description="org.tigris.gef.presentation.FigLine"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="264"
+              y="96" />
+      <lineto x="364"
+              y="96" />
+    </path>
+    <text name="Fig1.4"
+      x="266"
+      y="96"
+      width="97"
+      height="16"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Left"
+    ></text>
+  </group>
+  <group name="Fig2"
+       description="org.argouml.uml.diagram.state.ui.FigSimpleState[168, 144, 365, 46]pathVisible=false;stereotypeView=0;"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000963"
+       fill="1"
+       fillcolor="white"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+    </private>
+    
+    <rectangle name="Fig2.0"
+      x="168"
+      y="144"
+      width="365"
+      height="46"
+      fill="1"
+      fillcolor="255 0 255"
+      stroke="0"
+      strokecolor="255 0 255"
+      rounding="16"
+    />
+    <rectangle name="Fig2.1"
+      x="168"
+      y="144"
+      width="365"
+      height="46"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+      rounding="16"
+    />
+    <text name="Fig2.2"
+      x="170"
+      y="144"
+      width="361"
+      height="24"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Center"
+    >Greeting user by show information about version and description</text>
+    <path name="Fig2.3"
+      description="org.tigris.gef.presentation.FigLine"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="168"
+              y="168" />
+      <lineto x="532"
+              y="168" />
+    </path>
+    <text name="Fig2.4"
+      x="170"
+      y="168"
+      width="361"
+      height="16"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Left"
+    ></text>
+  </group>
+  <group name="Fig3"
+       description="org.argouml.uml.diagram.state.ui.FigSimpleState[264, 296, 102, 46]pathVisible=false;stereotypeView=0;"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000964"
+       fill="1"
+       fillcolor="white"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+    </private>
+    
+    <rectangle name="Fig3.0"
+      x="264"
+      y="296"
+      width="102"
+      height="46"
+      fill="1"
+      fillcolor="255 0 255"
+      stroke="0"
+      strokecolor="255 0 255"
+      rounding="16"
+    />
+    <rectangle name="Fig3.1"
+      x="264"
+      y="296"
+      width="102"
+      height="46"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+      rounding="16"
+    />
+    <text name="Fig3.2"
+      x="266"
+      y="296"
+      width="98"
+      height="24"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Center"
+    >Show menu</text>
+    <path name="Fig3.3"
+      description="org.tigris.gef.presentation.FigLine"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="264"
+              y="320" />
+      <lineto x="365"
+              y="320" />
+    </path>
+    <text name="Fig3.4"
+      x="266"
+      y="320"
+      width="98"
+      height="16"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Left"
+    ></text>
+  </group>
+  <group name="Fig4"
+       description="org.argouml.uml.diagram.state.ui.FigSimpleState[232, 384, 231, 46]pathVisible=false;stereotypeView=0;"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000965"
+       fill="1"
+       fillcolor="white"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+    </private>
+    
+    <rectangle name="Fig4.0"
+      x="232"
+      y="384"
+      width="231"
+      height="46"
+      fill="1"
+      fillcolor="255 0 255"
+      stroke="0"
+      strokecolor="255 0 255"
+      rounding="16"
+    />
+    <rectangle name="Fig4.1"
+      x="232"
+      y="384"
+      width="231"
+      height="46"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+      rounding="16"
+    />
+    <text name="Fig4.2"
+      x="234"
+      y="384"
+      width="227"
+      height="24"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Center"
+    >User choose and type correct command</text>
+    <path name="Fig4.3"
+      description="org.tigris.gef.presentation.FigLine"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="232"
+              y="408" />
+      <lineto x="462"
+              y="408" />
+    </path>
+    <text name="Fig4.4"
+      x="234"
+      y="408"
+      width="227"
+      height="16"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Left"
+    ></text>
+  </group>
+  <group name="Fig5"
+       description="org.argouml.uml.diagram.state.ui.FigSimpleState[248, 488, 137, 46]pathVisible=false;stereotypeView=0;"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000966"
+       fill="1"
+       fillcolor="white"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+    </private>
+    
+    <rectangle name="Fig5.0"
+      x="248"
+      y="488"
+      width="137"
+      height="46"
+      fill="1"
+      fillcolor="255 0 255"
+      stroke="0"
+      strokecolor="255 0 255"
+      rounding="16"
+    />
+    <rectangle name="Fig5.1"
+      x="248"
+      y="488"
+      width="137"
+      height="46"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+      rounding="16"
+    />
+    <text name="Fig5.2"
+      x="250"
+      y="488"
+      width="133"
+      height="24"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Center"
+    >App execute command</text>
+    <path name="Fig5.3"
+      description="org.tigris.gef.presentation.FigLine"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="248"
+              y="512" />
+      <lineto x="384"
+              y="512" />
+    </path>
+    <text name="Fig5.4"
+      x="250"
+      y="512"
+      width="133"
+      height="16"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Left"
+    ></text>
+  </group>
+  <group name="Fig6"
+       description="org.argouml.uml.diagram.state.ui.FigJunctionState[296, 240, 32, 32]pathVisible=false;stereotypeView=0;"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000967"
+       fill="1"
+       fillcolor="white"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+    </private>
+    
+    <rectangle name="Fig6.0"
+      x="296"
+      y="240"
+      width="32"
+      height="32"
+      fill="0"
+      fillcolor="255 0 255"
+      stroke="0"
+      strokecolor="255 0 255"
+    />
+    <rectangle name="Fig6.1"
+      x="296"
+      y="240"
+      width="32"
+      height="32"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    />
+  </group>
+  <group name="Fig7"
+       description="org.argouml.uml.diagram.static_structure.ui.FigComment[552, 200, 257, 59]pathVisible=false;stereotypeView=0;"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000968"
+       fill="1"
+       fillcolor="white"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+    </private>
+    
+    <rectangle name="Fig7.0"
+      x="552"
+      y="200"
+      width="257"
+      height="59"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+    />
+    <path name="Fig7.1"
+      description="org.tigris.gef.presentation.FigPoly"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="552"
+              y="200" />
+      <lineto x="798"
+              y="200" />
+      <lineto x="808"
+              y="210" />
+      <lineto x="808"
+              y="258" />
+      <lineto x="552"
+              y="258" />
+      <lineto x="552"
+              y="200" />
+    </path>
+    <path name="Fig7.2"
+      description="org.tigris.gef.presentation.FigPoly"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="798"
+              y="200" />
+      <lineto x="808"
+              y="210" />
+      <lineto x="798"
+              y="210" />
+      <lineto x="798"
+              y="200" />
+    </path>
+    <group name="Fig7.3"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[554, 202, 243, 0]"
+         href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000968"
+         fill="0"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+         visibility="0"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig7.3.0"
+        x="554"
+        y="202"
+        width="243"
+        height="0"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+    </group>
+    <text name="Fig7.4"
+      x="554"
+      y="202"
+      width="243"
+      height="55"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Left"
+    >While user did not choose exit option
+should show menu and execute commands</text>
+  </group>
+  <group name="Fig8"
+       description="org.argouml.uml.diagram.static_structure.ui.FigEdgeNote"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+      sourcePortFig="Fig7"
+      destPortFig="Fig6"
+      sourceFigNode="Fig7"
+      destFigNode="Fig6"
+    </private>
+    <path name="Fig8.0"
+      description="org.argouml.gefext.ArgoFigPoly"
+      fill="0"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="552"
+              y="256" />
+      <lineto x="328"
+              y="256" />
+    </path>
+  </group>
+  <group name="Fig9"
+       description="org.argouml.uml.diagram.state.ui.FigTransition"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000969"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+      sourcePortFig="Fig6.0"
+      destPortFig="Fig3.0"
+      sourceFigNode="Fig6"
+      destFigNode="Fig3"
+      <argouml:pathitem figname="Fig9.1"
+                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
+                        figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
+                        ownerhref="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000969"
+                        angle="270.0"
+                        offset="10" />
+    </private>
+    <path name="Fig9.0"
+      description="org.argouml.gefext.ArgoFigPoly"
+      fill="0"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="312"
+              y="272" />
+      <lineto x="312"
+              y="296" />
+    </path>
+  </group>
+  <group name="Fig10"
+       description="org.argouml.uml.diagram.state.ui.FigFinalState[88, 248, 24, 24]pathVisible=false;stereotypeView=0;"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096A"
+       fill="1"
+       fillcolor="white"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+    </private>
+    
+    <ellipse name="Fig10.0"
+      x="100"
+      y="260"
+      rx="12"
+      ry="12"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+    />
+    <ellipse name="Fig10.1"
+      x="100"
+      y="260"
+      rx="12"
+      ry="12"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    />
+    <ellipse name="Fig10.2"
+      x="99"
+      y="259"
+      rx="7"
+      ry="7"
+      fill="1"
+      fillcolor="black"
+      stroke="0"
+      strokecolor="85 85 170"
+    />
+  </group>
+  <group name="Fig11"
+       description="org.argouml.uml.diagram.state.ui.FigTransition"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096B"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+      sourcePortFig="Fig6.0"
+      destPortFig="Fig10.0"
+      sourceFigNode="Fig6"
+      destFigNode="Fig10"
+      <argouml:pathitem figname="Fig11.1"
+                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
+                        figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
+                        ownerhref="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096B"
+                        angle="270.0"
+                        offset="10" />
+    </private>
+    <path name="Fig11.0"
+      description="org.argouml.gefext.ArgoFigPoly"
+      fill="0"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="296"
+              y="256" />
+      <lineto x="111"
+              y="259" />
+    </path>
+  </group>
+  <group name="Fig12"
+       description="org.argouml.uml.diagram.state.ui.FigTransition"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096C"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+      sourcePortFig="Fig3.0"
+      destPortFig="Fig4.0"
+      sourceFigNode="Fig3"
+      destFigNode="Fig4"
+      <argouml:pathitem figname="Fig12.1"
+                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
+                        figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
+                        ownerhref="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096C"
+                        angle="270.0"
+                        offset="10" />
+    </private>
+    <path name="Fig12.0"
+      description="org.argouml.gefext.ArgoFigPoly"
+      fill="0"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="312"
+              y="342" />
+      <lineto x="312"
+              y="384" />
+    </path>
+  </group>
+  <group name="Fig13"
+       description="org.argouml.uml.diagram.state.ui.FigTransition"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096D"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+      sourcePortFig="Fig4.0"
+      destPortFig="Fig5.0"
+      sourceFigNode="Fig4"
+      destFigNode="Fig5"
+      <argouml:pathitem figname="Fig13.1"
+                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
+                        figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
+                        ownerhref="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096D"
+                        angle="270.0"
+                        offset="10" />
+    </private>
+    <path name="Fig13.0"
+      description="org.argouml.gefext.ArgoFigPoly"
+      fill="0"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="312"
+              y="430" />
+      <lineto x="312"
+              y="488" />
+    </path>
+  </group>
+  <group name="Fig14"
+       description="org.argouml.uml.diagram.state.ui.FigTransition"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096E"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+      sourcePortFig="Fig0.0"
+      destPortFig="Fig1.0"
+      sourceFigNode="Fig0"
+      destFigNode="Fig1"
+      <argouml:pathitem figname="Fig14.1"
+                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
+                        figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
+                        ownerhref="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096E"
+                        angle="270.0"
+                        offset="10" />
+    </private>
+    <path name="Fig14.0"
+      description="org.argouml.gefext.ArgoFigPoly"
+      fill="0"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="312"
+              y="48" />
+      <lineto x="312"
+              y="72" />
+    </path>
+  </group>
+  <group name="Fig15"
+       description="org.argouml.uml.diagram.state.ui.FigTransition"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096F"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+      sourcePortFig="Fig1.0"
+      destPortFig="Fig2.0"
+      sourceFigNode="Fig1"
+      destFigNode="Fig2"
+      <argouml:pathitem figname="Fig15.1"
+                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
+                        figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
+                        ownerhref="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000096F"
+                        angle="270.0"
+                        offset="10" />
+    </private>
+    <path name="Fig15.0"
+      description="org.argouml.gefext.ArgoFigPoly"
+      fill="0"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="312"
+              y="118" />
+      <lineto x="312"
+              y="144" />
+    </path>
+  </group>
+  <group name="Fig16"
+       description="org.argouml.uml.diagram.state.ui.FigTransition"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000970"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+      sourcePortFig="Fig2.0"
+      destPortFig="Fig6.0"
+      sourceFigNode="Fig2"
+      destFigNode="Fig6"
+      <argouml:pathitem figname="Fig16.1"
+                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
+                        figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
+                        ownerhref="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000970"
+                        angle="270.0"
+                        offset="10" />
+    </private>
+    <path name="Fig16.0"
+      description="org.argouml.gefext.ArgoFigPoly"
+      fill="0"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="312"
+              y="190" />
+      <lineto x="312"
+              y="240" />
+    </path>
+  </group>
+  <group name="Fig17"
+       description="org.argouml.uml.diagram.state.ui.FigSimpleState[272, 576, 102, 46]pathVisible=false;stereotypeView=0;"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000972"
+       fill="1"
+       fillcolor="white"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+    </private>
+    
+    <rectangle name="Fig17.0"
+      x="272"
+      y="576"
+      width="102"
+      height="46"
+      fill="1"
+      fillcolor="255 0 255"
+      stroke="0"
+      strokecolor="255 0 255"
+      rounding="16"
+    />
+    <rectangle name="Fig17.1"
+      x="272"
+      y="576"
+      width="102"
+      height="46"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+      rounding="16"
+    />
+    <text name="Fig17.2"
+      x="274"
+      y="576"
+      width="98"
+      height="24"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Center"
+    >Show changes</text>
+    <path name="Fig17.3"
+      description="org.tigris.gef.presentation.FigLine"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="272"
+              y="600" />
+      <lineto x="373"
+              y="600" />
+    </path>
+    <text name="Fig17.4"
+      x="274"
+      y="600"
+      width="98"
+      height="16"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Left"
+    ></text>
+  </group>
+  <group name="Fig18"
+       description="org.argouml.uml.diagram.state.ui.FigTransition"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000973"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+      sourcePortFig="Fig5.0"
+      destPortFig="Fig17.0"
+      sourceFigNode="Fig5"
+      destFigNode="Fig17"
+      <argouml:pathitem figname="Fig18.1"
+                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
+                        figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
+                        ownerhref="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000973"
+                        angle="257.0"
+                        offset="26" />
+    </private>
+    <path name="Fig18.0"
+      description="org.argouml.gefext.ArgoFigPoly"
+      fill="0"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="320"
+              y="534" />
+      <lineto x="320"
+              y="576" />
+    </path>
+  </group>
+  <group name="Fig19"
+       description="org.argouml.uml.diagram.state.ui.FigStubState[600, 408, 60, 20]pathVisible=false;stereotypeView=0;"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000974"
+       fill="1"
+       fillcolor="white"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+    </private>
+    
+    <rectangle name="Fig19.0"
+      x="600"
+      y="408"
+      width="60"
+      height="20"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+    />
+    <text name="Fig19.1"
+      x="600"
+      y="408"
+      width="60"
+      height="20"
+      fill="1"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Center"
+    ></text>
+    <path name="Fig19.2"
+      description="org.tigris.gef.presentation.FigLine"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="600"
+              y="408" />
+      <lineto x="660"
+              y="408" />
+    </path>
+  </group>
+  <group name="Fig20"
+       description="org.argouml.uml.diagram.state.ui.FigTransition"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000975"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+      sourcePortFig="Fig17.0"
+      destPortFig="Fig19.0"
+      sourceFigNode="Fig17"
+      destFigNode="Fig19"
+      <argouml:pathitem figname="Fig20.1"
+                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
+                        figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
+                        ownerhref="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000975"
+                        angle="270.0"
+                        offset="10" />
+    </private>
+    <path name="Fig20.0"
+      description="org.argouml.gefext.ArgoFigPoly"
+      fill="0"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="374"
+              y="576" />
+      <lineto x="600"
+              y="428" />
+    </path>
+  </group>
+  <group name="Fig21"
+       description="org.argouml.uml.diagram.state.ui.FigTransition"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000976"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+      sourcePortFig="Fig19.0"
+      destPortFig="Fig6.0"
+      sourceFigNode="Fig19"
+      destFigNode="Fig6"
+      <argouml:pathitem figname="Fig21.1"
+                        classname="org.argouml.uml.diagram.ui.PathItemPlacement"
+                        figclassname="org.argouml.uml.diagram.ui.FigNameWithAbstract"
+                        ownerhref="-64--88-56-1--39752634:1551c2e26bc:-8000:0000000000000976"
+                        angle="270.0"
+                        offset="10" />
+    </private>
+    <path name="Fig21.0"
+      description="org.argouml.gefext.ArgoFigPoly"
+      fill="0"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="600"
+              y="408" />
+      <lineto x="328"
+              y="256" />
+    </path>
+  </group>
+  <group name="Fig22"
+       description="org.argouml.uml.diagram.static_structure.ui.FigComment[656, 392, 247, 56]pathVisible=false;stereotypeView=0;"
+       href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000097A"
+       fill="1"
+       fillcolor="white"
+       stroke="1"
+       strokecolor="black"
+  >
+    <private>
+    </private>
+    
+    <rectangle name="Fig22.0"
+      x="656"
+      y="392"
+      width="247"
+      height="56"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+    />
+    <path name="Fig22.1"
+      description="org.tigris.gef.presentation.FigPoly"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="656"
+              y="392" />
+      <lineto x="892"
+              y="392" />
+      <lineto x="902"
+              y="402" />
+      <lineto x="902"
+              y="447" />
+      <lineto x="656"
+              y="447" />
+      <lineto x="656"
+              y="392" />
+    </path>
+    <path name="Fig22.2"
+      description="org.tigris.gef.presentation.FigPoly"
+      fill="1"
+      fillcolor="white"
+      stroke="1"
+      strokecolor="black"
+    >
+      <moveto x="892"
+              y="392" />
+      <lineto x="902"
+              y="402" />
+      <lineto x="892"
+              y="402" />
+      <lineto x="892"
+              y="392" />
+    </path>
+    <group name="Fig22.3"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[658, 394, 233, 0]"
+         href="-64--88-56-1--39752634:1551c2e26bc:-8000:000000000000097A"
+         fill="0"
+         fillcolor="white"
+         stroke="0"
+         strokecolor="black"
+         visibility="0"
+    >
+      <private>
+      </private>
+      
+      <rectangle name="Fig22.3.0"
+        x="658"
+        y="394"
+        width="233"
+        height="0"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+      />
+    </group>
+    <text name="Fig22.4"
+      x="658"
+      y="394"
+      width="233"
+      height="52"
+      fill="0"
+      fillcolor="white"
+      stroke="0"
+      strokecolor="black"
+      textcolor="black"
+      font="Dialog"
+      italic="false"
+      bold="false"
+      textsize="12"
+      justification="Left"
+    >This created for correct view of loop.
+At this point program return to start of loop.</text>
+  </group>
+</pgml>
+<todo>
+<todolist>
+</todolist>
+<resolvedcritics>
+</resolvedcritics>
+</todo>
+</uml>
