@@ -106,7 +106,7 @@ public class MenuTracker {
 			Init new action by calling constructor from parent
 			@param: String name - it is name of action
 		*/
-		public AddItem(String name) {
+		AddItem(String name) {
 			super(name);
 		}
 		
@@ -124,8 +124,7 @@ public class MenuTracker {
 			@param: io - implementation of input/output interface
 					tracker - instance of Tracker API
 		*/
-		@Override
-		public void execute(IO io, Tracker tracker) {
+		public	void execute(IO io, Tracker tracker) {
 			String name = io.ask("Enter a name of the new item: ");
 			String description = io.ask("Enter a description of the new item: ");
 			tracker.addItem(new Item(name, description));
@@ -142,7 +141,7 @@ public class MenuTracker {
 			Init a new action - remove item
 			@param: String name - it is name of action
 		*/
-		public RemoveItem(String name) {
+		RemoveItem(String name) {
 			super(name);
 		}
 		
@@ -181,7 +180,7 @@ public class MenuTracker {
 			Init a new action - it is show all items action
 			@param: String name - it string for naming this action
 		*/
-		public ShowAllItems(String name) {
+		ShowAllItems(String name) {
 			super(name);
 		}
 		/**
@@ -216,7 +215,7 @@ public class MenuTracker {
 			Init a new action by calling constructor from the parent
 			@param: String name - it is name of action
 		*/
-		public EditItem(String name) {
+		EditItem(String name) {
 			super(name);
 		}
 		/**
@@ -258,7 +257,7 @@ public class MenuTracker {
 			Init a new action comment item by calling constructor from the parent
 			@param: String name - it is name of action
 		*/
-		public CommentItem(String name) {
+		CommentItem(String name) {
 			super(name);
 		}
 		/**
@@ -296,7 +295,7 @@ public class MenuTracker {
 			Init a new action - show comments by calling constructor from the parent
 			@param: String name - it is name of action
 		*/
-		public ShowComments(String name) {
+		ShowComments(String name) {
 			super(name);
 		}
 		/**
@@ -335,7 +334,7 @@ public class MenuTracker {
 			Init a new action - filtering by text data by calling constructor from the parent
 			@param: String name - it is name for action
 		*/
-		public FilteringByTextData(String name) {
+		FilteringByTextData(String name) {
 			super(name);
 		}
 		/**
@@ -370,7 +369,7 @@ public class MenuTracker {
 			Init a new action - filtering by time by calling constructor from the parent
 			@param: String name - it is name of action
 		*/
-		public FilteringByTime(String name) {
+		FilteringByTime(String name) {
 			super(name);
 		}
 		/**
