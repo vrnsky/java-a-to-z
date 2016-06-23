@@ -16,19 +16,10 @@ public abstract class BaseAction implements UserAction {
 		this.name = name;
 	}
 	
-	/**
-		This method must determine how to execute action in sub classes
-		@param:IO io - it is intance of any class which implement IO interface
-		@param:Tracker tracker - it is instance of Tracker API
-	*/
-	abstract public void execute(IO io, Tracker tracker);
-	
-	/**
-		This method must determine how key contains actions
-		It uses for identificate action
-		@return:int - it is key for choose action in menu
-	*/
-	abstract public int key();
+	//Must override in subclasses
+	public abstract void execute(IO io, Tracker tracker);
+	//Must override in subclass
+	public abstract int key();
 	
 	/**
 		Return info about action, inclue key and name
