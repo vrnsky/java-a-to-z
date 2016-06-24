@@ -16,11 +16,6 @@ public abstract class BaseAction implements UserAction {
 		this.name = name;
 	}
 	
-	//Must override in subclasses
-	public abstract void execute(IO io, Tracker tracker);
-	//Must override in subclass
-	public abstract int key();
-	
 	/**
 		Return info about action, inclue key and name
 		@return:String - it is key and name of action
