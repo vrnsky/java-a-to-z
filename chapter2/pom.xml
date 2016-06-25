@@ -15,6 +15,7 @@
 	<modules>
 		<module>models</module>
 		<module>start</module>
+		<module>task</module>
 	</modules>
 	
 </project>
