@@ -9,5 +9,5 @@ public class Horse extends Figure {
             result = true;
         return result;
     }
-
+	
 }
