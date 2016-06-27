@@ -36,7 +36,7 @@ public class Board {
 
 	
 	public boolean canMove(int fromX, int fromY, int toX, int toY) {
-		return figures[fromX][fromY].canMove(figures, fromX, fromY, toX, toY);
+		return validate(toX, toY) && figures[fromX][fromY].canMove(figures, fromX, fromY, toX, toY) && checkEmpty(toX,toY);
 	}
 
 	public void performMove(int fromX, int fromY, int toX, int toY) {
@@ -44,6 +44,23 @@ public class Board {
 			figures[toX][toY] = figures[fromX][fromY];
 			figures[fromX][fromY] = null;
 		}
+	}
+	
+	public void showBoard() {
+		for(int index = 0; index < BOARD_WIDTH; index++) {
+			for(int barrier = 0; barrier < BOARD_HEIGHT; barrier++) {
+				Figure figure = figures[index][barrier];
+				if(figure != null) 
+					System.out.print(figure);
+				else
+					System.out.print("0");
+			}
+			System.out.println();
+		}
+	}
+
+	public boolean validate(int toX, int toY) {
+		return toX < BOARD_HEIGHT && toY < BOARD_WIDTH;
 	}
 	
 }
