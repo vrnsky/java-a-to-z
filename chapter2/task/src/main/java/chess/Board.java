@@ -46,18 +46,6 @@ public class Board {
 		}
 	}
 	
-	public void showBoard() {
-		for(int index = 0; index < BOARD_WIDTH; index++) {
-			for(int barrier = 0; barrier < BOARD_HEIGHT; barrier++) {
-				Figure figure = figures[index][barrier];
-				if(figure != null) 
-					System.out.print(figure);
-				else
-					System.out.print("0");
-			}
-			System.out.println();
-		}
-	}
 
 	public boolean validate(int toX, int toY) {
 		return toX < BOARD_HEIGHT && toY < BOARD_WIDTH;
