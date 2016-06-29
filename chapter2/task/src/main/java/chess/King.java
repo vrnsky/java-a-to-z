@@ -31,6 +31,8 @@ public class King extends Figure {
 		@param:int toX - finish X position
 		@param:int toY - finish Y position
 		@return:boolean, true if king may make this step, otherwise false
+		
+		King may make only one step in either way
 	*/
     @Override
     boolean canMove(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
