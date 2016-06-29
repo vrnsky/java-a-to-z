@@ -64,8 +64,9 @@ public class Board {
 		@return: true if figure can may this step and otherwise false
 	*/
 	public boolean canMove(int fromX, int fromY, int toX, int toY) {
-		return checkBoundaries(toX, toY) && figures[fromX][fromY].canMove(figures, fromX, fromY, toX, toY) &&
-																 checkEmpty(toX,toY) && !checkEmpty(fromX,fromY);
+		return checkBoundaries(toX, toY) && 
+			   figures[fromX][fromY].canMove(figures, fromX, fromY, toX, toY) &&
+		       checkEmpty(toX,toY) && !checkEmpty(fromX,fromY);
 	}
 
 	/**
