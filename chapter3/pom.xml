@@ -1,0 +1,24 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.evrnsky.chapter3</groupId>
+	<artifactId>chapter3</artifactId>
+	<name>chapter3</name>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	
+	<parent>
+		<groupId>ru.evrnsky</groupId>
+		<artifactId>tracker</artifactId>
+		<version>1.0</version>
+	</parent>
+	
+	<modules>
+		<module>parity</module>
+		<module>summ</module>
+		<module>real</module>
+		<module>palindrome</module>
+		<module>consoleChat</module>
+		<module>socket</module>
+	</modules>
+	
+</project>
