@@ -51,12 +51,19 @@ public class StubIO implements IO {
 		Ask user about long and return it
 		@param:String question - it is String which will show to user
 		@return: long result - it result of correct input
-		@throw: exception which signal about wron data,
+		@throw: exception which signal about wrong data,
 		if user enter value smaller or bigger than Long.MAX_VALUE or Long.MIN_VALUE
 	*/
 	public long askForLong(String question) {
 		return Long.valueOf(this.ask(question));
 	}
+
+	/**
+	 * Ask user about double and return it
+	 * @param question - info for user
+	 * @return double which get from user
+     */
+	public double askForDouble(String question) { return  Double.valueOf(this.ask(question));}
 	
 	/**
 		Append to buffer value and move to new line
@@ -73,4 +80,6 @@ public class StubIO implements IO {
 	public String getOut() {
 		return buffer.toString();
 	}
+
+
 }

@@ -48,4 +48,24 @@ public class Validator extends ConsoleIO  {
 		} while(invalid);
 		return result;
 	}
+
+	/**
+	 * Return double number from user
+	 * @param question - info for user
+	 * @return double number from user input
+     */
+	public double askForDouble(String question) {
+		double result = -1.00;
+		boolean invalid = true;
+		do {
+			try {
+				result = super.askForDouble(question);
+				invalid = false;
+			}
+			catch (NumberFormatException nfe) {
+				super.println("Dear user, please type a double!");
+			}
+		} while(invalid);
+		return result;
+	}
 }

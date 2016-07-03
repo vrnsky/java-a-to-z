@@ -15,5 +15,7 @@ public interface Input {
 	int ask(String question, int from, int to);
 
 	long askForLong(String question);
+
+	double askForDouble(String question);
 	
 }

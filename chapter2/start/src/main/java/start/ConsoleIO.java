@@ -54,6 +54,11 @@ public class ConsoleIO implements IO {
 		long key =  Long.valueOf(this.ask(question));
 		return key;
 	}
+
+	public double askForDouble(String question) {
+		double value = Double.valueOf(this.ask(question));
+		return value;
+	}
 	
 	/**
 		Show string view of object
