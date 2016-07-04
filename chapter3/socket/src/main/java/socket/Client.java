@@ -103,15 +103,15 @@ public class Client {
              do {
                 userMessage = keyboard.readLine();
                 logger.log(userMessage);
-                if((FINISH.equalsIgnoreCase(userMessage)))
-                    break;
-                if (STOP.equalsIgnoreCase(userMessage))
+                if (STOP.equalsIgnoreCase(userMessage)) {
                     silentMode = true;
-                else if (CONTINUE.equalsIgnoreCase(userMessage))
+                } else if (CONTINUE.equalsIgnoreCase(userMessage)) {
                     silentMode = false;
-                if (!silentMode)
+                }
+                if (!silentMode) {
                     chatWithServer(userMessage);
-            } while(true);
+                }
+            } while(!FINISH.equalsIgnoreCase(userMessage));
 
 
         } catch (SocketException exp) {
