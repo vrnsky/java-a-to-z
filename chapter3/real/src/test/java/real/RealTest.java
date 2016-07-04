@@ -3,6 +3,7 @@ package real;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.StringContains.containsString;
 import start.StubIO;
 
 /**
@@ -18,7 +19,7 @@ public class RealTest {
     public void whenUserInputCorrectAllDataShouldShowResultOfComputing() {
 
         //Assign block
-        String[] answer = new String[] {"1.4", "1.54", "-1.77"};
+        String[] answer = new String[] {"1.4", "1.54", "-1.77",""};
         StubIO stubIO = new StubIO(answer);
         Real real = new Real(stubIO);
         double expected = 1.4;
@@ -31,18 +32,23 @@ public class RealTest {
     }
 
     /**
-     * If user entered bad data should check that app throw expception
+     * If user entered bad data should check that app say about it user
      * In real system exception handles and ask user about data again
      */
-    @Test(expected = NumberFormatException.class)
+    @Test
     public void whenUserInputWrongShouldCheckThanAppThrowException() {
 
         //Assign block
-        String[] answer = new String[] {"1.3","dd", "ad"};
+        String[] answer = new String[] {"1.3","dd",""};
         StubIO stubIO = new StubIO(answer);
         Real real = new Real(stubIO);
+        String expected = "You should enter a double number, nothing else!";
 
         //Act & action block
         real.getMin();
+
+        //Action block
+        assertThat(stubIO.getOut(), containsString(expected));
+
     }
 }
