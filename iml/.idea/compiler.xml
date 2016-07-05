@@ -115,6 +115,13 @@
         <processorPath useClasspath="true" />
         <module name="socket" />
       </profile>
+      <profile default="false" name="Annotation profile for task" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="task" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="arrays" target="1.7" />
@@ -132,6 +139,7 @@
       <module name="socket" target="1.7" />
       <module name="start" target="1.7" />
       <module name="summ" target="1.7" />
+      <module name="task" target="1.7" />
       <module name="task (1) (ru.evrnsky.chapter1.task)" target="1.7" />
       <module name="task (2) (ru.evrnsky.chapter2.task)" target="1.7" />
       <module name="tracker" target="1.7" />
