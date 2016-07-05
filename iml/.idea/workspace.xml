@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="806ee486-b374-4af2-8308-87d9663aa2bb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java" afterPath="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/parity/src/test/java/parity/ParityCheckerTest.java" afterPath="$PROJECT_DIR$/../chapter3/parity/src/test/java/parity/ParityCheckerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tracker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,15 +57,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Client.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.58401304">
+            <state vertical-scroll-proportion="0.0">
               <caret line="123" column="31" selection-start-line="123" selection-start-column="31" selection-end-line="123" selection-end-column="31" />
               <folding>
                 <element signature="e#1776#1777#0" expanded="true" />
                 <element signature="e#1811#1812#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParityCheckerTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../chapter3/parity/src/test/java/parity/ParityCheckerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.30668843">
+              <caret line="55" column="75" selection-start-line="55" selection-start-column="75" selection-end-line="55" selection-end-column="75" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -124,7 +135,6 @@
         <option value="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/User.java" />
         <option value="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Logger.java" />
         <option value="$PROJECT_DIR$/../chapter3/parity/pom.xml" />
-        <option value="$PROJECT_DIR$/../chapter3/parity/src/test/java/parity/ParityCheckerTest.java" />
         <option value="$PROJECT_DIR$/../chapter3/parity/src/main/java/parity/ParityChecker.java" />
         <option value="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Logger.java" />
         <option value="$PROJECT_DIR$/../chapter3/consoleChat/src/test/java/chat/AnswererTest.java" />
@@ -137,6 +147,7 @@
         <option value="$PROJECT_DIR$/../chapter3/real/src/main/java/real/Real.java" />
         <option value="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Server.java" />
         <option value="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java" />
+        <option value="$PROJECT_DIR$/../chapter3/parity/src/test/java/parity/ParityCheckerTest.java" />
       </list>
     </option>
   </component>
@@ -295,6 +306,80 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java-a-to-z" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chapter3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java-a-to-z" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chapter3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java-a-to-z" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chapter3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -314,7 +399,7 @@
       <recent name="F:\java-a-to-z\chapter3\consoleChat\src\test\java\chat" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="JUnit.ParityCheckerTest.whenUserTypeNotNumberShouldCheckThatAppThrowException">
     <configuration default="false" name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -355,32 +440,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="RealTest.whenUserInputCorrectAllDataShouldShowResultOfComputing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="real.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="real" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="real" />
-      <option name="MAIN_CLASS_NAME" value="real.RealTest" />
-      <option name="METHOD_NAME" value="whenUserInputCorrectAllDataShouldShowResultOfComputing" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
     <configuration default="false" name="RealTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -407,19 +466,45 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="RealTest.whenUserInputWrongShouldCheckThanAppThrowException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="ParityCheckerTest.whenUserTypeNotNumberShouldSayUserThatIsWrongString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="real.*" />
+          <option name="PATTERN" value="parity.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <module name="real" />
+      <module name="parity" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="real" />
-      <option name="MAIN_CLASS_NAME" value="real.RealTest" />
-      <option name="METHOD_NAME" value="whenUserInputWrongShouldCheckThanAppThrowException" />
+      <option name="PACKAGE_NAME" value="parity" />
+      <option name="MAIN_CLASS_NAME" value="parity.ParityCheckerTest" />
+      <option name="METHOD_NAME" value="whenUserTypeNotNumberShouldSayUserThatIsWrongString" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="ParityCheckerTest.whenUserTypeNotNumberShouldCheckThatAppThrowException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="parity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="parity" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="parity" />
+      <option name="MAIN_CLASS_NAME" value="parity.ParityCheckerTest" />
+      <option name="METHOD_NAME" value="whenUserTypeNotNumberShouldCheckThatAppThrowException" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -871,17 +956,17 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.Server" />
       <item index="1" class="java.lang.String" itemvalue="Application.Client" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.RealTest.whenUserInputCorrectAllDataShouldShowResultOfComputing" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.RealTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.RealTest.whenUserInputWrongShouldCheckThanAppThrowException" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.RealTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.ParityCheckerTest.whenUserTypeNotNumberShouldSayUserThatIsWrongString" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.ParityCheckerTest.whenUserTypeNotNumberShouldCheckThatAppThrowException" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Client" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Server" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.RealTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.RealTest.whenUserInputWrongShouldCheckThanAppThrowException" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.RealTest.whenUserInputCorrectAllDataShouldShowResultOfComputing" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ParityCheckerTest.whenUserTypeNotNumberShouldCheckThatAppThrowException" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ParityCheckerTest.whenUserTypeNotNumberShouldSayUserThatIsWrongString" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Client" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Server" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.RealTest" />
       </list>
     </recent_temporary>
   </component>
@@ -900,16 +985,16 @@
       <workItem from="1467538276878" duration="16131000" />
       <workItem from="1467662721550" duration="1329000" />
       <workItem from="1467664079976" duration="1583000" />
-      <workItem from="1467699549205" duration="906000" />
+      <workItem from="1467699549205" duration="1350000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RealTest - 2016.07.04 at 23h 43m 44s.xml">
-      <configuration name="RealTest" configurationId="JUnit" />
+    <history-entry file="ParityCheckerTest_whenUserTypeNotNumberShouldCheckThatAppThrowException - 2016.07.05 at 09h 40m 46s.xml">
+      <configuration name="ParityCheckerTest.whenUserTypeNotNumberShouldCheckThatAppThrowException" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RealTest_whenUserInputCorrectAllDataShouldShowResultOfComputing - 2016.07.04 at 23h 25m 50s.xml">
-      <configuration name="RealTest.whenUserInputCorrectAllDataShouldShowResultOfComputing" configurationId="JUnit" />
+    <history-entry file="ParityCheckerTest_whenUserTypeNotNumberShouldSayUserThatIsWrongString - 2016.07.05 at 09h 38m 48s.xml">
+      <configuration name="ParityCheckerTest.whenUserTypeNotNumberShouldSayUserThatIsWrongString" configurationId="JUnit" />
     </history-entry>
     <history-entry file="RealTest_whenUserInputCorrectAllDataShouldShowResultOfComputing - 2016.07.04 at 23h 26m 23s.xml">
       <configuration name="RealTest.whenUserInputCorrectAllDataShouldShowResultOfComputing" configurationId="JUnit" />
@@ -937,7 +1022,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47264000" />
+    <option name="totallyTimeSpent" value="47708000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -959,7 +1044,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32312566" sideWeight="0.44583333" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32312566" sideWeight="0.5541667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32312566" sideWeight="0.5541667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24739583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1214,13 +1299,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/parity/src/test/java/parity/ParityCheckerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66392094">
-          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/StubIO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1325,12 +1403,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58401304">
+        <state vertical-scroll-proportion="0.0">
           <caret line="123" column="31" selection-start-line="123" selection-start-column="31" selection-end-line="123" selection-end-column="31" />
           <folding>
             <element signature="e#1776#1777#0" expanded="true" />
             <element signature="e#1811#1812#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter3/parity/src/test/java/parity/ParityCheckerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30668843">
+          <caret line="55" column="75" selection-start-line="55" selection-start-column="75" selection-end-line="55" selection-end-column="75" />
+          <folding />
         </state>
       </provider>
     </entry>
