@@ -112,8 +112,6 @@ public class Client {
                     chatWithServer(userMessage);
                 }
             } while(!FINISH.equalsIgnoreCase(userMessage));
-
-
         } catch (SocketException exp) {
             System.out.println("Server reject you...");
         } catch (Exception exp) {
@@ -152,7 +150,11 @@ public class Client {
     private void chatWithServer(String userMessage) throws IOException {
         output.writeUTF(userMessage);
         output.flush();
-        userMessage = input.readUTF();
+        try {
+            userMessage = input.readUTF();
+        } catch(EOFException exception) {
+            System.out.println("Server not response!");
+        }
         System.out.println(userMessage);
     }
 
