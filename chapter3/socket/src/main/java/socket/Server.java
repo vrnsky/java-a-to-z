@@ -17,6 +17,13 @@ public class Server {
      */
     private static final int PORT = 3001;
 
+
+    /**
+     * Flag which signal about user finish change data
+     * with server
+     */
+    private static final String FINISH = "закончить";
+
     /**
      * Return a random string from file
      */
@@ -67,9 +74,9 @@ public class Server {
     public void start() {
         try {
             Answerer answerer = new Answerer("answers.txt");
-            String userMessage = null;
+            String userMessage;
             this.setConnection();
-            while (true) {
+            while (!FINISH.equalsIgnoreCase(userMessage = input.readUTF())) {
                 userMessage = answerer.getRandomString();
                 output.writeUTF(userMessage);
                 output.flush();
