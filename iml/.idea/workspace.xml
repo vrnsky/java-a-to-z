@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="806ee486-b374-4af2-8308-87d9663aa2bb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/pom.xml" afterPath="$PROJECT_DIR$/../chapter3/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java" afterPath="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Server.java" afterPath="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Server.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myLog.txt" afterPath="$PROJECT_DIR$/myLog.txt" />
     </list>
     <ignored path="tracker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="113" column="59" selection-start-line="113" selection-start-column="59" selection-end-line="113" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.58401304">
+              <caret line="123" column="31" selection-start-line="123" selection-start-column="31" selection-end-line="123" selection-end-column="31" />
               <folding>
                 <element signature="e#1776#1777#0" expanded="true" />
                 <element signature="e#1811#1812#0" expanded="true" />
@@ -75,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.109298535">
-              <caret line="76" column="31" selection-start-line="76" selection-start-column="31" selection-end-line="76" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="85" column="19" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -141,8 +135,8 @@
         <option value="$PROJECT_DIR$/../chapter3/consoleChat/src/test/java/chat/LoggerTest.java" />
         <option value="$PROJECT_DIR$/../chapter3/real/src/test/java/real/RealTest.java" />
         <option value="$PROJECT_DIR$/../chapter3/real/src/main/java/real/Real.java" />
-        <option value="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java" />
         <option value="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Server.java" />
+        <option value="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java" />
       </list>
     </option>
   </component>
@@ -906,7 +900,7 @@
       <workItem from="1467538276878" duration="16131000" />
       <workItem from="1467662721550" duration="1329000" />
       <workItem from="1467664079976" duration="1583000" />
-      <workItem from="1467699549205" duration="711000" />
+      <workItem from="1467699549205" duration="906000" />
     </task>
     <servers />
   </component>
@@ -943,7 +937,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47069000" />
+    <option name="totallyTimeSpent" value="47264000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -955,7 +949,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1319,23 +1313,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java">
+    <entry file="file://$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Server.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="113" column="59" selection-start-line="113" selection-start-column="59" selection-end-line="113" selection-end-column="59" />
+          <caret line="85" column="19" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="19" />
           <folding>
-            <element signature="e#1776#1777#0" expanded="true" />
-            <element signature="e#1811#1812#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Server.java">
+    <entry file="file://$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.109298535">
-          <caret line="76" column="31" selection-start-line="76" selection-start-column="31" selection-end-line="76" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.58401304">
+          <caret line="123" column="31" selection-start-line="123" selection-start-column="31" selection-end-line="123" selection-end-column="31" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1776#1777#0" expanded="true" />
+            <element signature="e#1811#1812#0" expanded="true" />
           </folding>
         </state>
       </provider>

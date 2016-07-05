@@ -120,6 +120,8 @@ public class Client {
             try {
                 keyboard.close();
                 logger.close();
+                input.close();
+                output.close();
             } catch(IOException exception) {
                 exception.printStackTrace();
             }
