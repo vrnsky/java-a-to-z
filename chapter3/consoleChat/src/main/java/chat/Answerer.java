@@ -94,4 +94,12 @@ public class Answerer {
         return answers[position];
     }
 
+    /**
+     * Return all string from file
+     * @return string from file
+     */
+    public String[] getAllStrings() {
+        return this.answers;
+    }
+
 }
