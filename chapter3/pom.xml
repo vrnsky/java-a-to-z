@@ -19,7 +19,7 @@
 		<module>palindrome</module>
 		<module>consoleChat</module>
 		<module>socket</module>
-		<module>task</module>
+		<module>find</module>
 	</modules>
 	
 </project>
