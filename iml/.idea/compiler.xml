@@ -120,7 +120,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="task" />
+      </profile>
+      <profile default="false" name="Annotation profile for find" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="find" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -130,6 +136,7 @@
       <module name="chapter2" target="1.7" />
       <module name="chapter3" target="1.7" />
       <module name="consoleChat" target="1.7" />
+      <module name="find" target="1.7" />
       <module name="geometry" target="1.7" />
       <module name="loops" target="1.7" />
       <module name="models" target="1.7" />
