@@ -1,0 +1,45 @@
+^bacon.txt$ was not found at F:\java-a-to-z\iml\.idea\.name
+^bacon.txt$ was not found at F:\java-a-to-z\iml\.idea\compiler.xml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\.idea\copyright\profiles_settings.xml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\.idea\encodings.xml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\.idea\libraries\Maven__junit_junit_4_12.xml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\.idea\libraries\Maven__org_hamcrest_hamcrest_all_1_3.xml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\.idea\libraries\Maven__org_hamcrest_hamcrest_core_1_3.xml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\.idea\misc.xml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\.idea\modules.xml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\.idea\uiDesigner.xml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\.idea\vcs.xml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\.idea\workspace.xml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\answers.txt
+^bacon.txt$ was not found at F:\java-a-to-z\iml\arrays.iml
+^bacon.txt$ was found at F:\java-a-to-z\iml\bacon.txt
+^bacon.txt$ was not found at F:\java-a-to-z\iml\calculator.iml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\chapter1.iml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\chapter2.iml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\chapter3.iml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\consoleChat.iml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\find.iml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\geometry.iml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\log.txt
+^bacon.txt$ was not found at F:\java-a-to-z\iml\loops.iml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\models.iml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\move\goodnametest.txt
+^bacon.txt$ was not found at F:\java-a-to-z\iml\move\log.txt
+^bacon.txt$ was not found at F:\java-a-to-z\iml\move\test\imoveit.txt
+^bacon.txt$ was not found at F:\java-a-to-z\iml\move\test\log.txt
+^bacon.txt$ was not found at F:\java-a-to-z\iml\move\values\log.txt
+^bacon.txt$ was not found at F:\java-a-to-z\iml\palindrome.iml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\parity.iml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\real.iml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\reply.txt
+^bacon.txt$ was not found at F:\java-a-to-z\iml\serverlog.txt
+^bacon.txt$ was not found at F:\java-a-to-z\iml\socket.iml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\start.iml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\summ.iml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\task (1) (ru.evrnsky.chapter1.task).iml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\task (2) (ru.evrnsky.chapter2.task).iml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\task.iml
+^bacon.txt$ was not found at F:\java-a-to-z\iml\test
+^bacon.txt$ was not found at F:\java-a-to-z\iml\test.txt
+^bacon.txt$ was not found at F:\java-a-to-z\iml\test.txt.txt
+^bacon.txt$ was not found at F:\java-a-to-z\iml\tracker.iml

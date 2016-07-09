@@ -1,0 +1,5 @@
+name.txt was not found at F:\java-a-to-z\iml\move\result\findbymask\findbymask.txt
+name.txt was not found at F:\java-a-to-z\iml\move\result\findbyname\findbyname.txt
+name.txt was not found at F:\java-a-to-z\iml\move\test\findbymask\mask.txt
+name.txt was found at F:\java-a-to-z\iml\move\test\findbyname\name.txt
+name.txt was not found at F:\java-a-to-z\iml\move\test\findnyregexp\regexp.txt
