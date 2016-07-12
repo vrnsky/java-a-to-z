@@ -8,24 +8,29 @@ import org.junit.Before;
 /**
 	Unit test of Pawn.java
 */
+
+/**
+ * Unit test for Pawn.java.
+ * It test all opportunity of pawn chess figure.
+ */
 public class PawnTest {
 
-	/**
-		instance of testing object
-	*/
+    /**
+     * Instance of testing class.
+     */
     private Pawn pawn;
-	
-	/**
-		before testing need init all need variables
-	*/
+
+    /**
+     * Init all need variable at this place, it placed there for reduce code in tests.
+     */
     @Before
     public void setUp() {
         this.pawn = new Pawn();
     }
 
-	/**
-		Check than constructor works correct
-	*/
+    /**
+     * Check than constructor works correct.
+     */
     @Test
     public void whenCreateAPawnShouldCheckItIsNotNull() {
 		
@@ -36,10 +41,9 @@ public class PawnTest {
         assertThat(actual, is(true));
     }
 
-	/**
-		When try attach pawn to board should
-		check that board save it
-	*/
+    /**
+     * When try attach pawn to board should check that board save it.
+     */
     @Test
     public void whenTryAttachPawnToTheBoardShouldAddPawnIfCellIsNotBusy() {
 		
@@ -64,10 +68,9 @@ public class PawnTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try move pawn in correct direction
-		should move pawn, if path is empty
-	*/
+    /**
+     * When try move pawn in correct direction should check that pawn was moved.
+     */
     @Test
     public void whenTryMovePawnInCorrectDirectionShouldMovePawn() {
 		
@@ -93,10 +96,9 @@ public class PawnTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try move pawn in wrong direction
-		should leave pawn at the current position
-	*/
+    /**
+     * When try move pawn in wrong direction should leave pawn at the current position.
+     */
     @Test
     public void whenTryMovePawnInWrongDirectionShouldLeavePawnAtTheCurrentPlace() {
 		
@@ -122,10 +124,9 @@ public class PawnTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try move pawn but int the path figure
-		should leave pawn at the current place
-	*/
+    /**
+     * When try move pawn but in the path have figure or figures should leave pawn at the current place.
+     */
     @Test
     public void whenTryMovePawnButInThePathFigureShouldLeavePawnAtTheCurrentPlace() {
 		
@@ -152,10 +153,9 @@ public class PawnTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try pawn skip over figures
-		should leave pawn the current position
-	*/
+    /**
+     * When pawn try skip over figure or figures should leave pawn at the current position.
+     */
     @Test
     public void whenTryPawnTrySkipOverFiguresShouldLeavePawnAtTheCurrentPlace(){
 		
@@ -181,7 +181,10 @@ public class PawnTest {
 		//Action block
         assertThat(actual, is(expected));
     }
-	
+
+    /**
+     * When try get string view of pawn figure should check that is acronym for pawn.
+     */
 	@Test
 	public void whenTryGetStringViewOfPawnShoulGetStringAcronym() {
 		

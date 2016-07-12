@@ -6,26 +6,27 @@ import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
 
 /**
-	Unit test of Rook.java
-*/
+ * Unit test for Rook.java
+ * It test implementation rook chess figure.
+ */
 public class RookTest {
 
-	/**
-	  instance of testing class
-	*/
+    /**
+     * Instance of testing class.
+     */
     private Rook rook;
 
-	/**
-		init before using in test
-	*/
+    /**
+     * Init need variable before test, it placed there for reduce code in tests.
+     */
     @Before
     public void setUp() {
         this.rook = new Rook();
     }
 
-	/**
-		Check than constructor works correct
-	*/
+    /**
+     * When create a rook should check that constructor of class works correct.
+     */
     @Test
     public void whenCreateRookShouldCheckItIsNotNull() {
 		
@@ -36,10 +37,9 @@ public class RookTest {
         assertThat(actual, is(true));
     }
 
-	/**
-		When try attach rook to the board should attach rook
-		and check that board save it
-	*/
+    /**
+     * When try attach rook to the board should attach rook and check that board save it.
+     */
     @Test
     public void whenTryAddRookToTheBoardShouldCheckThanBoardSaveIt() {
 		
@@ -64,11 +64,9 @@ public class RookTest {
         assertThat(actual, is(expected));
     }
 
-	
-	/**
-		When try moving rook in the board in correct
-		vertical direction should move perform
-	*/
+    /**
+     * When try moving rook in the board in correct vertical direction should check that figure was moved.
+     */
     @Test
     public void whenTryMovingRookInTheBoardInCorrectVerticalDirectionShouldMovePerform() {
 		
@@ -94,11 +92,9 @@ public class RookTest {
         assertThat(actual, is(expected));
     }
 
-	
-	/**
-		When try moving rook in the board in correct vertical
-		direction should perform move
-	*/
+    /**
+     * When try moving rook in correct vertical direction should check that figure was moved.
+     */
     @Test
     public void whenMovingRookInTheBoardIntCorrectHorizontalDirShouldPerformMove() {
 		
@@ -124,10 +120,9 @@ public class RookTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try move rook to the busy cell should
-		leave rook at the curren position
-	*/
+    /**
+     * When try move rook to the busy cell should leave rook at the current position.
+     */
     @Test
     public void whenTryMoveRookToTheBusyCellInVerticalDirectShouldLeaveRookAtTheCurrentPlace() {
 		
@@ -153,11 +148,10 @@ public class RookTest {
 		//Action block
         assertThat(actual, is(expected));
     }
-	
-	/**
-		When try move across other figures should
-		leave rook at the current position
-	*/
+
+    /**
+     * When rook try move across other figures should leave rook at the current position.
+     */
     @Test
     public void whenTryMoveRookAcrossFigureShouldLeaveRookAtTheCurrentPlace() {
 		
@@ -184,10 +178,10 @@ public class RookTest {
         assertThat(actual, is(expected));
 
     }
-	
-	/**
-		When get string view of rook should get acronym
-	*/
+
+    /**
+     * When need get string view of rook should check that it is acronym of rook.
+     */
 	@Test
 	public void whenAskAboutStringFromRookShouldGetAcronymForRook() {
 		

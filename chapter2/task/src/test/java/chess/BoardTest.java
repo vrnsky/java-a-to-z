@@ -6,28 +6,27 @@ import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.*;
 
 /**
-	Unit test of Board.java
-	
-*/
+ * Unit test of Board.java.
+ * It test showing board and adding to board new figures.
+ */
 public class BoardTest {
 
-	/**
-		instance of testing class
-	*/
+    /**
+     * Instance of testing class.
+     */
     private Board board;
-	
-	/**
-		before using must init all need variables
-	*/
+
+    /**
+     * For reduce code in test extract init at this method.
+     */
     @Before
     public void setUp() {
         board = new Board();
     }
 
-	/**
-		When create board should check
-		that board is empty
-	*/
+    /**
+     * When create board should check that board is empty.
+     */
     @Test
     public void whenCreateBoardShouldCheckThatBoardEmpty() {
 		
@@ -50,10 +49,9 @@ public class BoardTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try add figure to board should
-		check that board saved it
-	*/
+    /**
+     * When try add figure to board should check that board saved it.
+     */
     @Test
     public void whenTryAddFigureToBoardShouldCheckThatBoardSaveIt() {
 		
@@ -78,11 +76,9 @@ public class BoardTest {
 
     }
 
-	/**
-		When try move figure in correct direction
-		should move figure 
-		
-	*/
+    /**
+     * When try move figure in correct direction should check that figure was moved.
+     */
     @Test
     public void whenTryMoveFigureInCorrectDirectionShouldMoveFigure() {
 		

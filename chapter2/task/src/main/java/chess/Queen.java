@@ -1,44 +1,44 @@
 package chess;
 
 /**
-	Implementation of queen chess figure
-*/
+ * Implementation queen chess figure.
+ */
 public class Queen extends Figure {
 
 	/**
-		it uses for string view of queen
-	*/
+	 * String view of queen chess figure.
+	 */
 	private final static String QUEEN_STRING = "Q"; 
-	
+
 	/**
-		use instance of Rook class for reduce code duplication
-		Queen may make step by horizontal and vertical
-	*/
+	 * For avoid code duplication use API of existing class rook.
+	 * It allow queen make step by horizontal and vertical directions.
+	 */
     private Rook rook;
-	
+
 	/**
-		use instance of Elephant class for reduce code duplication
-		Queen may make step by diagonal
-	*/
+	 * For avoid code duplication use API of existing class elephant.
+	 * It allow queen make by diagonal.
+	 */
     private Elephant elephant;
 
 	/**
-		Before move figure at the board should init all instance 
-		of using classes
-	*/
+	 * Create a new queen and init all need fields.
+	 */
     public Queen() {
         this.rook = new Rook();
         this.elephant = new Elephant();
     }
-	
+
 	/**
-		Check may make figure this step
-		@param:int fromX - it is start X position
-		@param:int fromY - it is start Y position
-		@param:int toX - it is finish X position
-		@param:int toY - it is finish Y position
-		@return:boolean, true if queen may make this step, and otherwise false
-	*/
+	 * Check may make figure this step.
+	 * @param figures board for moving.
+	 * @param fromX start X position.
+	 * @param fromY start Y position.
+	 * @param toX finish X position.
+	 * @param toY finish Y position.
+     * @return true if queen may make this step otherwise false.
+     */
     @Override
     boolean canMove(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
         boolean canMove = false;
@@ -51,9 +51,9 @@ public class Queen extends Figure {
     }
 
 	/**
-		Return string view of queen
-		@return "Q"
-	*/
+	 * Return string view of figure.
+	 * @return queen string.
+     */
     @Override
     public String toString() {
         return QUEEN_STRING;

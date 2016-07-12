@@ -6,26 +6,27 @@ import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
 
 /**
-	Unit test for Horse class
-*/
+ * Unit test for Horse.java
+ * Testing all opportunity action for horse chess figure.
+ */
 public class HorseTest {
 
-	/**
-		instance of testing class
-	*/
+    /**
+     * Instance of testing class.
+     */
     private Horse horse;
 
-	/**
-		init variables at this method
-	*/
+    /**
+     * To reduce code in test init action perform at this method.
+     */
     @Before
     public void setUp() {
         this.horse = new Horse();
     }
 
-	/**
-		Check than constructor of horse work correct
-	*/
+    /**
+     * Check than constructor of horse work correct.
+     */
     @Test
     public void whenCreateAHorseShouldCheckItIsNotNull() {
 		
@@ -36,9 +37,9 @@ public class HorseTest {
         assertThat(actual, is(true));
     }
 
-	/**
-		Try attach horse to the board should check than horse attached to the board
-	*/
+    /**
+     * When try attach horse to board should check that board saved it.
+     */
     @Test
     public void whenTryAddHorseToTheBoardShouldCheckItSaved() {
 		
@@ -64,11 +65,7 @@ public class HorseTest {
     }
 
     /**
-     *  1
-     *  1   - it one of possible step of horse
-     *  1 1
-	 
-		Try moving horse one of possible step, and check than figure has been moved
+     * Try moving horse one of possible step should check that figure was moved.
      */
     @Test
     public void whenTryMovingHorseInCorrectDirectionShouldMoveHorseToGivenPosition() {
@@ -96,12 +93,7 @@ public class HorseTest {
     }
 
     /**
-     * 1 1
-     * 1   - it is one possible step of horse
-     * 1
-	    
-       Try moving horse of of possible step, and check than figure has been moved
-	   Now horse exist at the bottom of board
+     * Try moving horse in one of possible position should check that figure was moved.
      */
     @Test
     public void whenTryMovingHorseAtTheBottomInCorrectDirection() {
@@ -128,12 +120,9 @@ public class HorseTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try moving horse by vertical direction should move horse 
-		and check than horse has been moved. Vertical means that horse
-		make step three cell by horizontal and two by vertical
-	
-	*/
+    /**
+     * When try moving horse in one of possible position should check that figure was moved.
+     */
     @Test
     public void whenTryMovingHorseByVerticalCorrectDirectionShouldMoveHorseToGivenPosition() {
 		
@@ -159,9 +148,9 @@ public class HorseTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try moving horse across other figure should move horse
-	*/
+    /**
+     * When try moving horse across other figure should move horse.
+     */
     @Test
     public void whenTryMovingHorseAcrossOtherFigureShouldMoveHorse() {
 		
@@ -187,12 +176,11 @@ public class HorseTest {
 		//Action block
         assertThat(actual, is(expected));
     }
-	
-	/**
-		When try get string view of horse
-		Should check that is acronym
-	*/
-	@Test
+
+    /**
+     * When try get string view of horse should check that is acronym for figure.
+     */
+    @Test
 	public void whenTryGetStringViewOfHorseShouldGetAcronym() {
 		
 		//Assign block

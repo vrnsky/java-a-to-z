@@ -1,23 +1,25 @@
 package chess;
 
 /**
-	It is implementation of rook figure. It may step by vertical and horizontal
-*/
+ * Implementation of rook chess figure.
+ */
 public class Rook extends Figure {
 
-	/**
-		It contants for represent rook as string
-	*/
+
+    /**
+     * String view of rook.
+     */
 	private final static String ROOK_STRING = "R";
-	
-	/**
-		Check than figure may make step in given coords
-		@param:int fromX - it is start X position
-		@param:int fromY - it is start Y position
-		@param:int toX - it is finish X position
-		@param:int toY - it is finish Y position
-		@return: boolean canMove - true if figure may make this step and otherwise false
-	*/
+
+    /**
+     * Check than figure may make step at the given position.
+     * @param figures board for moving.
+     * @param fromX start X position.
+     * @param fromY start Y position.
+     * @param toX finish X position.
+     * @param toY finish Y position.
+     * @return true if figure may make this step and otherwise false.
+     */
     @Override
     public boolean canMove(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
         boolean canMove = false;
@@ -31,13 +33,16 @@ public class Rook extends Figure {
             canMove = checkUpDirection(figures, fromX, fromY, toX, toY);
         return canMove;
     }
-	
 
-	/**
-		Check right direction by counting figures in the path
-		Parameters decribes in method canMove above
-		@return: true if in the path no figure and otherwise false
-	*/
+    /**
+     * Check right direction by counting figures in the path.
+     * @param figures see method above.
+     * @param fromX see method above.
+     * @param fromY see method above.
+     * @param toX see method above.
+     * @param toY see method above.
+     * @return see method above.
+     */
     private boolean checkRightDirection(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
         int index = fromY + 1;
         int length = figures[fromX].length;
@@ -50,11 +55,15 @@ public class Rook extends Figure {
         return count == 0;
     }
 
-	/**
-		Check left direction by count figures in the path
-		Parameters decribes at the method canMove
-		@return: true if figure may make step into the left direction, and otherwise false
-	*/
+    /**
+     * Check left direction by count figures in the path.
+     * @param figures see method above.
+     * @param fromX see method above.
+     * @param fromY see method above.
+     * @param toX see method above.
+     * @param toY see method above.
+     * @return see method above.
+     */
     private boolean checkLeftDirection(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
         int index = fromY-1;
         int length = figures[fromX].length;
@@ -67,11 +76,15 @@ public class Rook extends Figure {
         return count == 0;
     }
 
-	/**
-		Check down direction by count figures in the path
-		Parameters decribes ath method canMove
-		@return: ture if figure may make step into down direction and otherwise false
-	*/
+    /**
+     * Check down direction by count figures in the path.
+     * @param figures see method above.
+     * @param fromX see method above.
+     * @param fromY see method above.
+     * @param toX see method above.
+     * @param toY see method above.
+     * @return see method above.
+     */
     private boolean checkDownDirection(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
         int count = 0;
         int index = fromX+1;
@@ -84,11 +97,15 @@ public class Rook extends Figure {
         return count == 0;
     }
 
-	/**
-		Check up direction by count figure in the path
-		Parameters describes at the method canMove
-		@return: true if figure may make this step and otherwise false
-	*/
+    /**
+     * Check up direction by count figure in the path.
+     * @param figures see method above.
+     * @param fromX see method above.
+     * @param fromY see method above.
+     * @param toX see method above.
+     * @param toY see method above.
+     * @return see method above.
+     */
     private boolean checkUpDirection(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
         int count = 0;
         int index = fromX - 1;
@@ -101,10 +118,11 @@ public class Rook extends Figure {
         return count == 0;
     }
 
-	/**
-		Return a string view of rook figure
-		@return: string view of rook
-	*/
+
+    /**
+     * Return string view of rook chess figure.
+     * @return rook string.
+     */
     @Override
     public String toString() {
         return ROOK_STRING;

@@ -6,26 +6,27 @@ import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
 
 /**
-	Unit test of Elephant class
-*/
+ * Unit test for Elephant.java
+ * It test moving of elephant in different directions.
+ */
 public class ElephantTest {
 
-	/**
-		variable for testing behaviour elephant figure
-	*/
+    /**
+     * Instance of testing class.
+     */
     private Elephant elephant;
 
-	/**
-		Init elephant
-	*/
+    /**
+     * Init extract to this method for reduce code in test.
+     */
     @Before
     public void setUp() {
         this.elephant = new Elephant();
     }
 
-	/**
-		Check than figure not null
-	*/
+    /**
+     * When create a new elephant should check that it is not null.
+     */
     @Test
     public void whenCreateAnElephantShouldCheckItIsNotNull() {
        
@@ -36,9 +37,9 @@ public class ElephantTest {
         assertThat(actual, is(true));
     }
 
-	/**
-		When try attach elepant to board should attach elephant to the board
-	*/
+    /**
+     * When try attach elephant to board should check that elephant was attached to board.
+     */
     @Test
     public void whenTryAttachElephantToBoardShouldCheckThatBoardSaveIt() {
 		
@@ -63,10 +64,10 @@ public class ElephantTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try move elephant in correct direction should move elephant to given position
-		Forward diagonal means that x and y increase at each step
-	*/
+
+    /**
+     * When try move elephant in correct direction should move elephant to give position.
+     */
     @Test
     public void whenTryMovingElephantInCorrectForwardDiagonalShouldMoveElephantToGivenPosition() {
         Board board = new Board();
@@ -90,10 +91,9 @@ public class ElephantTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try moving elephant in correct backward diagonal should move elephant to given position
-		Backward means than x and y decrease at each step
-	*/
+    /**
+     * When try moving elephant in correct backward diagonal should move elephant to given position.
+     */
     @Test
     public void whenTryMovingElephantInCorrectBackwardDirectionShouldMoveElephantToGivenPosition() {
 		
@@ -119,10 +119,10 @@ public class ElephantTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try moving elephant in correct direction but cell is busy
-		Should leave elephant in current position
-	*/
+    /**
+     * When try moving elephant in correct direction but cell is busy
+     * should leave elephant in current position.
+     */
     @Test
     public void whenTryMovingElephantInCorrectDirectionButCellIsBusy() {
 		
@@ -148,13 +148,11 @@ public class ElephantTest {
 		//Action block
         assertThat(actual, is(expected));
     }
-	
-	
-	/**
-		When elephant try skip figures
-		should leave elephant at the current position
-	*/
-	@Test
+
+    /**
+     * When elephant try skip figures should leave elephant at the current position.
+     */
+    @Test
     public void whenElephantTrySkipFiguresShouldLeaveElephantAtTheCurretPlace() {
 		
 		//Assign block
@@ -179,11 +177,10 @@ public class ElephantTest {
 		//Action block
         assertThat(actual, is(expected));
     }
-	
-	/**
-		When try get string view of elephant
-		Should get acronym of elephant
-	*/
+
+    /**
+     * When try get string view of elephant should get acronym of elephant figure.
+     */
 	@Test
 	public void whenTryGetStringViewElephantShouldGetAcronym() {
 		

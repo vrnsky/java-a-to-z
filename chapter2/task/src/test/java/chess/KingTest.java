@@ -8,24 +8,33 @@ import org.junit.Before;
 /**
 	It unit test for King class
 */
+
+/**
+ * Unit test for King.java.
+ * Test all opportunity of king chess figure.
+ */
 public class KingTest {
 
-	/**
-		Instance of King class for testing
-	*/
+    /**
+     * Instance of testring class.
+     */
     private King king;
 	
 	/**
 		Init all needed variables
 	*/
+
+    /**
+     * Init all need variable, it placed there for reduce code in test.
+     */
     @Before
     public void setUp() {
         this.king = new King();
     }
 
-	/**
-		Check than correct create figure object
-	*/
+    /**
+     *  Check that constructor create correct figure object
+     */
     @Test
     public void whenCreateAKingShouldCheckThanItIsNotNull() {
 	
@@ -36,9 +45,9 @@ public class KingTest {
         assertThat(actual, is(true));
     }
 
-	/**
-		Try attach king figure to the board
-	*/
+    /**
+     * When try attach king to the board should check than board save it.
+     */
     @Test
     public void whenTryAttachKingToBoardShouldCheckThatBoardSaveIt() {
 		
@@ -63,9 +72,9 @@ public class KingTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try move king in correct horizontal direction should move king
-	*/
+    /**
+     * When try move king in correct horizontal direction should check that king was moved.
+     */
     @Test
     public void whenTryMoveKingInCorrectHorizontalDirectionShouldMoveKing() {
 		
@@ -91,9 +100,9 @@ public class KingTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try move king in correct vertical direction should move king
-	*/
+    /**
+     * When try move king in correct vertical direction should check that king was moved.
+     */
     @Test
     public void whenTryMoveKingInCorrectVerticalDirectionShouldMoveKing() {
 		
@@ -119,9 +128,9 @@ public class KingTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try move king in correct diagonal direction should move king
-	*/
+    /**
+     * When try move king in correct diagonal direction should check that king was moved.
+     */
     @Test
     public void whenTryMoveKingInCorrectDiagonalDirectionShouldMoveKing() {
 		
@@ -147,9 +156,9 @@ public class KingTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try move king to the busy cell should leave king at the current place
-	*/
+    /**
+     * When try move king to the busy cell should leave king at the current place.
+     */
     @Test
     public void whenTryMoveKingToTheBusyCellShouldLeaveKingAtTheCurrentPlace() {
 		
@@ -176,9 +185,9 @@ public class KingTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try move king more than one cell should leave king at the current place
-	*/
+    /**
+     * When try move king more than one cell should leave king at the current place.
+     */
     @Test
     public void whenTryMoveKingBiggerThatOneCellShouldLeaveKingAtTheCurrentPlace() {
         Board board = new Board();
@@ -201,12 +210,11 @@ public class KingTest {
 		//Action block
         assertThat(actual, is(expected));
     }
-	
-	/**
-		When king try skip figures 
-		should leave king at the current place
-	*/
-	@Test
+
+    /**
+     * When king try skip figures should leave king at the current place.
+     */
+    @Test
 	public void whenKingTrySkipFigureShouldLeaveKingAtTheCurrentPlace() {
 		Board board = new Board();
         String[][] expected = new String[][]{
@@ -229,7 +237,10 @@ public class KingTest {
 		//Action block
         assertThat(actual, is(expected));		
 	}
-	
+
+    /**
+     * When try get string view of king chess figure should check that is acronym.
+     */
 	@Test
 	public void whenTryGetStringViewOfKingShouldGetAcronym() {
 		

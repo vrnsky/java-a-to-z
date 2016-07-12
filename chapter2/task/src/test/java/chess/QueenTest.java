@@ -6,26 +6,27 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
-	Unit test of Queen.java
-*/
+ * Unit test for Queen.java.
+ * It test all functionality of queen chess figure.
+ */
 public class QueenTest {
 
-	/**
-		instance of testing class
-	*/
+    /**
+     * Instance of testing class.
+     */
     private Queen queen;
-	
-	/**
-		Init all need variables
-	*/
+
+    /**
+     * Init all need variable, it placed there for reduce code in tests.
+     */
     @Before
     public void setUp() {
         this.queen = new Queen();
     }
 
-	/**
-		Check than constructor works correct
-	*/
+    /**
+     * When try create a new queen should check that constructor work correct.
+     */
     @Test
     public void whenTryCreateANewQueenShouldCheckThanItIsNotNull() {
 		//Act block
@@ -34,9 +35,9 @@ public class QueenTest {
         assertThat(actual, is(true));
     }
 
-	/**
-		When try attach queen to the board should attach queen to the board
-	*/
+    /**
+     * When try attach queen to the board should check that queen was attached to the board.
+     */
     @Test
     public void whenTryAddQueenToTheBoardShouldCheckThanBoardSaveIt() {
 		
@@ -61,10 +62,9 @@ public class QueenTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try move queen in right direction should move queen in left direction
-		If cell is emply and in the path have no figure
-	*/
+    /**
+     * When try move queen in right horizontal direction should check that figure was moved.
+     */
     @Test
     public void whenTryMoveQueenInRightDirectionShouldMoveQueenIfCellInThePathIsEmpty(){
 		
@@ -90,11 +90,9 @@ public class QueenTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try move queen in left direction 
-		should move queen in left direction
-		If cell is emply and in the path have no figure
-	*/
+    /**
+     * When try mvoe queen in left horizontal direction should check that figure was moved.
+     */
     @Test
     public void whenTryMoveQueenInLeftDirectionShouldMoveQueenIfCellsInThePathIsEmpty() {
 		
@@ -120,10 +118,9 @@ public class QueenTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try move queen by diagonal
-		should check that path is empty and move queen
-	*/
+    /**
+     * When try move queen by diagonal should check that figure was moved.
+     */
     @Test
     public void whenTryMoveQueenInDiagonalShouldMoveQueenIfInThePathCellsAreEmpty() {
 		
@@ -149,10 +146,9 @@ public class QueenTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try move queen in other direction by diagonal
-		should check than path is empty and move queen to given position
-	*/
+    /**
+     * When try move queen in other direction by diagonal should check that figure was moved.
+     */
     @Test
     public void whenTryMoveQueenInOtherDiagonalShouldMoveQueenIfInThePathCellsAreEmpty() {
 		
@@ -178,11 +174,9 @@ public class QueenTest {
         assertThat(actual, is(expected));
     }
 
-	/**
-		When try move queen to other position, but position if busy
-		should leave queen at the current place
-		
-	*/
+    /**
+     * When try move queen to other position but position is busy should leave figure at the current position.
+     */
     @Test
     public void whenTryMoveQueenToTheOtherPositionInVerticalDirButInThePathFigureShouldLeaveQueenAtTheCurrentPlace() {
 		
@@ -208,12 +202,11 @@ public class QueenTest {
 		//Action block
         assertThat(actual, is(expected));
     }
-	
-	/**
-		When queen try skip figure
-		Should leave queen at the current place
-	*/
-	@Test
+
+    /**
+     * When queen try skip figure shoul leave figure at the current place.
+     */
+    @Test
 	public void whenQueenTrySkipFigureShouldLeaveQueenAtTheCurrentPlace() {
 		
 		//Assign block
@@ -238,15 +231,14 @@ public class QueenTest {
 		//Action block
         assertThat(actual, is(expected));		
 	}
-	
-	/**
-		When try get queen string view
-		should check that is acronym
-	*/
-	@Test
+
+    /**
+     * When try get queen string view should check that is acronym for queen chess figure.
+     */
+    @Test
 	public void whenGetQueenStringViewShouldGetAcronym() {
 		
-		//Assing block
+		//Assign block
 		String expected = "Q";
 		
 		//Act block
