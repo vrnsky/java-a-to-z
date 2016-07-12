@@ -1,4 +1,0 @@
-r*.txt was not found at F:\java-a-to-z\iml\move\result\findbyname\findbyname.txt
-r*.txt was not found at F:\java-a-to-z\iml\move\test\findbymask\mask.txt
-r*.txt was not found at F:\java-a-to-z\iml\move\test\findbyname\name.txt
-r*.txt was found at F:\java-a-to-z\iml\move\test\findnyregexp\regexp.txt

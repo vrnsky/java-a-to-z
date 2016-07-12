@@ -1,6 +1,0 @@
-^regexp.txt$ was not found at F:\java-a-to-z\iml\move\result\findbymask\findbymask.txt
-^regexp.txt$ was not found at F:\java-a-to-z\iml\move\result\findbyname\findbyname.txt
-^regexp.txt$ was not found at F:\java-a-to-z\iml\move\result\findbyregexp\findbyregexp.txt
-^regexp.txt$ was not found at F:\java-a-to-z\iml\move\test\findbymask\mask.txt
-^regexp.txt$ was not found at F:\java-a-to-z\iml\move\test\findbyname\name.txt
-^regexp.txt$ was found at F:\java-a-to-z\iml\move\test\findbyregexp\regexp.txt
