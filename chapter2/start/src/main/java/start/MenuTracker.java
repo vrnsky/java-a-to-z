@@ -3,21 +3,34 @@ package start;
 
 import models.*;
 
-
 /**
-	This class uses for interacting with user and execute command from his
+* This class uses for interacting with user and execute command from his
 */
 public class MenuTracker {
 
+	/**
+	 * Instance of API Tracker.
+	 */
 	private Tracker tracker;
+	/**
+	 * Instance of IO system for handle input and show data to user.
+	 */
 	private IO io;
+
+	/**
+	 * Actions which do user.
+	 */
 	private UserAction[] actions = new UserAction[8];
+
+	/**
+	 * For correct add new action in actions array should use pointer.
+	 */
 	int position = 0;
 	
 	/**
-		Constructor for this class
-		@param: io - implement of input/output interface
-				tracker - instance of tracker API
+	* Constructor for this class.
+	* @param io  implement of input/output interface.
+	* @param tracker  instance of tracker API.
 	*/
 	public MenuTracker(IO io, Tracker tracker){
 		this.tracker = tracker;
@@ -25,9 +38,8 @@ public class MenuTracker {
 	}
 	
 	/**
-		Fill actions array by creating new instance of actions
-		And fill array ranges for correct using menu
-		@param: ranges - 
+	* Fill actions array by creating new instance of actions
+	* and fill array ranges for correct using menu.
 	*/
 	public void fillActions(){
 		actions[position++] = new AddItem("Add a new item");
@@ -41,26 +53,25 @@ public class MenuTracker {
 	}
 	
 	/**
-		In near future will be add feature for adding 
-		your actions to actions array. Now this N/A for correct working. 
-		Don't use this.
-		@param: BaseAction action - it is kid of BaseAction class
+	* In near future will be add feature for adding
+	* your actions to actions array. Now this N/A for correct working.
+	* Don't use this!
+	* @param  action  it is kid of BaseAction class
 	*/
 	public void addAction(BaseAction action) {
 		actions[position++] = action;
 	}
 	
 	/**
-		This method select a action from array and call from action method execute 
-		It is give command to action
+	* This method select a action from array and call from action method execute.
 	*/
 	public void select(int key){
 		this.actions[key].execute(io, tracker);
 	}
 	
 	/**
-		Return id of first not null action
-		@param: int result - it is first not null action in array actions
+	* Return id of first not null action.
+	* @return position of first command in actions array.
 	*/
 	public int getIdFirstCommand() {
 		int result = -1;
@@ -74,8 +85,8 @@ public class MenuTracker {
 	}
 	
 	/**
-		Return id of last not null action
-		@param: int result - it is last not null action in array actions
+	* Return id of last not null action.
+	* @return - it is last not null action in array actions.
 	*/
 	public int getIdLastCommand() {
 		int result = -1;
@@ -90,7 +101,7 @@ public class MenuTracker {
 	
 	
 	/**
-		This method using for show user all possible action
+	* This method using for show user all possible action.
 	*/
 	public void show(){
 		for(UserAction act : actions) {
@@ -100,31 +111,31 @@ public class MenuTracker {
 	}
 	
 	/**
-		Implementation of adding item
+	*	Implementation of adding item.
 	*/
 	private class AddItem extends BaseAction {
 	
 		/**
-			Init new action by calling constructor from parent
-			@param: String name - it is name of action
+		* Init new action by calling constructor from parent.
+		* @param name it is name of action.
 		*/
 		AddItem(String name) {
 			super(name);
 		}
 		
 		/**
-			Use for determine position in actions array
-			@param: int - position in the actions array
+		* Use for determine position in actions array.
+		* @return position in the actions array.
 		*/
 		public int key(){
 			return 0;
 		}
 		
 		/**
-			Execute command from user by interacting with him
-			And ask about item which will added to tracker
-			@param: io - implementation of input/output interface
-					tracker - instance of Tracker API
+		* Execute command from user by interacting with him
+		* And ask about item which will added to tracker.
+		* @param io  implementation of input/output interface.
+		* @param tracker instance of Tracker API.
 		*/
 		public	void execute(IO io, Tracker tracker) {
 			String name = io.ask("Enter a name of the new item: ");
@@ -135,32 +146,32 @@ public class MenuTracker {
 	}
 	
 	/**
-		Implement of remove option
+	* Implement of remove option.
 	*/
 	private class RemoveItem extends BaseAction {
 		
 		/**
-			Init a new action - remove item
-			@param: String name - it is name of action
+		*	Init a new action - remove item
+		*	@param  name name of action.
 		*/
 		RemoveItem(String name) {
 			super(name);
 		}
 		
 		/**
-			Use for determine position in actions array
-			@param: int - position in the actions array
+		* Use for determine position in actions array.
+		* @return position in the actions array.
 		*/
 		public int key(){
 			return 1;
 		}
 		
 		/**
-			Execute a remove item command. Ask user about number of item
-			in list. Try find it item and if found remove from tracker
-			Otherwise show user message about tracker was empty or user choose wrong number
-			@param: io - implementation of input/output interface
-					tracker - instance of Tracker API
+		* Execute a remove item command. Ask user about number of item
+		* in list. Try find it item and if found remove from tracker
+		* Otherwise show user message about tracker was empty or user choose wrong number.
+		* @param io implementation of input/output interface.
+		* @param tracker  instance of Tracker API.
 		*/
 		@Override
 		public void execute(IO io, Tracker tracker){
@@ -174,13 +185,16 @@ public class MenuTracker {
 		}
 		
 	}
-	
+
+	/**
+	 * Implementation of show all items action.
+	 */
 	private class ShowAllItems extends BaseAction {
 		
 		
 		/**
-			Init a new action - it is show all items action
-			@param: String name - it string for naming this action
+		*	Init a new action - it is show all items action
+		*	@param: String name - it string for naming this action
 		*/
 		ShowAllItems(String name) {
 			super(name);
