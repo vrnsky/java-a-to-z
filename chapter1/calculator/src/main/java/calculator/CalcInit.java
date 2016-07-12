@@ -3,15 +3,17 @@ package calculator;
 import java.io.*;
 
 /**
-* Small calculator class
-*
-*/
-public class CalcInit
-{
-	
+ * It class interact with user by accept data,
+ * call API of calculator and show to user result.
+ */
+public class CalcInit {
 
-	public static void main(String[] args) throws Exception
-	{
+	/**
+	 * Entry point of application.
+	 * @param args - key and values from start.
+	 * @throws Exception throw if reader from console fail.
+     */
+	public static void main(String[] args) throws Exception {
 		CalcInit calcInit = new CalcInit();
 		calcInit.start();
 		
@@ -19,20 +21,17 @@ public class CalcInit
 
 
 	/**
-	*  This method use to start computing
-	*
-	*/
-	public void start() throws Exception
-	{
+	 * Main loop of program, it handles input and call api.
+	 * @throws Exception if reader fail.
+     */
+	public void start() throws Exception {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		Calculator calculator = new Calculator();
 		double second, first;
 		String operand = "";
 		int answer = 0;
 
-		while(answer != -1)
-		{
-
+		while(answer != -1) {
 			System.out.println("Enter first digit");
 			first = Double.parseDouble(reader.readLine());
 			System.out.println("Enter second digit");
@@ -43,9 +42,7 @@ public class CalcInit
 			if(operand.equals("+")) calculator.add(first, second);
 			else if (operand.equals("*")) calculator.multiply(first, second);
 			else if (operand.equals("/")) calculator.div(first, second);
-			else if (operand.equals("-")) calculator.substruct(first, second);
-			
-			
+			else if (operand.equals("-")) calculator.deduct(first, second);
 			
 			System.out.printf("Result: %s\n", calculator.getResult());
 			System.out.println("Type any digit to continue or -1 for exit");

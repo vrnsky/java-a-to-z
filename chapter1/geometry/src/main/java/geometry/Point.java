@@ -3,27 +3,34 @@ package geometry;
 import static java.lang.Math.*;
 
 /**
-*   Implementation of point in 2D
-*/
-public class Point
-{
-	public double x;
-	public double y;
-	
+ * Representation of point in Decart coordinate system.
+ */
+public class Point {
+
 	/**
-		@param: double x - coord for x position
-				double y - coord for y position
-	*/
-	public Point(double x, double y)
-	{
+	 * Coordinate by x axis.
+	 */
+	public double x;
+
+	/**
+	 * Coordinate by y axis.
+	 */
+	public double y;
+
+	/**
+	 * Construct new point at the given coordinates.
+	 * @param x  coordinate by x axis.
+	 * @param y  coordinate by y axis.
+     */
+	public Point(double x, double y) {
 		this.x = x;
 		this.y = y;
 	}
 	
 	/**
-	*	Calculate distance between two points
-	*	@param: Point point - finish point for computing
-	* 	@return double distance - distance between this point and transmitted point
+	*	Calculate distance between two points.
+	*	@param  point finish point for computing.
+	* 	@return  distance between this point and transmitted point.
 	*/
 	public double distanceTo(Point point)
 	{

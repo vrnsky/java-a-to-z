@@ -6,19 +6,18 @@ import java.util.Arrays;
 import org.junit.Test;
 import arrays.BubbleSort;
 
-
 /**
-	Unit test for BubbleSort.java
-*/
+ * Unit test for BubbleSort.java.
+ * It test implementation of bubble sort algorithm.
+ */
 public class BubbleSortTest
 {
 	/**
-		When pass to method bubble sort by descending not null array of integer
-		Should return sorted array by descending
-	*/
+	 * When pass to method bubble sort by descending not null array of integer
+	 * should return sorted array by ascending.
+	 */
 	@Test
-	public void whenPassInSortMethodNotNullArrayShouldSortingNumbersInArrayByAscending()
-	{
+	public void whenPassInSortMethodNotNullArrayShouldSortingNumbersInArrayByAscending() {
 		//Assign block
 		BubbleSort sorter = new BubbleSort();
 		int[] randomArray = new int[]{5,3,2,4,6,1,7};
@@ -30,5 +29,4 @@ public class BubbleSortTest
 		//Action block
 		assertThat(Arrays.toString(randomArray), is(Arrays.toString(expectedArray)));
 	}
-	
 }
