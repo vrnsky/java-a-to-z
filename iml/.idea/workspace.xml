@@ -2,68 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="806ee486-b374-4af2-8308-87d9663aa2bb" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../chapter1/task/src/test/task/SubstringTest.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/arrays/src/main/java/arrays/BubbleSort.java" afterPath="$PROJECT_DIR$/../chapter1/arrays/src/main/java/arrays/BubbleSort.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/arrays/src/main/java/arrays/Duplicator.java" afterPath="$PROJECT_DIR$/../chapter1/arrays/src/main/java/arrays/Duplicator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/arrays/src/main/java/arrays/Rotate.java" afterPath="$PROJECT_DIR$/../chapter1/arrays/src/main/java/arrays/Rotate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/arrays/src/test/java/arrays/BubbleSortTest.java" afterPath="$PROJECT_DIR$/../chapter1/arrays/src/test/java/arrays/BubbleSortTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/arrays/src/test/java/arrays/DuplicatorTest.java" afterPath="$PROJECT_DIR$/../chapter1/arrays/src/test/java/arrays/DuplicatorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/arrays/src/test/java/arrays/RotateTest.java" afterPath="$PROJECT_DIR$/../chapter1/arrays/src/test/java/arrays/RotateTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/calculator/src/main/java/calculator/CalcInit.java" afterPath="$PROJECT_DIR$/../chapter1/calculator/src/main/java/calculator/CalcInit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/calculator/src/main/java/calculator/Calculator.java" afterPath="$PROJECT_DIR$/../chapter1/calculator/src/main/java/calculator/Calculator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/calculator/src/test/java/calculator/CalculatorTest.java" afterPath="$PROJECT_DIR$/../chapter1/calculator/src/test/java/calculator/CalculatorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/geometry/src/main/java/geometry/Maxside.java" afterPath="$PROJECT_DIR$/../chapter1/geometry/src/main/java/geometry/Maxside.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/geometry/src/main/java/geometry/Point.java" afterPath="$PROJECT_DIR$/../chapter1/geometry/src/main/java/geometry/Point.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/geometry/src/main/java/geometry/Triangle.java" afterPath="$PROJECT_DIR$/../chapter1/geometry/src/main/java/geometry/Triangle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/MaxsideTest.java" afterPath="$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/MaxsideTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/PointTest.java" afterPath="$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/PointTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/TriangleTest.java" afterPath="$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/TriangleTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/loops/src/main/java/loops/Factorial.java" afterPath="$PROJECT_DIR$/../chapter1/loops/src/main/java/loops/Factorial.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/loops/src/main/java/loops/Square.java" afterPath="$PROJECT_DIR$/../chapter1/loops/src/main/java/loops/Square.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/loops/src/test/java/loops/FactorialTest.java" afterPath="$PROJECT_DIR$/../chapter1/loops/src/test/java/loops/FactorialTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/loops/src/test/java/loops/SquareTest.java" afterPath="$PROJECT_DIR$/../chapter1/loops/src/test/java/loops/SquareTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/task/src/main/java/task/Substring.java" afterPath="$PROJECT_DIR$/../chapter1/task/src/main/java/task/Substring.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/test/java/start/MenuTrackerTest.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/test/java/start/MenuTrackerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/test/java/start/StartUITest.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/test/java/start/StartUITest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/test/java/start/StubIOTest.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/test/java/start/StubIOTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/test/java/start/TrackerTest.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/test/java/start/TrackerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Board.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Elephant.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Elephant.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Figure.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Figure.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Horse.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Horse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/King.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/King.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Pawn.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Pawn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Queen.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Queen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Rook.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Rook.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/BoardTest.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/BoardTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/ElephantTest.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/ElephantTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/HorseTest.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/HorseTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/KingTest.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/KingTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/PawnTest.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/PawnTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/QueenTest.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/QueenTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/RookTest.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/RookTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Answerer.java" afterPath="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Answerer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Chat.java" afterPath="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Chat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Logger.java" afterPath="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Logger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/consoleChat/src/test/java/chat/AnswererTest.java" afterPath="$PROJECT_DIR$/../chapter3/consoleChat/src/test/java/chat/AnswererTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/consoleChat/src/test/java/chat/LoggerTest.java" afterPath="$PROJECT_DIR$/../chapter3/consoleChat/src/test/java/chat/LoggerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/FindByMask.java" afterPath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/FindByMask.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/FindByName.java" afterPath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/FindByName.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/FindByRegExp.java" afterPath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/FindByRegExp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/Finder.java" afterPath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/Finder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/KeysValidator.java" afterPath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/KeysValidator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/palindrome/src/main/java/palindrome/Palindrome.java" afterPath="$PROJECT_DIR$/../chapter3/palindrome/src/main/java/palindrome/Palindrome.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/palindrome/src/test/java/palindrome/PalindromeTest.java" afterPath="$PROJECT_DIR$/../chapter3/palindrome/src/test/java/palindrome/PalindromeTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/parity/src/main/java/parity/ParityChecker.java" afterPath="$PROJECT_DIR$/../chapter3/parity/src/main/java/parity/ParityChecker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/parity/src/test/java/parity/ParityCheckerTest.java" afterPath="$PROJECT_DIR$/../chapter3/parity/src/test/java/parity/ParityCheckerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/real/src/main/java/real/Real.java" afterPath="$PROJECT_DIR$/../chapter3/real/src/main/java/real/Real.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/real/src/test/java/real/RealTest.java" afterPath="$PROJECT_DIR$/../chapter3/real/src/test/java/real/RealTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java" afterPath="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Server.java" afterPath="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Server.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/summ/src/main/java/summ/Addition.java" afterPath="$PROJECT_DIR$/../chapter3/summ/src/main/java/summ/Addition.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/summ/src/test/java/summ/AdditionTest.java" afterPath="$PROJECT_DIR$/../chapter3/summ/src/test/java/summ/AdditionTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/task (1) (ru.evrnsky.chapter1.task).iml" afterPath="$PROJECT_DIR$/task (1) (ru.evrnsky.chapter1.task).iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Bug.java" afterPath="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Bug.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Comment.java" afterPath="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Comment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Item.java" afterPath="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Item.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Task.java" afterPath="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Task.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/models/src/test/java/models/ItemTest.java" afterPath="$PROJECT_DIR$/../chapter2/models/src/test/java/models/ItemTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/BaseAction.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/BaseAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/ConsoleIO.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/ConsoleIO.java" />
     </list>
     <ignored path="tracker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -104,7 +50,93 @@
     <favorites_list name="tracker" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ItemTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../chapter2/models/src/test/java/models/ItemTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="114" column="72" selection-start-line="114" selection-start-column="72" selection-end-line="114" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseAction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/BaseAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.703704">
+              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConsoleIO.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/ConsoleIO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7851124">
+              <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+              <folding>
+                <element signature="e#1318#1319#0" expanded="true" />
+                <element signature="e#1365#1366#0" expanded="true" />
+                <element signature="e#1563#1564#0" expanded="true" />
+                <element signature="e#1611#1612#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/IO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuOutException.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuOutException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/StartUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StubIO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/StubIO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdditionTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../chapter3/summ/src/test/java/summ/AdditionTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -125,14 +157,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../chapter1/geometry/src/main/java/geometry/Triangle.java" />
-        <option value="$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/MaxsideTest.java" />
-        <option value="$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/PointTest.java" />
-        <option value="$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/TriangleTest.java" />
-        <option value="$PROJECT_DIR$/../chapter1/loops/src/main/java/loops/Square.java" />
-        <option value="$PROJECT_DIR$/../chapter1/loops/src/main/java/loops/Factorial.java" />
-        <option value="$PROJECT_DIR$/../chapter1/loops/src/test/java/loops/FactorialTest.java" />
-        <option value="$PROJECT_DIR$/../chapter1/loops/src/test/java/loops/SquareTest.java" />
         <option value="$PROJECT_DIR$/../chapter1/task/src/main/java/task/Substring.java" />
         <option value="$PROJECT_DIR$/../chapter1/task/src/test/task/SubstringTest.java" />
         <option value="$PROJECT_DIR$/../chapter1/task/pom.xml" />
@@ -176,6 +200,14 @@
         <option value="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Server.java" />
         <option value="$PROJECT_DIR$/../chapter3/summ/src/main/java/summ/Addition.java" />
         <option value="$PROJECT_DIR$/../chapter3/summ/src/test/java/summ/AdditionTest.java" />
+        <option value="$PROJECT_DIR$/../chapter1/calculator/src/main/java/calculator/CalcInit.java" />
+        <option value="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Item.java" />
+        <option value="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Task.java" />
+        <option value="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Comment.java" />
+        <option value="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Bug.java" />
+        <option value="$PROJECT_DIR$/../chapter2/models/src/test/java/models/ItemTest.java" />
+        <option value="$PROJECT_DIR$/../chapter2/start/src/main/java/start/BaseAction.java" />
+        <option value="$PROJECT_DIR$/../chapter2/start/src/main/java/start/ConsoleIO.java" />
       </list>
     </option>
   </component>
@@ -245,6 +277,268 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java-a-to-z" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java-a-to-z" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chapter3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java-a-to-z" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chapter3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="summ" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java-a-to-z" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chapter3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="summ" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="summ" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java-a-to-z" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chapter3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="summ" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java-a-to-z" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chapter2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java-a-to-z" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chapter2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="start" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java-a-to-z" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chapter2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="start" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java-a-to-z" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chapter2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="start" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="start" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java-a-to-z" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chapter2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java-a-to-z" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chapter2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tracker" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java-a-to-z" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="chapter2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -870,7 +1164,7 @@
       <workItem from="1468270698215" duration="16000" />
       <workItem from="1468303574922" duration="3999000" />
       <workItem from="1468307601836" duration="641000" />
-      <workItem from="1468330401497" duration="3156000" />
+      <workItem from="1468330401497" duration="4882000" />
     </task>
     <servers />
   </component>
@@ -907,7 +1201,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92259000" />
+    <option name="totallyTimeSpent" value="93985000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -920,7 +1214,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938644" sideWeight="0.49789694" order="6" side_tool="false" content_ui="tabs" />
@@ -930,7 +1224,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21388888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21388888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -969,139 +1263,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/MaxsideTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5704388">
-          <caret line="12" column="64" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/PointTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/TriangleTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31408775">
-          <caret line="32" column="84" selection-start-line="32" selection-start-column="84" selection-end-line="32" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter1/loops/src/main/java/loops/Factorial.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter1/loops/src/main/java/loops/Square.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="95" selection-start-line="42" selection-start-column="95" selection-end-line="42" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter1/loops/src/test/java/loops/FactorialTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="54" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter1/loops/src/test/java/loops/SquareTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25123152">
-          <caret line="45" column="60" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter1/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter1/loops/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter1/task/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter1/task/src/main/java/task/Substring.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23556583">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter1/task/src/test/java/task/SubstringTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/test/java/start/MenuTrackerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.7280107">
-          <caret line="253" column="4" selection-start-line="253" selection-start-column="4" selection-end-line="253" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/test/java/start/TrackerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.3125846">
-          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/test/java/start/StubIOTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.932341">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/test/java/start/StartUITest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5656292">
-          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2652233">
-          <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Elephant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.102841675">
-          <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Horse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41407308">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Figure.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07162921">
@@ -1180,8 +1341,8 @@
         <state vertical-scroll-proportion="1.5060893">
           <caret line="152" column="89" selection-start-line="152" selection-start-column="89" selection-end-line="152" selection-end-column="89" />
           <folding>
-            <element signature="e#450#451#0" expanded="true" />
-            <element signature="e#488#489#0" expanded="true" />
+            <element signature="e#450#451#0" expanded="false" />
+            <element signature="e#488#489#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1346,11 +1507,171 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter1/arrays/src/main/java/arrays/BubbleSort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter1/arrays/src/main/java/arrays/Duplicator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter1/arrays/src/main/java/arrays/Rotate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter1/calculator/src/main/java/calculator/CalcInit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.851851">
+          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter1/calculator/src/test/java/calculator/CalculatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter1/geometry/src/main/java/geometry/Maxside.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter1/geometry/src/main/java/geometry/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter1/geometry/src/main/java/geometry/Triangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/models/src/main/java/models/Bug.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06901218">
+          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/models/src/main/java/models/Comment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32205683">
+          <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/models/src/main/java/models/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6896067">
+          <caret line="134" column="59" selection-start-line="134" selection-start-column="59" selection-end-line="134" selection-end-column="59" />
+          <folding>
+            <element signature="e#2589#2590#0" expanded="true" />
+            <element signature="e#2680#2681#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/models/src/main/java/models/Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25304466">
+          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/models/src/test/java/models/ItemTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="114" column="72" selection-start-line="114" selection-start-column="72" selection-end-line="114" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/IO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuOutException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/StartUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/StubIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../chapter3/summ/src/test/java/summ/AdditionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5169147">
+        <state vertical-scroll-proportion="0.0">
           <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/BaseAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.703704">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/ConsoleIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7851124">
+          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+          <folding>
+            <element signature="e#1318#1319#0" expanded="true" />
+            <element signature="e#1365#1366#0" expanded="true" />
+            <element signature="e#1563#1564#0" expanded="true" />
+            <element signature="e#1611#1612#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
