@@ -11,7 +11,7 @@ import java.io.IOException;
 public class AnswererTest {
 
     /**
-     * When try get a random string from from file should get random string from file
+     * When try get a random string from from file should get random string from file.
      * Attention method can throw null pointer exception if file was not found for avoid it use absolute path.
      */
     @Test

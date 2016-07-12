@@ -8,17 +8,17 @@ import static org.junit.Assert.*;
 import java.util.Arrays;
 
 /**
- *  Unit test for FindByMask.java
+ *  Unit test for FindByMask.java.
  */
 public class FindByMaskTest {
 
     /**
-     * From this path will start search and will save result
+     * From this path will start search and will save result.
      */
     private static final String PATH = "F:/java-a-to-z/iml/move/";
 
     /**
-     * When user give correct keys should find file and save all data
+     * When user give correct keys should find file and save all data.
      */
     @Test
     public void whenTrySearchFileByMaskShouldSaveResultInSpecifiedFile() {

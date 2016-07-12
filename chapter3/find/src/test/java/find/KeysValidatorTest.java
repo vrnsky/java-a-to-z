@@ -5,12 +5,12 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 /**
- * Unit test for KeysValidator.java
+ * Unit test for KeysValidator.java.
  */
 public class KeysValidatorTest {
 
     /**
-     * When user give us key should check that is correct
+     * When user give us key should check that is correct.
      */
     @Test
     public void whenTryUseCorrectKeyShouldKeyValidatorReturnATrue() {
@@ -28,8 +28,7 @@ public class KeysValidatorTest {
     }
 
     /**
-     * When user give us bad key should show user hint and
-     * Show which key is bad
+     * When user give us bad key should show user hint and show which key is bad.
      */
     @Test
     public void whenTryUseWrongKeyShouldKeyValidatorReturnAFalse() {
@@ -37,13 +36,12 @@ public class KeysValidatorTest {
         //Assign block
         String[] keys = new String[]{"-g", "c:/", "-n", "*.txt", "-n", "-o", "log.txt"};
         KeysValidator keysValidator = new KeysValidator();
-        boolean expected = false;
 
         //Act block
         boolean actual = keysValidator.isValidKeys(keys);
 
         //Action block
-        assertThat(actual, is(expected));
+        assertThat(actual, is(false));
 
     }
 }

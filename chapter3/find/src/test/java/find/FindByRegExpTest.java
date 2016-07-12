@@ -10,17 +10,17 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 /**
- * Unit test for FindByRegExp.java
+ * Unit test for FindByRegExp.java.
  */
 public class FindByRegExpTest {
 
     /**
-     * At this path will be search and save result
+     * At this path will be search and save result.
      */
     private static final String PATH = "F:/java-a-to-z/iml/move/";
 
     /**
-     * Save all data find and not find
+     * Save all data find and not find.
      */
     @Test
     public void whenTrySearchFileByRegExpShouldCheckThatWeWriteResultInFile() {
