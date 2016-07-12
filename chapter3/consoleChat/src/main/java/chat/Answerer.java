@@ -30,9 +30,9 @@ public class Answerer {
     private int stringCount;
 
     /**
-     * Construct answerer object for give answer
-     * @param fileName - name of file with answers
-     * @throws IOException - throw if file was not found
+     * Construct answerer object for give answer.
+     * @param fileName - name of file with answers.
+     * @throws IOException - throw if file was not found.
      */
     public Answerer(String fileName) throws IOException {
         this.fileName = fileName;
@@ -43,8 +43,8 @@ public class Answerer {
     }
 
     /**
-     * Count strings in files
-     * @return count of string in file
+     * Count strings in files.
+     * @return count of string in file.
      */
     private int countAnswerInFile() {
         int stringCount = 0;
@@ -64,8 +64,8 @@ public class Answerer {
     }
 
     /**
-     * Fill answers array by strings from file
-     * @throws IOException throw if file was not found
+     * Fill answers array by strings from file.
+     * @throws IOException throw if file was not found.
      */
     private void fillAnswers() throws IOException {
         answers = new String[stringCount];
@@ -82,8 +82,8 @@ public class Answerer {
     }
 
     /**
-     * Return random string from array which contains strings from file
-     * @return random string from file
+     * Return random string from array which contains strings from file.
+     * @return random string from file.
      */
     public String getRandomString() {
         int position = RN.nextInt(answers.length);
@@ -91,8 +91,8 @@ public class Answerer {
     }
 
     /**
-     * Return all string from file
-     * @return strings from file
+     * Return all string from file.
+     * @return strings from file.
      */
     public String[] getAllStrings() {
         return this.answers;
