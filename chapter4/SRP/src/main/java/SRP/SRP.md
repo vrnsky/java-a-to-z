@@ -63,8 +63,7 @@ public void start() throws Exception {
 	/**
 	 * For generate random number for id.
 	 */
-	private static final Random RN = new Random();
-    ```
+	private static final Random RN = new Random(); ```
     Очень много полей для класса, возможно, необходимо вынести их в отдельный класс ItemInfo, который будет отвечать только за предоставление информации о заявке.
 
 3. [Класс MenuTracker](https://github.com/vrnsky/java-a-to-z/blob/master/chapter2/start/src/main/java/start/MenuTracker.java) содержит в себе реализации всех возможных действий пользователя. Возможно, необходимо вынести их в отдельные классы.
