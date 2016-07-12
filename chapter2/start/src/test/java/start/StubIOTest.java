@@ -70,7 +70,7 @@ public class StubIOTest {
 
 	/**
 	 * When ask fake user about integer number and user input integer number behind range
-	 * Should throw runtime expception.
+	 * Should throw runtime exception.
 	 */
 	@Test(expected = MenuOutException.class)
 	public void whenAskUserAboutIntAndUserEnterIntBehindRangeShouldThrowException() {

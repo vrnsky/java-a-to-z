@@ -13,7 +13,7 @@ import static org.hamcrest.core.StringContains.containsString;
 public class MenuTrackerTest {
 
 	/**
-	 * Id for command which show all items
+	 * Id for command which show all items.
 	 */
 	private static final int SHOW_ALL_ITEMS = 2;
 

@@ -12,8 +12,7 @@ import static org.junit.Assert.*;
 public class StartUITest {
 
 	/**
-	 * When user try add item
-	 * Should check that item was added.
+	 * When user try add item should check that item was added.
 	 */
 	@Test
 	public void whenAddItemToAppUseUIShouldAddItemToTracker(){
@@ -36,8 +35,7 @@ public class StartUITest {
 	}
 
 	/**
-	 * When try to remove item
-	 * Should check that item was removed.
+	 * When try to remove item should check that item was removed.
 	 */
 	@Test
 	public void whenRemoveItemFromAppUseUIShouldRemoveItemFromTracker() {

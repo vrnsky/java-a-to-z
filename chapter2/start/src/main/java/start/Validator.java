@@ -1,13 +1,16 @@
 package start;
 
+/**
+ * Implementation of validator, is handle bad and good input.
+ */
 public class Validator extends ConsoleIO  {
 	
 	/**
-		Ask user about int and return it
-		@param:String question - it is String which will show to user
-			   int to - it high point to range
-			   int from - it is low point to range
-		@return: int result - it result of correct input
+	* Ask user about int and return it.
+	* @param  question - it is String which will show to user.
+	* @param to high point to range.
+	* @param from low point to range.
+	* @return result of correct input.
 	*/
 	public int ask(String question, int from, int to) {
 		int number = -1;
@@ -30,9 +33,9 @@ public class Validator extends ConsoleIO  {
 	}
 
 	/**
-		Ask user about long and return it
-		@param:String question - it is String which will show to user
-		@return: long result - it result of correct input
+	* Ask user about long and return it.
+	* @param question will show to user.
+	* @return result of correct input.
 	*/
 	public long askForLong(String question) {
 		long result = -1;
@@ -50,9 +53,9 @@ public class Validator extends ConsoleIO  {
 	}
 
 	/**
-	 * Return double number from user
-	 * @param question - info for user
-	 * @return double number from user input
+	 * Return double number from user.
+	 * @param question - info for user.
+	 * @return double number from user input.
      */
 	public double askForDouble(String question) {
 		double result = -1.00;
