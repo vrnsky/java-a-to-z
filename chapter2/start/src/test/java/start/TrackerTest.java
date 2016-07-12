@@ -7,16 +7,20 @@ import models.Item;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
+
 /**
- Unit test for Tracker.java
+ * Unit test for Tracker.java.
+ * It test next functionality: add, edit, remove, comment, filtered by text and time options.
  */
-public class TrackerTest
-{
+public class TrackerTest {
+
+    /**
+     * Instance of testing class.
+     */
     private Tracker tracker;
 
     /**
-     JUnit call this method before each test
-     Uses for init instance of tracker
+     * Init instance of testing class, it placed there to reduce code in test.
      */
     @Before
     public void setUp()
@@ -25,12 +29,10 @@ public class TrackerTest
     }
 
     /**
-     When try add item to tracked should get last item from tracker
-     It will be equals created item
+     * When try add item should check that item was added.
      */
     @Test
-    public void whenTryAddItemToTrackerShouldTryGetLastItemFromTracker()
-    {
+    public void whenTryAddItemToTrackerShouldTryGetLastItemFromTracker() {
         //Assign block
         Item item = new Item();
 
@@ -41,13 +43,11 @@ public class TrackerTest
         assertThat(result, is(item));
     }
 
-
     /**
-     When try edit item should check that changes was saved
+     * When try edit item should check that changes was saved.
      */
     @Test
-    public void whenTryEditItemShouldTryGetEditedItem()
-    {
+    public void whenTryEditItemShouldTryGetEditedItem() {
         //Assign block
         Item item = new Item();
         tracker.addItem(item);
@@ -62,15 +62,13 @@ public class TrackerTest
 
         //Check some component of item will be changed
 		assertThat(result, is(expectedResult));
-		
     }
 
     /**
-     When try remove item should check item was removed
+     * When try remove item should check that item was removed.
      */
     @Test
-    public void whenTryRemoveItemShouldTrackerReturnDeletedItem()
-    {
+    public void whenTryRemoveItemShouldTrackerReturnDeletedItem() {
         //Assign block
         Item item = new Item();
         tracker.addItem(item);
@@ -83,11 +81,10 @@ public class TrackerTest
     }
 
     /**
-     When try to get all items from tracker - it should be not null
+     * When try to get all items should check that items array not empty.
      */
     @Test
-    public void whenTryGetAllItemsShouldReturnNotNullArrayOfItems()
-    {
+    public void whenTryGetAllItemsShouldReturnNotNullArrayOfItems() {
         //Assign block
         tracker.addItem(new Item());
         tracker.addItem(new Item());
@@ -102,12 +99,10 @@ public class TrackerTest
     }
 
     /**
-     When try to find items which name or description contain given string
-     Should return all items which contatins given string
+     * When try to find items with given text data should check that tracker return correct items.
      */
     @Test
-    public void whenTryFindFilteredByTextItemsShouldReturnItemsWhichContainsString()
-    {
+    public void whenTryFindFilteredByTextItemsShouldReturnItemsWhichContainsString() {
         //Assign block
         tracker.addItem(new Item("Small bug", "Fix before next week"));
         tracker.addItem(new Item("Float bug", "Fix before 09.06.16"));
@@ -122,12 +117,10 @@ public class TrackerTest
     }
 
     /**
-     When try to find items which created after given time
-     Should return array of items which were created before given time
+     * When try find items which created after given time should check that tracker return correct items.
      */
     @Test
-    public void whenTryFindFilteredByTimeCreatingShouldReturnItemsWhichWereCreatedAfterGivenMiliseconds()
-    {
+    public void whenTryFindFilteredByTimeCreatingShouldReturnItemsWhichWereCreatedAfterGivenMiliseconds() {
         //Assign block
         tracker.addItem(new Item("First name", "First description"));
         tracker.addItem(new Item("Second task", "Second description"));
@@ -140,28 +133,28 @@ public class TrackerTest
         //Action block
         assertThat(result, is(true));
     }
-	
-	/**
-		When try get position of first item in array should get position
-		of first item in items arra
-	*/
+
+    /**
+     * When try get position of first item in array should get position of first item in items array.
+     */
 	@Test
 	public void whenTryToGetIdOfFirstItemShouldReturnIdOfFirstItem() {
 		
 		//Assign block
 		tracker.addItem(new Item("First name", "First item"));
 		int expected = 0;
-		
+
+        //Act block
 		int actual = tracker.getStart();
-		
+
+        //Action block
 		assertThat(actual, is(expected));
 	}
-	
-	/**
-		When try get a position of last item should return position of last
-		item or end position of items array
-	*/
-	@Test
+
+    /**
+     * When try get id of last item should check that tracker return correct position.
+     */
+    @Test
 	public void whenTryToGetIdOfLastItemShouldReturnIfOfLastItem() {
 		
 		//Assign block

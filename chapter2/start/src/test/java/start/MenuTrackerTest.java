@@ -7,16 +7,20 @@ import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.StringContains.containsString;
 
 /**
-	Unit test of MenuTracker.java
-*/
+ * Unit test for MenuTracker.java.
+ * It test all operations from class and check correct perform of its.
+ */
 public class MenuTrackerTest {
-	
-	//id of command for menu tracker, which type all items from tracker
-	private static final int SHOW_ALL_ITEMS = 2;
-	
+
 	/**
-		When we show user menu it must correct menu
-	*/
+	 * Id for command which show all items
+	 */
+	private static final int SHOW_ALL_ITEMS = 2;
+
+	/**
+	 * When application start it must show to user menu
+	 * Should check that menu is correct.
+	 */
 	@Test
 	public void whenWeShowUserMenuShouldShowCorrectMenu(){
 		
@@ -33,14 +37,15 @@ public class MenuTrackerTest {
 		//Action block
 		assertThat(stubIO.getOut(), is(expected));
 	}
-	
+
 	/**
-		When try add item to tracker across menu tracker should add item to tracker
-	*/
+	 * When user try add new item to the tracker
+	 * Should check that item added.
+	 */
 	@Test
 	public void whenTryAddItemToTrackerUseMenuTrackerShouldAddItem(){
 		
-		/** Assing block
+		/** Assign block
 			Which command will execute - see variable answer:
 			0 - key for add operation
 			It is my first item - name of item
@@ -61,10 +66,11 @@ public class MenuTrackerTest {
 		//Act block
 		assertThat(stubIO.getOut(), containsString(expected));
 	}
-	
+
 	/**
-		When try remove item from tracker across menu tracker should remove item from tracker
-	*/
+	 * When try remove item from tracker
+	 * Should check that item was removed.
+	 */
 	@Test
 	public void whenTryRemoveItemFromTrackerShouldRemoveItemFromTracker(){
 		
@@ -96,9 +102,8 @@ public class MenuTrackerTest {
 	}
 
 	/**
-		When try edit item in tracker across menu tracker should edited item
-		And update in tracker. It is checking by show all items in tracker
-	*/
+	 *  When try edit item should check that app correctly edit item.
+	 */
 	@Test
 	public void whenTryToEditItemFromTrackerShouldEditedAndReturnToTrackerItem(){
 		
@@ -128,11 +133,10 @@ public class MenuTrackerTest {
 		//Action block
 		assertThat(stubIO.getOut(), containsString(expected));
 	}
-	
+
 	/**
-		When try to comment item should execute command and check that it is success
-		Check by show comment for item
-	*/
+	 * When try to comment item should check that app correctly attach comment to item.
+	 */
 	@Test
 	public void whenTryCommentItemShouldCommentItemAndSaveToTracker() {
 		
@@ -164,11 +168,11 @@ public class MenuTrackerTest {
 		//Action block
 		assertThat(stubIO.getOut(), is(expected));
 	}
-	
+
 	/**
-		When try to get items filtered by text data should
-		show all item which contains string given text data
-	*/
+	 * When try to get items filtered by text data
+	 * Should check that app find item with given text.
+	 */
 	@Test
 	public void whenTryGetItemsFilteredByTextDataShouldShowItemsWithGivenTextData() {
 		
@@ -190,16 +194,16 @@ public class MenuTrackerTest {
 		int command = Integer.valueOf(stubIO.ask("Type a command for Tracker: "));
 		menuTracker.select(command);
 		command = Integer.valueOf(stubIO.ask("Type a command for Tracker: "));
-		menuTracker.select(6);
+		menuTracker.select(command);
 		
 		//Action block
 		assertThat(stubIO.getOut(), containsString(expected));
 	}
-	
+
 	/**
-		When try get items filtered by time should
-		Show items with given time
-	*/
+	 * When try get items filtered by time
+	 * Should check that app give items with correct create time.
+	 */
 	@Test
 	public void whenTryGetItemsFilteredByTimeShouldShowItemsWithGivenTime() {
 		
@@ -226,10 +230,11 @@ public class MenuTrackerTest {
 		//Act block
 		assertThat(stubIO.getOut(), containsString(expected));
 	}
-	
+
 	/**
-		When try get id of first command should return id of first command
-	*/
+	 *  When try get id of first command
+	 *  Should check that id of first command is zero.
+	 */
 	@Test
 	public void whenTryGetIdFirstCommandShouldReturnIdOfFirstCommand() {
 		
@@ -246,10 +251,11 @@ public class MenuTrackerTest {
 		//Action block
 		assertThat(actual, is(expected));
 	}
-	
+
 	/**
-		When try get id of last command should return id of last command
-	*/
+	 * When try get id of last command
+	 * Should check that id of last command is equals seven
+	 */
 	@Test
 	public void whenTryGetIdLastCommandShouldReturnIdOfLastCommand() {
 		String[] answer = new String[]{"answer"};

@@ -6,13 +6,15 @@ import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
 
 /**
-	Unit test for StubIO.java
-*/
+ * Unit test for StubIO.java
+ * It must give us fake input from user.
+ */
 public class StubIOTest {
-	
+
 	/**
-		When get input data should return input data
-	*/
+	 * When ask fake user about some string
+	 * Should check that input return string from answer array.
+	 */
 	@Test
 	public void whenGetInputDataShouldReturnInputData() {
 		
@@ -27,10 +29,10 @@ public class StubIOTest {
 		//Action block
 		assertThat(result, is(expected));
 	}
-	
+
 	/**
-		When show data should show data
-	*/
+	 * When try print something should check that it was printed.
+	 */
 	@Test 
 	public void whenShowAtOutSomeDataShouldReturnInfo(){
 		
@@ -48,9 +50,9 @@ public class StubIOTest {
 	}
 
 	/**
-		When ask user about long and user entered correct input
-		shoud accept this input	
-	*/
+	 * When ask user about long and fake user entered correct input
+	 * Should accept this input.
+	 */
 	@Test
 	public void whenAskUserAboutLongShouldGetLong() {
 
@@ -65,11 +67,11 @@ public class StubIOTest {
 		//Action block
 		assertThat(actual, is(expected));
 	}
-	
+
 	/**
-		When ask user about int and user enter int behind range
-		Should throw exception
-	*/
+	 * When ask fake user about integer number and user input integer number behind range
+	 * Should throw runtime expception.
+	 */
 	@Test(expected = MenuOutException.class)
 	public void whenAskUserAboutIntAndUserEnterIntBehindRangeShouldThrowException() {
 		

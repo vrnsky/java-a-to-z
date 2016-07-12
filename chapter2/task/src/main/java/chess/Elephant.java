@@ -1,24 +1,23 @@
 package chess;
-
 /**
-	Implementation of chess elephant figure
-*/
-
+ * Implementation of chess elephant figure.
+ */
 public class Elephant extends Figure {
-	
-   /**
-	  It use for show elephant as string
-   */
+
+    /**
+     *  It use for show elephant as string.
+     */
    private static final String ELEPHANT_STRING = "E";
-	
-	/**
-		Check than elephant may make this step
-		@param:int fromX - start X position
-		@param:int fromY - start Y position
-		@param:int toX - finish X position
-		@param:int toY - finish Y position
-		@return:boolean, true if elephant may make this step, otherwise false
-	*/
+
+    /**
+     *
+     * @param figures board for moving.
+     * @param fromX start position by X axis.
+     * @param fromY start position by Y axis.
+     * @param toX finish position by X axis.
+     * @param toY finish position by Y axis.
+     * @return true if figure may make this step and otherwise false.
+     */
    @Override
    public  boolean canMove(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
         boolean canMove = false;
@@ -29,13 +28,17 @@ public class Elephant extends Figure {
         return canMove;
     }
 
-	/**
-		Check than elephant may make step by forward diagonal.
-		Forward means coord are incresead by step
-		@param: see canMove method,it is above this
-		@return: boolean, if figure may make this step by forward diagonal, otherwise false
-	*/
-    private boolean forwardDiagonal(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
+    /**
+     * Check than elephant may make step by forward diagonal.
+     * Forward means than the coordinates are increase by each step.
+     * @param figures board for moving.
+     * @param fromX start position by X axis.
+     * @param fromY start position by Y axis.
+     * @param toX finish position by X axis.
+     * @param toY finish position by Y axis.
+     * @return true if figure may make this step and otherwise false.
+     */
+   private boolean forwardDiagonal(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
         int count = 0;
         int currentX = fromX+1;
         int currentY = fromY-1;
@@ -48,13 +51,18 @@ public class Elephant extends Figure {
         return count == 0;
     }
 
-	/**
-		Check than elephant may make step by backward diagonal
-		Backward means the coords are descrease by step
-		@param: see canMove method, it is above
-		@return: boolean, if elephant may make step by backward diagonal, otherwise false
-	*/
-    private boolean backwardDiagonal(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
+
+    /**
+     * Check than elephant may make step by backward diagonal.
+     * Backward means the coordinates are decrease by step
+     * @param figures board for moving.
+     * @param fromX start position by X axis.
+     * @param fromY start position by Y axis.
+     * @param toX finish position by X axis.
+     * @param toY finish position by Y axis.
+     * @return true if figure may make this step otherwise false.
+     */
+   private boolean backwardDiagonal(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
         int count = 0;
         int currentX = fromX - 1;
         int currentY = fromY - 1;
@@ -67,12 +75,12 @@ public class Elephant extends Figure {
         return count == 0;
     }
 
-	/**
-		Return string view of elephant figure
-		@return:String which describes elephant figure
-	*/
-    @Override
-    public String toString() {
+    /**
+     * Return a string view of figure
+     * @return elephant string.
+     */
+   @Override
+   public String toString() {
         return ELEPHANT_STRING;
     }
 

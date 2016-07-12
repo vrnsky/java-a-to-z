@@ -3,39 +3,39 @@ package chess;
 import static java.lang.Math.abs;
 
 /**
-	Implementation of horse chess figure
-*/
+ * Implementation of horse chess figure.
+ */
 public class Horse extends Figure {
-	
+
 	/**
-		using for represent horse figure as string
-	*/
+	 * Using for show figure as string.
+	 */
 	private static final String HORSE_STRING = "H";
 
 	/**
-		Use class rook for compute correct or wrong moving 
-	*/
+	 * Use API of rook chess figure for avoid code duplication.
+	 */
     private Rook rook;
 
 	/**
-		For using rook need init it
-	*/
+	 * Construct new horse and init needed fields.
+	 */
     public Horse() {
         this.rook = new Rook();
     }
-	
+
 	/**
-		Check may figure make this step
-		@param:int fromX - start X position
-		@param:int fromY - start Y position
-		@param:int toX - finish X position
-		@param:int toY - finish Y position
-		@return: boolean, true if figure may make this step and otherwise false
-	*/
+	 * Check may figure make this step.
+	 * @param figures board for moving.
+	 * @param fromX start X position.
+	 * @param fromY start Y position.
+	 * @param toX finish X position.
+	 * @param toY finish Y position.
+     * @return true if figure may make this step and otherwise false.
+     */
     @Override
     boolean canMove(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
         boolean canMove = false;
-        //We must know vertical or horizontal horse 
         if(abs(fromX - toX) == 2) {
             canMove = rook.canMove(figures,toX,fromY,toX,toY);
         }
@@ -45,9 +45,9 @@ public class Horse extends Figure {
     }
 
 	/**
-		Return value of constant HORSE_STRING
-		@return: String - string horse view
-	*/
+	 * Return a string view of horse.
+	 * @return horse string.
+     */
     @Override
     public String toString() {
         return HORSE_STRING;
