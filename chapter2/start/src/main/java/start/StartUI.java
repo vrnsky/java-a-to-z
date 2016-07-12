@@ -35,7 +35,7 @@ public class StartUI {
 	/**
 	* At this method setup need variables.
 	*/
-	private void init() {
+	public void init() {
 		MenuTracker menuTracker = new MenuTracker(this.io, this.tracker);
 		menuTracker.fillActions();
 		int start = menuTracker.getIdFirstCommand();
