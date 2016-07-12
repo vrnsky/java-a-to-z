@@ -15,8 +15,7 @@ public class Calculator {
 	 * @param first number for adding.
 	 * @param second number for adding.
      */
-	public void add(double first, double second)
-	{
+	public void add(double first, double second) {
 		this.result = first + second;
 	}
 
@@ -25,15 +24,14 @@ public class Calculator {
 	 * @param first from it will deduct.
 	 * @param second it is what deduct.
      */
-	public void deduct(double first, double second)
-	{
+	public void deduct(double first, double second) {
 		this.result = first - second;
 	}
 
 	/**
 	 * Multiply first on second and write to result field.
-	 * @param first  first factor
-	 * @param second second factor
+	 * @param first  first factor.
+	 * @param second second factor.
      */
 	public void multiply(double first, double second) {
 		this.result = first * second;
@@ -42,8 +40,8 @@ public class Calculator {
 	/**
 	 * Divide first double by second double and write to result field.
 	 * If second double equals 0 should set it in 1 for prevent exception.
-	 * @param first dividend
-	 * @param second divider
+	 * @param first dividend.
+	 * @param second divider.
      */
 	public void div(double first, double second) {
 		if(second == 0) second = 1;
@@ -52,7 +50,7 @@ public class Calculator {
 
 	/**
 	 * Return a result of previous calculation.
-	 * @return result of previous calculation
+	 * @return result of previous calculation.
      */
 	public double getResult() {
 		return result;

@@ -91,17 +91,18 @@ public class Board {
 
 	/**
 	 * Return a board in two dimens string array.
-	 * @return string view of the board
+	 * @return string view of the board.
      */
 	public String[][] getBoard() {
 		String[][] board = new String[BOARD_WIDTH][BOARD_HEIGHT];
 		for(int x = 0; x < BOARD_WIDTH; x++) {
 			for(int y = 0; y < BOARD_HEIGHT; y++) {
 				Figure figure = figures[x][y];
-				if(figure != null)
+				if(figure != null) {
 					board[x][y] = figure.toString();
-				else
+				} else {
 					board[x][y] = "0";
+				}
 			}
 		}
 
