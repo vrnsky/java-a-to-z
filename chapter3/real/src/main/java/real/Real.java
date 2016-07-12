@@ -15,7 +15,7 @@ public class Real {
 
     /**
      * Create object with instance of io for handle io.
-     * @param io - instance of io.
+     * @param io - instance of io interface.
      */
     public Real(IO io) {
         this.io = io;
