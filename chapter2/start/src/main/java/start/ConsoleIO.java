@@ -6,9 +6,15 @@ import java.io.PrintStream;
 *	This class acceptance data from console.
 */
 public class ConsoleIO implements IO {
-	
 
+	/**
+	 * For reading data from console.
+	 */
 	private Scanner scanner = new Scanner(System.in);
+
+	/**
+	 * For write data to console.
+	 */
 	private PrintStream out = new PrintStream(System.out);
 	
 	/**
