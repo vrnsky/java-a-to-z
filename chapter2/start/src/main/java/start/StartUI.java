@@ -9,12 +9,13 @@ public class StartUI {
 	/**
 	 * Implementation of IO system.
 	 */
-	private IO io;
+	private final IO io;
 
 	/**
 	 * Instance of API Tracker for use it.
 	 */
-	private Tracker tracker;
+	private final Tracker tracker;
+
 
 	/**
 	 * Create a new by give it IO system.
@@ -32,14 +33,23 @@ public class StartUI {
 	}
 	
 	/**
-	* At this method user choose command and app execute it.
+	* At this method setup need variables.
 	*/
-	public void init() {
+	private void init() {
 		MenuTracker menuTracker = new MenuTracker(this.io, this.tracker);
 		menuTracker.fillActions();
 		int start = menuTracker.getIdFirstCommand();
 		int finish = menuTracker.getIdLastCommand();
-		
+		action(menuTracker, start, finish);
+	}
+
+	/**
+	 * Ask user about data and interact with him.
+	 * @param menuTracker wrapper for API Tracker.
+	 * @param start first option of menu.
+	 * @param finish last option of menu.
+     */
+	private void action(MenuTracker menuTracker, int start, int finish) {
 		do {
 			menuTracker.show();
 			int key = io.ask("Type a command: ", start, finish);
