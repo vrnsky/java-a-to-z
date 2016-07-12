@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="806ee486-b374-4af2-8308-87d9663aa2bb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/StartUI.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/StartUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/move/result/findbymask/findbymask.txt" afterPath="$PROJECT_DIR$/move/result/findbymask/findbymask.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/move/result/findbyname/findbyname.txt" afterPath="$PROJECT_DIR$/move/result/findbyname/findbyname.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/move/result/findbyregexp/findbyregexp.txt" afterPath="$PROJECT_DIR$/move/result/findbyregexp/findbyregexp.txt" />
-    </list>
+    <list default="true" id="806ee486-b374-4af2-8308-87d9663aa2bb" name="Default" comment="" />
     <ignored path="tracker.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/../chapter2/task/target/" />
@@ -1185,7 +1179,7 @@
       <workItem from="1468270698215" duration="16000" />
       <workItem from="1468303574922" duration="3999000" />
       <workItem from="1468307601836" duration="641000" />
-      <workItem from="1468330401497" duration="11778000" />
+      <workItem from="1468330401497" duration="11977000" />
     </task>
     <task id="LOCAL-00001" summary="Add javadoc">
       <created>1468338519231</created>
@@ -1229,7 +1223,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100881000" />
+    <option name="totallyTimeSpent" value="101080000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
