@@ -1,17 +1,28 @@
 package start;
 
 /**
-	It is stub for testing user input/output
+* It is stub for testing user input/output.
 */
 public class StubIO implements IO {
-	
+
+	/**
+	 * List of possible input from user.
+	 */
 	private String[] answer;
+
+	/**
+	 * For correct move across answer array.
+	 */
 	private int position = 0;
+
+	/**
+	 * For collect data which produce application.
+	 */
 	private StringBuffer buffer;
 	
 	/**
-		Constructor for this class
-		@params:String[] answer - it is list of possible answers
+	* Constructor for this class
+	* @param answer list of possible answers
 	*/
 	public StubIO(String[] answer) {
 		this.answer = answer;
@@ -19,21 +30,20 @@ public class StubIO implements IO {
 	}
 	
 	/**
-		Show user in the console question and return user input
-		@params: String question - it is string which show user in console
-		@return: String - given from user
+	* Show user question and return user input.
+	* @param question string which show user.
+	* @return string given from user.
 	*/
 	public String ask(String question) {
 		return answer[position++];
 	}
 	
 	/**
-		Ask user about int and check number for range
-		@param:String question - it is question which show user
-			   int from - it is start for range
-			   int to - it is finish for range
-		@return: int - it is number which exist between from and to
-		@throw: exception if user choose wrong command
+	* Ask user about int and check number for range.
+	* @param question question which show user.
+	* @param from  start for range.
+	* @param to finish for range.
+	* @return number which exist between from and to.
 	*/
 	public int ask(String question, int from, int to) {
 		int key = Integer.valueOf(this.ask(question));
@@ -48,34 +58,32 @@ public class StubIO implements IO {
 	}
 
 	/**
-		Ask user about long and return it
-		@param:String question - it is String which will show to user
-		@return: long result - it result of correct input
-		@throw: exception which signal about wrong data,
-		if user enter value smaller or bigger than Long.MAX_VALUE or Long.MIN_VALUE
+	* Ask user about long and return it.
+	* @param question show to user.
+	* @return result of correct input.
 	*/
 	public long askForLong(String question) {
 		return Long.valueOf(this.ask(question));
 	}
 
 	/**
-	 * Ask user about double and return it
-	 * @param question - info for user
-	 * @return double which get from user
+	 * Ask user about double and return it.
+	 * @param question - info for user.
+	 * @return double which get from user.
      */
 	public double askForDouble(String question) { return  Double.valueOf(this.ask(question));}
 	
 	/**
-		Append to buffer value and move to new line
-		@param: Object value - it is object for append
+	* Append to buffer value and move to new line.
+	* @param value object for append.
 	*/
 	public void println(Object value) {
 		this.buffer.append(value + "\n");
 	}
 	
 	/**
-		Return a buffer data
-		@param: String - it is all data from buffer
+	* Return a buffer data.
+	* @return all data from buffer
 	*/
 	public String getOut() {
 		return buffer.toString();

@@ -1,13 +1,9 @@
 package start;
 
 /**
-	Abstraction of output
+* Contract for all output system.
 */
 public interface Output {
-	
-	/**
-		Output
-		@param: value - it is value for print
-	*/
+
 	void println(Object value);
 }
