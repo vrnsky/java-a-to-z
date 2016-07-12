@@ -8,91 +8,89 @@ import java.net.Socket;
 import java.net.SocketException;
 
 /**
- * It is implementation of client for server
+ * It is implementation of client for server.
  */
 
 public class Client {
 
     /**
-     * Flag for program doesn't answer on user input
+     * Flag for program doesn't answer on user input.
      */
     private static final String STOP = "стоп";
     /**
-     * Flag for program for start answer on user input
+     * Flag for program for start answer on user input.
      */
     private static final String CONTINUE = "продолжить";
     /**
-     * Flag for program fro finish work
+     * Flag for program fro finish work.
      */
     private static final String FINISH = "закончить";
 
     /**
-     * Logic port. It is not hardware
+     * Logic port. It is not hardware.
      */
     private static final int PORT = 3001;
     /**
-     * IP address of localhost
+     * IP address of localhost.
      */
     private static final String IP = "127.0.0.1";
 
     /**
-     * Special object for construct socket
+     * Special object for construct socket.
      */
     private InetAddress ipAddress;
 
     /**
-     * Socket which connect to server
+     * Socket which connect to server.
      */
     private Socket clientSocket;
 
     /**
-     * Input stream of socket
+     * Input stream of socket.
      */
     private InputStream inputSocket;
 
     /**
-     * Output stream of socket
+     * Output stream of socket.
      */
     private OutputStream outputSocket;
 
     /**
-     * For read data from server
+     * For read data from server.
      */
     private DataInputStream input;
 
     /**
-     * For write data to server
+     * For write data to server.
      */
     private DataOutputStream output;
 
     /**
-     * Logger instance, for write logs to file
+     * Logger instance, for write logs to file.
      */
     private Logger logger;
 
     /**
-     * Silent mode - it flag which determine
-     * Should we be silent. Silent means that
-     * do not chat with server
+     * Silent mode - it flag which determine should we be silent.
+     * Silent means that do not chat with server.
      */
     private boolean silentMode;
 
     /**
-     * For reading user input
+     * For reading user input.
      */
     private BufferedReader keyboard;
 
     /**
-     * Start client by send and receive data from console
-     * @param args
+     * Start client by send and receive data from console.
+     * @param args keys and value for start app.
      */
     public static void main(String[] args) {
        new Client().start();
     }
 
     /**
-     * Start client instance, it connect to server
-     * and start chat
+     * Start client instance, it connect to server and start chat.
      */
     private void start() {
         try {
@@ -129,7 +127,7 @@ public class Client {
     }
 
     /**
-     * Set connection to the server
+     * Set connection to the server.
      * @throws IOException if some socket or stream fails
      */
     private void setConnection() throws IOException {
@@ -143,11 +141,11 @@ public class Client {
          output = new DataOutputStream(outputSocket);
     }
 
-    /**
+    /**.
      * Send data to server and receive answer
-     * Show answer in console
-     * @param userMessage - message for server
-     * @throws IOException is output or input fails
+     * Show answer in console.
+     * @param userMessage - message for server.
+     * @throws IOException is output or input fails.
      */
     private void chatWithServer(String userMessage) throws IOException {
         output.writeUTF(userMessage);

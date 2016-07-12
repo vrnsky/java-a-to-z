@@ -1,14 +1,14 @@
 package find;
 
 /**
- * Entry point in application create need finder depending on key
+ * Entry point in application create need finder depending on key.
  */
 public class Finder {
 
     /**
-     * Entry point of application
-     * @param args - keys and values from user
-     * @throws Exception for show alerts
+     * Entry point of application.
+     * @param args - keys and values from user.
+     * @throws Exception for show alerts.
      */
     public static void main(String[] args) throws Exception {
         new Finder().startFind(args);
@@ -16,8 +16,8 @@ public class Finder {
 
 
     /**
-     * Start find a file by name, mask or regexp
-     * @param args - keys and values
+     * Start find a file by name, mask or regexp.
+     * @param args - keys and values.
      */
     public void startFind(String[] args) {
         KeysValidator validator = new KeysValidator();

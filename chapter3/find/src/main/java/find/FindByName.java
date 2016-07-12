@@ -6,29 +6,28 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * Search file by name
+ * Search file by name.
  */
 public class FindByName {
 
     /**
-     * It is directory. Will start search file from it
+     * It is directory. Will start search file from it.
      */
     private String directory;
 
     /**
-     * Name of searching file
+     * Name, mask or regexp of searching file.
      */
     private String fileName;
 
     /**
-     * File for writing results
+     * File for writing results.
      */
     private String resultFile;
 
     /**
-     * Main method which handle input values and set
-     * needed variables for search and start find
-     * @param values - values for handling
+     * Main method which handle input values and set needed variables for search and start find.
+     * @param values - values for handling.
      */
     public void find(String[] values) {
         this.directory = values[1];
@@ -38,9 +37,9 @@ public class FindByName {
     }
 
     /**
-     * Recursive find file
-     * @param directory - from it will start search
-     * @param fileName - name of file which search
+     * Recursive find file and write result to file.
+     * @param directory - from it will start search.
+     * @param fileName - name of file which search.
      */
     private void find(String directory, String fileName) {
         File[] files = new File(directory).listFiles();
@@ -57,9 +56,9 @@ public class FindByName {
     }
 
     /**
-     * Write result to file
-     * @param fileResult name of file
-     * @param destination path to file result
+     * Write result to file.
+     * @param fileResult name of file.
+     * @param destination path to file result.
      */
     private void saveResult(String fileResult, String destination) {
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(new File(destination),true))) {
@@ -73,10 +72,10 @@ public class FindByName {
     }
 
     /**
-     * Check that given file it is searching file
-     * @param file - file which will be check
-     * @param checkParam - at this place it is name
-     * @return true if file have name which equals checkParam, otherwise false
+     * Check that given file it is searching file.
+     * @param file - file which will be check.
+     * @param checkParam - at this place it is name.
+     * @return true if file have name which equals checkParam, otherwise false.
      */
     protected boolean check(File file, String checkParam) {
         return file.getName().equals(checkParam);

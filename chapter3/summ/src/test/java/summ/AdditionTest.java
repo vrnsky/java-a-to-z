@@ -6,13 +6,12 @@ import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
 
 /**
- * Test for Addition.java
+ * Test for Addition.java.
  */
 public class AdditionTest {
 
     /**
-     * When try add two correct numbers should sum it and
-     * show to user
+     * When try add two correct numbers should sum it and show result to user.
      */
     @Test
     public void whenTryAdditionTwoCorrectNumbersShouldSummItAndShowUser() {
@@ -31,9 +30,9 @@ public class AdditionTest {
     }
 
     /**
-     * When try add one correct integer and one wrong integer
-     * Should catch exception. At the real system io exception handle
-     * And user ask again about integer
+     * When try add one correct integer and one wrong integer,
+     * should catch exception. At the real system io exception
+     * handle by validator and user ask again about integer.
      */
     @Test(expected = NumberFormatException.class)
     public void whenTryAdditionOneWrongIntAndOneCorrectShouldAskUserAboutCorrectData() {

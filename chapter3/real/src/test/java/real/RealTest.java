@@ -7,13 +7,12 @@ import static org.hamcrest.core.StringContains.containsString;
 import start.StubIO;
 
 /**
- * Unit test for Real.java
+ * Unit test for Real.java.
  */
 public class RealTest {
 
     /**
-     * When user input all data correct should execute main task of program
-     * Find min in three double values
+     * When user input all data correct should  find min in entered double values.
      */
     @Test
     public void whenUserInputCorrectAllDataShouldShowResultOfComputing() {
@@ -33,7 +32,7 @@ public class RealTest {
 
     /**
      * If user entered bad data should check that app say about it user
-     * In real system exception handles and ask user about data again
+     * In real system exception handles and ask user about data again.
      */
     @Test
     public void whenUserInputWrongShouldCheckThanAppThrowException() {

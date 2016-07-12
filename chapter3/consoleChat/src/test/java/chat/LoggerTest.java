@@ -6,17 +6,17 @@ import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
 
 /**
- * Unit test for Logger.java
+ * Unit test for Logger.java.
  */
 public class LoggerTest {
 
     /**
-     * At this path exist all resources files
+     * At this path exist all resources files.
      */
     private static final String RESOURCE_PATH = "F:\\java-a-to-z\\iml\\test.txt";
 
     /**
-     * When try write some data log should check that it is saved
+     * When try write some data log should check that it is saved.
      */
     @Test
     public void whenWriteSomeDataToLogShouldCheckThatItSaved() {

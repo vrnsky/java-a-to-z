@@ -4,28 +4,28 @@ import java.io.*;
 import java.util.Random;
 
 /**
- * It is read data from file and return ranom string from files
+ * It is read data from file and hold it in string array.
  */
 public class Answerer {
 
     /**
-     * For find random string
+     * For find random string.
      */
     private static final Random RN = new Random();
     /**
-     * For read data from file
+     * For read data from file.
      */
     private BufferedReader answerReader;
     /**
-     * For holding string from file
+     * For holding string from file.
      */
     private String[] answers;
     /**
-     * For hold file name
+     * For hold file name.
      */
     private String fileName;
     /**
-     * For hold stringCount of string in file
+     * For hold count of string in file.
      */
     private int stringCount;
 
@@ -59,10 +59,6 @@ public class Answerer {
             exp.printStackTrace();
         }
 
-        /**
-         * I make it because above reader object reach end of file
-         * And further I want read file again from start
-         */
         answerReader = null;
         return stringCount;
     }
@@ -96,7 +92,7 @@ public class Answerer {
 
     /**
      * Return all string from file
-     * @return string from file
+     * @return strings from file
      */
     public String[] getAllStrings() {
         return this.answers;

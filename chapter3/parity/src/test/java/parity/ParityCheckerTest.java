@@ -7,13 +7,12 @@ import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.*;
 
 /**
- * Unit test for ParityChecker.java
+ * Unit test for ParityChecker.java.
  */
 public class ParityCheckerTest {
 
     /**
-     * When try give odd number to parity checker
-     * Should check than parity check show user that is it odd
+     * When try give odd number to parity checker should check than parity check show user that is it odd.
      */
     @Test
     public void whenTryGiveOddNumberToParityCheckerShouldShowUserItIsOdd() {
@@ -32,8 +31,7 @@ public class ParityCheckerTest {
     }
 
     /**
-     * When try give even number to parity checker
-     * Should check than parity check show user that it is even
+     * When try give even number to parity checker should check than parity check show user that it is even.
      */
     @Test
     public void whenTryGiveEvenNumberToParityCheckerShouldShowUserItIsEven() {
@@ -53,7 +51,7 @@ public class ParityCheckerTest {
 
     /**
      * When user type not number should check that app throw exception
-     * In real io system, needs use validator instance which validate input
+     * in real io system, needs use validator instance which validate input.
      */
     @Test(expected = NumberFormatException.class)
     public void whenUserTypeNotNumberShouldCheckThatAppThrowException() {
@@ -71,4 +69,3 @@ public class ParityCheckerTest {
         assertThat(stubIO.getOut(),containsString(expected));
     }
 }
-
