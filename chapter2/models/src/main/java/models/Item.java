@@ -6,13 +6,39 @@ import java.util.Random;
  * Implementation of common item in tracker app.
  */
 public class Item {
-	
+
+	/**
+	 * Unique string for each item.
+	 */
 	protected String id;
+	/**
+	 * Name of item.
+	 */
 	protected String name;
+
+	/**
+	 * Description of item.
+	 */
 	protected String description;
+
+	/**
+	 * Time when item was created.
+	 */
 	protected long createTime;
+
+	/**
+	 * Comments for item.
+	 */
 	protected Comment[] comments;
+
+	/**
+	 * For correct adding new comment should use pointer.
+	 */
 	protected int commentPointer;
+
+	/**
+	 * For generate random number for id.
+	 */
 	private static final Random RN = new Random();
 
 

@@ -2,7 +2,7 @@ package task;
 
 /**
  * Functionality of substring method from class String.
- * Get two string and check that second string is substring of fisrt string.
+ * Get two string and check that second string is substring of first string.
  */
 public class Substring {
 	/**
