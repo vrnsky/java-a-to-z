@@ -1,15 +1,18 @@
 package models;
 
 /**
-	Model of a comment 
+*	Model of a comment.
 */
-public class Comment
-{
+public class Comment {
+
+	/**
+	 * Text of comment.
+	 */
 	private String text;
 	
 	/**
-		Constructor for comment
-		@param: text - it is text of comment
+	*	Constructor for comment.
+	*	@param text  it is text of comment.
 	*/
 	public Comment(String text)
 	{
@@ -17,8 +20,8 @@ public class Comment
 	}
 
 	/**
-		This method call when we need to print this object
-		@return: String view of this object
+	*	This method call when we need to print this object.
+	*	@return string view of this object.
 	*/
 	@Override
 	public String toString()

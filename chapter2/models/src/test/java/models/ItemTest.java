@@ -5,13 +5,13 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
-	Unit test for Item
+* Unit test for Item.java.
 */
 public class ItemTest {
 
 
 	/**
-		When create item should check it is not null
+	* When create item should check it is not null.
 	*/
 	@Test
 	public void whenCreateItemShouldCheckItIsNotNull() {
@@ -19,16 +19,13 @@ public class ItemTest {
 		//Assign block
 		Item item = new Item("It is my first item", "It is my first item");
 		boolean expected = true;
-		
-		//Act block
-		boolean actual = item != null;
-		
-		//Assign block
-		assertThat(actual, is(expected));
+
+		//Action block
+		assertThat(item != null, is(true));
 	}
 	
 	/**
-		When create item should check the name of item saved
+	* When create item should check the name of item saved.
 	*/
 	@Test
 	public void whenCreateItemShouldCheckItemSaveData() {
@@ -45,7 +42,7 @@ public class ItemTest {
 	}
 	
 	/**
-		When create item should check the desc is saved
+	* When create item should check the desc is saved.
 	*/
 	@Test 
 	public void whenCreateItemShouldCheckItemSaveDescription() {
@@ -62,7 +59,7 @@ public class ItemTest {
 	}
 	
 	/**
-		When update itme shoud check item saved
+	* When update item should check item saved.
 	*/
 	@Test
 	public void whenUpdateItemNameShouldCheckItSaved() {
@@ -80,7 +77,7 @@ public class ItemTest {
 	}
 	
 	/**
-		When update item description should check it saved
+	* When update item description should check it saved.
 	*/
 	@Test
 	public void whenUpdateItemDescShouldCheckItSaved() {
@@ -98,25 +95,24 @@ public class ItemTest {
 	}
 	
 	/**
-		When create item should check than generateTime works correct
+	* When create item should check than generateTime works correct.
 	*/
 	@Test
 	public void whenCreateItemShouldCheckTimeOfCreateCorrect() {
 		
 		//Assign block
 		Item item = new Item();
-		boolean expected = true;
 		
 		//Act block
 		long time = item.getCreateTime();
 		boolean actual = time > 1L;
 		
 		//Action block
-		assertThat(actual, is(expected));
+		assertThat(actual, is(true));
 	}
 	
 	/**
-		When try attach comment to item should check the comment is saved
+	* When try attach comment to item should check the comment is saved.
 	*/
 	@Test
 	public void whenTryAttachCommentToItemShouldCheckCommentSave() {

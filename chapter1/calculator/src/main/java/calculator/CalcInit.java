@@ -6,6 +6,8 @@ import java.io.*;
  * It class interact with user by accept data,
  * call API of calculator and show to user result.
  */
+
+//TODO делегировать другому классу ввод и вывод из метода start()
 public class CalcInit {
 
 	/**
@@ -18,7 +20,6 @@ public class CalcInit {
 		calcInit.start();
 		
 	}
-
 
 	/**
 	 * Main loop of program, it handles input and call api.

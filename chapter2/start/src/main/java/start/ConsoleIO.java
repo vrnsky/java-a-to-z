@@ -3,7 +3,7 @@ import java.util.*;
 import java.io.PrintStream;
 
 /**
-	This class acceptance data from console
+*	This class acceptance data from console.
 */
 public class ConsoleIO implements IO {
 	
@@ -12,9 +12,9 @@ public class ConsoleIO implements IO {
 	private PrintStream out = new PrintStream(System.out);
 	
 	/**
-		Show user console ask and return data from user
-		@params: String question - it is string which show to user
-		@return: String given from user
+	* Show user console ask and return data from user.
+	* @param question show to user.
+	* @return string given from user.
 	*/
 	public String ask(String question) {
 		this.out.println(question);
@@ -22,13 +22,13 @@ public class ConsoleIO implements IO {
 	}
 
 	/**
-	   Ask user about int and ranged it
-	   @param question - it is string which will show to user
-	   @param from - low point to range
-	          to - high point to range
-      @return result of user input if correct input, otherwise throw exception
-	  @throw: MenuOutException - it is exception which signal about user choose wrong menu options
-     */
+	* Ask user about int and ranged it.
+	* @param question - it is string which will show to user.
+	* @param from  low point to range.
+	* @param to  high point to range.
+    * @return result of user input if correct input, otherwise throw exception
+	* @throws MenuOutException - it is exception which signal about user choose wrong menu options.
+    */
 	public int ask(String question, int from, int to) {
 		int key = Integer.valueOf(this.ask(question));
 		boolean exist = false;
@@ -44,25 +44,27 @@ public class ConsoleIO implements IO {
 	}
 
 	/**
-		Ask user about long and return it
-		@param:String question - it is String which will show to user
-		@return: long result - it result of correct input
-		@throw: exception which signal about wrong data,
-		if user enter value smaller or bigger than Long.MAX_VALUE or Long.MIN_VALUE
+	* Ask user about long and return it.
+	* @param question which will show to user.
+	* @return long result - it result of correct input
 	*/
 	public long askForLong(String question) {
-		long key =  Long.valueOf(this.ask(question));
-		return key;
+		return  Long.valueOf(this.ask(question));
 	}
 
+
+	/**
+	 * Ask user about double and return it.
+	 * @param question which will show to user.
+	 * @return long result - it result of correct input
+	 */
 	public double askForDouble(String question) {
-		double value = Double.valueOf(this.ask(question));
-		return value;
+		return Double.valueOf(this.ask(question));
 	}
 	
 	/**
-		Show string view of object
-		@param:value - object for print
+	*	Show string view of object
+	*	@param value  object for print
 	*/
 	public void println(Object value) {
 		this.out.println(value);

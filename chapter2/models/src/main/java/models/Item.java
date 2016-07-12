@@ -3,8 +3,8 @@ package models;
 import java.util.Random;
 
 /**
-	Implementation of common item in tracker app
-*/
+ * Implementation of common item in tracker app.
+ */
 public class Item {
 	
 	protected String id;
@@ -14,21 +14,20 @@ public class Item {
 	protected Comment[] comments;
 	protected int commentPointer;
 	private static final Random RN = new Random();
-	
-	
-	/*
-		Default constructor
-		
-	*/
+
+
+	/**
+	 * Default constructor.
+	 */
 	public Item() {
 		this("Edit me now", "Empty item");
 	}
-	
+
 	/**
-		Create a item with given params
-		@params: name - name of item	
-				 desc - description of item
-	*/
+	 * Create a item with given params.
+	 * @param name name of item.
+	 * @param desc description of item.
+     */
 	public Item(String name, String desc) {
 		id = generateId();
 		this.name = name;
@@ -37,67 +36,70 @@ public class Item {
 		commentPointer = 0;
 		createTime = System.currentTimeMillis();
 	}
-	
+
 	/**
-		Return id of current item
-		@return: String id - it is unique string for each item
-	*/
+	 * Return id of current item.
+	 * @return it is unique string for each item.
+     */
 	public String getId() {
 		return this.id;
 	}
 	
 	/**
-		Return a name of item
-		@return: String  - name of current item
+		Return a name of item.
+		@return name of current item
 	*/
 	public String getName() {
 		return this.name;
 	}
 	
 	/**
-		Set a name of item
-		@param: String name - new name of item
+
 	*/
+	/**
+	 * Set a name of item.
+	 * @param name new name of item.
+     */
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	/**
-		Return a description of item
-		@return: String - description of current item
-	*/
+	 * Return a description of item.
+	 * @return description of current item.
+     */
 	public String getDescription() {
 		return this.description;
 	}
-	
+
 	/**
-		Set a description of item
-		@param: String description - new desc for item
-	*/
+	 * Set a description of item.
+	 * @param description new desc for item.
+     */
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	/**
-		Return a time of creating
-		@return: long - it is time when item will be created
-	*/
+	 * Return a time of creating.
+	 * @return time when item will be created.
+     */
 	public long getCreateTime() {
 		return createTime;
 	}
-	
+
 	/**
-		Add a comment to this item
-		@param: comment - it is models of comment
-	*/
+	 * Add a comment to this item.
+	 * @param comment comment instance of comment model.
+     */
 	public void addComment(Comment comment) {
 		comments[commentPointer++] = comment;
 	}
-	
+
 	/**
-		Return all comment which not null for current item
-		@return: array of comment
-	*/
+	 * Return all comment which not null for current item.
+	 * @return array of comments.
+     */
 	public Comment[] getComments()
 	{
 		Comment[] result;
@@ -119,21 +121,22 @@ public class Item {
 		
 		return result;
 	}
-	
+
+
 	/**
-		Generate a unique string
-		@return: String - it unique value string
-	*/
+	 * Generate a unique string.
+	 * @return unique value string.
+     */
 	private String generateId() {
 		return String.valueOf(System.currentTimeMillis() + RN.nextInt());
 	}
-	
+
 	/**
-		Use this method if you want display data about item
-		@return String - important data about item
-	*/
+	 * Use this method if you want display data about item.
+	 * @return important data about item.
+     */
 	@Override
 	public String toString() {
-		return String.format("Id:%s\tName:%s\nDesc:%s",this.id, this.name, this.description).toString();
+		return String.format("Id:%s\tName:%s\nDesc:%s",this.id, this.name, this.description);
 	}
 }
