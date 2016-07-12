@@ -1,5 +1,5 @@
 #Возможные нарушения SRP
-1. [Класс CalcInit.java](https://github.com/vrnsky/java-a-to-z/blob/master/chapter1/calculator/src/main/java/calculator/CalcInit.java)
+* [Класс CalcInit.java](https://github.com/vrnsky/java-a-to-z/blob/master/chapter1/calculator/src/main/java/calculator/CalcInit.java)
 ```
 public void start() throws Exception {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -29,7 +29,7 @@ public void start() throws Exception {
 ```
 Данный метод выполняет сразу две функции - принимает данные и обрабатывает, необходимо использовать для чтения данных от пользователя другой класс, например, [Класс Validator](https://github.com/vrnsky/java-a-to-z/blob/master/chapter2/start/src/main/java/start/Validator.java).
 
-2. [Класс Item](https://github.com/vrnsky/java-a-to-z/blob/master/chapter2/models/src/main/java/models/Item.java)
+* [Класс Item](https://github.com/vrnsky/java-a-to-z/blob/master/chapter2/models/src/main/java/models/Item.java)
 ```
 /**
 	 * Unique string for each item.
@@ -67,4 +67,4 @@ public void start() throws Exception {
    ```
     Очень много полей для класса, возможно, необходимо вынести их в отдельный класс ItemInfo, который будет отвечать только за предоставление информации о заявке.
 
-3. [Класс MenuTracker](https://github.com/vrnsky/java-a-to-z/blob/master/chapter2/start/src/main/java/start/MenuTracker.java) содержит в себе реализации всех возможных действий пользователя. Возможно, необходимо вынести их в отдельные классы.
+* [Класс MenuTracker](https://github.com/vrnsky/java-a-to-z/blob/master/chapter2/start/src/main/java/start/MenuTracker.java) содержит в себе реализации всех возможных действий пользователя. Возможно, необходимо вынести их в отдельные классы.
