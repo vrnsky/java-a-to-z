@@ -5,6 +5,7 @@
     <output-test url="file://$MODULE_DIR$/../chapter1/task/target/test-classes" />
     <content url="file://$MODULE_DIR$/../chapter1/task">
       <sourceFolder url="file://$MODULE_DIR$/../chapter1/task/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../chapter1/task/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/../chapter1/task/target" />
     </content>
     <orderEntry type="inheritedJdk" />

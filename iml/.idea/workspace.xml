@@ -2,13 +2,68 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="806ee486-b374-4af2-8308-87d9663aa2bb" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../chapter3/task/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myLog.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../chapter1/task/src/test/task/SubstringTest.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/arrays/src/main/java/arrays/BubbleSort.java" afterPath="$PROJECT_DIR$/../chapter1/arrays/src/main/java/arrays/BubbleSort.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/arrays/src/main/java/arrays/Duplicator.java" afterPath="$PROJECT_DIR$/../chapter1/arrays/src/main/java/arrays/Duplicator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/arrays/src/main/java/arrays/Rotate.java" afterPath="$PROJECT_DIR$/../chapter1/arrays/src/main/java/arrays/Rotate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/arrays/src/test/java/arrays/BubbleSortTest.java" afterPath="$PROJECT_DIR$/../chapter1/arrays/src/test/java/arrays/BubbleSortTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/arrays/src/test/java/arrays/DuplicatorTest.java" afterPath="$PROJECT_DIR$/../chapter1/arrays/src/test/java/arrays/DuplicatorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/arrays/src/test/java/arrays/RotateTest.java" afterPath="$PROJECT_DIR$/../chapter1/arrays/src/test/java/arrays/RotateTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/calculator/src/main/java/calculator/CalcInit.java" afterPath="$PROJECT_DIR$/../chapter1/calculator/src/main/java/calculator/CalcInit.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/calculator/src/main/java/calculator/Calculator.java" afterPath="$PROJECT_DIR$/../chapter1/calculator/src/main/java/calculator/Calculator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/calculator/src/test/java/calculator/CalculatorTest.java" afterPath="$PROJECT_DIR$/../chapter1/calculator/src/test/java/calculator/CalculatorTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/geometry/src/main/java/geometry/Maxside.java" afterPath="$PROJECT_DIR$/../chapter1/geometry/src/main/java/geometry/Maxside.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/geometry/src/main/java/geometry/Point.java" afterPath="$PROJECT_DIR$/../chapter1/geometry/src/main/java/geometry/Point.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/geometry/src/main/java/geometry/Triangle.java" afterPath="$PROJECT_DIR$/../chapter1/geometry/src/main/java/geometry/Triangle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/MaxsideTest.java" afterPath="$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/MaxsideTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/PointTest.java" afterPath="$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/PointTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/TriangleTest.java" afterPath="$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/TriangleTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/loops/src/main/java/loops/Factorial.java" afterPath="$PROJECT_DIR$/../chapter1/loops/src/main/java/loops/Factorial.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/loops/src/main/java/loops/Square.java" afterPath="$PROJECT_DIR$/../chapter1/loops/src/main/java/loops/Square.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/loops/src/test/java/loops/FactorialTest.java" afterPath="$PROJECT_DIR$/../chapter1/loops/src/test/java/loops/FactorialTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/loops/src/test/java/loops/SquareTest.java" afterPath="$PROJECT_DIR$/../chapter1/loops/src/test/java/loops/SquareTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/task/src/main/java/task/Substring.java" afterPath="$PROJECT_DIR$/../chapter1/task/src/main/java/task/Substring.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/test/java/start/MenuTrackerTest.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/test/java/start/MenuTrackerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/test/java/start/StartUITest.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/test/java/start/StartUITest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/test/java/start/StubIOTest.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/test/java/start/StubIOTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/test/java/start/TrackerTest.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/test/java/start/TrackerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Board.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Board.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Elephant.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Elephant.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Figure.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Figure.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Horse.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Horse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/King.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/King.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Pawn.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Pawn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Queen.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Queen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Rook.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Rook.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/BoardTest.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/BoardTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/ElephantTest.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/ElephantTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/HorseTest.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/HorseTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/KingTest.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/KingTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/PawnTest.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/PawnTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/QueenTest.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/QueenTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/RookTest.java" afterPath="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/RookTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Answerer.java" afterPath="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Answerer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/pom.xml" afterPath="$PROJECT_DIR$/../chapter3/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Chat.java" afterPath="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Chat.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Logger.java" afterPath="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Logger.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/consoleChat/src/test/java/chat/AnswererTest.java" afterPath="$PROJECT_DIR$/../chapter3/consoleChat/src/test/java/chat/AnswererTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/consoleChat/src/test/java/chat/LoggerTest.java" afterPath="$PROJECT_DIR$/../chapter3/consoleChat/src/test/java/chat/LoggerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/FindByMask.java" afterPath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/FindByMask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/FindByName.java" afterPath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/FindByName.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/FindByRegExp.java" afterPath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/FindByRegExp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/Finder.java" afterPath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/Finder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/KeysValidator.java" afterPath="$PROJECT_DIR$/../chapter3/find/src/main/java/find/KeysValidator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/palindrome/src/main/java/palindrome/Palindrome.java" afterPath="$PROJECT_DIR$/../chapter3/palindrome/src/main/java/palindrome/Palindrome.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/palindrome/src/test/java/palindrome/PalindromeTest.java" afterPath="$PROJECT_DIR$/../chapter3/palindrome/src/test/java/palindrome/PalindromeTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/parity/src/main/java/parity/ParityChecker.java" afterPath="$PROJECT_DIR$/../chapter3/parity/src/main/java/parity/ParityChecker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/parity/src/test/java/parity/ParityCheckerTest.java" afterPath="$PROJECT_DIR$/../chapter3/parity/src/test/java/parity/ParityCheckerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/real/src/main/java/real/Real.java" afterPath="$PROJECT_DIR$/../chapter3/real/src/main/java/real/Real.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/real/src/test/java/real/RealTest.java" afterPath="$PROJECT_DIR$/../chapter3/real/src/test/java/real/RealTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java" afterPath="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Server.java" afterPath="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Server.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/summ/src/main/java/summ/Addition.java" afterPath="$PROJECT_DIR$/../chapter3/summ/src/main/java/summ/Addition.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter3/summ/src/test/java/summ/AdditionTest.java" afterPath="$PROJECT_DIR$/../chapter3/summ/src/test/java/summ/AdditionTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/task (1) (ru.evrnsky.chapter1.task).iml" afterPath="$PROJECT_DIR$/task (1) (ru.evrnsky.chapter1.task).iml" />
     </list>
     <ignored path="tracker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,56 +125,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../chapter3/parity/src/main/java/parity/Input.java" />
-        <option value="$PROJECT_DIR$/../chapter3/parity/src/main/java/parity/RealIO.java" />
-        <option value="$PROJECT_DIR$/../chapter3/parity/src/main/java/parity/Scanner.java" />
-        <option value="$PROJECT_DIR$/../chapter3/parity/src/main/java/parity/ConsoleIO.java" />
-        <option value="$PROJECT_DIR$/../chapter3/parity/src/main/java/parity/IO.java" />
-        <option value="$PROJECT_DIR$/../chapter3/parity/src/main/java/parity/StubIO.java" />
-        <option value="$PROJECT_DIR$/../chapter3/summ/src/main/java/summ/Validator.java" />
-        <option value="$PROJECT_DIR$/../chapter3/summ/pom.xml" />
-        <option value="$PROJECT_DIR$/../chapter3/summ/src/main/java/summ/Addition.java" />
-        <option value="$PROJECT_DIR$/../chapter3/summ/src/test/java/summ/AdditionTest.java" />
-        <option value="$PROJECT_DIR$/../chapter2/start/src/main/java/start/ConsoleIO.java" />
-        <option value="$PROJECT_DIR$/../chapter2/start/src/main/java/start/Input.java" />
-        <option value="$PROJECT_DIR$/../chapter2/start/src/main/java/start/StubIO.java" />
-        <option value="$PROJECT_DIR$/../chapter2/start/src/main/java/start/Validator.java" />
-        <option value="$PROJECT_DIR$/../chapter3/palindrome/src/main/java/palindrome/Palindrome.java" />
-        <option value="$PROJECT_DIR$/../chapter3/palindrome/src/test/java/palindrome/PalindromeTest.java" />
-        <option value="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/BufferedIO.java" />
-        <option value="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Server.java" />
-        <option value="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/User.java" />
-        <option value="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Logger.java" />
-        <option value="$PROJECT_DIR$/../chapter3/parity/pom.xml" />
-        <option value="$PROJECT_DIR$/../chapter3/parity/src/main/java/parity/ParityChecker.java" />
-        <option value="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Logger.java" />
-        <option value="$PROJECT_DIR$/../chapter3/consoleChat/src/test/java/chat/AnswererTest.java" />
-        <option value="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Chat.java" />
-        <option value="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Test.java" />
-        <option value="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Chat.java" />
-        <option value="$PROJECT_DIR$/../chapter3/consoleChat/src/test/java/chat/LoggerTest.java" />
-        <option value="$PROJECT_DIR$/../chapter3/real/src/test/java/real/RealTest.java" />
-        <option value="$PROJECT_DIR$/../chapter3/real/src/main/java/real/Real.java" />
-        <option value="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Server.java" />
-        <option value="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java" />
-        <option value="$PROJECT_DIR$/../chapter3/parity/src/test/java/parity/ParityCheckerTest.java" />
-        <option value="$PROJECT_DIR$/../chapter3/task/src/main/java/task/Finder.java" />
-        <option value="$PROJECT_DIR$/../chapter3/task/pom.xml" />
-        <option value="$PROJECT_DIR$/../chapter3/pom.xml" />
-        <option value="$PROJECT_DIR$/../chapter3/find/src/main/java/find/Find.java" />
-        <option value="$PROJECT_DIR$/../chapter3/find/src/main/java/find/Escaper.java" />
-        <option value="$PROJECT_DIR$/../chapter3/find/src/main/java/find/FileResultChecker.java" />
+        <option value="$PROJECT_DIR$/../chapter1/geometry/src/main/java/geometry/Triangle.java" />
+        <option value="$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/MaxsideTest.java" />
+        <option value="$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/PointTest.java" />
+        <option value="$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/TriangleTest.java" />
+        <option value="$PROJECT_DIR$/../chapter1/loops/src/main/java/loops/Square.java" />
+        <option value="$PROJECT_DIR$/../chapter1/loops/src/main/java/loops/Factorial.java" />
+        <option value="$PROJECT_DIR$/../chapter1/loops/src/test/java/loops/FactorialTest.java" />
+        <option value="$PROJECT_DIR$/../chapter1/loops/src/test/java/loops/SquareTest.java" />
+        <option value="$PROJECT_DIR$/../chapter1/task/src/main/java/task/Substring.java" />
+        <option value="$PROJECT_DIR$/../chapter1/task/src/test/task/SubstringTest.java" />
+        <option value="$PROJECT_DIR$/../chapter1/task/pom.xml" />
+        <option value="$PROJECT_DIR$/../chapter1/task/src/test/java/task/SubstringTest.java" />
+        <option value="$PROJECT_DIR$/../chapter2/start/src/test/java/start/MenuTrackerTest.java" />
+        <option value="$PROJECT_DIR$/../chapter2/start/src/test/java/start/StartUITest.java" />
+        <option value="$PROJECT_DIR$/../chapter2/start/src/test/java/start/StubIOTest.java" />
+        <option value="$PROJECT_DIR$/../chapter2/start/src/test/java/start/TrackerTest.java" />
+        <option value="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Board.java" />
+        <option value="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Elephant.java" />
+        <option value="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Figure.java" />
+        <option value="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Horse.java" />
+        <option value="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/King.java" />
+        <option value="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Pawn.java" />
+        <option value="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Queen.java" />
+        <option value="$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Rook.java" />
+        <option value="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/BoardTest.java" />
+        <option value="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/ElephantTest.java" />
+        <option value="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/HorseTest.java" />
+        <option value="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/KingTest.java" />
+        <option value="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/PawnTest.java" />
+        <option value="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/QueenTest.java" />
+        <option value="$PROJECT_DIR$/../chapter2/task/src/test/java/chess/RookTest.java" />
         <option value="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Answerer.java" />
-        <option value="$PROJECT_DIR$/../chapter3/find/src/main/java/find/Finder.java" />
-        <option value="$PROJECT_DIR$/../chapter3/find/pom.xml" />
+        <option value="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Chat.java" />
+        <option value="$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Logger.java" />
+        <option value="$PROJECT_DIR$/../chapter3/consoleChat/src/test/java/chat/AnswererTest.java" />
+        <option value="$PROJECT_DIR$/../chapter3/consoleChat/src/test/java/chat/LoggerTest.java" />
         <option value="$PROJECT_DIR$/../chapter3/find/src/main/java/find/FindByMask.java" />
-        <option value="$PROJECT_DIR$/../chapter3/find/src/test/java/find/KeysValidatorTest.java" />
-        <option value="$PROJECT_DIR$/../chapter3/find/src/test/java/find/FindByRegExpTest.java" />
-        <option value="$PROJECT_DIR$/../chapter3/find/src/test/java/find/FindByNameTest.java" />
         <option value="$PROJECT_DIR$/../chapter3/find/src/main/java/find/FindByName.java" />
         <option value="$PROJECT_DIR$/../chapter3/find/src/main/java/find/FindByRegExp.java" />
+        <option value="$PROJECT_DIR$/../chapter3/find/src/main/java/find/Finder.java" />
         <option value="$PROJECT_DIR$/../chapter3/find/src/main/java/find/KeysValidator.java" />
-        <option value="$PROJECT_DIR$/../chapter3/find/src/test/java/find/FindByMaskTest.java" />
+        <option value="$PROJECT_DIR$/../chapter3/palindrome/src/main/java/palindrome/Palindrome.java" />
+        <option value="$PROJECT_DIR$/../chapter3/palindrome/src/test/java/palindrome/PalindromeTest.java" />
+        <option value="$PROJECT_DIR$/../chapter3/parity/src/main/java/parity/ParityChecker.java" />
+        <option value="$PROJECT_DIR$/../chapter3/real/src/main/java/real/Real.java" />
+        <option value="$PROJECT_DIR$/../chapter3/parity/src/test/java/parity/ParityCheckerTest.java" />
+        <option value="$PROJECT_DIR$/../chapter3/real/src/test/java/real/RealTest.java" />
+        <option value="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java" />
+        <option value="$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Server.java" />
+        <option value="$PROJECT_DIR$/../chapter3/summ/src/main/java/summ/Addition.java" />
+        <option value="$PROJECT_DIR$/../chapter3/summ/src/test/java/summ/AdditionTest.java" />
       </list>
     </option>
   </component>
@@ -142,10 +198,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="890" />
-    <option name="y" value="476" />
-    <option name="width" value="1022" />
-    <option name="height" value="728" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1456" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -172,6 +228,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -190,131 +248,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tracker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java-a-to-z" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chapter3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tracker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java-a-to-z" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chapter3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="find" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tracker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java-a-to-z" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chapter3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="find" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="find" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tracker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java-a-to-z" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chapter3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="find" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="find" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tracker" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java-a-to-z" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chapter2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
@@ -922,7 +864,13 @@
       <workItem from="1467991414125" duration="4151000" />
       <workItem from="1468062842947" duration="8386000" />
       <workItem from="1468077923826" duration="438000" />
-      <workItem from="1468078398884" duration="1406000" />
+      <workItem from="1468078398884" duration="1777000" />
+      <workItem from="1468264406491" duration="5557000" />
+      <workItem from="1468269996161" duration="579000" />
+      <workItem from="1468270698215" duration="16000" />
+      <workItem from="1468303574922" duration="3999000" />
+      <workItem from="1468307601836" duration="641000" />
+      <workItem from="1468330401497" duration="3156000" />
     </task>
     <servers />
   </component>
@@ -959,7 +907,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77940000" />
+    <option name="totallyTimeSpent" value="92259000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -971,32 +919,32 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="890" y="476" width="1022" height="728" extended-state="0" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938644" sideWeight="0.49789694" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.49434572" sideWeight="0.47916666" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39895698" sideWeight="0.47916666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32312566" sideWeight="0.5208333" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.472167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21388888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39809927" sideWeight="0.45" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284055" sideWeight="0.49583334" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32312566" sideWeight="0.5208333" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938644" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39809927" sideWeight="0.45" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1012,81 +960,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../chapter3/real/src/test/java/real/RealTest.java</url>
-          <line>27</line>
-          <properties />
-          <option name="timeStamp" value="167" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Answerer.java</url>
-          <line>37</line>
-          <properties />
-          <option name="timeStamp" value="191" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Answerer.java</url>
-          <line>38</line>
-          <properties />
-          <option name="timeStamp" value="192" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Answerer.java</url>
-          <line>39</line>
-          <properties />
-          <option name="timeStamp" value="193" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Answerer.java</url>
-          <line>40</line>
-          <properties />
-          <option name="timeStamp" value="194" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Answerer.java</url>
-          <line>41</line>
-          <properties />
-          <option name="timeStamp" value="195" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Answerer.java</url>
-          <line>101</line>
-          <properties />
-          <option name="timeStamp" value="196" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Answerer.java</url>
-          <line>83</line>
-          <properties />
-          <option name="timeStamp" value="197" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Answerer.java</url>
-          <line>81</line>
-          <properties />
-          <option name="timeStamp" value="198" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Answerer.java</url>
-          <line>80</line>
-          <properties />
-          <option name="timeStamp" value="199" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Answerer.java</url>
-          <line>75</line>
-          <properties />
-          <option name="timeStamp" value="200" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Answerer.java</url>
-          <line>74</line>
-          <properties />
-          <option name="timeStamp" value="201" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="235" />
+      <option name="time" value="237" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1095,387 +969,387 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Answerer.java">
+    <entry file="file://$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/MaxsideTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.5704388">
+          <caret line="12" column="64" selection-start-line="12" selection-start-column="64" selection-end-line="12" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/PointTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="10" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="10" />
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Server.java">
+    <entry file="file://$PROJECT_DIR$/../chapter1/geometry/src/test/java/geometry/TriangleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31408775">
+          <caret line="32" column="84" selection-start-line="32" selection-start-column="84" selection-end-line="32" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter1/loops/src/main/java/loops/Factorial.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+          <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java">
+    <entry file="file://$PROJECT_DIR$/../chapter1/loops/src/main/java/loops/Square.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="87" selection-start-line="6" selection-start-column="87" selection-end-line="6" selection-end-column="87" />
+          <caret line="42" column="95" selection-start-line="42" selection-start-column="95" selection-end-line="42" selection-end-column="95" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/src.zip!/java/lang/NumberFormatException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83196044">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/Input.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.333333">
-          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/IO.java">
+    <entry file="file://$PROJECT_DIR$/../chapter1/loops/src/test/java/loops/FactorialTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <caret line="45" column="54" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter1/loops/src/test/java/loops/SquareTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25123152">
+          <caret line="45" column="60" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter1/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter1/loops/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter1/task/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter1/task/src/main/java/task/Substring.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23556583">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter1/task/src/test/java/task/SubstringTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../chapter2/start/src/test/java/start/MenuTrackerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state vertical-scroll-proportion="5.7280107">
+          <caret line="253" column="4" selection-start-line="253" selection-start-column="4" selection-end-line="253" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../chapter2/start/src/test/java/start/TrackerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33278418">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state vertical-scroll-proportion="3.3125846">
+          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/palindrome/src/main/java/palindrome/Palindrome.java">
+    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/test/java/start/StubIOTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.932341">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/test/java/start/StartUITest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5656292">
+          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2652233">
+          <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Elephant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.102841675">
+          <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Horse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41407308">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Figure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07162921">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/main/java/chess/King.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27604872">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Pawn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7009472">
+          <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Queen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2192152">
+          <caret line="53" column="36" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Rook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.47225982">
+          <caret line="76" column="5" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/test/java/chess/ElephantTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4248985">
+          <caret line="179" column="4" selection-start-line="179" selection-start-column="4" selection-end-line="179" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/test/java/chess/BoardTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20703654">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/test/java/chess/HorseTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <caret line="178" column="4" selection-start-line="178" selection-start-column="4" selection-end-line="178" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/summ/pom.xml">
+    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/test/java/chess/KingTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.076923">
-          <caret line="20" column="19" selection-start-line="14" selection-start-column="4" selection-end-line="20" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.5629229">
+          <caret line="241" column="82" selection-start-line="241" selection-start-column="82" selection-end-line="241" selection-end-column="82" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/parity/src/main/java/parity/ParityChecker.java">
+    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/test/java/chess/PawnTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44810542">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        <state vertical-scroll-proportion="4.0135317">
+          <caret line="185" column="85" selection-start-line="185" selection-start-column="85" selection-end-line="185" selection-end-column="85" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/StubIO.java">
+    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/test/java/chess/RookTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/real/src/test/java/real/RealTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        <state vertical-scroll-proportion="1.5060893">
+          <caret line="152" column="89" selection-start-line="152" selection-start-column="89" selection-end-line="152" selection-end-column="89" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="e#450#451#0" expanded="true" />
+            <element signature="e#488#489#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/consoleChat/src/test/java/chat/LoggerTest.java">
+    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/test/java/chess/QueenTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/palindrome/src/test/java/palindrome/PalindromeTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4730832">
-          <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/summ/src/test/java/summ/AdditionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5285481">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/summ/src/main/java/summ/Addition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5285481">
-          <caret line="24" column="61" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Logger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2512235">
-          <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Chat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5285481">
-          <caret line="29" column="46" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/Validator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.88907015">
-          <caret line="54" column="44" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/real/src/main/java/real/Real.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="123" column="31" selection-start-line="123" selection-start-column="31" selection-end-line="123" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/parity/src/test/java/parity/ParityCheckerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="75" selection-start-line="55" selection-start-column="75" selection-end-line="55" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="85" column="19" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.608931">
+          <caret line="240" column="16" selection-start-line="240" selection-start-column="16" selection-end-line="240" selection-end-column="16" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/src.zip!/java/util/Scanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5068493">
-          <caret line="828" column="17" selection-start-line="828" selection-start-column="17" selection-end-line="828" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/ConsoleIO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24959217">
-          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/src.zip!/java/io/FileOutputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33278957">
-          <caret line="310" column="24" selection-start-line="310" selection-start-column="24" selection-end-line="310" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/src.zip!/java/io/FileInputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="99" column="11" selection-start-line="99" selection-start-column="11" selection-end-line="99" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/src.zip!/java/io/FileReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0_55/src.zip!/java/io/Console.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.505137">
-          <caret line="188" column="62" selection-start-line="188" selection-start-column="62" selection-end-line="188" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.307692">
-          <caret line="49" column="13" selection-start-line="26" selection-start-column="2" selection-end-line="49" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/real/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40545145">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="20" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Answerer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.027732464">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state vertical-scroll-proportion="1.1610284">
+          <caret line="94" column="22" selection-start-line="94" selection-start-column="22" selection-end-line="94" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Chat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter3/consoleChat/src/main/java/chat/Logger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../chapter3/consoleChat/src/test/java/chat/AnswererTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08482871">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/StartUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22185971">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuTracker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4959216">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/start/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="20" selection-end-column="19" />
+          <caret line="8" column="72" selection-start-line="8" selection-start-column="72" selection-end-line="8" selection-end-column="72" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/consoleChat/pom.xml">
+    <entry file="file://$PROJECT_DIR$/../chapter3/consoleChat/src/test/java/chat/LoggerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40545145">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="66" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../chapter3/find/src/main/java/find/FindByMask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36052203">
-          <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="15" column="62" selection-start-line="15" selection-start-column="62" selection-end-line="15" selection-end-column="62" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/parity/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43441227">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="19" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/find/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40545145">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/find/src/test/java/find/KeysValidatorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3344209">
-          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/find/src/test/java/find/FindByRegExpTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0261011">
-          <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/find/src/test/java/find/FindByNameTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7226754">
-          <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../chapter3/find/src/main/java/find/FindByName.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66721046">
-          <caret line="78" column="78" selection-start-line="78" selection-start-column="78" selection-end-line="78" selection-end-column="78" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="77" column="79" selection-start-line="77" selection-start-column="79" selection-end-line="77" selection-end-column="79" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../chapter3/find/src/main/java/find/FindByRegExp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41598696">
-          <caret line="15" column="79" selection-start-line="15" selection-start-column="79" selection-end-line="15" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter3/find/src/test/java/find/FindByMaskTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66721046">
-          <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.29905277">
+          <caret line="15" column="80" selection-start-line="15" selection-start-column="80" selection-end-line="15" selection-end-column="80" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../chapter3/find/src/main/java/find/KeysValidator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5285481">
-          <caret line="84" column="30" selection-start-line="84" selection-start-column="30" selection-end-line="84" selection-end-column="30" />
+        <state vertical-scroll-proportion="1.5060893">
+          <caret line="74" column="18" selection-start-line="74" selection-start-column="18" selection-end-line="74" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../chapter3/find/src/main/java/find/Finder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.029363785">
-          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.41407308">
+          <caret line="18" column="49" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter3/palindrome/src/main/java/palindrome/Palindrome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter3/parity/src/main/java/parity/ParityChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5751015">
+          <caret line="27" column="91" selection-start-line="27" selection-start-column="91" selection-end-line="27" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter3/palindrome/src/test/java/palindrome/PalindromeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64411366">
+          <caret line="32" column="43" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter3/real/src/main/java/real/Real.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5751015">
+          <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter3/parity/src/test/java/parity/ParityCheckerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.86197567">
+          <caret line="70" column="1" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter3/real/src/test/java/real/RealTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.69012177">
+          <caret line="34" column="70" selection-start-line="34" selection-start-column="70" selection-end-line="34" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.023004">
+          <caret line="147" column="52" selection-start-line="147" selection-start-column="52" selection-end-line="147" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter3/socket/src/main/java/socket/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0460081">
+          <caret line="91" column="43" selection-start-line="91" selection-start-column="43" selection-end-line="91" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter3/summ/src/main/java/summ/Addition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="62" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter3/summ/src/test/java/summ/AdditionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5169147">
+          <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
           <folding />
         </state>
       </provider>
