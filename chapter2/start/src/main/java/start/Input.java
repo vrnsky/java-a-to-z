@@ -1,15 +1,10 @@
 package start;
 
 /**
-	Input interface use for implement various of input
-*/
+ * Contract for all input handlers.
+ */
 public interface Input {
-	
-	/**
-		Ask user for string data
-		@param:String question - it is information for user
-		@return:String - input data from user
-	*/
+
 	String ask(String question);
 	
 	int ask(String question, int from, int to);

@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="806ee486-b374-4af2-8308-87d9663aa2bb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter1/calculator/src/main/java/calculator/CalcInit.java" afterPath="$PROJECT_DIR$/../chapter1/calculator/src/main/java/calculator/CalcInit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Bug.java" afterPath="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Bug.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Comment.java" afterPath="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Comment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Item.java" afterPath="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Item.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Task.java" afterPath="$PROJECT_DIR$/../chapter2/models/src/main/java/models/Task.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/models/src/test/java/models/ItemTest.java" afterPath="$PROJECT_DIR$/../chapter2/models/src/test/java/models/ItemTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/BaseAction.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/BaseAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/ConsoleIO.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/ConsoleIO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/IO.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/IO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/Input.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/Input.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuOutException.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuOutException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuTracker.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuTracker.java" />
     </list>
     <ignored path="tracker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,10 +67,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConsoleIO.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ConsoleIO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/ConsoleIO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7851124">
+            <state vertical-scroll-proportion="-20.703703">
               <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
               <folding>
                 <element signature="e#1318#1319#0" expanded="true" />
@@ -86,11 +82,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Input.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/Input.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.8888888">
+              <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="IO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/IO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+            <state vertical-scroll-proportion="-1.8888888">
+              <caret line="3" column="67" selection-start-line="3" selection-start-column="67" selection-end-line="3" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -100,7 +106,17 @@
         <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuOutException.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuTracker.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuTracker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.16102841">
+              <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -157,10 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../chapter1/task/src/main/java/task/Substring.java" />
-        <option value="$PROJECT_DIR$/../chapter1/task/src/test/task/SubstringTest.java" />
-        <option value="$PROJECT_DIR$/../chapter1/task/pom.xml" />
-        <option value="$PROJECT_DIR$/../chapter1/task/src/test/java/task/SubstringTest.java" />
         <option value="$PROJECT_DIR$/../chapter2/start/src/test/java/start/MenuTrackerTest.java" />
         <option value="$PROJECT_DIR$/../chapter2/start/src/test/java/start/StartUITest.java" />
         <option value="$PROJECT_DIR$/../chapter2/start/src/test/java/start/StubIOTest.java" />
@@ -208,6 +220,10 @@
         <option value="$PROJECT_DIR$/../chapter2/models/src/test/java/models/ItemTest.java" />
         <option value="$PROJECT_DIR$/../chapter2/start/src/main/java/start/BaseAction.java" />
         <option value="$PROJECT_DIR$/../chapter2/start/src/main/java/start/ConsoleIO.java" />
+        <option value="$PROJECT_DIR$/../chapter2/start/src/main/java/start/Input.java" />
+        <option value="$PROJECT_DIR$/../chapter2/start/src/main/java/start/IO.java" />
+        <option value="$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuOutException.java" />
+        <option value="$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuTracker.java" />
       </list>
     </option>
   </component>
@@ -1164,7 +1180,7 @@
       <workItem from="1468270698215" duration="16000" />
       <workItem from="1468303574922" duration="3999000" />
       <workItem from="1468307601836" duration="641000" />
-      <workItem from="1468330401497" duration="4882000" />
+      <workItem from="1468330401497" duration="5074000" />
     </task>
     <servers />
   </component>
@@ -1201,7 +1217,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93985000" />
+    <option name="totallyTimeSpent" value="94177000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1213,7 +1229,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1263,20 +1279,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Figure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07162921">
-          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/main/java/chess/King.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27604872">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Pawn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7009472">
@@ -1614,22 +1616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/IO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuOutException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/StartUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1664,7 +1650,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/ConsoleIO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7851124">
+        <state vertical-scroll-proportion="-20.703703">
           <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
           <folding>
             <element signature="e#1318#1319#0" expanded="true" />
@@ -1672,6 +1658,38 @@
             <element signature="e#1563#1564#0" expanded="true" />
             <element signature="e#1611#1612#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/Input.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.8888888">
+          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/IO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.8888888">
+          <caret line="3" column="67" selection-start-line="3" selection-start-column="67" selection-end-line="3" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuOutException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuTracker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16102841">
+          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>

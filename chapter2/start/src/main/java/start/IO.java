@@ -1,8 +1,7 @@
 package start;
 
 /**
-	Agregation of input and output interface
-	@see: Input.java, Output.java
-*/
+ * All IO systems must implement this contract for correct working.
+ */
 public interface IO extends Input, Output {
 }
