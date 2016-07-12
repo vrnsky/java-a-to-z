@@ -111,7 +111,7 @@ public class MenuTracker {
 	}
 	
 	/**
-	*	Implementation of adding item.
+	* Implementation of adding item.
 	*/
 	private class AddItem extends BaseAction {
 	
@@ -193,15 +193,15 @@ public class MenuTracker {
 		
 		
 		/**
-		*	Init a new action - it is show all items action
-		*	@param: String name - it string for naming this action
+		* Init a new action - it is show all items action.
+		* @param name string for naming this action.
 		*/
 		ShowAllItems(String name) {
 			super(name);
 		}
 		/**
-			Use for determine position in actions array
-			@param: int - position in the actions array
+		* Use for determine position in actions array.
+		* @return position in the actions array.
 		*/
 
 		public int key(){
@@ -209,9 +209,9 @@ public class MenuTracker {
 		}
 		
 		/**
-			Show all items in console
-			@param: io - implement of input/output interface, in this method not use
-					tracker - instance of Tracker API
+		* Show all items call from io system method println.
+		* @param io implement of input/output interface.
+		* @param tracker instance of Tracker API.
 		*/
 		@Override
 		public void execute(IO io, Tracker tracker) {
@@ -223,20 +223,20 @@ public class MenuTracker {
 	}
 	
 	/**
-		Implementation of edit item option
+	* Implementation of edit item option.
 	*/
 	private class EditItem extends BaseAction {
 		
 		/**
-			Init a new action by calling constructor from the parent
-			@param: String name - it is name of action
+		* Init a new action by calling constructor from the parent.
+		* @param name of action.
 		*/
 		EditItem(String name) {
 			super(name);
 		}
 		/**
-			Use for determine position in actions array
-			@param: int - position in the actions array
+		* Use for determine position in actions array.
+		* @return position in the actions array.
 		*/
 	
 		public int key(){
@@ -244,11 +244,11 @@ public class MenuTracker {
 		}
 		
 		/**
-			Ask user about number of item in list and try find item.
-			If item was found try edit item, otherwise return and show user about problem
-			Further find item and edit by set new name and description
-			@param: io - implementation of input/output interface
-					tracker - instance of Tracker API
+		* Ask user about number of item in list and try find item.
+		* If item was found try edit item, otherwise return and show user about problem
+		* Further find item and edit by set new name and description.
+		* @param io implementation of input/output interface.
+		* @param tracker  instance of Tracker API.
 		*/
 		@Override
 		public void execute(IO io, Tracker tracker) {
@@ -265,30 +265,30 @@ public class MenuTracker {
 	}
 	
 	/**
-		Implementation of commenting option
+	*	Implementation of commenting option.
 	*/
 	private class CommentItem extends BaseAction {
 		
 		/**
-			Init a new action comment item by calling constructor from the parent
-			@param: String name - it is name of action
+		* Init a new action comment item by calling constructor from the parent
+		* @param name name of action.
 		*/
 		CommentItem(String name) {
 			super(name);
 		}
 		/**
-			Use for determine position in actions array
-			@param: int - position in the actions array
+		* Use for determine position in actions array.
+		* @return position in the actions array.
 		*/
 		public int key(){
 			return 4;
 		}
 		
 		/**
-			Ask user about item and try find it, if not found return. 
-			Further attach comments about item to the item
-			@param:io - implementation of input/output interface
-				   tracker - instance of Tracker API
+		* Ask user about item and try find it, if not found return.
+		* Further attach comments about item to the item.
+		* @param io implementation of input/output interface.
+		* @param tracker instance of Tracker API.
 		*/
 		@Override
 		public void execute(IO io, Tracker tracker) {
@@ -303,30 +303,30 @@ public class MenuTracker {
 	}
 	
 	/**
-		Implementation of show comments options
+	* Implementation of show comments options.
 	*/
 	private class ShowComments extends BaseAction {
 		
 		/**
-			Init a new action - show comments by calling constructor from the parent
-			@param: String name - it is name of action
+		* Init a new action - show comments by calling constructor from the parent.
+		* @param  name of action.
 		*/
 		ShowComments(String name) {
 			super(name);
 		}
 		/**
-			Use for determine position in actions array
-			@param: int - position in the actions array
+		* Use for determine position in actions array.
+		* @return position in the actions array.
 		*/
 		public int key(){
 			return 5;
 		}
 		
 		/**
-			Ask user about item and try find it if not found return. 
-			Further show comment for this item
-			@param: io - implementation of input/output interface
-					tracker - instance of Tracker API
+		* Ask user about item and try find it if not found return.
+		* Further show comment for this item
+		* @param io implementation of input/output interface.
+		* @param tracker instance of Tracker API.
 		*/
 		@Override
 		public void execute(IO io, Tracker tracker) {
@@ -342,29 +342,29 @@ public class MenuTracker {
 	}
 	
 	/**
-		Implement of filtering by text data option
+	* Implement of filtering by text data option.
 	*/
 	private class FilteringByTextData extends BaseAction {
 		
 		/**
-			Init a new action - filtering by text data by calling constructor from the parent
-			@param: String name - it is name for action
+		* Init a new action - filtering by text data by calling constructor from the parent.
+		* @param name for action.
 		*/
 		FilteringByTextData(String name) {
 			super(name);
 		}
 		/**
-			Use for determine position in actions array
-			@param: int - position in the actions array
+		* Use for determine position in actions array
+		* @return position in the actions array.
 		*/
 		public int key(){
 			return 6;
 		}
 		
 		/**
-			Ask user about text which he want find and items and try to find items
-			@param: io - implementation of input/output interface
-					tracker - instance of Tracker API
+		* Ask user about text which he want find and items and try to find items.
+		* @param io  implementation of input/output interface.
+		* @param tracker  instance of Tracker API.
 		*/
 		@Override
 		public void execute(IO io, Tracker tracker){
@@ -378,28 +378,31 @@ public class MenuTracker {
 			}
 		}
 	}
-	
+
+	/**
+	 * Implementation of filtering by time option.
+	 */
 	private class FilteringByTime extends BaseAction {
 		
 		/**
-			Init a new action - filtering by time by calling constructor from the parent
-			@param: String name - it is name of action
+		* Init a new action - filtering by time by calling constructor from the parent.
+		* @param name name of action.
 		*/
 		FilteringByTime(String name) {
 			super(name);
 		}
 		/**
-			Use for determine position in actions array
-			@param: int - position in the actions array
+		* Use for determine position in actions array.
+		* @return position in the actions array.
 		*/
 		public int key(){
 			return 7;
 		}
 		
 		/**
-			Ask user about time of item which he want find and try to find it
-			@param: io - implementation of input/output interface
-					tracker - instance of Tracker API
+		* Ask user about time of item which he want find and try to find it.
+		* @param io  implementation of input/output interface.
+		* @param tracker instance of Tracker API.
 		*/
 		@Override
 		public void execute(IO io, Tracker tracker){

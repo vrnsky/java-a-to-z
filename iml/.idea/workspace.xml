@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="806ee486-b374-4af2-8308-87d9663aa2bb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/IO.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/IO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/Input.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/Input.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuOutException.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuOutException.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuTracker.java" afterPath="$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuTracker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tracker.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,16 +45,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ItemTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../chapter2/models/src/test/java/models/ItemTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="114" column="72" selection-start-line="114" selection-start-column="72" selection-end-line="114" selection-end-column="72" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="BaseAction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/BaseAction.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -115,8 +103,21 @@
       <file leaf-file-name="MenuTracker.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuTracker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.16102841">
-              <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+            <state vertical-scroll-proportion="-0.32205683">
+              <caret line="113" column="6" selection-start-line="113" selection-start-column="6" selection-end-line="113" selection-end-column="6" />
+              <folding>
+                <element signature="e#3758#3759#0" expanded="true" />
+                <element signature="e#3775#3776#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuTrackerTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../chapter2/start/src/test/java/start/MenuTrackerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -435,6 +436,18 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="start" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1180,7 +1193,7 @@
       <workItem from="1468270698215" duration="16000" />
       <workItem from="1468303574922" duration="3999000" />
       <workItem from="1468307601836" duration="641000" />
-      <workItem from="1468330401497" duration="5074000" />
+      <workItem from="1468330401497" duration="6112000" />
     </task>
     <servers />
   </component>
@@ -1217,7 +1230,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94177000" />
+    <option name="totallyTimeSpent" value="95215000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1279,13 +1292,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Pawn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7009472">
-          <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../chapter2/task/src/main/java/chess/Queen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.2192152">
@@ -1685,11 +1691,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../chapter2/start/src/test/java/start/MenuTrackerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../chapter2/start/src/main/java/start/MenuTracker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16102841">
-          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-          <folding />
+        <state vertical-scroll-proportion="-0.32205683">
+          <caret line="113" column="6" selection-start-line="113" selection-start-column="6" selection-end-line="113" selection-end-column="6" />
+          <folding>
+            <element signature="e#3758#3759#0" expanded="true" />
+            <element signature="e#3775#3776#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
