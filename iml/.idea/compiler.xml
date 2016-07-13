@@ -17,116 +17,26 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Annotation profile for parity" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="parity" />
-      </profile>
-      <profile default="false" name="Annotation profile for task (2) (ru.evrnsky.chapter2.task)" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="task (2) (ru.evrnsky.chapter2.task)" />
-      </profile>
-      <profile default="false" name="Annotation profile for start" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="start" />
-      </profile>
-      <profile default="false" name="Annotation profile for models" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="models" />
-      </profile>
-      <profile default="false" name="Annotation profile for task (1) (ru.evrnsky.chapter1.task)" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="task (1) (ru.evrnsky.chapter1.task)" />
-      </profile>
-      <profile default="false" name="Annotation profile for geometry" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="geometry" />
-      </profile>
-      <profile default="false" name="Annotation profile for calculator" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="calculator" />
-      </profile>
-      <profile default="false" name="Annotation profile for loops" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="loops" />
-      </profile>
-      <profile default="false" name="Annotation profile for arrays" enabled="true">
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="arrays" />
-      </profile>
-      <profile default="false" name="Annotation profile for summ" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="summ" />
-      </profile>
-      <profile default="false" name="Annotation profile for real" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="real" />
-      </profile>
-      <profile default="false" name="Annotation profile for palindrome" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="palindrome" />
-      </profile>
-      <profile default="false" name="Annotation profile for consoleChat" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
+        <module name="calculator" />
         <module name="consoleChat" />
-      </profile>
-      <profile default="false" name="Annotation profile for socket" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="socket" />
-      </profile>
-      <profile default="false" name="Annotation profile for task" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
-      <profile default="false" name="Annotation profile for find" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
         <module name="find" />
+        <module name="geometry" />
+        <module name="loops" />
+        <module name="models" />
+        <module name="palindrome" />
+        <module name="parity" />
+        <module name="real" />
+        <module name="socket" />
+        <module name="start" />
+        <module name="summ" />
+        <module name="task (1) (ru.evrnsky.chapter1.task)" />
+        <module name="task (2) (ru.evrnsky.chapter2.task)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -135,6 +45,7 @@
       <module name="chapter1" target="1.7" />
       <module name="chapter2" target="1.7" />
       <module name="chapter3" target="1.7" />
+      <module name="chapter4" target="1.7" />
       <module name="consoleChat" target="1.7" />
       <module name="find" target="1.7" />
       <module name="geometry" target="1.7" />
@@ -146,7 +57,6 @@
       <module name="socket" target="1.7" />
       <module name="start" target="1.7" />
       <module name="summ" target="1.7" />
-      <module name="task" target="1.7" />
       <module name="task (1) (ru.evrnsky.chapter1.task)" target="1.7" />
       <module name="task (2) (ru.evrnsky.chapter2.task)" target="1.7" />
       <module name="tracker" target="1.7" />

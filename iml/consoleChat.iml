@@ -6,7 +6,6 @@
     <content url="file://$MODULE_DIR$/../chapter3/consoleChat">
       <sourceFolder url="file://$MODULE_DIR$/../chapter3/consoleChat/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../chapter3/consoleChat/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../chapter3/consoleChat/src/main/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/../chapter3/consoleChat/target" />
     </content>
     <orderEntry type="inheritedJdk" />
