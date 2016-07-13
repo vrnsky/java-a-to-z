@@ -11,6 +11,19 @@ public class Calculator {
 	private double result;
 
 	/**
+	 * Find correct arithmetic operation and execute it by invoke method of this class.
+	 * @param operation string view of math operator.
+	 * @param first value for calculate.
+	 * @param second value for calculate.
+     */
+	public void calc(String operation, double first, double second) {
+		if(operation.equals("+")) this.add(first, second);
+		else if (operation.equals("*")) this.multiply(first, second);
+		else if (operation.equals("/")) this.div(first, second);
+		else if (operation.equals("-")) this.deduct(first, second);
+	}
+
+	/**
 	 * Add one first to second and write to result field.
 	 * @param first number for adding.
 	 * @param second number for adding.

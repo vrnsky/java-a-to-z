@@ -41,24 +41,24 @@ public class CalcInit {
 
 	/**
 	 * Main loop of program.
+	 * It allow user input data and get result from calculator.
      */
 	public void start() throws Exception {
-		double second, first;
-		String operand;
 		String answer = "";
-
+		boolean reuse = false;
+		double first, second;
 		while(!"y".equals(answer)) {
-			first = Double.parseDouble(io.ask("Enter a first number: "));
-			second = Double.parseDouble(io.ask("Enter a second number: "));
-			operand = io.ask("Type operand: ");
-
-			if(operand.equals("+")) calculator.add(first, second);
-			else if (operand.equals("*")) calculator.multiply(first, second);
-			else if (operand.equals("/")) calculator.div(first, second);
-			else if (operand.equals("-")) calculator.deduct(first, second);
-			
-			io.println(String.format("Result: %s\n", calculator.getResult()));
-			answer = io.ask("Exit? (y/n)");
+			if(reuse) {
+				first = calculator.getResult();
+			} else {
+				first = io.askForDouble("Enter a first number: ");
+			}
+			second = io.askForDouble("Enter a second number: ");
+			String operand = io.ask("Type operand: ");
+			calculator.calc(operand, first, second);
+			this.io.println(String.format("Result: %s\n", calculator.getResult()));
+			reuse = this.io.ask("Reuse result in next? (y/n)?").equals("y");
+			answer = this.io.ask("Exit? (y/n)");
 		}
 	}
 	
