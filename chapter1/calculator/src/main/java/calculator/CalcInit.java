@@ -3,8 +3,6 @@ package calculator;
 import start.IO;
 import start.Validator;
 
-import java.io.*;
-
 /**
  * It class interact with user by accept data,
  * call API of calculator and show to user result.
@@ -35,8 +33,7 @@ public class CalcInit {
 	 * @throws Exception throw if reader from console fail.
      */
 	public static void main(String[] args) throws Exception {
-		CalcInit calcInit = new CalcInit(new Validator());
-		calcInit.start();
+		new CalcInit(new Validator()).start();
 	}
 
 	/**
@@ -56,10 +53,10 @@ public class CalcInit {
 			second = io.askForDouble("Enter a second number: ");
 			String operand = io.ask("Type operand: ");
 			calculator.calc(operand, first, second);
-			this.io.println(String.format("Result: %s\n", calculator.getResult()));
+			this.io.println(String.format("%s %s %s = %s", first, operand, second, calculator.getResult()));
 			reuse = this.io.ask("Reuse result in next? (y/n)?").equals("y");
 			answer = this.io.ask("Exit? (y/n)");
 		}
 	}
-	
+
 }
