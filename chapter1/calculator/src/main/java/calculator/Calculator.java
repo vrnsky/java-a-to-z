@@ -1,4 +1,5 @@
 package calculator;
+
 /**
  * Usually calculator it may add, deduct, multiply and divide.
  * Use it for execute arithmetic operations with double numbers.
@@ -8,7 +9,7 @@ public class Calculator {
 	/**
 	 * Hold result of calculation.
 	 */
-	private double result;
+	protected double result;
 
 	/**
 	 * Find correct arithmetic operation and execute it by invoke method of this class.
@@ -68,4 +69,5 @@ public class Calculator {
 	public double getResult() {
 		return result;
 	}
+
 }
