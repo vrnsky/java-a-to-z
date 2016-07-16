@@ -33,14 +33,13 @@ public class CalculatorTest {
 	public void whenAddTwoDoubleShouldGetSumOfIts() {
 		//Assign block
 		double first = 1.5;
-		double second = 1.3;
-		double summ = 2.8;
+		double result = 1.5;
 		
 		//Act block
-		calc.add(first, second);
+		calc.add(first);
 		
 		//Action block
-		assertThat(calc.getResult(), is(summ));
+		assertThat(calc.getResult(), is(result));
 	}
 
 	/**
@@ -50,12 +49,11 @@ public class CalculatorTest {
 	@Test
 	public void whenDeductTwoDoubleShouldGetDifferenceBetweenDigits() {
 		//Assign block
-		double first = 2.5;
-		double second = 1.5;
-		double diff = 1.0;
+		double first = 1.5;
+		double diff = -1.5;
 		
 		//Act block
-		calc.deduct(first, second);
+		calc.deduct(first);
 		
 		//Action block
 		assertThat(calc.getResult(), is(diff));
@@ -68,15 +66,16 @@ public class CalculatorTest {
 	@Test
 	public void whenMultiplyTwoDoubleShouldGetResultOfMulti() {
 		//Assign block
-		double first = 1.0;
-		double second = 2.0;
+		double first = 5.0;
 		double multiply = 2.0;
-		
+		double result = 10.0;
+
 		//Act block
-		calc.multiply(first, second);
+		calc.add(first);
+		calc.multiply(multiply);
 		
 		//Action block
-		assertThat(calc.getResult(), is(multiply));
+		assertThat(calc.getResult(), is(result));
 	}
 
 	/**
@@ -86,32 +85,91 @@ public class CalculatorTest {
 	@Test
 	public void whenDivideTwoDoubleShouldGetResultOfDivision() {
 		//Assign block
-		double first = 5.1;
-		double second = 1.7;
-		double division = 3.0;
-		
+		double first = 100.0;
+		double divisor = 50.0;
+		double result = 2.0;
+
 		//Act block
-		calc.div(first, second);
+		calc.add(first);
+		calc.div(divisor);
 		
 		//Action block
-		assertThat(calc.getResult(), is(division));
+		assertThat(calc.getResult(), is(result));
 	}
 
 	/**
 	 * When try divide no-zero double number by zero should
 	 * check that algorithm change zero on one and return first double.
 	 */
-	@Test
+	@Test(expected = ArithmeticException.class)
 	public void whenDivideDoubleByZeroShouldReturnDividend() {
 		//Assign block
-		double first = 1.0;
-		double second = 0.0;
-		double division = 1.0;
+		double first = 0.0;
 		
 		//Act block
-		calc.div(first, second);
-		
+		calc.div(first);
+	}
+
+	/**
+	 * When try calculate sinus should check that is correct.
+     */
+	@Test
+	public void whenCalculateSinShouldCheckThatIsCorrect() {
+		//Assign block
+		double number = 0.0;
+
 		//Action block
-		assertThat(calc.getResult(), is(division));
+		calc.sin(number);
+
+		//Assert block
+		assertThat(calc.getResult(),is(number));
+	}
+
+	/**
+	 * When try calculate cosinus should check that result is correct.
+     */
+	@Test
+	public void whenCalculateCosShouldCheckThatIsCorrect() {
+
+		//Assign block
+		double number = 0.0;
+
+		//Action block
+		calc.cos(number);
+
+		//Assert block
+		assertThat(calc.getResult(), is(1.0));
+	}
+
+	/**
+	 * When try calculate decimal log should check that result is correct.
+     */
+	@Test
+	public void whenCalculateDecimalLogShouldCheckThatResultIsCorrect() {
+
+		//Assign block
+		double number = 100.0;
+
+		//Action block
+		calc.log(number);
+
+		//Assert block
+		assertThat(calc.getResult(), is(10.));
+	}
+
+	/**
+	 * When try calculate module for some number should check that result is correct.
+     */
+	@Test
+	public void whenCalculateModuleForNumberShouldCheckThaResultIsCorrect() {
+
+		//Assign number
+		double number = -2.5;
+
+		//Action block
+		calc.abs(number);
+
+		//Assert block
+		assertThat(calc.getResult(), is(2.5));
 	}
 }
