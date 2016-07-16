@@ -16,7 +16,7 @@ public class CalcInitTest {
      * When try execute addiction from calculator UI should check that calculator return correct result.
      */
     @Test
-    public void whenTryAddTwoDoubleUseCalculatorUIShouldCheckThatCorrectResult() {
+    public void whenTryAddTwoDoubleUseCalculatorUIShouldCheckThatCorrectResult() throws Exception {
 
         //Assign block
         String[] answer = new String[]{"1.0","1.0","+","n","y"};
@@ -25,11 +25,7 @@ public class CalcInitTest {
         String expected = "1.0 + 1.0 = 2.0\n";
 
         //Action block
-        try {
-            calcInit.start();
-        } catch (Exception exp) {
-           exp.printStackTrace();
-        }
+        calcInit.start();
         String actual = stubIO.getOut();
 
         //Assert block
@@ -40,7 +36,7 @@ public class CalcInitTest {
      * When try execute deduct use calculator UI should check that calculator return correct result.
      */
     @Test
-    public void whenTryDeductTwoDoubleUseCalculatorUIShouldCheckThatCorrectResult() {
+    public void whenTryDeductTwoDoubleUseCalculatorUIShouldCheckThatCorrectResult() throws Exception {
 
         //Assign block
         String[] answer = new String[]{"2.0", "1.0", "-", "n","y"};
@@ -49,11 +45,7 @@ public class CalcInitTest {
         String expected = "2.0 - 1.0 = 1.0\n";
 
         //Action block
-        try {
-            calcInit.start();
-        } catch (Exception exp) {
-            exp.printStackTrace();
-        }
+        calcInit.start();
         String actual = stubIO.getOut();
 
         //Assert block
@@ -64,7 +56,7 @@ public class CalcInitTest {
      * When try execute multiply should check that calculator return correct result.
      */
     @Test
-    public void whenTryMultiplyTwoDoubleUseCalculatorUIShouldCheckThatCorrectResult() {
+    public void whenTryMultiplyTwoDoubleUseCalculatorUIShouldCheckThatCorrectResult() throws Exception {
 
         //Assign block
         String[] answer = new String[]{"0.5", "2.0", "*", "n", "y"};
@@ -73,11 +65,7 @@ public class CalcInitTest {
         String expected = "0.5 * 2.0 = 1.0\n";
 
         //Action block
-        try {
-            calcInit.start();
-        } catch (Exception exp) {
-            exp.printStackTrace();
-        }
+        calcInit.start();
         String actual = stubIO.getOut();
 
         //Assert block
@@ -88,7 +76,7 @@ public class CalcInitTest {
      * When try execute divide use calculator UI should check than calculator return correct result.
      */
     @Test
-    public void whenTryDivideTwoDoubleUseCalculatorUIShouldCheckThatCorrectResult() {
+    public void whenTryDivideTwoDoubleUseCalculatorUIShouldCheckThatCorrectResult() throws Exception {
 
         //Assign block
         String[] answer = new String[]{"10.0", "2.0", "/", "n", "y"};
@@ -97,11 +85,7 @@ public class CalcInitTest {
         String expected = "10.0 / 2.0 = 5.0\n";
 
         //Action block
-        try {
-            calcInit.start();
-        } catch (Exception exp) {
-            exp.printStackTrace();
-        }
+        calcInit.start();
         String actual = stubIO.getOut();
 
         //Assert block
@@ -112,7 +96,7 @@ public class CalcInitTest {
      * When try execute some arithmetic operation with previous result should check that it works correct.
      */
     @Test
-    public void whenTryReusePreviousResultShouldCheckThatItWorksCorrect() {
+    public void whenTryReusePreviousResultShouldCheckThatItWorksCorrect() throws Exception {
 
         //Assign block
         String[] answer = new String[]{"5.0", "2.0", "+", "y", "n", "3.5", "/", "n","y"};
@@ -122,11 +106,7 @@ public class CalcInitTest {
                           "7.0 / 3.5 = 2.0\n";
 
         //Action block
-        try {
-            calcInit.start();
-        } catch (Exception exp) {
-            exp.printStackTrace();
-        }
+        calcInit.start();
         String actual = stubIO.getOut();
 
         //Assert block
