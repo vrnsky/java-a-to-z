@@ -25,7 +25,7 @@ public class CalcInit {
      */
 	public CalcInit(IO io) {
 		this.io = io;
-		this.calculator = new Calculator();
+		calculator = new Calculator();
 	}
 	/**
 	 * Entry point of application.
@@ -41,22 +41,15 @@ public class CalcInit {
 	 * It allow user input data and get result from calculator.
      */
 	public void start() throws Exception {
-		String answer = "";
-		boolean reuse = false;
-		double first, second;
-		while(!"y".equals(answer)) {
-			if(reuse) {
-				first = calculator.getResult();
-			} else {
-				first = io.askForDouble("Enter a first number: ");
-			}
-			second = io.askForDouble("Enter a second number: ");
-			String operand = io.ask("Type operand: ");
-			calculator.calc(operand, first, second);
-			this.io.println(String.format("%s %s %s = %s", first, operand, second, calculator.getResult()));
-			reuse = this.io.ask("Reuse result in next? (y/n)?").equals("y");
-			answer = this.io.ask("Exit? (y/n)");
-		}
+		MenuCalculator menuCalculator = new MenuSciCalculator(this.calculator, this.io, 8);
+		menuCalculator.fillActions();
+		int start = menuCalculator.getIdFirstCommand();
+		int finish = menuCalculator.getIdLastCommand();
+
+		do {
+			menuCalculator.showMenu();
+			menuCalculator.select(this.io.ask("Choose an option: ", start, finish));
+		} while(!"y".equals(this.io.ask("Exit? y/n")));
 	}
 
 }
