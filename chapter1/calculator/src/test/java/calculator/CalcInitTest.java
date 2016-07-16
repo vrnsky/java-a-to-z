@@ -3,6 +3,7 @@ package calculator;
 import org.junit.Test;
 import start.StubIO;
 
+import static org.hamcrest.core.StringContains.containsString;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
@@ -19,17 +20,16 @@ public class CalcInitTest {
     public void whenTryAddTwoDoubleUseCalculatorUIShouldCheckThatCorrectResult() throws Exception {
 
         //Assign block
-        String[] answer = new String[]{"1.0","1.0","+","n","y"};
+        String[] answer = new String[]{"0","1.0","y"};
         StubIO stubIO = new StubIO(answer);
         CalcInit calcInit = new CalcInit(stubIO);
-        String expected = "1.0 + 1.0 = 2.0\n";
+        String expected = "0.0 + 1.0 = 1.0\n";
 
         //Action block
         calcInit.start();
-        String actual = stubIO.getOut();
 
         //Assert block
-        assertThat(actual, is(expected));
+        assertThat(stubIO.getOut(), containsString(expected));
     }
 
     /**
@@ -39,17 +39,16 @@ public class CalcInitTest {
     public void whenTryDeductTwoDoubleUseCalculatorUIShouldCheckThatCorrectResult() throws Exception {
 
         //Assign block
-        String[] answer = new String[]{"2.0", "1.0", "-", "n","y"};
+        String[] answer = new String[]{"0","100.0","n", "1", "1","y"};
         StubIO stubIO = new StubIO(answer);
         CalcInit calcInit = new CalcInit(stubIO);
-        String expected = "2.0 - 1.0 = 1.0\n";
+        String expected = "100.0 - 1.0 = 99.0\n";
 
         //Action block
         calcInit.start();
-        String actual = stubIO.getOut();
 
         //Assert block
-        assertThat(actual, is(expected));
+        assertThat(stubIO.getOut(), containsString(expected));
     }
 
     /**
@@ -59,17 +58,16 @@ public class CalcInitTest {
     public void whenTryMultiplyTwoDoubleUseCalculatorUIShouldCheckThatCorrectResult() throws Exception {
 
         //Assign block
-        String[] answer = new String[]{"0.5", "2.0", "*", "n", "y"};
+        String[] answer = new String[]{"0", "2.0", "n", "2", "10","y"};
         StubIO stubIO = new StubIO(answer);
         CalcInit calcInit = new CalcInit(stubIO);
-        String expected = "0.5 * 2.0 = 1.0\n";
+        String expected = "2.0 * 10.0 = 20.0\n";
 
         //Action block
         calcInit.start();
-        String actual = stubIO.getOut();
 
         //Assert block
-        assertThat(actual, is(expected));
+        assertThat(stubIO.getOut(), containsString(expected));
     }
 
     /**
@@ -79,38 +77,16 @@ public class CalcInitTest {
     public void whenTryDivideTwoDoubleUseCalculatorUIShouldCheckThatCorrectResult() throws Exception {
 
         //Assign block
-        String[] answer = new String[]{"10.0", "2.0", "/", "n", "y"};
+        String[] answer = new String[]{"0", "100.0", "n", "3", "2", "y"};
         StubIO stubIO = new StubIO(answer);
         CalcInit calcInit = new CalcInit(stubIO);
-        String expected = "10.0 / 2.0 = 5.0\n";
+        String expected = "100.0 / 2.0 = 50.0\n";
 
         //Action block
         calcInit.start();
-        String actual = stubIO.getOut();
 
         //Assert block
-        assertThat(actual, is(expected));
-    }
-
-    /**
-     * When try execute some arithmetic operation with previous result should check that it works correct.
-     */
-    @Test
-    public void whenTryReusePreviousResultShouldCheckThatItWorksCorrect() throws Exception {
-
-        //Assign block
-        String[] answer = new String[]{"5.0", "2.0", "+", "y", "n", "3.5", "/", "n","y"};
-        StubIO stubIO = new StubIO(answer);
-        CalcInit calcInit = new CalcInit(stubIO);
-        String expected = "5.0 + 2.0 = 7.0\n" +
-                          "7.0 / 3.5 = 2.0\n";
-
-        //Action block
-        calcInit.start();
-        String actual = stubIO.getOut();
-
-        //Assert block
-        assertThat(actual, is(expected));
+        assertThat(stubIO.getOut(), containsString(expected));
     }
 
 }
