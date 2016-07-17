@@ -17,7 +17,7 @@ public class FindByNameTest {
     /**
      * At this path will start search and save result.
      */
-    private static final String PATH = "F:/java-a-to-z/iml/move/";
+    private static final String PATH = "F:/java-a-to-z/chapter3/find/src/test/java/";
 
     /**
      * Check that find correct write result and correct finding files,
@@ -25,30 +25,29 @@ public class FindByNameTest {
      * also file was found should show it and show directory.
      */
     @Test
-    public void whenTrySearchFileByNameShouldFndFileIfExistAndSavePathToItInFile() {
+    public void whenTrySearchFileByNameShouldFndFileIfExistAndSavePathToItInFile() throws Exception {
 
         //Assign block
-        String[] keys = new String[]{"-d", PATH , "-n", "name.txt", "-n", "-o", PATH + "/result//findbyname/findbyname.txt/"};
+        String[] keys = new String[]{"-d", PATH , "-n", "name.txt", "-n", "-o", PATH + "/move/result/findbyname/findbyname.txt/"};
         Answerer answerer = null;
         FindByName finder = new FindByName();
         String[] expected = new String[]{
-                "name.txt was not found at F:\\java-a-to-z\\iml\\move\\result\\findbymask\\findbymask.txt",
-                "name.txt was not found at F:\\java-a-to-z\\iml\\move\\result\\findbyname\\findbyname.txt",
-                "name.txt was not found at F:\\java-a-to-z\\iml\\move\\test\\findbymask\\mask.txt",
-                "name.txt was found at F:\\java-a-to-z\\iml\\move\\test\\findbyname\\name.txt",
-                "name.txt was not found at F:\\java-a-to-z\\iml\\move\\test\\findnyregexp\\regexp.txt",
+        "name.txt was not found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\find\\FindByMaskTest.java",
+        "name.txt was not found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\find\\FindByNameTest.java",
+        "name.txt was not found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\find\\FindByRegExpTest.java",
+        "name.txt was not found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\find\\KeysValidatorTest.java",
+        "name.txt was not found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\move\\result\\findbyname\\findbyname.txt",
+        "name.txt was not found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\move\\test\\findbymask\\mask.txt",
+        "name.txt was found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\move\\test\\findbyname\\name.txt",
+        "name.txt was not found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\move\\test\\findbyregexp\\regexp.txt",
         };
 
         //Action block
         finder.find(keys);
-        try {
-            answerer = new Answerer(PATH + "/result//findbyname/findbyname.txt/");
-        } catch(IOException exp) {
-            System.out.println("Result file N/A");
-        }
+        answerer = new Answerer(keys[6]);
         String[] actual = answerer.getAllStrings();
 
-        //Action block
+        //Assert block
         assertThat(Arrays.toString(actual), is(Arrays.toString(expected)));
     }
 
