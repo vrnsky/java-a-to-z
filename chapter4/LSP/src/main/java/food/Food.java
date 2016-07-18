@@ -117,7 +117,7 @@ public class Food {
      * @param calendar instance of calendar class.
      * @return string in format dd.MM.yyyy.
      */
-    public String getStringViewOfTime(Calendar calendar) {
+    private String getStringViewOfTime(Calendar calendar) {
         dateFormat.setCalendar(calendar);
         return dateFormat.format(calendar.getTime());
     }
