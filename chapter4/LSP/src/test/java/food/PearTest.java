@@ -42,7 +42,6 @@ public class PearTest {
         //Assert block
         assertThat(food.getDiscount(), is(expected));
     }
-    
 
     /**
      * When try get name of food should check that is correct name of food.
