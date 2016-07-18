@@ -4,13 +4,14 @@ import org.junit.Test;
 
 import java.util.GregorianCalendar;
 
+import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
 /**
- * Unit test for Orange.java
+ * Unit test for Food.java.
+ * It test correct fill fields of food model.
  */
-public class OrangeTest {
+public class FoodTest {
+
 
     /**
      * Check that constructor works correct.
@@ -19,8 +20,8 @@ public class OrangeTest {
     public void whenCreateFoodObjectShouldCheckThatAllFieldAreCorrectFill() {
 
         //Assign block
-        Food food = new Orange("Orange", new GregorianCalendar(), new GregorianCalendar(2016,11,18), 100.0, 0);
-        String expected = "Name:Orange\nWas added: 18.07.2016\nExpair date: 18.12.2016\nPrice: 100.0\nDiscount: 0";
+        Food food = new Food("Food", new GregorianCalendar(), new GregorianCalendar(2016,11,18), 100.0, 0);
+        String expected = "Name:Food\nWas added: 18.07.2016\nExpair date: 18.12.2016\nPrice: 100.0\nDiscount: 0";
 
         //Assert block
         assertThat(food.toString(), is(expected));
@@ -33,7 +34,7 @@ public class OrangeTest {
     public void whenTryToSetDiscountShouldCheckThatIsWorkCorrect() {
 
         //Assign block
-        Food food = new Orange("Orange", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0);
+        Food food = new Food("Food", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0);
         int expected = 20;
 
         //Action block
@@ -50,7 +51,7 @@ public class OrangeTest {
     public void whenTryToGetCreateTimeShouldCheckThatIsWorksCorrect() {
 
         //Assign block
-        Food food = new Orange("Orange", new GregorianCalendar(2016,6, 18), new GregorianCalendar(), 100.0, 0);
+        Food food = new Food("food", new GregorianCalendar(2016,6, 18), new GregorianCalendar(), 100.0, 0);
         String expected = "18.07.2016";
 
         //Action block
@@ -67,8 +68,8 @@ public class OrangeTest {
     public void whenTryGetNameOfFoodShouldCheckThatIsCorrectWorks() {
 
         //Assign block
-        Food food = new Orange("Orange", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0);
-        String expected = "Orange";
+        Food food = new Food("food", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0);
+        String expected = "food";
 
         //Action block
         String actual = food.getName();
@@ -84,7 +85,7 @@ public class OrangeTest {
     public void whenTryGetPriceForFoodShouldCheckThatIsCorrectWorks() {
 
         //Assign block
-        Food food = new Orange("Orange", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0);
+        Food food = new Food("food", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0);
         double expected = 100.0;
 
         //Action block
