@@ -1,6 +1,6 @@
 <project>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>ru.evrnsky.chapter3.LSP</groupId>
+	<groupId>ru.evrnsky.chapter4.LSP</groupId>
 	<artifactId>LSP</artifactId>
 	<name>LSP</name>
 	<version>1.0</version>
