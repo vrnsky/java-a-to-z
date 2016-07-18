@@ -45,23 +45,6 @@ public class FoodTest {
     }
 
     /**
-     * When try to get create time should check that is works correct.
-     */
-    @Test
-    public void whenTryToGetCreateTimeShouldCheckThatIsWorksCorrect() {
-
-        //Assign block
-        Food food = new Food("food", new GregorianCalendar(2016,6, 18), new GregorianCalendar(), 100.0, 0);
-        String expected = "18.07.2016";
-
-        //Action block
-        String actual = food.getStringViewOfTime(food.getCreateTime());
-
-        //Assert block
-        assertThat(actual, is(expected));
-    }
-
-    /**
      * When try get name of food should check that is correct name of food.
      */
     @Test
