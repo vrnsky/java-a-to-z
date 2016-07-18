@@ -1,0 +1,14 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.evrnsky.chapter3.LSP</groupId>
+	<artifactId>LSP</artifactId>
+	<name>LSP</name>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	
+	<parent>
+		<groupId>ru.evrnsky.chapter4</groupId>
+		<artifactId>chapter4</artifactId>
+		<version>1.0</version>
+	</parent>
+</project>
