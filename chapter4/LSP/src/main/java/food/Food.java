@@ -2,11 +2,14 @@ package food;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  * Model of food.
  */
 public class Food {
+
+    private static final int TIME_IN_DAY = 3600 * 24 * 1000;
 
     /**
      * Name of model.
@@ -120,6 +123,23 @@ public class Food {
     private String getStringViewOfTime(Calendar calendar) {
         dateFormat.setCalendar(calendar);
         return dateFormat.format(calendar.getTime());
+    }
+
+    public int calculateFitness() {
+        Calendar calendar = this.getExpairDate();
+        calendar.set(Calendar.HOUR,23);
+        calendar.set(Calendar.MINUTE, 59);
+        calendar.set(Calendar.SECOND, 59);
+
+        Calendar today = new GregorianCalendar();
+        today.set(Calendar.HOUR, 23);
+        today.set(Calendar.MINUTE,59);
+        today.set(Calendar.SECOND, 59);
+
+        long productLife = (calendar.getTimeInMillis() - this.getCreateTime().getTimeInMillis()) / TIME_IN_DAY;
+        long productToday = (today.getTimeInMillis() - this.getCreateTime().getTimeInMillis()) / TIME_IN_DAY;
+        long percent = (productToday * 100) / productLife;
+        return (int)percent;
     }
 
 }
