@@ -16,14 +16,14 @@ public class MaxsideTest {
 	public void whenGiveMaxsideObjectCorrectTriangleShouldGetLengthOfMaxSideInTriangle() {
 		//Assign block
 		Triangle goodTriangle = new Triangle(new Point(4.0,0.0), new Point(8.0,3.0), new Point(5.0,8.0));
-		double expectedMax = 8.06;
+		double expectedMax = 8.06D;
 		Maxside maxSide = new Maxside();
 		
 		//Act block
 		double actualMax = maxSide.max(goodTriangle);
 		
 		//Action block
-		assertThat(expectedMax, closeTo(actualMax,0.01));
+		assertThat(actualMax, closeTo(expectedMax,0.01));
 	}
 
 
@@ -42,6 +42,6 @@ public class MaxsideTest {
 		double actualMax = maxSide.max(badTriangle);
 		
 		//Action block
-		assertThat(expectedMax, closeTo(actualMax,0.01));
+		assertThat(actualMax, closeTo(expectedMax,0.01));
 	}
 }
