@@ -1,4 +1,7 @@
 package storage;
+
+import food.Food;
+
 /**
  * Model of warehouse.
  */
@@ -17,6 +20,16 @@ public class Warehouse extends Storage {
      */
     public Warehouse() {
         this(100);
+    }
+
+    /**
+     * Check that food suitable for warehouse
+     * @param food model of food which will check
+     * @return
+     */
+    @Override
+    public boolean isSuitable(Food food) {
+        return food.calculateFitness() < 25;
     }
 
     /**

@@ -5,7 +5,7 @@ import food.Food;
 /**
  * Model for storage.
  */
-public class Storage {
+abstract public class Storage implements Suitable {
 
     /**
      * All product hold at this array.
@@ -45,6 +45,17 @@ public class Storage {
     public void addFood(Food food) {
         this.foods[position++] = food;
     }
+
+    /**
+     * Check that food suitable for storage.
+     * @param food model of food which will check
+     * @return true if food suitable for this storage
+     */
+    public boolean isSuitable(Food food) {
+        return food.calculateFitness() < 100;
+    }
+
+
 
     /**
      * Collect info about product at the storage.
