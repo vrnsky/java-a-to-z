@@ -43,7 +43,9 @@ abstract public class Storage implements Suitable {
      * @param food child of Food class.
      */
     public void addFood(Food food) {
-        this.foods[position++] = food;
+        if(this.isSuitable(food)) {
+            this.foods[position++] = food;
+        }
     }
 
     /**

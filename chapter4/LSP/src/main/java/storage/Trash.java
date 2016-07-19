@@ -29,7 +29,7 @@ public class Trash extends Storage {
      */
     @Override
     public boolean isSuitable(Food food) {
-        return food.calculateFitness() > 100;
+        return food.calculateFitness() >= 100;
     }
 
     /**
