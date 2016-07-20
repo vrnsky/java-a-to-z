@@ -2,6 +2,7 @@ package start;
 
 import food.Food;
 import storage.Shop;
+import storage.Storage;
 import storage.Trash;
 import storage.Warehouse;
 
@@ -13,34 +14,40 @@ import java.util.GregorianCalendar;
  */
 public class ControllQuality {
 
-    /**
-     * Millisecond in one day.
-     */
-    private static final int TIME_IN_DAY = 1000 * 3600 * 24;
 
-    /**
-     * Instance of shop.
-     */
-    private Shop shop;
-    /**
-     * Instance of warehouse.
-     */
-    private Warehouse warehouse;
-
-    /**
-     * Instance of trash.
-     */
-    private Trash trash;
+    private Storage[] storages;
+    private int position = 0;
 
     /**
      * Create a new controller.
      */
-    public ControllQuality() {
-        this.shop = new Shop();
-        this.warehouse = new Warehouse();
-        this.trash = new Trash();
+    public ControllQuality(int capacity) {
+        this.storages = new Storage[capacity];
     }
 
+    /**
+     * Default constructor.
+     */
+    public ControllQuality() {
+        this(100);
+    }
+
+    /**
+     * Add a new storage to controller
+     * @param storage instance of storage class.
+     */
+    public void addStorage(Storage storage) {
+        storages[position++] = storage;
+    }
+
+    /**
+     * Return storage at the index position.
+     * @param index position of storage.
+     * @return storage at the index position in storages array.
+     */
+    public Storage getStorage(int index) {
+        return storages[index];
+    }
 
 
 
@@ -49,41 +56,11 @@ public class ControllQuality {
      * @param food product for moving.
      */
     public void moveFood(Food food) {
-        int percent = food.calculateFitness();
-        if(percent < 25) {
-            warehouse.addFood(food);
-        } else if (percent > 25 && percent < 75) {
-            shop.addFood(food);
-        } else if (percent > 75 && percent < 100) {
-            food.setDiscount(20);
-            shop.addFood(food);
-        } else {
-            trash.addFood(food);
+        for(int index = 0; index < storages.length; index++) {
+                if(storages[index] != null && storages[index].isSuitable(food)) {
+                    storages[index].addFood(food);
+                    break;
+                }
         }
     }
-
-    /**
-     * Get instance of warehouse.
-     * @return warehouse object.
-     */
-    public Warehouse getWarehouse() {
-        return this.warehouse;
-    }
-
-    /**
-     * Get instance of shop.
-     * @return shop object.
-     */
-    public Shop getShop() {
-        return this.shop;
-    }
-
-    /**
-     * Get instance of trash.
-     * @return trash object.
-     */
-    public Trash getTrash() {
-        return this.trash;
-    }
-
 }
