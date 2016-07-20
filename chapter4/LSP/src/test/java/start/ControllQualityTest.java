@@ -24,16 +24,17 @@ public class ControllQualityTest {
 
         //Assign block
         ControllQuality control = new ControllQuality();
-        Food food = new Food("food", new GregorianCalendar(2016,6,18), new GregorianCalendar(2016,6,25), 3.5, 0);
+        Food food = new Food("food", new GregorianCalendar(2016,6,20), new GregorianCalendar(2016,6,30), 3.5, 0);
         String expected =  "At this moment at the warehouse:\n" +
                            "Name:food\n"+
-                           "Was added: 18.07.2016\n" +
-                           "Expair date: 25.07.2016\n" +
+                           "Was added: 20.07.2016\n" +
+                           "Expair date: 30.07.2016\n" +
                            "Price: 3.5\nDiscount: 0";
 
         //Action block
+        control.addStorage(new Warehouse());
         control.moveFood(food);
-        Warehouse warehouse = control.getWarehouse();
+        Warehouse warehouse = (Warehouse)control.getStorage(0);
 
         //Assert block
         assertThat(warehouse.toString(), is(expected));
@@ -56,8 +57,9 @@ public class ControllQualityTest {
                           "Discount: 0";
 
         //Action block
+        control.addStorage(new Shop());
         control.moveFood(food);
-        Shop shop = control.getShop();
+        Shop shop = (Shop)control.getStorage(0);
 
         //Assert block
         assertThat(shop.toString(), is(expected));
@@ -79,8 +81,9 @@ public class ControllQualityTest {
                           "Price: 3.5\n" +
                           "Discount: 20";
         //Action block
+        control.addStorage(new Shop());
         control.moveFood(food);
-        Shop shop = control.getShop();
+        Shop shop = (Shop)control.getStorage(0);
 
         //Assert block
         assertThat(shop.toString(), is(expected));
@@ -102,9 +105,11 @@ public class ControllQualityTest {
                           "Price: 3.5\nDiscount: 0";
 
         //Action block
+        control.addStorage(new Trash());
         control.moveFood(food);
-        Trash trash = control.getTrash();
+        Trash trash = (Trash)control.getStorage(0);
 
+        //Assign block
         assertThat(trash.toString(), is(expected));
     }
 }
