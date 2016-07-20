@@ -1,21 +1,20 @@
 package start;
 
 import food.Food;
-import storage.Shop;
 import storage.Storage;
-import storage.Trash;
-import storage.Warehouse;
-
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
 /**
  * Controller for products. It moving food between trash, shop and warehouse. Also this set discount for product.
  */
 public class ControllQuality {
 
-
+    /**
+     * May hold all various of storage such as trash, shop and warehouse.
+     */
     private Storage[] storages;
+
+    /**
+     * It uses for determine correct position of new storage in storages array.
+     */
     private int position = 0;
 
     /**
