@@ -127,14 +127,14 @@ public class Food {
 
     public int calculateFitness() {
         Calendar calendar = this.getExpairDate();
-        calendar.set(Calendar.HOUR,23);
-        calendar.set(Calendar.MINUTE, 59);
-        calendar.set(Calendar.SECOND, 59);
+        calendar.set(Calendar.HOUR,1);
+        calendar.set(Calendar.MINUTE, 1);
+        calendar.set(Calendar.SECOND, 1);
 
         Calendar today = new GregorianCalendar();
-        today.set(Calendar.HOUR, 23);
-        today.set(Calendar.MINUTE,59);
-        today.set(Calendar.SECOND, 59);
+        today.set(Calendar.HOUR, 0);
+        today.set(Calendar.MINUTE,0);
+        today.set(Calendar.SECOND, 0);
 
         long productLife = (calendar.getTimeInMillis() - this.getCreateTime().getTimeInMillis()) / TIME_IN_DAY;
         long productToday = (today.getTimeInMillis() - this.getCreateTime().getTimeInMillis()) / TIME_IN_DAY;
