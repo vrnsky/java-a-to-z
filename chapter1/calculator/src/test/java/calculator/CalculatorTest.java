@@ -154,7 +154,7 @@ public class CalculatorTest {
 		calc.log(number);
 
 		//Assert block
-		assertThat(calc.getResult(), is(10.));
+		assertThat(calc.getResult(), is(2.0));
 	}
 
 	/**
