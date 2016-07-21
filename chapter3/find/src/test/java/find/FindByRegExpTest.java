@@ -17,7 +17,7 @@ public class FindByRegExpTest {
     /**
      * At this path will be search and save result.
      */
-    private static final String PATH = "F:/java-a-to-z/chapter3/find/src/test/java/";
+    private static final String PATH = "F:/java-a-to-z/chapter3/find/src/test/java/move/";
 
     /**
      * Save all data find and not find.
@@ -25,18 +25,12 @@ public class FindByRegExpTest {
     @Test
     public void whenTrySearchFileByRegExpShouldCheckThatWeWriteResultInFile() throws Exception {
         //Assign block
-        String[] keys = new String[]{"-d", PATH, "-r", "^regexp.txt$", "-m", "-o", PATH + "move/result//findbyregexp/findbyregexp.txt/"};
+        String[] keys = new String[]{"-d", PATH + "test/findbyregexp", "-r", "^regexp.txt$", "-m", "-o", PATH + "result/findbyregexp/findbyregexp.txt/"};
         Answerer answerer = null;
         FindByRegExp finder = new FindByRegExp();
         String[] expected = new String[]{
-          "^regexp.txt$ was not found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\find\\FindByMaskTest.java",
-          "^regexp.txt$ was not found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\find\\FindByNameTest.java",
-          "^regexp.txt$ was not found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\find\\FindByRegExpTest.java",
-          "^regexp.txt$ was not found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\find\\KeysValidatorTest.java",
-          "^regexp.txt$ was not found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\move\\result\\findbyregexp\\findbyregexp.txt",
-          "^regexp.txt$ was not found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\move\\test\\findbymask\\mask.txt",
-          "^regexp.txt$ was not found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\move\\test\\findbyname\\name.txt",
-          "^regexp.txt$ was found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\move\\test\\findbyregexp\\regexp.txt"
+                "^regexp.txt$ was found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\move\\test\\findbyregexp\\regexp.txt",
+                "^regexp.txt$ was found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\move\\test\\findbyregexp\\subfolder\\regexp.txt"
         };
 
         //Action block
