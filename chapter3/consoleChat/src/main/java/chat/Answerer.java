@@ -97,5 +97,4 @@ public class Answerer {
     public String[] getAllStrings() {
         return this.answers;
     }
-
 }
