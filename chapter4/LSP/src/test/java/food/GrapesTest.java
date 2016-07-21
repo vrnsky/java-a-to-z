@@ -18,7 +18,7 @@ public class GrapesTest {
     public void whenCreateFoodObjectShouldCheckThatAllFieldAreCorrectFill() {
 
         //Assign block
-        Food food = new Grapes("Grapes", new GregorianCalendar(), new GregorianCalendar(2016,11,18), 100.0, 0);
+        Food food = new Grapes("Grapes", new GregorianCalendar(2016, 6, 18), new GregorianCalendar(2016,11,18), 100.0, 0);
         String expected = "Name:Grapes\nWas added: 18.07.2016\nExpair date: 18.12.2016\nPrice: 100.0\nDiscount: 0";
 
         //Assert block
