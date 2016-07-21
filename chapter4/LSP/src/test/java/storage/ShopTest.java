@@ -18,12 +18,12 @@ public class ShopTest {
     public void whenTryAddFoodToShopShouldCheckThatShopSaveIt() {
 
         //Assign block
-        Food food = new Food("food", new GregorianCalendar(), new GregorianCalendar(), 1.0, 0);
+        Food food = new Food("food", new GregorianCalendar(2016,6,1), new GregorianCalendar(2016,7,1), 1.0, 0);
         Shop shop = new Shop();
         String expected = "At this moment at the shop:\n" +
                           "Name:food\n" +
-                          "Was added: 18.07.2016\n"+
-                          "Expair date: 18.07.2016\n"+
+                          "Was added: 01.07.2016\n"+
+                          "Expair date: 01.08.2016\n"+
                           "Price: 1.0\n" +
                           "Discount: 0";
 

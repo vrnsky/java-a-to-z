@@ -19,12 +19,12 @@ public class TrashTest {
     public void whenTryAddFoodToTrashShouldCheckThatTrashSaveIt() {
 
         //Assign block
-        Food food = new Food("food", new GregorianCalendar(), new GregorianCalendar(), 1.0, 0);
+        Food food = new Food("food", new GregorianCalendar(2016,6,1), new GregorianCalendar(2016,6,15), 1.0, 0);
         Trash trash = new Trash();
         String expected = "At this moment at the trash:\n" +
                           "Name:food\n" +
-                          "Was added: 18.07.2016\n" +
-                          "Expair date: 18.07.2016\n" +
+                          "Was added: 01.07.2016\n" +
+                          "Expair date: 15.07.2016\n" +
                           "Price: 1.0\n" +
                           "Discount: 0";
 
