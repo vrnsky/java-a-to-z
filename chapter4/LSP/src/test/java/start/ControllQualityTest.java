@@ -1,7 +1,9 @@
 package start;
 
 import food.Food;
+import food.ReproductFood;
 import org.junit.Test;
+import storage.ReproductWarehouse;
 import storage.Shop;
 import storage.Trash;
 import storage.Warehouse;
@@ -111,5 +113,34 @@ public class ControllQualityTest {
 
         //Assign block
         assertThat(trash.toString(), is(expected));
+    }
+
+    /**
+     * Check adding to the reproduct warehouse.
+     */
+    @Test
+    public void whenTryAddSomeReproductableFoodShouldCheckThatWarehouseAcceptIt() {
+
+        //Assign block
+        ControllQuality control = new ControllQuality();
+        Food food = new ReproductFood("food", new GregorianCalendar(2016,4,1), new GregorianCalendar(2016,6,15), 3.5, 0, true);
+        String expected = "At this moment at the reproduct warehouse: \n" +
+                          "Name:food\n" +
+                          "Was added: 01.05.2016\n" +
+                          "Expair date: 15.07.2016\n" +
+                          "Price: 3.5\n" +
+                          "Discount: 0\n" +
+                          "Can reproduct: true";
+
+        //Action block
+        ReproductWarehouse warehouse = new ReproductWarehouse();
+        warehouse.setTemperature(10);
+        control.addStorage(new ReproductWarehouse());
+        control.moveFood(food);
+        ReproductWarehouse trash = (ReproductWarehouse)control.getStorage(0);
+
+        //Assign block
+        assertThat(trash.toString(), is(expected));
+
     }
 }
