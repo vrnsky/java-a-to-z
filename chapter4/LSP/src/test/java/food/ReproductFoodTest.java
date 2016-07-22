@@ -8,7 +8,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 /**
- * Created by Egor on 22.07.2016.
+ *  Unit test for ReproductFood.java
  */
 public class ReproductFoodTest {
     /**

@@ -42,6 +42,10 @@ public class ReproductFood extends Food {
         this.canReproduct = canReproduct;
     }
 
+    /**
+     * Return an info about food.
+     * @return info about food in string view.
+     */
     @Override
     public String toString() {
         String name = super.getName();
