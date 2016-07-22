@@ -9,6 +9,9 @@ import java.util.GregorianCalendar;
  */
 public class Food {
 
+    /**
+     * Count of millisecond in one day.
+     */
     private static final int TIME_IN_DAY = 3600 * 24 * 1000;
 
     /**
@@ -125,6 +128,10 @@ public class Food {
         return dateFormat.format(calendar.getTime());
     }
 
+    /**
+     * Calculate fresh of this food.
+     * @return fresh in percent.
+     */
     public int calculateFitness() {
         Calendar calendar = this.getExpairDate();
         calendar.set(Calendar.HOUR,1);
@@ -141,5 +148,4 @@ public class Food {
         long percent = (productToday * 100) / productLife;
         return (int)percent;
     }
-
 }
