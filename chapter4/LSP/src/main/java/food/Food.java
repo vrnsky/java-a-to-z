@@ -9,6 +9,9 @@ import java.util.GregorianCalendar;
  */
 public class Food {
 
+    /**
+     * Count of millisecond in one day.
+     */
     private static final int TIME_IN_DAY = 3600 * 24 * 1000;
 
     /**
@@ -120,7 +123,7 @@ public class Food {
      * @param calendar instance of calendar class.
      * @return string in format dd.MM.yyyy.
      */
-    private String getStringViewOfTime(Calendar calendar) {
+    protected String getStringViewOfTime(Calendar calendar) {
         dateFormat.setCalendar(calendar);
         return dateFormat.format(calendar.getTime());
     }
