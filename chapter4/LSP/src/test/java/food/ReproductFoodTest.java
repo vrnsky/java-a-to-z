@@ -18,7 +18,8 @@ public class ReproductFoodTest {
     public void whenCreateReproductFoodObjectShouldCheckThatAllFieldAreCorrectFill() {
 
         //Assign block
-        Food food = new ReproductFood("Reproduct", new GregorianCalendar(2016, 6, 18), new GregorianCalendar(2016,11,18), 100.0, 0, true);
+        Food food = new Apple("Reproduct", new GregorianCalendar(2016, 6, 18), new GregorianCalendar(2016,11,18), 100.0, 0);
+        ReproductFood reproduct = new ReproductFood(food, true);
         String expected = "Name:Reproduct\n" +
                           "Was added: 18.07.2016\n" +
                           "Expair date: 18.12.2016\n" +
@@ -27,7 +28,7 @@ public class ReproductFoodTest {
                           "Can reproduct: true";
 
         //Assert block
-        assertThat(food.toString(), is(expected));
+        assertThat(reproduct.toString(), is(expected));
     }
 
     /**
@@ -37,14 +38,15 @@ public class ReproductFoodTest {
     public void whenTryToSetDiscountShouldCheckThatIsWorkCorrect() {
 
         //Assign block
-        Food food = new ReproductFood("Reproduct", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0, true);
+        Food food = new Cherry("Reproduct", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0);
+        ReproductFood reproductFood = new ReproductFood(food, true);
         int expected = 20;
 
         //Action block
         food.setDiscount(20);
 
         //Assert block
-        assertThat(food.getDiscount(), is(expected));
+        assertThat(reproductFood.getDiscount(), is(expected));
     }
 
 
@@ -55,11 +57,12 @@ public class ReproductFoodTest {
     public void whenTryGetNameOfAppleShouldCheckThatIsCorrectWorks() {
 
         //Assign block
-        Food food = new ReproductFood("Reproduct", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0, true);
+        Food food = new Apple("Reproduct", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0);
+        ReproductFood reproductFood = new ReproductFood(food, true);
         String expected = "Reproduct";
 
         //Action block
-        String actual = food.getName();
+        String actual = reproductFood.getName();
 
         //Assert block
         assertThat(actual, is(expected));
@@ -72,11 +75,12 @@ public class ReproductFoodTest {
     public void whenTryGetPriceForReproductFoodShouldCheckThatIsCorrectWorks() {
 
         //Assign block
-        Food food = new ReproductFood("Reproduct", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0, true);
+        Food food = new Grapes("Reproduct", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0);
+        ReproductFood reproductFood = new ReproductFood(food, true);
         double expected = 100.0;
 
         //Action block
-        double actual = food.getPrice();
+        double actual = reproductFood.getPrice();
 
         //Assert block
         assertThat(actual, is(expected));
@@ -89,9 +93,10 @@ public class ReproductFoodTest {
     public void whenTryGetCanReproductFlagShouldCheckThatIsCorrectFlag() {
 
         //Assign block
-        Food food = new ReproductFood("Reproduct", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0, true);
+        Food food = new Pear("Reproduct", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0);
+        ReproductFood reproductFood = new ReproductFood(food, true);
+
         //Action block
-        ReproductFood reproductFood =(ReproductFood)food;
         boolean actual = reproductFood.getRecovery();
 
         //Assert block
@@ -106,10 +111,10 @@ public class ReproductFoodTest {
     public void whenTrySetCanReproductFlagShouldCheckThatFoodSaveIt() {
 
         //Assign block
-       Food food = new ReproductFood("Reproduct", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0, true);
+       Food food = new Apple("Reproduct", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0);
+       ReproductFood reproductFood = new ReproductFood(food, true);
 
        //Action block
-       ReproductFood reproductFood =(ReproductFood)food;
        reproductFood.setRecovery(false);
        boolean actual = reproductFood.getRecovery();
 

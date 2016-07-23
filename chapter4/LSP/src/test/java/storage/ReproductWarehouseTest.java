@@ -21,8 +21,8 @@ public class ReproductWarehouseTest {
     public void whenTryAddFoodToReproductWarehouseShouldCheckThatShopSaveIt() {
 
         //Assign block
-        Food food = new ReproductFood("food", new GregorianCalendar(2016,6,1), new GregorianCalendar(2016,7,1), 1.0, 0, true);
-        ReproductWarehouse reproductWarehouse = new ReproductWarehouse();
+        ReproductFood food = new ReproductFood(new Food("food", new GregorianCalendar(2016,6,1), new GregorianCalendar(2016,7,1), 1.0, 0), true);
+        ReproductWarehouse reproductWarehouse = new ReproductWarehouse(10);
         reproductWarehouse.setTemperature(10);
         String expected = "At this moment at the reproduct warehouse: \n" +
                           "Name:food\n" +

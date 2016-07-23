@@ -1,5 +1,6 @@
 package start;
 
+import food.Apple;
 import food.Food;
 import food.ReproductFood;
 import org.junit.Test;
@@ -26,11 +27,11 @@ public class ControllQualityTest {
 
         //Assign block
         ControllQuality control = new ControllQuality();
-        Food food = new Food("food", new GregorianCalendar(2016,6,20), new GregorianCalendar(2016,6,30), 3.5, 0);
+        Food food = new Food("food", new GregorianCalendar(2016,6,20), new GregorianCalendar(2016,11,31), 3.5, 0);
         String expected =  "At this moment at the warehouse:\n" +
                            "Name:food\n"+
                            "Was added: 20.07.2016\n" +
-                           "Expair date: 30.07.2016\n" +
+                           "Expair date: 31.12.2016\n" +
                            "Price: 3.5\nDiscount: 0";
 
         //Action block
@@ -56,7 +57,7 @@ public class ControllQualityTest {
                           "Was added: 17.07.2016\n" +
                           "Expair date: 24.07.2016\n" +
                           "Price: 3.5\n" +
-                          "Discount: 0";
+                          "Discount: 20";
 
         //Action block
         control.addStorage(new Shop());
@@ -123,7 +124,7 @@ public class ControllQualityTest {
 
         //Assign block
         ControllQuality control = new ControllQuality();
-        Food food = new ReproductFood("food", new GregorianCalendar(2016,4,1), new GregorianCalendar(2016,6,15), 3.5, 0, true);
+        ReproductFood food = new ReproductFood(new Apple("food", new GregorianCalendar(2016,4,1), new GregorianCalendar(2016, 6, 15), 3.5,0), true);
         String expected = "At this moment at the reproduct warehouse: \n" +
                           "Name:food\n" +
                           "Was added: 01.05.2016\n" +
@@ -137,10 +138,10 @@ public class ControllQualityTest {
         warehouse.setTemperature(10);
         control.addStorage(new ReproductWarehouse());
         control.moveFood(food);
-        ReproductWarehouse trash = (ReproductWarehouse)control.getStorage(0);
+        ReproductWarehouse storage = (ReproductWarehouse)control.getStorage(0);
 
         //Assign block
-        assertThat(trash.toString(), is(expected));
+        assertThat(storage.toString(), is(expected));
 
     }
 }
