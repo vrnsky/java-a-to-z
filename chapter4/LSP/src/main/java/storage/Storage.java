@@ -98,6 +98,9 @@ abstract public class Storage implements Suitable {
         }
     }
 
+    /**
+     * Collect info about recovery food.
+     */
     protected void fillInfoAboutRecovery() {
         buffer.setLength(0);
         for(ReproductFood food : reproductFoods) {
