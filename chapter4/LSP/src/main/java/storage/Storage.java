@@ -13,6 +13,9 @@ abstract public class Storage implements Suitable {
      */
     private Food[] foods;
 
+    /**
+     * It this place hold all reproduct food.
+     */
     private ReproductFood[] reproductFoods;
     /**
      * It uses for correct adding new food.
