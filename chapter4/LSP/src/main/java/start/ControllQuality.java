@@ -1,6 +1,7 @@
 package start;
 
 import food.Food;
+import food.ReproductFood;
 import storage.Storage;
 /**
  * Controller for products. It moving food between trash, shop and warehouse. Also this set discount for product.
@@ -60,6 +61,18 @@ public class ControllQuality {
                     storages[index].addFood(food);
                     break;
                 }
+        }
+    }
+
+    /**
+     * Move food to reproduct warehouse.
+     * @param food product for moving.
+     */
+    public void moveFood(ReproductFood food) {
+        for(int index = 0; index < storages.length; index++) {
+            if(storages[index] != null && storages[index].isSuitable(food)) {
+                storages[index].addFood(food);
+            }
         }
     }
 }
