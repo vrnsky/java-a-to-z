@@ -1,12 +1,10 @@
 package food;
 
-import java.util.Calendar;
-
 /**
  * Model of recovery food.
  * It may be recovered.
  */
-public class ReproductFood extends Food {
+public class ReproductFood  {
 
     /**
      * Flag which determine may recovery this food.
@@ -14,15 +12,17 @@ public class ReproductFood extends Food {
     protected boolean canReproduct;
 
     /**
-     * Create a new food.
-     * @param name of food.
-     * @param createTime time of creating.
-     * @param expairDate time when food is destroy.
-     * @param price for food.
-     * @param discount if product is not fresh may set discount.
+     * Instance of food model.
      */
-    public ReproductFood(String name, Calendar createTime, Calendar expairDate, double price, int discount, boolean canReproduct) {
-        super(name, createTime, expairDate, price, discount);
+    private Food food;
+
+    /**
+     * Create a new reproduct food.
+     * @param food intance of usually food.
+     * @param canReproduct flag which determine may can reproduct this food.
+     */
+    public ReproductFood(Food food, boolean canReproduct) {
+        this.food = food;
         this.canReproduct = canReproduct;
     }
 
@@ -48,13 +48,45 @@ public class ReproductFood extends Food {
      */
     @Override
     public String toString() {
-        String name = super.getName();
-        String createTime = super.getStringViewOfTime(super.getCreateTime());
-        String expaireTime = super.getStringViewOfTime(super.getExpairDate());
-        double price = super.getPrice();
-        int discount = super.getDiscount();
+        String name = this.food.getName();
+        String createTime = this.food.getStringViewOfTime(this.food.getCreateTime());
+        String expaireTime = this.food.getStringViewOfTime(this.food.getExpairDate());
+        double price = this.food.getPrice();
+        int discount = this.food.getDiscount();
 
         return String.format("Name:%s\nWas added: %s\nExpair date: %s\nPrice: %s\nDiscount: %s\nCan reproduct: %s",name, createTime,
                 expaireTime, price, discount, this.canReproduct);
+    }
+
+    /**
+     * Get discount for this food.
+     * @return size of discount.
+     */
+    public int getDiscount() {
+        return this.food.getDiscount();
+    }
+
+    /**
+     * Return an name of food.
+     * @return name of food.
+     */
+    public String getName() {
+        return this.food.getName();
+    }
+
+    /**
+     * Return a price for this food.
+     * @return price for this food.
+     */
+    public double getPrice() {
+        return this.food.getPrice();
+    }
+
+    /**
+     * Return result of calculation of fitness.
+     * @return degree of food fresh.
+     */
+    public int calculateFitness() {
+        return this.food.calculateFitness();
     }
 }
