@@ -1,6 +1,4 @@
 package storage;
-
-import food.Food;
 import food.ReproductFood;
 
 /**
@@ -33,9 +31,9 @@ public class ReproductWarehouse extends Storage {
      * @param food instance of food which will check.
      * @return true if food suitable for warehouse, otherwise false
      */
-    public boolean isSuitable(Food food) {
-        ReproductFood reproductFood =  (ReproductFood)food;
-        return reproductFood.getRecovery() && this.temperature < 25;
+    @Override
+    public boolean isSuitable(ReproductFood food) {
+        return food.getRecovery() && this.temperature < 25;
     }
 
     /**
@@ -44,7 +42,7 @@ public class ReproductWarehouse extends Storage {
      */
     @Override
     public String toString() {
-        super.fillInfo();
+        super.fillInfoAboutRecovery();
         return "At this moment at the reproduct warehouse: \n" + this.buffer.toString();
     }
 
@@ -63,4 +61,6 @@ public class ReproductWarehouse extends Storage {
     public int getTemperature() {
         return this.temperature;
     }
+
+
 }
