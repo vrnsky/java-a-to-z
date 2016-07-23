@@ -30,14 +30,14 @@ public class Shop extends Storage {
     @Override
     public boolean isSuitable(Food food) {
         boolean result = false;
-        boolean fresh =  food.calculateFitness() > 25 && food.calculateFitness() < 75;
-        if(fresh) {
-            result = fresh;
-        } else if(food.calculateFitness() > 75 && food.calculateFitness() < 100) {
-            food.setDiscount(20);
-            result = true;
+        int  percent = food.calculateFitness();
+        boolean fresh =  percent > 25 && percent < 75;
+        if(!fresh) {
+            if(percent < 75 && percent < 100) {
+                result = true;
+                food.setDiscount(20);
+            }
         }
-
         return result;
     }
 
