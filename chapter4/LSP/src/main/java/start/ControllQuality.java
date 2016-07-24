@@ -66,18 +66,4 @@ public class ControllQuality {
        }
     }
 
-    /**
-     * Move food to reproduct warehouse.
-     * @param food product for moving.
-     */
-    public void moveFood(ReproductFood food) {
-        for(Storage storage : storages) {
-            if(storage != null) {
-                if(storage.isSuitable(food)) {
-                    storage.addFood(food);
-                    break;
-                }
-            }
-        }
-    }
 }
