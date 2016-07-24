@@ -51,11 +51,11 @@ public class ControllQualityTest {
 
         //Assign block
         ControllQuality control = new ControllQuality();
-        Food food = new Food("food", new GregorianCalendar(2016,6,17), new GregorianCalendar(2016, 6, 24), 3.5, 0);
+        Food food = new Food("food", new GregorianCalendar(2016,6,1), new GregorianCalendar(2016, 6, 31), 3.5, 0);
         String expected = "At this moment at the shop:\n"+"" +
                           "Name:food\n" +
-                          "Was added: 17.07.2016\n" +
-                          "Expair date: 24.07.2016\n" +
+                          "Was added: 01.07.2016\n" +
+                          "Expair date: 31.07.2016\n" +
                           "Price: 3.5\n" +
                           "Discount: 20";
 
@@ -76,11 +76,11 @@ public class ControllQualityTest {
 
         //Assign block
         ControllQuality control = new ControllQuality();
-        Food food = new Food("food", new GregorianCalendar(2016, 5, 10), new GregorianCalendar(2016,6,31), 3.5, 0);
+        Food food = new Food("food", new GregorianCalendar(2016, 6, 20), new GregorianCalendar(2016, 6, 25), 3.5, 0);
         String expected = "At this moment at the shop:\n" +
                           "Name:food\n" +
-                          "Was added: 10.06.2016\n" +
-                          "Expair date: 31.07.2016\n" +
+                          "Was added: 20.07.2016\n" +
+                          "Expair date: 25.07.2016\n" +
                           "Price: 3.5\n" +
                           "Discount: 20";
         //Action block
@@ -116,32 +116,4 @@ public class ControllQualityTest {
         assertThat(trash.toString(), is(expected));
     }
 
-    /**
-     * Check adding to the reproduct warehouse.
-     */
-    @Test
-    public void whenTryAddSomeReproductableFoodShouldCheckThatWarehouseAcceptIt() {
-
-        //Assign block
-        ControllQuality control = new ControllQuality();
-        ReproductFood food = new ReproductFood(new Apple("food", new GregorianCalendar(2016,4,1), new GregorianCalendar(2016, 6, 15), 3.5,0), true);
-        String expected = "At this moment at the reproduct warehouse: \n" +
-                          "Name:food\n" +
-                          "Was added: 01.05.2016\n" +
-                          "Expair date: 15.07.2016\n" +
-                          "Price: 3.5\n" +
-                          "Discount: 0\n" +
-                          "Can reproduct: true";
-
-        //Action block
-        ReproductWarehouse warehouse = new ReproductWarehouse();
-        warehouse.setTemperature(10);
-        control.addStorage(new ReproductWarehouse());
-        control.moveFood(food);
-        ReproductWarehouse storage = (ReproductWarehouse)control.getStorage(0);
-
-        //Assign block
-        assertThat(storage.toString(), is(expected));
-
-    }
 }
