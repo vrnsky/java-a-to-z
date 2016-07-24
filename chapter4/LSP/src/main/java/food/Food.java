@@ -128,6 +128,10 @@ public class Food {
         return dateFormat.format(calendar.getTime());
     }
 
+    /**
+     * Return a result of degree of food fresh.
+     * @return how percent day was gone.
+     */
     public int calculateFitness() {
         Calendar calendar = this.getExpairDate();
         calendar.set(Calendar.HOUR,1);
