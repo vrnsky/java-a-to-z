@@ -11,7 +11,7 @@ public class ControllQuality {
     /**
      * May hold all various of storage such as trash, shop and warehouse.
      */
-    private Storage[] storages;
+    protected Storage[] storages;
 
     /**
      * It uses for determine correct position of new storage in storages array.
@@ -56,12 +56,14 @@ public class ControllQuality {
      * @param food product for moving.
      */
     public void moveFood(Food food) {
-        for(int index = 0; index < storages.length; index++) {
-                if(storages[index] != null && storages[index].isSuitable(food)) {
-                    storages[index].addFood(food);
-                    break;
-                }
-        }
+       for(Storage storage : storages) {
+           if(storage != null) {
+               if(storage.isSuitable(food)) {
+                   storage.addFood(food);
+                   break;
+               }
+           }
+       }
     }
 
     /**
@@ -69,9 +71,12 @@ public class ControllQuality {
      * @param food product for moving.
      */
     public void moveFood(ReproductFood food) {
-        for(int index = 0; index < storages.length; index++) {
-            if(storages[index] != null && storages[index].isSuitable(food)) {
-                storages[index].addFood(food);
+        for(Storage storage : storages) {
+            if(storage != null) {
+                if(storage.isSuitable(food)) {
+                    storage.addFood(food);
+                    break;
+                }
             }
         }
     }
