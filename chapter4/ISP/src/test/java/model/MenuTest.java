@@ -1,9 +1,9 @@
-package isp;
+package model;
 
 import org.junit.Test;
 
 /**
- * Created by Egor on 25.07.2016.
+ * Unit for Menu.java
  */
 public class MenuTest {
 
