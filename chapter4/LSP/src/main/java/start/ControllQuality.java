@@ -56,10 +56,12 @@ public class ControllQuality {
      */
     public void moveFood(Food food) {
         for(int index = 0; index < storages.length; index++) {
-                if(storages[index] != null && storages[index].isSuitable(food)) {
-                    storages[index].addFood(food);
+                if(storages[index] != null)
+                    if(storages[index].isSuitable(food)) {
+                        storages[index].addFood(food);
+                    }
+
                     break;
                 }
-        }
     }
 }
