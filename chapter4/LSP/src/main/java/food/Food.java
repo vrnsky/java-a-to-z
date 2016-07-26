@@ -61,6 +61,17 @@ public class Food {
     }
 
     /**
+     * Constructor for creating food now.
+     * @param name of food.
+     * @param expairDate time when food will destroy.
+     * @param price of food.
+     * @param discount for food.
+     */
+    public Food(String name, Calendar expairDate, double price, int discount) {
+        this(name, new GregorianCalendar(), expairDate, price, discount);
+    }
+
+    /**
      * Get a name of food model.
      * @return name of model.
      */
@@ -146,6 +157,6 @@ public class Food {
         long productLife = (calendar.getTimeInMillis() - this.getCreateTime().getTimeInMillis()) / TIME_IN_DAY;
         long productToday = (today.getTimeInMillis() - this.getCreateTime().getTimeInMillis()) / TIME_IN_DAY;
         long percent = (productToday * 100) / productLife;
-        return (int)percent;
+        return (int)Math.abs(percent);
     }
 }
