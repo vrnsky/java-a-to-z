@@ -6,6 +6,8 @@ import storage.Shop;
 import storage.Trash;
 import storage.Warehouse;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
@@ -16,6 +18,7 @@ import static org.hamcrest.core.Is.is;
  */
 public class ControllQualityTest {
 
+
     /**
      * When try move good fruit to warehouse should check than warehouse save it
      */
@@ -24,12 +27,10 @@ public class ControllQualityTest {
 
         //Assign block
         ControllQuality control = new ControllQuality();
-        Food food = new Food("food", new GregorianCalendar(2016,6,20), new GregorianCalendar(2016,6,30), 3.5, 0);
-        String expected =  "At this moment at the warehouse:\n" +
-                           "Name:food\n"+
-                           "Was added: 20.07.2016\n" +
-                           "Expair date: 30.07.2016\n" +
-                           "Price: 3.5\nDiscount: 0";
+        Calendar expairTime = new GregorianCalendar();
+        expairTime.add(Calendar.MONTH, 3);
+        Food food = new Food("food", expairTime , 3.5, 0);
+        String expected = "At this moment at the warehouse:\n" + food.toString();
 
         //Action block
         control.addStorage(new Warehouse());
@@ -48,13 +49,12 @@ public class ControllQualityTest {
 
         //Assign block
         ControllQuality control = new ControllQuality();
-        Food food = new Food("food", new GregorianCalendar(2016,6,17), new GregorianCalendar(2016, 6, 24), 3.5, 0);
-        String expected = "At this moment at the shop:\n"+"" +
-                          "Name:food\n" +
-                          "Was added: 17.07.2016\n" +
-                          "Expair date: 24.07.2016\n" +
-                          "Price: 3.5\n" +
-                          "Discount: 0";
+        Calendar expaireTime = new GregorianCalendar();
+        expaireTime.add(Calendar.DAY_OF_MONTH,10);
+        Calendar creationDate = new GregorianCalendar();
+        creationDate.roll(Calendar.DAY_OF_MONTH, 10);
+        Food food = new Food("food", creationDate, expaireTime, 3.5, 0);
+        String expected = "At this moment at the shop:\n" + food.toString();
 
         //Action block
         control.addStorage(new Shop());
@@ -73,16 +73,17 @@ public class ControllQualityTest {
 
         //Assign block
         ControllQuality control = new ControllQuality();
-        Food food = new Food("food", new GregorianCalendar(2016, 5, 10), new GregorianCalendar(2016,6,31), 3.5, 0);
-        String expected = "At this moment at the shop:\n" +
-                          "Name:food\n" +
-                          "Was added: 10.06.2016\n" +
-                          "Expair date: 31.07.2016\n" +
-                          "Price: 3.5\n" +
-                          "Discount: 20";
+        Calendar createTime = new GregorianCalendar();
+        createTime.roll(Calendar.DAY_OF_MONTH, 10);
+        Calendar expaireTime = new GregorianCalendar();
+        expaireTime.add(Calendar.DAY_OF_MONTH, 5);
+        Food food = new Food("food", createTime, expaireTime, 3.5, 0);
+
+
         //Action block
         control.addStorage(new Shop());
         control.moveFood(food);
+        String expected = "At this moment at the shop:\n" + food.toString();
         Shop shop = (Shop)control.getStorage(0);
 
         //Assert block
@@ -97,19 +98,20 @@ public class ControllQualityTest {
 
         //Assign block
         ControllQuality control = new ControllQuality();
-        Food food = new Food("food", new GregorianCalendar(2016,4,1), new GregorianCalendar(2016,6,15), 3.5, 0);
-        String expected = "At this moment at the trash:\n" +
-                          "Name:food\n" +
-                          "Was added: 01.05.2016\n" +
-                          "Expair date: 15.07.2016\n" +
-                          "Price: 3.5\nDiscount: 0";
+        Calendar createTime = new GregorianCalendar();
+        createTime.add(Calendar.DAY_OF_MONTH, -5);
+        Calendar expaireTime = new GregorianCalendar();
+        expaireTime.add(Calendar.DAY_OF_MONTH, -2);
+        Food food = new Food("food", createTime, expaireTime, 3.5, 0);
+        String expected = "At this moment at the trash:\n" + food.toString();
 
         //Action block
         control.addStorage(new Trash());
         control.moveFood(food);
         Trash trash = (Trash)control.getStorage(0);
-
+        System.out.println(trash.isSuitable(food));
         //Assign block
         assertThat(trash.toString(), is(expected));
     }
+
 }
