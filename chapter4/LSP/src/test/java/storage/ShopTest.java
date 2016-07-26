@@ -3,6 +3,7 @@ package storage;
 import food.Food;
 import org.junit.Test;
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
@@ -18,14 +19,13 @@ public class ShopTest {
     public void whenTryAddFoodToShopShouldCheckThatShopSaveIt() {
 
         //Assign block
-        Food food = new Food("food", new GregorianCalendar(2016,6,1), new GregorianCalendar(2016,7,1), 1.0, 0);
+        Calendar createTime = new GregorianCalendar();
+        Calendar expaireTime = new GregorianCalendar();
+        expaireTime.add(Calendar.MONTH, 1);
+        createTime.add(Calendar.DAY_OF_MONTH, -13);
+        Food food = new Food("food", createTime, expaireTime, 1.0, 0);
         Shop shop = new Shop();
-        String expected = "At this moment at the shop:\n" +
-                          "Name:food\n" +
-                          "Was added: 01.07.2016\n"+
-                          "Expair date: 01.08.2016\n"+
-                          "Price: 1.0\n" +
-                          "Discount: 0";
+        String expected = "At this moment at the shop:\n" + food.toString();
 
         //Action block
         shop.addFood(food);
