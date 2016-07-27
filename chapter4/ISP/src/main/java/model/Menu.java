@@ -46,7 +46,7 @@ public class Menu {
      * @param io instance of io interface.
      */
     public Menu(IO io) {
-        this(io, 100);
+        this(io, 7);
 
     }
 
@@ -65,18 +65,48 @@ public class Menu {
     }
 
     /**
-     * Show all menu items.
+     * Show all menu items include all sub items.
      */
     public void show() {
         for(MenuItem item : this.items) {
-            if(item != null) {
-                item.show(this.io);
+            if(item != null && item.getParentKey() == 0) {
+                item.show("",this.io);
+                this.printSubMenu(item.getKey(), 0);
             }
         }
     }
 
     /**
-     * All menu items may be choosed.
+     * Print all sub menu items for menu with given key.
+     * @param key unique value for each menu item.
+     * @param level of sub.
+     */
+    private void printSubMenu(int key, int level) {
+        level++;
+        for(int index = 0; index < this.items.length; index++) {
+            if(this.items[index] != null) {
+                if (this.items[index].getParentKey() == key) {
+                    this.items[index].show(addTab(level), this.io);
+                    this.printSubMenu(this.items[index].getKey(), level);
+                }
+            }
+        }
+    }
+
+    /**
+     * Return tabs sequence.
+     * @param level of sub.
+     * @return string with level count of \t.
+     */
+    private String addTab(int level) {
+        StringBuilder builder = new StringBuilder(level);
+        for (int index = 0; index < level; index++) {
+            builder.append("\t");
+        }
+        return builder.toString();
+    }
+    /**
+     * All menu items may be choose.
      */
     public void choose() {
         int key = this.io.ask("Enter a menu option: ", 0, this.position - 1);
