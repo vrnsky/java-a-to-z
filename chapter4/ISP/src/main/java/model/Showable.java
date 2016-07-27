@@ -7,5 +7,5 @@ import start.IO;
  */
 public interface Showable {
 
-    void show(IO io);
+    void show(String value, IO io);
 }
