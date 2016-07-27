@@ -70,14 +70,8 @@ public class MenuItem implements Showable, Choose {
      * @param io instance of IO interface for handle input/output.
      */
     @Override
-    public void show(IO io) {
-        StringBuilder builder = new StringBuilder();
-        if (this.parentKey == 0) {
-            builder.append(String.format("%s. %s", this.key, this.name));
-        } else {
-            builder.append(String.format("%s.%s. %s", this.parentKey, this.key - 1, this.name));
-        }
-        io.println(builder.toString());
+    public void show(String value, IO io) {
+        io.println(String.format(value + "%s.%s. %s", this.parentKey, this.key, this.name));
     }
 
     /**
