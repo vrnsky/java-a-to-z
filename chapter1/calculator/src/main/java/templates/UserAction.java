@@ -3,15 +3,11 @@ package templates;
 import start.IO;
 
 /**
- * TODO write docs
+ * Contract for all user actions.
  */
 public interface UserAction {
 
     String info();
-    /**
-     * Get position in actions array.
-     * @return position in actions array.
-     */
     int key();
     void execute(IO io);
 }
