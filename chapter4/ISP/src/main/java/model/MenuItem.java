@@ -9,19 +9,28 @@ import start.MenuTracker;
 public class MenuItem implements Showable, Choose {
 
     /**
-     * Unique value for each menu item.
-     */
-    private int key;
-
-    /**
-     * Reference to parent menu item.
-     */
-    private int parentKey;
-
-    /**
      * Name of menu item.
      */
     private String name;
+
+    /**
+     * All sub items hold at this array.
+     */
+    private MenuItem[] subItems;
+
+
+    /**
+     * Add sub item to this menu item.
+     * @param item instance of menu item class which will add as sub item.
+     */
+    public void addSubItem(MenuItem item) {
+        for(int index = 0; index < this.subItems.length; index++) {
+            if(this.subItems[index] == null) {
+                this.subItems[index] = item;
+                break;
+            }
+        }
+    }
 
     /**
      * Create a menu item with given name.
@@ -29,41 +38,9 @@ public class MenuItem implements Showable, Choose {
      */
     public MenuItem(String name) {
         this.name = name;
+        this.subItems = new MenuItem[10];
     }
 
-    /**
-     * Create a new sub menu item.
-     * @param name of item.
-     * @param parentKey unique string for find parent.
-     */
-    public MenuItem(String name, int parentKey) {
-        this.name = name;
-        this.parentKey = parentKey;
-    }
-
-    /**
-     * Set a new key of his menu item.
-     * @param key new value of key.
-     */
-    public void setKey(int key) {
-        this.key = key;
-    }
-
-    /**
-     * Get key for this item.
-     * @return
-     */
-    public int getKey() {
-        return this.key;
-    }
-
-    /**
-     * Return this parent key for this item
-     * @return unique key of parent, if it is root menu item return null.
-     */
-    public int getParentKey() {
-        return this.parentKey;
-    }
 
     /**
      * Show all menu item.
@@ -71,12 +48,26 @@ public class MenuItem implements Showable, Choose {
      */
     @Override
     public void show(String value, IO io) {
-        io.println(String.format(value + "%s.%s. %s", this.parentKey, this.key, this.name));
+       io.println(String.format(value +  ".%s ", this.getName()));
+       for(int index = 0; index < this.subItems.length; index++) {
+           if(this.subItems[index] != null) {
+               this.subItems[index].show(String.format("%s.%s", value, index+1), io);
+           }
+       }
+    }
+
+
+    /**
+     * Return name of menu item.
+     * @return name of menu item.
+     */
+    public String getName() {
+        return this.name;
     }
 
     /**
      * Allow user to choose menu options.
-     * @param key unique key of actions.
+     * @param key         unique key of actions.
      * @param menuTracker instance of menu tracker.
      */
     @Override
