@@ -15,11 +15,6 @@ public class Menu {
     private MenuItem[] items;
 
     /**
-     * Menu numbers must starts with 1
-     */
-    private int position = 1;
-
-    /**
      * Intance of menu tracker. Provider for Tracker API.
      */
     private MenuTracker menuTracker;
@@ -39,6 +34,20 @@ public class Menu {
         this.items = new MenuItem[capacity];
         this.io = io;
         this.menuTracker = new MenuTracker(this.io, new Tracker());
+        this.menuTracker.fillActions();
+    }
+
+    /**
+     * Add menu item to menu items array.
+     * @param menuItem instance of menu item class.
+     */
+    public void addMenuItem(MenuItem menuItem) {
+        for(int index = 0; index < this.items.length; index++) {
+            if(this.items[index] == null) {
+                this.items[index] = menuItem;
+                break;
+            }
+        }
     }
 
     /**
@@ -46,133 +55,42 @@ public class Menu {
      * @param io instance of io interface.
      */
     public Menu(IO io) {
-        this(io, 7);
+        this(io, 10);
 
     }
 
     /**
-     * Add new menu item. May root or sub menu item.
-     * @param menuItem instance of menu item.
+     * Show menu item with give string value.
+     * @param value must be number of menu item in string view.
      */
-    public void addMenuItem(MenuItem menuItem) {
-       for(int index = 0; index < this.items.length; index++) {
-           if(this.items[index] == null) {
-               menuItem.setKey(position++);
-               this.items[index] = menuItem;
-               break;
-           }
+    public void show(String value) {
+       int number = Integer.valueOf(value);
+       if(this.items[number-1] != null) {
+           this.items[number-1].show(value, this.io);
        }
     }
 
     /**
-     * Show all menu items include all sub items.
+     * Print all menu.
      */
     public void show() {
-        for(MenuItem item : this.items) {
-            if(item != null && item.getParentKey() == 0) {
-                item.show("",this.io);
-                this.printSubMenu(item.getKey(), 0);
-            }
-        }
-    }
-
-    /**
-     * Print all sub menu items for menu with given key.
-     * @param key unique value for each menu item.
-     * @param level of sub.
-     */
-    private void printSubMenu(int key, int level) {
-        level++;
         for(int index = 0; index < this.items.length; index++) {
             if(this.items[index] != null) {
-                if (this.items[index].getParentKey() == key) {
-                    this.items[index].show(addTab(level), this.io);
-                    this.printSubMenu(this.items[index].getKey(), level);
-                }
+                this.show(String.valueOf(index+1));
             }
         }
     }
 
     /**
-     * Return tabs sequence.
-     * @param level of sub.
-     * @return string with level count of \t.
-     */
-    private String addTab(int level) {
-        StringBuilder builder = new StringBuilder(level);
-        for (int index = 0; index < level; index++) {
-            builder.append("\t");
-        }
-        return builder.toString();
-    }
-    /**
-     * All menu items may be choose.
+     * Choose operation from tracker menu.
+     * At this method decrease number from use because in MenuTracker all action in array.
+     * By above reason increase high boundary of range io.ask.
      */
     public void choose() {
-        int key = this.io.ask("Enter a menu option: ", 0, this.position - 1);
-        for (MenuItem item : this.items) {
-            if(item.getKey() == key) {
-                menuTracker.select(key);
-            }
-        }
+        int choose = io.ask("Enter a number of action: ", this.menuTracker.getIdFirstCommand(), this.menuTracker.getIdLastCommand()+1);
+        if(choose > 0) choose--;
+        this.items[choose].choose(choose, this.menuTracker);
     }
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    public void show() {
-//        for (int x = 0; x < menuElements.length; x++) {
-//            if (menuElements[x] != null && menuElements[x].getParentKey() == 0) {
-//                menuElements[x].show(this.io,"");
-//                print(menuElements[x].getKey(),0);
-//            }
-//        }
-//    }
-
-//
-//    public void print(long parentId, int level) {
-//        level++;
-//        for (int x = 0; x < menuElements.length; x++) {
-//            if (menuElements[x] != null && menuElements[x].getParentKey() == parentId) {
-//                menuElements[x].show(this.io, addSpaces(level*4));
-//                print(menuElements[x].getKey(), level);
-//            }
-//        }
-//    }
-//
-//    public String addSpaces(int length) {
-//        StringBuffer outputBuffer = new StringBuffer(length);
-//        for(int i=0; i<length; i++){
-//            outputBuffer.append(" ");
-//        }
-//        return outputBuffer.toString();
-//    }
