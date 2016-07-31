@@ -16,6 +16,7 @@
 	<module>LSP</module>
 	<module>ISP</module>
 	<module>DIP</module>
+	<module>TDD</module>
 	</modules>
 		
 </project>
