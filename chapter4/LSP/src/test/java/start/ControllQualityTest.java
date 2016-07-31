@@ -50,7 +50,7 @@ public class ControllQualityTest {
         //Assign block
         ControllQuality control = new ControllQuality();
         Calendar expaireTime = new GregorianCalendar();
-        expaireTime.add(Calendar.DAY_OF_MONTH,10);
+        expaireTime.add(Calendar.DAY_OF_MONTH,-15);
         Calendar creationDate = new GregorianCalendar();
         creationDate.roll(Calendar.DAY_OF_MONTH, 10);
         Food food = new Food("food", creationDate, expaireTime, 3.5, 0);
@@ -74,9 +74,9 @@ public class ControllQualityTest {
         //Assign block
         ControllQuality control = new ControllQuality();
         Calendar createTime = new GregorianCalendar();
-        createTime.roll(Calendar.DAY_OF_MONTH, 10);
+        createTime.roll(Calendar.DAY_OF_MONTH, 4);
         Calendar expaireTime = new GregorianCalendar();
-        expaireTime.add(Calendar.DAY_OF_MONTH, 5);
+        expaireTime.add(Calendar.DAY_OF_MONTH, 10);
         Food food = new Food("food", createTime, expaireTime, 3.5, 0);
 
 
