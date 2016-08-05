@@ -41,6 +41,7 @@ public class Game {
 
     /**
      * Create a new game.
+     *
      * @param io special io.
      */
     public Game(GameIO io) {
@@ -56,16 +57,19 @@ public class Game {
         this.prepare();
         do {
             this.showBoard();
-            if(computerFirst) {
+            if (computerFirst) {
                 computer.makeStep(board, board.getWidth(), board.getHeight());
                 this.userMakeStep();
             } else {
                 this.userMakeStep();
                 computer.makeStep(board, board.getWidth(), board.getHeight());
             }
-        } while (this.getWinner() == null && human.getWins() != rounds && computer.getWins() != rounds);
 
-        this.getWinner().increaseWins();
+            Player possibleWinner = this.getWinner();
+            if (possibleWinner != null) {
+                possibleWinner.increaseWins();
+            }
+        } while (this.getWinner() == null && human.getWins() != rounds && computer.getWins() != rounds);
     }
 
     /**
@@ -84,8 +88,8 @@ public class Game {
      */
     private void showBoard() {
         String[][] state = board.showBoard();
-        for(int index = 0; index < board.getWidth(); index++) {
-            for(int barrier = 0; barrier < board.getHeight(); barrier++) {
+        for (int index = 0; index < board.getWidth(); index++) {
+            for (int barrier = 0; barrier < board.getHeight(); barrier++) {
                 this.io.print(state[index][barrier] + " ");
             }
             this.io.println("");
@@ -97,7 +101,7 @@ public class Game {
      */
     private void prepareBoard() {
         boolean changeSize = this.io.ask("Do you want to change size of board(by default 3 x 3) ? (y/n)").equals("y");
-        if(changeSize) {
+        if (changeSize) {
             int width = io.ask("Enter a width of board:", 0, Integer.MAX_VALUE);
             int height = io.ask("Enter a height of board:", 0, Integer.MAX_VALUE);
             this.board = new Board(width, height);
@@ -117,7 +121,7 @@ public class Game {
      * Create an instances of gamers.
      */
     private void prepareGamers() {
-        human = new Human(this.io.ask("Enter a sign for user: ").toUpperCase() );
+        human = new Human(this.io.ask("Enter a sign for user: ").toUpperCase());
         computer = new AI(human.getSign().equals("X") ? "O" : "X");
     }
 
@@ -126,7 +130,7 @@ public class Game {
      */
     private void prepareRounds() {
         boolean manyRounds = this.io.ask("Would you want to change count of rounds ? (y/n) ").equals("y");
-        if(manyRounds) {
+        if (manyRounds) {
             this.rounds = io.ask("Enter of rounds: ", 0, Integer.MAX_VALUE);
         } else {
             this.rounds = 1;
@@ -136,11 +140,12 @@ public class Game {
 
     /**
      * Find and return winner of the current game.
+     *
      * @return
      */
     private Player getWinner() {
         Player winner = null;
-        if(winChecker.isWinner(human, board)) {
+        if (winChecker.isWinner(human, board)) {
             winner = human;
         } else if (winChecker.isWinner(computer, board)) {
             winner = computer;
