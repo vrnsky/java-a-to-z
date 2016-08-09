@@ -16,7 +16,7 @@ public class EditCheckerTest {
     public void whenTryCheckMayEditExistUserShouldCheckThatReturnTrue() {
 
         //Assign block
-        User user = new User("Java", 20);
+        User user = new StorageUser("Java", 20);
         User[] users = new User[1];
         users[0] = user;
         Checker checker = new EditChecker();
@@ -35,11 +35,11 @@ public class EditCheckerTest {
     public void whenTryCheckMayEditNonExistUserShouldCheckThatReturnFalse() {
 
         //Assign block
-        User user = new User("Java", 20);
+        User user = new StorageUser("Java", 20);
         User[] users = new User[3];
-        users[0] = new User("First element", 0);
-        users[1] = new User("Second element", 1);
-        users[2] = new User("Third element", 2);
+        users[0] = new StorageUser("First element", 0);
+        users[1] = new StorageUser("Second element", 1);
+        users[2] = new StorageUser("Third element", 2);
         Checker checker = new EditChecker();
 
         //Action block
