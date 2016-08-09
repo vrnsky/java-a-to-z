@@ -1,6 +1,10 @@
 package model;
 
 import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
@@ -19,11 +23,12 @@ public class SimpleGeneratorTest {
         //Assign block
         Template generator = new SimpleGenerator();
         String template = "Hello, ${name}!";
-        String[] data = new String[]{"Egor"};
+        Map<String, String> dictionary = new HashMap<String, String>();
+        dictionary.put("name", "Egor");
         String expected =  "Hello, Egor!";
 
         //Action block
-        String actual = generator.generate(template, data);
+        String actual = generator.generate(template, dictionary);
 
         //Assert block
         assertThat(actual, is(expected));
@@ -40,10 +45,13 @@ public class SimpleGeneratorTest {
         //Assign block
         Template generator = new SimpleGenerator();
         String template = "Hello, ${user}!";
-        String[] data = new String[]{"Java", "Spring", "HTML"};
+        Map<String, String> dictionary = new HashMap<String, String>();
+        dictionary.put("user", "Java");
+        dictionary.put("other", "Spring");
+        dictionary.put("HTML", "html");
 
         //Action block
-        String actual = generator.generate(template, data);
+        String actual = generator.generate(template, dictionary);
     }
 
     /**
@@ -56,10 +64,11 @@ public class SimpleGeneratorTest {
         //Assign block
         Template generator = new SimpleGenerator();
         String template = "Hello, ${user}, ${first}, ${second}";
-        String[] data = new String[]{"evrnsky"};
+        Map<String, String> dictionary = new HashMap<String, String>();
+        dictionary.put("one", "evrnsky");
 
         //Action block
-        String actual = generator.generate(template, data);
+        String actual = generator.generate(template, dictionary);
     }
 
     /**
@@ -72,7 +81,7 @@ public class SimpleGeneratorTest {
         //Assign block
         Template generator = new SimpleGenerator();
         String template = "Hello, ${user}";
-        String[] data = null;
+        Map<String, String> data = null;
 
         //Action block
         String actual = generator.generate(template, data);
@@ -88,7 +97,8 @@ public class SimpleGeneratorTest {
         //Assign block
         Template generator = new SimpleGenerator();
         String template = null;
-        String[] data = new String[]{"test"};
+        Map<String, String> data = new HashMap<String, String>();
+        data.put("one", "else");
 
         //Action block
         String actual = generator.generate(template, data);
