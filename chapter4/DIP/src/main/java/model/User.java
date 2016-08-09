@@ -3,7 +3,7 @@ package model;
 /**
  * Model of user.
  */
-public class User {
+public abstract class User {
 
     /**
      * Name of the user.
