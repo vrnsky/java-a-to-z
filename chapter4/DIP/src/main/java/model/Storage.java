@@ -52,8 +52,8 @@ public abstract class Storage {
     protected int getIdLastElement() {
         return this.lastElement;
     }
-    abstract void createUser(Checker checker);
-    abstract void editUser(Checker checker);
-    abstract void removeUser(Checker checker);
+    abstract void createUser();
+    abstract void editUser();
+    abstract void removeUser();
     abstract void showUsers();
 }
