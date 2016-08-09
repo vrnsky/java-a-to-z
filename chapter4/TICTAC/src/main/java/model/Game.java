@@ -20,6 +20,11 @@ public class Game {
     private Player computer;
 
     /**
+     * It is special object which signal about that game have not winner.
+     */
+    private Player noOnePlayer;
+
+    /**
      * Flag which determine may computer make step first.
      */
     private boolean computerFirst;
@@ -47,6 +52,7 @@ public class Game {
     public Game(GameIO io) {
         this.io = io;
         winChecker = new WinChecker();
+        noOnePlayer = new NoOnePlayer("y");
     }
 
 
@@ -69,7 +75,7 @@ public class Game {
             if (possibleWinner != null) {
                 possibleWinner.increaseWins();
             }
-        } while (this.getWinner() == null && human.getWins() != rounds && computer.getWins() != rounds);
+        } while (this.getWinner().equals(noOnePlayer) && human.getWins() != rounds && computer.getWins() != rounds);
     }
 
     /**
@@ -140,15 +146,16 @@ public class Game {
 
     /**
      * Find and return winner of the current game.
-     *
-     * @return
+     * @return winner of this game or special object.
      */
     private Player getWinner() {
-        Player winner = null;
+        Player winner;
         if (winChecker.isWinner(human, board)) {
             winner = human;
         } else if (winChecker.isWinner(computer, board)) {
             winner = computer;
+        } else {
+            winner = this.noOnePlayer;
         }
         return winner;
     }
