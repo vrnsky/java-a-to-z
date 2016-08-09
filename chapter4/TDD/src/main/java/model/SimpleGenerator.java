@@ -1,4 +1,5 @@
 package model;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,33 +18,23 @@ public class SimpleGenerator implements Template {
      */
     private static final Pattern PATTERN = Pattern.compile(REGEXP);
 
-    /**
-     * Pointer for moving across data array.
-     */
-    private int position = 0;
 
     /**
-     * Generate string by insert values from data array at the ${template}
-     * @param template string with templates.
-     * @param data array of object which will insert.
-     * @return string with new data.
+     * Generate string from string with key. Value take from key-value storage.
+     * @param template string with all keys.
+     * @param dictionary all key-value pairs.
+     * @return string with values without keys.
      */
-    @Override
-    public String generate(String template, Object[] data) {
-        if(template == null) {
-            throw new IllegalArgumentException("Please give correct string");
+    public String generate(String template, Map<String, String> dictionary) {
+        if(template == null || dictionary == null || dictionary.size() == 0 || !checkMatches(template, dictionary.size())) {
+            throw new IllegalArgumentException("Bad arguments, please check arguments.");
         }
-        StringBuffer builder = new StringBuffer(template);
-        Matcher matcher = PATTERN.matcher(builder);
-        if(data == null) {
-            throw new IllegalArgumentException("Please, give correct array of object.");
-        }
-        if(!checkMatches(template, data.length)) throw new IllegalArgumentException("More or less key(s), please!");
+        StringBuffer buffer = new StringBuffer(template);
+        Matcher matcher = PATTERN.matcher(buffer);
         while(matcher.find()) {
-            builder.replace(matcher.start(), matcher.end(), data[position++].toString());
-            matcher.reset();
+            buffer.replace(matcher.start(), matcher.end(), dictionary.get(getCleanKey(buffer.substring(matcher.start(), matcher.end()))));
         }
-        return builder.toString();
+        return buffer.toString();
     }
 
     /**
@@ -59,6 +50,15 @@ public class SimpleGenerator implements Template {
             count++;
         }
         return count == value;
+    }
+
+    /**
+     * Remove from string ${ and }.
+     * @param key from template.
+     * @return key without dollar and brackets.
+     */
+    public String getCleanKey(String key) {
+        return key.substring(2, key.length()-1);
     }
 
 }
