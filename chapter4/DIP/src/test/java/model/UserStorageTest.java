@@ -20,14 +20,13 @@ public class UserStorageTest {
         //Assign block
         String[] answer = new String[]{"Egor", "19"};
         StubIO stubIO = new StubIO(answer);
-        UserStorage userStorage = new UserStorage(stubIO);
-        Checker checker = new EditChecker();
+        UserStorage userStorage = new UserStorage(stubIO, new EditChecker());
         String expected = "User was added\n" +
                           "ID\tName\tAge\n" +
                           "0\tEgor\t19\n";
 
         //Action block
-        userStorage.createUser(checker);
+        userStorage.createUser();
         userStorage.showUsers();
 
         assertThat(stubIO.getOut(), is(expected));
@@ -43,14 +42,13 @@ public class UserStorageTest {
         //Assign block
         String[] answer = new String[]{"Yegor", "19", "Yegor", "19", "0"};
         StubIO stubIO = new StubIO(answer);
-        UserStorage storage = new UserStorage(stubIO);
-        Checker checker = new EditChecker();
+        UserStorage storage = new UserStorage(stubIO, new EditChecker());
         String expected = "User was added\n" +
                           "User with given name already exist\n";
 
         //Action block
-        storage.createUser(checker);
-        storage.createUser(checker);
+        storage.createUser();
+        storage.createUser();
 
         //Assert block
         assertThat(stubIO.getOut(), is(expected));
@@ -65,16 +63,15 @@ public class UserStorageTest {
         //Assign block
         String[] answer = new String[]{"Egor", "19", "Egor", "19", "0", "Yegor", "0", "19"};
         StubIO stubIO = new StubIO(answer);
-        UserStorage storage = new UserStorage(stubIO);
-        Checker checker = new EditChecker();
+        UserStorage storage = new UserStorage(stubIO, new EditChecker());
         String expected = "User was added\n" +
                           "User was edited.\n" +
                           "ID\tName\tAge\n" +
                           "0\tYegor\t19\n";
 
         //Action block
-        storage.createUser(checker);
-        storage.editUser(checker);
+        storage.createUser();
+        storage.editUser();
         storage.showUsers();
 
         //Assert block
@@ -90,14 +87,13 @@ public class UserStorageTest {
         //Assign block
         String[] answer = new String[]{"Yegor", "19", "Egor", "25", "1"};
         StubIO stubIO = new StubIO(answer);
-        UserStorage storage = new UserStorage(stubIO);
-        Checker checker = new EditChecker();
+        UserStorage storage = new UserStorage(stubIO, new EditChecker());
         String expected = "User was added\n" +
                           "User with given data not exist!\n";
 
         //Action block
-        storage.createUser(checker);
-        storage.editUser(checker);
+        storage.createUser();
+        storage.editUser();
 
         assertThat(stubIO.getOut(), is(expected));
     }
@@ -111,15 +107,14 @@ public class UserStorageTest {
         //Assign block
         String[] answer = new String[]{"Yegor", "19", "Yegor", "19", "0"};
         StubIO stubIO = new StubIO(answer);
-        UserStorage userStorage = new UserStorage(stubIO);
-        Checker checker = new EditChecker();
+        UserStorage userStorage = new UserStorage(stubIO, new EditChecker());
         String expected = "User was added\n" +
                           "User was removed.\n" +
                           "ID\tName\tAge\n";
 
         //Action block
-        userStorage.createUser(checker);
-        userStorage.removeUser(checker);
+        userStorage.createUser();
+        userStorage.removeUser();
         userStorage.showUsers();
 
         //Action block
@@ -135,14 +130,13 @@ public class UserStorageTest {
         //Assign block
         String[] answer = new String[]{"Yegor", "19", "Egor", "20", "0"};
         StubIO stubIO = new StubIO(answer);
-        UserStorage storage = new UserStorage(stubIO);
-        Checker checker = new EditChecker();
+        UserStorage storage = new UserStorage(stubIO, new EditChecker());
         String expected = "User was added\n" +
                           "User with given data not exist!\n";
 
         //Action block
-        storage.createUser(checker);
-        storage.removeUser(checker);
+        storage.createUser();
+        storage.removeUser();
 
         //Assert block
         assertThat(stubIO.getOut(), is(expected));
