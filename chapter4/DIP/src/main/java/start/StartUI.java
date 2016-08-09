@@ -33,13 +33,12 @@ public class StartUI {
      * Init app, first add new user, second edit exist user, and remove user.
      */
     public void init() {
-        UserStorage userStorage = new UserStorage(this.io);
-        EditChecker checker = new EditChecker();
-        userStorage.createUser(checker);
+        UserStorage userStorage = new UserStorage(this.io, new EditChecker());
+        userStorage.createUser();
         userStorage.showUsers();
-        userStorage.editUser(checker);
+        userStorage.editUser();
         userStorage.showUsers();
-        userStorage.removeUser(checker);
+        userStorage.removeUser();
         userStorage.showUsers();
     }
 }
