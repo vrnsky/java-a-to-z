@@ -52,8 +52,9 @@ public class SimpleGenerator implements Template {
      * @param key from template.
      * @return key without dollar and brackets.
      */
-    public String getCleanKey(String key) {
-        return key.substring(2, key.length() - 1);
+    private String getCleanKey(String key) {
+        return key.substring(2, key.length()-1);
+
     }
 
 }
