@@ -1,0 +1,19 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.evrnsky.chapter5</groupId>
+	<artifactId>chapter5</artifactId>
+	<name>chapter5</name>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	
+	<parent>
+		<groupId>ru.evrnsky</groupId>
+		<artifactId>tracker</artifactId>
+		<version>1.0</version>
+	</parent>
+	
+	<modules>
+	<module>Iterator</module>
+	</modules>
+		
+</project>
