@@ -1,6 +1,6 @@
 <project>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>ru.evrnsky.chapter5.EvenIterator</groupId>
+	<groupId>ru.evrnsky.chapter5.Iterator</groupId>
 	<artifactId>Iterator</artifactId>
 	<name>Iterator</name>
 	<version>1.0</version>
