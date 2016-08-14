@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Optional;
+
 /**
  * Main class of game structure.
  */
@@ -18,11 +20,6 @@ public class Game {
      * Instance of primitive ai.
      */
     private Player computer;
-
-    /**
-     * It is special object which signal about that game have not winner.
-     */
-    private Player noOnePlayer;
 
     /**
      * Flag which determine may computer make step first.
@@ -52,7 +49,6 @@ public class Game {
     public Game(GameIO io) {
         this.io = io;
         winChecker = new WinChecker();
-        noOnePlayer = new NoOnePlayer("y");
     }
 
 
@@ -61,6 +57,7 @@ public class Game {
      */
     public void start() {
         this.prepare();
+        Optional<Player> possibleWinner;
         do {
             this.showBoard();
             if (computerFirst) {
@@ -71,11 +68,11 @@ public class Game {
                 computer.makeStep(board, board.getWidth(), board.getHeight());
             }
 
-            Player possibleWinner = this.getWinner();
-            if (possibleWinner != null) {
-                possibleWinner.increaseWins();
+            possibleWinner = this.getWinner();
+            if(possibleWinner.isPresent()) {
+                possibleWinner.get().increaseWins();
             }
-        } while (this.getWinner().equals(noOnePlayer) && human.getWins() != rounds && computer.getWins() != rounds);
+        } while (!possibleWinner.isPresent() && (human.getWins() != rounds || computer.getWins() != rounds));
     }
 
     /**
@@ -128,7 +125,7 @@ public class Game {
      */
     private void prepareGamers() {
         human = new Human(this.io.ask("Enter a sign for user: ").toUpperCase());
-        computer = new AI(human.getSign().equals("X") ? "O" : "X");
+        computer = new AI("x".equals("X") ? "O" : "X");
     }
 
     /**
@@ -148,14 +145,12 @@ public class Game {
      * Find and return winner of the current game.
      * @return winner of this game or special object.
      */
-    private Player getWinner() {
-        Player winner;
-        if (winChecker.isWinner(human, board)) {
-            winner = human;
-        } else if (winChecker.isWinner(computer, board)) {
-            winner = computer;
-        } else {
-            winner = this.noOnePlayer;
+    private Optional<Player> getWinner() {
+        Optional<Player> winner = Optional.empty();
+        if(winChecker.isWinner(this.computer, this.board)) {
+            winner = Optional.of(this.computer);
+        } else if(winChecker.isWinner(this.human, this.board)) {
+            winner = Optional.of(this.human);
         }
         return winner;
     }

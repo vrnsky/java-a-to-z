@@ -39,19 +39,23 @@ public class SimpleGeneratorTest {
      * Check by give generator more values than in template.
      * Should check that generator throw exception.
      */
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void whenTryGenerateStringWithWrongCountMoreValuesThenKeyShouldCheckThatAppThrowException() {
 
         //Assign block
         Template generator = new SimpleGenerator();
         String template = "Hello, ${user}!";
-        Map<String, String> dictionary = new HashMap<String, String>();
+        Map<String, String> dictionary = new HashMap<>();
         dictionary.put("user", "Java");
         dictionary.put("other", "Spring");
         dictionary.put("HTML", "html");
+        String expected = "Hello, Java!";
 
         //Action block
         String actual = generator.generate(template, dictionary);
+
+        //Assert block
+        assertThat(actual, is(expected));
     }
 
     /**
@@ -64,8 +68,10 @@ public class SimpleGeneratorTest {
         //Assign block
         Template generator = new SimpleGenerator();
         String template = "Hello, ${user}, ${first}, ${second}";
-        Map<String, String> dictionary = new HashMap<String, String>();
-        dictionary.put("one", "evrnsky");
+        Map<String, String> dictionary = new HashMap<>();
+        dictionary.put("user", "evrnsky");
+        dictionary.put("first", "google");
+        dictionary.put("third", "test");
 
         //Action block
         String actual = generator.generate(template, dictionary);
