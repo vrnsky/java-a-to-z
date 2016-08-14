@@ -1,9 +1,14 @@
 package find;
 
 import chat.Answerer;
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 
 import static org.hamcrest.core.Is.is;
@@ -17,20 +22,24 @@ public class FindByRegExpTest {
     /**
      * At this path will be search and save result.
      */
-    private static final String PATH = "F:/java-a-to-z/chapter3/find/src/test/java/move/";
+    private static final String PATH = FileUtils.getUserDirectoryPath();
 
     /**
      * Save all data find and not find.
      */
     @Test
     public void whenTrySearchFileByRegExpShouldCheckThatWeWriteResultInFile() throws Exception {
+
         //Assign block
-        String[] keys = new String[]{"-d", PATH + "test/findbyregexp", "-r", "^regexp.txt$", "-m", "-o", PATH + "result/findbyregexp/findbyregexp.txt/"};
+        String searchFolder = String.format("%s%s%s", PATH, File.separator, "findbyregexp");
+        String resultFolder = String.format("%s%s%s", PATH, File.separator, "result");
+        Path file = Files.createTempFile(Paths.get(resultFolder), "regexp", "");
+        String[] keys = new String[]{"-d", searchFolder, "-r", "^regexp.txt$", "-m", "-o", file.toString()};
         Answerer answerer = null;
         FindByRegExp finder = new FindByRegExp();
         String[] expected = new String[]{
-                "^regexp.txt$ was found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\move\\test\\findbyregexp\\regexp.txt",
-                "^regexp.txt$ was found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\move\\test\\findbyregexp\\subfolder\\regexp.txt"
+                String.format("%s%s%s", "^regexp.txt$ was found at ", searchFolder , "\\regexp.txt, ") +
+                String.format("%s%s%s", "^regexp.txt$ was found at ", searchFolder, "\\subfolder\\regexp.txt")
         };
 
         //Action block
