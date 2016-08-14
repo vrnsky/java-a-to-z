@@ -22,6 +22,7 @@ public class SimpleGenerator implements Template {
 
     /**
      * Generate string from string with key. Value take from key-value storage.
+     *
      * @param template   string with all keys.
      * @param dictionary all key-value pairs.
      * @return string with values without keys.
@@ -32,12 +33,13 @@ public class SimpleGenerator implements Template {
         }
         StringBuffer buffer = new StringBuffer(template);
         Matcher matcher = PATTERN.matcher(buffer);
-        try {
-            while (matcher.find()) {
+
+        while (matcher.find()) {
+            if(dictionary.containsKey(this.getCleanKey(buffer.substring(matcher.start(), matcher.end())))) {
                 buffer.replace(matcher.start(), matcher.end(), dictionary.get(getCleanKey(buffer.substring(matcher.start(), matcher.end()))));
+            } else {
+                throw new IllegalArgumentException("Bad arguments, please check argumens!");
             }
-        } catch (NullPointerException exception) {
-            throw new IllegalArgumentException("Not found some key(s) at the dictionary");
         }
 
         if (buffer.indexOf("${") != -1 && buffer.indexOf("}") != -1) {
@@ -53,7 +55,7 @@ public class SimpleGenerator implements Template {
      * @return key without dollar and brackets.
      */
     private String getCleanKey(String key) {
-        return key.substring(2, key.length()-1);
+        return key.substring(2, key.length() - 1);
 
     }
 
