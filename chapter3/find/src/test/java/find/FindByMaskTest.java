@@ -1,6 +1,7 @@
 package find;
 
 import chat.Answerer;
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
 import java.io.File;
@@ -22,7 +23,7 @@ public class FindByMaskTest {
     /**
      * From this path will start search and will save result.
      */
-    private static final String PATH = "F:/java-a-to-z/chapter3/find/src/test/java/move/";
+    private static final String PATH = FileUtils.getUserDirectoryPath();
 
     /**
      * When user give correct keys should find file and save all data.
@@ -31,12 +32,17 @@ public class FindByMaskTest {
     public void whenTrySearchFileByMaskShouldSaveResultInSpecifiedFile() throws Exception {
 
         //Assign block
-        String[] keys = new String[]{"-d", PATH + "test/findbymask", "-n", "r*.txt", "-f", "-o", PATH + "result/findbymask/findbymask.txt"};
+        String searchFolder = String.format("%s%s%s", PATH, File.separator, "findbymask");
+        String resultFolder = String.format("%s%s%s", PATH, File.separator, "result");
+        Path file = Files.createTempFile(Paths.get(resultFolder), "mask","");
+        String[] keys = new String[]{"-d", searchFolder, "-n", "r*.txt", "-f", "-o", file.toString()};
         FindByMask findByMask = new FindByMask();
         Answerer answerer = null;
         String[] expected = new String[] {
-                "r*.txt was found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\move\\test\\findbymask\\rmask.txt",
-                "r*.txt was not found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\move\\test\\findbymask\\subfolder\\mask.txt"};
+                String.format("%s%s%s","r*.txt was found at ", PATH, "\\findbymask\\rmask.txt, ") +
+                String.format("%s%s%s","r*.txt was not found at ", PATH, "\\findbymask\\subfolder\\mask.txt")
+        };
+
         //Act block
         findByMask.find(keys);
         answerer = new Answerer(keys[6]);
