@@ -1,12 +1,18 @@
 package find;
 
 import chat.Answerer;
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.IOException;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 
 /**
@@ -17,7 +23,7 @@ public class FindByNameTest {
     /**
      * At this path will start search and save result.
      */
-    private static final String PATH = "F:/java-a-to-z/chapter3/find/src/test/java/move/";
+    private static final String PATH = FileUtils.getUserDirectoryPath();
 
     /**
      * Check that find correct write result and correct finding files,
@@ -28,13 +34,17 @@ public class FindByNameTest {
     public void whenTrySearchFileByNameShouldFndFileIfExistAndSavePathToItInFile() throws Exception {
 
         //Assign block
-        String[] keys = new String[]{"-d", PATH + "test/findbyname" , "-n", "name.txt", "-n", "-o", PATH + "result/findbyname/findbyname.txt"};
+        String searchFolder = String.format("%s%s%s", PATH, File.separator, "findbyname");
+        String resultFolder = String.format("%s%s%s", PATH, File.separator, "result");
+        Path file = Files.createTempFile(Paths.get(resultFolder), "name", "");
+        String[] keys = new String[]{"-d", searchFolder , "-n", "name.txt", "-n", "-o", file.toString()};
         Answerer answerer = null;
         FindByName finder = new FindByName();
         String[] expected = new String[]{
-                "name.txt was found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\move\\test\\findbyname\\name.txt",
-                "name.txt was found at F:\\java-a-to-z\\chapter3\\find\\src\\test\\java\\move\\test\\findbyname\\subfolder\\name.txt"
+                String.format("%s%s%s","name.txt was found at ", searchFolder, "\\name.txt"),
+                String.format("%s%s%s", "name.txt was found at ", searchFolder, "\\subfolder\\name.txt")
         };
+
 
         //Action block
         finder.find(keys);
