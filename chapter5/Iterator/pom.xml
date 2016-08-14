@@ -1,0 +1,14 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.evrnsky.chapter5.EvenIterator</groupId>
+	<artifactId>Iterator</artifactId>
+	<name>Iterator</name>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	
+	<parent>
+		<groupId>ru.evrnsky.chapter5</groupId>
+		<artifactId>chapter5</artifactId>
+		<version>1.0</version>
+	</parent>
+</project>
