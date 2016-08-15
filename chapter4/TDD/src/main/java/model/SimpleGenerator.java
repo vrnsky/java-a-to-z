@@ -35,8 +35,9 @@ public class SimpleGenerator implements Template {
         Matcher matcher = PATTERN.matcher(buffer);
 
         while (matcher.find()) {
-            if(dictionary.containsKey(this.getCleanKey(buffer.substring(matcher.start(), matcher.end())))) {
-                buffer.replace(matcher.start(), matcher.end(), dictionary.get(getCleanKey(buffer.substring(matcher.start(), matcher.end()))));
+            String cleanKey = this.getCleanKey(buffer.substring(matcher.start(), matcher.end()));
+            if(dictionary.containsKey(cleanKey)) {
+                buffer.replace(matcher.start(), matcher.end(), dictionary.get(cleanKey));
             } else {
                 throw new IllegalArgumentException("Bad arguments, please check argumens!");
             }
