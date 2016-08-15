@@ -19,6 +19,7 @@ public class EvenIterator implements Iterator {
 
     /**
      * Create a new iterator with given array.
+     *
      * @param values array of int.
      */
     public EvenIterator(int[] values) {
@@ -27,13 +28,14 @@ public class EvenIterator implements Iterator {
 
     /**
      * At the loop across all value and set pointer to value which is even.
+     *
      * @return true if even value find, and otherwise false.
      */
     @Override
     public boolean hasNext() {
         boolean result = false;
-        while(this.pointer < this.values.length) {
-            if(this.values[this.pointer] % 2 == 0 && this.values[this.pointer] != 0) {
+        while (this.pointer < this.values.length) {
+            if (this.isEven(this.values[this.pointer])) {
                 result = true;
                 break;
             }
@@ -43,11 +45,28 @@ public class EvenIterator implements Iterator {
     }
 
     /**
-     * Return next value from int array.
+     * Return next even value from int array.
      * @return even int from array.
      */
     @Override
     public Object next() {
-        return this.values[pointer++];
+        int result = 0;
+        while (this.pointer < this.values.length) {
+            if (this.isEven(this.values[this.pointer])) {
+                result = this.values[this.pointer++];
+                break;
+            }
+            this.pointer++;
+        }
+        return result;
+    }
+
+    /**
+     * Check that number is even.
+     * @param number for checking
+     * @return true if number even and otherwise false.
+     */
+    private boolean isEven(int number) {
+        return number % 2 == 0;
     }
 }
