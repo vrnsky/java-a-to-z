@@ -1,14 +1,23 @@
 package service;
 
 import org.junit.Test;
+
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
 
 /**
- * Created by Egor on 14.08.2016.
+ * Unit test for PrimeIterator.
+ * @author evrnsky
+ * @version 1.0
  */
 public class PrimesIteratorTest {
 
+    /**
+     * When try move across the int array should check that if
+     * we have not far a prime number return false.
+     */
     @Test
     public void whenTryMoveAcrossTheIntArrayShouldCheckThatIteratorGoForward() {
 
@@ -23,19 +32,26 @@ public class PrimesIteratorTest {
         assertThat(actual, is(false));
     }
 
+    /**
+     * When try move across data using the prime iterator
+     * should check that values which iterator return is prime.
+     */
     @Test
     public void whenTryMoveAcrossTheIntArrayShouldCheckThatIteratorReturnCorrectValue() {
 
         //Assign block
         PrimesIterator iterator = new PrimesIterator(new int[]{2,3,4,5});
+        int[] expected = new int[]{2,3,5};
 
         //Action block
-        int actual = 0;
+        int index = 0;
+        int[] actual = new int[expected.length];
+
         while(iterator.hasNext()) {
-            actual = (int)iterator.next();
+            actual[index++] = (int)iterator.next();
         }
 
         //Assert block
-        assertThat(actual, is(5));
+        assertThat(Arrays.toString(actual), is(Arrays.toString(expected)));
     }
 }
