@@ -88,7 +88,7 @@ public class SimpleArray<T> {
      * @return true if value find between zero and length, otherwise false.
      */
     private boolean validate(int position) {
-        return ((position >= 0)) && (position < this.values.length);
+        return ((position >= 0)) && ((position < this.values.length));
     }
 
     /**
