@@ -21,12 +21,7 @@ public class TrashTest {
         //Assign block
         Food food = new Food("food", new GregorianCalendar(2016,6,1), new GregorianCalendar(2016,6,15), 1.0, 0);
         Trash trash = new Trash();
-        String expected = "At this moment at the trash:\n" +
-                          "Name:food\n" +
-                          "Was added: 01.07.2016\n" +
-                          "Expair date: 15.07.2016\n" +
-                          "Price: 1.0\n" +
-                          "Discount: 0";
+        String expected = String.format("At this moment at the trash:\n%s", food.toString());
 
         //Action block
         trash.addFood(food);

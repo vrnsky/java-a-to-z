@@ -25,7 +25,7 @@ public class ShopTest {
         createTime.add(Calendar.DAY_OF_MONTH, -13);
         Food food = new Food("food", createTime, expaireTime, 1.0, 0);
         Shop shop = new Shop();
-        String expected = "At this moment at the shop:\n" + food.toString();
+        String expected = String.format("At this moment at the shop:\n%s", food.toString());
 
         //Action block
         shop.addFood(food);
