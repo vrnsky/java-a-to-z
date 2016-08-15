@@ -50,7 +50,16 @@ public class PrimesIterator implements Iterator {
      */
     @Override
     public Object next() {
-        return this.values[pointer++];
+        int result = 0;
+        while(this.pointer < this.values.length) {
+            if(isPrime(this.values[this.pointer])) {
+                result = this.values[this.pointer++];
+                break;
+            }
+            this.pointer++;
+        }
+
+        return result;
     }
 
     /**
