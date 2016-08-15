@@ -20,14 +20,9 @@ public class WarehouseTest {
     public void whenTryAddFoodToWarehouseShouldCheckThatWarehouseSaveIt() {
 
         //Assign block
-        Food food = new Food("food", new GregorianCalendar(2016,6,1), new GregorianCalendar(2016, 11,25), 1.0, 0);
+        Food food = new Food("food", new GregorianCalendar(2016,6, 25), new GregorianCalendar(2016, 11,25), 1.0, 0);
         Warehouse warehouse = new Warehouse();
-        String expected = "At this moment at the warehouse:\n" +
-                          "Name:food\n" +
-                          "Was added: 01.07.2016\n" +
-                          "Expair date: 25.12.2016\n" +
-                          "Price: 1.0\n" +
-                          "Discount: 0";
+        String expected = String.format("At this moment at the warehouse:\n%s", food.toString());
 
         //Action block
         warehouse.addFood(food);
