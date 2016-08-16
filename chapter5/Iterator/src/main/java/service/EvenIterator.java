@@ -33,15 +33,7 @@ public class EvenIterator implements Iterator {
      */
     @Override
     public boolean hasNext() {
-        boolean result = false;
-        while (this.pointer < this.values.length) {
-            if (this.isEven(this.values[this.pointer])) {
-                result = true;
-                break;
-            }
-            this.pointer++;
-        }
-        return result;
+        return this.pointer < this.values.length;
     }
 
     /**
