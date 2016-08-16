@@ -10,12 +10,12 @@ public class SimpleConvert implements Iterator {
     /**
      * Iterator which points on current iterator.
      */
-    private Iterator<Integer> pointer;
+    private Iterator<Integer> innerIterator;
 
     /**
      * Hold all iterator at this place.
      */
-    private Iterator<Iterator<Integer>> values;
+    private Iterator<Iterator<Integer>> outerIterator;
 
 
     /**
@@ -24,17 +24,20 @@ public class SimpleConvert implements Iterator {
      * @return
      */
     public Iterator<Integer> convert(Iterator<Iterator<Integer>> it) {
-      this.values = it;
+      this.outerIterator = it;
       return this;
     }
 
     /**
-     * Return true if outer iterator have next or current pointer exist and have next element.
-     * @return true if current pointer have next value, and false otherwise.
+     * Return true if outer iterator have next or current innerIterator exist and have next element.
+     * @return true if current innerIterator have next value, and false otherwise.
      */
     @Override
     public boolean hasNext() {
-        return (this.values.hasNext() || (this.pointer != null && this.pointer.hasNext()));
+        if((this.innerIterator == null) || (!this.innerIterator.hasNext() && this.outerIterator.hasNext())) {
+            this.innerIterator = this.outerIterator.next();
+        }
+        return this.innerIterator.hasNext();
     }
 
     /**
@@ -43,11 +46,9 @@ public class SimpleConvert implements Iterator {
      */
     @Override
     public Object next() {
-        if(pointer == null) {
-            pointer = values.next();
-        } else if (!pointer.hasNext()) {
-            pointer = values.next();
+        if((innerIterator == null) || (!this.innerIterator.hasNext())) {
+            innerIterator = outerIterator.next();
         }
-        return pointer.next();
+        return innerIterator.next();
     }
 }
