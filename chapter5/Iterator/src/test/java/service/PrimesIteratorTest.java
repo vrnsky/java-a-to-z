@@ -27,6 +27,7 @@ public class PrimesIteratorTest {
         //Action block
         iterator.next();
         iterator.next();
+        iterator.next();
         boolean actual = iterator.hasNext();
 
         assertThat(actual, is(false));
