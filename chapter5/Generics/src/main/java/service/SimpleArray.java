@@ -37,12 +37,10 @@ public class SimpleArray<T> {
      * @param value object for insert.
      */
     public void add(T value) {
-        if (this.index < this.values.length) {
-            this.values[this.index++] = value;
-        } else {
-            ensureCapacity();
-            this.values[this.index++] = value;
+        if (!this.validate(this.index)) {
+            this.ensureCapacity();
         }
+        this.values[this.index++] = value;
     }
 
     /**
