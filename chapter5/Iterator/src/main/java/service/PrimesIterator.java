@@ -26,22 +26,12 @@ public class PrimesIterator implements Iterator {
     }
 
     /**
-     * At the loop check current number for its primes and if is primes
-     * set pointer to current value.
-     * @return true if at the array find prime number, otherwise false.
+     * Compute have iterator next element or not.
+     * @return true if iterator have yet element and otherwise false.
      */
     @Override
     public boolean hasNext() {
-        boolean result = false;
-        while(this.pointer < this.values.length) {
-            if(isPrime(this.values[this.pointer])) {
-                result = true;
-                break;
-            }
-            this.pointer++;
-        }
-
-        return result;
+        return this.pointer < this.values.length;
     }
 
     /**
