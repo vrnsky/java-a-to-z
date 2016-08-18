@@ -1,6 +1,9 @@
 package service;
 
 import org.junit.Test;
+
+import java.util.NoSuchElementException;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 import static org.hamcrest.core.IsNull.nullValue;
@@ -22,7 +25,7 @@ public class RoleStorageTest {
         storage.add(role);
 
         //Action block
-        Role actual = storage.get(0);
+        Role actual = storage.get("author");
 
         //Assert block
         assertThat(actual, is(role));
@@ -31,7 +34,7 @@ public class RoleStorageTest {
     /**
      * When try remove role from storage should check that in role storage it not exist.
      */
-    @Test
+    @Test(expected = NoSuchElementException.class)
     public void whenTryRemoveRoleFromStorageShouldCheckThatRoleWasRemoved() {
 
         //Assign block
@@ -39,11 +42,9 @@ public class RoleStorageTest {
         storage.add(new Role("programmer"));
 
         //Action block
-        storage.remove(0);
-        Role actual = storage.get(0);
+        storage.remove("programmer");
+        Role actual = storage.get("programmer");
 
-        //Assert block
-        assertThat(actual, is(nullValue()));
     }
 
     /**
@@ -54,12 +55,13 @@ public class RoleStorageTest {
 
         //Assign block
         RoleStorage storage = new RoleStorage();
-        storage.add(new Role("codemonkey"));
+        Role codemonkey = new Role("codemonkey");
+        storage.add(codemonkey);
 
         //Action block
-        storage.update(0, new Role("cool developer"));
+        storage.update(codemonkey.getId(), new Role("senior java"));
 
         //Assert block
-        assertThat(storage.get(0).getId(), is("cool developer"));
+        assertThat(storage.get("senior java").getId(), is("senior java"));
     }
 }
