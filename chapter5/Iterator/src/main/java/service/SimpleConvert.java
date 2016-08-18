@@ -1,7 +1,7 @@
 package service;
 
 import java.util.Iterator;
-
+import java.util.NoSuchElementException;
 /**
  * Iterator for double iterator.
  */
@@ -25,6 +25,9 @@ public class SimpleConvert implements Iterator {
      */
     public Iterator<Integer> convert(Iterator<Iterator<Integer>> it) {
       this.outerIterator = it;
+      if(it == null) {
+          throw new IllegalArgumentException("Iterator not allow null");
+      }
       return this;
     }
 
