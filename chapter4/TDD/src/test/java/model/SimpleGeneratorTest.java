@@ -39,7 +39,7 @@ public class SimpleGeneratorTest {
      * Check by give generator more values than in template.
      * Should check that generator throw exception.
      */
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void whenTryGenerateStringWithWrongCountMoreValuesThenKeyShouldCheckThatAppThrowException() {
 
         //Assign block
