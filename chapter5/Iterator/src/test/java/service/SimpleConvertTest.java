@@ -40,4 +40,36 @@ public class SimpleConvertTest {
         assertThat(Arrays.toString(actual), is(Arrays.toString(expected)));
     }
 
+    /**
+     * When try give converter null should check that app throw exception.
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void whenTryGiveNullToTheConverterShouldCheckThatConverterThrowException() {
+
+        //Assign block
+        SimpleConvert converter = new SimpleConvert();
+
+        //Action block
+        converter.convert(null);
+    }
+
+    /**
+     * When try give empty list should check that iterator return false.
+     */
+    @Test
+    public void whenTryGiveEmptyListToTheConvertShouldSomethingCheck() {
+
+        //Assign block
+        SimpleConvert iterator = new SimpleConvert();
+        List<Integer> one = new ArrayList<>();
+        List<Iterator<Integer>> list = new ArrayList<>(Arrays.asList(one.iterator()));
+
+        //Action block
+        Iterator<Integer> converted = iterator.convert(list.iterator());
+
+        //Assert block
+        assertThat(converted.hasNext(), is(false));
+    }
+
 }
+
