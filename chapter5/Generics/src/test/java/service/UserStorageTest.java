@@ -1,6 +1,9 @@
 package service;
 
 import org.junit.Test;
+
+import java.util.NoSuchElementException;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 import static org.hamcrest.core.IsNull.nullValue;
@@ -24,7 +27,7 @@ public class UserStorageTest {
 
         //Action block
         storage.add(user);
-        User actual = storage.get(0);
+        User actual = storage.get("user");
 
         //Assert block
         assertThat(actual, is(user));
@@ -33,7 +36,7 @@ public class UserStorageTest {
     /**
      * When try remove user from storage should check that storage remove it.
      */
-    @Test
+    @Test(expected = NoSuchElementException.class)
     public void whenTryRemoveUserFromStorageShouldCheckThatStorageRemoveIt() {
 
         //Assign block
@@ -42,10 +45,8 @@ public class UserStorageTest {
 
         //Action block
         storage.add(user);
-        storage.remove(0);
-
-        //Assert block
-        assertThat(storage.get(0), is(nullValue()));
+        storage.remove("user");
+        storage.get("user");
     }
 
     /**
@@ -57,12 +58,13 @@ public class UserStorageTest {
         //Assign block
         UserStorage storage = new UserStorage();
         User user = new User("name");
+        User newUser = new User("Yegor");
 
         //Action block
         storage.add(user);
-        storage.update(0, new User("Yegor"));
+        storage.update(user.getId(), newUser);
 
         //Assert block
-        assertThat(storage.get(0).getId(), is("Yegor"));
+        assertThat(storage.get(newUser.getId()).getId(), is("Yegor"));
     }
 }
