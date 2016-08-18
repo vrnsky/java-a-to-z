@@ -22,7 +22,6 @@ public class SimpleGenerator implements Template {
 
     /**
      * Generate string from string with key. Value take from key-value storage.
-     *
      * @param template   string with all keys.
      * @param dictionary all key-value pairs.
      * @return string with values without keys.
@@ -39,19 +38,20 @@ public class SimpleGenerator implements Template {
             if(dictionary.containsKey(cleanKey)) {
                 buffer.replace(matcher.start(), matcher.end(), dictionary.get(cleanKey));
             } else {
-                throw new IllegalArgumentException("Bad arguments, please check argumens!");
+                throw new IllegalArgumentException("Bad arguments, please check arguments!");
             }
         }
 
-        if (buffer.indexOf("${") != -1 && buffer.indexOf("}") != -1) {
-            throw new IllegalArgumentException("You don\'t use all values from dictionary!");
+        for(String value : dictionary.values()) {
+            if(!buffer.toString().contains(value)) {
+                throw new IllegalArgumentException(String.format("You don\'t use this value %s", value));
+            }
         }
         return buffer.toString();
     }
 
     /**
      * Remove from string ${ and }.
-     *
      * @param key from template.
      * @return key without dollar and brackets.
      */
