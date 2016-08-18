@@ -51,7 +51,4 @@ public class FindByMaskTest {
         //Action block
         assertThat(Arrays.toString(actual), is(Arrays.toString(expected)));
     }
-
-
-
 }
