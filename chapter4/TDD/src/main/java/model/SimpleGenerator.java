@@ -1,8 +1,12 @@
 package model;
 
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.Map.Entry;
 
 /**
  * Simple generator. Generate string with given data.
@@ -30,21 +34,24 @@ public class SimpleGenerator implements Template {
         if (template == null || dictionary == null || dictionary.size() == 0) {
             throw new IllegalArgumentException("Bad arguments, please check arguments.");
         }
+        Set<String> usedValues = new HashSet<>();
         StringBuffer buffer = new StringBuffer(template);
         Matcher matcher = PATTERN.matcher(buffer);
 
         while (matcher.find()) {
             String cleanKey = this.getCleanKey(buffer.substring(matcher.start(), matcher.end()));
             if(dictionary.containsKey(cleanKey)) {
+                usedValues.add(cleanKey);
                 buffer.replace(matcher.start(), matcher.end(), dictionary.get(cleanKey));
             } else {
                 throw new IllegalArgumentException("Bad arguments, please check arguments!");
             }
         }
 
-        for(String value : dictionary.values()) {
-            if(!buffer.toString().contains(value)) {
-                throw new IllegalArgumentException(String.format("You don\'t use this value %s", value));
+        Set<String> allKeys = dictionary.keySet();
+        for(String key : allKeys) {
+            if(!usedValues.contains(key)) {
+                throw new IllegalArgumentException(String.format("You don\'t use this key %s", key));
             }
         }
         return buffer.toString();
