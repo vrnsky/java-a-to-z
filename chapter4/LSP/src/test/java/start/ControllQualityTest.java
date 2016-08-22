@@ -50,9 +50,9 @@ public class ControllQualityTest {
         //Assign block
         ControllQuality control = new ControllQuality();
         Calendar expaireTime = new GregorianCalendar();
-        expaireTime.add(Calendar.DAY_OF_MONTH,-15);
+        expaireTime.add(Calendar.HOUR, 1000);
         Calendar creationDate = new GregorianCalendar();
-        creationDate.roll(Calendar.DAY_OF_MONTH, 10);
+        creationDate.add(Calendar.HOUR, 215);
         Food food = new Food("food", creationDate, expaireTime, 3.5, 0);
         String expected = "At this moment at the shop:\n" + food.toString();
 
