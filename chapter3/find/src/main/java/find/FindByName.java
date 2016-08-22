@@ -1,9 +1,8 @@
 package find;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.NoSuchFileException;
+import java.util.Optional;
 
 /**
  * Search file by name.
@@ -42,8 +41,11 @@ public class FindByName {
      * @param fileName - name of file which search.
      */
     private void find(String directory, String fileName) {
-        File[] files = new File(directory).listFiles();
-        for (File file : files) {
+        Optional<File[]> files = Optional.ofNullable(new File(directory).listFiles());
+        if(!files.isPresent()) {
+            throw new IllegalArgumentException("Not found given a directory");
+        }
+        for (File file : files.get()) {
             if (file.isDirectory()) {
                  find(file.getAbsolutePath(), fileName);
             } else if (check(file, fileName)) {
