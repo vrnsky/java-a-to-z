@@ -11,4 +11,11 @@
 		<artifactId>chapter5</artifactId>
 		<version>1.0</version>
 	</parent>
+	<dependencies>
+		<dependency>
+			<groupId>ru.evrnsky.chapter5.List</groupId>
+			<artifactId>List</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
 </project>
