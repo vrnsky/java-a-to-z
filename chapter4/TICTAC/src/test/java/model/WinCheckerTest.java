@@ -37,16 +37,16 @@ public class WinCheckerTest {
         WinChecker checker = new WinChecker();
         Board board = new Board();
         Player player = new Human("X");
-        boolean expected = true;
 
         //Action block
-        board.performStep(player, 1, 0);
+        board.performStep(player, 0, 0);
         board.performStep(player, 1, 1);
-        board.performStep(player, 2, 1);
+        board.performStep(player, 2, 2);
+        System.out.println(checker.isWinner(player, board));
         boolean actual = checker.isWinner(player, board);
 
         //Assert block
-        assertThat(actual, is(expected));
+        assertThat(actual, is(true));
     }
 
     /**
@@ -59,7 +59,6 @@ public class WinCheckerTest {
         WinChecker checker = new WinChecker();
         Board board = new Board();
         Player player = new Human("X");
-        boolean expected = true;
 
         //Action block
         board.performStep(player, 0, 0);
@@ -68,7 +67,7 @@ public class WinCheckerTest {
         boolean actual = checker.isWinner(player, board);
 
         //Assign block
-        assertThat(actual, is(expected));
+        assertThat(actual, is(true));
     }
 
     /**
@@ -81,7 +80,6 @@ public class WinCheckerTest {
         WinChecker checker = new WinChecker();
         Board board = new Board();
         Player player = new Human("X");
-        boolean expected = true;
 
         //Action block
         board.performStep(player, 0,0);
@@ -90,6 +88,6 @@ public class WinCheckerTest {
         boolean actual = checker.isWinner(player, board);
 
         //Assert block
-        assertThat(actual, is(expected));
+        assertThat(actual, is(true));
     }
 }
