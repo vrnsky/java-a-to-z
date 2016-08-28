@@ -16,6 +16,7 @@
 	<module>Iterator</module>
 	<module>Generics</module>
 	<module>List</module>
+	<module>Set</module>
 	</modules>
 		
 </project>
