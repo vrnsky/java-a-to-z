@@ -1,8 +1,5 @@
 package model;
-
-import model.SimpleSet;
 import org.junit.Test;
-
 import java.util.NoSuchElementException;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.collection.IsArrayContainingInOrder.arrayContaining;
