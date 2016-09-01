@@ -51,7 +51,7 @@ public class Calculator {
 	 * @throws ArithmeticException if try div by zero.
      */
 	public void div(double number) {
-		if(number == 0) throw new ArithmeticException("Div by zero is illegal");
+		if(number == 0) { throw new ArithmeticException("Div by zero is illegal"); }
 		this.result = this.prevResult / number;
 		this.prevResult = this.result;
 	}
@@ -66,7 +66,7 @@ public class Calculator {
 	}
 
 	/**
-	 * Calculate a cosinus
+	 * Calculate a cosinus.
 	 * @param number degrees.
      */
 	public void cos(double number) {
