@@ -81,9 +81,18 @@ public class SimpleSetTest {
 
         //Assign block
         SimpleSet<String> set = new SimpleSet<>();
-        int expected = 0;
 
         //Assert block
-        assertThat(set.size(), is(expected));
+        assertThat(set.size(), is(0));
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void whenTryRemoveNotExistElemFromSetShouldCheckThatMethodThrowException() {
+
+        //Assign block
+        SimpleSet<String> set = new SimpleSet<>();
+
+        //Action block
+        set.remove("Google");
     }
 }

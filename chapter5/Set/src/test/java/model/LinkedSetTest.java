@@ -1,7 +1,11 @@
 package model;
 import org.junit.Test;
+
+import java.util.NoSuchElementException;
+
 import static org.hamcrest.collection.IsArrayContainingInOrder.arrayContaining;
 import static org.junit.Assert.*;
+import static org.hamcrest.core.Is.is;
 
 /**
  * Unit test for LinkedSet.java
@@ -34,5 +38,53 @@ public class LinkedSetTest {
 
         //Assert block
         assertThat(actual, arrayContaining(expected));
+    }
+
+    /**
+     * When try remove not exist element from set should check that method throw exception.
+     */
+    @Test(expected = NoSuchElementException.class)
+    public void whenTryRemoveNotExistElemFromSetShouldCheckThatMethodRemoveThrowException() {
+
+        //Assign block
+        LinkedSet<String> set = new LinkedSet<>();
+
+        //Action block
+        set.remove("google");
+    }
+
+    /**
+     * When try remove exist element from set should check that method remove works correct.
+     */
+    @Test
+    public void whenTryRemoveExistElemFromSetShouldCheckThatMethodRemoveWorksCorrect() {
+
+        //Assign block
+        LinkedSet<String> set = new LinkedSet<>();
+        String expected = "value";
+
+        //Action block
+        set.add(expected);
+        String actual = set.remove(expected);
+
+        //Assert block
+        assertThat(actual, is(expected));
+    }
+
+
+    /**
+     * When call method size from empty set should check that method size return zero.
+     */
+    @Test
+    public void whenCallMethodSizeFromTheEmptySetShouldCheckThatMethodSizeReturnZero() {
+
+        //Assign block
+        LinkedSet<String> set = new LinkedSet<>();
+
+        //Action block
+        int actual = set.size();
+
+        //Assert block
+        assertThat(actual, is(0));
     }
 }
