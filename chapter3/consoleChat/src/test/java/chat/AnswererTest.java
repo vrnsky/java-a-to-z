@@ -29,7 +29,7 @@ public class AnswererTest {
         Optional<Answerer> answerer = Optional.empty();
         String expected = "Hello!";
         try {
-            answerer = Optional.of(new Answerer(String.format("%s%s%s", FileUtils.getTempDirectoryPath(), File.separator, "reply.txt")));
+            answerer = Optional.of(new Answerer(String.format("%s%s%s", FileUtils.getTempDirectoryPath(), File.separator, "text.txt")));
         } catch (FileNotFoundException exp) {
             System.out.println("You must create a file at the your temp directory");
         } catch (IOException exception) {
