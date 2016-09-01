@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Implementation of set based on array.
@@ -17,6 +18,9 @@ public class ArraySet<T> implements Iterator<T> {
      */
     private int index = 0;
 
+    /**
+     * For moving across array using iterator.
+     */
     private int cursor = 0;
 
     /**
@@ -68,6 +72,38 @@ public class ArraySet<T> implements Iterator<T> {
         return contains;
     }
 
+    /**
+     * Return a size of using array.
+     * @return length of array.
+     */
+    public int size() {
+        return this.values.length;
+    }
+
+    /**
+     * Remove object from collection.
+     * @param object for removing.
+     * @return object which was removed.
+     */
+    public T remove(Object object) {
+        T removed = null;
+        if(!this.contains((T)object)) {
+            throw new NoSuchElementException("Given element not exist at the set");
+        } else {
+            for(int index = 0; index < this.values.length; index++) {
+               T castedObject = (T)this.values[index];
+               removed = castedObject;
+                if(castedObject != null) {
+                    if (castedObject.equals(object)) {
+                        this.values[index] = null;
+                        break;
+                    }
+                }
+            }
+        }
+
+        return removed;
+    }
     /**
      * Check that have yet element at the array.
      * @return true if have yet elements at the array, otherwise false.

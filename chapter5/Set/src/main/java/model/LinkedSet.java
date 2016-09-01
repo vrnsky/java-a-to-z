@@ -2,6 +2,8 @@ package model;
 
 import collection.LinkedList;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 /**
  * Implementation of set based on linked list.
@@ -32,12 +34,48 @@ public class LinkedSet<T> implements Iterator<T> {
      */
     public boolean add(T t) {
         boolean added = false;
-        if(!this.list.contains(t)) {
+        if(!this.contains(t)) {
             this.list.add(t);
             added = true;
         }
         this.innerIterator = this.list.iterator();
         return added;
+    }
+
+    public boolean contains(Object o) {
+        return this.list.contains(o);
+    }
+
+    /**
+     * Return a size of list.
+     * @return size of list.
+     */
+    public int size() {
+        return this.list.size();
+    }
+
+    /**
+     * Remove object from collection.
+     * @param object for removing.
+     * @return object which was removed.
+     */
+    public T remove(Object object) {
+        Optional<T> removed = Optional.empty();
+        if(!this.contains(object)) {
+            throw new NoSuchElementException("Element not exist at the set");
+        } else {
+            for(int index = 0; index < this.list.size(); index++) {
+                if(this.list.get(index).equals(object)) {
+                    removed = Optional.of(this.list.remove(index));
+                    break;
+                }
+            }
+        }
+
+        if(!removed.isPresent())  {
+            throw new NoSuchElementException("Element not exist at the set");
+        }
+        return removed.get();
     }
 
     /**

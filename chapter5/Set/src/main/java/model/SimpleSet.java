@@ -51,6 +51,18 @@ public class SimpleSet<T> implements Iterator<T> {
     }
 
     /**
+     * Remove object from collection.
+     * @param key it is object which will remove.
+     * @return object which was removed.
+     */
+    public T remove(T key) {
+       if(!this.map.containsKey(key)) {
+           throw new NoSuchElementException("Given element not exist at the set.");
+       }
+       return (T)this.map.remove(key);
+    }
+
+    /**
      * Return true if at the key set have yet elements.
      * @return true if have yet elements and otherwise false.
      */
