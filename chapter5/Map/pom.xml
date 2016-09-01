@@ -1,0 +1,15 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.evrnsky.chapter5.Map</groupId>
+	<artifactId>Map</artifactId>
+	<name>Map</name>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	
+	<parent>
+		<groupId>ru.evrnsky.chapter5</groupId>
+		<artifactId>chapter5</artifactId>
+		<version>1.0</version>
+	</parent>
+	
+</project>
