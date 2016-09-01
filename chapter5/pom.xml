@@ -17,6 +17,7 @@
 	<module>Generics</module>
 	<module>List</module>
 	<module>Set</module>
+	<module>Map</module>
 	</modules>
 		
 </project>
