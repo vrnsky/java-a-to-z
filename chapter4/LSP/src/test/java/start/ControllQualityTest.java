@@ -1,6 +1,7 @@
 package start;
 
 import food.Food;
+import org.joda.time.DateTime;
 import org.junit.Test;
 import storage.Shop;
 import storage.Trash;
@@ -27,8 +28,8 @@ public class ControllQualityTest {
 
         //Assign block
         ControllQuality control = new ControllQuality();
-        Calendar expairTime = new GregorianCalendar();
-        expairTime.add(Calendar.MONTH, 3);
+        DateTime expairTime = new DateTime();
+        expairTime = expairTime.plusMonths(3);
         Food food = new Food("food", expairTime , 3.5, 0);
         String expected = "At this moment at the warehouse:\n" + food.toString();
 
@@ -49,11 +50,11 @@ public class ControllQualityTest {
 
         //Assign block
         ControllQuality control = new ControllQuality();
-        Calendar expaireTime = new GregorianCalendar();
-        expaireTime.add(Calendar.HOUR, 1000);
-        Calendar creationDate = new GregorianCalendar();
-        creationDate.add(Calendar.HOUR, 215);
-        Food food = new Food("food", creationDate, expaireTime, 3.5, 0);
+        DateTime createTime = new DateTime();
+        DateTime expaireTime = new DateTime();
+        expaireTime = expaireTime.plusMonths(2);
+        createTime = createTime.minusDays(16);
+        Food food = new Food("food", createTime, expaireTime, 3.5, 0);
         String expected = "At this moment at the shop:\n" + food.toString();
 
         //Action block
@@ -73,10 +74,10 @@ public class ControllQualityTest {
 
         //Assign block
         ControllQuality control = new ControllQuality();
-        Calendar createTime = new GregorianCalendar();
-        createTime.roll(Calendar.DAY_OF_MONTH, 4);
-        Calendar expaireTime = new GregorianCalendar();
-        expaireTime.add(Calendar.DAY_OF_MONTH, 10);
+        DateTime createTime = new DateTime();
+        createTime = createTime.plusDays(4);
+        DateTime expaireTime = new DateTime();
+        expaireTime = expaireTime.plusDays(10);
         Food food = new Food("food", createTime, expaireTime, 3.5, 0);
 
 
@@ -98,10 +99,10 @@ public class ControllQualityTest {
 
         //Assign block
         ControllQuality control = new ControllQuality();
-        Calendar createTime = new GregorianCalendar();
-        createTime.add(Calendar.DAY_OF_MONTH, -5);
-        Calendar expaireTime = new GregorianCalendar();
-        expaireTime.add(Calendar.DAY_OF_MONTH, -2);
+        DateTime expaireTime = new DateTime();
+        expaireTime = expaireTime.plusDays(1).plusHours(23);
+        DateTime createTime = new DateTime();
+        createTime = createTime.minusDays(1);
         Food food = new Food("food", createTime, expaireTime, 3.5, 0);
         String expected = "At this moment at the trash:\n" + food.toString();
 
@@ -110,7 +111,8 @@ public class ControllQualityTest {
         control.moveFood(food);
         Trash trash = (Trash)control.getStorage(0);
         System.out.println(trash.isSuitable(food));
-        //Assign block
+
+        //Assert block
         assertThat(trash.toString(), is(expected));
     }
 
