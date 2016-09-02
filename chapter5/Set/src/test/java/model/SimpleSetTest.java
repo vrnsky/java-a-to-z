@@ -43,7 +43,7 @@ public class SimpleSetTest {
         set.hasNext();
     }
 
-    
+
     /**
      * When try check size of set should check that method size return correct value.
      */
