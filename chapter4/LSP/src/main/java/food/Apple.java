@@ -1,6 +1,6 @@
 package food;
 
-import java.util.Calendar;
+import org.joda.time.DateTime;
 
 /**
  * Model of apple.
@@ -8,7 +8,7 @@ import java.util.Calendar;
  */
 public class Apple extends Food {
 
-    public Apple(String name, Calendar createTime, Calendar expairDate, double price, int discount) {
+    public Apple(String name, DateTime createTime, DateTime expairDate, double price, int discount) {
         super(name, createTime, expairDate, price, discount);
     }
 }

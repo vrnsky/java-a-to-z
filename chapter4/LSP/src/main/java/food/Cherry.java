@@ -1,6 +1,6 @@
 package food;
 
-import java.util.Calendar;
+import org.joda.time.DateTime;
 
 /**
  * Model of fruit cherry.
@@ -8,7 +8,7 @@ import java.util.Calendar;
  */
 public class Cherry extends Food {
 
-    public Cherry(String name, Calendar createTime, Calendar expairDate, double price, int discount) {
+    public Cherry(String name, DateTime createTime, DateTime expairDate, double price, int discount) {
         super(name, createTime, expairDate, price, discount);
     }
 }

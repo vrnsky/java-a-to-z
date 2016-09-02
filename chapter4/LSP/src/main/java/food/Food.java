@@ -1,5 +1,7 @@
 package food;
 
+import org.joda.time.DateTime;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -22,12 +24,12 @@ public class Food {
     /**
      * Time when was added.
      */
-    private Calendar createTime;
+    private DateTime createTime;
 
     /**
      * Time when product will destroy.
      */
-    private Calendar expairDate;
+    private DateTime expairDate;
 
     /**
      * Price for product.
@@ -51,7 +53,7 @@ public class Food {
      * @param price for this model of food.
      * @param discount for this model of food.
      */
-    public Food(String name, Calendar createTime, Calendar expairDate, double price, int discount) {
+    public Food(String name, DateTime createTime, DateTime expairDate, double price, int discount) {
         this.name = name;
         this.createTime = createTime;
         this.expairDate = expairDate;
@@ -67,8 +69,8 @@ public class Food {
      * @param price of food.
      * @param discount for food.
      */
-    public Food(String name, Calendar expairDate, double price, int discount) {
-        this(name, new GregorianCalendar(), expairDate, price, discount);
+    public Food(String name, DateTime expairDate, double price, int discount) {
+        this(name, new DateTime(), expairDate, price, discount);
     }
 
     /**
@@ -83,7 +85,7 @@ public class Food {
      * Get time when model was added.
      * @return creating time.
      */
-    public Calendar getCreateTime() {
+    public DateTime getCreateTime() {
         return this.createTime;
     }
 
@@ -91,7 +93,7 @@ public class Food {
      * Get a time of destroying model.
      * @return time when product will destroy.
      */
-    public Calendar getExpairDate() {
+    public DateTime getExpairDate() {
         return this.expairDate;
     }
 
@@ -125,8 +127,8 @@ public class Food {
      */
     @Override
     public String toString() {
-        return String.format("Name:%s\nWas added: %s\nExpair date: %s\nPrice: %s\nDiscount: %s",this.name, getStringViewOfTime(this.createTime),
-                            getStringViewOfTime(this.expairDate), this.price, this.discount);
+        return String.format("Name:%s\nWas added: %s\nExpair date: %s\nPrice: %s\nDiscount: %s",this.name, getStringViewOfTime(this.createTime.toGregorianCalendar()),
+                            getStringViewOfTime(this.expairDate.toGregorianCalendar()), this.price, this.discount);
     }
 
     /**
@@ -144,18 +146,10 @@ public class Food {
      * @return fresh in percent.
      */
     public int calculateFitness() {
-        Calendar calendar = this.getExpairDate();
-        calendar.set(Calendar.HOUR,1);
-        calendar.set(Calendar.MINUTE, 1);
-        calendar.set(Calendar.SECOND, 1);
-
-        Calendar today = new GregorianCalendar();
-        today.set(Calendar.HOUR, 0);
-        today.set(Calendar.MINUTE,0);
-        today.set(Calendar.SECOND, 0);
-
-        long productLife = (calendar.getTimeInMillis() - this.getCreateTime().getTimeInMillis()) / TIME_IN_DAY;
-        long productToday = (today.getTimeInMillis() - this.getCreateTime().getTimeInMillis()) / TIME_IN_DAY;
+        DateTime expairDate = this.expairDate;
+        DateTime today = new DateTime();
+        long productLife = (expairDate.getMillis() - today.getMillis()) / TIME_IN_DAY;
+        long productToday = (today.getMillis() - this.getCreateTime().getMillis()) / TIME_IN_DAY;
         long percent = (productToday * 100) / productLife;
         return (int)Math.abs(percent);
     }
