@@ -30,9 +30,7 @@ public class User {
      * @param children count of kids.
      */
     public User(String name, int children) {
-        this.name = name;
-        this.children = children;
-        this.birthday = new GregorianCalendar();
+        this(name, children, new GregorianCalendar());
     }
 
 
@@ -53,9 +51,7 @@ public class User {
      * @param name of user.
      */
     public User(String name) {
-        this.name = name;
-        this.children = 0;
-        this.birthday = new GregorianCalendar();
+        this(name, 0, new GregorianCalendar());
     }
 
     /**
