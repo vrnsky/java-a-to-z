@@ -1,6 +1,7 @@
 package storage;
 
 import food.Food;
+import org.joda.time.DateTime;
 import org.junit.Test;
 
 import java.util.GregorianCalendar;
@@ -20,7 +21,9 @@ public class WarehouseTest {
     public void whenTryAddFoodToWarehouseShouldCheckThatWarehouseSaveIt() {
 
         //Assign block
-        Food food = new Food("food", new GregorianCalendar(2016,6, 25), new GregorianCalendar(2016, 11,25), 1.0, 0);
+        DateTime today = new DateTime().minusDays(9);
+        DateTime expair = new DateTime().plusYears(1);
+        Food food = new Food("food", today, expair, 1.0, 0);
         Warehouse warehouse = new Warehouse();
         String expected = String.format("At this moment at the warehouse:\n%s", food.toString());
 

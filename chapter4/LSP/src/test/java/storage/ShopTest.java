@@ -1,6 +1,7 @@
 package storage;
 
 import food.Food;
+import org.joda.time.DateTime;
 import org.junit.Test;
 
 import java.util.Calendar;
@@ -19,10 +20,10 @@ public class ShopTest {
     public void whenTryAddFoodToShopShouldCheckThatShopSaveIt() {
 
         //Assign block
-        Calendar createTime = new GregorianCalendar();
-        Calendar expaireTime = new GregorianCalendar();
-        expaireTime.add(Calendar.MONTH, 1);
-        createTime.add(Calendar.DAY_OF_MONTH, -13);
+        DateTime createTime = new DateTime();
+        DateTime expaireTime = new DateTime();
+        expaireTime = expaireTime.plusMonths(2);
+        createTime = createTime.minusDays(16);
         Food food = new Food("food", createTime, expaireTime, 1.0, 0);
         Shop shop = new Shop();
         String expected = String.format("At this moment at the shop:\n%s", food.toString());

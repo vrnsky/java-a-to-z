@@ -1,9 +1,12 @@
 package storage;
 
 import food.Food;
+import org.joda.time.DateTime;
 import org.junit.Test;
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
@@ -19,7 +22,11 @@ public class TrashTest {
     public void whenTryAddFoodToTrashShouldCheckThatTrashSaveIt() {
 
         //Assign block
-        Food food = new Food("food", new GregorianCalendar(2016,6,1), new GregorianCalendar(2016,6,15), 1.0, 0);
+        DateTime expaireTime = new DateTime();
+        expaireTime = expaireTime.plusDays(1).plusHours(23);
+        DateTime createTime = new DateTime();
+        createTime = createTime.minusDays(1);
+        Food food = new Food("food", createTime, expaireTime, 1.0, 0);
         Trash trash = new Trash();
         String expected = String.format("At this moment at the trash:\n%s", food.toString());
 
