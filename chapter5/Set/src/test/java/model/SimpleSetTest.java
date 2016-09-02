@@ -43,36 +43,7 @@ public class SimpleSetTest {
         set.hasNext();
     }
 
-
-    /**
-     * When try add duplicate values to the set should check that set not accept it.
-     */
-    @Test
-    public void whenTryAddDuplicateShouldCheckThatSetNotContainsDuplicate() {
-
-        //Assign block
-        SimpleSet<String> set = new SimpleSet<>();
-        String[] values = {"one", "two", "three", "four"};
-        String[] expected = {values[3], values[0], values[1], values[2]};
-
-        //Action block
-        set.add(values[0]);
-        set.add(values[1]);
-        set.add(values[1]);
-        set.add(values[2]);
-        set.add(values[3]);
-        set.add(values[3]);
-
-        String[] actual = new String[set.size()];
-        int index = 0;
-        while(set.hasNext()) {
-            actual[index++] = set.next();
-        }
-
-        //Assert block
-        assertThat(actual, arrayContaining(expected));
-    }
-
+    
     /**
      * When try check size of set should check that method size return correct value.
      */
