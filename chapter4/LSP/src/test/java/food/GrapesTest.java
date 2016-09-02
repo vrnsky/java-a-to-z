@@ -1,5 +1,6 @@
 package food;
 
+import org.joda.time.DateTime;
 import org.junit.Test;
 
 import java.util.GregorianCalendar;
@@ -18,7 +19,7 @@ public class GrapesTest {
     public void whenCreateFoodObjectShouldCheckThatAllFieldAreCorrectFill() {
 
         //Assign block
-        Food food = new Grapes("Grapes", new GregorianCalendar(2016, 6, 18), new GregorianCalendar(2016,11,18), 100.0, 0);
+        Food food = new Grapes("Grapes", new DateTime(2016, 7, 18, 0, 0, 0), new DateTime(2016, 12, 18, 0, 0, 0), 100.0, 0);
         String expected = "Name:Grapes\nWas added: 18.07.2016\nExpair date: 18.12.2016\nPrice: 100.0\nDiscount: 0";
 
         //Assert block
@@ -32,7 +33,7 @@ public class GrapesTest {
     public void whenTryToSetDiscountShouldCheckThatIsWorkCorrect() {
 
         //Assign block
-        Food food = new Grapes("Grapes", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0);
+        Food food = new Grapes("Grapes", new DateTime(), new DateTime(), 100.0, 0);
         int expected = 20;
 
         //Action block
@@ -50,7 +51,7 @@ public class GrapesTest {
     public void whenTryGetNameOfFoodShouldCheckThatIsCorrectWorks() {
 
         //Assign block
-        Food food = new Grapes("Grapes", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0);
+        Food food = new Grapes("Grapes", new DateTime(), new DateTime(), 100.0, 0);
         String expected = "Grapes";
 
         //Action block
@@ -67,7 +68,7 @@ public class GrapesTest {
     public void whenTryGetPriceForFoodShouldCheckThatIsCorrectWorks() {
 
         //Assign block
-        Food food = new Grapes("Grapes", new GregorianCalendar(), new GregorianCalendar(), 100.0, 0);
+        Food food = new Grapes("Grapes", new DateTime(), new DateTime(), 100.0, 0);
         double expected = 100.0;
 
         //Action block
