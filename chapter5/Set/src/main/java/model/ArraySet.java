@@ -73,11 +73,19 @@ public class ArraySet<T> implements Iterator<T> {
     }
 
     /**
-     * Return a size of using array.
+     * Return a capacity of using array.
      * @return length of array.
      */
-    public int size() {
+    public int capacity() {
         return this.values.length;
+    }
+
+    /**
+     * Return count of element at array.
+     * @return count of element at array.
+     */
+    public int size() {
+        return this.index-1;
     }
 
     /**
@@ -106,15 +114,15 @@ public class ArraySet<T> implements Iterator<T> {
     }
     /**
      * Check that have yet element at the array.
-     * @return true if have yet elements at the array, otherwise false.
+     * @return true if cursor smaller than length.
      */
     @Override
     public boolean hasNext() {
-        return this.cursor != this.values.length;
+        return this.cursor != this.values.length && this.size() >= 0;
     }
 
     /**
-     * Return element from array.
+     * Return element from array. Notice this method may return null value.
      * @return element from array, maybe null.
      */
     @Override
