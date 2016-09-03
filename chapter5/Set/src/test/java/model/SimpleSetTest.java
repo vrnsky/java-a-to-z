@@ -45,7 +45,7 @@ public class SimpleSetTest {
 
 
     /**
-     * When try check size of set should check that method size return correct value.
+     * When try check capacity of set should check that method capacity return correct value.
      */
     @Test
     public void whenTryKnowSizeOfSetShouldCheckThatMethodSizeReturnCorrectValue() {
