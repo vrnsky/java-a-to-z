@@ -43,7 +43,7 @@ public class SimpleSet<T> implements Iterator<T> {
     }
 
     /**
-     * Return size of map.
+     * Return capacity of map.
      * @return count of elements.
      */
     public int size() {
