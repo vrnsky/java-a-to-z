@@ -47,8 +47,8 @@ public class LinkedSet<T> implements Iterator<T> {
     }
 
     /**
-     * Return a size of list.
-     * @return size of list.
+     * Return a capacity of list.
+     * @return capacity of list.
      */
     public int size() {
         return this.list.size();
@@ -84,7 +84,7 @@ public class LinkedSet<T> implements Iterator<T> {
      */
     @Override
     public boolean hasNext() {
-        return this.innerIterator.hasNext();
+        return (this.innerIterator != null) && (this.innerIterator.hasNext());
     }
 
     /**
