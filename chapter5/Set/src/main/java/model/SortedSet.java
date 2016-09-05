@@ -23,10 +23,15 @@ public class SortedSet<T> implements Iterator<T> {
     private int cursor = 0;
 
     /**
+     * Default capacity of using array.
+     */
+    private static final int DEFAULT_CAPACITY = 100;
+
+    /**
      * Default constructor.
      */
     public SortedSet() {
-        this(100);
+        this(DEFAULT_CAPACITY);
     }
 
     /**
