@@ -17,6 +17,7 @@ public class Employee {
 
     /**
      * Create a new employer with given name and salary.
+     * @param id unique value for each employee.
      * @param name of employee.
      * @param salary for employee.
      */
@@ -40,7 +41,19 @@ public class Employee {
         }
 
         Employee employee = (Employee)object;
-        return employee.getName().equals(this.name) && employee.getSalary() == salary;
+        return employee.name.equals(this.name) && employee.salary == salary;
+    }
+
+    /**
+     * Return hash code of this object.
+     * @return hash code of this object.
+     */
+    @Override
+    public int hashCode() {
+        int result = 17;
+        int nameHashCode = this.name == null ? 0 : this.name.hashCode();
+        result = result * nameHashCode + this.salary;
+        return result;
     }
 
     /**

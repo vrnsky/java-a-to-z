@@ -65,6 +65,29 @@ public class EmployeeTest {
     }
 
     /**
+     * When try check hash code should check that hash code is works.
+     */
+    @Test
+    public void whenTryCheckHashCodeShouldCheckThatHashCodeIsWorks() {
+        Employee worker = new Employee("Chrome", 10);
+        Employee bee = new Employee("Chrome", 10);
+        assertThat(worker.hashCode(), is(bee.hashCode()));
+    }
+
+    /**
+     * When try call hash code method more than one time should check that hashCode is not changed.
+     */
+    @Test
+    public void whenTryCheckHashCodeMoreThatOneTimeShouldCheckThatHashCodeIsNotChanged() {
+        Employee e = new Employee("Yegor", 100);
+        int hashCode = e.hashCode();
+        for(int i = 0; i < 100; i++) {
+            hashCode = e.hashCode();
+        }
+        assertThat(hashCode, is(e.hashCode()));
+    }
+
+    /**
      * When try create employee should check that model save all data.
      */
     @Test
