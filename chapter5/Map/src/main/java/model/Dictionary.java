@@ -23,6 +23,11 @@ public class Dictionary<K, V> implements Iterator<V> {
     private int cursor = 0;
 
     /**
+     * Default capacity of using array.
+     */
+    private static final int DEFAULT_CAPACITY = 100;
+
+    /**
      * At this place hold all values.
      */
     private List<V> listValues;
@@ -31,7 +36,7 @@ public class Dictionary<K, V> implements Iterator<V> {
      * Default constructor.
      */
     public Dictionary() {
-        this(100);
+        this(DEFAULT_CAPACITY);
     }
 
     /**

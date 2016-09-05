@@ -11,6 +11,11 @@ import java.util.Optional;
 public abstract class AbstractStorage<T extends Base> implements Store {
 
     /**
+     * Default storage capacity.
+     */
+    private static final int DEFAULT_STORAGE_CAPACITY = 10;
+
+    /**
      * At this place hold all values.
      */
     private SimpleArray<T> values;
@@ -27,7 +32,7 @@ public abstract class AbstractStorage<T extends Base> implements Store {
      * Default constructor.
      */
     public AbstractStorage() {
-        this(10);
+        this(DEFAULT_STORAGE_CAPACITY);
     }
 
     /**

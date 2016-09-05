@@ -8,6 +8,11 @@ package service;
 public class SimpleArray<T> {
 
     /**
+     * Default capacity of using array.
+     */
+    private static final int DEFAULT_CAPACITY = 10;
+
+    /**
      * Hold all object.
      */
     private Object[] values;
@@ -17,9 +22,10 @@ public class SimpleArray<T> {
      */
     private int index = 0;
 
+
     /**
      * Create a new SimpleArray with given capacity.
-     * @param capacity
+     * @param capacity size of using array.
      */
     public SimpleArray(int capacity) {
         this.values = new Object[capacity];
@@ -29,7 +35,7 @@ public class SimpleArray<T> {
      * Default constructor.
      */
     public SimpleArray() {
-        this(10);
+        this(DEFAULT_CAPACITY);
     }
 
     /**
