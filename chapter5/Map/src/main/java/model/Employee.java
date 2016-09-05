@@ -17,7 +17,6 @@ public class Employee {
 
     /**
      * Create a new employer with given name and salary.
-     * @param id unique value for each employee.
      * @param name of employee.
      * @param salary for employee.
      */
