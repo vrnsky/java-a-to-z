@@ -50,10 +50,11 @@ public class Employee {
      */
     @Override
     public int hashCode() {
-        int result = 17;
-        int nameHashCode = this.name == null ? 0 : this.name.hashCode();
-        result = result * nameHashCode + this.salary;
-        return result;
+       int result = 17;
+       result = 31 * result + this.salary;
+       int nameHashCode = this.name == null ? 0 : name.hashCode();
+       result = 31 * result + nameHashCode;
+       return result;
     }
 
     /**
