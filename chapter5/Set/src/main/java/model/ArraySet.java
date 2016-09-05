@@ -24,10 +24,15 @@ public class ArraySet<T> implements Iterator<T> {
     private int cursor = 0;
 
     /**
+     * Default capacity of using array.
+     */
+    private static final int DEFAULT_CAPACITY = 100;
+
+    /**
      * Default constructor.
      */
     public ArraySet() {
-        this(100);
+        this(DEFAULT_CAPACITY);
     }
 
     /**
@@ -45,6 +50,9 @@ public class ArraySet<T> implements Iterator<T> {
      */
     public boolean add(T value) {
         boolean added = false;
+        if(this.needEnsureCapacity()) {
+            this.ensureCapacity();
+        }
         if(!contains(value)) {
             this.values[index++] = value;
             added = true;
@@ -111,6 +119,24 @@ public class ArraySet<T> implements Iterator<T> {
         }
 
         return removed;
+    }
+
+    /**
+     * Check that array fill over 75 per cent.
+     * @return true if store fill over by 75 per cent, otherwise false.
+     */
+    private boolean needEnsureCapacity() {
+        return this.size() > this.values.length * 3 / 4;
+    }
+
+    /**
+     * Ensure capacity of using array.
+     */
+    private void ensureCapacity() {
+        int newCapacity = (this.values.length * 3 / 2) + 1;
+        Object[] newValues = new Object[newCapacity];
+        System.arraycopy(this.values, 0, newValues, 0, this.values.length);
+        this.values = newValues;
     }
     /**
      * Check that have yet element at the array.
