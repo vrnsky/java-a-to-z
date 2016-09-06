@@ -19,6 +19,7 @@
 	<module>Set</module>
 	<module>Map</module>
 	<module>Tree</module>
+	<module>Task</module>
 	</modules>
 		
 </project>

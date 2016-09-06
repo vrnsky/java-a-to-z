@@ -66,6 +66,19 @@ public class NodeTest {
         assertThat(childNode.getParent(), is(nullValue()));
     }
 
+    /**
+     * When try find find some object in tree should check that contains method return true.
+     */
+    @Test
+    public void whenTryFindSomeObjectInTreeShouldCheckThatContainsMethodReturnTrue() {
+        Node<String> treeRoot = new Node<>("Root");
+        Node<String> subRoot = new Node<>("Subroot");
+        Node<String> suberRoot = new Node<>("Suberooter");
+        treeRoot.addChild(treeRoot, subRoot);
+        treeRoot.addChild(subRoot, suberRoot);
+        assertThat(treeRoot.contains(suberRoot), is(true));
+    }
+
 
 
 
