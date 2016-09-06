@@ -16,16 +16,10 @@ public class SimpleSetTest {
      */
     @Test
     public void whenTryAddValueToSetShouldCheckThatValueWasAdded() {
-
-        //Assign block
         SimpleSet<String> set = new SimpleSet<>();
         String expected = "value";
-
-        //Action block
         set.add(expected);
         String actual = set.next();
-
-        //Assert block
         assertThat(actual, is(expected));
     }
 
@@ -35,11 +29,7 @@ public class SimpleSetTest {
      */
     @Test(expected = NoSuchElementException.class)
     public void whenTryMoveAcrossEmptySetShouldCheckThatMethodHasNextThrowException() {
-
-        //Assign block
         SimpleSet<String> set = new SimpleSet<>();
-
-        //Action block
         set.hasNext();
     }
 
@@ -49,21 +39,27 @@ public class SimpleSetTest {
      */
     @Test
     public void whenTryKnowSizeOfSetShouldCheckThatMethodSizeReturnCorrectValue() {
-
-        //Assign block
         SimpleSet<String> set = new SimpleSet<>();
-
-        //Assert block
         assertThat(set.size(), is(0));
     }
 
+    /**
+     * When try remove not exist element from set should check that remove throw exception.
+     */
     @Test(expected = NoSuchElementException.class)
     public void whenTryRemoveNotExistElemFromSetShouldCheckThatMethodThrowException() {
-
-        //Assign block
         SimpleSet<String> set = new SimpleSet<>();
-
-        //Action block
         set.remove("Google");
+    }
+
+    /**
+     * When try add ten thousands of string should check that set accept it all for some time.
+     */
+    @Test(timeout = 130)
+    public void whenTryAddTenThousandsToSimpleSetShouldCheckThatSetAcceptAllDataInGiveTime() {
+        SimpleSet<String> set = new SimpleSet<>();
+        for(int index = 0; index < 10000; index++) {
+            set.add(String.format("%s", index));
+        }
     }
 }

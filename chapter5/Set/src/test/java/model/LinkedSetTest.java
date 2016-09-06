@@ -17,14 +17,8 @@ public class LinkedSetTest {
      */
     @Test
     public void whenTryCreateLinkedSetShouldCheckThatSetIsEmptyByCheckSize() {
-
-        //Assign block
         LinkedSet<String> set = new LinkedSet<>();
-
-        //Action block
         int actual = set.size();
-
-        //Assert block
         assertThat(actual, is(0));
     }
 
@@ -34,15 +28,9 @@ public class LinkedSetTest {
      */
     @Test
     public void whenTryAddElementToTheSetShouldCheckThatElementWasAdded() {
-
-        //Assign block
         LinkedSet<String> set = new LinkedSet<>();
-
-        //Action block
         set.add("Value");
         boolean actual = set.contains("Value");
-
-        //Assert block
         assertThat(actual, is(true));
     }
 
@@ -51,16 +39,10 @@ public class LinkedSetTest {
      */
     @Test
     public void whenTryAddAndRemoveElementFromSetShouldCheckThatElementWasRemoved() {
-
-        //Assign block
         LinkedSet<String> set = new LinkedSet<>();
-
-        //Action block
         set.add("Value");
         set.remove("Value");
         boolean actual = set.contains("Value");
-
-        //Assert block
         assertThat(actual, is(false));
     }
 
@@ -69,11 +51,7 @@ public class LinkedSetTest {
      */
     @Test(expected = NoSuchElementException.class)
     public void whenTryRemoveNotExistAtTheSetElementShouldCheckThatRemoveThrowException() {
-
-        //Assign block
         LinkedSet<String> set = new LinkedSet<>();
-
-        //Action block
         set.remove("value");
     }
 
@@ -82,15 +60,9 @@ public class LinkedSetTest {
      */
     @Test
     public void whenTryMoveAcrossSetUsingIteratorShouldCheckThatIteratorWorksCorrect() {
-
-        //Assign block
         LinkedSet<String> set = new LinkedSet<>();
-
-        //Action block
         set.add("Value");
         String actual = set.next();
-
-        //Assert block
         assertThat(actual, is("Value"));
     }
 
@@ -99,14 +71,8 @@ public class LinkedSetTest {
      */
     @Test
     public void whenTryCallMethodHasNextOnEmptyListShouldCheckThatMethodReturnFalse() {
-
-        //Assign block
         LinkedSet<String> set = new LinkedSet<>();
-
-        //Action block
         boolean actual = set.hasNext();
-
-        //Assert block
         assertThat(actual, is(false));
     }
 
@@ -115,11 +81,18 @@ public class LinkedSetTest {
      */
     @Test(expected = NullPointerException.class)
     public void whenTryCallMethodNextFromEmptySetShouldCheckThatMethodThrowException() {
-
-        //Assign block
         LinkedSet<String> set = new LinkedSet<>();
-
-        //Action block
         set.next();
+    }
+
+    /**
+     * When try add ten thousands element to the linked set should check that linked set works correct.
+     */
+    @Test(timeout = 800)
+    public void whenTryAddTenThousandElementToTheLinkedSetShouldCheckThatLinkedWorks() {
+        LinkedSet<String> set = new LinkedSet<>();
+        for(int index = 0; index < 10000; index++) {
+            set.add(String.format("%s", index));
+        }
     }
 }

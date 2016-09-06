@@ -19,14 +19,8 @@ public class ArraySetTest {
      */
     @Test
     public void whenCreateArraySetShouldCheckThatSizeIsZero() {
-
-        //Assign block
         ArraySet<String> set = new ArraySet<>();
-
-        //Action block
         int actual = set.size();
-
-        //Assert block
         assertThat(actual, is(-1));
     }
 
@@ -35,14 +29,8 @@ public class ArraySetTest {
      */
     @Test
     public void whenCreateSetUsingDefaultConstructorShouldCheckThatCapacityIsHundred() {
-
-        //Assign block
         ArraySet<String> set = new ArraySet<>();
-
-        //Action block
         int actual = set.capacity();
-
-        //Assert block
         assertThat(actual, is(100));
     }
 
@@ -51,15 +39,9 @@ public class ArraySetTest {
      */
     @Test
     public void whenTryAddElementToTheArraySetShouldCheckThatElementWasAdded() {
-
-        //Assign block
         ArraySet<String> set = new ArraySet<>();
-
-        //Action block
         set.add("Value");
         boolean actual = set.contains("Value");
-
-        //Assert block
         assertThat(actual, is(true));
     }
 
@@ -68,16 +50,10 @@ public class ArraySetTest {
      */
     @Test
     public void whenTryAddElementAndRemoveItShouldCheckThatElementWasRemoved() {
-
-        //Assign block
         ArraySet<String> set = new ArraySet<>();
-
-        //Action block
         set.add("Value");
         set.remove("Value");
         boolean contains = set.contains("Value");
-
-        //Assert block
         assertThat(contains, is(false));
     }
 
@@ -86,28 +62,16 @@ public class ArraySetTest {
      */
     @Test
     public void whenTryMoveAcrossSetUsingIteratorShouldCheckThatIteratorWorksCorrect() {
-
-        //Assign block
         ArraySet<String> set = new ArraySet<>();
-
-        //Action block
         set.add("value");
         String actual = set.next();
-
-        //Assign block
         assertThat(actual, is("value"));
     }
 
     @Test
     public void whenTryCallMethodHasNextOnEmptySetShouldCheckThatMethodThrowException() {
-
-        //Assign block
         ArraySet<String> set = new ArraySet<>();
-
-        //Action block
         boolean actual = set.hasNext();
-
-        //Assert block
         assertThat(actual, is(false));
     }
 
@@ -116,12 +80,15 @@ public class ArraySetTest {
      */
     @Test(expected = NoSuchElementException.class)
     public void whenTryRemoveNotExistElementFromSetShouldCheckThatMethodRemoveThrowException() {
-
-        //Assign block
         ArraySet<String> set = new ArraySet<>();
-
-        //Action block
         set.remove("value");
+    }
 
+    @Test(timeout = 60 * 1000)
+    public void whenTryAddTenThousandsElementToTheArraySetShouldCheckThatThisOperationTakeBigTime() {
+        ArraySet<String> set = new ArraySet<>();
+        for(int index = 0; index < 10000; index++) {
+            set.add(String.format("%s", index));
+        }
     }
 }
