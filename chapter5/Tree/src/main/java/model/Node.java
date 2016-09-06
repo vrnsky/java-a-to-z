@@ -10,9 +10,14 @@ import java.util.List;
 public class Node<T> {
 
     /**
+     * By default node of tree may have 100 child.
+     */
+    private static final int DEFAULT_COUNT_CHILD = 100;
+
+    /**
      * At this place hold all children of tree node.
      */
-    private List<Node<T>> children = new ArrayList<>();
+    private List<Node<T>> children = new ArrayList<>(DEFAULT_COUNT_CHILD);
 
     /**
      * Data holding at the current node.
