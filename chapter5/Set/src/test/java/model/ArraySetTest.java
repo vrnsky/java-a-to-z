@@ -84,7 +84,7 @@ public class ArraySetTest {
         set.remove("value");
     }
 
-    @Test(timeout = 60 * 1000)
+    @Test(timeout = 1000)
     public void whenTryAddTenThousandsElementToTheArraySetShouldCheckThatThisOperationTakeBigTime() {
         ArraySet<String> set = new ArraySet<>();
         for(int index = 0; index < 10000; index++) {
