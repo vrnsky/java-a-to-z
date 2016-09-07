@@ -84,6 +84,9 @@ public class ArraySetTest {
         set.remove("value");
     }
 
+    /**
+     * When try add ten thousand to the array set should check that it take a lot of time.
+     */
     @Test(timeout = 1000)
     public void whenTryAddTenThousandsElementToTheArraySetShouldCheckThatThisOperationTakeBigTime() {
         ArraySet<String> set = new ArraySet<>();
