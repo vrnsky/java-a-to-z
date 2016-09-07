@@ -30,11 +30,13 @@ public class Node<T> {
      */
     private Node<T> parent = null;
 
+    /**
+     * For correct moving across tree.
+     */
     private Node<T> current = this;
 
     /**
      * Create a new node with given data.
-     *
      * @param data which hold at the node.
      */
     public Node(T data) {
@@ -43,7 +45,6 @@ public class Node<T> {
 
     /**
      * Add child to given parent.
-     *
      * @param parent instance of class, to it will add child.
      * @param child  instance of node which will added to the parent.
      */
@@ -54,7 +55,6 @@ public class Node<T> {
 
     /**
      * If node not have parent is seems like root element of tree.
-     *
      * @return true if is root element otherwise fale.
      */
     public boolean isRoot() {
@@ -63,7 +63,6 @@ public class Node<T> {
 
     /**
      * Node which have parent, but not have child it is leaf.
-     *
      * @return true if this node is leaf, otherwise false.
      */
     public boolean isLeaf() {
@@ -86,6 +85,21 @@ public class Node<T> {
     }
 
     /**
+     * Check that current tree is balanced.
+     * @return true if tree is balanced, otherwise false.
+     */
+    public boolean isBalanced() {
+        boolean balanced = false;
+        if(this.isRoot() && this.children.size() == 0) {
+            balanced = true;
+        } else {
+            balanced = this.checkBalanceTree(this, false);
+        }
+        return balanced;
+    }
+
+
+    /**
      * Remove parent. After it operation element became root node.
      */
     public void removeParent() {
@@ -94,7 +108,6 @@ public class Node<T> {
 
     /**
      * Return parent of current node.
-     *
      * @return parent of current node.
      */
     public Node<T> getParent() {
@@ -103,7 +116,6 @@ public class Node<T> {
 
     /**
      * Return children of current node.
-     *
      * @return children of current node.
      */
     public List<Node<T>> getChildren() {
@@ -112,7 +124,6 @@ public class Node<T> {
 
     /**
      * Get data from current node.
-     *
      * @return data object holding at this node.
      */
     public T getData() {
@@ -121,7 +132,6 @@ public class Node<T> {
 
     /**
      * Add child to this node.
-     *
      * @param child instance of this class.
      */
     private void addChild(Node<T> child) {
@@ -149,5 +159,23 @@ public class Node<T> {
         }
         return have;
     }
+
+
+    /**
+     * Checking that tree is balanced. Balanced means that each node hold only two child.
+     * @param tree root of tree.
+     * @param balanced current state of tree
+     * @return true if tree is balanced, otherwise false.
+     */
+    private boolean checkBalanceTree(Node<T> tree, boolean balanced) {
+        Node<T> start = tree;
+        while(start.getChildren().size() == 2) {
+            for(int index = 0; index < start.getChildren().size(); index++) {
+                return this.checkBalanceTree(start.getChildren().get(index), true);
+            }
+        }
+        return balanced;
+    }
+
 }
 

@@ -1,3 +1,5 @@
+package model;
+
 import model.Node;
 import org.junit.Test;
 
@@ -77,6 +79,48 @@ public class NodeTest {
         treeRoot.addChild(treeRoot, subRoot);
         treeRoot.addChild(subRoot, suberRoot);
         assertThat(treeRoot.contains(suberRoot), is(true));
+    }
+
+    /**
+     * When try check that tree contains only root is balanced
+     * should check that method is balanced return true.
+     */
+    @Test
+    public void whenTryCheckThatTreeContainsOnlyRootShouldCheckThatMethodIsBalancedReturnTrue() {
+        Node<String> treeRoot = new Node<>("Root");
+        assertThat(treeRoot.isBalanced(), is(true));
+    }
+
+    /**
+     * When try check that wrong tree is balance should check that method is balanced return false.
+     */
+    @Test
+    public void whenTryCheckThatWrongTreeIsBalancedShouldCheckThatMethodIsBalancedReturnFalse() {
+        Node<String> treeRoot = new Node<>("Root");
+        Node<String> subRoot = new Node<>("Subroot");
+        treeRoot.addChild(treeRoot, subRoot);
+        assertThat(treeRoot.isBalanced(), is(false));
+    }
+
+    /**
+     * When try check that binary tree is balanced should check that method is balanced return true.
+     */
+    @Test
+    public void whenTryCheckThatBinaryTreeIsBalancedShouldCheckThatMethodIsBalancedReturnTrue() {
+        Node<String> treeRoot = new Node<>("Root");
+        Node<String> leftBranch = new Node<>("Left");
+        Node<String> rightBranch = new Node<>("Right");
+        treeRoot.addChild(treeRoot, leftBranch);
+        treeRoot.addChild(treeRoot, rightBranch);
+        Node<String> leftLeafOne = new Node<>("Left leaf one");
+        Node<String> leftLeafTwo = new Node<>("Leaf leaf two");
+        leftBranch.addChild(leftBranch, leftLeafOne);
+        leftBranch.addChild(leftBranch, leftLeafTwo);
+        Node<String> rightLeafOne = new Node<>("Right leaf one");
+        Node<String> rightLeafTwo = new Node<>("Right leaf two");
+        rightBranch.addChild(rightBranch, rightLeafOne);
+        rightBranch.addChild(rightBranch, rightLeafTwo);
+        assertThat(treeRoot.isBalanced(), is(true));
     }
 
 
