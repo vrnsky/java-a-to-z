@@ -36,6 +36,12 @@ public class Node<T> {
     private Node<T> current = this;
 
     /**
+     * Hold state about balance in tree.
+     */
+    private boolean balanced = false;
+
+
+    /**
      * Create a new node with given data.
      * @param data which hold at the node.
      */
@@ -45,6 +51,7 @@ public class Node<T> {
 
     /**
      * Add child to given parent.
+     *
      * @param parent instance of class, to it will add child.
      * @param child  instance of node which will added to the parent.
      */
@@ -55,6 +62,7 @@ public class Node<T> {
 
     /**
      * If node not have parent is seems like root element of tree.
+     *
      * @return true if is root element otherwise fale.
      */
     public boolean isRoot() {
@@ -63,6 +71,7 @@ public class Node<T> {
 
     /**
      * Node which have parent, but not have child it is leaf.
+     *
      * @return true if this node is leaf, otherwise false.
      */
     public boolean isLeaf() {
@@ -89,11 +98,10 @@ public class Node<T> {
      * @return true if tree is balanced, otherwise false.
      */
     public boolean isBalanced() {
-        boolean balanced = false;
-        if(this.isRoot() && this.children.size() == 0) {
+        if (this.isRoot() && this.children.size() == 0) {
             balanced = true;
         } else {
-            balanced = this.checkBalanceTree(this, false);
+            balanced = this.checkBalanceTree(this);
         }
         return balanced;
     }
@@ -145,13 +153,13 @@ public class Node<T> {
      */
     private boolean haveGivenNode(Node<T> node) {
         boolean have = false;
-        if(node.equals(this)) {
+        if (node.equals(this)) {
             have = true;
         } else {
             while (current.getChildren() != null && current.getChildren().size() != 0) {
-                for (int index = 0; index < current.getChildren().size(); index++) {
-                    current = current.getChildren().get(index);
-                    if(node.equals(current)) {
+                for (Node<T> elem : current.getChildren()) {
+                    current = elem;
+                    if (node.equals(current)) {
                         have = true;
                     }
                 }
@@ -160,18 +168,17 @@ public class Node<T> {
         return have;
     }
 
-
     /**
      * Checking that tree is balanced. Balanced means that each node hold only two child.
-     * @param tree root of tree.
-     * @param balanced current state of tree
+     * @param root of tree.
      * @return true if tree is balanced, otherwise false.
      */
-    private boolean checkBalanceTree(Node<T> tree, boolean balanced) {
-        Node<T> start = tree;
+    private boolean checkBalanceTree(Node<T> root) {
+        Node<T> start = root;
         while(start.getChildren().size() == 2) {
-            for(int index = 0; index < start.getChildren().size(); index++) {
-                return this.checkBalanceTree(start.getChildren().get(index), true);
+            for(Node<T> elem : start.getChildren()) {
+                balanced = true;
+                return this.checkBalanceTree(elem);
             }
         }
         return balanced;
