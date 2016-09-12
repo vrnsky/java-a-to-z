@@ -1,7 +1,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Implementation of tree nodes. It may accept child.
@@ -51,7 +53,6 @@ public class Node<T> {
 
     /**
      * Add child to given parent.
-     *
      * @param parent instance of class, to it will add child.
      * @param child  instance of node which will added to the parent.
      */
@@ -62,7 +63,6 @@ public class Node<T> {
 
     /**
      * If node not have parent is seems like root element of tree.
-     *
      * @return true if is root element otherwise fale.
      */
     public boolean isRoot() {
@@ -71,7 +71,6 @@ public class Node<T> {
 
     /**
      * Node which have parent, but not have child it is leaf.
-     *
      * @return true if this node is leaf, otherwise false.
      */
     public boolean isLeaf() {
@@ -116,6 +115,7 @@ public class Node<T> {
 
     /**
      * Return parent of current node.
+     *
      * @return parent of current node.
      */
     public Node<T> getParent() {
@@ -174,15 +174,19 @@ public class Node<T> {
      * @return true if tree is balanced, otherwise false.
      */
     private boolean checkBalanceTree(Node<T> root) {
-        Node<T> start = root;
-        while(start.getChildren().size() == 2) {
-            for(Node<T> elem : start.getChildren()) {
-                balanced = true;
-                return this.checkBalanceTree(elem);
+        if(root.getChildren().size () == 2 || root.getParent() != null) {
+            balanced = true;
+            if(root.getChildren() != null) {
+                for (Node<T> elem : root.getChildren()) {
+                    checkBalanceTree(elem);
+                }
             }
+        } else {
+            balanced = false;
         }
         return balanced;
     }
+
 
 }
 
