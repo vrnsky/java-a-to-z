@@ -1,0 +1,14 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.evrnsky.chapter10.Integration</groupId>
+	<artifactId>Integration</artifactId>
+	<name>Integration</name>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	
+	<parent>
+		<groupId>ru.evrnsky.chapter10</groupId>
+		<artifactId>chapter10</artifactId>
+		<version>1.0</version>
+	</parent>
+</project>

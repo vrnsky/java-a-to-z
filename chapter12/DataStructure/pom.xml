@@ -1,0 +1,14 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.evrnsky.chapter12.DataStructure</groupId>
+	<artifactId>DataStructure</artifactId>
+	<name>DataStructure</name>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	
+	<parent>
+		<groupId>ru.evrnsky.chapter12</groupId>
+		<artifactId>chapter12</artifactId>
+		<version>1.0</version>
+	</parent>
+</project>

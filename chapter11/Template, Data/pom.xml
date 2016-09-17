@@ -1,0 +1,14 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.evrnsky.chapter11.Template, Data</groupId>
+	<artifactId>Template, Data</artifactId>
+	<name>Template, Data</name>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	
+	<parent>
+		<groupId>ru.evrnsky.chapter11</groupId>
+		<artifactId>chapter11</artifactId>
+		<version>1.0</version>
+	</parent>
+</project>

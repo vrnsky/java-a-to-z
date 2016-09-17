@@ -1,0 +1,23 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.evrnsky.chapter12</groupId>
+	<artifactId>chapter12</artifactId>
+	<name>chapter12</name>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	
+	<parent>
+		<groupId>ru.evrnsky</groupId>
+		<artifactId>tracker</artifactId>
+		<version>1.0</version>
+	</parent>
+	
+	<modules>
+	<module>Combinate</module>
+	<module>DataStructure</module>
+	<module>Dynamic</module>
+	<module>Graphs</module>
+	<module>sortAndSearch</module>
+	</modules>
+		
+</project>

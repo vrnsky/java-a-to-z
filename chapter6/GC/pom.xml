@@ -1,0 +1,14 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.evrnsky.chapter6.GC</groupId>
+	<artifactId>GC</artifactId>
+	<name>GC</name>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	
+	<parent>
+		<groupId>ru.evrnsky.chapter6</groupId>
+		<artifactId>chapter6</artifactId>
+		<version>1.0</version>
+	</parent>
+</project>

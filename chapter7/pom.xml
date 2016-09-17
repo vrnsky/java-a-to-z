@@ -1,0 +1,23 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.evrnsky.chapter7</groupId>
+	<artifactId>chapter7</artifactId>
+	<name>chapter7</name>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	
+	<parent>
+		<groupId>ru.evrnsky</groupId>
+		<artifactId>tracker</artifactId>
+		<version>1.0</version>
+	</parent>
+	
+	<modules>
+	<module>JMM</module>
+	<module>Monitor, Synchronizy</module>
+	<module>Non blocking algo</module>
+	<module>Threads</module>
+	<module>Wait, notify, notifyAll</module>
+	</modules>
+		
+</project>

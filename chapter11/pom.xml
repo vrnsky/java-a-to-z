@@ -1,0 +1,24 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.evrnsky.chapter11</groupId>
+	<artifactId>chapter11</artifactId>
+	<name>chapter11</name>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	
+	<parent>
+		<groupId>ru.evrnsky</groupId>
+		<artifactId>tracker</artifactId>
+		<version>1.0</version>
+	</parent>
+	
+	<modules>
+	<module>Boost</module>
+	<module>IoC</module>
+	<module>MVC</module>
+	<module>Security</module>
+	<module>Template, Data</module>
+	<module>Tests</module>
+	</modules>
+		
+</project>
