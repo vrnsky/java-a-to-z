@@ -7,31 +7,25 @@ package model;
  */
 public class Starter {
 
+    /**
+     * Model of user.
+     */
     private static final class User {
-        /**
-         * Объект в java состоит из+
-         * заголовка(16 bytes for 64xbit system and 8 bytes for 32 bit system)
-         * память для примитивных типов
-         * память для ссылочных типов
-         * Смещение-выравнивание - это несколько неиспользуемых байт, которые используются, чтобы адрес в памяти всегда
-         * был кратен машинному слову.
-         * Размер любого объекта в Java кратен 8 байтам.
-         */
 
         /**
          * First name of user.
          */
-        private String firstName;//40 byte
+        private String firstName;
 
         /**
          * Surname of user.
          */
-        private String surName; //40 byte
+        private String surName;
 
         /**
          * Age of user.
          */
-        private int age;      //4 байта
+        private int age;
 
         /**
          * Create a new user with given params.
