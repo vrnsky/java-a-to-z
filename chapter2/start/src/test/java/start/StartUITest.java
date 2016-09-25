@@ -16,7 +16,7 @@ public class StartUITest {
 	 */
 	@Test
 	public void whenAddItemToAppUseUIShouldAddItemToTracker(){
-		
+
 		/** Assign block
 		* in variable answer write next command:
 		* 0 - add item, further two strings are name and description
@@ -27,7 +27,7 @@ public class StartUITest {
 		String[] answer = new String[]{"0","New item", "New item", "n", "2","y"};
 		StubIO stubIO = new StubIO(answer);
 		StartUI launch = new StartUI(stubIO);
-		
+
 		//Act block
 		launch.init();
 
@@ -39,7 +39,7 @@ public class StartUITest {
 	 */
 	@Test
 	public void whenRemoveItemFromAppUseUIShouldRemoveItemFromTracker() {
-		
+
 		/** Assign block
 		* in variable answer write next command:
 		* 0 - add item, further two strings are name and description
@@ -53,10 +53,10 @@ public class StartUITest {
 		String[] answer = new String[]{"0","New item", "New item", "n", "1", "1", "n", "2", "y"};
 		StubIO stubIO = new StubIO(answer);
 		StartUI launch = new StartUI(stubIO);
-		
+
 		//Act block
 		launch.init();
-		
+
 		//Action block
 		assertThat(stubIO.getOut(), not(containsString("New item")));
 	}
@@ -66,7 +66,7 @@ public class StartUITest {
 	 */
 	@Test
 	public void whenEditItemFromAppUseUIShouldEditItemAndUpdateInTracker() {
-		
+
 		/** Assign block
 		* in variable answer write next command:
 		* 0 - add item, further two strings are name and description
@@ -80,10 +80,10 @@ public class StartUITest {
 		String[] answer = new String[]{"0","New item", "New item", "n", "3", "1", "Updated item", "Updated item", "n", "2","y"};
 		StubIO stubIO = new StubIO(answer);
 		StartUI launch = new StartUI(stubIO);
-		
+
 		//Act block
 		launch.init();
-		
+
 		//Action block
 		assertThat(stubIO.getOut(), containsString("Updated item"));
 	}
@@ -93,7 +93,7 @@ public class StartUITest {
 	 */
 	@Test
 	public void whenCommentItemShouldAttachCommentToTracker() {
-		
+
 		/** Assign block
 		* in variable answer write next command:
 		* 0 - add item, further two strings are name and description
@@ -109,10 +109,10 @@ public class StartUITest {
 		StubIO stubIO = new StubIO(answer);
 		StartUI launch = new StartUI(stubIO);
 		String expected = "Comment: It is my first comment\n";
-		
+
 		//Act block
 		launch.init();
-		
+
 		//Action block
 		assertThat(stubIO.getOut(), containsString(expected));
 	}
@@ -122,7 +122,7 @@ public class StartUITest {
 	 */
 	@Test
 	public void whenTryFindItemByTextDataShouldShowItemsWithGivenTextData() {
-		
+
 		/** Assign block
 		* in variable answer write next command:
 		* 0 - add item, further two strings are name and description
@@ -131,18 +131,18 @@ public class StartUITest {
 		* item - text
 		* y - exit now
 	    */
-		
+
 		String[] answer = new String[]{"0", "It is my first item", "It is your item?", "n", "6", "item", "y"};
 		StubIO stubIO = new StubIO(answer);
 		StartUI launch = new StartUI(stubIO);
 		String expected = "It is my first item";
-		
-		
+
+
 		//Act block
 		launch.init();
-		
+
 		//Action block
-		assertThat(stubIO.getOut(), containsString(expected));	
+		assertThat(stubIO.getOut(), containsString(expected));
 	}
 
 	/**
@@ -150,7 +150,7 @@ public class StartUITest {
 	 */
 	@Test
 	public void whenTryFindItemsByTimeShouldShowItemsWithGivenTime() {
-		
+
 		/** Assign block
 		* in variable answer write next command:
 		* 0 - add item, further two strings are name and description
@@ -163,10 +163,10 @@ public class StartUITest {
 		StubIO stubIO = new StubIO(answer);
 		StartUI launch = new StartUI(stubIO);
 		String expected = "It is my second item";
-		
+
 		//Act block
 		launch.init();
-		
+
 		//Action block
 		assertThat(stubIO.getOut(), containsString(expected));
 	}

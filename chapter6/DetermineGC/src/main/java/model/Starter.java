@@ -27,6 +27,7 @@ public class Starter {
          */
         private int age;
 
+
         /**
          * Create a new user with given params.
          * @param firstName of user.
@@ -46,8 +47,9 @@ public class Starter {
         @Override
         public void finalize() throws Throwable {
             super.finalize();
-            System.out.println("User object was destroyed");
+            System.out.println("User object was removed");
         }
+
     }
 
     /**
@@ -55,7 +57,8 @@ public class Starter {
      * @param args
      */
     public static void main(String[] args) {
-      new Starter().tryGC();
+        new Starter().tryGC();
+
     }
 
     /**
@@ -64,7 +67,7 @@ public class Starter {
      * reference to object.
      */
     private void tryGC() {
-        for(int index = 0; index < 10000; index++) {
+        for(int index = 0; index < 800; index++) {
             User user = new User(String.format("%s", index), String.format("%s", index), index);
         }
     }

@@ -20,6 +20,7 @@
 	<module>Map</module>
 	<module>Tree</module>
 	<module>Task</module>
+	<module>Trend</module>
 	</modules>
 		
 </project>
