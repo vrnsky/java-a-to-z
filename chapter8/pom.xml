@@ -13,9 +13,9 @@
 	</parent>
 	
 	<modules>
-	<module>Create Update Insert</module>
+	<module>CRUDI</module>
 	<module>JDBC</module>
-	<module>Outer join</module>
+	<module>Outer-join</module>
 	<module>Query</module>
 	</modules>
 		

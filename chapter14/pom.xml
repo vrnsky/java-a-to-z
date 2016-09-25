@@ -13,11 +13,11 @@
 	</parent>
 	
 	<modules>
-	<module>Async msg based JMS</module>
+	<module>AsyncMsgBasedOnJMS</module>
 	<module>Email</module>
-	<module>REST API</module>
-	<module>RMI API</module>
-	<module>Web Service API</module>
+	<module>REST_API</module>
+	<module>RMI_API</module>
+	<module>WebServiceAPI</module>
 	<module>WebSocket</module>
 	</modules>
 		

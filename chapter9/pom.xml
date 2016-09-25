@@ -13,13 +13,13 @@
 	</parent>
 	
 	<modules>
-	<module>Filter, Security</module>
-	<module>HTML, CSS, JS</module>
+	<module>FilterAndSecurity</module>
+	<module>ClientLanguage</module>
 	<module>JSP</module>
 	<module>Mockito</module>
-	<module>MVC by Servlet, JSP, JSTL</module>
+	<module>MVCbyServlet-JSP-JSTL</module>
 	<module>Servlet</module>
-	<module>Structure of client server app</module>
+	<module>Client-Server</module>
 	</modules>
 		
 </project>

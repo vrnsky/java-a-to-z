@@ -14,10 +14,10 @@
 	
 	<modules>
 	<module>JMM</module>
-	<module>Monitor, Synchronizy</module>
-	<module>Non blocking algo</module>
+	<module>Monitor</module>
+	<module>Non-blocking-algo</module>
 	<module>Threads</module>
-	<module>Wait, notify, notifyAll</module>
+	<module>Wait-notify-notifyAll</module>
 	</modules>
 		
 </project>

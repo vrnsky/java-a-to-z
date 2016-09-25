@@ -17,7 +17,7 @@
 	<module>IoC</module>
 	<module>MVC</module>
 	<module>Security</module>
-	<module>Template, Data</module>
+	<module>TemplateAndData</module>
 	<module>Tests</module>
 	</modules>
 		
