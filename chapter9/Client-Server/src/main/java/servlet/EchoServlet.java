@@ -11,16 +11,16 @@ import java.io.PrintWriter;
  * @author evrnsky
  * @version 0.1
  * @since 26.09.2016
- * Hello, World Servlet.
+ * Hello world, Servlet!
  */
 public class EchoServlet extends HttpServlet {
 
     /**
-     * This method call when user ask about only get page
+     * This method call each time when user ask about only this servlet.
      * @param req from user.
-     * @param resp for user.
-     * @throws ServletException if something was wrong with servlet.
-     * @throws IOException if something was wrong with writer.
+     * @param resp to user.
+     * @throws ServletException if something wrong.
+     * @throws IOException if something wrong.
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,4 +28,5 @@ public class EchoServlet extends HttpServlet {
         writer.println("Hello, World!");
         writer.flush();
     }
+
 }
