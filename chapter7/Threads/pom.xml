@@ -11,4 +11,12 @@
 		<artifactId>chapter7</artifactId>
 		<version>1.0</version>
 	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>ru.evrnsky.chapter6.SoftWeak</groupId>
+			<artifactId>SoftWeak</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
 </project>
