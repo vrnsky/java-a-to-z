@@ -41,11 +41,11 @@ public abstract class AbstractCache {
      */
     public List<String> get(String key) {
         List<String> strings;
-        if(this.cache.containsKey(key)) {
-            strings = this.cache.get(key).get();
-        } else {
+        if(!(this.cache.containsKey(key)) || (this.cache.get(key) == null)) {
             strings = getDataFromFile(key);
             this.cache.put(key, new SoftReference<>(strings));
+        } else {
+            strings = this.cache.get(key).get();
         }
         return strings;
     }
