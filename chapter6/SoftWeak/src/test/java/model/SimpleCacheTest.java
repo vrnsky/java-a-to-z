@@ -4,6 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -42,20 +43,11 @@ public class SimpleCacheTest {
         AbstractCache cache = new SimpleCache(new FileSystemLoad());
         List<String> strings = new ArrayList<>();
         strings.add("Please, cache me!");
-        List<String> cached = cache.getDataFromFile(String.format("%s%s%s", PATH, File.separator, "cache.txt"));
+        List<String> cached = cache.get(String.format("%s%s%s", PATH, File.separator, "cache.txt"));
         Iterator<String> iterator = cached.iterator();
         for(String string : strings) {
             assertThat(string, is(iterator.next()));
         }
     }
 
-    /**
-     * If you will try read not exist file cache must throw IllegalStateException.
-     * @throws IOException if something was wrong at the reading process.
-     */
-    @Test(expected = IllegalStateException.class)
-    public void whenTryLoadNotExistFileShouldCheckThatAppThrowException() throws IOException {
-        AbstractCache cache = new SimpleCache(new FileSystemLoad());
-        List<String> cachedStrings = cache.getDataFromFile("asdasd");
-    }
 }

@@ -23,55 +23,50 @@ public abstract class AbstractCache {
     /**
      * Model of cache.
      */
-    private Map<String, SoftReference<File>> cache;
+    private Map<String, SoftReference<List<String>>> cache;
 
     /**
      * Create a new abstract cache with given param.
      * @param method instance of LoadMethod interface which describe how to upload file to memory.
      */
-    public AbstractCache(LoadMethod method) {
+    public AbstractCache(LoadMethod method)   {
         this.cache = new HashMap<>();
         this.method = method;
     }
 
     /**
-     * Get file from cache if file already in cache, otherwise load file to cache.
-     * @param fileName path to file.
-     * @return instance of file.
+     * Return strings from file.
+     * @param key file name.
+     * @return string in file which specify by key arg.
      */
-    private File getFile(String fileName) {
-        File file = null;
-        if(this.cache.containsKey(fileName)) {
-            file = this.cache.get(fileName).get();
+    public List<String> get(String key) {
+        List<String> strings;
+        if(this.cache.containsKey(key)) {
+            strings = this.cache.get(key).get();
         } else {
-            File newFile = this.method.load(fileName);
-            if(newFile == null) {
-                throw new IllegalStateException("File not exist");
-            }
-            this.cache.put(fileName, new SoftReference<>(newFile));
-            file = newFile;
-        }
-        return file;
-    }
-
-    /**
-     * Return list of string which contains at the given file.
-     * @param path to the file.
-     * @return list of strings in cache file.
-     * @throws IOException if something was wrong with file.
-     */
-    public List<String> getDataFromFile(String path) throws IOException {
-        List<String> strings = new ArrayList<>();
-        File file = this.getFile(path);
-        try(BufferedReader reader = new BufferedReader(new FileReader(file.toString()))) {
-            String string = "";
-            while((string = reader.readLine()) != null) {
-                strings.add(string);
-            }
+            strings = getDataFromFile(key);
+            this.cache.put(key, new SoftReference<>(strings));
         }
         return strings;
     }
 
+    /**
+     * Read file and return data from it.
+     * @param fileName specify file to read.
+     * @return string which was read from file.
+     */
+    private List<String> getDataFromFile(String fileName)   {
+        List<String> strings = new ArrayList<>();
+        try(BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String string = "";
+            while((string = reader.readLine()) != null) {
+                strings.add(string);
+            }
+        } catch (IOException exp) {
+            exp.printStackTrace();
+        }
+        return strings;
+    }
     /**
      * Return state of filling cache.
      * @return true if cache is empty otherwise false.
