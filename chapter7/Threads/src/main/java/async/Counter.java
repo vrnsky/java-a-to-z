@@ -31,6 +31,8 @@ public class Counter {
      */
     private WordsCounter wordsCounter;
 
+    private boolean isFinished = false;
+
     /**
      * Entry point of application.
      * @param args not use.
@@ -52,6 +54,7 @@ public class Counter {
         try {
             wordsCounter.join();
             spaceCounter.join();
+            isFinished = true;
         } catch (InterruptedException exp) {
             exp.printStackTrace();
         }
@@ -62,7 +65,12 @@ public class Counter {
      * @return count of spaces in text.
      */
     public int getSpaces() {
-        return this.spaceCounter.getSpaces();
+
+        if(isFinished) {
+            return this.spaceCounter.getSpaces();
+        } else {
+            throw new IllegalStateException("Counter not finished yet!");
+        }
     }
 
     /**
@@ -70,7 +78,11 @@ public class Counter {
      * @return counting of words.
      */
     public int getWords() {
-        return this.wordsCounter.getWords();
+        if(isFinished) {
+            return this.wordsCounter.getWords();
+        } else {
+            throw new IllegalStateException("Counter not finished yet!");
+        }
     }
 
     /**

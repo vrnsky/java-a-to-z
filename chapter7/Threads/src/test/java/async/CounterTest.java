@@ -30,4 +30,13 @@ public class CounterTest {
         counter.init();
         assertThat(counter.getWords(), is(3));
     }
+
+    /**
+     * Check that counter throw exception if you call getWords of getSpaces before counter finished.
+     */
+    @Test(expected = IllegalStateException.class)
+    public void whenTryGetWordsOrCountButCounterNotInitShouldCheckThatCounterThrowException() {
+        Counter counter = new Counter();
+        counter.getSpaces();
+    }
 }
