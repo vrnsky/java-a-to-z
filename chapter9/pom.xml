@@ -18,7 +18,6 @@
 	<module>JSP</module>
 	<module>Mockito</module>
 	<module>MVCbyServlet-JSP-JSTL</module>
-	<module>Servlet</module>
 	<module>Client-Server</module>
 	</modules>
 		

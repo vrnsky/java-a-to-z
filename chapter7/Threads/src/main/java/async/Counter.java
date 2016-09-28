@@ -19,7 +19,17 @@ public class Counter {
     /**
      * Specify file which using for counting.
      */
-    private static final String PATH = String.format("%s%s%s", FileUtils.getUserDirectoryPath(), File.separator, "how.txt");
+    private static final String PATH = String.format("%s%s%s", FileUtils.getUserDirectoryPath(), File.separator, "simple.txt");
+
+    /**
+     * Thread which count spaces in the text.
+     */
+    private SpaceCounter spaceCounter;
+
+    /**
+     * Thread which count words in the text.
+     */
+    private WordsCounter wordsCounter;
 
     /**
      * Entry point of application.
@@ -32,19 +42,41 @@ public class Counter {
     /**
      * Load string to memory and count in it spaces and words.
      */
-    private void init() {
+    public void init() {
         AbstractCache cache = new SimpleCache(new FileSystemLoad());
         List<String> text = cache.get(PATH);
-        Thread spaceCounter = new Thread(new SpaceCounter(text));
+        spaceCounter = new SpaceCounter(text);
+        wordsCounter = new WordsCounter(text);
         spaceCounter.start();
-        Thread wordsCounter = new Thread(new WordsCounter(text));
         wordsCounter.start();
+        try {
+            wordsCounter.join();
+            spaceCounter.join();
+        } catch (InterruptedException exp) {
+            exp.printStackTrace();
+        }
+    }
+
+    /**
+     * Return counting of spaces.
+     * @return count of spaces in text.
+     */
+    public int getSpaces() {
+        return this.spaceCounter.getSpaces();
+    }
+
+    /**
+     * Return counting of words.
+     * @return counting of words.
+     */
+    public int getWords() {
+        return this.wordsCounter.getWords();
     }
 
     /**
      * Thread which count space.
      */
-    private static class SpaceCounter implements Runnable {
+    private static class SpaceCounter extends Thread {
         /**
          * String from file.
          */
@@ -71,22 +103,30 @@ public class Counter {
             for (String string : text) {
                 for (int index = 0; index < string.length(); index++) {
                     if (Character.isSpaceChar(string.charAt(index))) {
-                        System.out.printf("Spaces: %s", spaces++);
+                        System.out.printf("Spaces: %s\n", spaces++);
                     }
                 }
             }
+        }
+
+        /**
+         * Notice! Call this method after thread is finished.
+         * @return all count of spaces in text.
+         */
+        public int getSpaces() {
+            return this.spaces;
         }
     }
 
     /**
      * Thread which count words at the strings.
      */
-    private static class WordsCounter implements Runnable {
+    private static class WordsCounter extends Thread {
 
         /**
          * Counter of words.
          */
-        private int words = 0;
+        volatile int words = 0;
 
         /**
          * String for counting words.
@@ -108,8 +148,16 @@ public class Counter {
         public void run() {
             for(String string : text) {
                 words += string.split(" +").length;
-                System.out.println("Words: " + words);
+                System.out.printf("Words: %s\n", words);
             }
+        }
+
+        /**
+         * Notice! Call this method after thread is end.
+         * @return all count of words.
+         */
+        public int getWords() {
+            return this.words;
         }
     }
 }
