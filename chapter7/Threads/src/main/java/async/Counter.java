@@ -31,6 +31,9 @@ public class Counter {
      */
     private WordsCounter wordsCounter;
 
+    /**
+     * Flag which means that counter is finish it works.
+     */
     private boolean isFinished = false;
 
     /**
@@ -49,12 +52,14 @@ public class Counter {
         List<String> text = cache.get(PATH);
         spaceCounter = new SpaceCounter(text);
         wordsCounter = new WordsCounter(text);
+        System.out.println("It is counter for spaces and words at the next. Counter start soon...");
         spaceCounter.start();
         wordsCounter.start();
         try {
             wordsCounter.join();
             spaceCounter.join();
             isFinished = true;
+            System.out.println("Counter finished.");
         } catch (InterruptedException exp) {
             exp.printStackTrace();
         }
