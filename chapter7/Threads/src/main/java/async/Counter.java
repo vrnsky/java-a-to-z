@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * @author evrnsky
- * @version 0.1
+ * @version 0.3
  * @since 27.09.2016
  * Simple counter which counts spaces and words at the file.
  */
@@ -19,7 +19,12 @@ public class Counter {
     /**
      * Specify file which using for counting.
      */
-    private static final String PATH = String.format("%s%s%s", FileUtils.getUserDirectoryPath(), File.separator, "simple.txt");
+    private static final String PATH = String.format("%s%s%s", FileUtils.getUserDirectoryPath(), File.separator, "how.txt");
+
+    /**
+     * Time which give counter for execution.
+     */
+    private static final long MAX_EXECUTION_TIME = 1000;
 
     /**
      * Thread which count spaces in the text.
@@ -35,6 +40,11 @@ public class Counter {
      * Flag which means that counter is finish it works.
      */
     private boolean isFinished = false;
+
+    /**
+     * Hold start of thread.
+     */
+    private long startTime = 1L;
 
     /**
      * Entry point of application.
@@ -53,6 +63,7 @@ public class Counter {
         spaceCounter = new SpaceCounter(text);
         wordsCounter = new WordsCounter(text);
         System.out.println("It is counter for spaces and words at the next. Counter start soon...");
+        this.startTime = System.currentTimeMillis();
         spaceCounter.start();
         wordsCounter.start();
         try {
@@ -93,7 +104,7 @@ public class Counter {
     /**
      * Thread which count space.
      */
-    private static class SpaceCounter extends Thread {
+    private class SpaceCounter extends Thread {
         /**
          * String from file.
          */
@@ -121,6 +132,10 @@ public class Counter {
                 for (int index = 0; index < string.length(); index++) {
                     if (Character.isSpaceChar(string.charAt(index))) {
                         System.out.printf("Spaces: %s\n", spaces++);
+                        if(System.currentTimeMillis() - startTime > MAX_EXECUTION_TIME) {
+                            System.out.println("Counting spaces take a more than one second. Space counter is finished.");
+                            this.stop();
+                        }
                     }
                 }
             }
@@ -138,7 +153,7 @@ public class Counter {
     /**
      * Thread which count words at the strings.
      */
-    private static class WordsCounter extends Thread {
+    private class WordsCounter extends Thread {
 
         /**
          * Counter of words.
@@ -166,6 +181,10 @@ public class Counter {
             for(String string : text) {
                 words += string.split(" +").length;
                 System.out.printf("Words: %s\n", words);
+                if(System.currentTimeMillis() - startTime > MAX_EXECUTION_TIME) {
+                    System.out.println("Words counter is finished because execution take a more than one second.");
+                    this.stop();
+                }
             }
         }
 
