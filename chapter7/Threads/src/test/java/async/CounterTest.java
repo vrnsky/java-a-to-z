@@ -1,6 +1,15 @@
 package async;
 
+import model.AbstractCache;
+import model.FileSystemLoad;
+import model.SimpleCache;
+import org.apache.commons.io.FileUtils;
+import org.junit.Before;
 import org.junit.Test;
+
+import java.io.File;
+import java.util.List;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
@@ -11,13 +20,21 @@ import static org.junit.Assert.*;
  */
 public class CounterTest {
 
+    private List<String> strings;
+    private static final long MAX_EXECUTION_TIME = 1000;
+
+    @Before
+    public void setUp() {
+        AbstractCache cache = new SimpleCache(new FileSystemLoad());
+        strings = cache.get(String.format("%s%s%s", FileUtils.getUserDirectoryPath(), File.separator, "simple.txt"));
+    }
     /**
      * When try calculate spaces in text should check that counter correct calculate spaces.
      */
     @Test
     public void whenTryCalculateSpacesInTextShouldCheckThatCounterCorrectCalculateSpace() {
         Counter counter = new Counter();
-        counter.init();
+        counter.start(strings, MAX_EXECUTION_TIME);
         assertThat(counter.getSpaces(), is(2));
     }
 
@@ -27,16 +44,8 @@ public class CounterTest {
     @Test
     public void whenTryCalculateWordsInTextShouldCheckThatCounterCorrectCalculateWords() {
         Counter counter = new Counter();
-        counter.init();
+        counter.start(strings, MAX_EXECUTION_TIME);
         assertThat(counter.getWords(), is(3));
     }
 
-    /**
-     * Check that counter throw exception if you call getWords of getSpaces before counter finished.
-     */
-    @Test(expected = IllegalStateException.class)
-    public void whenTryGetWordsOrCountButCounterNotInitShouldCheckThatCounterThrowException() {
-        Counter counter = new Counter();
-        counter.getSpaces();
-    }
 }

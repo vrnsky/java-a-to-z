@@ -1,30 +1,16 @@
 package async;
 
-import model.AbstractCache;
-import model.FileSystemLoad;
-import model.SimpleCache;
-import org.apache.commons.io.FileUtils;
-
-import java.io.File;
 import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * @author evrnsky
- * @version 0.3
+ * @version 0.4
  * @since 27.09.2016
  * Simple counter which counts spaces and words at the file.
  */
 public class Counter {
 
-    /**
-     * Specify file which using for counting.
-     */
-    private static final String PATH = String.format("%s%s%s", FileUtils.getUserDirectoryPath(), File.separator, "how.txt");
-
-    /**
-     * Time which give counter for execution.
-     */
-    private static final long MAX_EXECUTION_TIME = 1000;
 
     /**
      * Thread which count spaces in the text.
@@ -37,43 +23,78 @@ public class Counter {
     private WordsCounter wordsCounter;
 
     /**
-     * Flag which means that counter is finish it works.
+     * Flag which means that some thread is interrupt.
      */
-    private boolean isFinished = false;
+    private boolean wasInterrupted = false;
 
     /**
      * Hold start of thread.
      */
     private long startTime = 1L;
 
-    /**
-     * Entry point of application.
-     * @param args not use.
-     */
-    public static void main(String[] args) {
-       new Counter().init();
+
+    private void startThreads() {
+        spaceCounter.start();
+        wordsCounter.start();
     }
 
     /**
-     * Load string to memory and count in it spaces and words.
+     * Start compute. At this method main works.
+     * @param text from file for compute.
+     * @param ms max execution time.
      */
-    public void init() {
-        AbstractCache cache = new SimpleCache(new FileSystemLoad());
-        List<String> text = cache.get(PATH);
-        spaceCounter = new SpaceCounter(text);
-        wordsCounter = new WordsCounter(text);
-        System.out.println("It is counter for spaces and words at the next. Counter start soon...");
-        this.startTime = System.currentTimeMillis();
-        spaceCounter.start();
-        wordsCounter.start();
+    public void start(List<String> text, long ms) {
+        this.initThreads(text);
+        this.startThreads();
+
         try {
-            wordsCounter.join();
-            spaceCounter.join();
-            isFinished = true;
-            System.out.println("Counter finished.");
+            waitForThreads(ms);
+            if (System.currentTimeMillis() - startTime > ms) {
+                stopThread();
+            }
         } catch (InterruptedException exp) {
-            exp.printStackTrace();
+            System.out.println("Calculation was stopped.");
         }
+
+        printResults();
+        System.out.println("Finish.");
+    }
+
+    /**
+     * Init thread. All you need is create thrad object.
+     * @param text from file.
+     */
+    private void initThreads(List<String> text) {
+        this.spaceCounter = new SpaceCounter(text);
+        this.wordsCounter = new WordsCounter(text);
+        System.out.println("Start");
+        startTime = System.currentTimeMillis();
+    }
+
+    /**
+     * Wait that all thread at given time.
+     * @param ms time for waiting.
+     * @throws InterruptedException if some thread bad.
+     */
+    public void waitForThreads(long ms) throws InterruptedException {
+        this.spaceCounter.join(ms);
+        this.wordsCounter.join(ms);
+    }
+
+    /**
+     * Try to stop thread.
+     * @throws InterruptedException
+     */
+    private void stopThread() throws InterruptedException {
+        if (this.spaceCounter.isAlive()) {
+            this.spaceCounter.interrupt();
+        }
+        if (this.wordsCounter.isAlive()) {
+            this.wordsCounter.interrupt();
+        }
+
+        this.wordsCounter.join();
+        this.spaceCounter.join();
     }
 
     /**
@@ -81,12 +102,8 @@ public class Counter {
      * @return count of spaces in text.
      */
     public int getSpaces() {
+        return this.spaceCounter.getSpaces();
 
-        if(isFinished) {
-            return this.spaceCounter.getSpaces();
-        } else {
-            throw new IllegalStateException("Counter not finished yet!");
-        }
     }
 
     /**
@@ -94,10 +111,18 @@ public class Counter {
      * @return counting of words.
      */
     public int getWords() {
-        if(isFinished) {
-            return this.wordsCounter.getWords();
+        return this.wordsCounter.getWords();
+    }
+
+    /**
+     * Print result about calculation.
+     */
+    public void printResults() {
+        if (wasInterrupted) {
+            System.out.println("Calculation was stopped.");
         } else {
-            throw new IllegalStateException("Counter not finished yet!");
+            System.out.printf("Words is %s\n", this.wordsCounter.getWords());
+            System.out.printf("Spaces is %s\n", this.spaceCounter.getSpaces());
         }
     }
 
@@ -117,6 +142,7 @@ public class Counter {
 
         /**
          * Create a new space counter with given strings.
+         *
          * @param text string for which count spaces.
          */
         public SpaceCounter(List<String> text) {
@@ -129,20 +155,20 @@ public class Counter {
         @Override
         public void run() {
             for (String string : text) {
-                for (int index = 0; index < string.length(); index++) {
-                    if (Character.isSpaceChar(string.charAt(index))) {
-                        System.out.printf("Spaces: %s\n", spaces++);
-                        if(System.currentTimeMillis() - startTime > MAX_EXECUTION_TIME) {
-                            System.out.println("Counting spaces take a more than one second. Space counter is finished.");
-                            this.stop();
-                        }
+                for (char ch : string.toCharArray()) {
+                    if (Character.isSpaceChar(ch)) {
+                        spaces++;
                     }
+                }
+                if (Thread.currentThread().isInterrupted()) {
+                    wasInterrupted = true;
                 }
             }
         }
 
         /**
          * Notice! Call this method after thread is finished.
+         *
          * @return all count of spaces in text.
          */
         public int getSpaces() {
@@ -158,7 +184,7 @@ public class Counter {
         /**
          * Counter of words.
          */
-        volatile int words = 0;
+        int words = 0;
 
         /**
          * String for counting words.
@@ -167,6 +193,7 @@ public class Counter {
 
         /**
          * Create a new words counter.
+         *
          * @param text for counting words.
          */
         public WordsCounter(List<String> text) {
@@ -178,22 +205,27 @@ public class Counter {
          */
         @Override
         public void run() {
-            for(String string : text) {
-                words += string.split(" +").length;
-                System.out.printf("Words: %s\n", words);
-                if(System.currentTimeMillis() - startTime > MAX_EXECUTION_TIME) {
-                    System.out.println("Words counter is finished because execution take a more than one second.");
-                    this.stop();
+            for (String string : text) {
+                StringTokenizer tokenizer = new StringTokenizer(string);
+                while (tokenizer.hasMoreElements() && !Thread.currentThread().isInterrupted()) {
+                    tokenizer.nextToken();
+                    words++;
+                }
+                if (Thread.currentThread().isInterrupted()) {
+                    wasInterrupted = true;
                 }
             }
         }
 
         /**
          * Notice! Call this method after thread is end.
+         *
          * @return all count of words.
          */
         public int getWords() {
             return this.words;
         }
     }
+
+
 }
