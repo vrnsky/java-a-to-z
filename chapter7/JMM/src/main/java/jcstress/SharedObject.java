@@ -11,10 +11,10 @@ import org.openjdk.jcstress.infra.results.BooleanResult2;
 public class SharedObject {
 
     public static class Shell {
-        byte value;
+        int value;
 
         public Shell() {
-            this.value = (byte)0xFF;
+            this.value = 100;
         }
 
 
@@ -30,17 +30,17 @@ public class SharedObject {
 
     @JCStressTest
     @Description("This test show problem with concurrent programming at the Java. This problem named shared object")
-    @Outcome(id="[true, true]", expect = Expect.ACCEPTABLE_INTERESTING, desc = "right results")
-    @Outcome(id="[false, true]", expect = Expect.ACCEPTABLE_INTERESTING, desc = "shared object condition detected")
-    @Outcome(id="[true, false]", expect = Expect.ACCEPTABLE_INTERESTING, desc = "shared object problem detected")
-    @Outcome(id="[false, false]", expect = Expect.ACCEPTABLE_INTERESTING, desc = "shared object problem detected")
+    @Outcome(id="true, true", expect = Expect.ACCEPTABLE_INTERESTING, desc = "right results")
+    @Outcome(id="false, true", expect = Expect.ACCEPTABLE_INTERESTING, desc = "shared object condition detected")
+    @Outcome(id="true, false", expect = Expect.ACCEPTABLE_INTERESTING, desc = "shared object problem detected")
+    @Outcome(id="false, false", expect = Expect.ACCEPTABLE_INTERESTING, desc = "shared object problem detected")
     public static class TestOne {
 
         @Actor
         public void actor1(State state, BooleanResult2 result) {
             int valueBefore = state.shell.value;
             state.shell.toZero();
-            result.r1 = (valueBefore == 0xFF) && (state.shell.value != 0xFF);
+            result.r1 = (valueBefore == 100) && (state.shell.value != 100);
 
         }
 
@@ -48,7 +48,7 @@ public class SharedObject {
         public void actor2(State state, BooleanResult2 result) {
             int value = state.shell.value;
             state.shell.toZero();
-            result.r2 = (value == 0xFF && state.shell.value != 0xFF);
+            result.r2 = (value == 100 && state.shell.value != 100);
         }
     }
 }
