@@ -20,6 +20,7 @@ public class RaceCondition {
 
 
     @JCStressTest
+    @Description("Show problem with concurrency")
     @Outcome(id = "true, false", expect = Expect.ACCEPTABLE_INTERESTING, desc = "all is ok")
     @Outcome(id = "false, true", expect = Expect.ACCEPTABLE_INTERESTING, desc = "race detect")
     public static class StressTest {
@@ -37,7 +38,7 @@ public class RaceCondition {
         @Arbiter
         public void arbiter(MyState state, BooleanResult2 result) {
             result.r1 = state.counter.count == 5;
-            result.r2 = state.counter.count != 5;
+            result.r2 = state.counter.count >= 1 && state.counter.count < 5;
         }
     }
     public static class Counter {
