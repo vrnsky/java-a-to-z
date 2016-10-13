@@ -1,9 +1,6 @@
 package jcstress;
-
-
 import org.openjdk.jcstress.annotations.*;
 import org.openjdk.jcstress.infra.results.BooleanResult2;
-import org.openjdk.jcstress.infra.results.BooleanResult4;
 
 /**
  * @author evrnsky
