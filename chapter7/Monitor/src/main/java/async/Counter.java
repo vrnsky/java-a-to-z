@@ -1,5 +1,7 @@
 package async;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * @author evrnsky
  * @version 0.1
@@ -11,13 +13,13 @@ public class Counter {
     /**
      * Count.
      */
-    private Integer amount;
+    private AtomicInteger amount;
 
     /**
      * Default constructor.
      */
     public Counter() {
-        this.amount = 0;
+        this.amount.set(0);
     }
 
     /**
@@ -25,7 +27,7 @@ public class Counter {
      */
     public void increment() {
         synchronized (this) {
-            this.amount++;
+            this.amount.incrementAndGet();
         }
     }
 
@@ -34,6 +36,6 @@ public class Counter {
      * @return value.
      */
     public int getAmount() {
-        return this.amount;
+        return this.amount.get();
     }
 }
