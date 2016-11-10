@@ -23,20 +23,11 @@ public class AnswererTest {
      * Attention method can throw null pointer exception if file was not found for avoid it use absolute path.
      */
     @Test
-    public void whenTryGetARandomStringFromAnswerFileShouldReturnAStringFromFile() {
-
-        //Assign block
-        Optional<Answerer> answerer = Optional.empty();
+    public void whenTryGetARandomStringFromAnswerFileShouldReturnAStringFromFile() throws IOException {
+        Optional<Answerer> answerer;
         String expected = "Hello!";
-        try {
-            answerer = Optional.of(new Answerer(String.format("%s%s%s", FileUtils.getTempDirectoryPath(), File.separator, "text.txt")));
-        } catch (FileNotFoundException exp) {
-            System.out.println("You must create a file at the your temp directory");
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
+        answerer = Optional.of(new Answerer(String.format("%s%s%s", FileUtils.getTempDirectoryPath(), File.separator, "text.txt")));
 
-        //Act block
         String actual = "";
         if(answerer.isPresent()) {
             actual = answerer.get().getRandomString();
@@ -44,7 +35,6 @@ public class AnswererTest {
             System.out.println("Something wrong, please check the files");
         }
 
-        //Action block
         assertThat(actual, is(expected));
 
     }
