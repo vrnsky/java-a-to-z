@@ -1,7 +1,7 @@
 package geometry;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.number.IsCloseTo.closeTo;
 
 /**
@@ -11,21 +11,23 @@ import static org.hamcrest.number.IsCloseTo.closeTo;
 public class TriangleTest {
 
 	/**
+	 * Delta of error.
+	 */
+	private final double delta = 0.01;
+
+	/**
 	 * When create a correct triangle object should get it area
 	 * and check that actual result and expected result are equals.
 	 */
 	@Test
 	public void whenCreateCorrectTriangleShouldGetItsArea() {
+		Triangle goodTriangle = new Triangle(new Point(4.0, 0.0),
+				        new Point(8.0, 3.0), new Point(5.0, 8.0));
+		final double expectedArea = 14.49;
 
-		//Assign block
-		Triangle goodTriangle = new Triangle(new Point(4.0,0.0), new Point(8.0,3.0), new Point(5.0,8.0));
-		double expectedArea = 14.49;
-		
-		//Act block
 		double actualArea = goodTriangle.area();
-		
-		//Action block
-		assertThat(expectedArea, closeTo(actualArea,0.01));
+
+		assertThat(expectedArea, closeTo(actualArea, delta));
 	}
 
 	/**
@@ -34,14 +36,12 @@ public class TriangleTest {
 	 */
 	@Test
 	public void whenCreateBadTriangleShouldGetZero() {
-		//Assign block
-		Triangle badTriangle = new Triangle(new Point(0.0,0.0), new Point(0.0, 0.0), new Point(0.0,0.0));
-		double expectedArea = 0.0;
-		
-		//Act block
-		double actualArea = badTriangle.area();
-		
-		//Action block
-		assertThat(expectedArea, closeTo(actualArea,0.01));
+		Triangle badTriangle = new Triangle(new Point(0.0, 0.0),
+				      new Point(0.0, 0.0), new Point(0.0, 0.0));
+		final double expectedArea = 0.0;
+
+		final double actualArea = badTriangle.area();
+
+		assertThat(expectedArea, closeTo(actualArea, delta));
 	}
 }

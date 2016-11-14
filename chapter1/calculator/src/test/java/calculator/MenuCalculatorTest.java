@@ -2,7 +2,7 @@ package calculator;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import start.StubIO;
 
 
@@ -12,25 +12,25 @@ import start.StubIO;
  */
 public class MenuCalculatorTest {
 
-    private final static int ACTIONS = 4;
+    /**
+     * Count of all action.
+     */
+    private final int actions = 4;
 
     /**
      * When try execute addition should check that operation works correct.
      */
     @Test
     public void whenTryExecuteAdditionShouldCheckThatIsWorkCorrect() {
-
-        //Assign block
         String[] answer = new String[]{"1.0", "y"};
         StubIO stubIO = new StubIO(answer);
-        MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIO, ACTIONS);
+        MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIO, actions);
         menuCalculator.fillActions();
         String expected = "0.0 + 1.0 = 1.0\n";
+        final int command = 0;
 
-        //Action block
-        menuCalculator.select(0);
+        menuCalculator.select(command);
 
-        //Assert block
         assertThat(stubIO.getOut(), is(expected));
     }
 
@@ -39,18 +39,15 @@ public class MenuCalculatorTest {
      */
     @Test
     public void whenTryExecuteDeductShouldCheckThatIsWorkCorrect() {
-
-        //Assign block
         String[] answer = new String[]{"2.5", "y"};
         StubIO stubIO = new StubIO(answer);
-        MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIO, ACTIONS);
+        MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIO, actions);
         menuCalculator.fillActions();
         String expected = "0.0 - 2.5 = -2.5\n";
+        final int command = 1;
 
-        //Action block
-        menuCalculator.select(1);
+        menuCalculator.select(command);
 
-        //Assert block
         assertThat(stubIO.getOut(), is(expected));
     }
 
@@ -59,18 +56,18 @@ public class MenuCalculatorTest {
      */
     @Test
     public void whenTryExecuteMultiplyShouldCheckThatIsWorkCorrect() {
-
-        //Assign block
-        String[] answer = new String[]{"2","2","y"};
+        String[] answer = new String[]{"2", "2", "y"};
         StubIO stubIO = new StubIO(answer);
-        MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIO, ACTIONS);
+        MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIO, actions);
         menuCalculator.fillActions();
-        String expected = "0.0 + 2.0 = 2.0\n" +
+        String expected = "0.0 + 2.0 = 2.0\n"
+                           +
                           "2.0 * 2.0 = 4.0\n";
+        final int firstCommand = 0;
+        final int secondCommand = 2;
 
-        //Action block
-        menuCalculator.select(0);
-        menuCalculator.select(2);
+        menuCalculator.select(firstCommand);
+        menuCalculator.select(secondCommand);
 
         assertThat(stubIO.getOut(), is(expected));
     }
@@ -80,20 +77,20 @@ public class MenuCalculatorTest {
      */
     @Test
     public void whenTryExecuteDivideShouldCheckThatIsWorkCorrect() {
-
-        //Assign block
         String[] answer = new String[]{"100", "2", "y"};
         StubIO stubIo = new StubIO(answer);
-        MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIo, ACTIONS);
+        MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIo, actions);
         menuCalculator.fillActions();
-        String expected = "0.0 + 100.0 = 100.0\n" +
+        String expected = "0.0 + 100.0 = 100.0\n"
+                           +
                           "100.0 / 2.0 = 50.0\n";
 
-        //Action block
-        menuCalculator.select(0);
-        menuCalculator.select(3);
+        final int firstCommand = 0;
+        final int secondCommand = 3;
 
-        //Assert block
+        menuCalculator.select(firstCommand);
+        menuCalculator.select(secondCommand);
+
         assertThat(stubIo.getOut(), is(expected));
     }
 
@@ -102,20 +99,19 @@ public class MenuCalculatorTest {
      */
     @Test(expected = ArithmeticException.class)
     public void whenTryExecuteDivideByZeroShouldCheckThatAppThrowException() {
-
-        //Assign block
         String[] answer = new String[]{"100", "0.0", "y"};
         StubIO stubIO = new StubIO(answer);
-        MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIO, ACTIONS);
+        MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIO, actions);
         menuCalculator.fillActions();
-        String expected = "0.0 + 100.0 = 100.0\n" +
+        String expected = "0.0 + 100.0 = 100.0\n"
+                          +
                           "100.0 / 2.0 = 50.0\n";
+        final int firstCommand = 0;
+        final int secondCommand = 3;
 
-        //Action block
-        menuCalculator.select(0);
-        menuCalculator.select(3);
+        menuCalculator.select(firstCommand);
+        menuCalculator.select(secondCommand);
 
-        //Assert block
         assertThat(stubIO.getOut(), is(expected));
     }
 

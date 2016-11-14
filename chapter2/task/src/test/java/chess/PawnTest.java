@@ -1,6 +1,6 @@
 package chess;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 import org.junit.Test;
 import org.junit.Before;
@@ -46,22 +46,21 @@ public class PawnTest {
      */
     @Test
     public void whenTryAttachPawnToTheBoardShouldAddPawnIfCellIsNotBusy() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"P", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
-                {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
+                {"P", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"}
         };
-		
-		//Act block
-        board.addFigure(this.pawn,0,0);
+        final int startX = 0;
+        final int startY = 0;
+
+        board.addFigure(this.pawn, startX, startY);
         String[][] actual = board.getBoard();
 		
 		//Action block
@@ -73,26 +72,26 @@ public class PawnTest {
      */
     @Test
     public void whenTryMovePawnInCorrectDirectionShouldMovePawn() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"P", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
-                {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"P", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"}
         };
+        final int startX = 0;
+        final int startY = 0;
+        final int finishX = 2;
+        final int finishY = 0;
 
-		//Act block
-        board.addFigure(this.pawn,0,0);
-        board.performMove(0,0,2,0);
+        board.addFigure(this.pawn, startX, startY);
+        board.performMove(startX, startY, finishX, finishY);
         String[][] actual = board.getBoard();
 
-		//Action block
         assertThat(actual, is(expected));
     }
 
@@ -101,26 +100,26 @@ public class PawnTest {
      */
     @Test
     public void whenTryMovePawnInWrongDirectionShouldLeavePawnAtTheCurrentPlace() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"P", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
-                {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
+                {"P", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"}
         };
+        final int startX = 0;
+        final int startY = 0;
+        final int finishX = 0;
+        final int finishY = 2;
 
-		//Act block
-        board.addFigure(this.pawn,0,0);
-        board.performMove(0,0,0,2);
+        board.addFigure(this.pawn, startX, startY);
+        board.performMove(startX, startY, finishX, finishY);
         String[][] actual = board.getBoard();
 
-		//Action block
         assertThat(actual, is(expected));
     }
 
@@ -129,27 +128,29 @@ public class PawnTest {
      */
     @Test
     public void whenTryMovePawnButInThePathFigureShouldLeavePawnAtTheCurrentPlace() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"P", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"P", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
-                {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
+                {"P", "0", "0", "0", "0", "0", "0", "0"},
+                {"P", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"}
         };
+        final int startX = 0;
+        final int startY = 0;
+        final int pawnX = 1;
+        final int finishX = 2;
+        final int finishY = 0;
 
-		//Act block
-        board.addFigure(this.pawn,0,0);
-        board.addFigure(this.pawn,1,0);
-        board.performMove(0,0,2,0);
+
+        board.addFigure(this.pawn, startX, startY);
+        board.addFigure(this.pawn, pawnX, startY);
+        board.performMove(startX, startY, finishX, finishY);
         String[][] actual = board.getBoard();
 
-		//Action block
         assertThat(actual, is(expected));
     }
 
@@ -158,27 +159,28 @@ public class PawnTest {
      */
     @Test
     public void whenTryPawnTrySkipOverFiguresShouldLeavePawnAtTheCurrentPlace(){
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"P", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"P", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
-                {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"P", "0", "0", "0", "0", "0", "0", "0"},
+                {"P", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"}
         };
+        final int startX = 1;
+        final int startY = 0;
+        final int pawnX = 2;
+        final int finishX = 3;
+        final int finishY = 0;
 
-		//Act block
-        board.addFigure(this.pawn,1,0);
-        board.addFigure(this.pawn,2,0);
-        board.performMove(1,0,3,0);
+        board.addFigure(this.pawn, startX, startY);
+        board.addFigure(this.pawn, pawnX, startY);
+        board.performMove(startX, startY, finishX, finishY);
         String[][] actual = board.getBoard();
 
-		//Action block
         assertThat(actual, is(expected));
     }
 
@@ -187,13 +189,8 @@ public class PawnTest {
      */
 	@Test
 	public void whenTryGetStringViewOfPawnShoulGetStringAcronym() {
-		
-		//Assign block
 		String expected = "P";
-		
-		//Act block
 		String actual = pawn.toString();
-		
 		assertThat(actual, is(expected));
 	}
 }

@@ -13,10 +13,10 @@ public abstract class BaseAction implements UserAction {
 
     /**
      * Create new action with name.
-     * @param name of action.
+     * @param actionName of action.
      */
-    public BaseAction(String name) {
-        this.name = name;
+    public BaseAction(String actionName) {
+        this.name = actionName;
     }
 
     /**

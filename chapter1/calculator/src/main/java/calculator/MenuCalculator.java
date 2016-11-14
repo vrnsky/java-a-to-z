@@ -10,9 +10,14 @@ import templates.UserAction;
 public class MenuCalculator {
 
     /**
+     * First command.
+     */
+    private static final int FIRST_COMMAND = 0;
+
+    /**
      * Instance of calculator API.
      */
-    protected Calculator calculator;
+    protected final Calculator calculator;
 
     /**
      * Instance of IO system.
@@ -31,13 +36,13 @@ public class MenuCalculator {
 
     /**
      * Create a new menu.
-     * @param calculator instance of calculator API.
-     * @param io instance of IO system, for handling input and show data.
+     * @param calc instance of calculator API.
+     * @param inOut instance of IO system, for handling input and show data.
      * @param size of possible user actions.
      */
-    public MenuCalculator(Calculator calculator, IO io, int size) {
-        this.calculator = calculator;
-        this.io = io;
+    public MenuCalculator(final Calculator calc, IO inOut, int size) {
+        this.calculator = calc;
+        this.io = inOut;
         this.actions = new UserAction[size];
     }
 
@@ -53,7 +58,7 @@ public class MenuCalculator {
 
     /**
      * For correct adding new action use this method.
-     * @param userAction
+     * @param userAction instance of user interface.
      */
     public void addAction(UserAction userAction) {
         actions[position++] = userAction;
@@ -91,7 +96,7 @@ public class MenuCalculator {
      * @return id first command.
      */
     public int getIdFirstCommand() {
-        return 0;
+        return FIRST_COMMAND;
     }
 
     /**
@@ -107,21 +112,30 @@ public class MenuCalculator {
      */
     private class Addition extends BaseAction {
 
+        /**
+         * Key of action.
+         */
+        private  final int key = 0;
+
+        /**
+         * Create addition action.
+         * @param name of action.
+         */
         Addition(String name) {
             super(name);
         }
 
         @Override
         public int key() {
-            return 0;
+            return key;
         }
 
         /**
          * Execute addition operation.
-         * @param io instance of io system.
+         * @param inOut instance of io system.
          */
         @Override
-        public void execute(IO io) {
+        public void execute(IO inOut) {
             double number = io.askForDouble("Enter a first number: ");
             double add = calculator.getPrevResult();
             calculator.add(number);
@@ -134,16 +148,33 @@ public class MenuCalculator {
      */
     private class Deduct extends BaseAction {
 
+        /**
+         * Key of action.
+         */
+        private final int key = 1;
+
+        /**
+         * Create deduct action.
+         * @param name of action.
+         */
         Deduct(String name) {
             super(name);
         }
 
+        /**
+         * Unique number per action.
+         * @return unique number among all actions.
+         */
         @Override
         public int key() {
-            return 1;
+            return key;
         }
 
-        public void execute(IO io) {
+        /**
+         * Execute deduct.
+         * @param inOut instance of io interface.
+         */
+        public void execute(IO inOut) {
             double number = io.askForDouble("Enter a first number: ");
             double extract = calculator.getPrevResult();
             calculator.deduct(number);
@@ -156,20 +187,29 @@ public class MenuCalculator {
      */
     private class Multiply extends BaseAction {
 
+        /**
+         * Key of action.
+         */
+        private final int key = 2;
+
+        /**
+         * Create multiply action.
+         * @param name of action.
+         */
         Multiply(String name) {
             super(name);
         }
 
         @Override
         public int key() {
-            return 2;
+            return key;
         }
 
         /**
          * Execute a multiply operation.
-         * @param io instance of io system.
+         * @param inOut instance of io system.
          */
-        public void execute(IO io) {
+        public void execute(IO inOut) {
             double number = io.askForDouble("Enter a number: ");
             double factor = calculator.getPrevResult();
             calculator.multiply(number);
@@ -182,21 +222,30 @@ public class MenuCalculator {
      */
     private class Divide extends BaseAction {
 
+        /**
+         * Name of action.
+         */
+        private final int key = 3;
+
+        /**
+         * Create divide action.
+         * @param name of action.
+         */
         Divide(String name) {
             super(name);
         }
 
         @Override
         public int key() {
-            return 3;
+            return key;
         }
 
         /**
          * Execute divide.
-         * @param io - instance of io system.
+         * @param inOut - instance of io system.
          */
         @Override
-        public void execute(IO io) {
+        public void execute(IO inOut) {
             double number = io.askForDouble("Enter a first number: ");
             double divisor = calculator.getPrevResult();
             calculator.div(number);

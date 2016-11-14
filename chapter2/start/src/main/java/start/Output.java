@@ -1,9 +1,13 @@
 package start;
 
 /**
-* Contract for all output system.
-*/
+ * Contract for all output system.
+ */
 public interface Output {
 
-	void println(Object value);
+    /**
+     * print object.
+     * @param value for print.
+     */
+    void println(Object value);
 }

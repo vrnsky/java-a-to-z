@@ -1,6 +1,6 @@
 package chess;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,9 +29,7 @@ public class QueenTest {
      */
     @Test
     public void whenTryCreateANewQueenShouldCheckThanItIsNotNull() {
-		//Act block
         boolean actual = queen != null;
-		//Action block
         assertThat(actual, is(true));
     }
 
@@ -40,25 +38,23 @@ public class QueenTest {
      */
     @Test
     public void whenTryAddQueenToTheBoardShouldCheckThanBoardSaveIt() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"Q", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
-                {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
+                {"Q", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"}
         };
+        final int startX = 0;
+        final int startY = 0;
 
-		//Act block
-        board.addFigure(this.queen,0,0);
+        board.addFigure(this.queen, startX, startY);
         String[][] actual = board.getBoard();
 
-		//Action block
         assertThat(actual, is(expected));
     }
 
@@ -66,27 +62,27 @@ public class QueenTest {
      * When try move queen in right horizontal direction should check that figure was moved.
      */
     @Test
-    public void whenTryMoveQueenInRightDirectionShouldMoveQueenIfCellInThePathIsEmpty(){
-		
-		//Assign block
+    public void whenTryMoveQueenInRightDirectionShouldMoveQueenIfCellInThePathIsEmpty() {
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"0", "0", "0", "0", "0", "0", "0", "Q"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
-                {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
+                {"0", "0", "0", "0", "0", "0", "0", "Q"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"}
         };
+        final int startX = 0;
+        final int startY = 0;
+        final int finishX = 0;
+        final int finishY = 7;
 
-		//Act block
-        board.addFigure(this.queen,0,0);
-        board.performMove(0,0,0,7);
+        board.addFigure(this.queen, startX, startY);
+        board.performMove(startX, startY, finishX, finishY);
         String[][] actual = board.getBoard();
 
-		//Action block
         assertThat(actual, is(expected));
     }
 
@@ -95,26 +91,26 @@ public class QueenTest {
      */
     @Test
     public void whenTryMoveQueenInLeftDirectionShouldMoveQueenIfCellsInThePathIsEmpty() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"0", "0", "Q", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
-                {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
+                {"0", "0", "Q", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"}
         };
+        final int startX = 0;
+        final int startY = 7;
+        final int finishX = 0;
+        final int finishY = 2;
 
-		//Act block
-        board.addFigure(this.queen,0,7);
-        board.performMove(0,7,0,2);
+        board.addFigure(this.queen, startX, startY);
+        board.performMove(startX, startY, finishX, finishY);
         String[][] actual = board.getBoard();
 
-		//Action block
         assertThat(actual, is(expected));
     }
 
@@ -123,26 +119,26 @@ public class QueenTest {
      */
     @Test
     public void whenTryMoveQueenInDiagonalShouldMoveQueenIfInThePathCellsAreEmpty() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
-                {"0", "0", "0", "0", "0", "0", "0", "Q"}//7}
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "Q"}
         };
+        final int startX = 0;
+        final int startY = 0;
+        final int finishX = 7;
+        final int finishY = 7;
 
-		//Act block
-        board.addFigure(this.queen,0,0);
-        board.performMove(0,0,7,7);
+        board.addFigure(this.queen, startX, startY);
+        board.performMove(startX, startY, finishX, finishY);
         String[][] actual = board.getBoard();
 
-		//Action block
         assertThat(actual, is(expected));
     }
 
@@ -151,26 +147,26 @@ public class QueenTest {
      */
     @Test
     public void whenTryMoveQueenInOtherDiagonalShouldMoveQueenIfInThePathCellsAreEmpty() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"Q", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
-                {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
+                {"Q", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"}
         };
-		
-		//Act block
-        board.addFigure(this.queen,7,7);
-        board.performMove(7,7,0,0);
+        final int startX = 7;
+        final int startY = 7;
+        final int finishX = 0;
+        final int finshY = 0;
+
+        board.addFigure(this.queen, startX, startY);
+        board.performMove(startX, startY, finishX, finshY);
         String[][] actual = board.getBoard();
 
-		//Action block
         assertThat(actual, is(expected));
     }
 
@@ -179,27 +175,27 @@ public class QueenTest {
      */
     @Test
     public void whenTryMoveQueenToTheOtherPositionInVerticalDirButInThePathFigureShouldLeaveQueenAtTheCurrentPlace() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"Q", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"H", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
-                {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
+                {"Q", "0", "0", "0", "0", "0", "0", "0"},
+                {"H", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"}
         };
+        final int startX = 0;
+        final int startY = 0;
+        final int finishX = 1;
+        final int finishY = 0;
 
-		//Act block
-        board.addFigure(this.queen,0,0);
-        board.addFigure(new Horse(),1,0);
-        board.performMove(0,0,1,0);
+        board.addFigure(this.queen, startX, startY);
+        board.addFigure(new Horse(), finishX, finishY);
+        board.performMove(startX, startY, finishX, finishY);
         String[][] actual = board.getBoard();
 
-		//Action block
         assertThat(actual, is(expected));
     }
 
@@ -207,45 +203,41 @@ public class QueenTest {
      * When queen try skip figure shoul leave figure at the current place.
      */
     @Test
-	public void whenQueenTrySkipFigureShouldLeaveQueenAtTheCurrentPlace() {
-		
-		//Assign block
+    public void whenQueenTrySkipFigureShouldLeaveQueenAtTheCurrentPlace() {
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"Q", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"P", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
-                {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
+                {"Q", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"P", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"},
+                {"0", "0", "0", "0", "0", "0", "0", "0"}
         };
+        final int startX = 0;
+        final int startY = 0;
+        final int pawnX = 3;
+        final int pawnY = 0;
+        final int finishX = 7;
+        final int finishY = 0;
 
-		//Act block
-        board.addFigure(this.queen,0,0);
-        board.addFigure(new Pawn(),3,0);
-        board.performMove(0,0,7,0);
+        board.addFigure(this.queen, startX, startY);
+        board.addFigure(new Pawn(), pawnX, pawnY);
+        board.performMove(startX, startY, finishX, finishY);
         String[][] actual = board.getBoard();
 
-		//Action block
-        assertThat(actual, is(expected));		
-	}
+        assertThat(actual, is(expected));
+    }
 
     /**
      * When try get queen string view should check that is acronym for queen chess figure.
      */
     @Test
-	public void whenGetQueenStringViewShouldGetAcronym() {
-		
-		//Assign block
-		String expected = "Q";
-		
-		//Act block
-		String actual = queen.toString();
-	
-		//Action block
-		assertThat(actual, is(expected));
-	}
-	
+    public void whenGetQueenStringViewShouldGetAcronym() {
+        String expected = "Q";
+        String actual = queen.toString();
+        assertThat(actual, is(expected));
+    }
+
 }

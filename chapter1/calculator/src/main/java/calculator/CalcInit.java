@@ -21,10 +21,10 @@ public class CalcInit {
 
 	/**
 	 * Save a reference to io object.
-	 * @param io instance of io interface.
+	 * @param inOut instance of io interface.
      */
-	public CalcInit(IO io) {
-		this.io = io;
+	public CalcInit(IO inOut) {
+		this.io = inOut;
 		calculator = new Calculator();
 	}
 	/**
@@ -38,10 +38,11 @@ public class CalcInit {
 
 	/**
 	 * Main loop of program.
-	 * It allow user input data and get result from calculator.
-     */
+	 * @throws Exception if something wrong.
+	 */
 	public void start() throws Exception {
-		MenuCalculator menuCalculator = new MenuSciCalculator(this.calculator, this.io, 8);
+		final int actions = 8;
+		MenuCalculator menuCalculator = new MenuSciCalculator(this.calculator, this.io, actions);
 		menuCalculator.fillActions();
 		int start = menuCalculator.getIdFirstCommand();
 		int finish = menuCalculator.getIdLastCommand();
@@ -49,7 +50,7 @@ public class CalcInit {
 		do {
 			menuCalculator.showMenu();
 			menuCalculator.select(this.io.ask("Choose an option: ", start, finish));
-		} while(!"y".equals(this.io.ask("Exit? y/n")));
+		} while (!"y".equals(this.io.ask("Exit? y/n")));
 	}
 
 }

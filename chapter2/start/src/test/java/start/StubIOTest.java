@@ -2,7 +2,7 @@ package start;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -11,75 +11,61 @@ import static org.hamcrest.core.Is.is;
  */
 public class StubIOTest {
 
-	/**
-	 * When ask fake user about some string
-	 * Should check that input return string from answer array.
-	 */
-	@Test
-	public void whenGetInputDataShouldReturnInputData() {
-		
-		//Assign block
-		String[] answer = new String[]{"Answer"};
-		StubIO stubIO = new StubIO(answer);
-		String expected = "Answer";
-		
-		//Act block
-		String result = stubIO.ask("Type something: ");
-		
-		//Action block
-		assertThat(result, is(expected));
-	}
+    /**
+     * When ask fake user about some string
+     * Should check that input return string from answer array.
+     */
+    @Test
+    public final void whenGetInputDataShouldReturnInputData() {
+        String[] answer = new String[]{"Answer"};
+        StubIO stubIO = new StubIO(answer);
+        String expected = "Answer";
 
-	/**
-	 * When try print something should check that it was printed.
-	 */
-	@Test 
-	public void whenShowAtOutSomeDataShouldReturnInfo(){
-		
-		//Assign block
-		String[] answer = new String[]{"Answer"};
-		StubIO stubIO = new StubIO(answer);
-		String expected = "Answer\n";
-		
-		//Act block
-		String result = stubIO.ask("Type something: ");
-		stubIO.println(result);
-		
-		//Action block
-		assertThat(stubIO.getOut(), is(expected));
-	}
+        String result = stubIO.ask("Type something: ");
 
-	/**
-	 * When ask user about long and fake user entered correct input
-	 * Should accept this input.
-	 */
-	@Test
-	public void whenAskUserAboutLongShouldGetLong() {
+        assertThat(result, is(expected));
+    }
 
-		//Assign block
-		String[] answer = new String[]{"1"};
-		StubIO stubIO = new StubIO(answer);
-		long expected = 1L;
+    /**
+     * When try print something should check that it was printed.
+     */
+    @Test
+    public final void whenShowAtOutSomeDataShouldReturnInfo() {
+        String[] answer = new String[]{"Answer"};
+        StubIO stubIO = new StubIO(answer);
+        String expected = "Answer\n";
 
-		//Act block
-		long actual = stubIO.askForLong("Please enter a number");
+        String result = stubIO.ask("Type something: ");
+        stubIO.println(result);
 
-		//Action block
-		assertThat(actual, is(expected));
-	}
+        assertThat(stubIO.getOut(), is(expected));
+    }
 
-	/**
-	 * When ask fake user about integer number and user input integer number behind range
-	 * Should throw runtime exception.
-	 */
-	@Test(expected = MenuOutException.class)
-	public void whenAskUserAboutIntAndUserEnterIntBehindRangeShouldThrowException() {
-		
-		//Assign block
-		String[] answer = new String[]{"150"};
-		StubIO stubIO = new StubIO(answer);
+    /**
+     * When ask user about long and fake user entered correct input
+     * Should accept this input.
+     */
+    @Test
+    public final void whenAskUserAboutLongShouldGetLong() {
+        String[] answer = new String[]{"1"};
+        StubIO stubIO = new StubIO(answer);
+        long expected = 1L;
 
-		//Act & action block
-		int actual = stubIO.ask("Some int", 0,10);
-	}
+        long actual = stubIO.askForLong("Please enter a number");
+
+        assertThat(actual, is(expected));
+    }
+
+    /**
+     * Ask fake about integer and user input int number in range
+     * Should throw runtime exception.
+     */
+    @Test(expected = MenuOutException.class)
+    public final void whenAskUserAboutIntIfItWrongShouldThrowException() {
+        String[] answer = new String[]{"150"};
+        StubIO stubIO = new StubIO(answer);
+        final int to = 10;
+
+        int actual = stubIO.ask("Some int", 0, to);
+    }
 }

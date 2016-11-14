@@ -3,80 +3,83 @@ package calculator;
 import org.junit.Test;
 import start.StubIO;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
- * Created by Egor on 16.07.2016.
+ * Unit test for science calculator.
  */
 public class MenuSciCalculatorTest {
 
-    private static final int ACTIONS = 8;
+    /**
+     * Count of all actions.
+     */
+    private final int actions = 8;
 
+    /**
+     * When try execute sin should check correct.
+     */
     @Test
     public void whenTryExecuteSinShouldCheckThatIsWorkCorrect() {
-
-        //Assign block
-        String[] answer = new String[]{"0.0","n"};
+        String[] answer = new String[]{"0.0", "n"};
         StubIO stubIO = new StubIO(answer);
-        MenuSciCalculator menuSciCalculator = new MenuSciCalculator(new Calculator(), stubIO, ACTIONS);
+        MenuSciCalculator menuSciCalculator = new MenuSciCalculator(new Calculator(), stubIO, actions);
         menuSciCalculator.fillActions();
         String expected = "cos(0.0) = 1.0\n";
+        final int command = 4;
 
-        //Action block
-        menuSciCalculator.select(4);
+        menuSciCalculator.select(command);
 
-        //Assert block
         assertThat(stubIO.getOut(), is(expected));
     }
 
+    /**
+     * When try execute cos should check correct.
+     */
     @Test
     public void whenTryExecuteCosShouldCheckThatIsWorkCorrect() {
-
-        //Assign block
-        String[] answer = new String[]{"0","n"};
+        String[] answer = new String[]{"0", "n"};
         StubIO stubIO = new StubIO(answer);
-        MenuSciCalculator menuSciCalculator = new MenuSciCalculator(new Calculator(), stubIO, ACTIONS);
+        MenuSciCalculator menuSciCalculator = new MenuSciCalculator(new Calculator(), stubIO, actions);
         menuSciCalculator.fillActions();
         String expected = "sin(0.0) = 0.0\n";
+        final int command = 5;
 
-        //Action block
-        menuSciCalculator.select(5);
+        menuSciCalculator.select(command);
 
-        //Assert block
         assertThat(stubIO.getOut(), is(expected));
     }
 
+    /**
+     * When try execute log should check correct.
+     */
     @Test
     public void whenTryExecuteLogShouldCheckThatIsWorkCorrect() {
-
-        //Assign block
-        String[] answer = new String[]{"100.0","y"};
+        String[] answer = new String[]{"100.0", "y"};
         StubIO stubIO = new StubIO(answer);
-        MenuSciCalculator menuSciCalculator = new MenuSciCalculator(new Calculator(), stubIO, ACTIONS);
+        MenuSciCalculator menuSciCalculator = new MenuSciCalculator(new Calculator(), stubIO, actions);
         menuSciCalculator.fillActions();
         String expected = "log10(100.0) = 2.0\n";
+        final int command = 6;
 
-        //Action block
-        menuSciCalculator.select(6);
+        menuSciCalculator.select(command);
 
-        //Assert block
         assertThat(stubIO.getOut(), is(expected));
     }
 
+    /**
+     * When try execute abs should check correct.
+     */
     @Test
     public void whenTryExecuteAbsShouldCheckThatIsWorkCorrect() {
-
-        //Assign block
-        String[] answer = new String[]{"-2.5","y"};
+        String[] answer = new String[]{"-2.5", "y"};
         StubIO stubIO = new StubIO(answer);
-        MenuSciCalculator menuSciCalculator = new MenuSciCalculator(new Calculator(), stubIO, ACTIONS);
+        MenuSciCalculator menuSciCalculator = new MenuSciCalculator(new Calculator(), stubIO, actions);
         menuSciCalculator.fillActions();
         String expected = "abs(-2.5) = 2.5\n";
+        final int command = 7;
 
-        //Action block
-        menuSciCalculator.select(7);
+        menuSciCalculator.select(command);
 
-        //Assert block
         assertThat(stubIO.getOut(), is(expected));
     }
 }

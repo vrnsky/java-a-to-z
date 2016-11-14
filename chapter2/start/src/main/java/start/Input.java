@@ -5,12 +5,33 @@ package start;
  */
 public interface Input {
 
-	String ask(String question);
-	
-	int ask(String question, int from, int to);
+    /**
+     * Ask something.
+     * @param question info for user.
+     * @return string from user.
+     */
+    String ask(String question);
 
-	long askForLong(String question);
+    /**
+     * Ask for int.
+     * @param question info for user.
+     * @param from     range.
+     * @param to       range.
+     * @return integer from user.
+     */
+    int ask(String question, int from, int to);
 
-	double askForDouble(String question);
-	
+    /**
+     * Ask for long from user.
+     * @param question for user.
+     * @return long number from user.
+     */
+    long askForLong(String question);
+
+    /**
+     * Ask about double from user.
+     * @param question for user.
+     * @return double which entered user.
+     */
+    double askForDouble(String question);
 }

@@ -1,6 +1,6 @@
 package geometry;
 import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.number.IsCloseTo.closeTo;
 /**
  * Unit test for Maxside.java.
@@ -9,21 +9,24 @@ import static org.hamcrest.number.IsCloseTo.closeTo;
 public class MaxsideTest {
 
 	/**
+	 * Delta of error.
+	 */
+	private final double delta = 0.01;
+
+	/**
 	 * When give to maxside correct object triangle
 	 * Should check that max side return correct length of side.
 	 */
 	@Test
 	public void whenGiveMaxsideObjectCorrectTriangleShouldGetLengthOfMaxSideInTriangle() {
-		//Assign block
-		Triangle goodTriangle = new Triangle(new Point(4.0,0.0), new Point(8.0,3.0), new Point(5.0,8.0));
-		double expectedMax = 8.06D;
+		Triangle goodTriangle = new Triangle(new Point(4.0, 0.0),
+				          new Point(8.0, 3.0), new Point(5.0, 8.0));
+		final double expectedMax = 8.06D;
 		Maxside maxSide = new Maxside();
-		
-		//Act block
+
 		double actualMax = maxSide.max(goodTriangle);
-		
-		//Action block
-		assertThat(actualMax, closeTo(expectedMax,0.01));
+
+		assertThat(actualMax, closeTo(expectedMax, delta));
 	}
 
 
@@ -33,15 +36,13 @@ public class MaxsideTest {
 	 */
 	@Test
 	public void whenGiveMaxsideObjectWrongTriangleShouldGetZeroLength() {
-		//Assign block
-		Triangle badTriangle = new Triangle(new Point(0.0,0.0), new Point(0.0,3.0), new Point(0.0,0.0));
-		double expectedMax = 0.0;
+		Triangle badTriangle = new Triangle(new Point(0.0, 0.0),
+				       new Point(0.0 ,3.0), new Point(0.0, 0.0));
+		final double expectedMax = 0.0;
 		Maxside maxSide = new Maxside();
-		
-		//Act block
+
 		double actualMax = maxSide.max(badTriangle);
-		
-		//Action block
-		assertThat(actualMax, closeTo(expectedMax,0.01));
+
+		assertThat(actualMax, closeTo(expectedMax, delta));
 	}
 }

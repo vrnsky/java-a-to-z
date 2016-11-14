@@ -10,12 +10,12 @@ public class Calculator {
 	/**
 	 * Hold result of calculation.
 	 */
-	protected double result;
+	private double result;
 
 	/**
-	 * It fields hold result of previous calculation
+	 * It fields hold result of previous calculation.
      */
-	protected double prevResult;
+	private double prevResult;
 
 	/**
 	 * Add one first to second and write to result field.
@@ -51,7 +51,9 @@ public class Calculator {
 	 * @throws ArithmeticException if try div by zero.
      */
 	public void div(double number) {
-		if(number == 0) { throw new ArithmeticException("Div by zero is illegal"); }
+		if (number == 0) {
+			throw new ArithmeticException("Div by zero is illegal");
+		}
 		this.result = this.prevResult / number;
 		this.prevResult = this.result;
 	}

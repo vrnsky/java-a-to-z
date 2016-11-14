@@ -12,13 +12,14 @@ public class Maxside {
      */
 	public double max(Triangle triangle) {
 		double result = 0.0;
-		if(triangle.area() > 0.0) {
-			if(triangle.firstSide > triangle.secondSide && triangle.firstSide > triangle.thirdSide)
+		if (triangle.area() > 0.0) {
+			if (triangle.firstSide > triangle.secondSide && triangle.firstSide > triangle.thirdSide) {
 				result = triangle.firstSide;
-			else if (triangle.secondSide > triangle.firstSide && triangle.secondSide > triangle.thirdSide)
+			} else if (triangle.secondSide > triangle.firstSide && triangle.secondSide > triangle.thirdSide) {
 				result = triangle.secondSide;
-			else
+			} else {
 				result = triangle.thirdSide;
+			}
 		}
 		return result;
 	}

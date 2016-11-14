@@ -32,16 +32,31 @@ public class MenuSciCalculator extends MenuCalculator {
 
     }
 
+    /**
+     * Cosin action.
+     */
     private class Cosinus extends BaseAction {
 
+        /**
+         * Unique number of action.
+         */
+        private final int key = 4;
+
+        /**
+         * Create cosin operation.
+         * @param name of action.
+         */
         Cosinus(String name) {
             super(name);
         }
 
-
+        /**
+         * Return unique number among all actions.
+         * @return unique number.
+         */
         @Override
         public int key() {
-            return 4;
+            return key;
         }
 
         /**
@@ -61,21 +76,34 @@ public class MenuSciCalculator extends MenuCalculator {
      */
     private class Sinus extends BaseAction {
 
+        /**
+         * Unique key.
+         */
+        private final int  key = 5;
+
+        /**
+         * Create sinus operation.
+         * @param name of action.
+         */
         Sinus(String name) {
             super(name);
         }
 
+        /**
+         * Return unique number among actions.
+         * @return unique number.
+         */
         @Override
         public int key() {
-            return 5;
+            return key;
         }
 
         /**
          * Execute sinus operation.
-         * @param io instance of IO interface.
+         * @param inOut instance of IO interface.
          */
         @Override
-        public void execute(IO io) {
+        public void execute(IO inOut) {
             double number = io.askForDouble("Enter a number for sin operation: ");
             calculator.sin(number);
             io.println(String.format("sin(%s) = %s", number, calculator.getResult()));
@@ -87,13 +115,28 @@ public class MenuSciCalculator extends MenuCalculator {
      */
     private class Log extends BaseAction {
 
+
+        /**
+         * Unique number among all actions.
+         */
+        private final int key = 6;
+
+
+        /**
+         * Create log action.
+         * @param name of action.
+         */
         Log(String name) {
             super(name);
         }
 
+        /**
+         * Return unique number among all actions.
+         * @return unique number.
+         */
         @Override
         public int key() {
-            return 6;
+            return key;
         }
 
         /**
@@ -113,13 +156,26 @@ public class MenuSciCalculator extends MenuCalculator {
      */
     private class Abs extends BaseAction {
 
+        /**
+         * Unique key.
+         */
+        private final int key = 7;
+
+        /**
+         * Create absolute action.
+         * @param name of action.
+         */
         Abs(String name) {
             super(name);
         }
 
+        /**
+         * Return unqiue string among all actions.
+         * @return unique string.
+         */
         @Override
         public int key() {
-            return 7;
+            return key;
         }
 
         /**

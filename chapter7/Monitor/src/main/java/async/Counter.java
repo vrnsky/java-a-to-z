@@ -19,7 +19,7 @@ public class Counter {
      * Default constructor.
      */
     public Counter() {
-        this.amount.set(0);
+        this.amount = new AtomicInteger(0);
     }
 
     /**
