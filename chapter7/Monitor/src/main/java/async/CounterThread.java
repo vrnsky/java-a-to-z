@@ -11,14 +11,14 @@ public class CounterThread extends Thread {
     /**
      * Instance of counter object.
      */
-    public Counter counter;
+    private Counter counter;
 
     /**
      * Default constructor.
-     * @param counter reference to counter object.
+     * @param counterInstance reference to counter object.
      */
-    public CounterThread(Counter counter) {
-        this.counter = counter;
+    public CounterThread(Counter counterInstance) {
+        this.counter = counterInstance;
     }
 
     /**

@@ -60,9 +60,8 @@ public class MenuCalculatorTest {
         StubIO stubIO = new StubIO(answer);
         MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIO, actions);
         menuCalculator.fillActions();
-        String expected = "0.0 + 2.0 = 2.0\n"
-                           +
-                          "2.0 * 2.0 = 4.0\n";
+        String expected = String.format("%s + %s = %s\n%s * %s = %s\n",
+                                      0.0, 2.0, 2.0, 2.0, 2.0, 4.0);
         final int firstCommand = 0;
         final int secondCommand = 2;
 
@@ -81,10 +80,8 @@ public class MenuCalculatorTest {
         StubIO stubIo = new StubIO(answer);
         MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIo, actions);
         menuCalculator.fillActions();
-        String expected = "0.0 + 100.0 = 100.0\n"
-                           +
-                          "100.0 / 2.0 = 50.0\n";
-
+        String expected = String.format("%s + %s = %s\n%s / %s = %s\n",
+                                0.0, 100.0, 100.0, 100.0, 2.0, 50.0);
         final int firstCommand = 0;
         final int secondCommand = 3;
 
@@ -103,9 +100,8 @@ public class MenuCalculatorTest {
         StubIO stubIO = new StubIO(answer);
         MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIO, actions);
         menuCalculator.fillActions();
-        String expected = "0.0 + 100.0 = 100.0\n"
-                          +
-                          "100.0 / 2.0 = 50.0\n";
+        String expected = String.format("%s + %s = %s\n%s / %s = %s\n",
+                               0.0, 100.0, 100.0, 100.0, 2.0, 50.0);
         final int firstCommand = 0;
         final int secondCommand = 3;
 

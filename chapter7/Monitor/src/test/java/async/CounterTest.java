@@ -2,7 +2,7 @@ package async;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -12,6 +12,10 @@ import static org.hamcrest.core.Is.is;
  */
 public class CounterTest {
 
+    /**
+     * When count calculate value should check that value correct.
+     * @throws InterruptedException if some thread was interrupt.
+     */
     @Test
     public void whenTryUseCountToCalculateValueShouldCheckThatValueWasCalculateCorrect() throws InterruptedException  {
         Counter counter = new Counter();

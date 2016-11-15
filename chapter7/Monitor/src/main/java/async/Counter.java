@@ -26,9 +26,7 @@ public class Counter {
      * Increment amount.
      */
     public void increment() {
-        synchronized (this) {
             this.amount.incrementAndGet();
-        }
     }
 
     /**

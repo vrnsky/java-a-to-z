@@ -2,7 +2,6 @@ package loops;
 
 import org.junit.Test;
 import org.junit.Before;
-
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.number.IsCloseTo.closeTo;
 import static org.hamcrest.core.Is.is;
