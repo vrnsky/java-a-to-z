@@ -9,4 +9,5 @@ public interface SimpleContainer<T> extends Iterable<T> {
     boolean add(T value);
     T remove(int position);
     boolean contains(Object o);
+    int size();
 }

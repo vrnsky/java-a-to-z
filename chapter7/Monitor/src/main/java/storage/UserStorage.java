@@ -26,6 +26,7 @@ public class UserStorage {
 
     /**
      * Added new user to the end of array list.
+     *
      * @param user object for adding.
      * @return true if success add, otherwise false.
      */
@@ -68,7 +69,7 @@ public class UserStorage {
      * Transaction amount.
      * @param userIdOne id of first user.
      * @param userIdTwo id of second user.
-     * @param amount for transaction.
+     * @param amount    for transaction.
      * @return true if success, otherwise false.
      */
     public boolean transactionAmount(String userIdOne, String userIdTwo, int amount) {

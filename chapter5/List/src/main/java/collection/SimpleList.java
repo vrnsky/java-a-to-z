@@ -105,6 +105,20 @@ public class SimpleList<T> implements SimpleContainer<T> {
     }
 
     /**
+     * Return size of list.
+     * @return size of list.
+     */
+    @Override
+    public int size() {
+        int size = 0;
+        if(this.cursor == 1) {
+            size = 1;
+        } else {
+            size = this.cursor - 1;
+        }
+        return size;
+    }
+    /**
      * Validate given value. It need for correct permission to the array.
      * @param position value for validate.
      * @return true if value is valid, otherwise false.
@@ -118,9 +132,9 @@ public class SimpleList<T> implements SimpleContainer<T> {
      * old array to the new array, change reference.
      */
     private void ensureCapacity() {
-        int newLength = (this.values.length*3) / 2 + 1;
+        int newLength = (this.values.length * 3) / 2 + 1;
         Object[] newValues = new Object[newLength];
-        System.arraycopy(this.values, 0, newValues,0, this.values.length);
+        System.arraycopy(this.values, 0, newValues, 0, this.values.length);
         this.values = newValues;
     }
 
@@ -136,7 +150,7 @@ public class SimpleList<T> implements SimpleContainer<T> {
 
     /**
      * Return instance of new iterator.
-     * @return
+     * @return iterator object.
      */
     @Override
     public Iterator<T> iterator() {

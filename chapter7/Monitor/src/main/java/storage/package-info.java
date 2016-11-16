@@ -5,3 +5,4 @@
  * Thread safe storage for user.
  */
 package storage;
+

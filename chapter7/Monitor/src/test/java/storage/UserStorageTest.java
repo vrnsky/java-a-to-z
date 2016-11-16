@@ -15,7 +15,7 @@ public class UserStorageTest {
     /**
      * Instance of storage.
      */
-    private final static UserStorage USER_STORAGE = new UserStorage();
+    private final UserStorage storage = new UserStorage();
 
     /**
      * When try add user to storage should check that user add.
@@ -24,7 +24,7 @@ public class UserStorageTest {
     public final void whenAddUserToStorageShouldCheckStorage() {
         final int amount = 0;
         User user = new User(amount);
-        boolean actual = USER_STORAGE.add(user);
+        boolean actual = storage.add(user);
         assertThat(actual, is(true));
     }
 
@@ -36,11 +36,11 @@ public class UserStorageTest {
         final int amount = 120;
         final int increaseAmount = 150;
         User oldUser = new User(amount);
-        USER_STORAGE.add(oldUser);
-        User editableUser = USER_STORAGE.readUserById(oldUser.getId());
+        storage.add(oldUser);
+        User editableUser = storage.readUserById(oldUser.getId());
         editableUser.setAmount(increaseAmount);
-        USER_STORAGE.editUser(editableUser);
-        assertThat(USER_STORAGE.readUserById(oldUser.getId()).getAmount(), is(increaseAmount));
+        storage.editUser(editableUser);
+        assertThat(storage.readUserById(oldUser.getId()).getAmount(), is(increaseAmount));
     }
 
     /**
@@ -50,9 +50,9 @@ public class UserStorageTest {
     public final void whenRemoveUserShouldCheckThatStorageDelUser() {
         final int amount = 120;
         User user = new User(amount);
-        USER_STORAGE.add(user);
-        USER_STORAGE.remove(user.getId());
-        assertThat(USER_STORAGE.readUserById(user.getId()), nullValue());
+        storage.add(user);
+        storage.remove(user.getId());
+        assertThat(storage.readUserById(user.getId()), nullValue());
     }
 
     /**
@@ -65,13 +65,12 @@ public class UserStorageTest {
         final int transactionValue = 50;
         User userOne = new User(amountOne);
         User userTwo = new User(amountTwo);
-        USER_STORAGE.add(userOne);
-        USER_STORAGE.add(userTwo);
-        USER_STORAGE.transactionAmount(userOne.getId(), userTwo.getId(), transactionValue);
-        final int actualAmountOne = USER_STORAGE.readUserById(userOne.getId()).getAmount();
-        final int actualAmountTwo = USER_STORAGE.readUserById(userTwo.getId()).getAmount();
+        storage.add(userOne);
+        storage.add(userTwo);
+        storage.transactionAmount(userOne.getId(), userTwo.getId(), transactionValue);
+        final int actualAmountOne = storage.readUserById(userOne.getId()).getAmount();
+        final int actualAmountTwo = storage.readUserById(userTwo.getId()).getAmount();
         assertThat(actualAmountOne, is(amountTwo));
         assertThat(actualAmountTwo, is(amountOne));
     }
-
 }
