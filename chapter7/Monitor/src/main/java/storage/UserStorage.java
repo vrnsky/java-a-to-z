@@ -3,6 +3,7 @@ package storage;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.locks.Lock;
 
 /**
  * @author evrnsky
@@ -15,6 +16,11 @@ public class UserStorage {
      * At this place hold all users.
      */
     private List<User> userList;
+
+    /**
+     * Smart lock for correct access.
+     */
+    private Lock lock;
 
     /**
      * Create a new storage with synchronized list.
@@ -36,6 +42,7 @@ public class UserStorage {
 
     /**
      * Edit user.
+     *
      * @param user new version of user.
      */
     public void editUser(User user) {
@@ -49,6 +56,7 @@ public class UserStorage {
 
     /**
      * Removing user from repository.
+     *
      * @param id of user.
      * @return true if user was deleted, otherwise false.
      */
@@ -58,6 +66,7 @@ public class UserStorage {
 
     /**
      * Return user or null if user not contains in list.
+     *
      * @param id of user.
      * @return user or null.
      */
@@ -67,6 +76,7 @@ public class UserStorage {
 
     /**
      * Transaction amount.
+     *
      * @param userIdOne id of first user.
      * @param userIdTwo id of second user.
      * @param amount    for transaction.
@@ -79,11 +89,14 @@ public class UserStorage {
         if (userOne == null || userTwo == null) {
             success = false;
         } else {
-            synchronized (this) {
+            lock.lock();
+            try {
                 int amountAfterTransaction = userOne.getAmount() - amount;
                 userOne.setAmount(amountAfterTransaction);
                 userTwo.setAmount(userTwo.getAmount() + amount);
                 success = true;
+            } finally {
+                lock.unlock();
             }
         }
         return success;
@@ -91,6 +104,7 @@ public class UserStorage {
 
     /**
      * Find user by id and return it. Otherwise return false.
+     *
      * @param id of user.
      * @return user or null.
      */
