@@ -23,11 +23,11 @@ public class Launcher {
      * @param args text for search.
      */
     public void start(String[] args) {
-        StringBuffer buffer = new StringBuffer();
+        final StringBuffer buffer = new StringBuffer();
         for(String arg : args) {
             buffer.append(String.format("%s ", arg));
         }
-        Application app = new Application(buffer.toString().trim());
+        final Application app = new Application(buffer.toString().trim());
         app.start();
     }
 }
