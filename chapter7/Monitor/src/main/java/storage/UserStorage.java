@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author evrnsky
@@ -20,7 +21,7 @@ public class UserStorage {
     /**
      * Smart lock for correct access.
      */
-    private Lock lock;
+    private final Lock lock = new ReentrantLock();
 
     /**
      * Create a new storage with synchronized list.
@@ -89,14 +90,16 @@ public class UserStorage {
         if (userOne == null || userTwo == null) {
             success = false;
         } else {
-            lock.lock();
-            try {
-                int amountAfterTransaction = userOne.getAmount() - amount;
-                userOne.setAmount(amountAfterTransaction);
-                userTwo.setAmount(userTwo.getAmount() + amount);
-                success = true;
-            } finally {
-                lock.unlock();
+            synchronized (lock) {
+                lock.lock();
+                try {
+                    int amountAfterTransaction = userOne.getAmount() - amount;
+                    userOne.setAmount(amountAfterTransaction);
+                    userTwo.setAmount(userTwo.getAmount() + amount);
+                    success = true;
+                } finally {
+                    lock.unlock();
+                }
             }
         }
         return success;
