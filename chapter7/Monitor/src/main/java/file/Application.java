@@ -18,25 +18,24 @@ public class Application extends Thread {
     /**
      * At this store already read files.
      */
-    private FileStorage fileStorage;
+    private final FileStorage fileStorage;
 
     /**
      * Text for search.
      */
-    private String text;
+    private final String text;
 
     /**
      * Flag which say us continue work or stop.
      */
-    private AtomicBoolean run = new AtomicBoolean(true);
+    private final AtomicBoolean run = new AtomicBoolean(true);
 
     /**
      * Flag for state of thread.
      */
     private boolean init = false;
 
-    public Application(String text) {
-        this.text = text;
+    public Application(final String text) {
         this.text = text;
         this.fileStorage = new FileStorage();
     }
