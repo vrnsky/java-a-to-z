@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
@@ -23,9 +22,9 @@ import org.apache.log4j.Logger;
 public class TextSearcher extends Thread {
 
     /**
-     * Logger for this class
+     * Logger for this class.
      */
-    private static Logger LOG = Logger.getLogger(TextSearcher.class);
+    private static final Logger LOG = Logger.getLogger(TextSearcher.class);
 
     /**
      * Flag which signal about find text or not.
@@ -35,27 +34,27 @@ public class TextSearcher extends Thread {
     /**
      * Text for search.
      */
-    private String searchText;
+    private final String searchText;
 
     /**
      * Flag which specify continue work or stop.
      */
-    private AtomicBoolean run = new AtomicBoolean(true);
+    private final AtomicBoolean run = new AtomicBoolean(true);
 
     /**
-     * Root elements of file system - disk
+     * Root elements of file system - disk.
      */
-    private File[] disks = File.listRoots();
+    private final File[] disks = File.listRoots();
 
     /**
      * Instance of file storage for writing checked files.
      */
-    private FileStorage fileStorage;
+    private final FileStorage fileStorage;
 
     /**
      * List of files which contains search text.
      */
-    private List<String> resultFiles;
+    private final List<String> resultFiles;
 
 
     /**
@@ -63,7 +62,7 @@ public class TextSearcher extends Thread {
      * @param text    search text.
      * @param storage instance of file storage for store already checked file.
      */
-    public TextSearcher(String text, FileStorage storage) {
+    public TextSearcher(final String text, final FileStorage storage) {
         this.searchText = text;
         this.fileStorage = storage;
         this.resultFiles = new ArrayList<>();
@@ -83,7 +82,7 @@ public class TextSearcher extends Thread {
     @Override
     public void run() {
         while (run.get()) {
-            searchFromDisk(this.searchText);
+            searchFromDisk();
         }
     }
 
@@ -100,14 +99,16 @@ public class TextSearcher extends Thread {
      * @return list of found files.
      */
     public List<String> getFileList() {
+        if(!run.get()) {
+            throw new IllegalStateException("Wait for finish of thread work.");
+        }
         return this.resultFiles;
     }
 
     /**
-     * Search from disk.
-     * @param text for search.
+     * Search file start from disk and recursive down.
      */
-    private void searchFromDisk(String text) {
+    private void searchFromDisk() {
         for (File disk : disks) {
                 search(disk.getAbsolutePath());
         }
@@ -138,11 +139,13 @@ public class TextSearcher extends Thread {
      * @param text for searching.
      */
     private void processingFile(File file, String text) {
-        founded = readFile(file.getAbsolutePath(), text);
+        this.founded = readFile(file.getAbsolutePath(), text);
         LOG.log(Level.INFO, String.format("SEARCH AT: %s", file.getAbsolutePath()));
-        if (founded) {
+        if (this.founded) {
             LOG.log(Level.INFO, String.format("FOUND AT: %s", file.getAbsolutePath()));
-            this.resultFiles.add(file.getAbsolutePath());
+            synchronized (this.resultFiles) {
+                this.resultFiles.add(file.getAbsolutePath());
+            }
         }
         this.fileStorage.addCheckedFile(file.getAbsolutePath());
     }
