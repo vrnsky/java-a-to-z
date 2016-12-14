@@ -17,6 +17,8 @@ public class FileTestUtils {
      */
     private static final String PATH = FileUtils.getTempDirectoryPath();
 
+	/**
+	*/
     private static final String SUBFOLDER = "subfolder";
 
     private static final String SEPARATOR = System.getProperty("file.separator");
