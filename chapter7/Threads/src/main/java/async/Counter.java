@@ -33,6 +33,9 @@ public class Counter {
     private long startTime = 1L;
 
 
+    /**
+     * Start all threads.
+     */
     private void startThreads() {
         spaceCounter.start();
         wordsCounter.start();
@@ -83,7 +86,7 @@ public class Counter {
 
     /**
      * Try to stop thread.
-     * @throws InterruptedException
+     * @throws InterruptedException if some problem with threads.
      */
     private void stopThread() throws InterruptedException {
         if (this.spaceCounter.isAlive()) {
@@ -138,14 +141,13 @@ public class Counter {
         /**
          * Counter for spaces.
          */
-        int spaces = 0;
+        private int spaces = 0;
 
         /**
          * Create a new space counter with given strings.
-         *
          * @param text string for which count spaces.
          */
-        public SpaceCounter(List<String> text) {
+        SpaceCounter(List<String> text) {
             this.text = text;
         }
 
@@ -168,10 +170,9 @@ public class Counter {
 
         /**
          * Notice! Call this method after thread is finished.
-         *
          * @return all count of spaces in text.
          */
-        public int getSpaces() {
+         int getSpaces() {
             return this.spaces;
         }
     }
@@ -184,7 +185,7 @@ public class Counter {
         /**
          * Counter of words.
          */
-        int words = 0;
+        private int words = 0;
 
         /**
          * String for counting words.
@@ -193,10 +194,9 @@ public class Counter {
 
         /**
          * Create a new words counter.
-         *
          * @param text for counting words.
          */
-        public WordsCounter(List<String> text) {
+        WordsCounter(List<String> text) {
             this.text = text;
         }
 
@@ -219,10 +219,9 @@ public class Counter {
 
         /**
          * Notice! Call this method after thread is end.
-         *
          * @return all count of words.
          */
-        public int getWords() {
+        int getWords() {
             return this.words;
         }
     }

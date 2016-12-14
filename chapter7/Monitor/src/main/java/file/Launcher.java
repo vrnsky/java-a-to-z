@@ -1,7 +1,4 @@
 package file;
-
-import java.io.File;
-
 /**
  * @author evrnsky
  * @version 0.1
@@ -24,7 +21,7 @@ public class Launcher {
      */
     public void start(String[] args) {
         final StringBuffer buffer = new StringBuffer();
-        for(String arg : args) {
+        for (String arg : args) {
             buffer.append(String.format("%s ", arg));
         }
         final Application app = new Application(buffer.toString().trim());

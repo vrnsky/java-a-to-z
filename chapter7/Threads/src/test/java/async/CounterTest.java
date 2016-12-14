@@ -6,12 +6,10 @@ import model.SimpleCache;
 import org.apache.commons.io.FileUtils;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.io.File;
 import java.util.List;
-
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * @author evrnsky
@@ -20,9 +18,19 @@ import static org.junit.Assert.*;
  */
 public class CounterTest {
 
+    /**
+     * Text for testing.
+     */
     private List<String> strings;
+
+    /**
+     * It max time for compute.
+     */
     private static final long MAX_EXECUTION_TIME = 1000;
 
+    /**
+     * This method call before even test.
+     */
     @Before
     public void setUp() {
         AbstractCache cache = new SimpleCache(new FileSystemLoad());
@@ -43,9 +51,10 @@ public class CounterTest {
      */
     @Test
     public void whenTryCalculateWordsInTextShouldCheckThatCounterCorrectCalculateWords() {
+        final int expectedString = 3;
         Counter counter = new Counter();
         counter.start(strings, MAX_EXECUTION_TIME);
-        assertThat(counter.getWords(), is(3));
+        assertThat(counter.getWords(), is(expectedString));
     }
 
 }

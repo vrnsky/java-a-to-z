@@ -14,17 +14,12 @@ public class KeysValidatorTest {
      */
     @Test
     public void whenTryUseCorrectKeyShouldKeyValidatorReturnATrue() {
-
-        //Assign block
         String[] keys = new String[]{"-d", "c:/", "-n", "*.txt", "-n", "-o", "log.txt"};
         KeysValidator keysValidator = new KeysValidator();
-        boolean expected = true;
 
-        //Act block
         boolean actual = keysValidator.isValidKeys(keys);
 
-        //Action block
-        assertThat(actual, is(expected));
+        assertThat(actual, is(true));
     }
 
     /**
@@ -32,15 +27,11 @@ public class KeysValidatorTest {
      */
     @Test
     public void whenTryUseWrongKeyShouldKeyValidatorReturnAFalse() {
-
-        //Assign block
         String[] keys = new String[]{"-g", "c:/", "-n", "*.txt", "-n", "-o", "log.txt"};
         KeysValidator keysValidator = new KeysValidator();
 
-        //Act block
         boolean actual = keysValidator.isValidKeys(keys);
 
-        //Action block
         assertThat(actual, is(false));
 
     }

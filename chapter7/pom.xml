@@ -1,47 +1,49 @@
 <project>
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>ru.evrnsky.chapter7</groupId>
-	<artifactId>chapter7</artifactId>
-	<name>chapter7</name>
-	<version>1.0</version>
-	<packaging>pom</packaging>
-	
-	<parent>
-		<groupId>ru.evrnsky</groupId>
-		<artifactId>tracker</artifactId>
-		<version>1.0</version>
-	</parent>
-	
-	<modules>
-	<module>JMM</module>
-	<module>Monitor</module>
-	<module>Non-blocking-algo</module>
-	<module>Threads</module>
-	<module>Wait-notify-notifyAll</module>
-	</modules>
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-checkstyle-plugin</artifactId>
-				<configuration>
-					<skip>true</skip>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>cobertura-maven-plugin</artifactId>
-				<version>2.7</version>
-				<configuration>
-					<check>
-					</check>
-					<instrumentation>
-						<excludes>
-							<exclude>**/*</exclude>
-						</excludes>
-					</instrumentation>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-		
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ru.evrnsky.chapter7</groupId>
+    <artifactId>chapter7</artifactId>
+    <name>chapter7</name>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>ru.evrnsky</groupId>
+        <artifactId>tracker</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <modules>
+        <module>JMM</module>
+        <module>Monitor</module>
+        <module>Non-blocking-algo</module>
+        <module>Threads</module>
+        <module>Wait-notify-notifyAll</module>
+        <module>Bomberman</module>
+        <module>Structure</module>
+    </modules>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <check>
+                    </check>
+                    <instrumentation>
+                        <excludes>
+                            <exclude>**/*</exclude>
+                        </excludes>
+                    </instrumentation>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

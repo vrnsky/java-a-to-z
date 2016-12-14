@@ -1,8 +1,9 @@
 package pool;
+
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import java.util.Queue;
-import java.util.concurrent.ArrayBlockingQueue;
+
+import java.util.LinkedList;
 
 
 /**
@@ -15,101 +16,92 @@ import java.util.concurrent.ArrayBlockingQueue;
 public class ThreadPool {
 
     /**
-     * Count of CPU in system.
-     */
-    private static final int CPU = Runtime.getRuntime().availableProcessors();
-
-    /**
-     * Logger. Use it if behing System.out.
+     * Instance of logger.
      */
     private static final Logger LOG = Logger.getLogger(ThreadPool.class);
 
     /**
-     * Pool of threads.
+     * Boundary for count of thread which may accept this queue.
      */
-    private final Queue<Work> pool;
+    private static final int CPU = Runtime.getRuntime().availableProcessors();
 
     /**
-     * Init a new pool with given capacity.
+     * Array ot THREADS.
+     */
+    private static final Thread[] THREADS = new Thread[CPU];
+
+    /**
+     * Queue of thread. At this place store runnable of async task.
+     */
+    private final LinkedList<Runnable> queue = new LinkedList<>();
+
+    /**
+     * Create default thread queue.
      */
     public ThreadPool() {
-        this.pool = new ArrayBlockingQueue<>(CPU);
-    }
-
-    /**
-     * Add new instance of work class to the end of the pool.
-     * @param work instance of work class. It should execute async task.
-     */
-    public void addWork(Work work) {
-        synchronized (this.pool) {
-            LOG.log(Level.INFO, String.format("%s add data to the pool.", Thread.currentThread().getName()));
-            this.pool.add(work);
-            this.pool.notifyAll();
+        for (int index = 0; index < CPU; index++) {
+            THREADS[index] = new Worker();
+            THREADS[index].start();
         }
     }
 
     /**
-     * Execute threads from pool. If poll is empty wait before it became
-     * not empty and signal about that all right. Otherwise if poll is not empty,
-     * take all not null threads from the pool and start it.
+     * Add to the end of the list new task.
+     * @param runnable new async task.
      */
-    public void execute() {
-        synchronized (this.pool) {
-            while (this.pool.isEmpty()) {
+    public void execute(Runnable runnable) {
+        synchronized (this.queue) {
+            if (this.queue.size() < CPU) {
+                this.queue.addLast(runnable);
+                queue.notify();
+            }
+        }
+    }
+
+    /**
+     * Worker it execute run method at the endless loop.
+     */
+    private class Worker extends Thread {
+        @Override
+        public void run() {
+            Runnable r;
+
+            while (true) {
+                synchronized (queue) {
+                    while (queue.isEmpty()) {
+                        try {
+                            LOG.log(Level.INFO, "Pool at this moment is empty and wait task.");
+                            queue.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    LOG.log(Level.INFO, "Pool going execute head of the list async task.");
+                    r = queue.removeFirst();
+                }
+
                 try {
-                    LOG.log(Level.INFO, String.format("%s wait data from the pool.", Thread.currentThread().getName()));
-                    this.pool.wait();
-                } catch (InterruptedException iex) {
-                    iex.printStackTrace();
+                    r.run();
+                } catch (RuntimeException ex) { //I know that is bad style, but it needs for check leak THREADS.
+                    ex.printStackTrace();
                 }
             }
-
-            Work work = null;
-            while ((work = this.pool.poll()) != null) {
-                LOG.log(Level.INFO, String.format("%s start execute async task.", Thread.currentThread().getName()));
-                new Thread(work).start();
-            }
         }
     }
 
     /**
-     * Entry point of application.
-     * @param args key for start.
+     * Show demo.
+     * @param args key for app.
      */
     public static void main(String[] args) {
-        new ThreadPool().start();
-    }
-
-    /**
-     * Main loop of program.
-     */
-    private void start() {
-        ThreadPool simplePool = new ThreadPool();
-
-        /**
-         * Publish our async task to the thread pool.
-         */
-        Thread publisher = new Thread() {
+        ThreadPool pool = new ThreadPool();
+        Runnable timer = new Runnable() {
             @Override
             public void run() {
-                simplePool.addWork(new Work());
-                simplePool.addWork(new Work());
+                System.out.println(System.currentTimeMillis());
             }
         };
-
-        /**
-         * It takes from the pool async task and start it.
-         */
-        Thread starter = new Thread() {
-            @Override
-            public void run() {
-                simplePool.execute();
-            }
-        };
-
-        publisher.start();
-        starter.start();
+        pool.execute(timer);
     }
-
 }
 

@@ -11,12 +11,11 @@ public class SharedObjectProblem {
     /**
      * Field which each thread must update.
      */
-    public static int counter = 0;
+    private static int counter = 0;
 
     /**
      * Entry point of application.
-     *
-     * @param args
+     * @param args keys for app.
      */
     public static void main(String[] args) {
         new SharedObjectProblem().start();
@@ -26,7 +25,8 @@ public class SharedObjectProblem {
      * All logic at this method.
      */
     public void start() {
-        for (int index = 0; index < 10; index++) {
+        final int threads = 10;
+        for (int index = 0; index < threads; index++) {
             Thread thread = new Thread(() -> counter++);
             thread.start();
         }

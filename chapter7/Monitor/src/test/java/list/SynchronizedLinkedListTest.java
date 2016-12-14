@@ -1,8 +1,6 @@
 package list;
-
 import collection.LinkedList;
 import org.junit.Test;
-
 import java.util.Iterator;
 
 import static org.hamcrest.core.Is.is;
