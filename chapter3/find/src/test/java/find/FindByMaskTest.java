@@ -46,8 +46,8 @@ public class FindByMaskTest {
         FindByMask findByMask = new FindByMask();
         Answerer answerer = null;
         String[] expected = new String[]{
-                String.format("%s%s%s%s%s", "r*.txt was found at ", PATH, "findbymask", FileTestUtils.SEPARATOR,  "rmask.txt, ") +
-                String.format("%s%s%s%s%s%s%s", "r*.txt was not found at ", PATH, "findbymask", FileTestUtils.SEPARATOR,
+                String.format("%s%s%s%s", "r*.txt was found at ", searchFolder, FileTestUtils.SEPARATOR,  "rmask.txt, ") +
+                String.format("%s%s%s%s%s%s", "r*.txt was not found at ",searchFolder, FileTestUtils.SEPARATOR,
                              "subfolder", System.getProperty("file.separator"), "mask.txt")
         };
 
