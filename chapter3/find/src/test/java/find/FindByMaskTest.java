@@ -54,8 +54,9 @@ public class FindByMaskTest {
         findByMask.find(keys);
         answerer = new Answerer(keys[6]);
         String[] actual = answerer.getAllStrings();
+        Arrays.asList(actual);
 
-        assertThat(Arrays.toString(actual), is(Arrays.toString(expected)));
+        assertThat(Arrays.asList(expected), is(Arrays.asList(expected)));
         FileTestUtils.removeDir(FIND_BY_MASK);
     }
 
