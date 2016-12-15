@@ -40,14 +40,14 @@ public class FindByMaskTest {
     @Test
     public void whenTrySearchFileByMaskShouldSaveResultInSpecifiedFile() throws Exception {
         FileTestUtils.createDirsAndFiles(FIND_BY_MASK, Arrays.asList("rmask.txt"), Arrays.asList("mask.txt"));
-        String searchFolder = String.format("%s%s", PATH, FIND_BY_MASK);
+        String searchFolder = String.format("%s%s%s", PATH, FileTestUtils.SEPARATOR, FIND_BY_MASK);
         File file = Files.createTempFile("mask", "").toFile();
         String[] keys = new String[]{"-d", searchFolder, "-n", "r*.txt", "-f", "-o", file.toString()};
         FindByMask findByMask = new FindByMask();
         Answerer answerer = null;
         String[] expected = new String[]{
-                String.format("%s%s%s%s%s", "r*.txt was found at ", PATH, "findbymask", System.getProperty("file.separator"),  "rmask.txt, ") +
-                String.format("%s%s%s%s%s%s%s", "r*.txt was not found at ", PATH, "findbymask", System.getProperty("file.separator"),
+                String.format("%s%s%s%s%s", "r*.txt was found at ", PATH, "findbymask", FileTestUtils.SEPARATOR,  "rmask.txt, ") +
+                String.format("%s%s%s%s%s%s%s", "r*.txt was not found at ", PATH, "findbymask", FileTestUtils.SEPARATOR,
                              "subfolder", System.getProperty("file.separator"), "mask.txt")
         };
 
