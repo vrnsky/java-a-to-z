@@ -45,11 +45,4 @@ public class FileTestUtils {
         FileUtils.deleteDirectory(new File(String.format("%s%s", PATH, rootName)));
     }
 
-<<<<<<< HEAD
-    public static void main(String[] args) {
-        System.out.println(FileUtils.getTempDirectory().toString());
-    }
-
-=======
->>>>>>> origin/master
 }
