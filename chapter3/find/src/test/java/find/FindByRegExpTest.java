@@ -6,7 +6,9 @@ import org.junit.Test;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -17,9 +19,9 @@ import static org.junit.Assert.assertThat;
 public class FindByRegExpTest {
 
     /**
-     * At this path will be search and save result.
+     * From this path will start search and will save result.
      */
-    private static final String PATH = FileUtils.getTempDirectoryPath();
+    private static final String PATH = FileUtils.getTempDirectory().toString();
 
     /**
      * Folder for place all dirs for test.
@@ -27,67 +29,32 @@ public class FindByRegExpTest {
     private static final String FIND_BY_REGEXP = "findbyregexp";
 
     /**
-     * One of requirement is searching in sub dirs.
-     */
-    private static final String SUBFOLDER = "subfolder";
-
-    /**
      * Some file for test.
      */
-    private static final String fileName = "regexp.txt";
+    private static final String fileName = "r*.txt";
 
     /**
      * Save all data find and not find.
      */
     @Test
     public void whenTrySearchFileByRegExpShouldCheckThatWeWriteResultInFile() throws Exception {
-        prepareForTest();
-        String searchFolder = String.format("%s%s", PATH, FIND_BY_REGEXP);
-        File result = Files.createTempFile("result_findbyregexp", ".txt").toFile();
-        String[] keys = new String[]{"-d", searchFolder, "-r", "^regexp.txt$", "-m", "-o", result.toString()};
+        FileTestUtils.createDirsAndFiles(FIND_BY_REGEXP, Arrays.asList("regexp.txt"), Arrays.asList("regexp.txt"));
+        String searchFolder = String.format("%s%s%s", PATH, FileTestUtils.SEPARATOR, FIND_BY_REGEXP);
+        File file = Files.createTempFile("regexp", "").toFile();
+        String[] keys = new String[]{"-d", searchFolder, "-n", fileName, "-f", "-o", file.toString()};
+        FindByMask findByMask = new FindByMask();
         Answerer answerer = null;
-        FindByRegExp finder = new FindByRegExp();
-        String[] expected = new String[]{
-                String.format("%s%s%s", "^regexp.txt$ was found at ", searchFolder , "\\regexp.txt, ") +
-                String.format("%s%s%s", "^regexp.txt$ was found at ", searchFolder, "\\subfolder\\regexp.txt")
-        };
+        List<String> expected = new ArrayList<>();
+        expected.add(String.format("%s%s%s%s%s", fileName, " was found at ", searchFolder, FileTestUtils.SEPARATOR, "regexp.txt"));
+        expected.add(String.format("%s%s%s%s%s%s%s", fileName, " was found at ", searchFolder, FileTestUtils.SEPARATOR, "subfolder", FileTestUtils.SEPARATOR, "regexp.txt"));
 
-
-        finder.find(keys);
+        findByMask.find(keys);
         answerer = new Answerer(keys[6]);
-        String[] actual = answerer.getAllStrings();
+        List<String> actual = Arrays.asList(answerer.getAllStrings());
 
-        afterTest();
-        assertThat(Arrays.toString(actual), is(Arrays.toString(expected)));
+        assertThat(actual.containsAll(expected), is(true));
+        FileTestUtils.removeDir(FIND_BY_REGEXP);
     }
 
-    /**
-     * Create dirs for this test.
-     */
-    private void prepareForTest() {
-        try {
-            String root = String.format("%s%s", PATH, FIND_BY_REGEXP);
-            String sub = String.format("%s%s%s%s", PATH, FIND_BY_REGEXP, File.separator, SUBFOLDER);
-            FileUtils.forceMkdir(new File(root));
-            FileUtils.forceMkdir(new File(sub));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(String.format("%s%s%s", root, File.separator, fileName)));
-            writer.close();
-            writer = new BufferedWriter(new FileWriter(String.format("%s%s%s", sub, File.separator, fileName)));
-            writer.close();
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-    }
-
-    /**
-     * Removing dirs which created for this test.
-     */
-    private void afterTest() {
-        try {
-            FileUtils.deleteDirectory(new File(String.format("%s%s", PATH, FIND_BY_REGEXP)));
-        } catch (IOException ioex) {
-            ioex.printStackTrace();
-        }
-    }
 
 }

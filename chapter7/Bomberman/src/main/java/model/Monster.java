@@ -10,6 +10,8 @@ package model;
  */
 public class Monster extends Actor implements Runnable {
 
+
+    private static final int WAIT_TIME = 5000;
     /**
      * Create a new monster.
      * @param board for moving.
@@ -37,9 +39,8 @@ public class Monster extends Actor implements Runnable {
                     int nextY = getY();
                     synchronized (board.getBlock(nextX, nextY)) {
                         if (board.getBlock(nextX, nextY).getActor() != null) {
-                            final int waitTime = 5000;
                             try {
-                                Thread.sleep(waitTime);
+                                Thread.sleep(WAIT_TIME);
                             } catch (InterruptedException iex) {
                                 iex.printStackTrace();
                             }
