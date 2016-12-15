@@ -2,7 +2,7 @@ package find;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for KeysValidator.java.
