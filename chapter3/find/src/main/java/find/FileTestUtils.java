@@ -14,12 +14,12 @@ public class FileTestUtils {
 
     private static final String SUBFOLDER = "subfolder";
 
-    private static final String SEPARATOR = System.getProperty("file.separator");
+    public static final String SEPARATOR = System.getProperty("file.separator");
 
     /**
      * From this path will start search and will save result.
      */
-    private static final String PATH = String.format("%s%s", FileUtils.getTempDirectoryPath(), SEPARATOR);
+    private static final String PATH = FileUtils.getTempDirectory().toString();
 
 
     private FileTestUtils() {
@@ -27,7 +27,7 @@ public class FileTestUtils {
     }
 
     public static void createDirsAndFiles(String rootName, List<String> rootFiles, List<String> subFiles) throws IOException {
-        FileUtils.forceMkdir(new File(String.format("%s%s", PATH, rootName)));
+        FileUtils.forceMkdir(new File(String.format("%s%s%s", PATH, SEPARATOR, rootName)));
         FileUtils.forceMkdir(new File(String.format("%s%s%s%s", PATH, rootName, SEPARATOR, SUBFOLDER)));
         for (String rootFile : rootFiles) {
             BufferedWriter writer = new BufferedWriter(new FileWriter(String.format("%s%s%s%s", PATH, rootName, SEPARATOR, rootFile)));
@@ -43,6 +43,10 @@ public class FileTestUtils {
 
     public static void removeDir(String rootName) throws IOException {
         FileUtils.deleteDirectory(new File(String.format("%s%s", PATH, rootName)));
+    }
+
+    public static void main(String[] args) {
+        System.out.println(PATH);
     }
 
 }
