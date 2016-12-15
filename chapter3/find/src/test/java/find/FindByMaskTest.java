@@ -4,18 +4,10 @@ import chat.Answerer;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
-
-import java.nio.file.FileSystemException;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -55,7 +47,7 @@ public class FindByMaskTest {
         answerer = new Answerer(keys[6]);
         List<String> actual = Arrays.asList(answerer.getAllStrings());
 
-        assertThat(actual, is(expected));
+        assertThat(actual.containsAll(expected), is(true));
         FileTestUtils.removeDir(FIND_BY_MASK);
     }
 
