@@ -3,6 +3,7 @@ package find;
 import org.apache.commons.io.FileUtils;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -28,15 +29,14 @@ public class FileTestUtils {
 
     public static void createDirsAndFiles(String rootName, List<String> rootFiles, List<String> subFiles) throws IOException {
         FileUtils.forceMkdir(new File(String.format("%s%s%s", PATH, SEPARATOR, rootName)));
-        System.out.println(String.format("%s%s%s", PATH, SEPARATOR, rootName));
-        FileUtils.forceMkdir(new File(String.format("%s%s%s%s", PATH, rootName, SEPARATOR, SUBFOLDER)));
+        FileUtils.forceMkdir(new File(String.format("%s%s%s%s%s", PATH, SEPARATOR, rootName, SEPARATOR, SUBFOLDER)));
         for (String rootFile : rootFiles) {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(String.format("%s%s%s%s", PATH, rootName, SEPARATOR, rootFile)));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(String.format("%s%s%s%s%s", PATH, SEPARATOR, rootName, SEPARATOR, rootFile)));
             writer.close();
         }
 
         for (String subFile : subFiles) {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(String.format("%s%s%s%s%s%s", PATH, rootName, SEPARATOR, SUBFOLDER, SEPARATOR, subFile)));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(String.format("%s%s%s%s%s%s%s", PATH, SEPARATOR, rootName, SEPARATOR, SUBFOLDER, SEPARATOR, subFile)));
             writer.close();
         }
 
@@ -45,6 +45,7 @@ public class FileTestUtils {
     public static void removeDir(String rootName) throws IOException {
         FileUtils.deleteDirectory(new File(String.format("%s%s", PATH, rootName)));
     }
+
 
 
 }

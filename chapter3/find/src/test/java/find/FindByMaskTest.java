@@ -16,7 +16,9 @@ import java.nio.file.FileSystemException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Unit test for FindByMask.java.
@@ -26,7 +28,7 @@ public class FindByMaskTest {
     /**
      * From this path will start search and will save result.
      */
-    private static final String PATH = FileUtils.getTempDirectoryPath();
+    private static final String PATH = FileUtils.getTempDirectory().toString();
 
     /**
      * Folder for place testing files.
@@ -45,18 +47,15 @@ public class FindByMaskTest {
         String[] keys = new String[]{"-d", searchFolder, "-n", "r*.txt", "-f", "-o", file.toString()};
         FindByMask findByMask = new FindByMask();
         Answerer answerer = null;
-        String[] expected = new String[]{
-                String.format("%s%s%s%s", "r*.txt was found at ", searchFolder, FileTestUtils.SEPARATOR,  "rmask.txt, ") +
-                String.format("%s%s%s%s%s%s", "r*.txt was not found at ",searchFolder, FileTestUtils.SEPARATOR,
-                             "subfolder", System.getProperty("file.separator"), "mask.txt")
-        };
+        List<String> expected = new ArrayList<>();
+        expected.add(String.format("%s%s%s%s", "r*.txt was found at ", searchFolder, FileTestUtils.SEPARATOR, "rmask.txt"));
+        expected.add(String.format("%s%s%s%s%s%s", "r*.txt was not found at ", searchFolder, FileTestUtils.SEPARATOR, "subfolder", FileTestUtils.SEPARATOR, "mask.txt"));
 
         findByMask.find(keys);
         answerer = new Answerer(keys[6]);
-        String[] actual = answerer.getAllStrings();
-        Arrays.asList(actual);
+        List<String> actual = Arrays.asList(answerer.getAllStrings());
 
-        assertThat(Arrays.asList(expected), is(Arrays.asList(expected)));
+        assertThat(actual, is(expected));
         FileTestUtils.removeDir(FIND_BY_MASK);
     }
 
