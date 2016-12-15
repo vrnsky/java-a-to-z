@@ -12,9 +12,6 @@ import java.util.List;
  */
 public class FileTestUtils {
 
-
-
-
     private static final String SUBFOLDER = "subfolder";
 
     private static final String SEPARATOR = System.getProperty("file.separator");
@@ -23,6 +20,7 @@ public class FileTestUtils {
      * From this path will start search and will save result.
      */
     private static final String PATH = String.format("%s%s", FileUtils.getTempDirectoryPath(), SEPARATOR);
+
 
     private FileTestUtils() {
 
@@ -47,8 +45,11 @@ public class FileTestUtils {
         FileUtils.deleteDirectory(new File(String.format("%s%s", PATH, rootName)));
     }
 
+<<<<<<< HEAD
     public static void main(String[] args) {
         System.out.println(FileUtils.getTempDirectory().toString());
     }
 
+=======
+>>>>>>> origin/master
 }
