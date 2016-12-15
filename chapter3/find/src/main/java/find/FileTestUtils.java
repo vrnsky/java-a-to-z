@@ -28,6 +28,7 @@ public class FileTestUtils {
 
     public static void createDirsAndFiles(String rootName, List<String> rootFiles, List<String> subFiles) throws IOException {
         FileUtils.forceMkdir(new File(String.format("%s%s%s", PATH, SEPARATOR, rootName)));
+        System.out.println(String.format("%s%s%s", PATH, SEPARATOR, rootName));
         FileUtils.forceMkdir(new File(String.format("%s%s%s%s", PATH, rootName, SEPARATOR, SUBFOLDER)));
         for (String rootFile : rootFiles) {
             BufferedWriter writer = new BufferedWriter(new FileWriter(String.format("%s%s%s%s", PATH, rootName, SEPARATOR, rootFile)));
@@ -45,8 +46,5 @@ public class FileTestUtils {
         FileUtils.deleteDirectory(new File(String.format("%s%s", PATH, rootName)));
     }
 
-    public static void main(String[] args) {
-        System.out.println(PATH);
-    }
 
 }
