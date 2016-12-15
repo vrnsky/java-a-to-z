@@ -88,7 +88,7 @@ public class LinkedSetTest {
     /**
      * When try add ten thousands element to the linked set should check that linked set works correct.
      */
-    @Test(timeout = 800)
+    @Test(timeout = 1000)
     public void whenTryAddTenThousandElementToTheLinkedSetShouldCheckThatLinkedWorks() {
         LinkedSet<String> set = new LinkedSet<>();
         for(int index = 0; index < 10000; index++) {

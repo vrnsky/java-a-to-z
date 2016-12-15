@@ -55,7 +55,7 @@ public class SimpleSetTest {
     /**
      * When try add ten thousands of string should check that set accept it all for some time.
      */
-    @Test(timeout = 130)
+    @Test(timeout = 200)
     public void whenTryAddTenThousandsToSimpleSetShouldCheckThatSetAcceptAllDataInGiveTime() {
         SimpleSet<String> set = new SimpleSet<>();
         for(int index = 0; index < 10000; index++) {
