@@ -3,8 +3,13 @@ import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.nullValue;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
+
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
 
 /**
  * @author evrnsky
@@ -16,16 +21,17 @@ public class FileSystemLoadTest {
     /**
      * Path to directory which will use in this test.
      */
-    private static final String PATH = String.format("%s%s%s",FileUtils.getUserDirectoryPath(), File.separator, "cache");
+    private static final String PATH = String.format("%s%s%s",FileUtils.getTempDirectory(), File.separator, "cache");
 
     /**
      * When try load exist file should check that method return correct file.
      */
     @Test
-    public void whenTryLoadExistFileShouldCheckThatMethodUploadItToMemory() {
+    public void whenTryLoadExistFileShouldCheckThatMethodUploadItToMemory() throws IOException {
+        File cache = Files.createTempFile("cache", ".txt").toFile();
         LoadMethod loadMethod = new FileSystemLoad();
-        File expectedFile = new File(String.format("%s%s%s", PATH, File.separator, "cache.txt"));
-        File actualFile = loadMethod.load(String.format("%s%s%s", PATH, File.separator, "cache.txt"));
+        File expectedFile = new File(cache.toString());
+        File actualFile = loadMethod.load(cache.toString());
         assertThat(actualFile, is(expectedFile));
     }
 

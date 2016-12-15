@@ -3,9 +3,8 @@ package model;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -23,7 +22,7 @@ public class SimpleCacheTest {
     /**
      * Path which will use for this test.
      */
-    private static final String PATH = String.format("%s%s%s", FileUtils.getUserDirectoryPath(), File.separator, "cache");
+    private static final String PATH = String.format("%s%s%s", FileUtils.getTempDirectory(), System.getProperty("file.separator"), "cache");
 
     /**
      * When cache is only start should check that size is zero and it is empty.
@@ -43,7 +42,13 @@ public class SimpleCacheTest {
         AbstractCache cache = new SimpleCache(new FileSystemLoad());
         List<String> strings = new ArrayList<>();
         strings.add("Please, cache me!");
-        List<String> cached = cache.get(String.format("%s%s%s", PATH, File.separator, "cache.txt"));
+        File cachedFile = Files.createTempFile("cache", ".txt").toFile();
+        BufferedWriter writer = new BufferedWriter(new FileWriter(cachedFile));
+        writer.write("Please, cache me!");
+        writer.flush();
+        writer.close();
+
+        List<String> cached = cache.get(cachedFile.toString());
         Iterator<String> iterator = cached.iterator();
         for(String string : strings) {
             assertThat(string, is(iterator.next()));
