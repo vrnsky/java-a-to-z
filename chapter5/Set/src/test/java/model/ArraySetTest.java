@@ -87,7 +87,7 @@ public class ArraySetTest {
     /**
      * When try add ten thousand to the array set should check that it take a lot of time.
      */
-    @Test(timeout = 1100)
+    @Test(timeout = 1500)
     public void whenTryAddTenThousandsElementToTheArraySetShouldCheckThatThisOperationTakeBigTime() {
         ArraySet<String> set = new ArraySet<>();
         for(int index = 0; index < 10000; index++) {
