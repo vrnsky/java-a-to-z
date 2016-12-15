@@ -25,20 +25,16 @@ public class ControllQualityTest {
      */
     @Test
     public void whenTryMoveGoodFruitToWarehouseShouldCheckThatAtWarehouse() {
-
-        //Assign block
         ControllQuality control = new ControllQuality();
         DateTime expairTime = new DateTime();
         expairTime = expairTime.plusMonths(3);
         Food food = new Food("food", expairTime , 3.5, 0);
         String expected = "At this moment at the warehouse:\n" + food.toString();
 
-        //Action block
         control.addStorage(new Warehouse());
         control.moveFood(food);
         Warehouse warehouse = (Warehouse)control.getStorage(0);
 
-        //Assert block
         assertThat(warehouse.toString(), is(expected));
     }
 
@@ -48,21 +44,18 @@ public class ControllQualityTest {
     @Test
     public void whenTryMoveSomeFoodToShopShouldCheckThatFoodOnTheShop() {
 
-        //Assign block
         ControllQuality control = new ControllQuality();
         DateTime createTime = new DateTime();
         DateTime expaireTime = new DateTime();
         expaireTime = expaireTime.plusMonths(2);
-        createTime = createTime.minusDays(16);
+        createTime = createTime.minusDays(17);
         Food food = new Food("food", createTime, expaireTime, 3.5, 0);
         String expected = "At this moment at the shop:\n" + food.toString();
 
-        //Action block
         control.addStorage(new Shop());
         control.moveFood(food);
         Shop shop = (Shop)control.getStorage(0);
 
-        //Assert block
         assertThat(shop.toString(), is(expected));
     }
 
@@ -71,8 +64,6 @@ public class ControllQualityTest {
      */
     @Test
     public void whenTryMoveSomeFoodWhichMustWithDiscountShouldCheckThatIsCorrect() {
-
-        //Assign block
         ControllQuality control = new ControllQuality();
         DateTime createTime = new DateTime();
         createTime = createTime.plusDays(4);
@@ -80,14 +71,11 @@ public class ControllQualityTest {
         expaireTime = expaireTime.plusDays(10);
         Food food = new Food("food", createTime, expaireTime, 3.5, 0);
 
-
-        //Action block
         control.addStorage(new Shop());
         control.moveFood(food);
         String expected = "At this moment at the shop:\n" + food.toString();
         Shop shop = (Shop)control.getStorage(0);
 
-        //Assert block
         assertThat(shop.toString(), is(expected));
     }
 
@@ -96,8 +84,6 @@ public class ControllQualityTest {
      */
     @Test
     public void whenTryMoveSomeFoodWhichMustAtTheTrashShouldCheckThatTrashHaveIt() {
-
-        //Assign block
         ControllQuality control = new ControllQuality();
         DateTime expaireTime = new DateTime();
         expaireTime = expaireTime.plusDays(1).plusHours(23);
@@ -106,13 +92,9 @@ public class ControllQualityTest {
         Food food = new Food("food", createTime, expaireTime, 3.5, 0);
         String expected = "At this moment at the trash:\n" + food.toString();
 
-        //Action block
         control.addStorage(new Trash());
         control.moveFood(food);
         Trash trash = (Trash)control.getStorage(0);
-        System.out.println(trash.isSuitable(food));
-
-        //Assert block
         assertThat(trash.toString(), is(expected));
     }
 

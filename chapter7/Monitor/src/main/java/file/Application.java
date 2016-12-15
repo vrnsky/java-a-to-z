@@ -35,6 +35,10 @@ public class Application extends Thread {
      */
     private boolean init = false;
 
+    /**
+     * Create a new app.
+     * @param text for search.
+     */
     public Application(final String text) {
         this.text = text;
         this.fileStorage = new FileStorage();
@@ -48,11 +52,11 @@ public class Application extends Thread {
      */
     @Override
     public void run() {
-        while(run.get()) {
-            if(!init) {
+        while (run.get()) {
+            if (!init) {
                 initAllThread();
-            } else if(run.get()) {
-                if(textSearcher.getFounded()) {
+            } else if (run.get()) {
+                if (textSearcher.getFounded()) {
                     run.set(false);
                     textSearcher.brake();
                 }

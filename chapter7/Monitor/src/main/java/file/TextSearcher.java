@@ -99,7 +99,7 @@ public class TextSearcher extends Thread {
      * @return list of found files.
      */
     public List<String> getFileList() {
-        if(!run.get()) {
+        if (!run.get()) {
             throw new IllegalStateException("Wait for finish of thread work.");
         }
         return this.resultFiles;

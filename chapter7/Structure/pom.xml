@@ -1,0 +1,15 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ru.evrnsky.chapter7.Structure</groupId>
+	<artifactId>Structure</artifactId>
+	<name>Structure</name>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	
+	<parent>
+		<groupId>ru.evrnsky.chapter7</groupId>
+		<artifactId>chapter7</artifactId>
+		<version>1.0</version>
+	</parent>
+
+</project>

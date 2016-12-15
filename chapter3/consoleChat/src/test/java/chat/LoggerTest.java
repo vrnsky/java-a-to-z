@@ -16,22 +16,17 @@ import static org.hamcrest.core.Is.is;
 public class LoggerTest {
 
     /**
-     * At this path exist all resources files.
-     */
-    private static final String RESOURCE_PATH = String.format("%s%s", FileUtils.getTempDirectoryPath(), "text.txt");
-
-    /**
      * When try write some data log should check that it is saved.
      */
     @Test
     public void whenWriteSomeDataToLogShouldCheckThatItSaved() throws IOException {
-        System.out.println(RESOURCE_PATH);
+        File temp = File.createTempFile("logger", ".txt");
         Logger logger = null;
         Optional<Answerer> answerer;
         String expected = "Hello!";
-        logger = new Logger(RESOURCE_PATH);
-        logger.log("Hello!");
-        answerer = Optional.of(new Answerer(RESOURCE_PATH));
+        logger = new Logger(temp.getAbsolutePath());
+        logger.log(expected);
+        answerer = Optional.of(new Answerer(temp.getAbsolutePath()));
         String actual = "";
         if(answerer.isPresent()) {
             actual = answerer.get().getRandomString();

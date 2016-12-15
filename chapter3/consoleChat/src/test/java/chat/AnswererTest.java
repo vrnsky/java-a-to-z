@@ -5,12 +5,11 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.attribute.FileAttribute;
 import java.util.Optional;
 
 /**
@@ -23,11 +22,17 @@ public class AnswererTest {
      * Attention method can throw null pointer exception if file was not found for avoid it use absolute path.
      */
     @Test
-    public void whenTryGetARandomStringFromAnswerFileShouldReturnAStringFromFile() throws IOException {
+    public void whenTryGetARandomStringFromAnswerFileShouldReturnAStringFromFile() throws IOException, InterruptedException {
         Optional<Answerer> answerer;
         String expected = "Hello!";
-        answerer = Optional.of(new Answerer(String.format("%s%s%s", FileUtils.getTempDirectoryPath(), File.separator, "text.txt")));
+        File temp = File.createTempFile("textemp", ".txt");
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(temp)));
+        writer.write(expected);
+        writer.flush();
+        writer.close();
 
+
+        answerer = Optional.of(new Answerer(String.format("%s", temp.getAbsoluteFile())));
         String actual = "";
         if(answerer.isPresent()) {
             actual = answerer.get().getRandomString();
