@@ -1,11 +1,6 @@
 package jcstress;
-import org.openjdk.jcstress.annotations.State;
-import org.openjdk.jcstress.annotations.JCStressTest;
-import org.openjdk.jcstress.annotations.Outcome;
-import org.openjdk.jcstress.annotations.Description;
-import org.openjdk.jcstress.annotations.Actor;
-import org.openjdk.jcstress.annotations.Arbiter;
-import org.openjdk.jcstress.annotations.Expect;
+
+import org.openjdk.jcstress.annotations.*;
 import org.openjdk.jcstress.infra.results.BooleanResult2;
 
 /**
