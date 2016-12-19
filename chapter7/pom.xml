@@ -13,7 +13,7 @@
     </parent>
 
     <modules>
-        <module>JMM</module>
+        <!--<module>JMM</module>-->
         <module>Monitor</module>
         <module>Non-blocking-algo</module>
         <module>Threads</module>
