@@ -2,6 +2,8 @@ package find;
 
 /**
  * Entry point in application create need finder depending on key.
+ * @author vrnsky.
+ * @version 0.1
  */
 public class Finder {
 

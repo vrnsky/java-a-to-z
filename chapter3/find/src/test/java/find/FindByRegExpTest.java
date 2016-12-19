@@ -15,6 +15,8 @@ import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for FindByRegExp.java.
+ * @author vrnsky
+ * @version 0.1
  */
 public class FindByRegExpTest {
 

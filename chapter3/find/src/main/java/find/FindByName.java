@@ -1,11 +1,14 @@
 package find;
-
-import java.io.*;
-import java.nio.file.NoSuchFileException;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.File;
+import java.io.IOException;
 import java.util.Optional;
 
 /**
  * Search file by name.
+ * @author vrnsky.
+ * @version 0.2
  */
 public class FindByName {
 

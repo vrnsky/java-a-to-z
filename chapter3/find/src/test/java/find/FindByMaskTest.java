@@ -12,9 +12,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Unit test for FindByMask.java.
- */
 public class FindByMaskTest {
 
     /**

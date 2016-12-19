@@ -1,11 +1,12 @@
 package find;
-
 import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * Find file by regular expression.
+ * @author vrnsky.
+ * @version 0.1
  */
 public class FindByRegExp extends FindByName {
 

@@ -2,6 +2,8 @@ package find;
 
 /**
  * Validator for input keys, it check input keys with list of existing key.
+ * @author vrnsky.
+ * @version 0.1
  */
 public class KeysValidator {
 

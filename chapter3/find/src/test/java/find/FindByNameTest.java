@@ -13,6 +13,8 @@ import java.util.List;
 
 /**
  *  Unit test for FindByName.java.
+ *  @author vrnsky
+ *  @version 0.1
  */
 public class FindByNameTest {
 

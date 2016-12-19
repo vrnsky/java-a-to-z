@@ -6,6 +6,8 @@ import java.nio.file.*;
 
 /**
  * Find a file by mask.
+ * @author vrnsky
+ * @version 0.1
  */
 public class FindByMask extends FindByName {
 
