@@ -4,7 +4,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author evrnsky
- * @version 0.2
+ * @version 0.3
  * @since 06.12.2016
  * Monster from game bomberman.
  * If it try to move to the busy block, it must wait 5 seconds.
@@ -15,12 +15,7 @@ public class Monster extends Actor implements Runnable {
     /**
      * Fair lock which need for avoid deadlock and right order of steps.
      */
-    private final Lock currentCell = new ReentrantLock(true);
-
-    /**
-     * Fair lock which need for avoid deadlock and right order of steps.
-     */
-    private final Lock nextCell = new ReentrantLock(true);
+    private final Lock stepOperation = new ReentrantLock(true);
 
     /**
      * Time which wait monster for moving.
@@ -41,11 +36,32 @@ public class Monster extends Actor implements Runnable {
     /**
      * Moving monster at the board.
      * @param direction for moving.
-     * TODO rewrite this method.
      */
     @Override
     void performMoving(Direction direction) {
-        boolean stepMake = false;
+        boolean makeStep = false;
+
+        while (!makeStep) {
+            if(stepOperation.tryLock()) {
+                try {
+                    if(isValidMoving(direction)) {
+                        int prevX = getX();
+                        int prevY = getY();
+                        updateCoordinates(direction);
+                        board.getBlock(getX(), getY()).attachActor(this);
+                        board.getBlock(prevX, prevY).detachActor();
+                        makeStep = true;
+                    }
+                } finally {
+                    stepOperation.unlock();
+                }
+            }
+            try {
+                Thread.sleep(WAIT_TIME);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
