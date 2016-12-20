@@ -18,5 +18,10 @@
 			<artifactId>SoftWeak</artifactId>
 			<version>1.0</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>ru.evrnsky.chapter3.find</groupId>
+            <artifactId>find</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
 </project>

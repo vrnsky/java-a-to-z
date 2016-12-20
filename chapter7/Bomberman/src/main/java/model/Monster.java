@@ -1,8 +1,10 @@
 package model;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author evrnsky
- * @version 0.1
+ * @version 0.2
  * @since 06.12.2016
  * Monster from game bomberman.
  * If it try to move to the busy block, it must wait 5 seconds.
@@ -10,8 +12,22 @@ package model;
  */
 public class Monster extends Actor implements Runnable {
 
+    /**
+     * Fair lock which need for avoid deadlock and right order of steps.
+     */
+    private final Lock currentCell = new ReentrantLock(true);
 
+    /**
+     * Fair lock which need for avoid deadlock and right order of steps.
+     */
+    private final Lock nextCell = new ReentrantLock(true);
+
+    /**
+     * Time which wait monster for moving.
+     */
     private static final int WAIT_TIME = 5000;
+
+
     /**
      * Create a new monster.
      * @param board for moving.
@@ -25,34 +41,11 @@ public class Monster extends Actor implements Runnable {
     /**
      * Moving monster at the board.
      * @param direction for moving.
+     * TODO rewrite this method.
      */
     @Override
     void performMoving(Direction direction) {
         boolean stepMake = false;
-        synchronized (board.getBlock(getX(), getY())) {
-            while (!stepMake) {
-                if (isValidMoving(direction)) {
-                    int prevX = getX();
-                    int prevY = getY();
-                    updateCoordinates(direction);
-                    int nextX = getX();
-                    int nextY = getY();
-                    synchronized (board.getBlock(nextX, nextY)) {
-                        if (board.getBlock(nextX, nextY).getActor() != null) {
-                            try {
-                                Thread.sleep(WAIT_TIME);
-                            } catch (InterruptedException iex) {
-                                iex.printStackTrace();
-                            }
-                        } else {
-                            board.getBlock(nextX, nextY).attachActor(this);
-                            board.getBlock(prevX, prevY).detachActor();
-                            stepMake = true;
-                        }
-                    }
-                }
-            }
-        }
     }
 
     /**

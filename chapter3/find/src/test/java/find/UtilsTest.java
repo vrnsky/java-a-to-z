@@ -2,14 +2,19 @@ package find;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
  * @author evrnsky
- * @version 0.1
+ * @version 0.2
  * @since 19.12.2016
  * Unit test for file utils which provide next function create and remove catalogs.
  *
@@ -44,6 +49,25 @@ public class UtilsTest {
         FileTestUtils.removeDir("testing");
         File rootFile = new File(String.format("%s%s%s", PATH, FileTestUtils.SEPARATOR, "testing"));
         assertThat(rootFile.exists(), is(false));
+    }
+
+    /**
+     * When create a file and fill it by data should check that all ok.
+     * @throws IOException if problem with file system.
+     */
+    @Test
+    public void whenCreateAndFillFileShouldCheckThatAllOk() throws IOException {
+        final String folder = "folder";
+        final String fileName = "test.txt";
+        List<String> expectedStrings = Arrays.asList("happy");
+        FileTestUtils.createAndFillFile(folder, fileName,  expectedStrings);
+        BufferedReader reader = new BufferedReader(new FileReader(String.format("%s%s%s%s%s", PATH, FileTestUtils.SEPARATOR, folder, FileTestUtils.SEPARATOR, fileName)));
+        List<String> strings = new ArrayList<>();
+        String s = "";
+        while ((s = reader.readLine()) != null) {
+            strings.add(s);
+        }
+        assertThat(strings, is(expectedStrings));
     }
 
 }
