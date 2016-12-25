@@ -1,8 +1,7 @@
 package collection;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -17,16 +16,12 @@ public class SimpleListTest {
      */
     @Test
     public void whenTryAddValueToDynamicListShouldCheckThatValueWasAdded() {
-
-        //Assign block
         SimpleContainer<String> container = new SimpleList<>();
         String expected = "Hello";
 
-        //Action block
         container.add(expected);
         String actual = container.get(0);
 
-        //Assert block
         assertThat(actual, is(expected));
     }
 
@@ -35,16 +30,12 @@ public class SimpleListTest {
      */
     @Test
     public void whenTryRemoveValueFromDynamicListShouldCheckThatRemoveMethodReturnCorrectObject() {
-
-        //Assign block
         SimpleContainer<String> container = new SimpleList<>();
         String expected = "Java";
 
-        //Action block
         container.add(expected);
         String actual = container.remove(0);
 
-        //Assert block
         assertThat(actual, is(expected));
     }
 
@@ -53,16 +44,12 @@ public class SimpleListTest {
      */
     @Test
     public void whenTryCheckThatSomeObjectContainsAtTheListShouldCheckThatContainsReturnTrue() {
-
-        //Assign block
         SimpleContainer<String> container = new SimpleList<>();
         String value = "Spring";
 
-        //Action block
         container.add(value);
         boolean actual = container.contains(value);
 
-        //Assert block
         assertThat(actual, is(true));
     }
 
@@ -72,16 +59,13 @@ public class SimpleListTest {
     @Test
     public void whenTryAddValueButListIsFullShouldCheckThatListAcceptNewValue() {
 
-        //Assign block
         SimpleContainer<String> container = new SimpleList<>(1);
         String expected = "Second element";
 
-        //Action block
         container.add("First element");
         container.add(expected);
         String actual = container.get(1);
 
-        //Assert block
         assertThat(actual, is(expected));
     }
 
@@ -90,11 +74,8 @@ public class SimpleListTest {
      */
     @Test
     public void whenTryGetIteratorFromListShouldCheckThatIteratorWorksCorrect() {
-
-        //Assign block
         SimpleContainer<String> container = new SimpleList<>();
 
-        //Action block
         container.add("String");
         container.add("Values");
         Iterator<String> iterator = container.iterator();
@@ -107,12 +88,9 @@ public class SimpleListTest {
      */
     @Test
     public void whenTryMoveAcrossValueUsingIteratorShouldCheckThatIteratorReturnAllValues() {
-
-        //Assign block
         SimpleContainer<String> container = new SimpleList<>();
         String[] expected = {"String", "Values", "Remove"};
 
-        //Action block
         container.add(expected[0]);
         container.add(expected[1]);
         container.add(expected[2]);
@@ -123,7 +101,6 @@ public class SimpleListTest {
             actual[index++] = iterator.next();
         }
 
-        //Assert block
         assertThat(Arrays.toString(actual), is(Arrays.toString(expected)));
 
     }
