@@ -95,20 +95,66 @@ public class LinkedList<T> implements SimpleContainer<T> {
         return search;
     }
 
+
     /**
-     * Link given element as last element at the list
-     * @param t value which will add.
+     * Check that given elements contains at the list.
+     * @param o object for checking.
+     * @return true if object contains at the list.
      */
-    private void linkLast(T t) {
-        Node<T> l = last;
-        Node<T> newNode = new Node(l, t, null);
-        last = newNode;
-        if(l == null) {
-            first = newNode;
-        } else {
-            l.next = newNode;
+    @Override
+    public boolean contains(Object o) {
+        T obj = (T)o;
+        Node<T> currentNode = first;
+        boolean contains = false;
+        for(int index = 0; index < this.size; index++) {
+            contains = currentNode.elem.equals(obj);
+            currentNode = currentNode.next;
         }
-        this.size++;
+        return contains;
+    }
+
+    /**
+     * Return count of elements in list.
+     * @return count of elements.
+     */
+    public int size() {
+        return this.size;
+    }
+
+    /**
+     * Reverse list.
+     */
+    public void reverse() {
+       Node temp = first;
+       first = last;
+       last = temp;
+
+       Node current = first;
+
+       while (current != null) {
+           temp = current.next;
+           current.next = current.prev;
+           current.prev = temp;
+           current = current.next;
+       }
+    }
+
+    /**
+     * Return instance of inner class Itr.
+     * @return instance of Itr class.
+     */
+    @Override
+    public Iterator<T> iterator() {
+        return new Itr();
+    }
+
+    /**
+     * Validate position for prevent index out.
+     * @param position it is given value from client.
+     * @return true if position correct, otherwise false.
+     */
+    private boolean validate(int position) {
+        return ((position >= 0) && (position < size));
     }
 
     /**
@@ -142,47 +188,21 @@ public class LinkedList<T> implements SimpleContainer<T> {
     }
 
     /**
-     * Check that given elements contains at the list.
-     * @param o object for checking.
-     * @return true if object contains at the list.
+     * Link given element as last element at the list
+     * @param t value which will add.
      */
-    @Override
-    public boolean contains(Object o) {
-        T obj = (T)o;
-        Node<T> currentNode = first;
-        boolean contains = false;
-        for(int index = 0; index < this.size; index++) {
-            contains = currentNode.elem.equals(obj);
-            currentNode = currentNode.next;
+    private void linkLast(T t) {
+        Node<T> l = last;
+        Node<T> newNode = new Node(l, t, null);
+        last = newNode;
+        if(l == null) {
+            first = newNode;
+        } else {
+            l.next = newNode;
         }
-        return contains;
+        this.size++;
     }
 
-    /**
-     * Validate position for prevent index out.
-     * @param position it is given value from client.
-     * @return true if position correct, otherwise false.
-     */
-    private boolean validate(int position) {
-        return ((position >= 0) && (position < size));
-    }
-
-    /**
-     * Return count of elements in list.
-     * @return count of elements.
-     */
-    public int size() {
-        return this.size;
-    }
-
-    /**
-     * Return instance of inner class Itr.
-     * @return instance of Itr class.
-     */
-    @Override
-    public Iterator<T> iterator() {
-        return new Itr();
-    }
 
     /**
      * Iterator. It allow move across all element in the list.
