@@ -1,12 +1,11 @@
 package collection;
 
 import org.junit.Test;
-
 import java.util.Arrays;
 import java.util.Iterator;
-
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.hamcrest.collection.IsArrayContainingInOrder.arrayContaining;
+import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for LinkedList.java
@@ -18,16 +17,12 @@ public class LinkedListTest {
      */
     @Test
     public void whenTryAddValuesToLinkedListShouldCheckThatValueWasAdded() {
-
-        //Assign block
         SimpleContainer<String> container = new LinkedList<>();
         String expected = "Hello";
 
-        //Action block
         container.add(expected);
         String actual = container.get(0);
 
-        //Assert block
         assertThat(actual, is(expected));
     }
 
@@ -36,16 +31,12 @@ public class LinkedListTest {
      */
     @Test
     public void whenTryRemoveValueShouldCheckThatValueWasRemoved() {
-
-        //Assign block
         SimpleContainer<String> container = new LinkedList<>();
         String expected = "Hello";
 
-        //Action block
         container.add(expected);
         String actual = container.remove(0);
 
-        //Assert block
         assertThat(actual, is(expected));
     }
 
@@ -54,16 +45,12 @@ public class LinkedListTest {
      */
     @Test
     public void whenTryCheckThatSomeObjectContainsAtTheListShouldCheckThatMethodWorksCorrect() {
-
-        //Assign block
         SimpleContainer<String> container = new LinkedList<>();
         String value = "Java";
 
-        //Action block
         container.add(value);
         boolean actual = container.contains(value);
 
-        //Assert block
         assertThat(actual, is(true));
     }
 
@@ -72,12 +59,9 @@ public class LinkedListTest {
      */
     @Test
     public void whenTryGetIteratorForMovingAcrossListShouldCheckThatIteratorWorksCorrect() {
-
-        //Assign block
         SimpleContainer<String> container = new LinkedList<>();
         String[] expected = {"Hello", "World", "!"};
 
-        //Action block
         container.add(expected[0]);
         container.add(expected[1]);
         container.add(expected[2]);
@@ -88,7 +72,6 @@ public class LinkedListTest {
             actual[index++] = iterator.next();
         }
 
-        //Assert block
         assertThat(Arrays.toString(actual), is(Arrays.toString(expected)));
     }
 
@@ -98,14 +81,30 @@ public class LinkedListTest {
     @Test
     public void whenTryMoveAcrossListUseIteratorShouldCheckThatMethodHasNextOfIteratorReturnTrue() {
 
-        //Assign block
         SimpleContainer<String> container = new LinkedList<>();
 
-        //Action block
         container.add("non empty");
         Iterator<String> iterator = container.iterator();
 
-        //Assert block
         assertThat(iterator.hasNext(), is(true));
     }
+
+    /**
+     * When reverse the double linked list should check that all reversed.
+     */
+    @Test
+    public void whenReverseListShouldCheckThatIsReversed() {
+        LinkedList<String> strings = new LinkedList<>();
+        strings.add("value0");
+        strings.add("value1");
+        strings.reverse();
+        Iterator<String> iterator = strings.iterator();
+        int index = 0;
+        String[] array = new String[strings.size()];
+        while(iterator.hasNext()) {
+            array[index++] = iterator.next();
+        }
+        assertThat(array, arrayContaining("value1", "value0"));
+    }
+
 }
