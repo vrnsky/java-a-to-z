@@ -16,19 +16,19 @@ public class Board {
     /**
      * Width of the board.
      */
-    private int width;
+    private final int width;
 
     /**
      * Height of the board.
      */
-    private int height;
+    private final int height;
 
     /**
      * Create a new board with given size.
      * @param width of board.
      * @param height of board.
      */
-    public Board(int width, int height) {
+    public Board(final int width, final int height) {
         this.width = width;
         this.height = height;
         initBlocks();
@@ -65,7 +65,7 @@ public class Board {
      * @return width.
      */
     public int getWidth() {
-        return width;
+        return this.width;
     }
 
     /**
@@ -73,7 +73,7 @@ public class Board {
      * @return height of board.
      */
     public int getHeight() {
-        return height;
+        return this.height;
     }
 
     /**

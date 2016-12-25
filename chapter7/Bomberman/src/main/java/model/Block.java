@@ -11,7 +11,7 @@ public class Block {
     /**
      * Type of the block.
      */
-    private BlockType type;
+    private final BlockType type;
 
     /**
      * Actor which placed at this block.
@@ -22,7 +22,7 @@ public class Block {
      * Create a new block.
      * @param type of block.
      */
-    public Block(BlockType type) {
+    public Block(final BlockType type) {
         this.type = type;
     }
 
