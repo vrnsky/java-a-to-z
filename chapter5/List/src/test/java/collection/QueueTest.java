@@ -1,7 +1,7 @@
 package collection;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -14,15 +14,11 @@ public class QueueTest {
      */
     @Test
     public void whenTryPushToTheQueueShouldCheckThatValueWasAddedToTheQueue() {
-
-        //Assign block
         Queue<String> queue = new Queue<>();
         String expected = "value";
 
-        //Action block
         queue.add(expected);
 
-        //Assert block
         assertThat(queue.poll(), is(expected));
     }
 
@@ -31,16 +27,12 @@ public class QueueTest {
      */
     @Test
     public void whenTryPushValueToTheQueueAndCallPeekMethodShouldCheckThat() {
-
-        //Assign block
         Queue<String> queue = new Queue<>();
         String expected = "value";
 
-        //Action block
         queue.add(expected);
         queue.peek();
 
-        //Assert block
         assertThat(queue.poll(), is(expected));
     }
 
@@ -49,11 +41,7 @@ public class QueueTest {
      */
     @Test
     public void whenTryCheckThatQueueIsEmptyShouldCheckThatMethodReturnTrue() {
-
-        //Assign block
         Queue<String> queue = new Queue<>();
-
-        //Assert block
         assertThat(queue.isEmpty(), is(true));
     }
 }
