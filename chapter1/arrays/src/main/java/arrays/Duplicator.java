@@ -33,14 +33,12 @@ public class Duplicator {
         int barrier;
         for (int index = 0; index < array.length; index++) {
             for (barrier = index + 1; barrier < array.length; barrier++) {
-                if (array[index] != null) {
-                    if (array[index].equals(array[barrier])) {
+                if (array[index] != null && array[index].equals(array[barrier])) {
                         array[barrier] = null;
                         length++;
                     }
                 }
             }
-        }
         return length;
     }
 
