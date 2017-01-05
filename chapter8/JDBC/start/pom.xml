@@ -4,9 +4,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ru.evrnsky.chapter8.JDBC</groupId>
+    <groupId>ru.evrnsky.chapter8.JDBC.start</groupId>
     <artifactId>start</artifactId>
     <version>1.0</version>
+    <dependencies>
+        <dependency>
+            <groupId>ru.evrnsky.chapter8.JDBC.models</groupId>
+            <artifactId>models</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+
+    <parent>
+        <groupId>ru.evrnsky.chapter8.JDBC</groupId>
+        <artifactId>JDBC</artifactId>
+        <version>1.0</version>
+    </parent>
 
     
 </project>
