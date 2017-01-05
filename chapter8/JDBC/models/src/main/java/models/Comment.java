@@ -10,7 +10,6 @@ public class Comment {
      */
     private final String text;
 
-
     /**
      * Constructor for comment.
      * @param comment it is text of comment.
