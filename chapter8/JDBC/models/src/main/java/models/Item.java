@@ -1,27 +1,17 @@
 package models;
 
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Implementation of common item in tracker app.
  */
 public class Item {
 
-
-    /**
-     * Length of comments for item.
-     */
-    private static final int COMMENTS_LENGTH = 10;
-
-    /**
-     * For generate random number for id.
-     */
-    private static final Random RN = new Random();
-
     /**
      * Unique string for each item.
      */
-    private final String id;
+    private String id;
     /**
      * Name of item.
      */
@@ -38,14 +28,9 @@ public class Item {
     private long createTime;
 
     /**
-     * Comments for item.
+     * List of comments for this item.
      */
-    private Comment[] comments;
-
-    /**
-     * For correct adding new comment should use pointer.
-     */
-    private int commentPointer = 0;
+    private List<Comment> comments;
 
 
     /**
@@ -61,11 +46,31 @@ public class Item {
      * @param desc description of item.
      */
     public Item(final String itemName, final String desc) {
-        id = generateId();
         this.name = itemName;
         this.description = desc;
-        comments = new Comment[COMMENTS_LENGTH];
+        comments = new ArrayList<>();
         createTime = System.currentTimeMillis();
+    }
+
+    /**
+     * Constructor for create already in database items.
+     * @param id unique number per item.
+     * @param itemName name of item.
+     * @param desc full description of item.
+     * @param createTime time when item was created.
+     */
+    public Item(final String id, final String itemName, final String desc, final long createTime) {
+        this(itemName, desc);
+        this.id = id;
+        this.createTime = createTime;
+    }
+
+    /**
+     * Update id of the item.
+     * @param id new version.
+     */
+    public final void setId(final String id) {
+        this.id = id;
     }
 
     /**
@@ -117,47 +122,29 @@ public class Item {
     }
 
     /**
+     * Set up creation time of item.
+     * @param createTime new version of creation time.
+     */
+    public void setCreateTime(long createTime) {
+        this.createTime = createTime;
+    }
+
+    /**
      * Add a comment to this item.
      * @param comment comment instance of comment model.
      */
     public final void addComment(final Comment comment) {
-        comments[commentPointer++] = comment;
+        this.comments.add(comment);
     }
 
     /**
      * Return all comment which not null for current item.
      * @return array of comments.
      */
-    public final Comment[] getComments() {
-        Comment[] result;
-        int size = 0;
-
-        for (Comment comment : comments) {
-            if (comment != null) {
-                size++;
-            }
-        }
-
-        result = new Comment[size];
-
-        for (int index = 0; index < size; index++) {
-            Comment current = comments[index];
-            if (current != null) {
-                result[index] = current;
-            }
-        }
-
-        return result;
+    public final List<Comment> getComments() {
+        return this.comments;
     }
 
-
-    /**
-     * Generate a unique string.
-     * @return unique value string.
-     */
-    private String generateId() {
-        return String.valueOf(System.currentTimeMillis() + RN.nextInt());
-    }
 
     /**
      * Use this method if you want display data about item.
@@ -168,4 +155,5 @@ public class Item {
         return String.format("Id:%s\tName:%s\nDesc:%s",
                              this.id, this.name, this.description);
     }
+
 }
