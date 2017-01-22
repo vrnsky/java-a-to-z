@@ -99,7 +99,7 @@ public class Preparator {
     /**
      * Method check that database exist at the database server.
      * Because at the PostgreSQL does not support if not exist for create database operation it
-     * was writed this bicycle.
+     * was wrotten this bicycle.
      * @return true if database already exist at the database server.
      * @throws SQLException if some problem with access to the server or connection already closed.
      */
