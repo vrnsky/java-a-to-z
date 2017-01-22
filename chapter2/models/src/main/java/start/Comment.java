@@ -1,4 +1,4 @@
-package models;
+package start;
 
 /**
  * Model of a comment.

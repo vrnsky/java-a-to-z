@@ -1,9 +1,6 @@
 package start;
 
 
-import models.Item;
-import models.Comment;
-
 /**
  * This class uses for interacting with user and execute command from his.
  */

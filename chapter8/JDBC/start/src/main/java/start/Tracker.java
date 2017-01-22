@@ -1,6 +1,4 @@
 package start;
-import models.Comment;
-import models.Item;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;

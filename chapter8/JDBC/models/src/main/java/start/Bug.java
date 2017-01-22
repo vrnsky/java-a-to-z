@@ -1,4 +1,4 @@
-package models;
+package start;
 
 /**
  * It is bug class extends from item.

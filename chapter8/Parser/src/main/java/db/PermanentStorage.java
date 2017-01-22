@@ -81,13 +81,13 @@ public class PermanentStorage {
      * Default constructor.
      */
     public PermanentStorage() {
-        if (!inited) {
+        if (!this.inited) {
             init();
         }
     }
 
     /**
-     * Execute query which retur some data.
+     * Execute query which return some data.
      * @param sql query.
      * @return result of execution.
      */
@@ -171,8 +171,8 @@ public class PermanentStorage {
         this.dbUser = this.settings.getValue("DB_USER");
         this.dbPassword = this.settings.getValue("DB_PASSWORD");
         this.dbParserUrl = this.settings.getValue("DB_PARSER_URL");
-        createDatabase("parser");
-        connectToParserDB();
+        this.createDatabase("parser");
+        this.connectToParserDB();
         this.executeUpdate(CREATE_TABLE_JOBS);
         this.inited = true;
     }

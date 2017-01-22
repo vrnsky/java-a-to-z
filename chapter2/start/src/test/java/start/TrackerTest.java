@@ -2,7 +2,6 @@ package start;
 
 import org.junit.Before;
 import org.junit.Test;
-import models.Item;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;

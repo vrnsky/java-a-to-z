@@ -136,7 +136,7 @@ public class Parser implements Job {
     /**
      * Start parsing.
      */
-    public void startSearch() {
+    private void startSearch() {
         LOGGER.log(Level.INFO, "Parser start search offers.");
         List<Vacancy> offers = new ArrayList<>(100);
         try {

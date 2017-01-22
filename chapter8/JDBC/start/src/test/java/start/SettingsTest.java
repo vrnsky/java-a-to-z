@@ -58,7 +58,7 @@ public class SettingsTest {
     /**
      * Right url for get access to the tracker database.
      */
-    private static final String TRACKER_URL="jdbc:postgresql://localhost:5432/tracker";
+    private static final String TRACKER_URL = "jdbc:postgresql://localhost:5432/tracker";
 
     /**
      * Instance of properties accessor.
@@ -66,7 +66,7 @@ public class SettingsTest {
     private Settings settings;
 
     /**
-     * This method call before each method which has @Test annotation
+     * This method call before each method which has @Test annotation.
      */
     @Before
     public void loadProperties() {

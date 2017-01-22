@@ -17,6 +17,7 @@
 	<module>JDBC</module>
 	<module>Outer-join</module>
 	<module>Query</module>
+	<module>Parser</module>
 	</modules>
 		
 </project>

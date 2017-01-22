@@ -1,9 +1,6 @@
 package start;
 
 
-import models.Comment;
-import models.Item;
-
 import java.util.List;
 
 /**

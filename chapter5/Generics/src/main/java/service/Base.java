@@ -1,7 +1,7 @@
 package service;
 
 /**
- * Base for all other models.
+ * Base for all other start.
  * @author evrnsky
  * @version 1.0.
  */

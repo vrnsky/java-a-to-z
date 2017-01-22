@@ -15,6 +15,12 @@ import java.util.Date;
  */
 public class DateParser {
 
+
+    /**
+     * One day milliseconds.
+     */
+    private static final long ONE_DAY = 60 * 1000 * 60 * 24;
+
     /**
      * Map of months.
      */
@@ -29,7 +35,7 @@ public class DateParser {
      * Default constructor.
      */
     public DateParser() {
-        fillMonthsNumberMap();
+        this.fillMonthsNumberMap();
     }
 
 
@@ -44,7 +50,7 @@ public class DateParser {
         if ("сегодня".contains(date)) {
             time = new Date().getTime();
         } else if ("вчера".contains(date)) {
-            time = new Date().getTime() - 3600 * 24;
+            time = new Date().getTime() - ONE_DAY;
         } else {
             time = FORMATTER.parse(getOnlyNumbersDate(date)).getTime();
         }
@@ -76,6 +82,9 @@ public class DateParser {
      * @return number code of month.
      */
     private int getMonthNumber(String literal) {
+        if (!(MONTHS_NUMBERS.containsKey(literal))) {
+           throw new IllegalArgumentException("Given literal of month does not exist!");
+        }
         return MONTHS_NUMBERS.get(literal);
     }
 
