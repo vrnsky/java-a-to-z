@@ -1,16 +1,17 @@
 package start;
-
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Implementation of common item in tracker app.
  */
+
 public class Item {
 
     /**
      * Unique string for each item.
      */
+
     private String id;
     /**
      * Name of item.
