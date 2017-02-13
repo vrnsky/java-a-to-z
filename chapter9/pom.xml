@@ -19,6 +19,7 @@
 	<module>Mockito</module>
 	<module>MVCbyServlet-JSP-JSTL</module>
 	<module>Client-Server</module>
+	<module>Protocol</module>
 	</modules>
 		
 </project>

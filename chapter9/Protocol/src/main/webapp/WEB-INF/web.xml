@@ -1,0 +1,11 @@
+<web-app>
+    <servlet>
+        <servlet-name>CRUDServlet</servlet-name>
+        <servlet-class>crud.Crud</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CRUDServlet</servlet-name>
+        <url-pattern>/crud</url-pattern>
+    </servlet-mapping>
+</web-app>
