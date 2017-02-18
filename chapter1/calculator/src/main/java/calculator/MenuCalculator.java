@@ -30,7 +30,7 @@ public class MenuCalculator {
     protected int position = 0;
 
     /**
-     * All possible action which make users.
+     * All possible action which make controllers.
      */
     protected UserAction[] actions;
 

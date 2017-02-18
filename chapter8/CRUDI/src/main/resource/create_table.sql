@@ -39,7 +39,7 @@ open_item boolean,
 close_item boolean,
 role_id integer references roles(id));
 
---describe users at the system.
+--describe controllers at the system.
 create table users(
 id serial primary key,
 name character varying(2000),

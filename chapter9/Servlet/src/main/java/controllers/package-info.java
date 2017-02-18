@@ -5,4 +5,4 @@
  *
  * This package contains servlets for work with user.
  */
-package users;
+package controllers;

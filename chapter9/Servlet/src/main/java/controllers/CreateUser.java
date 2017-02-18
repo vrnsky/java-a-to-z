@@ -1,4 +1,4 @@
-package users;
+package controllers;
 
 import database.Repository;
 import models.User;
@@ -15,19 +15,17 @@ import java.io.PrintWriter;
  * @version 0.1
  * @since 15.02.2017
  *
- * This servlet provide edit function of user.
- * At this servlet generate form with current data.
- * And client may change data at the form.
+ * This servlet provide adding new user to the system.
  */
-public class EditUser extends HttpServlet {
+public class CreateUser extends HttpServlet {
 
     /**
-     * User repository.
+     * Instance of user repository.
      */
     private Repository repo = Repository.getInstance();
 
     /**
-     * Call when user only get page.
+     * When user only get page.
      * @param req from client.
      * @param resp from server.
      * @throws ServletException if problem with concurrency.
@@ -36,41 +34,41 @@ public class EditUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
-        PrintWriter writer = resp.getWriter();
-        int id = Integer.valueOf(req.getParameter("id"));
-        User user = repo.findUserById(id);
         String context = req.getContextPath();
-        writer.append("<html>");
+        PrintWriter writer = resp.getWriter();
+        writer.append("<!DOCTYPE html>");
         writer.append("<head>");
-        writer.append("<title>Edit user</title>");
+        writer.append("<title>Create new user</title>");
+        writer.append("<meta charset=utf-8/>");
         writer.append("</head>");
         writer.append("<body>");
-        writer.append(String.format("<form action='%s' method=post>", context + "/edit"));
-        writer.append(String.format("<input type='hidden' name='id' value='%s'/>", id));
-        writer.append("Name: <input type='text' name='name' value='" + user.getName() + "'/><br />");
-        writer.append("Surname: <input type='text' name='surname' value='" + user.getSurname() + "'/><br />");
-        writer.append("Email: <input type='text' name='email' value='" + user.getEmail() + "'/><br />");
-        writer.append("<input type='submit' value='Edit' />");
+        writer.append(String.format("<form action=%s/create method=post>", context));
+        writer.append("Name: <input type='text' name='name'><br />");
+        writer.append("Surname: <input type='text' name='surname'><br />");
+        writer.append("Email: <input type='text' name='email'><br />");
+        writer.append("<input type='submit' value='Submit'/>");
         writer.append("</form>");
         writer.append("</body>");
         writer.append("</html>");
+
+
     }
 
     /**
-     *
-     * @param req from client.
-     * @param resp from server.
+     * When user send some data to the server.
+     * @param req from user.
+     * @param resp to user from client.
      * @throws ServletException if problem with concurrency.
      * @throws IOException if problem with data exchange.
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.valueOf(req.getParameter("id"));
+        resp.setContentType("text/html");
         String name = req.getParameter("name");
         String surname = req.getParameter("surname");
         String email = req.getParameter("email");
-        User user = new User(id, name, surname, email);
-        repo.editUser(user);
-        resp.sendRedirect(String.format("%s/index", req.getContextPath()));
+        User user = new User(name, surname, email);
+        repo.addUser(user);
+        resp.sendRedirect(req.getContextPath() + "/index");
     }
 }

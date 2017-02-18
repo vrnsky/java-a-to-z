@@ -61,8 +61,8 @@ public class UserRepo {
     }
 
     /**
-     * Return list of all users.
-     * @return all users.
+     * Return list of all controllers.
+     * @return all controllers.
      */
     public List<User> getAllUsers() {
         return this.dbManager.getAllUsers();

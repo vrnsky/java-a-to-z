@@ -34,7 +34,7 @@ public class Crud extends HttpServlet {
 
 
     /**
-     * HTTP request get return page with all users at the system.
+     * HTTP request get return page with all controllers at the system.
      * @param req request from client.
      * @param resp response from server.
      * @throws ServletException if problem with servlet.
@@ -50,7 +50,7 @@ public class Crud extends HttpServlet {
             }
             writer.flush();
         } else {
-            writer.append("At this moment system have zero users.");
+            writer.append("At this moment system have zero controllers.");
             writer.flush();
         }
         writer.close();

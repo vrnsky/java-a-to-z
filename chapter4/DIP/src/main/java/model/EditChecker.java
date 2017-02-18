@@ -6,8 +6,8 @@ package model;
 public class EditChecker implements Checker {
 
     /**
-     * Check that given user exit in given users array.
-     * @param users list of users.
+     * Check that given user exit in given controllers array.
+     * @param users list of controllers.
      * @param user user for checking.
      * @return true if list have given user, otherwise false.
      */

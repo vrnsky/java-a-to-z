@@ -149,7 +149,7 @@ public class DbManager {
 
     /**
      * Return all user at the system.
-     * @return list of all users.
+     * @return list of all controllers.
      */
     public List<User> getAllUsers() {
         this.connect();

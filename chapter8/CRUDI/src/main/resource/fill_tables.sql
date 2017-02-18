@@ -12,7 +12,7 @@ insert into rules (open_item, close_item, role_id) values(false, true, 1);  -- r
 insert into rules (open_item, close_item, role_id) values(true, false, 3);  -- rights of manager.
 insert into rules (open_item, close_item, role_id) values(true, true, 4);   -- rights of ceo.
 
---insert data to the users table.
+--insert data to the controllers table.
 insert into users (name, email, role_id) values('Bryan Gotz', 'gotz@java.com', 1);
 insert into users (name, email, role_id) values('Yegor Voronyansky', 'vrnsky@vrngroup.com', 2);
 insert into users (name, email, role_id) values('Effective Manager', 'efficient@manager', 3);

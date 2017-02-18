@@ -1,19 +1,19 @@
 <web-app>
     <servlet>
         <servlet-name>CreateUser</servlet-name>
-        <servlet-class>users.CreateUser</servlet-class>
+        <servlet-class>controllers.CreateUser</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EditUser</servlet-name>
-        <servlet-class>users.EditUser</servlet-class>
+        <servlet-class>controllers.EditUser</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RemoveUser</servlet-name>
-        <servlet-class>users.RemoveUser</servlet-class>
+        <servlet-class>controllers.RemoveUser</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Index</servlet-name>
-        <servlet-class>users.Index</servlet-class>
+        <servlet-class>controllers.Index</servlet-class>
     </servlet>
 
     <servlet-mapping>

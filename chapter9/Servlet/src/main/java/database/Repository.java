@@ -21,7 +21,7 @@ public class Repository {
     private static final Object LOCK = new Object();
 
     /**
-     * Hold list of all users.
+     * Hold list of all controllers.
      */
     private List<User> users;
 
@@ -31,7 +31,7 @@ public class Repository {
     private static Repository instance;
 
     /**
-     * For count all users at the system.
+     * For count all controllers at the system.
      */
     private AtomicInteger counter;
 
@@ -110,8 +110,8 @@ public class Repository {
     }
 
     /**
-     * Return list of all users.
-     * @return all users.
+     * Return list of all controllers.
+     * @return all controllers.
      */
     public List<User> getAllUsers() {
         synchronized (LOCK) {

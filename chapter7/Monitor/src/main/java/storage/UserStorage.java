@@ -14,7 +14,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class UserStorage {
 
     /**
-     * At this place hold all users.
+     * At this place hold all controllers.
      */
     private List<User> userList;
 

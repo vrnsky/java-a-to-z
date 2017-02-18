@@ -6,7 +6,7 @@ package model;
 public abstract class Storage {
 
     /**
-     * At this place hold all users.
+     * At this place hold all controllers.
      */
     protected User[] users;
 
@@ -31,7 +31,7 @@ public abstract class Storage {
     }
 
     /**
-     * Add new user to users array.
+     * Add new user to controllers array.
      * @param user instance of user class.
      */
     protected void addUser(User user) {

@@ -1,4 +1,4 @@
-package users;
+package controllers;
 
 import database.Repository;
 import models.User;
@@ -17,7 +17,7 @@ import java.util.List;
  * @since 15.02.2017
  *
  * This is index servlet. Show all user at the system.
- * And give user links to edit and remove users.
+ * And give user links to edit and remove controllers.
  */
 public class Index extends HttpServlet {
 
@@ -28,7 +28,7 @@ public class Index extends HttpServlet {
 
     /**
      * When client only ask a page.
-     * Show user table with users at the system and give links to perform edit or remove operations.
+     * Show user table with controllers at the system and give links to perform edit or remove operations.
      * @param req from client to server.
      * @param resp from server to client.
      * @throws ServletException if problem with concurrency.
