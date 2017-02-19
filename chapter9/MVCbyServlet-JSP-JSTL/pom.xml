@@ -4,11 +4,34 @@
 	<artifactId>MVCbyServlet-JSP-JSTL</artifactId>
 	<name>MVCbyServlet-JSP-JSTL</name>
 	<version>1.0</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	
 	<parent>
 		<groupId>ru.evrnsky.chapter9</groupId>
 		<artifactId>chapter9</artifactId>
 		<version>1.0</version>
 	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+        <dependency>
+			<groupId>ru.evrnsky.chapter9.JSP</groupId>
+			<artifactId>JSP</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.0-b01</version>
+		</dependency>
+	</dependencies>
 </project>
