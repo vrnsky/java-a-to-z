@@ -12,6 +12,11 @@ import java.util.List;
 public class UserRepo {
 
     /**
+     * Instance of itself, this is singleton.
+     */
+    private static final UserRepo INSTANCE = new UserRepo();
+
+    /**
      * Instance of db management.
      */
     private DbManager dbManager;
@@ -19,8 +24,16 @@ public class UserRepo {
     /**
      * Default constructor.
      */
-    public UserRepo() {
+    private UserRepo() {
         this.dbManager = new DbManager();
+    }
+
+    /**
+     * Return instance of itself.
+     * @return instance of itself.
+     */
+    public static UserRepo getInstance() {
+        return INSTANCE;
     }
 
     /**
