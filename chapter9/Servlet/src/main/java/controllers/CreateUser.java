@@ -69,6 +69,6 @@ public class CreateUser extends HttpServlet {
         String email = req.getParameter("email");
         User user = new User(name, surname, email);
         repo.addUser(user);
-        resp.sendRedirect(req.getContextPath() + "/index");
+        resp.sendRedirect(String.format("%s/index", req.getContextPath()));
     }
 }
