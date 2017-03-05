@@ -29,7 +29,7 @@ public class Crud extends HttpServlet {
      * Default constructor.
      */
     public Crud() {
-        this.repository = new UserRepo();
+        this.repository = UserRepo.getInstance();
     }
 
 
