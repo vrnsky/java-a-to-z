@@ -43,7 +43,7 @@ role_id integer references roles(id));
 create table users(
 id serial primary key,
 name character varying(2000),
-email character varying(200),
+password character varying(200),
 role_id integer references roles(id));
 
 --describe comments at the tracker.

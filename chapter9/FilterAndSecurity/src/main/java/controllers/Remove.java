@@ -1,7 +1,6 @@
 package controllers;
 
-import dao.Repository;
-import models.User;
+import dao.ExtendedRepo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,31 +12,28 @@ import java.io.IOException;
 /**
  * @author evrnsky
  * @version 0.1
- * @since 19.02.2017
+ * @since 02.03.2017
  *
- * This servlet provides edit function.
+ * This servlet provide remove function.
  */
-
-@WebServlet("/edit")
-public class EditUser extends HttpServlet {
-
+@WebServlet("/remove")
+public class Remove extends HttpServlet {
 
     /**
-     * When user ask the page, servlet forward request and response to the jsp.
+     * This method forward user to the jsp view.
      * @param req from client to server.
      * @param resp from server to client.
-     * @throws ServletException if problem with data exchange.
+     * @throws ServletException if problem with concurrency.
      * @throws IOException if problem with data exchange.
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html");
-        req.setAttribute("user", Repository.getInstance().getUserById(Integer.valueOf(req.getParameter("id"))));
-        req.getRequestDispatcher("WEB-INF/views/edit.jsp").forward(req, resp);
+        req.setAttribute("id", Integer.valueOf(req.getParameter("id")));
+        req.getRequestDispatcher("/WEB-INF/views/remove.jsp").forward(req, resp);
     }
 
     /**
-     * When user full form and push the button we need process form and edit data at the db.
+     * This method processing form for remove user.
      * @param req from client to server.
      * @param resp from server to client.
      * @throws ServletException if problem with concurrency.
@@ -45,12 +41,8 @@ public class EditUser extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html");
         int id = Integer.valueOf(req.getParameter("id"));
-        String name = req.getParameter("name");
-        String surname = req.getParameter("surname");
-        String email = req.getParameter("email");
-        Repository.getInstance().editUser(new User(id, name, surname, email));
-        resp.sendRedirect(String.format("%s/index", req.getContextPath()));
+        ExtendedRepo.getInstance().removeUser(id);
+        resp.sendRedirect(String.format("%s/", req.getContextPath()));
     }
 }

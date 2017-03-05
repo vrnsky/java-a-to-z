@@ -13,10 +13,10 @@ insert into rules (open_item, close_item, role_id) values(true, false, 3);  -- r
 insert into rules (open_item, close_item, role_id) values(true, true, 4);   -- rights of ceo.
 
 --insert data to the controllers table.
-insert into users (name, email, role_id) values('Bryan Gotz', 'gotz@java.com', 1);
-insert into users (name, email, role_id) values('Yegor Voronyansky', 'vrnsky@vrngroup.com', 2);
-insert into users (name, email, role_id) values('Effective Manager', 'efficient@manager', 3);
-insert into users (name, email, role_id) values('Cool ceo', 'ceo@seo.com', 4);
+insert into users (name, password, role_id) values('Bryan Gotz', 'gotz@java.com', 1);
+insert into users (name, password, role_id) values('Yegor Voronyansky', 'vrnsky@vrngroup.com', 2);
+insert into users (name, password, role_id) values('Effective Manager', 'efficient@manager', 3);
+insert into users (name, password, role_id) values('Cool ceo', 'ceo@seo.com', 4);
 
 --insert data to the item_status table
 insert into item_status (status) values('OPEN');
