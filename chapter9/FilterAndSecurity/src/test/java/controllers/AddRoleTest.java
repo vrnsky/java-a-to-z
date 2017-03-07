@@ -9,9 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.core.Is.is;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
@@ -42,6 +43,7 @@ public class AddRoleTest {
         for (Role role : ExtendedRepo.getInstance().getAllRoles()) {
             description.add(role.getDesc());
         }
-        assertEquals(description.contains("writer"), true);
+        assertThat(description.contains("writer"), is(true));
+        verify(request).getParameter("role");
     }
 }
