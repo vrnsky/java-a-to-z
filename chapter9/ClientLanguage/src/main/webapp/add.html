@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Project Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+            integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.form/4.1.0/jquery.form.min.js"
+            integrity="sha384-pg7GKHZrgICSnX14mRuztzbN1Bm75xUKyCyzDCUbkOp0nHzgGYqiLsc6XpflqxAc"
+            crossorigin="anonymous"></script>
+</head>
+<script>
+    if (document.onload) {
+        loadCities();
+    }
+    function validate() {
+        var valid = false;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var cvFile = document.getElementById('cvFile');
+        var country = document.getElementById('country');
+        var city = document.getElementById('city');
+
+        if (email != '' && password != '' && cvFile != '' && country != '' && city != '') {
+            valid = true;
+        }
+        return valid;
+    }
+
+
+    $(document).ready(function() {
+        var options = {
+            // target element(s) to be updated with server response
+            beforeSubmit:  showRequest,  // pre-submit callback
+            success:       showResponse  // post-submit callback
+
+            // other available options:
+            //url:       url         // override for form's 'action' attribute
+            //type:      type        // 'get' or 'post', override for form's 'method' attribute
+            //dataType:  null        // 'xml', 'script', or 'json' (expected server response type)
+            //clearForm: true        // clear all form fields after successful submit
+            //resetForm: true        // reset the form after successful submit
+
+            // $.ajax options can be used here too, for example:
+            //timeout:   3000
+        };
+
+        // bind to the form's submit event
+        $('#addForm').submit(function() {
+            // inside event callbacks 'this' is the DOM element so we first
+            // wrap it in a jQuery object and then invoke ajaxSubmit
+            $(this).ajaxSubmit(options);
+
+            // !!! Important !!!
+            // always return false to prevent standard browser submit and page navigation
+            return false;
+        });
+    });
+
+    // pre-submit callback
+    function showRequest(formData, jqForm, options) {
+        // formData is an array; here we use $.param to convert it to a string to display it
+        // but the form plugin does this for you automatically when it submits the data
+        var queryString = $.param(formData);
+
+        // jqForm is a jQuery object encapsulating the form element.  To access the
+        // DOM element for the form do this:
+        // var formElement = jqForm[0];
+
+        alert('About to submit: \n\n' + queryString);
+
+        // here we could return false to prevent the form from being submitted;
+        // returning anything other than false will allow the form submit to continue
+        return true;
+    }
+
+    // post-submit callback
+    function showResponse(responseText, statusText, xhr, $form)  {
+        // for normal html responses, the first argument to the success callback
+        // is the XMLHttpRequest object's responseText property
+
+        // if the ajaxSubmit method was passed an Options Object with the dataType
+        // property set to 'xml' then the first argument to the success callback
+        // is the XMLHttpRequest object's responseXML property
+
+        // if the ajaxSubmit method was passed an Options Object with the dataType
+        // property set to 'json' then the first argument to the success callback
+        // is the json data object returned by the server
+
+        alert('status: ' + statusText + '\n\nresponseText: \n' + responseText +
+            '\n\nThe output div should have already been updated with the responseText.');
+    }
+
+    $(
+        $.ajax({
+            url: './country',             // указываем URL и
+            dataType: "json",                     // тип загружаемых данных
+            success: function (data, textStatus) { // вешаем свой обработчик на функцию success
+                $.each(data, function (i, val) {    // обрабатываем полученные данныеc
+                    document.getElementById("country").innerHTML += "<option value=" + val + ">" + val + "</option>";
+                });
+            }
+        }));
+
+    function loadCities() {
+        var country = document.getElementById("country").value;
+        console.log(country);
+        $("#city").empty();
+        $.ajax({
+            url: './cities?country=' + country,             // указываем URL и
+            dataType: "json",                     // тип загружаемых данных
+            success: function (data, textStatus) { // вешаем свой обработчик на функцию success
+                $.each(data, function (i, val) {    // обрабатываем полученные данныеc
+                    document.getElementById("city").innerHTML += "<option value=" + val + ">" + val + "</option>";
+                });
+            }
+        })
+    }
+</script>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col col-md-4"></div>
+        <div class="col col-md-4">
+            <form id="addForm" action="./add" enctype="multipart/form-data" method="post">
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="cvFile">Attach your CV</label>
+                    <input type="file" id="cvFile" name="cvFile">
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select name="country" id="country" class="form-control" onchange="loadCities()">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <select name="city" id="city" class="form-control">
+                    </select>
+                </div>
+                <input type="submit" class="btn btn-default" value="Submit"/>
+            </form>
+        </div>
+        <div class="col col-md-4"></div>
+    </div>
+</div>
+</body>
+</html>

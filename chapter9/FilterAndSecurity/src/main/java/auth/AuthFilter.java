@@ -20,11 +20,12 @@ import java.io.IOException;
  * @since 22.02.2017
  * This is web filter which filtered all request.
  */
-@WebFilter(filterName = "auth", urlPatterns = "/*")
+@WebFilter(filterName = "auth", urlPatterns = "*")
 public class AuthFilter implements Filter {
 
     /**
      * This method call once when filter created.
+     *
      * @param filterConfig init params for filter.
      * @throws ServletException if problem with concurrency.
      */
@@ -35,27 +36,26 @@ public class AuthFilter implements Filter {
 
     /**
      * Main method of filter. Contains logic of filtering.
-     * @param servletRequest from client to server.
+     *
+     * @param servletRequest  from client to server.
      * @param servletResponse from server to client.
-     * @param chain filter chain.
-     * @throws IOException if problem with data exchange.
+     * @param chain           filter chain.
+     * @throws IOException      if problem with data exchange.
      * @throws ServletException if problem with data concurrency.
      */
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest request = ((HttpServletRequest) servletRequest);
         if (request.getRequestURI().contains("/login")) {
-           chain.doFilter(servletRequest, servletResponse);
+            chain.doFilter(servletRequest, servletResponse);
         } else {
             HttpSession session = request.getSession();
-            synchronized (session) {
-                User user = (User) session.getAttribute("user");
-                if (user == null) {
-                    ((HttpServletResponse) servletResponse).sendRedirect(String.format("%s/login", request.getContextPath()));
-                    return;
-                }
-                chain.doFilter(servletRequest, servletResponse);
+            User user = (User) session.getAttribute("user");
+            if (user == null) {
+                ((HttpServletResponse) servletResponse).sendRedirect(String.format("%s/login", request.getContextPath()));
+                return;
             }
+            chain.doFilter(servletRequest, servletResponse);
         }
     }
 

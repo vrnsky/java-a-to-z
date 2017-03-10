@@ -15,7 +15,7 @@ import java.io.IOException;
  * @author evrnsky
  * @version 0.1
  * @since 22.02.2017
- *
+ * <p>
  * This servlet provide login function.
  */
 @WebServlet("/login")
@@ -23,10 +23,11 @@ public class Login extends HttpServlet {
 
     /**
      * This method forward user to the jsp view.
-     * @param req from client to server.
+     *
+     * @param req  from client to server.
      * @param resp from server to client.
      * @throws ServletException if problem with concurrency.
-     * @throws IOException if problem with data exchange.
+     * @throws IOException      if problem with data exchange.
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -35,10 +36,11 @@ public class Login extends HttpServlet {
 
     /**
      * This method processing form for login new user to the system.
-     * @param req from client to server.
+     *
+     * @param req  from client to server.
      * @param resp from server to client.
      * @throws ServletException if problem with concurrency.
-     * @throws IOException if problem with data exchange.
+     * @throws IOException      if problem with data exchange.
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -46,15 +48,13 @@ public class Login extends HttpServlet {
         String password = req.getParameter("password");
         ExtendedRepo repo = ExtendedRepo.getInstance();
         HttpSession session = req.getSession();
-        synchronized (session) {
-            User user = repo.getUser(login, password);
-            if (user != null) {
-                session.setAttribute("user", user);
-                resp.sendRedirect(String.format("%s/", req.getContextPath()));
-            } else {
-                req.setAttribute("error", "Credintals is not valid!");
-                req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
-            }
+        User user = repo.getUser(login, password);
+        if (user != null) {
+            session.setAttribute("user", user);
+            resp.sendRedirect(String.format("%s/", req.getContextPath()));
+        } else {
+            req.setAttribute("error", "Credintals is not valid!");
+            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
     }
 }
