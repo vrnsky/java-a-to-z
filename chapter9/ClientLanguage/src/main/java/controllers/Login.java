@@ -51,7 +51,7 @@ public class Login extends HttpServlet {
             resp.sendRedirect(String.format("%s/", req.getContextPath()));
         } else {
             req.setAttribute("error", "Credintals is not valid!");
-            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
+            resp.sendRedirect(String.format("%s/login", req.getContextPath()));
         }
     }
 }
