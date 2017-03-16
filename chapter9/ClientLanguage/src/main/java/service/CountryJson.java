@@ -22,11 +22,11 @@ public class CountryJson extends HttpServlet {
 
 
     /**
-     * adasds.
-     * @param req ad.
-     * @param resp ad.
-     * @throws ServletException ad.
-     * @throws IOException ad.
+     * Return list of country as json string.
+     * @param req from client to server.
+     * @param resp from server to client.
+     * @throws ServletException if problem with data concurrency.
+     * @throws IOException if problem with data exchange.
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

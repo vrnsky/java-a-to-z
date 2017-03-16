@@ -4,7 +4,6 @@ import model.Address;
 import model.User;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import service.Settings;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,33 +16,65 @@ import java.util.List;
  * @author evrnsky
  * @version 0.1
  * @since 07.03.2017
+ *
+ * This user repository.
  */
 public class UserRepository {
 
+    /**
+     * Logger, needs for debug and understand what happens.
+     */
     private static final Logger LOG = Logger.getLogger(UserRepository.class);
+
+    /**
+     * Self instance, it is singleton.
+     */
     private static final UserRepository REPO = new UserRepository();
+
+    /**
+     * Wrapper for db interact.
+     */
     private DBManager dbManager;
+
+    /**
+     * More of executing operations in repo need prepare statement.
+     */
     private PreparedStatement statement;
+
+    /**
+     * Also in some operations needs get result of execution.
+     */
     private ResultSet set;
 
-
+    /**
+     * Singleton.
+     */
     private UserRepository() {
         this.dbManager = DBManager.getInstance();
     }
 
+    /**
+     * Return instance of this.
+     * @return instance.
+     */
     public static UserRepository getInstance() {
         return REPO;
     }
 
+    /**
+     * Add new user to the system.
+     * @param user instance of user class.
+     */
     public void addUser(User user) {
         try {
-            this.statement = this.dbManager.getConnection().prepareStatement("INSERT INTO users(email, password, cvFile, country, city) values(?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+            this.statement = this.dbManager.getConnection().prepareStatement("INSERT INTO users(email, password, cvFile, country, city) values(?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
             this.statement.setString(1, user.getEmail());
             this.statement.setString(2, user.getPassword());
             this.statement.setString(3, user.getCvFileLink());
             this.statement.setString(4, user.getAddress().getCountry());
             this.statement.setString(5, user.getAddress().getCity());
-            this.set = this.statement.executeQuery();
+            this.statement.executeUpdate();
+            this.set = this.statement.getGeneratedKeys();
             while (set.next()) {
                 user.setId(this.set.getInt("id"));
             }
@@ -54,6 +85,10 @@ public class UserRepository {
         }
     }
 
+    /**
+     * Edit already exist user at the system.
+     * @param user instance of user class.
+     */
     public void editUser(User user) {
         try {
             this.statement = this.dbManager.getConnection().prepareStatement("UPDATE users SET email  = ?, password = ? , cvFile = ? , country = ?, city = ? WHERE id = ?");
@@ -71,6 +106,10 @@ public class UserRepository {
         }
     }
 
+    /**
+     * Remove user from database.
+     * @param user instance of user.
+     */
     public void removeUser(User user) {
         try {
             this.statement = this.dbManager.getConnection().prepareStatement("DELETE FROM users WHERE id = ?");
@@ -84,28 +123,41 @@ public class UserRepository {
 
     }
 
-    public boolean isExist(User user) {
-        boolean isExist = false;
+
+    /**
+     * Checking that user with given credits exist at the db.
+     * @param email of user.
+     * @param password of user.
+     * @return user if it exist at the db, otherwise false.
+     */
+    public User isExist(String email, String password) {
+        User user = null;
         try {
-            PreparedStatement statement = this.dbManager.getConnection().prepareStatement("SELECT * FROM users WHERE login = ? AND password = ?");
+            PreparedStatement statement = this.dbManager.getConnection().prepareStatement("SELECT * FROM users WHERE email = ? AND password = ?");
+            statement.setString(1, email);
+            statement.setString(2, password);
             this.set = statement.executeQuery();
             if (set.next()) {
-                isExist = true;
+                user = this.getUserById(set.getInt("id"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             this.closeDbStructures();
         }
-        return isExist;
+        return user;
     }
 
+    /**
+     * Return list of all users.
+     * @return list of all users.
+     */
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
         Statement statement = null;
         try {
             statement = this.dbManager.getConnection().createStatement();
-            this.set = statement.executeQuery("SELECT * FROM users");
+            this.set = statement.executeQuery("SELECT * FROM users ORDER BY id ASC");
             while (set.next()) {
                 int id = set.getInt("id");
                 String email =  set.getString("email");
@@ -131,6 +183,37 @@ public class UserRepository {
         return users;
     }
 
+    /**
+     * Return user by id.
+     * @param id unique number per user.
+     * @return user from database if it exist, otherwise return null.
+     */
+    public User getUserById(int id) {
+        User user = null;
+        try {
+            this.statement = this.dbManager.getConnection().prepareStatement("SELECT * FROM users WHERE id = ?");
+            this.statement.setInt(1, id);
+            this.set = this.statement.executeQuery();
+            while (set.next()) {
+                int userId = this.set.getInt("id");
+                String login = this.set.getString("email");
+                String password = this.set.getString("password");
+                String cvFile = this.set.getString("cvFile");
+                String country = this.set.getString("country");
+                String city = this.set.getString("city");
+                user = new User(userId, login, password, cvFile, new Address(country, city));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            this.closeDbStructures();
+        }
+        return user;
+    }
+
+    /**
+     * Close all needed variable for interact with database.
+     */
     private void closeDbStructures() {
         this.dbManager.closeConnection();
         if (this.statement != null) {

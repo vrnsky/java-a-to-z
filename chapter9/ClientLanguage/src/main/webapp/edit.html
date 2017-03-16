@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Remove user</title>
+    <title>Edit user</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
@@ -14,13 +14,109 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
             integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
             crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
 </head>
 <script>
+
+
+    $(
+        $.ajax({
+            url: './edit',
+            dataType: "json",
+            success: function (data, textStatus) {
+                $.each(data, function (i, val) {
+                    console.log(val);
+                    document.getElementById("id").innerHTML += "<option value=" + val.id + ">" + val.id + "</option>";
+                });
+                loadUser();
+            }
+        }));
+
+    function loadUser() {
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("country").value = "";
+        document.getElementById("city").value = "";
+        $(
+            $.ajax({
+                url: './getuser?id='+document.getElementById("id").value,
+                dataType: "json",
+                success: function (data, textStatus) {
+                    $.each(data, function (i, val) {
+                        document.getElementById("email").value = data.email;
+                        document.getElementById("password").value = data.password;
+                        document.getElementById("country").value = data.address.country;
+                        document.getElementById("city").value = data.address.city;
+                    });
+                }
+            }));
+
+    }
+
+    $(
+        $.ajax({
+            url: './country',
+            dataType: "json",
+            success: function (data, textStatus) {
+                $.each(data, function (i, val) {
+                    document.getElementById("country").innerHTML += "<option value=" + val + ">" + val + "</option>";
+                });
+                loadCities();
+            }
+        }));
+
+    function loadCities() {
+        var country = document.getElementById("country").value;
+        console.log(country);
+        $("#city").empty();
+        $.ajax({
+            url: './cities?country=' + country,
+            dataType: "json",
+            success: function (data, textStatus) {
+                $.each(data, function (i, val) {
+                    document.getElementById("city").innerHTML += "<option value=" + val + ">" + val + "</option>";
+                });
+            }
+        })
+    }
 </script>
 <body>
-<form>
-    <input type="hidden" name="id" id="id" value="id"/>
-    <input type="submit" value="Remove" class="btn btn-default" />
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col col-md-4"></div>
+        <div class="col col-md-4">
+            <form id="editForm" method="post" action="./edit">
+                <div class="form-group">
+                    <label for="id">ID</label>
+                    <select name="id" id="id" class="form-control" onchange="loadUser()">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select name="country" id="country" class="form-control" onchange="loadCities()">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <select name="city" id="city" class="form-control">
+                    </select>
+                </div>
+                <input type="submit" class="btn btn-default" value="Submit"/>
+            </form>
+        </div>
+        <div class="col col-md-4"></div>
+    </div>
+</div>
 </body>
 </html>

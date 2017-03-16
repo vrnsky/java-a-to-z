@@ -22,12 +22,20 @@
 <script>
     $(
     $.ajax({
-        url: './index',             // указываем URL и
-        dataType : "json",                     // тип загружаемых данных
-        success: function (data, textStatus) { // вешаем свой обработчик на функцию success
-            $.each(data, function(i, val) {    // обрабатываем полученные данныеcp
-                var html = "<tr><td>" + val.id + "</td></tr>";
-                document.getElementById("users").innerHTML += html;
+        url: './index',
+        dataType : "json",
+        success: function (data, textStatus) {
+            $.each(data, function(i, val) {
+                console.log(val);
+                var userString = "<tr>";
+                userString += "<td>" + val.id + "</td>";
+                userString += "<td>" + val.email + "</td>";
+                userString += "<td>" + val.password + "</td>";
+                userString += "<td>" + val.cvFileLink + "</td>";
+                userString += "<td>" + val.address.country + "</td>";
+                userString += "<td>" + val.address.city + "</td>";
+                userString += "</tr>";
+                document.getElementById("users").innerHTML += userString;
             });
         }
     }));
@@ -43,11 +51,11 @@
                 <th>CV File</th>
                 <th>Country</th>
                 <th>City</th>
-                <th>Gender</th>
-                <th>Operations</th>
             </tr>
         </table>
         <a href="./add.html"><input type="button" class="btn" value="Add new user"/></a>
+        <a href="./edit.html"><input type="button" class="btn" value="Edit user"/></a>
+        <a href="./remove.html"><input type="button" class="btn" value="Remove user"/></a>
     </div>
     <div class="col-4">
     </div>

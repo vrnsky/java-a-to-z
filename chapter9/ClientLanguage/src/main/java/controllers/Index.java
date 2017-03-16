@@ -3,7 +3,6 @@ package controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dao.UserRepository;
 import model.User;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,10 +16,19 @@ import java.util.List;
  * @author evrnsky
  * @version 0.1
  * @since 09.03.2017
+ *
+ * This servlet return all users as json string.
  */
 @WebServlet("/index")
 public class Index extends HttpServlet {
 
+    /**
+     * Return list of all users in json.
+     * @param req from client to server.
+     * @param resp from server to client.
+     * @throws ServletException if problem with concurrency.
+     * @throws IOException if problem with data exchange.
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/json");

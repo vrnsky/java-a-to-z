@@ -19,7 +19,6 @@ public class Settings {
 
     /**
      * Load properties from file.
-     *
      * @param in input stream for reading.
      */
     public void load(InputStream in) {
@@ -32,7 +31,6 @@ public class Settings {
 
     /**
      * Read property and return it.
-     *
      * @param key of property.
      * @return value of property.
      */

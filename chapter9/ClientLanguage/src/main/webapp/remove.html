@@ -14,13 +14,45 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
             integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
             crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
 </head>
 <script>
+
+    $(
+        $.ajax({
+            url: './edit',
+            dataType: "json",
+            success: function (data, textStatus) {
+                $.each(data, function (i, val) {
+                    console.log(val);
+                    document.getElementById("id").innerHTML += "<option value=" + val.id + ">" + val.id + "</option>";
+                });
+            }
+        }))
+
 </script>
 <body>
-<form>
-    <input type="hidden" name="id" id="id" value="id"/>
-    <input type="submit" value="Remove" class="btn btn-danger" />
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col col-md-4"></div>
+        <div class="col col-md-4">
+            <div id="info">
+
+            </div>
+            <form id="removeForm" method="post" action="./remove">
+                <div class="form-group">
+                    <label for="id">ID</label>
+                    <select name="id" id="id" class="form-control">
+                    </select>
+                </div>
+                <input type="submit" class="btn btn-danger" value="Remove"/>
+            </form>
+        </div>
+        <div class="col col-md-4"></div>
+    </div>
+</div>
 </body>
 </html>
