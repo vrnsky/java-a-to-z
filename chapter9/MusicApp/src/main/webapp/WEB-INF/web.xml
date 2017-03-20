@@ -1,0 +1,35 @@
+<web-app>
+    <servlet>
+        <servlet-name>CreateUser</servlet-name>
+        <servlet-class>controllers.CreateUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditUser</servlet-name>
+        <servlet-class>controllers.EditUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveUser</servlet-name>
+        <servlet-class>controllers.RemoveUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Index</servlet-name>
+        <servlet-class>controllers.Index</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CreateUser</servlet-name>
+        <url-pattern>/create</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Index</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditUser</servlet-name>
+        <url-pattern>/edit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveUser</servlet-name>
+        <url-pattern>/remove</url-pattern>
+    </servlet-mapping>
+</web-app>
