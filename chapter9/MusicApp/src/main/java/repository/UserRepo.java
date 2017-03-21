@@ -1,5 +1,4 @@
 package repository;
-
 import dao.DaoAddress;
 import dao.DaoRole;
 import dao.DaoUser;
@@ -9,13 +8,13 @@ import model.Role;
 import model.User;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import service.Closer;
+
 import service.DBManager;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,8 +33,8 @@ public class UserRepo {
             "left outer join musictype as m on m.id = umt.id where umt.musictype_id = ?");
 
     private DBManager dbManager;
-    private ResultSet set;
-    private PreparedStatement statement;
+
+
     private UserRepo() {
         this.dbManager = DBManager.getInstance();
     }
@@ -52,74 +51,66 @@ public class UserRepo {
 
     public List<User> findByAddress(Address address) {
         List<User> users = new ArrayList<>();
-        try {
-            this.statement = this.dbManager.getConnection().prepareStatement("SELECT * FROM users WHERE address_id = ?");
-            this.set = this.statement.executeQuery();
-            while (this.set.next()) {
-                int id = this.set.getInt("id");
-                String email = this.set.getString("email");
-                String password = this.set.getString("password");
-                Role role = DaoRole.getInstance().getRoleById(this.set.getInt("role_id"));
-                Address adr = DaoAddress.getInstance().getAddressById(address.getId());
-                User user = new User(id, email, password);
-                user.setAddress(adr);
-                user.setRole(role);
-                users.add(user);
+        try (Connection connection = this.dbManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE address_id = ?")) {
+            try (ResultSet set = statement.executeQuery()) {
+                while (set.next()) {
+                    int id = set.getInt("id");
+                    String email = set.getString("email");
+                    String password = set.getString("password");
+                    Role role = DaoRole.getInstance().getRoleById(set.getInt("role_id"));
+                    Address adr = DaoAddress.getInstance().getAddressById(address.getId());
+                    User user = new User(id, email, password);
+                    user.setAddress(adr);
+                    user.setRole(role);
+                    users.add(user);
+                }
             }
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
-        } finally {
-            this.dbManager.closeConnection();
-            Closer.closeDbStructure(this.set, this.statement);
         }
         return users;
     }
 
     public List<User> findByRole(Role role) {
         List<User> users = new ArrayList<>();
-        try {
-            this.statement = this.dbManager.getConnection().prepareStatement("SELECT * FROM users WHERE role_id = ?");
-            this.statement.setInt(1, role.getId());
-            this.set = this.statement.executeQuery();
-            while (this.set.next()) {
-                int id = this.set.getInt("id");
-                String email = this.set.getString("email");
-                String password = this.set.getString("password");
-                User user = new User(id, email, password);
-                users.add(user);
+        try (Connection connection = this.dbManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE role_id = ?")) {
+            statement.setInt(1, role.getId());
+            try (ResultSet set = statement.executeQuery()) {
+                while (set.next()) {
+                    int id = set.getInt("id");
+                    String email = set.getString("email");
+                    String password = set.getString("password");
+                    User user = new User(id, email, password);
+                    users.add(user);
+                }
             }
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
-        } finally {
-            this.dbManager.closeConnection();
-            Closer.closeDbStructure(this.set, this.statement);
         }
         return users;
     }
 
     public List<User> findByMusicType(MusicType type) {
         List<User> users = new ArrayList<>();
-        try {
-            this.statement = this.dbManager.
-                    getConnection().
-                    prepareStatement(FIND_BY_MT);
-            this.statement.setInt(1, type.getId());
-            this.set = this.statement.executeQuery();
-            while (this.set.next()) {
-                int id = this.set.getInt("id");
-                String email = this.set.getString("email");
-                String password = this.set.getString("password");
-                Role role = DaoRole.getInstance().getRoleById(this.set.getInt("role_id"));
-                Address address = DaoAddress.getInstance().getAddressById(this.set.getInt("address_id"));
-                User user = new User(id, email, password);
-                user.setAddress(address);
-                user.setRole(role);
+        try (Connection connection = this.dbManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement(FIND_BY_MT)) {
+            statement.setInt(1, type.getId());
+            try (ResultSet set = statement.executeQuery()) {
+                while (set.next()) {
+                    int id = set.getInt("id");
+                    String email = set.getString("email");
+                    String password = set.getString("password");
+                    Role role = DaoRole.getInstance().getRoleById(set.getInt("role_id"));
+                    Address address = DaoAddress.getInstance().getAddressById(set.getInt("address_id"));
+                    User user = new User(id, email, password);
+                    user.setAddress(address);
+                    user.setRole(role);
+                }
             }
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
-        } finally {
-            this.dbManager.closeConnection();
-            Closer.closeDbStructure(this.set, this.statement);
         }
         return users;
     }
