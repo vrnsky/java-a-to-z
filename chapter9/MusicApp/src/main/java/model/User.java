@@ -25,6 +25,45 @@ public class User {
         this.musicTypes = new ArrayList<>();
     }
 
+    /**
+     * Check that given object equals with this.
+     * @param o object for checking.
+     * @return true if object are equals, otherwise false.
+     */
+    @Override
+    public boolean equals(Object o) {
+        boolean equals = false;
+        if (this == o) {
+            equals = true;
+        }
+        if (!(o instanceof User)) {
+            equals =  false;
+        }
+
+        User user = (User) o;
+
+        if (id != user.id) {
+            equals = false;
+        }
+        if (!email.equals(user.email)) {
+            equals =  false;
+        } else if (password.equals(user.password) && email.equals(user.email) && id == user.id) {
+            equals = true;
+        }
+        return equals;
+    }
+
+    /**
+     * Return unique hash code for this.
+     * @return unique hash code for this.
+     */
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + email.hashCode();
+        result = 31 * result + password.hashCode();
+        return result;
+    }
 
     public int getId() {
         return this.id;
