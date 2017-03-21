@@ -30,6 +30,42 @@ public class MusicType {
     }
 
     /**
+     * Check that given object equals this.
+     * @param o object for compare.
+     * @return true if objects are equals, otherwise false.
+     */
+    @Override
+    public boolean equals(Object o) {
+        boolean equals = false;
+        if (this == o) {
+            equals = true;
+        }
+        if (!(o instanceof MusicType)) {
+            equals = false;
+        }
+
+        MusicType musicType = (MusicType) o;
+
+        if (id != musicType.id) {
+            equals = false;
+        } else if (type.equals(musicType.type)) {
+            equals = true;
+        }
+        return equals;
+    }
+
+    /**
+     * Return hash code for this object.
+     * @return unique hash code.
+     */
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + type.hashCode();
+        return result;
+    }
+
+    /**
      * Return id of type.
      * @return id.
      */
