@@ -6,13 +6,9 @@ import model.Role;
 import model.User;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import service.Closer;
 import service.DBManager;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,15 +36,6 @@ public class DaoUser {
      */
     private DBManager dbManager;
 
-    /**
-     * For handle response from database.
-     */
-    private ResultSet set;
-
-    /**
-     * For request to the database.
-     */
-    private PreparedStatement statement;
 
     private DaoAddress daoAddress;
     private DaoRole daoRole;
@@ -73,19 +60,18 @@ public class DaoUser {
     public void addUser(User user) {
         int addressId = this.daoAddress.addAddress(user.getAddress());
         int roleId = this.daoRole.addRole(user.getRole());
-        try {
-            this.statement = this.dbManager.
-                    getConnection().prepareStatement(
-                    "INSERT INTO users (email, password, role_id, address_id) values (?, ?, ?, ?)",
-                    Statement.RETURN_GENERATED_KEYS);
-            this.statement.setString(1, user.getEmail());
-            this.statement.setString(2, user.getPassword());
-            this.statement.setInt(3, roleId);
-            this.statement.setInt(4, addressId);
-            this.statement.executeUpdate();
-            this.set = this.statement.getGeneratedKeys();
-            while (this.set.next()) {
-                user.setId(this.set.getInt("id"));
+        try (Connection connection = this.dbManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement(
+                     "INSERT INTO users (email, password, role_id, address_id) values (?, ?, ?, ?)",  Statement.RETURN_GENERATED_KEYS)) {
+            statement.setString(1, user.getEmail());
+            statement.setString(2, user.getPassword());
+            statement.setInt(3, roleId);
+            statement.setInt(4, addressId);
+            statement.executeUpdate();
+            try (ResultSet set = statement.getGeneratedKeys()) {
+                while (set.next()) {
+                    user.setId(set.getInt("id"));
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -99,13 +85,12 @@ public class DaoUser {
     public void editUser(User user) {
         this.daoAddress.editAddress(user.getAddress());
         this.daoRole.editRole(user.getRole());
-        try {
-            this.statement = this.dbManager.
-                    getConnection().
-                    prepareStatement("UPADTE users SET email = ?, password = ? WHERE id = ?");
-            this.statement.setString(1, user.getEmail());
-            this.statement.setString(2, user.getPassword());
-            this.statement.executeUpdate();
+        try (Connection connection = this.dbManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement(
+                     "UPADTE users SET email = ?, password = ? WHERE id = ?")) {
+            statement.setString(1, user.getEmail());
+            statement.setString(2, user.getPassword());
+            statement.executeUpdate();
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
         }
@@ -118,27 +103,25 @@ public class DaoUser {
      */
     public User getUserById(int id) {
         User user = null;
-        try {
-            this.statement = this.dbManager.getConnection().prepareStatement("SELECT * FROM users WHERE id = ?");
-            this.statement.setInt(1, id);
-            this.set = this.statement.executeQuery();
-            while (this.set.next()) {
-                int originalId = this.set.getInt("id");
-                String email = this.set.getString("email");
-                String password = this.set.getString("password");
-                int roleId = this.set.getInt("role_id");
-                int addressId = this.set.getInt("address_id");
-                List<MusicType> types = getUserMusicTypes(originalId);
-                user = new User(originalId, email, password);
-                user.setAddress(DaoAddress.getInstance().getAddressById(addressId));
-                user.setRole(DaoRole.getInstance().getRoleById(roleId));
-                user.addMusicType(types);
+        try (Connection connection = this.dbManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE id = ?")){
+            statement.setInt(1, id);
+            try (ResultSet set = statement.executeQuery()) {
+                while (set.next()) {
+                    int originalId = set.getInt("id");
+                    String email = set.getString("email");
+                    String password = set.getString("password");
+                    Role role = this.daoRole.getRoleById(set.getInt("role_id"));
+                    Address address = this.daoAddress.getAddressById(set.getInt("address_id"));
+                    List<MusicType> types = getUserMusicTypes(originalId);
+                    user = new User(originalId, email, password);
+                    user.setAddress(address);
+                    user.setRole(role);
+                    user.addMusicType(types);
+                }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            this.dbManager.closeConnection();
-            Closer.closeDbStructure(this.set, this.statement);
+            LOG.log(Level.WARN, e.getMessage(), e);
         }
         return user;
     }
@@ -149,26 +132,24 @@ public class DaoUser {
      */
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
-        try {
-            Statement statement = this.dbManager.getConnection().createStatement();
-            this.set = statement.executeQuery("SELECT * FROM users");
-            while (this.set.next()) {
-                int id = this.set.getInt("id");
-                String email = this.set.getString("email");
-                String password = this.set.getString("password");
-                Role role = DaoRole.getInstance().getRoleById(this.set.getInt("role_id"));
-                Address address = DaoAddress.getInstance().getAddressById(this.set.getInt("address_id"));
-                User user = new User(id, email, password);
-                user.setAddress(address);
-                user.setRole(role);
-                user.addMusicType(getUserMusicTypes(id));
-                users.add(user);
+        try (Connection connection = this.dbManager.getConnection();
+            Statement statement = connection.createStatement()) {
+            try (ResultSet set = statement.executeQuery("SELECT * FROM users")) {
+                while (set.next()) {
+                    int id = set.getInt("id");
+                    String email = set.getString("email");
+                    String password = set.getString("password");
+                    Role role = DaoRole.getInstance().getRoleById(set.getInt("role_id"));
+                    Address address = DaoAddress.getInstance().getAddressById(set.getInt("address_id"));
+                    User user = new User(id, email, password);
+                    user.setAddress(address);
+                    user.setRole(role);
+                    user.addMusicType(getUserMusicTypes(id));
+                    users.add(user);
+                }
             }
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
-        } finally {
-            this.dbManager.closeConnection();
-            Closer.closeDbStructure(this.set, statement);
         }
         return users;
     }
@@ -179,16 +160,13 @@ public class DaoUser {
      */
     public void removeUser(User user) {
         this.daoAddress.removeAddress(user.getAddress());
-        try {
-            this.statement = this.dbManager.getConnection().prepareStatement("DELETE FROM users WHERE id = ?");
-            this.statement.executeUpdate();
+        try (Connection connection = this.dbManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement("DELETE FROM users WHERE id = ?"))  {
+            statement.setInt(1, user.getId());
+            statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            this.dbManager.closeConnection();
-            Closer.closeDbStructure(this.set, this.statement);
         }
-
     }
 
     /**
@@ -198,21 +176,17 @@ public class DaoUser {
      */
     private List<MusicType> getUserMusicTypes(int id) {
         List<MusicType> types = new ArrayList<>();
-        PreparedStatement statement = null;
-        ResultSet set = null;
-        try {
-            statement = this.dbManager.
-                    getConnection().prepareStatement(
-                   "SELECT mt.type FROM musictype as mt right outer join usermusictypes as uts on uts.musictype_id = mt.id WHERE uts.user_id = ?");
+        try (Connection connection = this.dbManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement(
+                     "SELECT mt.type FROM musictype as mt right outer join usermusictypes as uts on uts.musictype_id = mt.id WHERE uts.user_id = ?")) {
             statement.setInt(1, id);
-            set = statement.executeQuery();
-            while (set.next()) {
-                types.add(new MusicType(id, set.getString("type")));
+            try (ResultSet set = statement.executeQuery()) {
+                while (set.next()) {
+                    types.add(new MusicType(id, set.getString("type")));
+                }
             }
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
-        } finally {
-            Closer.closeDbStructure(set, statement);
         }
         return types;
     }
