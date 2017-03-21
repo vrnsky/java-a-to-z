@@ -34,6 +34,42 @@ public class Address {
         this.id = id;
         this.country = country;
         this.city = city;
+
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        boolean equals = false;
+        if (this == o) {
+            equals = true;
+        }
+        if (!(o instanceof Address)) {
+            equals = false;
+        }
+
+        Address address = (Address) o;
+
+        if (id != address.id) {
+            equals = false;
+        }
+        if (!country.equals(address.country)) {
+            equals = false;
+        } else if (city.equals(address.city) && country.equals(address.country) && address.id == this.id) {
+            equals = true;
+        }
+        return equals;
+    }
+
+    /**
+     * Hash code for object, depend on id, country and city.
+     * @return unique hash code.
+     */
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + country.hashCode();
+        result = 31 * result + city.hashCode();
+        return result;
     }
 
     /**
