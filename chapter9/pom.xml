@@ -21,6 +21,7 @@
 	<module>Client-Server</module>
 	<module>Protocol</module>
 	<module>Servlet</module>
+	<module>MusicApp</module>
 	</modules>
 		
 </project>
