@@ -4,13 +4,13 @@ package dao;
 import model.Address;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import service.Closer;
 import service.DBManager;
 
+import java.sql.Connection;
+import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,15 +33,6 @@ public class DaoAddress {
      */
     private static final DaoAddress DAO = new DaoAddress();
 
-    /**
-     * Statement for work with database.
-     */
-    private PreparedStatement statement;
-
-    /**
-     * Set for work with database.
-     */
-    private ResultSet set;
 
     /**
      * Wrapper for work with database.
@@ -69,22 +60,20 @@ public class DaoAddress {
      */
     public int addAddress(Address address) {
         int id = 0;
-        try {
-            this.statement = this.dbManager.getConnection().
-                    prepareStatement("INSERT INTO address(country, city) values(?, ?) ", Statement.RETURN_GENERATED_KEYS);
-            this.statement.setString(1, address.getCountry());
-            this.statement.setString(2, address.getCity());
-            this.statement.executeUpdate();
-            this.set = this.statement.getGeneratedKeys();
-            while (set.next()) {
-                id = this.set.getInt("id");
-                address.setId(id);
+        try (Connection connection = this.dbManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement(
+                "INSERT INTO address(country, city) values(?, ?) ", Statement.RETURN_GENERATED_KEYS)) {
+            statement.setString(1, address.getCountry());
+            statement.setString(2, address.getCity());
+            statement.executeUpdate();
+            try (ResultSet set = statement.getGeneratedKeys()) {
+                while (set.next()) {
+                    id = set.getInt("id");
+                    address.setId(id);
+                }
             }
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
-        } finally {
-            this.dbManager.closeConnection();
-            Closer.closeDbStructure(this.set, this.statement);
         }
         return id;
     }
@@ -94,17 +83,14 @@ public class DaoAddress {
      * @param address instance of address class.
      */
     public void editAddress(Address address) {
-        try {
-            this.statement = dbManager.getConnection().prepareStatement("UPDATE address SET country = ?, city = ? WHERE id = ?");
-            this.statement.setString(1, address.getCountry());
-            this.statement.setString(2, address.getCountry());
-            this.statement.setInt(3, address.getId());
-            this.statement.executeUpdate();
+        try (Connection connection = this.dbManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement("UPDATE address SET country = ?, city = ? WHERE id = ?")) {
+            statement.setString(1, address.getCountry());
+            statement.setString(2, address.getCountry());
+            statement.setInt(3, address.getId());
+            statement.executeUpdate();
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
-        } finally {
-            this.dbManager.closeConnection();
-            Closer.closeDbStructure(this.set, this.statement);
         }
     }
 
@@ -115,21 +101,19 @@ public class DaoAddress {
      */
     public Address getAddressById(int id) {
         Address address = null;
-        try {
-            this.statement = this.dbManager.getConnection().prepareStatement("SELECT * FROM address WHERE id = ?");
-            this.statement.setInt(1, id);
-            this.set = this.statement.executeQuery();
-            while (this.set.next()) {
-                int addressId = this.set.getInt("id");
-                String country = this.set.getString("country");
-                String city = this.set.getString("city");
-                address = new Address(addressId, country, city);
+        try (Connection connection = this.dbManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement("SELECT * FROM address WHERE id = ?")) {
+            statement.setInt(1, id);
+            try (ResultSet set = statement.executeQuery()) {
+                while (set.next()) {
+                    int addressId = set.getInt("id");
+                    String country = set.getString("country");
+                    String city = set.getString("city");
+                    address = new Address(addressId, country, city);
+                }
             }
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
-        } finally {
-            this.dbManager.closeConnection();
-            Closer.closeDbStructure(this.set, this.statement);
         }
         return address;
     }
@@ -139,15 +123,12 @@ public class DaoAddress {
      * @param address instance of address class.
      */
     public void removeAddress(Address address) {
-        try {
-            this.statement = this.dbManager.getConnection().prepareStatement("DELETE FROM address WHERE id = ?");
-            this.statement.setInt(1, address.getId());
-            this.statement.executeUpdate();
+        try (Connection connection = this.dbManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement("DELETE FROM address WHERE id = ?")) {
+            statement.setInt(1, address.getId());
+            statement.executeUpdate();
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
-        } finally {
-            this.dbManager.closeConnection();
-            Closer.closeDbStructure(this.set, this.statement);
         }
 
     }
@@ -158,23 +139,19 @@ public class DaoAddress {
      */
     public List<Address> getAllAddresses() {
         List<Address> addresses =  new ArrayList<>();
-        Statement statement = null;
-        try {
-            statement = this.dbManager.getConnection().createStatement();
-            this.set = statement.executeQuery("SELECT * FROM address");
-            while (this.set.next()) {
-                int id = this.set.getInt("id");
-                String country = this.set.getString("country");
-                String city = this.set.getString("city");
-                addresses.add(new Address(id, country, city));
+        try (Connection connection = this.dbManager.getConnection();
+            Statement statement = connection.createStatement()) {
+            try (ResultSet set = statement.executeQuery("SELECT * FROM address")) {
+                while (set.next()) {
+                    int id = set.getInt("id");
+                    String country = set.getString("country");
+                    String city = set.getString("city");
+                    addresses.add(new Address(id, country, city));
+                }
             }
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
-        } finally {
-            this.dbManager.closeConnection();;
-            Closer.closeDbStructure(this.set, statement);
         }
-
         return addresses;
     }
 }
