@@ -1,5 +1,10 @@
 package service;
 
+import com.zaxxer.hikari.HikariDataSource;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.postgresql.ds.PGSimpleDataSource;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -10,6 +15,8 @@ import java.sql.SQLException;
  * @since 07.03.2017
  */
 public class DBManager {
+
+    private static final Logger LOG = Logger.getLogger(DBManager.class);
 
     /**
      * Settings class, provide access to the properties files.
@@ -37,30 +44,22 @@ public class DBManager {
      */
     private String dbPassword;
 
-    /**
-     * Flag which means that we already connect to the database.
-     */
-    private boolean connected = false;
 
     /**
-     * Instance of connection to the database.
+     * Pool of connection.
      */
-    private Connection connection;
+    private PGSimpleDataSource dataSource;
 
 
     /**
      * Create a new manager and init all fields. Also load driver for JDBC.
      */
     private DBManager() {
-        SETTINGS.load(Settings.class.getClassLoader().getResourceAsStream("db.properties"));
-        this.dbUrl = SETTINGS.getProperty("DB_URL");
-        this.dbUser = SETTINGS.getProperty("DB_USER");
-        this.dbPassword = SETTINGS.getProperty("DB_PASSWORD");
-        try {
-            Class.forName(SETTINGS.getProperty("DB_DRIVER"));
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        init();
+        this.dataSource = new PGSimpleDataSource();
+        this.dataSource.setUser(this.dbUser);
+        this.dataSource.setPassword(this.dbPassword);
+        this.dataSource.setDatabaseName(this.dbUrl);
     }
 
     /**
@@ -72,37 +71,31 @@ public class DBManager {
     }
 
     /**
-     * Return connection to the database.
+     * Return connection from pool to the database.
      * @return connection.
      */
     public Connection getConnection() {
-        this.connect();
-        return this.connection;
+        Connection connection = null;
+        try {
+            connection = this.dataSource.getConnection();
+        } catch (SQLException e) {
+            LOG.log(Level.WARN, e.getMessage(), e);
+        }
+        return connection;
     }
 
-    /**
-     * Set connection to the database.
-     */
-    private void connect() {
-        if (this.connection == null && !this.connected) {
-            try {
-                this.connection = DriverManager.getConnection(this.dbUrl, this.dbUser, this.dbPassword);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+
+
+    private void init() {
+        SETTINGS.load(Settings.class.getClassLoader().getResourceAsStream("db.properties"));
+        this.dbUrl = SETTINGS.getProperty("DB_URL");
+        this.dbUser = SETTINGS.getProperty("DB_USER");
+        this.dbPassword = SETTINGS.getProperty("DB_PASSWORD");
+        try {
+            Class.forName(SETTINGS.getProperty("DB_DRIVER"));
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
-    /**
-     * Close connection with database.
-     */
-    public void closeConnection() {
-        if (this.connection != null && this.connected) {
-            try {
-                this.connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }
