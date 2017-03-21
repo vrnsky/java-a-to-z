@@ -5,10 +5,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import service.DBManager;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +16,7 @@ import java.util.List;
  *
  * DAO for role in system.
  */
-public class DaoRole {
+public class DaoRole implements IDao<Role> {
 
     /**
      * Instance of logger.
@@ -31,15 +28,7 @@ public class DaoRole {
      */
     private static final DaoRole DAO = new DaoRole();
 
-    /**
-     * For handle response from database.
-     */
-    private ResultSet set;
 
-    /**
-     * For request to the database.
-     */
-    private PreparedStatement statement;
 
     /**
      * Wrapper for work with database connection.
@@ -65,18 +54,17 @@ public class DaoRole {
      * Add new role to the system.
      * @param role instance of role class.
      */
-    public int addRole(Role role) {
+    public int add(Role role) {
         int result = 0;
-        try {
-            this.statement = this.dbManager.
-                    getConnection().prepareStatement("INSERT INTO roles (role_name) values(?)", Statement.RETURN_GENERATED_KEYS);
-            this.statement.setString(1, role.getRole());
-            this.statement.executeUpdate();
-            this.set = this.statement.getGeneratedKeys();
-            while (this.set.next()) {
-                int id = this.set.getInt("id");
-                role.setId(id);
-                result = id;
+        try (Connection connection = this.dbManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement("INSERT INTO roles (role_name) values(?)", Statement.RETURN_GENERATED_KEYS)) {
+            statement.setString(1, role.getRole());
+            statement.executeUpdate();
+            try (ResultSet set = statement.getGeneratedKeys()) {
+                while (set.next()) {
+                    result = set.getInt("id");
+                    role.setId(result);
+                }
             }
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
@@ -88,11 +76,12 @@ public class DaoRole {
      * Edit already created role at the system.
      * @param role instance of role class.
      */
-    public void editRole(Role role) {
-        try {
-            this.statement = this.dbManager.getConnection().prepareStatement("UDPATE roles SET role_name = ? WHERE id = ?");
-            this.statement.setString(1, role.getRole());
-            this.statement.setInt(2, role.getId());
+    public void edit(Role role) {
+        try (Connection connection = this.dbManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement("UDPATE roles SET role_name = ? WHERE id = ?"))  {
+            statement.setString(1, role.getRole());
+            statement.setInt(2, role.getId());
+            statement.executeUpdate();
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
         }
@@ -103,15 +92,16 @@ public class DaoRole {
      * @param id unique number per role
      * @return role with given id, if it exist, otherwise false.
      */
-    public Role getRoleById(int id) {
+    public Role getById(int id) {
         Role role = null;
-        try {
-            this.statement = this.dbManager.getConnection().prepareStatement("SELECT * FROM role WHERE id = ?");
-            this.set = this.statement.executeQuery();
-            while (this.set.next()) {
-                int roleId = this.set.getInt("id");
-                String roleName = this.set.getString("role_name");
-                role = new Role(roleId, roleName);
+        try (Connection connection = this.dbManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement("SELECT * FROM role WHERE id = ?")){
+            try  (ResultSet set = statement.executeQuery()) {
+                while (set.next()) {
+                    int roleId = set.getInt("id");
+                    String roleName = set.getString("role_name");
+                    role = new Role(roleId, roleName);
+                }
             }
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
@@ -123,16 +113,16 @@ public class DaoRole {
      * Return all role at the system.
      * @return list of roles.
      */
-    public List<Role> getAllRoles() {
+    public List<Role> getAll() {
         List<Role> roles =  new ArrayList<>();
-        Statement statement = null;
-        try {
-            statement = dbManager.getConnection().createStatement();
-            this.set = statement.executeQuery("SELECT * from role_name");
-            while (this.set.next()) {
-                int id = this.set.getInt("id");
-                String roleName = this.set.getString("role_name");
-                roles.add(new Role(id, roleName));
+        try (Connection connection = this.dbManager.getConnection();
+             Statement statement = connection.createStatement()) {
+            try (ResultSet set = statement.executeQuery("SELECT * from role_name")) {
+                while (set.next()) {
+                    int id = set.getInt("id");
+                    String roleName = set.getString("role_name");
+                    roles.add(new Role(id, roleName));
+                }
             }
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
@@ -144,10 +134,11 @@ public class DaoRole {
      * Remove role from system.
      * @param role instance of role class.
      */
-    public void removeRole(Role role) {
-        try {
-            this.statement = this.dbManager.getConnection().prepareStatement("DELETE FROM roles WHERE id = ?");
-            this.statement.executeUpdate();
+    public void remove(Role role) {
+        try (Connection connection = this.dbManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement("DELETE FROM roles WHERE id = ?")) {
+            statement.setInt(1, role.getId());
+            statement.executeUpdate();
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
         }

@@ -21,11 +21,9 @@ import java.util.List;
  *
  * This data access object for address.
  */
-public class DaoAddress {
+public class DaoAddress implements IDao<Address> {
 
-    /**
-     * Instance of logger.
-     */
+
     private static final Logger LOG = Logger.getLogger(DaoAddress.class);
 
     /**
@@ -58,7 +56,7 @@ public class DaoAddress {
      * Add new address to the database.
      * @param address instance of address class.
      */
-    public int addAddress(Address address) {
+    public int add(Address address) {
         int id = 0;
         try (Connection connection = this.dbManager.getConnection();
              PreparedStatement statement = connection.prepareStatement(
@@ -82,7 +80,7 @@ public class DaoAddress {
      * Edit address which already in database.
      * @param address instance of address class.
      */
-    public void editAddress(Address address) {
+    public void edit(Address address) {
         try (Connection connection = this.dbManager.getConnection();
              PreparedStatement statement = connection.prepareStatement("UPDATE address SET country = ?, city = ? WHERE id = ?")) {
             statement.setString(1, address.getCountry());
@@ -99,7 +97,7 @@ public class DaoAddress {
      * @param id unique number for each address.
      * @return instance of address class if it exist at the database, otherwise false.
      */
-    public Address getAddressById(int id) {
+    public Address getById(int id) {
         Address address = null;
         try (Connection connection = this.dbManager.getConnection();
              PreparedStatement statement = connection.prepareStatement("SELECT * FROM address WHERE id = ?")) {
@@ -122,9 +120,9 @@ public class DaoAddress {
      * Remove address from the database.
      * @param address instance of address class.
      */
-    public void removeAddress(Address address) {
+    public void remove(Address address) {
         try (Connection connection = this.dbManager.getConnection();
-             PreparedStatement statement = connection.prepareStatement("DELETE FROM address WHERE id = ?")) {
+             PreparedStatement statement = connection.prepareStatement(String.format(IDao.REMOVE_BY_ID, "address"))) {
             statement.setInt(1, address.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -137,11 +135,11 @@ public class DaoAddress {
      * Return list of address.
      * @return all addresses which already in database.
      */
-    public List<Address> getAllAddresses() {
+    public List<Address> getAll() {
         List<Address> addresses =  new ArrayList<>();
         try (Connection connection = this.dbManager.getConnection();
             Statement statement = connection.createStatement()) {
-            try (ResultSet set = statement.executeQuery("SELECT * FROM address")) {
+            try (ResultSet set = statement.executeQuery(String.format(IDao.SELECT_ALL, "address"))) {
                 while (set.next()) {
                     int id = set.getInt("id");
                     String country = set.getString("country");
