@@ -3,7 +3,6 @@ package dao;
 import model.Role;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import service.Closer;
 import service.DBManager;
 
 import java.sql.PreparedStatement;
@@ -81,9 +80,6 @@ public class DaoRole {
             }
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
-        } finally {
-            this.dbManager.closeConnection();
-            Closer.closeDbStructure(this.set, this.statement);
         }
         return result;
     }
@@ -99,9 +95,6 @@ public class DaoRole {
             this.statement.setInt(2, role.getId());
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
-        } finally {
-            this.dbManager.closeConnection();
-            Closer.closeDbStructure(this.set, this.statement);
         }
     }
 
@@ -122,9 +115,6 @@ public class DaoRole {
             }
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
-        } finally {
-            this.dbManager.closeConnection();
-            Closer.closeDbStructure(this.set, this.statement);
         }
         return role;
     }
@@ -146,9 +136,6 @@ public class DaoRole {
             }
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
-        } finally {
-            this.dbManager.closeConnection();
-            Closer.closeDbStructure(this.set, statement);
         }
         return roles;
     }
@@ -163,10 +150,6 @@ public class DaoRole {
             this.statement.executeUpdate();
         } catch (SQLException e) {
             LOG.log(Level.WARN, e.getMessage(), e);
-        } finally {
-            this.dbManager.closeConnection();
-            Closer.closeDbStructure(this.set, this.statement);
         }
-
     }
 }
