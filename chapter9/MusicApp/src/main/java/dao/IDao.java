@@ -1,5 +1,7 @@
 package dao;
 
+import model.IDInterface;
+
 import java.util.List;
 
 /**
@@ -10,15 +12,6 @@ import java.util.List;
  */
 public interface IDao<T> {
 
-    /**
-     * Remove by id.
-     */
-    String REMOVE_BY_ID = "DELETE FROM %s WHERE id = ?";
-
-    /**
-     * Select all.
-     */
-    String SELECT_ALL = "SELECT * FROM %s";
 
     /**
      * Add new to the system.
@@ -44,7 +37,7 @@ public interface IDao<T> {
      * Remove from system.
      * @param value object for removing.
      */
-    void remove(T value);
+    void remove(IDInterface value);
 
     /**
      * Return all instances from db.

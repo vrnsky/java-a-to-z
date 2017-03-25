@@ -7,7 +7,7 @@ package model;
  *
  * This is model of address.
  */
-public class Address {
+public class Address implements IDInterface {
 
     /**
      * Unique number per each address.

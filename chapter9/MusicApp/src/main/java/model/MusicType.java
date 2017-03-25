@@ -7,7 +7,7 @@ package model;
  *
  * This is music type model, such as rock, jaz, pop.
  */
-public class MusicType {
+public class MusicType implements IDInterface {
 
     /**
      * Unique number.

@@ -70,7 +70,7 @@ public class UserRepo {
      * @param role instance of role class.
      */
     public void addUser(User user, Address address, Role role) {
-        DaoUser.getInstance().addUser(user);
+        DaoUser.getInstance().add(user);
         DaoRole.getInstance().add(role);
         DaoAddress.getInstance().add(address);
     }

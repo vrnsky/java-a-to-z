@@ -3,12 +3,8 @@ package dao;
 import model.Role;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import service.DBManager;
-
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
-import java.sql.Statement;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +16,7 @@ import java.util.List;
  *
  * DAO for role in system.
  */
-public class DaoRole implements IDao<Role> {
+public class DaoRole extends CommonDAO<Role> {
 
     /**
      * Instance of logger.
@@ -33,17 +29,11 @@ public class DaoRole implements IDao<Role> {
     private static final DaoRole DAO = new DaoRole();
 
 
-
-    /**
-     * Wrapper for work with database connection.
-     */
-    private DBManager dbManager;
-
     /**
      * Default constructor.
      */
     private DaoRole() {
-        this.dbManager = DBManager.getInstance();
+        super();
     }
 
     /**
@@ -55,97 +45,96 @@ public class DaoRole implements IDao<Role> {
     }
 
     /**
-     * Add new role to the system.
-     * @param role instance of role class.
-     * @return id which generated for given role.
+     * SQL query which select all from table.
+     * @return SQL query for collect all order from concrete table.
      */
-    public int add(Role role) {
-        int result = 0;
-        try (Connection connection = this.dbManager.getConnection();
-             PreparedStatement statement = connection.prepareStatement("INSERT INTO roles (role_name) values(?)", Statement.RETURN_GENERATED_KEYS)) {
-            statement.setString(1, role.getRole());
-            statement.executeUpdate();
-            try (ResultSet set = statement.getGeneratedKeys()) {
-                while (set.next()) {
-                    result = set.getInt("id");
-                    role.setId(result);
-                }
-            }
-        } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
-        }
-        return result;
+    @Override
+    public String getSelectAll() {
+        return "select * from roles";
     }
 
     /**
-     * Edit already created role at the system.
+     * SQL query which select all data from one row.
+     * @return SQL query for collect data from one row.
+     */
+    @Override
+    public String getSelectById() {
+        return "select * from roles where id = ?";
+    }
+
+    /**
+     * SQL query which edit object at the system.
+     * @return SQL query which edit object in the concrete table.
+     */
+    @Override
+    public String getEdit() {
+        return "update roles set role_name = ? where id = ?";
+    }
+
+    /**
+     * SQL query which remove order about object from concrete table.
+     * @return SQL query which remove order about object at the concrete table.
+     */
+    @Override
+    public String getRemove() {
+        return "delete from roles where id = ?";
+    }
+
+    /**
+     * SQL query which insert data to the database.
+     * @return SQL INSERT for concrete table.
+     */
+    @Override
+    public String getInsert() {
+        return "insert into roles (role_name) values (?)";
+    }
+
+    /**
+     * Before execute statement, need to set data.
+     * @param statement instance of PreparedStatement.
      * @param role instance of role class.
      */
-    public void edit(Role role) {
-        try (Connection connection = this.dbManager.getConnection();
-             PreparedStatement statement = connection.prepareStatement("UDPATE roles SET role_name = ? WHERE id = ?")) {
+    @Override
+    public void prepareStatementForInsert(PreparedStatement statement, Role role) {
+        try {
+            statement.setString(1, role.getRole());
+        } catch (SQLException e) {
+            LOG.log(Level.ERROR, e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Before execute statement need to set data.
+     * @param statement instance of PreparedStatement.
+     * @param role instance of role class.
+     */
+    @Override
+    public void prepareStatementForUpdate(PreparedStatement statement, Role role) {
+        try {
             statement.setString(1, role.getRole());
             statement.setInt(2, role.getId());
-            statement.executeUpdate();
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            LOG.log(Level.ERROR, e.getMessage(), e);
         }
     }
 
     /**
-     * Return role with given id, if it exist, otherwise return null.
-     * @param id unique number per role
-     * @return role with given id, if it exist, otherwise false.
-     */
-    public Role getById(int id) {
-        Role role = null;
-        try (Connection connection = this.dbManager.getConnection();
-             PreparedStatement statement = connection.prepareStatement("SELECT * FROM role WHERE id = ?")) {
-            try  (ResultSet set = statement.executeQuery()) {
-                while (set.next()) {
-                    int roleId = set.getInt("id");
-                    String roleName = set.getString("role_name");
-                    role = new Role(roleId, roleName);
-                }
-            }
-        } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
-        }
-        return role;
-    }
-
-    /**
-     * Return all role at the system.
+     * Parse response from database.
+     * @param set instance of result set interface.
      * @return list of roles.
      */
-    public List<Role> getAll() {
-        List<Role> roles =  new ArrayList<>();
-        try (Connection connection = this.dbManager.getConnection();
-             Statement statement = connection.createStatement()) {
-            try (ResultSet set = statement.executeQuery("SELECT * from role_name")) {
-                while (set.next()) {
-                    int id = set.getInt("id");
-                    String roleName = set.getString("role_name");
-                    roles.add(new Role(id, roleName));
-                }
+    @Override
+    public List<Role> parseResultSet(ResultSet set) {
+        List<Role> roles = new ArrayList<>();
+        try (ResultSet parseSet = set) {
+            while (parseSet.next()) {
+                int id = parseSet.getInt("id");
+                String roleName = parseSet.getString("role_name");
+                roles.add(new Role(id, roleName));
             }
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            LOG.log(Level.ERROR, e.getMessage(), e);
         }
         return roles;
-    }
-
-    /**
-     * Remove role from system.
-     * @param role instance of role class.
-     */
-    public void remove(Role role) {
-        try (Connection connection = this.dbManager.getConnection();
-             PreparedStatement statement = connection.prepareStatement("DELETE FROM roles WHERE id = ?")) {
-            statement.setInt(1, role.getId());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
-        }
     }
 }

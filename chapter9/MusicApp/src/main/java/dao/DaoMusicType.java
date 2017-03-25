@@ -3,12 +3,8 @@ package dao;
 import model.MusicType;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import service.DBManager;
-
 import java.sql.PreparedStatement;
-import java.sql.Statement;
 import java.sql.SQLException;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +16,7 @@ import java.util.List;
  * <p>
  * This is dao for music type.
  */
-public class DaoMusicType implements IDao<MusicType> {
+public class DaoMusicType extends CommonDAO<MusicType> {
 
     /**
      * Instance of logger.
@@ -33,15 +29,10 @@ public class DaoMusicType implements IDao<MusicType> {
     private static final DaoMusicType DAO = new DaoMusicType();
 
     /**
-     * Wrapper for work with database connection.
-     */
-    private DBManager dbManager;
-
-    /**
      * Default constructor.
      */
     private DaoMusicType() {
-        this.dbManager = DBManager.getInstance();
+        super();
     }
 
     /**
@@ -53,100 +44,97 @@ public class DaoMusicType implements IDao<MusicType> {
     }
 
     /**
-     * Add new music type to the system.
-     * @param type instance of music type class.
-     * @return id which generated for given music type.
+     * SQL query which select all from table.
+     * @return SQL query for collect all order from concrete table.
      */
-    public int add(MusicType type) {
-        int id = 0;
-        try (Connection connection = this.dbManager.getConnection();
-             PreparedStatement statement = connection.prepareStatement("INSERT INTO musictype (type) values(?)", Statement.RETURN_GENERATED_KEYS)) {
-            statement.setString(1, type.getType());
-            statement.executeUpdate();
-            try (ResultSet set = statement.getGeneratedKeys()) {
-                while (set.next()) {
-                    id = set.getInt("id");
-                    type.setId(id);
-                }
+    @Override
+    public String getSelectAll() {
+        return "select * from musictype";
+    }
+
+    /**
+     * SQL query which select all data from one row.
+     * @return SQL query for collect data from one row.
+     */
+    @Override
+    public String getSelectById() {
+        return "select * from musictype where id = ?";
+    }
+
+    /**
+     * SQL query which edit object at the system.
+     * @return SQL query which edit object in the concrete table.
+     */
+    @Override
+    public String getEdit() {
+        return "update musictype type = ? where id = ?";
+    }
+
+    /**
+     * SQL query which remove order about object from concrete table.
+     * @return SQL query which remove order about object at the concrete table.
+     */
+    @Override
+    public String getRemove() {
+        return "delete from musictype where id = ?";
+    }
+
+    /**
+     * SQL query which insert data to the database.
+     * @return SQL INSERT for concrete table.
+     */
+    @Override
+    public String getInsert() {
+        return "insert into musictype (type) values(?)";
+    }
+
+    /**
+     * Set data to the statement.
+     * @param statement instance of PreparedStatement.
+     * @param object instance of class.
+     */
+    @Override
+    public void prepareStatementForInsert(PreparedStatement statement, MusicType object) {
+        try {
+            statement.setString(1, object.getType());
+        } catch (SQLException e) {
+            LOG.log(Level.ERROR, e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Set data to the statement.
+     * @param statement instance of PreparedStatement.
+     * @param object instance of class.
+     */
+    @Override
+    public void prepareStatementForUpdate(PreparedStatement statement, MusicType object) {
+        try {
+            statement.setString(1, object.getType());
+            statement.setInt(2, object.getId());
+        } catch (SQLException e) {
+            LOG.log(Level.ERROR, e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Set data to the statement.
+     * @param set instance of result set interface.
+     * @return list of music types.
+     */
+    @Override
+    public List<MusicType> parseResultSet(ResultSet set) {
+        List<MusicType> list = new ArrayList<>();
+        try (ResultSet parseSet = set) {
+            while (parseSet.next()) {
+                int id = parseSet.getInt("id");
+                String type = parseSet.getString("type");
+                list.add(new MusicType(id, type));
             }
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
-        }
-        return id;
-    }
-
-    /**
-     * Edit already exist at the database music type.
-     * @param type instance of music type.
-     */
-    public void edit(MusicType type) {
-        try (Connection connection = this.dbManager.getConnection();
-             PreparedStatement statement = connection.prepareStatement("UPDATE musictype SET type = ? WHERE id = ?")) {
-            statement.setString(1, type.getType());
-            statement.setInt(2, type.getId());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            LOG.log(Level.ERROR, e.getMessage(), e);
         }
 
+        return list;
     }
-
-    /**
-     * Return music type with given id, if it exist at the db, otherwise return null.
-     * @param id unique number per music type.
-     * @return music type instance with given id, if it exist, otherwise false.
-     */
-    public MusicType getById(int id) {
-        MusicType resultType = null;
-        try (Connection connection = this.dbManager.getConnection();
-             PreparedStatement statement = connection.prepareStatement("SELECT * FROM musictype WHERE id = ?")) {
-            statement.setInt(1, id);
-            try (ResultSet set = statement.executeQuery()) {
-                while (set.next()) {
-                    int typeId = set.getInt("id");
-                    String type = set.getString("type");
-                    resultType = new MusicType(typeId, type);
-                }
-            }
-        } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
-        }
-        return resultType;
-    }
-
-    /**
-     * Return list of music type which already in db.
-     * @return list of music type.
-     */
-    public List<MusicType> getAll() {
-        List<MusicType> types = new ArrayList<>();
-        try (Connection connection = this.dbManager.getConnection();
-             Statement statement = connection.createStatement()) {
-            try (ResultSet set = statement.executeQuery("SELECT * FROM musictype")) {
-                while (set.next()) {
-                    int id = set.getInt("id");
-                    String type = set.getString("type");
-                    types.add(new MusicType(id, type));
-                }
-            }
-        } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
-        }
-        return types;
-    }
-
-    /**
-     * Remove music type.
-     * @param type instance of music type.
-     */
-    public void remove(MusicType type) {
-        try (Connection connection = this.dbManager.getConnection();
-             PreparedStatement statement = connection.prepareStatement("DELETE FROM musictype WHERE id = ?")) {
-            statement.setInt(1, type.getId());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
 }

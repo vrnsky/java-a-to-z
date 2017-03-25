@@ -5,7 +5,7 @@ package model;
  * @version 0.1
  * @since 16.03.2017
  */
-public class Role {
+public class Role implements IDInterface {
 
     /**
      * Id of role.

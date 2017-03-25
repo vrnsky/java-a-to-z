@@ -9,7 +9,7 @@ import java.util.List;
  * @version 0.1
  * @since 16.03.2017
  */
-public class User {
+public class User implements IDInterface {
 
     /**
      * Unique number per user.
