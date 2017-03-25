@@ -64,7 +64,7 @@ public class Counter {
     }
 
     /**
-     * Init thread. All you need is create thrad object.
+     * Init thread. All you need is create thread object.
      * @param text from file.
      */
     private void initThreads(List<String> text) {

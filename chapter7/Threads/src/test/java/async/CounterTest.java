@@ -38,7 +38,6 @@ public class CounterTest {
 
     /**
      * This method call before even test.
-     * TODO at the CI not build because not created a simple.txt file which contains strings.
      */
     @Before
     public void setUp() throws IOException {
