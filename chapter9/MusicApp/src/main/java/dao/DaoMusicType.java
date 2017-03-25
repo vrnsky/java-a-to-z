@@ -5,7 +5,11 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import service.DBManager;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +55,7 @@ public class DaoMusicType implements IDao<MusicType> {
     /**
      * Add new music type to the system.
      * @param type instance of music type class.
+     * @return id which generated for given music type.
      */
     public int add(MusicType type) {
         int id = 0;

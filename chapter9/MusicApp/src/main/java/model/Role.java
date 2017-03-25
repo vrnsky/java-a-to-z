@@ -7,9 +7,21 @@ package model;
  */
 public class Role {
 
+    /**
+     * Id of role.
+     */
     private int id;
+
+    /**
+     * Text description of role.
+     */
     private String role;
 
+    /**
+     * Create a new role with given id and text desc.
+     * @param id of role.
+     * @param role text description of role.
+     */
     public Role(int id, String role) {
         this.id = id;
         this.role = role;
@@ -51,18 +63,34 @@ public class Role {
         return result;
     }
 
+    /**
+     * Return id of object.
+     * @return id.
+     */
     public int getId() {
         return this.id;
     }
 
+    /**
+     * Set new id.
+     * @param id new id.
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Get current role of object.
+     * @return current role.
+     */
     public String getRole() {
         return this.role;
     }
 
+    /**
+     * Set new role.
+     * @param role text desc of new role.
+     */
     public void setRole(String role) {
         this.role = role;
     }

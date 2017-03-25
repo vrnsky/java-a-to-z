@@ -44,6 +44,10 @@ public class RoleRepo {
         this.dbManager = DBManager.getInstance();
     }
 
+    /**
+     * Return instance of itself.
+     * @return itself.
+     */
     public static RoleRepo getInstance() {
         return REPO;
     }

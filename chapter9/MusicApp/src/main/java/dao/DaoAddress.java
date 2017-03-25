@@ -24,6 +24,9 @@ import java.util.List;
 public class DaoAddress implements IDao<Address> {
 
 
+    /**
+     * Instance of logger.
+     */
     private static final Logger LOG = Logger.getLogger(DaoAddress.class);
 
     /**
@@ -55,6 +58,7 @@ public class DaoAddress implements IDao<Address> {
     /**
      * Add new address to the database.
      * @param address instance of address class.
+     * @return id which was generated for given address.
      */
     public int add(Address address) {
         int id = 0;

@@ -8,7 +8,11 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import service.DBManager;
 
-import java.sql.*;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +41,14 @@ public class DaoUser {
     private DBManager dbManager;
 
 
+    /**
+     * Dao for address.
+     */
     private DaoAddress daoAddress;
+
+    /**
+     * Dao for roles.
+     */
     private DaoRole daoRole;
 
     /**
@@ -57,9 +68,13 @@ public class DaoUser {
         return DAO;
     }
 
+    /**
+     * Add user to the system.
+     * @param user instance of user class.
+     */
     public void addUser(User user) {
-        int addressId = this.daoAddress.addAddress(user.getAddress());
-        int roleId = this.daoRole.addRole(user.getRole());
+        int addressId = this.daoAddress.add(user.getAddress());
+        int roleId = this.daoRole.add(user.getRole());
         try (Connection connection = this.dbManager.getConnection();
              PreparedStatement statement = connection.prepareStatement(
                      "INSERT INTO users (email, password, role_id, address_id) values (?, ?, ?, ?)",  Statement.RETURN_GENERATED_KEYS)) {
@@ -83,8 +98,8 @@ public class DaoUser {
      * @param user instance of user class.
      */
     public void editUser(User user) {
-        this.daoAddress.editAddress(user.getAddress());
-        this.daoRole.editRole(user.getRole());
+        this.daoAddress.edit(user.getAddress());
+        this.daoRole.edit(user.getRole());
         try (Connection connection = this.dbManager.getConnection();
              PreparedStatement statement = connection.prepareStatement(
                      "UPADTE users SET email = ?, password = ? WHERE id = ?")) {
@@ -104,15 +119,15 @@ public class DaoUser {
     public User getUserById(int id) {
         User user = null;
         try (Connection connection = this.dbManager.getConnection();
-             PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE id = ?")){
+             PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE id = ?")) {
             statement.setInt(1, id);
             try (ResultSet set = statement.executeQuery()) {
                 while (set.next()) {
                     int originalId = set.getInt("id");
                     String email = set.getString("email");
                     String password = set.getString("password");
-                    Role role = this.daoRole.getRoleById(set.getInt("role_id"));
-                    Address address = this.daoAddress.getAddressById(set.getInt("address_id"));
+                    Role role = this.daoRole.getById(set.getInt("role_id"));
+                    Address address = this.daoAddress.getById(set.getInt("address_id"));
                     List<MusicType> types = getUserMusicTypes(originalId);
                     user = new User(originalId, email, password);
                     user.setAddress(address);
@@ -139,8 +154,8 @@ public class DaoUser {
                     int id = set.getInt("id");
                     String email = set.getString("email");
                     String password = set.getString("password");
-                    Role role = DaoRole.getInstance().getRoleById(set.getInt("role_id"));
-                    Address address = DaoAddress.getInstance().getAddressById(set.getInt("address_id"));
+                    Role role = DaoRole.getInstance().getById(set.getInt("role_id"));
+                    Address address = DaoAddress.getInstance().getById(set.getInt("address_id"));
                     User user = new User(id, email, password);
                     user.setAddress(address);
                     user.setRole(role);
@@ -159,7 +174,7 @@ public class DaoUser {
      * @param user instance of user class.
      */
     public void removeUser(User user) {
-        this.daoAddress.removeAddress(user.getAddress());
+        this.daoAddress.remove(user.getAddress());
         try (Connection connection = this.dbManager.getConnection();
              PreparedStatement statement = connection.prepareStatement("DELETE FROM users WHERE id = ?"))  {
             statement.setInt(1, user.getId());

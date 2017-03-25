@@ -30,7 +30,7 @@ public class Address {
      * @param country country.
      * @param city city.
      */
-    public Address(int id,String country, String city) {
+    public Address(int id, String country, String city) {
         this.id = id;
         this.country = country;
         this.city = city;

@@ -5,7 +5,11 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import service.DBManager;
 
-import java.sql.*;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,6 +57,7 @@ public class DaoRole implements IDao<Role> {
     /**
      * Add new role to the system.
      * @param role instance of role class.
+     * @return id which generated for given role.
      */
     public int add(Role role) {
         int result = 0;
@@ -78,7 +83,7 @@ public class DaoRole implements IDao<Role> {
      */
     public void edit(Role role) {
         try (Connection connection = this.dbManager.getConnection();
-             PreparedStatement statement = connection.prepareStatement("UDPATE roles SET role_name = ? WHERE id = ?"))  {
+             PreparedStatement statement = connection.prepareStatement("UDPATE roles SET role_name = ? WHERE id = ?")) {
             statement.setString(1, role.getRole());
             statement.setInt(2, role.getId());
             statement.executeUpdate();
@@ -95,7 +100,7 @@ public class DaoRole implements IDao<Role> {
     public Role getById(int id) {
         Role role = null;
         try (Connection connection = this.dbManager.getConnection();
-             PreparedStatement statement = connection.prepareStatement("SELECT * FROM role WHERE id = ?")){
+             PreparedStatement statement = connection.prepareStatement("SELECT * FROM role WHERE id = ?")) {
             try  (ResultSet set = statement.executeQuery()) {
                 while (set.next()) {
                     int roleId = set.getInt("id");

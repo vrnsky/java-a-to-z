@@ -1,27 +1,28 @@
 <project>
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>ru.evrnsky.chapter9</groupId>
-	<artifactId>chapter9</artifactId>
-	<name>chapter9</name>
-	<version>1.0</version>
-	<packaging>pom</packaging>
-	
-	<parent>
-		<groupId>ru.evrnsky</groupId>
-		<artifactId>tracker</artifactId>
-		<version>1.0</version>
-	</parent>
-	
-	<modules>
-	<module>FilterAndSecurity</module>
-	<module>ClientLanguage</module>
-	<module>JSP</module>
-	<module>Mockito</module>
-	<module>MVCbyServlet-JSP-JSTL</module>
-	<module>Client-Server</module>
-	<module>Protocol</module>
-	<module>Servlet</module>
-	<module>MusicApp</module>
-	</modules>
-		
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ru.evrnsky.chapter9</groupId>
+    <artifactId>chapter9</artifactId>
+    <name>chapter9</name>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>ru.evrnsky</groupId>
+        <artifactId>tracker</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <modules>
+        <module>FilterAndSecurity</module>
+        <module>ClientLanguage</module>
+        <module>JSP</module>
+        <module>Mockito</module>
+        <module>MVCbyServlet-JSP-JSTL</module>
+        <module>Client-Server</module>
+        <module>Protocol</module>
+        <module>Servlet</module>
+        <module>MusicApp</module>
+        <module>Bank</module>
+    </modules>
+
 </project>

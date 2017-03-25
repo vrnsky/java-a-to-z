@@ -1,12 +1,9 @@
 package service;
 
-import com.zaxxer.hikari.HikariDataSource;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.postgresql.ds.PGSimpleDataSource;
-
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
@@ -16,6 +13,9 @@ import java.sql.SQLException;
  */
 public class DBManager {
 
+    /**
+     * Instance of logger.
+     */
     private static final Logger LOG = Logger.getLogger(DBManager.class);
 
     /**
@@ -84,8 +84,9 @@ public class DBManager {
         return connection;
     }
 
-
-
+    /**
+     * Init all resources.
+     */
     private void init() {
         SETTINGS.load(Settings.class.getClassLoader().getResourceAsStream("db.properties"));
         this.dbUrl = SETTINGS.getProperty("DB_URL");
