@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/simpleToDo</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">55555</property>
+
+        <!-- List of XML mapping files -->
+        <mapping resource="model/Item.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>

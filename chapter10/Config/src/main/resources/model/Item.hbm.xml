@@ -1,0 +1,10 @@
+<hibernate-mapping>
+    <class name="model.Item" table="items">
+        <id name="id" type="int" column="id">
+            <generator class="identity"/>
+        </id>
+        <property name="desc" column="description" />
+        <property name="creationTime" column="created" />
+        <property name="done" column="done" />
+    </class>
+</hibernate-mapping>
