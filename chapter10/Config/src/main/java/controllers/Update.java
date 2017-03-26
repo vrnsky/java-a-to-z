@@ -1,10 +1,8 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import database.DBManager;
 import model.Item;
 import repository.ItemRepository;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,12 +15,22 @@ import java.io.PrintWriter;
  * @author evrnsky
  * @version 0.1
  * @since 26.03.2017
+ *
+ * This servlet provide edit function.
  */
 @WebServlet("/update")
 public class Update extends HttpServlet {
 
+    /**
+     * Return item with given id in json string.
+     * @param req from client to server.
+     * @param resp from server to client.
+     * @throws ServletException if request for GET could not handled.
+     * @throws IOException if an input or output error detected.
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/json");
         int id = Integer.valueOf(req.getParameter("id"));
         ObjectMapper mapper = new ObjectMapper();
         PrintWriter writer = resp.getWriter();
@@ -30,6 +38,13 @@ public class Update extends HttpServlet {
         writer.flush();
     }
 
+    /**
+     * Collect data from the request and update item.
+     * @param req from client to server.
+     * @param resp from server to client.
+     * @throws ServletException if request for POST could not handled.
+     * @throws IOException if an input or output error detected.
+     */
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.valueOf(req.getParameter("id"));

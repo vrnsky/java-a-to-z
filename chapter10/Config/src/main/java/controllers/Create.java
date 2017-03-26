@@ -16,10 +16,19 @@ import java.io.PrintWriter;
  * @author evrnsky
  * @version 0.1
  * @since 26.03.2017
+ *
+ * This servlet provide creation function.
  */
 @WebServlet("/create")
 public class Create extends HttpServlet {
 
+    /**
+     * Create a new item and save it to the database.
+     * @param req from client to server.
+     * @param resp from server to client.
+     * @throws ServletException if the request for the POST could not handled.
+     * @throws IOException if an input or output error detected.
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
