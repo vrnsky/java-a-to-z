@@ -1,7 +1,13 @@
+/**
+ * When page loaded call the updatePage function.
+ * @type {updatePage} callback function.
+ */
 window.onload = updatePage;
 
 
-
+/**
+ * First loading page and next update.
+ */
 function updatePage() {
     var showDone = $("#doneTask").prop('checked');
     $("#itemTable").empty();
@@ -17,11 +23,11 @@ function updatePage() {
                     var hasDone = tasks[index].done;
                     var doneString = "";
                     if (hasDone) {
-                        doneString = "<input type='checkbox' name='done' id='tasks[index].id' checked>";
+                        doneString = "<input type='checkbox' name='done' checked>";
                     } else {
-                        doneString = "<input type='checkbox' name='done' id='tasks[index].id' />"
+                        doneString = "<input type='checkbox' name='done' />"
                     }
-                    var itemString = "<tr id=" + tasks[index].id + "><td>" + tasks[index].id + "</td>";
+                    var itemString = "<tr><td>" + tasks[index].id + "</td>";
                     itemString += "<td>" + tasks[index].desc + "</td>";
                     itemString += "<td>" + created.getDate() + "." + (created.getMonth() + 1) + "." + created.getFullYear() + "</td>";
                     itemString += "<td>" + doneString + "</td>";
@@ -33,6 +39,9 @@ function updatePage() {
 
 }
 
+/**
+ * Adding new item to the table.
+ */
 function formSubmit() {
     var data = {'desc': $("#desc").val()};
     console.log(data);
