@@ -5,7 +5,7 @@
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/carShop</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/carshop</property>
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">55555</property>
         <property name="show_sql">true</property>
@@ -14,6 +14,8 @@
         <mapping resource="model/User.hbm.xml"/>
         <mapping resource="model/Advert.hbm.xml"/>
         <mapping resource="model/Car.hbm.xml" />
-
+        <mapping resource="model/Producer.hbm.xml" />
+        <mapping resource="model/Body.hbm.xml"/>
+        <mapping resource="model/Model.hbm.xml" />
     </session-factory>
 </hibernate-configuration>
