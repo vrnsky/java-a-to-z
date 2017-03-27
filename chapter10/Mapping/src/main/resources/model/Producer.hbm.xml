@@ -1,0 +1,8 @@
+<hibernate-mapping>
+    <class name="model.Producer" table="producers">
+        <id name="id" column="id">
+            <generator class="identity" />
+        </id>
+        <property name="name" column="producer" />
+    </class>
+</hibernate-mapping>
