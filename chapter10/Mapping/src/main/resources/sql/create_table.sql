@@ -11,6 +11,11 @@ create table if not exists bodies (
 id serial primary key,
 name varchar(200));
 
+--create table for models
+create table if not exists models (
+id serial primary key,
+name varchar(200));
+
 --create table for car producers.
 create table if not exists producers (
 id serial primary key,
@@ -19,11 +24,11 @@ producer varchar(200));
 --create table for cars.
 create table if not exists cars (
 id serial primary key,
-name varchar(200),
+model_id integer references models(id),
 body_id integer references bodies(id),
 producer_id integer references producers(id));
 
---create table for averts
+--create table for adverts
 create table if not exists adverts (
 id serial primary key,
 car_id integer references cars(id),
@@ -46,6 +51,23 @@ insert into producers(producer) values('Ford');
 insert into producers(producer) values('Honda');
 insert into producers(producer) values('Audi');
 insert into producers(producer) values('Skoda');
+
+--fill models table
+insert into models(name) values('Focus');
+insert into models(name) values('Octavia');
+insert into models(name) values('Civic');
+insert into models(name) values('A8');
+insert into models(name) values('Kalina');
+
+--next sql query for test enviroment. in the production code, comment them.
+
+insert into cars(model_id, body_id, producer_id) values(1, 2, 2); --add Ford Focus sedan
+insert into cars(model_id, body_id, producer_id) values(4, 2, 4); --add Audi A8 sedan
+insert into cars(model_id, body_id, producer_id) values(3, 4, 3); --add Honda Civic coupe
+
+insert into users(email, password) values('vrnsky@vrnsky.com', 'root'); --add new user.
+
+insert into adverts(car_id, price, author_id, sale) values(2, 950000, 1, false); --add new adverts
 
 
 
