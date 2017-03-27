@@ -1,9 +1,8 @@
-<?xml version="1.0" encdoing="utf-8"?>
 <hibernate-mapping>
     <class name="model.User" table="users">
-        <property name="id" column="id">
+        <id name="id" column="id">
             <generator class="identity" />
-        </property>
+        </id>
         <property name="email" column="email" />
         <property name="password" column="password" />
     </class>
