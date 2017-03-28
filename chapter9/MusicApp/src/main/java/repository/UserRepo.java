@@ -155,4 +155,29 @@ public class UserRepo {
         }
         return users;
     }
+
+    public User getUserByCredits(String login, String password) {
+        User user = null;
+        try (Connection connection = this.dbManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement("select * from users where email = ? and password = ?")) {
+            statement.setString(1, login);
+            statement.setString(2, password);
+            try (ResultSet set = statement.executeQuery()) {
+                while (set.next()) {
+                    int id = set.getInt("id");
+                    String email = set.getString("email");
+                    String pass = set.getString("password");
+                    Address addr = DaoAddress.getInstance().getById(set.getInt("address_id"));
+                    Role role = DaoRole.getInstance().getById(set.getInt("role_id"));
+                    user = new User(id, email, pass);
+                    user.setAddress(addr);
+                    user.setRole(role);
+                }
+            }
+        } catch (SQLException e) {
+            LOG.log(Level.ERROR, e.getMessage(), e);
+        }
+        return user;
+    }
 }
+
