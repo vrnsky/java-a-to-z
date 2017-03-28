@@ -1,7 +1,5 @@
 package model;
 
-import org.apache.commons.lang3.RandomUtils;
-
 import org.joda.time.DateTime;
 import org.joda.time.Interval;
 import org.joda.time.LocalDateTime;
@@ -45,35 +43,13 @@ public class Bank {
      */
     private List<Client> clients;
 
-
     /**
-     * Create a new instance of bank.
-     * @param clients count of clients.
+     * Create a new bank with from list of visitors.
+     * @param clients list of clients.
      */
-    public Bank(int clients) {
-        init(clients);
-    }
-
-    /**
-     * Fill client list by random values of time in and time out.
-     * @param clients count of clients.
-     */
-    private void init(int clients) {
-        this.clients = new ArrayList<>(clients);
-        for (int index = 0; index < clients; index++) {
-            long timeIn = RandomUtils.nextLong(START.getMillis(), FINISH.getMillis());
-            long timeOut = RandomUtils.nextLong(timeIn, FINISH.getMillis());
-            this.clients.add(new Client(timeIn, timeOut));
-        }
-    }
-
-    /**
-     * Print calculated map.
-     */
-    public void printData() {
-        for (Map.Entry<String, List<Client>> entry : this.calculate().entrySet()) {
-            System.out.println(String.format("Hours: %s | Clients: %s", entry.getKey(), entry.getValue().size()));
-        }
+    public Bank(List<Client> clients) {
+        this.clients = new ArrayList<>();
+        this.clients.addAll(clients);
     }
 
     /**
@@ -134,15 +110,4 @@ public class Bank {
         }
         return map;
     }
-
-    /**
-     * Show demo.
-     * @param args key for app.
-     */
-    public static void main(String[] args) {
-        Bank bank = new Bank(4);
-        bank.printData();
-
-    }
-
 }
