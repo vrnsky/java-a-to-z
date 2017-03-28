@@ -34,6 +34,7 @@ public class Client  {
      * @param timeOut time in which client go out from bank.
      */
     public Client(long timeIn, long timeOut) {
+        this.checkTime(timeIn, timeOut);
         this.timeIn = timeIn;
         this.timeOut = timeOut;
         LOG.log(Level.INFO, this.toString());
@@ -64,5 +65,16 @@ public class Client  {
         DateTime comeTime = new DateTime(timeIn);
         DateTime outTime = new DateTime(timeOut);
         return String.format("Client came at %s and out at %s", comeTime, outTime);
+    }
+
+    /**
+     * Check time, client could not may left bank early that he came in.
+     * @param inTime time of entered.
+     * @param outTime time of out.
+     */
+    private void checkTime(long inTime, long outTime) {
+        if (inTime >= outTime) {
+            throw new IllegalStateException("Client could not left bank early that came in.");
+        }
     }
 }
