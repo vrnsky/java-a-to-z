@@ -30,30 +30,12 @@ public class Update extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/json");
         int id = Integer.valueOf(req.getParameter("id"));
-        ObjectMapper mapper = new ObjectMapper();
-        PrintWriter writer = resp.getWriter();
-        writer.append(mapper.writeValueAsString(ItemRepository.getInstance().getById(id)));
-        writer.flush();
-    }
-
-    /**
-     * Collect data from the request and update item.
-     * @param req from client to server.
-     * @param resp from server to client.
-     * @throws ServletException if request for POST could not handled.
-     * @throws IOException if an input or output error detected.
-     */
-    @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.valueOf(req.getParameter("id"));
-        String description = req.getParameter("description");
         boolean done = Boolean.valueOf(req.getParameter("done"));
         Item item = ItemRepository.getInstance().getById(id);
-        item.setDesc(description);
         item.setDone(done);
         ItemRepository.getInstance().editItem(item);
     }
+
 }
 
