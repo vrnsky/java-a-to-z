@@ -1,1 +1,0 @@
-psql --username=postgres -f drop_db.sql
