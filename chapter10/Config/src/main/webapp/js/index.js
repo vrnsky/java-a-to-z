@@ -17,26 +17,60 @@ function updatePage() {
             type: 'GET',
             complete: function (data) {
                 var tasks = JSON.parse(data.responseText);
-                console.log(tasks);
                 for (var index = 0; index < tasks.length; index++) {
-                    var created = new Date(tasks[index].creationTime);
-                    var hasDone = tasks[index].done;
-                    var doneString = "";
-                    if (hasDone) {
-                        doneString = "<input type='checkbox' name='done' checked>";
-                    } else {
-                        doneString = "<input type='checkbox' name='done' />"
-                    }
-                    var itemString = "<tr><td>" + tasks[index].id + "</td>";
-                    itemString += "<td>" + tasks[index].desc + "</td>";
-                    itemString += "<td>" + created.getDate() + "." + (created.getMonth() + 1) + "." + created.getFullYear() + "</td>";
-                    itemString += "<td>" + doneString + "</td>";
-                    $("#itemTable").append(itemString);
+                    $("#itemTable").append(getItemTableString(tasks[index]));
                 }
+                setHandlers();
             }
         })
     )
+}
 
+function setHandlers() {
+    var checkers = document.getElementsByClassName("marker");
+    for (var i = 0; i <checkers.length; i++) {
+        checkers[i].onclick = function () {
+            updateItem($(this).attr("id"), $(this).prop("checked"));
+        }
+    }
+}
+
+function updateItem(id, done) {
+    $(
+        $.ajax({
+            url:'./update?id=' + id + '&done=' + done,
+            type: 'GET',
+            complete: function (data) {
+            }
+        })
+    )
+    updatePage();
+}
+
+function getItemTableString(task) {
+    var created = new Date(task.creationTime);
+    var tr = document.createElement("tr");
+    var idCell = document.createElement("td");
+    idCell.innerHTML = task.id;
+    tr.append(idCell);
+    var descriptionCell = document.createElement("td");
+    descriptionCell.innerHTML = task.desc;
+    tr.append(descriptionCell);
+    var timeCell = document.createElement("td");
+    timeCell.innerHTML = created.getDate() + "." + (created.getMonth() + 1) + "." + created.getFullYear();
+    tr.append(timeCell);
+    var doneCell = document.createElement("td");
+    var doneInput = document.createElement("input");
+    doneInput.setAttribute("id", task.id);
+    doneInput.setAttribute("type", "checkbox");
+    doneInput.setAttribute("class", "marker");
+    if (task.done) {
+        doneInput.checked = true;
+    }
+    doneCell.appendChild(doneInput);
+    tr.appendChild(doneCell);
+
+    return tr;
 }
 
 /**
@@ -58,3 +92,7 @@ function formSubmit() {
             }
         }));
 }
+//
+// $(".marker :checkbox").onchange = function() {
+//     console.log($(this).attr('id'));
+// }
