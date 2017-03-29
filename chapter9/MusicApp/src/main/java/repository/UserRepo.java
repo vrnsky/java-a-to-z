@@ -156,6 +156,12 @@ public class UserRepo {
         return users;
     }
 
+    /**
+     * Return user by it credits if it exist at the system, otherwise return false.
+     * @param login of user.
+     * @param password of user.
+     * @return user object, if user exist at the system, otherwise false.
+     */
     public User getUserByCredits(String login, String password) {
         User user = null;
         try (Connection connection = this.dbManager.getConnection();

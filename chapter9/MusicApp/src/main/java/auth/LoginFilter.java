@@ -2,7 +2,12 @@ package auth;
 
 import model.User;
 
-import javax.servlet.*;
+import javax.servlet.Filter;
+import javax.servlet.ServletException;
+import javax.servlet.FilterConfig;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletResponse;
+import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,14 +41,14 @@ public class LoginFilter implements Filter {
      */
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest request = (HttpServletRequest)servletRequest;
-        HttpServletResponse response = (HttpServletResponse)servletResponse;
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
 
         if (request.getRequestURI().contains("/login")) {
            chain.doFilter(servletRequest, servletResponse);
         } else {
             HttpSession session = request.getSession();
-            User user = (User)session.getAttribute("user");
+            User user = (User) session.getAttribute("user");
             if (user == null) {
                 response.sendRedirect(String.format("%s/login.html", request.getContextPath()));
                 return;
