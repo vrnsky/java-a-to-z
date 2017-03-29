@@ -26,6 +26,9 @@ function updatePage() {
     )
 }
 
+/**
+ * Set handlers on the done input.
+ */
 function setHandlers() {
     var checkers = document.getElementsByClassName("marker");
     for (var i = 0; i <checkers.length; i++) {
@@ -35,18 +38,29 @@ function setHandlers() {
     }
 }
 
+/**
+ * Update task on the server.
+ * @param id of task.
+ * @param done true - if task done, false task does not done.
+ */
 function updateItem(id, done) {
     $(
         $.ajax({
             url:'./update?id=' + id + '&done=' + done,
             type: 'GET',
             complete: function (data) {
+                updatePage();
             }
         })
-    )
-    updatePage();
+    );
+
 }
 
+/**
+ * Return table string with data.
+ * @param task instance of task.
+ * @returns {Element} table string with filled data.
+ */
 function getItemTableString(task) {
     var created = new Date(task.creationTime);
     var tr = document.createElement("tr");
@@ -69,7 +83,7 @@ function getItemTableString(task) {
     }
     doneCell.appendChild(doneInput);
     tr.appendChild(doneCell);
-
+    console.log(tr);
     return tr;
 }
 
@@ -92,7 +106,3 @@ function formSubmit() {
             }
         }));
 }
-//
-// $(".marker :checkbox").onchange = function() {
-//     console.log($(this).attr('id'));
-// }
