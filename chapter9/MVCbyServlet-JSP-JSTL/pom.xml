@@ -5,7 +5,7 @@
 	<name>MVCbyServlet-JSP-JSTL</name>
 	<version>1.0</version>
 	<packaging>war</packaging>
-	
+
 	<parent>
 		<groupId>ru.evrnsky.chapter9</groupId>
 		<artifactId>chapter9</artifactId>
