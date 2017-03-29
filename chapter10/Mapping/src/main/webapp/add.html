@@ -18,11 +18,24 @@
             src="https://code.jquery.com/jquery-3.1.1.min.js"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
+    <script src="js/add.js"></script>
 </head>
 <body>
 <div class="container">
     <div class="row">
-        <div class="col"></div>
+       <form>
+           <label for="producer">Choose producer</label>
+           <select id="producer"></select>
+           <label for="model">Choose model</label>
+           <select id="model"></select>
+           <label for="body">Choose body</label>
+           <select id="body"></select>
+           <label for="photo">Car photo</label>
+           <input type="file" id="photo" />
+           <label for="price">Price</label>
+           <input type="text" id="price" />
+           <input type="sumbit" value="Add advert" class="btn btn-primary" onclick="submitForm()" />
+       </form>
     </div>
 </div>
 </body>
