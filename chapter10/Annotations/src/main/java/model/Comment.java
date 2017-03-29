@@ -20,7 +20,7 @@ import javax.persistence.ManyToOne;
 public class Comment {
 
     /**
-     * Unique number.
+     * Unique number among all comments for this item.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
