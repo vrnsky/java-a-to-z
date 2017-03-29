@@ -101,9 +101,9 @@ public class ItemRepository {
         session.beginTransaction();
         String query = "";
         if (onlyDone) {
-            query = "from model.Item as i where i.done = true";
+            query = "from model.Item as i where i.done = true order by i.id asc";
         } else {
-            query = "from model.Item";
+            query = "from model.Item order by id asc";
         }
         List<Item> result = session.createQuery(query).list();
         session.getTransaction().commit();
