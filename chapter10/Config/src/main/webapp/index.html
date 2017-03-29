@@ -19,6 +19,7 @@
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous"></script>
     <script src="js/index.js"></script>
+    <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
 <div class="row">
@@ -30,10 +31,10 @@
                     <div class="form-group">
                         <label for="desc">Description</label>
                         <textarea class="form-control" rows="1" id="desc"></textarea>
-                        <input type="submit" value="Add" class="btn btn-default" onclick="formSubmit()"/>
+                        <input type="submit" value="Add" class="btn btn-primary" onclick="formSubmit()"/>
                     </div>
                     <div class="form-group">
-                        <label for="doneTask">Show only done task:</label>
+                        <label for="doneTask">Show only done task</label>
                         <input class="form-control" type="checkbox" id="doneTask" onchange="updatePage()"/>
                     </div>
                 </form>
@@ -53,23 +54,3 @@
 </div>
 </body>
 </html>
-
-<!--<div class="col-6 col-md-4"></div>-->
-<!--<div class="col-6 col-md-4"></div>-->
-<!--<label for="doneTask">Show only done task:</label>-->
-<!--<input type="checkbox" id="doneTask" onchange="updatePage()"/>-->
-<!--<table id="itemTable">-->
-<!--<tr>-->
-<!--<th>ID</th>-->
-<!--<th>Description</th>-->
-<!--<th>Creation time</th>-->
-<!--<th>Done</th>-->
-<!--</tr>-->
-<!--</table>-->
-<!--<form>-->
-<!--<label for="description">Description</label>-->
-<!--<textarea id="description"></textarea>-->
-<!--<input type="submit" value="Add" onclick="formSubmit()"/>-->
-<!--</form>-->
-<!--<div class="col-6 col-md-4"></div>-->
-<!--</div>-->
