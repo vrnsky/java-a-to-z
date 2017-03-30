@@ -77,7 +77,7 @@ public class SortedSetTest {
     /**
      * Check that adding ten thousands elements to the sorted set is faster that 4.5 second.
      */
-    @Test(timeout = 650)
+    @Test(timeout = 1200)
     public void whenTryAddTenThousandsElementToTheSortedSetShouldCheckThatTimeWasCorrect() {
         SortedSet<String> set = new SortedSet<>();
         for(int index = 0; index < 10000; index++) {
