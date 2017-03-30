@@ -4,7 +4,7 @@
 	<artifactId>JSP</artifactId>
 	<name>JSP</name>
 	<version>1.0</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	
 	<parent>
 		<groupId>ru.evrnsky.chapter9</groupId>
