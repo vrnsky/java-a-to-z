@@ -1,5 +1,8 @@
 package start;
 
+import models.Comment;
+import models.Item;
+
 /**
  * Implementation of tracker application.
  * Implement all functionality of tracker: add, remove, edit and comment.

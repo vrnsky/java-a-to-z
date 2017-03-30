@@ -1,5 +1,6 @@
 package start;
 
+import models.Item;
 import org.junit.Before;
 import org.junit.Test;
 

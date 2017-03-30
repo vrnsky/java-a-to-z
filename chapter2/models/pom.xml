@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ru.evrnsky.chapter2.models</groupId>
 	<artifactId>models</artifactId>
-	<name>start</name>
+	<name>models</name>
 	<version>1.0</version>
 	<packaging>jar</packaging>
 	
