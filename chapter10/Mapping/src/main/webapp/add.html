@@ -1,42 +1,47 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Add your advert</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-            integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-            crossorigin="anonymous"></script>
-    <script
-            src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="js/add.js"></script>
+    <script src="js/uploader/uploader.js"></script>
 </head>
+
 <body>
-<div class="container">
-    <div class="row">
-       <form>
-           <label for="producer">Choose producer</label>
-           <select id="producer"></select>
-           <label for="model">Choose model</label>
-           <select id="model"></select>
-           <label for="body">Choose body</label>
-           <select id="body"></select>
-           <label for="photo">Car photo</label>
-           <input type="file" id="photo" />
-           <label for="price">Price</label>
-           <input type="text" id="price" />
-           <input type="sumbit" value="Add advert" class="btn btn-primary" onclick="submitForm()" />
-       </form>
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col"></div>
+          <div class="col-4">
+            <form method="post" action="./newadvert">
+              <div class="form-group">
+                <label for="producer">Choose producer</label>
+                <select id="producer" class="form-control"></select>
+              </div>
+              <div class="form-group">
+                <label for="model">Choose model</label>
+                <select id="model" class="form-control"></select>
+              </div>
+              <div class="form-group">
+                <label for="body">Choose body</label>
+                <select id="body" class="form-control"></select>
+              </div>
+              <div class="form-group">
+                <label for="photo">Car photo</label>
+                <input type="file" id="photo" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text" id="price" class="form-control" />
+              </div>
+                <input type="sumbit" value="Add advert" class="btn btn-primary" />
+            </form>
+          </div>
+          <div class="col"></div>
+        </div>
     </div>
-</div>
 </body>
 </html>
