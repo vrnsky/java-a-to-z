@@ -1,3 +1,5 @@
 language: java
 jdk:
     - oraclejdk8
+after_success:
+  - mvn clean -DTRAVIS_JOB_ID=$TRAVIS_JOB_ID cobertura:cobertura coveralls:report
