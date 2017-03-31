@@ -26,7 +26,7 @@ Chapters:
 14. Integration
 
 In project uses checkstyle maven plugin and cobertura for measure coverage.
-For continious integration using [Travis CI](https://travis-ci.org), also for measure coverage use [Coveralls](https://coveralls.io).
+For continious integration using [Travis CI](https://travis-ci.org), also for measure coverage use [Сodecov](https://codecov.io).
 This project have module based architecture. One lesson - one module. This division made for more comortable work with internal dependencies.
 
 At the second chapter I was build my first java application. It is simple tracker which run in the console and have minimum function such as add new item, edit item and remove, comment item. It runs by the next way:
