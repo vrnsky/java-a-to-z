@@ -2,7 +2,6 @@ package controllers;
 
 import dao.Repository;
 import models.User;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,13 +13,6 @@ import java.io.IOException;
  * @author evrnsky
  * @version 0.1
  * @since 19.02.2017
- *
- *
- *
- * This servlet add user to the system.
- * When user go to tho the create app forward user to the create.jsp.
- * It is view of app. When user edit some data on view and click button.
- * This doPost method handle it.
  */
 @WebServlet("/create")
 public class CreateUser extends HttpServlet {
@@ -37,7 +29,6 @@ public class CreateUser extends HttpServlet {
         resp.setContentType("text/html");
         req.getRequestDispatcher("WEB-INF/views/create.jsp").forward(req, resp);
     }
-
     /**
      * When user fill form and push the button, we need process data and add user to the system.
      * @param req from client to server.
