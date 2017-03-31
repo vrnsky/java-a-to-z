@@ -15,7 +15,12 @@ import java.io.IOException;
  * @version 0.1
  * @since 19.02.2017
  *
+ *
+ *
  * This servlet add user to the system.
+ * When user go to tho the create app forward user to the create.jsp.
+ * It is view of app. When user edit some data on view and click button.
+ * This doPost method handle it.
  */
 @WebServlet("/create")
 public class CreateUser extends HttpServlet {
