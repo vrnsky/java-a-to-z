@@ -9,26 +9,22 @@ In course use next technology :
 4. Hibernate
 5. jQuery
 6. Bootstrap
-<strike>
-	<b>
-    Chapter1. Basic Syntax
-    Chapter2. OOP
-    Chapter3. Input/Output
-    Chapter4. OOD
-    Chapter5. Collections
-    Chapter6. Garbage collector
-    Chapter7. Multithreading
-    Chapter8. JDBC
-    Chapter9. JSP/Servlets
-    </b>
-</strike>
-<b>
-    Chapter10. Hibernate
-    Chapter11. Spring
-    Chapter12. Algorithms
-    Chapter13. Design Pattern
-    Chapter14. Integration
-</b>
+
+Chapters:
+1. <strike>Basic syntax</strike>
+2. <strike>Object oriented programming</strike>
+3. <strike>Input/Output</strike>
+4. <strike>Object oriented design</strike>
+5. <strike>Collections</strike>
+6. <strike>Garbage Collector.</strike>
+7. <strike>Multithreading</strike>
+8. <strike>JDBC</strike>
+9. <strike>JSP and Servlet</strike>
+10. Hibenate
+11. Spring
+12. Algorithms
+13. Design Patterns
+14. Integration
 
 In project uses checkstyle maven plugin and cobertura for measure coverage.
 For continious integration using [Travis CI](https://travis-ci.org), also for measure coverage use [Coveralls](https://coveralls.io).
