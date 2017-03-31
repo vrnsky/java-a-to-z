@@ -50,6 +50,15 @@ public class Advert {
     }
 
     /**
+     * Create advert with given car.
+     * @param car instance of car class.
+     */
+    public Advert(Car car) {
+        this.car = car;
+        this.sale = false;
+    }
+
+    /**
      * Return id of this advert.
      * @return id.
      */
