@@ -28,8 +28,8 @@ public class Palindrome {
         boolean isPalindrome = false;
         String userInput = handleInput();
         char[] charsUser = userInput.toCharArray();
-        for(int index = 0; index <= charsUser.length / 2; index++) {
-            if(charsUser[index] != charsUser[charsUser.length - index - 1]) {
+        for (int index = 0; index <= charsUser.length / 2; index++) {
+            if (charsUser[index] != charsUser[charsUser.length - index - 1]) {
                 isPalindrome = false;
             } else {
                 isPalindrome = true;
@@ -48,12 +48,12 @@ public class Palindrome {
         boolean invalid = true;
         do {
             input = this.io.ask("Enter a palindrome: ");
-            if(!input.isEmpty() && input.length() == 5) {
+            if (!input.isEmpty() && input.length() == 5) {
                 invalid = false;
             } else {
               this.io.println("You made mistake: in words must be 5 letters");
             }
-        } while(invalid);
+        } while (invalid);
 
         return input.toLowerCase();
     }

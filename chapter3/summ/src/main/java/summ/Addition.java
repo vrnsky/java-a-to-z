@@ -1,7 +1,6 @@
 package summ;
+import start.IO;
 
-
-import start.*;
 /**
  * Addition two integers.
  */

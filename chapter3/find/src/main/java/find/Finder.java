@@ -21,17 +21,17 @@ public class Finder {
      * Start find a file by name, mask or regexp.
      * @param args - keys and values.
      */
-    public void startFind(String[] args) {
+    private void startFind(String[] args) {
         KeysValidator validator = new KeysValidator();
-        if(validator.isValidKeys(args)) {
+        if (validator.isValidKeys(args)) {
             String findParam = args[4];
-            if(findParam.equals("-m")) {
+            if (findParam.equals("-m")) {
                 FindByMask finder = new FindByMask();
                 finder.find(args);
-            } else if(findParam.equals("-f")) {
+            } else if (findParam.equals("-f")) {
                 FindByName finder = new FindByName();
                 finder.find(args);
-            } else if(findParam.equals("-r")) {
+            } else if (findParam.equals("-r")) {
                 FindByRegExp finder = new FindByRegExp();
                 finder.find(args);
             }

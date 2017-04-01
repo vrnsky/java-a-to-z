@@ -3,15 +3,17 @@ package find;
 import chat.Answerer;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
-
 import java.io.File;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * This unit test for finder by mask.
+ */
 public class FindByMaskTest {
 
     /**
@@ -27,6 +29,7 @@ public class FindByMaskTest {
 
     /**
      * When user give correct keys should find file and save all data.
+     * @throws Exception if something wrong.
      */
     @Test
     public void whenTrySearchFileByMaskShouldSaveResultInSpecifiedFile() throws Exception {

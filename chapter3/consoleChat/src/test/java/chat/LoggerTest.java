@@ -1,13 +1,10 @@
 package chat;
 
-import org.apache.commons.io.FileUtils;
 import org.junit.Test;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -17,6 +14,7 @@ public class LoggerTest {
 
     /**
      * When try write some data log should check that it is saved.
+     * @throws IOException if i/o errors detected.
      */
     @Test
     public void whenWriteSomeDataToLogShouldCheckThatItSaved() throws IOException {
@@ -28,7 +26,7 @@ public class LoggerTest {
         logger.log(expected);
         answerer = Optional.of(new Answerer(temp.getAbsolutePath()));
         String actual = "";
-        if(answerer.isPresent()) {
+        if (answerer.isPresent()) {
             actual = answerer.get().getRandomString();
         }
         assertThat(actual, is(expected));

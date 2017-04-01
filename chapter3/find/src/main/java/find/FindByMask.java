@@ -1,8 +1,9 @@
 package find;
 
 import java.io.File;
-import java.io.FileFilter;
-import java.nio.file.*;
+import java.nio.file.Paths;
+import java.nio.file.FileSystems;
+import java.nio.file.PathMatcher;
 
 /**
  * Find a file by mask.

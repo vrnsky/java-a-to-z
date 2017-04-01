@@ -2,7 +2,14 @@ package socket;
 
 import chat.Logger;
 
-import java.io.*;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.EOFException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.SocketException;
@@ -97,7 +104,7 @@ public class Client {
             logger = new Logger("myLog.txt");
             this.setConnection();
             this.keyboard = new BufferedReader(new InputStreamReader(System.in));
-            String userMessage = null;
+            String userMessage;
              do {
                 userMessage = keyboard.readLine();
                 logger.log(userMessage);
@@ -109,7 +116,7 @@ public class Client {
                 if (!silentMode) {
                     chatWithServer(userMessage);
                 }
-            } while(!FINISH.equalsIgnoreCase(userMessage));
+            } while (!FINISH.equalsIgnoreCase(userMessage));
         } catch (SocketException exp) {
             System.out.println("Server reject you...");
         } catch (Exception exp) {
@@ -120,7 +127,7 @@ public class Client {
                 logger.close();
                 input.close();
                 output.close();
-            } catch(IOException exception) {
+            } catch (IOException exception) {
                 exception.printStackTrace();
             }
         }
@@ -152,7 +159,7 @@ public class Client {
         output.flush();
         try {
             userMessage = input.readUTF();
-        } catch(EOFException exception) {
+        } catch (EOFException exception) {
             System.out.println("Server not response!");
         }
         System.out.println(userMessage);

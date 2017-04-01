@@ -4,7 +4,7 @@ import chat.Answerer;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
-import java.io.*;
+import java.io.File;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,22 +33,23 @@ public class FindByRegExpTest {
     /**
      * Some file for test.
      */
-    private static final String fileName = "r*.txt";
+    private static final String FILE_NAME = "r*.txt";
 
     /**
      * Save all data find and not find.
+     * @throws Exception if something wrong.
      */
     @Test
     public void whenTrySearchFileByRegExpShouldCheckThatWeWriteResultInFile() throws Exception {
         FileTestUtils.createDirsAndFiles(FIND_BY_REGEXP, Arrays.asList("regexp.txt"), Arrays.asList("regexp.txt"));
         String searchFolder = String.format("%s%s%s", PATH, FileTestUtils.SEPARATOR, FIND_BY_REGEXP);
         File file = Files.createTempFile("regexp", "").toFile();
-        String[] keys = new String[]{"-d", searchFolder, "-n", fileName, "-f", "-o", file.toString()};
+        String[] keys = new String[]{"-d", searchFolder, "-n", FILE_NAME, "-f", "-o", file.toString()};
         FindByMask findByMask = new FindByMask();
         Answerer answerer = null;
         List<String> expected = new ArrayList<>();
-        expected.add(String.format("%s%s%s%s%s", fileName, " was found at ", searchFolder, FileTestUtils.SEPARATOR, "regexp.txt"));
-        expected.add(String.format("%s%s%s%s%s%s%s", fileName, " was found at ", searchFolder, FileTestUtils.SEPARATOR, "subfolder", FileTestUtils.SEPARATOR, "regexp.txt"));
+        expected.add(String.format("%s%s%s%s%s", FILE_NAME, " was found at ", searchFolder, FileTestUtils.SEPARATOR, "regexp.txt"));
+        expected.add(String.format("%s%s%s%s%s%s%s", FILE_NAME, " was found at ", searchFolder, FileTestUtils.SEPARATOR, "subfolder", FileTestUtils.SEPARATOR, "regexp.txt"));
 
         findByMask.find(keys);
         answerer = new Answerer(keys[6]);

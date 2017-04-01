@@ -26,7 +26,7 @@ public class ParityChecker {
 	 */
 	public void isEvenOrOdd() {
 		int number = this.io.ask("Enter a number: ", Integer.MIN_VALUE, Integer.MAX_VALUE);
-		if(number % 2 == 0) {
+		if (number % 2 == 0) {
 			this.io.println("It is even");
 		} else {
 			this.io.println("It is odd");

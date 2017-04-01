@@ -2,9 +2,8 @@ package parity;
 
 import org.junit.Test;
 import start.StubIO;
-
 import static org.hamcrest.core.StringContains.containsString;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for ParityChecker.java.
@@ -27,7 +26,7 @@ public class ParityCheckerTest {
         parityChecker.isEvenOrOdd();
 
         //Action block
-        assertThat(stubIO.getOut(),containsString(expected));
+        assertThat(stubIO.getOut(), containsString(expected));
     }
 
     /**
@@ -46,7 +45,7 @@ public class ParityCheckerTest {
         parityChecker.isEvenOrOdd();
 
         //Action block
-        assertThat(stubIO.getOut(),containsString(expected));
+        assertThat(stubIO.getOut(), containsString(expected));
     }
 
     /**
@@ -66,6 +65,6 @@ public class ParityCheckerTest {
         parityChecker.isEvenOrOdd();
 
         //Action block
-        assertThat(stubIO.getOut(),containsString(expected));
+        assertThat(stubIO.getOut(), containsString(expected));
     }
 }

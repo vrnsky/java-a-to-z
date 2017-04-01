@@ -2,7 +2,7 @@ package summ;
 
 import org.junit.Test;
 import start.StubIO;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -17,7 +17,7 @@ public class AdditionTest {
     public void whenTryAdditionTwoCorrectNumbersShouldSummItAndShowUser() {
 
         //Assign block
-        String[] answer = new String[]{"1","2"};
+        String[] answer = new String[]{"1", "2"};
         StubIO stubIO = new StubIO(answer);
         Addition addition = new Addition(stubIO);
         int expected = 3;

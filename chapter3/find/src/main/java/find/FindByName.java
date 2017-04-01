@@ -45,14 +45,14 @@ public class FindByName {
      */
     private void find(String directory, String fileName) {
         Optional<File[]> files = Optional.ofNullable(new File(directory).listFiles());
-        if(!files.isPresent()) {
+        if (!files.isPresent()) {
             throw new IllegalArgumentException("Not found given a directory");
         }
         for (File file : files.get()) {
             if (file.isDirectory()) {
                  find(file.getAbsolutePath(), fileName);
             } else if (check(file, fileName)) {
-               saveResult(String.format("%s was found at %s", this.fileName,file.getAbsoluteFile()), this.resultFile);
+               saveResult(String.format("%s was found at %s", this.fileName, file.getAbsoluteFile()), this.resultFile);
             } else  {
                 saveResult(String.format("%s was not found at %s", this.fileName, file.getAbsolutePath()), this.resultFile);
             }
@@ -66,12 +66,12 @@ public class FindByName {
      * @param destination path to file result.
      */
     private void saveResult(String fileResult, String destination) {
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter(new File(destination),true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(new File(destination), true))) {
             writer.write(fileResult);
             writer.newLine();
             writer.flush();
             writer.close();
-        } catch(IOException exp) {
+        } catch (IOException exp) {
             exp.printStackTrace();
         }
     }

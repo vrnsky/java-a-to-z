@@ -1,6 +1,9 @@
 package chat;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.FileReader;
+import java.io.File;
 import java.util.Random;
 
 /**
@@ -50,12 +53,13 @@ public class Answerer {
         int stringCount = 0;
         try {
             while (answerReader.ready()) {
-                if(!answerReader.readLine().isEmpty())
+                if (!answerReader.readLine().isEmpty()) {
                     stringCount++;
-                else
+                } else {
                     break;
+                }
             }
-        }catch(IOException exp) {
+        } catch (IOException exp) {
             exp.printStackTrace();
         }
 
@@ -73,7 +77,7 @@ public class Answerer {
         int position = 0;
 
         try {
-            while(answerReader.ready() && position < stringCount) {
+            while (answerReader.ready() && position < stringCount) {
                 answers[position++] = answerReader.readLine();
             }
         } catch (IOException exp) {

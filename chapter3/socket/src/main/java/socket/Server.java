@@ -2,7 +2,11 @@ package socket;
 
 import chat.Answerer;
 
-import java.io.*;
+import java.io.DataOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.DataInputStream;
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -68,12 +72,13 @@ public class Server {
     public void start() {
         try {
             Answerer answerer = new Answerer("answers.txt");
-            String userMessage;
+            String userMessage = "msg";
             this.setConnection();
-            while (!FINISH.equalsIgnoreCase(userMessage = input.readUTF())) {
+            while (!FINISH.equalsIgnoreCase(userMessage)) {
                 userMessage = answerer.getRandomString();
                 output.writeUTF(userMessage);
                 output.flush();
+                userMessage = input.readUTF();
             }
         } catch (Exception exp) {
             exp.printStackTrace();
@@ -81,7 +86,7 @@ public class Server {
             try {
                 output.close();
                 input.close();
-            }catch (IOException ioe) {
+            } catch (IOException ioe) {
                 ioe.printStackTrace();
             }
         }

@@ -10,12 +10,12 @@ public class KeysValidator {
     /**
      * All valid keys hold at this constant.
      */
-    private static final String[] validKeys = new String[]{"-d","-n","-m","-o","-f","-r"};
+    private static final String[] VALID_KEYS = new String[]{"-d", "-n", "-m", "-o", "-f", "-r"};
 
     /**
      * Description for all valid keys.
      */
-    private static final String[] descKeys = new String[]{
+    private static final String[] DESC_KEYS = new String[]{
             "Use for specify directory",
             "Use for for specify name of file, or regular expression, or mask of file",
             "Use for search file by mask",
@@ -42,16 +42,16 @@ public class KeysValidator {
      */
     public boolean isValidKeys(String[] keys) {
         boolean valid = false;
-        for(String key : keys) {
-            if(key.startsWith("-")) {
+        for (String key : keys) {
+            if (key.startsWith("-")) {
                 valid = keyExist(key);
-                if(!valid) {
+                if (!valid) {
                     badKey++;
                     hint.append(String.format("%s - it is bad key, please choose correct key\n", key));
                 }
             }
         }
-        if(badKey != 0) {
+        if (badKey != 0) {
             System.out.println(hint.toString());
             showValidKeys();
         }
@@ -65,9 +65,10 @@ public class KeysValidator {
      */
     private boolean keyExist(String key) {
         boolean exist = false;
-        for(String valid : validKeys) {
-            if(key.equals(valid))
+        for (String valid : VALID_KEYS) {
+            if (key.equals(valid)) {
                 exist = true;
+            }
         }
         return exist;
     }
@@ -77,9 +78,9 @@ public class KeysValidator {
      * And show that its means.
      */
     private void showValidKeys() {
-        System.out.println("List of valid keys");
-       for(int index = 0; index < validKeys.length; index++) {
-           System.out.println(String.format("%s - %s",validKeys[index],descKeys[index]));
+       System.out.println("List of valid keys");
+       for (int index = 0; index < VALID_KEYS.length; index++) {
+           System.out.println(String.format("%s - %s", VALID_KEYS[index], DESC_KEYS[index]));
        }
     }
 

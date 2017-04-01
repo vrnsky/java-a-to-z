@@ -1,6 +1,8 @@
 package chat;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * Implementation of console chat.
@@ -33,19 +35,21 @@ public class Chat {
         String userMessage = "";
         BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
 
-        while(!FINISH.equalsIgnoreCase(userMessage = keyboard.readLine())) {
+        while (!FINISH.equalsIgnoreCase(userMessage)) {
             logger.log(userMessage);
 
-            if(STOP.equalsIgnoreCase(userMessage))
+            if (STOP.equalsIgnoreCase(userMessage)) {
                 silentMode = true;
-            else if(CONTINUE.equalsIgnoreCase(userMessage))
+            } else if (CONTINUE.equalsIgnoreCase(userMessage)) {
                 silentMode = false;
+            }
 
-            if(!silentMode) {
+            if (!silentMode) {
                 String answer = answerer.getRandomString();
                 System.out.println(answer);
                 logger.log(answer);
             }
+            userMessage = keyboard.readLine();
         }
         keyboard.close();
         logger.close();

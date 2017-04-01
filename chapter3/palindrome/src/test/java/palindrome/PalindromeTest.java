@@ -4,7 +4,7 @@ import org.junit.Test;
 import start.StubIO;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.StringContains.containsString;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for Palindrome.java.
@@ -34,7 +34,7 @@ public class PalindromeTest {
      */
     @Test
     public void whenUserEnterWrongWordShouldShowUserThatHeMadeMistake() {
-        String[] answer = new String[]{"asd","rotor"};
+        String[] answer = new String[]{"asd", "rotor"};
         StubIO stubIO = new StubIO(answer);
         Palindrome palindrome = new Palindrome(stubIO);
         String expected = "You made mistake: in words must be 5 letters";
