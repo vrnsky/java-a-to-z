@@ -1,5 +1,6 @@
 package calculator;
 
+import start.ConsoleIO;
 import start.IO;
 import start.Validator;
 
@@ -33,7 +34,7 @@ public class CalcInit {
 	 * @throws Exception throw if reader from console fail.
      */
 	public static void main(String[] args) throws Exception {
-		new CalcInit(new Validator()).start();
+		new CalcInit(new Validator(new ConsoleIO())).start();
 	}
 
 	/**
