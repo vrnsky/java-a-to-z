@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Concrete implementation of user model
+ * Concrete implementation of user model.
  */
 public class StorageUser extends User {
 

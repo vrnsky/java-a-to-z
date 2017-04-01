@@ -5,7 +5,7 @@ import food.Food;
 /**
  * Model for storage.
  */
-abstract public class Storage implements Suitable {
+public abstract class Storage implements Suitable {
 
     /**
      * All product hold at this array.
@@ -43,7 +43,7 @@ abstract public class Storage implements Suitable {
      * @param food child of Food class.
      */
     public void addFood(Food food) {
-        if(this.isSuitable(food)) {
+        if (this.isSuitable(food)) {
             this.foods[position++] = food;
         }
     }
@@ -64,8 +64,8 @@ abstract public class Storage implements Suitable {
      */
     protected void fillInfo() {
         buffer.setLength(0);
-        for(Food food : foods) {
-            if(food != null) {
+        for (Food food : foods) {
+            if (food != null) {
                 buffer.append(food.toString());
             }
         }

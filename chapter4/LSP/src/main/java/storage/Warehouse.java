@@ -8,7 +8,7 @@ import food.Food;
 public class Warehouse extends Storage {
 
     /**
-     * Create a new warehouse with given capacity
+     * Create a new warehouse with given capacity.
      * @param capacity count of products in warehouse
      */
     public Warehouse(int capacity) {
@@ -23,9 +23,9 @@ public class Warehouse extends Storage {
     }
 
     /**
-     * Check that food suitable for warehouse
-     * @param food model of food which will check
-     * @return
+     * Check that food suitable for warehouse.
+     * @param food model of food which will check.
+     * @return true if suitable, otherwise false.
      */
     @Override
     public boolean isSuitable(Food food) {

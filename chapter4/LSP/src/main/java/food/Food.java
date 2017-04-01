@@ -1,10 +1,8 @@
 package food;
 
 import org.joda.time.DateTime;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 /**
  * Model of food.
@@ -107,7 +105,7 @@ public class Food {
 
     /**
      * Get discount for this model.
-     * @return
+     * @return discount for this product.
      */
     public int getDiscount() {
         return this.discount;
@@ -127,7 +125,7 @@ public class Food {
      */
     @Override
     public String toString() {
-        return String.format("Name:%s\nWas added: %s\nExpair date: %s\nPrice: %s\nDiscount: %s",this.name, getStringViewOfTime(this.createTime.toGregorianCalendar()),
+        return String.format("Name:%s\nWas added: %s\nExpair date: %s\nPrice: %s\nDiscount: %s", this.name, getStringViewOfTime(this.createTime.toGregorianCalendar()),
                             getStringViewOfTime(this.expairDate.toGregorianCalendar()), this.price, this.discount);
     }
 
@@ -151,6 +149,6 @@ public class Food {
         long productLife = (expairDate.getMillis() - today.getMillis()) / TIME_IN_DAY;
         long productToday = (today.getMillis() - this.getCreateTime().getMillis()) / TIME_IN_DAY;
         long percent = (productToday * 100) / productLife;
-        return (int)Math.abs(percent);
+        return (int) Math.abs(percent);
     }
 }

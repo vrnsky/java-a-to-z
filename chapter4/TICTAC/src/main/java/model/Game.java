@@ -11,6 +11,7 @@ public class Game {
      * game input and output system.
      */
     private GameIO io;
+
     /**
      * Player famous as human.
      */
@@ -69,7 +70,7 @@ public class Game {
             }
 
             possibleWinner = this.getWinner();
-            if(possibleWinner.isPresent()) {
+            if (possibleWinner.isPresent()) {
                 possibleWinner.get().increaseWins();
             }
         } while (!possibleWinner.isPresent() && (human.getWins() != rounds || computer.getWins() != rounds));
@@ -147,9 +148,9 @@ public class Game {
      */
     private Optional<Player> getWinner() {
         Optional<Player> winner = Optional.empty();
-        if(winChecker.isWinner(this.computer, this.board)) {
+        if (winChecker.isWinner(this.computer, this.board)) {
             winner = Optional.of(this.computer);
-        } else if(winChecker.isWinner(this.human, this.board)) {
+        } else if (winChecker.isWinner(this.human, this.board)) {
             winner = Optional.of(this.human);
         }
         return winner;

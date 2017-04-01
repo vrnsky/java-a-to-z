@@ -1,7 +1,7 @@
 package model;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -29,15 +29,11 @@ public class HumanTest {
      */
     @Test
     public void whenTryGetSignOfHumanShouldCheckThatIsCorrectSign() {
-
-        //Assign block
         Player human = new Human("x");
         String expected = "x";
 
-        //Action block
         String actual = human.getSign();
 
-        //Assert block
         assertThat(actual, is(expected));
     }
 
@@ -46,21 +42,17 @@ public class HumanTest {
      */
     @Test
     public void whenHumanTryMakeStepOnTheEmptyCellShouldCheckThatBoardAcceptIt() {
-
-        //Assign block
         Player human = new Human("X");
         Board board = new Board();
         String[][] expected = {
-                {"X","_","_"},
-                {"_","_","_"},
-                {"_","_","_"}
+                {"X", "_", "_"},
+                {"_", "_", "_"},
+                {"_", "_", "_"}
         };
 
-        //Action block
-        human.makeStep(board, 0,0);
+        human.makeStep(board, 0, 0);
         String[][] actual = board.showBoard();
 
-        //Assert block
         assertThat(actual, is(expected));
     }
 }

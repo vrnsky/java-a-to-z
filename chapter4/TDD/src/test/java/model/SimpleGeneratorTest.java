@@ -1,12 +1,10 @@
 package model;
 
 import org.junit.Test;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  *  Unit test for SimpleGenerator.java.

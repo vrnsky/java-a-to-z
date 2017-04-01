@@ -14,8 +14,8 @@ public class EditChecker implements Checker {
     @Override
     public boolean check(User[] users, User user) {
         boolean canEdit = false;
-        for(User existUser : users) {
-            if(existUser != null) {
+        for (User existUser : users) {
+            if (existUser != null) {
                 if (compareAge(existUser, user) && compareId(existUser, user) && compareName(existUser, user)) {
                     canEdit = true;
                 }

@@ -5,7 +5,7 @@ import start.MenuTracker;
 import start.Tracker;
 
 /**
- * Model of menu, this must show menu and handle choose operation
+ * Model of menu, this must show menu and handle choose operation.
  */
 public class Menu {
 
@@ -42,8 +42,8 @@ public class Menu {
      * @param menuItem instance of menu item class.
      */
     public void addMenuItem(MenuItem menuItem) {
-        for(int index = 0; index < this.items.length; index++) {
-            if(this.items[index] == null) {
+        for (int index = 0; index < this.items.length; index++) {
+            if (this.items[index] == null) {
                 this.items[index] = menuItem;
                 break;
             }
@@ -65,8 +65,8 @@ public class Menu {
      */
     public void show(String value) {
        int number = Integer.valueOf(value);
-       if(this.items[number-1] != null) {
-           this.items[number-1].show(value, this.io);
+       if (this.items[number - 1] != null) {
+           this.items[number - 1].show(value, this.io);
        }
     }
 
@@ -74,9 +74,9 @@ public class Menu {
      * Print all menu.
      */
     public void show() {
-        for(int index = 0; index < this.items.length; index++) {
-            if(this.items[index] != null) {
-                this.show(String.valueOf(index+1));
+        for (int index = 0; index < this.items.length; index++) {
+            if (this.items[index] != null) {
+                this.show(String.valueOf(index + 1));
             }
         }
     }
@@ -87,8 +87,10 @@ public class Menu {
      * By above reason increase high boundary of range io.ask.
      */
     public void choose() {
-        int choose = io.ask("Enter a number of action: ", this.menuTracker.getIdFirstCommand(), this.menuTracker.getIdLastCommand()+1);
-        if(choose > 0) choose--;
+        int choose = io.ask("Enter a number of action: ", this.menuTracker.getIdFirstCommand(), this.menuTracker.getIdLastCommand() + 1);
+        if (choose > 0) {
+            choose--;
+        }
         this.items[choose].choose(choose, this.menuTracker);
     }
 

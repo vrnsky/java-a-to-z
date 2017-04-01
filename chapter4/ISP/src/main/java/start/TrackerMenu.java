@@ -23,7 +23,7 @@ public class TrackerMenu {
 
     /**
      * Start app.
-     * @param args
+     * @param args keys.
      */
     public static void main(String[] args) {
         new TrackerMenu(new ConsoleIO()).init();

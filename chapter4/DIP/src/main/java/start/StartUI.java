@@ -23,7 +23,7 @@ public class StartUI {
 
     /**
      * Start app.
-     * @param args
+     * @param args keys for app.
      */
     public static void main(String[] args) {
        new StartUI(new ConsoleIO()).init();

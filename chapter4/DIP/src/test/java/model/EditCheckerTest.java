@@ -2,20 +2,18 @@ package model;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
- * Unit test for EditChecker.java
+ * Unit test for EditChecker.java.
  */
 public class EditCheckerTest {
 
     /**
-     * When try check may edit exist user should check that checker return true;
+     * When try check may edit exist user should check that checker return true.
      */
     @Test
     public void whenTryCheckMayEditExistUserShouldCheckThatReturnTrue() {
-
-        //Assign block
         User user = new StorageUser("Java", 20);
         User[] users = new User[1];
         users[0] = user;

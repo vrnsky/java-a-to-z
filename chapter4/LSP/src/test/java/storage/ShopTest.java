@@ -3,12 +3,8 @@ package storage;
 import food.Food;
 import org.joda.time.DateTime;
 import org.junit.Test;
-
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for Shop.java.

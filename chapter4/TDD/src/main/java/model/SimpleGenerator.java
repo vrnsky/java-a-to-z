@@ -1,12 +1,10 @@
 package model;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.Map.Entry;
 
 /**
  * Simple generator. Generate string with given data.
@@ -40,7 +38,7 @@ public class SimpleGenerator implements Template {
 
         while (matcher.find()) {
             String cleanKey = this.getCleanKey(buffer.substring(matcher.start(), matcher.end()));
-            if(dictionary.containsKey(cleanKey)) {
+            if (dictionary.containsKey(cleanKey)) {
                 usedValues.add(cleanKey);
                 buffer.replace(matcher.start(), matcher.end(), dictionary.get(cleanKey));
             } else {
@@ -49,8 +47,8 @@ public class SimpleGenerator implements Template {
         }
 
         Set<String> allKeys = dictionary.keySet();
-        for(String key : allKeys) {
-            if(!usedValues.contains(key)) {
+        for (String key : allKeys) {
+            if (!usedValues.contains(key)) {
                 throw new IllegalArgumentException(String.format("You don\'t use this key %s", key));
             }
         }

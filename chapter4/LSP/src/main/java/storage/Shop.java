@@ -23,17 +23,17 @@ public class Shop extends Storage {
     }
 
     /**
-     * Check that food suitable for the shop
-     * @param food model of food which will check
-     * @return true if food suitable, otherwise false
+     * Check that food suitable for the shop.
+     * @param food model of food which will check.
+     * @return true if food suitable, otherwise false.
      */
     @Override
     public boolean isSuitable(Food food) {
         int percent = food.calculateFitness();
         boolean result = false;
-        if(percent > 25 && percent < 75) {
+        if (percent > 25 && percent < 75) {
             result = true;
-        } else if(percent > 75 && percent < 100) {
+        } else if (percent > 75 && percent < 100) {
             food.setDiscount(20);
             result = true;
         }
@@ -42,7 +42,7 @@ public class Shop extends Storage {
     }
 
     /**
-     * Show all foods in shop
+     * Show all foods in shop.
      * @return string view of all food at the shop.
      */
     @Override

@@ -7,6 +7,9 @@ import java.util.Random;
  */
 public class AI extends Player {
 
+    /**
+     * For generate random numbers.
+     */
     private static final Random RN = new Random();
 
     /**

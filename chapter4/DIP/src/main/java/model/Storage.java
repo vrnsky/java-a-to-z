@@ -35,8 +35,8 @@ public abstract class Storage {
      * @param user instance of user class.
      */
     protected void addUser(User user) {
-        for(int index = 0; index < this.users.length; index++) {
-            if(this.users[index] == null) {
+        for (int index = 0; index < this.users.length; index++) {
+            if (this.users[index] == null) {
                 user.setId(index);
                 this.users[index] = user;
                 this.lastElement = index;
@@ -52,8 +52,24 @@ public abstract class Storage {
     protected int getIdLastElement() {
         return this.lastElement;
     }
+
+    /**
+     * Implement by child.
+     */
     abstract void createUser();
+
+    /**
+     * Implement by child.
+     */
     abstract void editUser();
+
+    /**
+     * Implement by child.
+     */
     abstract void removeUser();
+
+    /**
+     * Implement by child.
+     */
     abstract void showUsers();
 }

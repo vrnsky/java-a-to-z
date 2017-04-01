@@ -19,6 +19,7 @@ public class ControllQuality {
 
     /**
      * Create a new controller.
+     * @param capacity of storages.
      */
     public ControllQuality(int capacity) {
         this.storages = new Storage[capacity];
@@ -32,7 +33,7 @@ public class ControllQuality {
     }
 
     /**
-     * Add a new storage to controller
+     * Add a new storage to controller.
      * @param storage instance of storage class.
      */
     public void addStorage(Storage storage) {
@@ -55,13 +56,14 @@ public class ControllQuality {
      * @param food product for moving.
      */
     public void moveFood(Food food) {
-        for(int index = 0; index < storages.length; index++) {
-                if(storages[index] != null)
-                    if(storages[index].isSuitable(food)) {
-                        storages[index].addFood(food);
-                    }
-
+        for (int index = 0; index < storages.length; index++) {
+            if (storages[index] != null) {
+                if (storages[index].isSuitable(food)) {
+                    storages[index].addFood(food);
                     break;
                 }
+
+            }
+        }
     }
 }

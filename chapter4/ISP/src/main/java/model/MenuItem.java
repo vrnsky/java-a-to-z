@@ -24,8 +24,8 @@ public class MenuItem implements Showable, Choose {
      * @param item instance of menu item class which will add as sub item.
      */
     public void addSubItem(MenuItem item) {
-        for(int index = 0; index < this.subItems.length; index++) {
-            if(this.subItems[index] == null) {
+        for (int index = 0; index < this.subItems.length; index++) {
+            if (this.subItems[index] == null) {
                 this.subItems[index] = item;
                 break;
             }
@@ -49,9 +49,9 @@ public class MenuItem implements Showable, Choose {
     @Override
     public void show(String value, IO io) {
        io.println(String.format(value +  ".%s ", this.getName()));
-       for(int index = 0; index < this.subItems.length; index++) {
-           if(this.subItems[index] != null) {
-               this.subItems[index].show(String.format("%s.%s", value, index+1), io);
+       for (int index = 0; index < this.subItems.length; index++) {
+           if (this.subItems[index] != null) {
+               this.subItems[index].show(String.format("%s.%s", value, index + 1), io);
            }
        }
     }

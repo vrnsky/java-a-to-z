@@ -6,34 +6,30 @@ import org.junit.Test;
 import storage.Shop;
 import storage.Trash;
 import storage.Warehouse;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
- * Unit test for ControllQuiality.java
- * It test moving food in trash, shop and warehouse
+ * Unit test for ControllQuiality.java.
+ * It test moving food in trash, shop and warehouse.
  */
 public class ControllQualityTest {
 
 
     /**
-     * When try move good fruit to warehouse should check than warehouse save it
+     * When try move good fruit to warehouse should check than warehouse save it.
      */
     @Test
     public void whenTryMoveGoodFruitToWarehouseShouldCheckThatAtWarehouse() {
         ControllQuality control = new ControllQuality();
         DateTime expairTime = new DateTime();
         expairTime = expairTime.plusMonths(3);
-        Food food = new Food("food", expairTime , 3.5, 0);
+        Food food = new Food("food", expairTime, 3.5, 0);
         String expected = "At this moment at the warehouse:\n" + food.toString();
 
         control.addStorage(new Warehouse());
         control.moveFood(food);
-        Warehouse warehouse = (Warehouse)control.getStorage(0);
+        Warehouse warehouse = (Warehouse) control.getStorage(0);
 
         assertThat(warehouse.toString(), is(expected));
     }
@@ -54,7 +50,7 @@ public class ControllQualityTest {
 
         control.addStorage(new Shop());
         control.moveFood(food);
-        Shop shop = (Shop)control.getStorage(0);
+        Shop shop = (Shop) control.getStorage(0);
 
         assertThat(shop.toString(), is(expected));
     }
@@ -74,7 +70,7 @@ public class ControllQualityTest {
         control.addStorage(new Shop());
         control.moveFood(food);
         String expected = "At this moment at the shop:\n" + food.toString();
-        Shop shop = (Shop)control.getStorage(0);
+        Shop shop = (Shop) control.getStorage(0);
 
         assertThat(shop.toString(), is(expected));
     }
@@ -94,7 +90,7 @@ public class ControllQualityTest {
 
         control.addStorage(new Trash());
         control.moveFood(food);
-        Trash trash = (Trash)control.getStorage(0);
+        Trash trash = (Trash) control.getStorage(0);
         assertThat(trash.toString(), is(expected));
     }
 

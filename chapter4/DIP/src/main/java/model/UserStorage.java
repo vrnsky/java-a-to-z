@@ -21,6 +21,7 @@ public class UserStorage extends Storage {
      * Create a new storage with given capacity and io system.
      * @param capacity size of user array.
      * @param io instance of io interface.
+     * @param checker method of checking.
      */
     public UserStorage(int capacity, IO io, Checker checker) {
         super(capacity);
@@ -44,7 +45,7 @@ public class UserStorage extends Storage {
     public void createUser() {
         String name = io.ask("Enter a name of new user: ");
         int age = io.ask("Enter age of new user: ", 0, Integer.MAX_VALUE);
-        if(!this.checker.check(this.users, new StorageUser(name, age))) {
+        if (!this.checker.check(this.users, new StorageUser(name, age))) {
             super.addUser(new StorageUser(name, age));
             this.io.println("User was added");
         } else {
@@ -59,7 +60,7 @@ public class UserStorage extends Storage {
         String name = io.ask("Enter a name of user for edit:");
         int age = io.ask("Enter a age of user for edit", 0, Integer.MAX_VALUE);
         int id = io.ask("Enter a id of user for edit: ", 0, super.getIdLastElement() + 1);
-        if(this.checker.check(users, new StorageUser(name, age, id))) {
+        if (this.checker.check(users, new StorageUser(name, age, id))) {
             String newName = io.ask("Enter new name for user: ");
             int newId = io.ask("Enter a new id for user: ", 0, super.getIdLastElement());
             int newAge = io.ask("Enter a new age for user: ", 0, Integer.MAX_VALUE);
@@ -79,7 +80,7 @@ public class UserStorage extends Storage {
         int age = io.ask("Enter a age of user for delete: ", 0, Integer.MAX_VALUE);
         int id = io.ask("Enter a id of user for delete: ", 0, super.getIdLastElement());
 
-        if(checker.check(this.users, new StorageUser(name, age, id))) {
+        if (checker.check(this.users, new StorageUser(name, age, id))) {
             super.users[id] = null;
             io.println("User was removed.");
         } else {
@@ -92,8 +93,8 @@ public class UserStorage extends Storage {
      */
     public void showUsers() {
         this.io.println("ID\tName\tAge");
-        for(User user : this.users) {
-            if(user != null) {
+        for (User user : this.users) {
+            if (user != null) {
                 this.io.println(String.format("%s\t%s\t%s", user.getId(), user.getName(), user.getAge()));
             }
         }

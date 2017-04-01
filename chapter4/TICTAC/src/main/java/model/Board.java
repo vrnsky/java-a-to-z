@@ -8,7 +8,7 @@ public class Board {
     /**
      * At this place hold all board.
      */
-    String[][] board;
+    private String[][] board;
 
     /**
      * Width of board.
@@ -36,7 +36,7 @@ public class Board {
      * Default constructor.
      */
     public Board() {
-        this(3,3);
+        this(3, 3);
     }
 
     /**
@@ -51,8 +51,8 @@ public class Board {
      * Fill board by insert underscores.
      */
     private void fillBoard() {
-        for(int index = 0; index < width; index++) {
-            for(int barrier = 0; barrier < height; barrier++) {
+        for (int index = 0; index < width; index++) {
+            for (int barrier = 0; barrier < height; barrier++) {
                 board[index][barrier] = "_";
             }
         }
@@ -66,7 +66,7 @@ public class Board {
      * @return true if step successfully performed, otherwise false.
      */
     public boolean performStep(Player player, int x, int y) {
-        if(validate(x,y)) {
+        if (validate(x, y)) {
             this.board[x][y] = player.getSign();
         }
 
@@ -81,7 +81,7 @@ public class Board {
      */
     private boolean validate(int x, int y) {
         boolean canStep = false;
-        if(x < width && y < width && this.board[x][y].equals("_")) {
+        if (x < width && y < width && this.board[x][y].equals("_")) {
             canStep = true;
         }
 
@@ -92,7 +92,7 @@ public class Board {
      * Return width of board.
      * @return width of board.
      */
-    public int getWidth(){
+    public int getWidth() {
         return this.width;
     }
 

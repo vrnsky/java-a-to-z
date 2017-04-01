@@ -8,7 +8,7 @@ import food.Food;
 public class Trash extends Storage {
 
     /**
-     * Create trash with given capacity
+     * Create trash with given capacity.
      * @param capacity count of food in trash.
      */
     public Trash(int capacity) {

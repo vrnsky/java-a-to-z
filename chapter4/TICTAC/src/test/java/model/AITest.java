@@ -1,11 +1,11 @@
 package model;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
- * Unit test for AI.java
+ * Unit test for AI.java.
  */
 public class AITest {
 
@@ -14,13 +14,8 @@ public class AITest {
      */
     @Test
     public void whenTryCreateAIShouldCheckThatIsNotNull() {
-
-        //Assign block
         Player computer = new AI("o");
-
-        //Action block
         boolean actual = computer != null;
-
         assertThat(actual, is(true));
     }
 
@@ -29,15 +24,11 @@ public class AITest {
      */
     @Test
     public void whenTryGetSignOfAIShouldCheckThatIsCorrectSign() {
-
-        //Assign block
         Player computer = new AI("O");
         String expected = "O";
 
-        //Action block
         String actual = computer.getSign();
 
-        //Assert block
         assertThat(actual, is(expected));
     }
 

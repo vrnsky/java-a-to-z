@@ -5,10 +5,10 @@ import start.StubIO;
 
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.StringContains.containsString;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
- * Unit for Menu.java
+ * Unit for Menu.java.
  */
 public class MenuTest {
 
@@ -17,9 +17,7 @@ public class MenuTest {
      */
     @Test
     public void whenTryShowMenuWithoutSubOptionsShouldCheckThatIsWorksCorrect() {
-
-        //Assign block
-        String[] answer = new String[] {""};
+        String[] answer = new String[]{""};
         StubIO stubIO = new StubIO(answer);
         Menu menu = new Menu(stubIO);
         MenuItem start = new MenuItem("Start");
@@ -28,14 +26,14 @@ public class MenuTest {
         menu.addMenuItem(settings);
         MenuItem exit = new MenuItem("Exit");
         menu.addMenuItem(exit);
-        String expected = "1.Start \n" +
-                          "2.Settings \n" +
-                          "3.Exit \n";
+        String expected = "1.Start \n"
+                +
+                "2.Settings \n"
+                +
+                "3.Exit \n";
 
-        //Action block
         menu.show();
 
-        //Assert block
         assertThat(stubIO.getOut(), is(expected));
     }
 
@@ -44,8 +42,6 @@ public class MenuTest {
      */
     @Test
     public void whenTryToShowMenuWithSubItemsShouldCheckThatIsCorrect() {
-
-        //Assign block
         String[] answer = new String[]{"", "", ""};
         StubIO stubIO = new StubIO(answer);
         Menu menu = new Menu(stubIO);
@@ -55,14 +51,14 @@ public class MenuTest {
         subItem.addSubItem(subSubItem);
         root.addSubItem(subItem);
         menu.addMenuItem(root);
-        String expected = "1.Root \n" +
-                          "1.1.Sub 1-lvl \n" +
-                          "1.1.1.Sub 1-1-lvl \n";
+        String expected = "1.Root \n"
+                +
+                "1.1.Sub 1-lvl \n"
+                +
+                "1.1.1.Sub 1-1-lvl \n";
 
-        //Action block
         menu.show();
 
-        //Assert block
         assertThat(stubIO.getOut(), is(expected));
     }
 
@@ -71,19 +67,15 @@ public class MenuTest {
      */
     @Test
     public void whenTryShowOneMenuItemShouldCheckThatWorksCorrect() {
-
-        //Assign block
-        String[] answer = new String[] {"", "", ""};
+        String[] answer = new String[]{"", "", ""};
         StubIO stubIO = new StubIO(answer);
         Menu menu = new Menu(stubIO);
         MenuItem root = new MenuItem("Root");
         menu.addMenuItem(root);
         String expected = "1.Root \n";
 
-        //Action block
         menu.show("1");
 
-        //Action block
         assertThat(stubIO.getOut(), is(expected));
     }
 
@@ -93,9 +85,7 @@ public class MenuTest {
      */
     @Test
     public void whenTryToChooseMenuOptionShouldCheckThatWorksCorrect() {
-
-        //Assign block
-        String[] answer = new String[]{"1","Egor", "Voronyansky","3"};
+        String[] answer = new String[]{"1", "Egor", "Voronyansky", "3"};
         StubIO stubIO = new StubIO(answer);
         Menu menu = new Menu(stubIO);
         MenuItem addItem = new MenuItem("Add new item");
@@ -104,14 +94,13 @@ public class MenuTest {
         menu.addMenuItem(addItem);
         menu.addMenuItem(removeItem);
         menu.addMenuItem(showAllItems);
-        String expected = "\tName:Egor\n" +
-                          "Desc:Voronyansky";
+        String expected = "\tName:Egor\n"
+                +
+                "Desc:Voronyansky";
 
-        //Action block
         menu.choose();
         menu.choose();
 
-        //Assert block
         assertThat(stubIO.getOut(), containsString(expected));
     }
 }

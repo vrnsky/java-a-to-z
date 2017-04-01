@@ -23,8 +23,8 @@ public class GameIO {
 
     /**
      * Print at the io system question and return answer from user.
-     * @param question
-     * @return
+     * @param question info for user.
+     * @return data from user.
      */
     public String ask(String question) {
         return this.io.ask(question);
@@ -54,6 +54,6 @@ public class GameIO {
      * @return number for user.
      */
     public int ask(String question, int from, int to) {
-        return this.io.ask(question,from, to);
+        return this.io.ask(question, from, to);
     }
 }

@@ -1,11 +1,12 @@
 package start;
 
 import org.junit.Test;
+
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
- * Unit test for StartUI.java
+ * Unit test for StartUI.java.
  */
 public class StartUITest {
 
@@ -16,22 +17,27 @@ public class StartUITest {
     public void whenTryStartAppShouldCheckThatMethodInitWorksCorrect() {
 
         //Assign block
-        String[] answer = new String[]{"Yegor","19", "Yegor", "19", "0", "Egor", "0", "20", "Egor", "20", "0"};
+        String[] answer = new String[]{"Yegor", "19", "Yegor", "19", "0", "Egor", "0", "20", "Egor", "20", "0"};
         StubIO stubIO = new StubIO(answer);
         StartUI app = new StartUI(stubIO);
-        String expected = "User was added\n" +
-                         "ID\tName\tAge\n" +
-                         "0\tYegor\t19\n" +
-                         "User was edited.\n" +
-                         "ID\tName\tAge\n" +
-                         "0\tEgor\t20\n" +
-                         "User was removed.\n" +
-                         "ID\tName\tAge\n";
+        String expected = "User was added\n"
+                +
+                "ID\tName\tAge\n"
+                +
+                "0\tYegor\t19\n"
+                +
+                "User was edited.\n"
+                +
+                "ID\tName\tAge\n"
+                +
+                "0\tEgor\t20\n"
+                +
+                "User was removed.\n"
+                +
+                "ID\tName\tAge\n";
 
-        //Action block
         app.init();
 
-        //Assert block
         assertThat(stubIO.getOut(), is(expected));
     }
 }
