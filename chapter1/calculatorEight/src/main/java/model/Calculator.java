@@ -14,6 +14,6 @@ public class Calculator {
      * @return result of calculation.
      */
     public int execute(MathOperation operation, int a, int b) {
-        return operation.calculate(a,b);
+        return operation.calculate(a, b);
     }
 }

@@ -2,8 +2,7 @@ package task;
 
 import org.junit.Before;
 import org.junit.Test;
-import task.Substring;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -21,8 +20,7 @@ public class SubstringTest {
 	 * Init instance of testing class, it extract to there to reduce code in test.
 	 */
 	@Before
-	public void setUp()
-	{
+	public void setUp() {
 		substr = new Substring();
 	}
 

@@ -10,8 +10,8 @@ import static org.hamcrest.number.IsCloseTo.closeTo;
  */
 public class PointTest {
 	/**
-	 * When create two and point and calculate distance between its
-	 * Should check that actual distance and expected distance are equals
+	 * When create two and point and calculate distance between its.
+	 * Should check that actual distance and expected distance are equals.
 	 */
 	@Test
 	public void whenCreateTwoPointsAndCalculateDistanceShouldGetDistanceBetweenIts() {
@@ -21,8 +21,6 @@ public class PointTest {
 		final double delta = 0.01;
 
 		double distance = firstPoint.distanceTo(secondPoint);
-		
-
 		assertThat(expectedDistance, closeTo(distance, delta));
 	}
 }

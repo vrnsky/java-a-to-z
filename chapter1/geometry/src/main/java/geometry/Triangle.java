@@ -15,7 +15,7 @@ public class Triangle {
     /**
      * Sides of triangle.
      */
-    public double firstSide, secondSide, thirdSide;
+    private double firstSide, secondSide, thirdSide;
 
     /**
      * Construct new triangle by three points.
@@ -61,5 +61,32 @@ public class Triangle {
             result = true;
         }
         return result;
+    }
+
+    /**
+     * Return fist side of triangle.
+     * @return first side of triangle.
+     */
+    public double getFirstSide() {
+        this.canExist();
+        return firstSide;
+    }
+
+    /**
+     * Return second side of triangle.
+     * @return second side of triangle.
+     */
+    public double getSecondSide() {
+        this.canExist();
+        return secondSide;
+    }
+
+    /**
+     * Return third side of triangle.
+     * @return third side of triangle.
+     */
+    public double getThirdSide() {
+        this.canExist();
+        return thirdSide;
     }
 }

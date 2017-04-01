@@ -2,11 +2,11 @@ package model;
 
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
- * Unit test for Calculator.java
+ * Unit test for Calculator.java.
  */
 public class CalculatorTest {
 
@@ -34,7 +34,7 @@ public class CalculatorTest {
         int expected = 2;
 
         //Action block
-        int actual = calc.execute((a,b) -> a + b, 1, 1);
+        int actual = calc.execute((a, b) -> a + b, 1, 1);
 
         //Assert block
         assertThat(actual, is(expected));
@@ -50,7 +50,7 @@ public class CalculatorTest {
         int expected = 1;
 
         //Action block
-        int actual = calc.execute((a, b) -> a-b, 100, 99);
+        int actual = calc.execute((a, b) -> a - b, 100, 99);
 
         //Assert block
         assertThat(actual, is(expected));
@@ -66,7 +66,7 @@ public class CalculatorTest {
         int expected = 100;
 
         //Action block
-        int actual = calc.execute((a, b) -> a * b, 10,10);
+        int actual = calc.execute((a, b) -> a * b, 10, 10);
 
         //Assert block
         assertThat(actual, is(expected));
@@ -98,7 +98,7 @@ public class CalculatorTest {
         int expected = -1;
 
         //Action block
-        int actual = calc.execute((a,b) -> a/b, 10,0);
+        int actual = calc.execute((a, b) -> a / b, 10, 0);
     }
 
 }

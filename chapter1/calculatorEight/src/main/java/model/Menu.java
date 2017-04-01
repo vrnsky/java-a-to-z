@@ -1,7 +1,5 @@
 package model;
 
-import start.IO;
-
 /**
  * This class is wrapper for Calculator API.
  */
@@ -35,7 +33,7 @@ public class Menu {
         } else if (operand.equals("*")) {
             result = calculator.execute((a, b) -> a * b, one, two);
         } else if (operand.equals("/")) {
-            if(two == 0) {
+            if (two == 0) {
                 throw new IllegalArgumentException("Div by zero is illegal!");
             }
             result = calculator.execute((a, b) -> a / b, one, two);

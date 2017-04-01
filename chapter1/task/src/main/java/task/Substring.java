@@ -16,13 +16,13 @@ public class Substring {
 		char[] charArray = string.toCharArray();
 		int count = 0;
 		boolean result = false;
-		if(fullSub.length > charArray.length) {
+		if (fullSub.length > charArray.length) {
 			result = false;
 		}
 
-		for(int index = 0; index < charArray.length; index++) {
-			for(int barrier = 0; barrier < fullSub.length; barrier++) {
-				if(charArray[index] == fullSub[barrier]) {
+		for (int index = 0; index < charArray.length; index++) {
+			for (int barrier = 0; barrier < fullSub.length; barrier++) {
+				if (charArray[index] == fullSub[barrier]) {
 					count++;
 					result = count > 0;
 				}

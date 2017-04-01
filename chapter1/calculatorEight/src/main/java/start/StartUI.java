@@ -39,6 +39,6 @@ public class StartUI {
             int two = this.io.ask("Enter a second number: ", Integer.MIN_VALUE, Integer.MAX_VALUE);
             int result = menu.calculate(operand, one, two);
             this.io.println(String.format("%s %s %s = %s", one, operand, two, result));
-        } while(!"y".equals(this.io.ask("Exit now ? (y/n)")));
+        } while (!"y".equals(this.io.ask("Exit now ? (y/n)")));
     }
 }

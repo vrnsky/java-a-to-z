@@ -37,7 +37,7 @@ public class MaxsideTest {
 	@Test
 	public void whenGiveMaxsideObjectWrongTriangleShouldGetZeroLength() {
 		Triangle badTriangle = new Triangle(new Point(0.0, 0.0),
-				       new Point(0.0 ,3.0), new Point(0.0, 0.0));
+				       new Point(0.0, 3.0), new Point(0.0, 0.0));
 		final double expectedMax = 0.0;
 		Maxside maxSide = new Maxside();
 

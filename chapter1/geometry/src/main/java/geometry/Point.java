@@ -12,12 +12,12 @@ public class Point {
     /**
      * Coordinate by x axis.
      */
-    public double x;
+    private double x;
 
     /**
      * Coordinate by y axis.
      */
-    public double y;
+    private double y;
 
     /**
      * Construct new point at the given coordinates.
@@ -36,5 +36,21 @@ public class Point {
      */
     public double distanceTo(Point point) {
         return abs(sqrt(pow(point.x - this.x, 2.0) + pow(point.y - this.y, 2.0)));
+    }
+
+    /**
+     * Return x of this point.
+     * @return x.
+     */
+    public double getX() {
+        return x;
+    }
+
+    /**
+     * Return y of this point.
+     * @return y.
+     */
+    public double getY() {
+        return y;
     }
 }

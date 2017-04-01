@@ -3,20 +3,29 @@ package model;
 import org.junit.Before;
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * Created by Egor on 13.08.2016.
  */
 public class MenuTest {
 
+    /**
+     * Instance of testing.
+     */
     private Menu menu;
 
+    /**
+     * Before each test.
+     */
     @Before
     public void setUp() {
         this.menu = new Menu();
     }
 
+    /**
+     * Sum.
+     */
     @Test
     public void whenTryAddTwoIntegerShouldCheckThatAppReturnCorrectAnswer() {
 
@@ -24,59 +33,48 @@ public class MenuTest {
         int expected = 10;
 
         //Action block
-        int actual = menu.calculate("+", 5,5);
+        int actual = menu.calculate("+", 5, 5);
 
         //Assert block
         assertThat(actual, is(expected));
     }
 
+    /**
+     * Deduct.
+     */
     @Test
     public void whenTryDeductOneIntegerFromOtherIntegerShouldCheckThatAppReturnCorrectAnswer() {
-
-        //Assign block
         int expected = 1;
-
-        //Action block
-        int actual = menu.calculate("-", 100,99);
-
-        //Assert block
+        int actual = menu.calculate("-", 100, 99);
         assertThat(actual, is(expected));
     }
 
+    /**
+     * Multiply.
+     */
     @Test
     public void whenTryMultiplyTwoNumbersShouldCheckThatAppReturnCorrectAnswer() {
-
-        //Assign block
         int expected = 10;
-
-        //Action block
         int actual = menu.calculate("*", 5, 2);
-
-        //Assert block
         assertThat(actual, is(expected));
-
     }
 
+    /**
+     * Division.
+     */
     @Test
     public void whenTryDivOneIntegerByOtherNotNullIntegerShouldCheckThatAppReturnCorrectAnswer() {
-
-        //Assign block
         int expected = 10;
-
-        //Action block
         int actual = menu.calculate("/", 100, 10);
-
-        //Assert block
         assertThat(actual, is(expected));
     }
 
+    /**
+     * Bad division.
+     */
     @Test(expected = IllegalArgumentException.class)
     public void whenTryDivOneIntegerByZeroShouldCheckThatAppThrowException() {
-
-        //Assign block
         int expected = 1;
-
-        //Action block
-        int actual= menu.calculate("/", 100, 0);
+        int actual = menu.calculate("/", 100, 0);
     }
 }
