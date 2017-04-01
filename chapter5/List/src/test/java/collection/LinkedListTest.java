@@ -8,7 +8,7 @@ import static org.hamcrest.collection.IsArrayContainingInOrder.arrayContaining;
 import static org.junit.Assert.assertThat;
 
 /**
- * Unit test for LinkedList.java
+ * Unit test for LinkedList.java.
  */
 public class LinkedListTest {
 
@@ -68,7 +68,7 @@ public class LinkedListTest {
         Iterator<String> iterator = container.iterator();
         String[] actual = new String[expected.length];
         int index = 0;
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             actual[index++] = iterator.next();
         }
 
@@ -101,7 +101,7 @@ public class LinkedListTest {
         Iterator<String> iterator = strings.iterator();
         int index = 0;
         String[] array = new String[strings.size()];
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             array[index++] = iterator.next();
         }
         assertThat(array, arrayContaining("value1", "value0"));

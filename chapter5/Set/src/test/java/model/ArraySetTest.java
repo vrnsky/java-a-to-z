@@ -1,19 +1,17 @@
 package model;
 
 import org.junit.Test;
-
 import java.util.NoSuchElementException;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
- * Unit test for ArraySet.java
+ * Unit test for ArraySet.java.
  */
 public class ArraySetTest {
 
     /**
-     * When create set should check that set not have element
+     * When create set should check that set not have element.
      * By call set method. Set must return count of elements.
      * For empty list size is -1.
      */
@@ -68,6 +66,9 @@ public class ArraySetTest {
         assertThat(actual, is("value"));
     }
 
+    /**
+     * When try ask about next, but next not exist.
+     */
     @Test
     public void whenTryCallMethodHasNextOnEmptySetShouldCheckThatMethodThrowException() {
         ArraySet<String> set = new ArraySet<>();
@@ -90,7 +91,7 @@ public class ArraySetTest {
     @Test(timeout = 4500)
     public void whenTryAddTenThousandsElementToTheArraySetShouldCheckThatThisOperationTakeBigTime() {
         ArraySet<String> set = new ArraySet<>();
-        for(int index = 0; index < 10000; index++) {
+        for (int index = 0; index < 10000; index++) {
             set.add(String.format("%s", index));
         }
     }

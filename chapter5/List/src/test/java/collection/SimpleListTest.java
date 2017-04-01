@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 /**
- * Unit test for SimpleList.java
+ * Unit test for SimpleList.java.
  */
 public class SimpleListTest {
 
@@ -97,7 +97,7 @@ public class SimpleListTest {
         String[] actual = new String[expected.length];
         Iterator<String> iterator = container.iterator();
         int index = 0;
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             actual[index++] = iterator.next();
         }
 

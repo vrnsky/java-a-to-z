@@ -1,15 +1,12 @@
 package service;
 
 import org.junit.Test;
-
 import java.util.NoSuchElementException;
-
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
-import static org.hamcrest.core.IsNull.nullValue;
+import static org.junit.Assert.assertThat;
 
 /**
- * Unit test for RoleStorage.java
+ * Unit test for RoleStorage.java.
  */
 public class RoleStorageTest {
 
@@ -18,16 +15,12 @@ public class RoleStorageTest {
      */
     @Test
     public void whenTryAddRoleToTheStorageShouldCheckThatWorksCorrect() {
-
-        //Assign block
         Role role = new Role("author");
         RoleStorage storage = new RoleStorage();
         storage.add(role);
 
-        //Action block
         Role actual = storage.get("author");
 
-        //Assert block
         assertThat(actual, is(role));
     }
 
@@ -36,12 +29,9 @@ public class RoleStorageTest {
      */
     @Test(expected = NoSuchElementException.class)
     public void whenTryRemoveRoleFromStorageShouldCheckThatRoleWasRemoved() {
-
-        //Assign block
         RoleStorage storage = new RoleStorage();
         storage.add(new Role("programmer"));
 
-        //Action block
         storage.remove("programmer");
         Role actual = storage.get("programmer");
 
@@ -52,16 +42,12 @@ public class RoleStorageTest {
      */
     @Test
     public void whenTryUpdateExistValueShouldCheckThatStorageAcceptChanges() {
-
-        //Assign block
         RoleStorage storage = new RoleStorage();
         Role codemonkey = new Role("codemonkey");
         storage.add(codemonkey);
 
-        //Action block
         storage.update(codemonkey.getId(), new Role("senior java"));
 
-        //Assert block
         assertThat(storage.get("senior java").getId(), is("senior java"));
     }
 }

@@ -4,6 +4,7 @@ package service;
  * Realization of simple array.
  * @author evrnsky
  * @version 1.0
+ * @param <T> specify which class may store array.
  */
 public class SimpleArray<T> {
 

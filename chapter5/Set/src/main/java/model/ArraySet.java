@@ -5,6 +5,7 @@ import java.util.NoSuchElementException;
 
 /**
  * Implementation of set based on array.
+ * @param <T> specify type.
  */
 public class ArraySet<T> implements Iterator<T> {
 
@@ -50,10 +51,10 @@ public class ArraySet<T> implements Iterator<T> {
      */
     public boolean add(T value) {
         boolean added = false;
-        if(this.needEnsureCapacity()) {
+        if (this.needEnsureCapacity()) {
             this.ensureCapacity();
         }
-        if(!contains(value)) {
+        if (!contains(value)) {
             this.values[index++] = value;
             added = true;
         }
@@ -68,11 +69,11 @@ public class ArraySet<T> implements Iterator<T> {
      */
     public boolean contains(T value) {
         boolean contains = false;
-        for(int index = 0; index < this.values.length; index++) {
+        for (int index = 0; index < this.values.length; index++) {
             Object current = this.values[index];
-            if(current != null) {
-                T castedObject = (T)current;
-                if(castedObject.equals(value))  {
+            if (current != null) {
+                T castedObject = (T) current;
+                if (castedObject.equals(value))  {
                     contains = true;
                 }
             }
@@ -93,7 +94,7 @@ public class ArraySet<T> implements Iterator<T> {
      * @return count of element at array.
      */
     public int size() {
-        return this.index-1;
+        return this.index - 1;
     }
 
     /**
@@ -103,13 +104,13 @@ public class ArraySet<T> implements Iterator<T> {
      */
     public T remove(Object object) {
         T removed = null;
-        if(!this.contains((T)object)) {
+        if (!this.contains((T) object)) {
             throw new NoSuchElementException("Given element not exist at the set");
         } else {
-            for(int index = 0; index < this.values.length; index++) {
-               T castedObject = (T)this.values[index];
+            for (int index = 0; index < this.values.length; index++) {
+               T castedObject = (T) this.values[index];
                removed = castedObject;
-                if(castedObject != null) {
+                if (castedObject != null) {
                     if (castedObject.equals(object)) {
                         this.values[index] = null;
                         break;
@@ -153,6 +154,6 @@ public class ArraySet<T> implements Iterator<T> {
      */
     @Override
     public T next() {
-        return (T)this.values[cursor++];
+        return (T) this.values[cursor++];
     }
 }

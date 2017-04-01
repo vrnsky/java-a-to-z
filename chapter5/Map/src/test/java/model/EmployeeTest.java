@@ -2,10 +2,10 @@ package model;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
- *  Unit test for Employee.java
+ *  Unit test for Employee.java.
  */
 public class EmployeeTest {
 
@@ -52,11 +52,11 @@ public class EmployeeTest {
         Employee googleBig = new Employee("Google", 1);
         boolean one = false;
         boolean two = false;
-        for(int index = 0; index < 100; index++) {
-            if(google.equals(googleBig)) {
+        for (int index = 0; index < 100; index++) {
+            if (google.equals(googleBig)) {
                 one = true;
             }
-            if(googleBig.equals(google)) {
+            if (googleBig.equals(google)) {
                 two = true;
             }
         }
@@ -81,7 +81,7 @@ public class EmployeeTest {
     public void whenTryCheckHashCodeMoreThatOneTimeShouldCheckThatHashCodeIsNotChanged() {
         Employee e = new Employee("Yegor", 100);
         int hashCode = e.hashCode();
-        for(int i = 0; i < 100; i++) {
+        for (int i = 0; i < 100; i++) {
             hashCode = e.hashCode();
         }
         assertThat(hashCode, is(e.hashCode()));

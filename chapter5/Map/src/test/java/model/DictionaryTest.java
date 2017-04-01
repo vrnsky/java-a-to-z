@@ -2,10 +2,10 @@ package model;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
- * Unit test for Dictionary.java
+ * Unit test for Dictionary.java.
  */
 public class DictionaryTest {
 
@@ -54,7 +54,7 @@ public class DictionaryTest {
     /**
      * When try check that in dictionary contains null value should check that method throw exception.
      */
-    @Test(expected = IllegalStateException.class)
+    @Test(expected = NullPointerException.class)
     public void whenTryCheckThatInDictionaryContainsNullElementShouldCheckThatMethodThrowException() {
         Dictionary<String, String> dictionary = new Dictionary<>();
         dictionary.contains(null);

@@ -1,15 +1,13 @@
 package model;
 
 import org.junit.Test;
-
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
- * Unit test for User.java
+ * Unit test for User.java.
  */
 public class UserTest {
 
@@ -107,7 +105,7 @@ public class UserTest {
     public void whenTryUpdateBirthdayShouldCheckThatModelWasSaveChanges() {
 
         //Assign block
-        User user = new User("Update", 1, new GregorianCalendar(1996, 10 , 1));
+        User user = new User("Update", 1, new GregorianCalendar(1996, 10, 1));
         Calendar calendar = new GregorianCalendar(1995, 4, 27);
 
         //Action block

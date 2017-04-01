@@ -11,7 +11,7 @@ public class StandardMethods {
 
     /**
      * App start.
-     * @param args
+     * @param args keys.
      */
     public static void main(String[] args) {
         new StandardMethods().start();

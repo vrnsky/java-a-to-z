@@ -7,6 +7,10 @@ package service;
  */
 public class User extends Base {
 
+    /**
+     * Create a new user with id.
+     * @param id number of user.
+     */
     public User(String id) {
         super(id);
     }

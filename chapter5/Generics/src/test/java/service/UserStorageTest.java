@@ -5,11 +5,10 @@ import org.junit.Test;
 import java.util.NoSuchElementException;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
-import static org.hamcrest.core.IsNull.nullValue;
+import static org.junit.Assert.assertThat;
 
 /**
- * Unit test for UserStorage.java
+ * Unit test for UserStorage.java.
  * @author evrnsky
  * @version 0.1
  */

@@ -8,7 +8,7 @@ package service;
 public abstract class Base {
 
     /**
-     * Unique string for each model
+     * Unique string for each model.
      */
     private String id;
 

@@ -7,6 +7,7 @@ import java.util.function.Consumer;
 
 /**
  * Resizeable array.
+ * @param <T> specify which type may store list.
  */
 public class SimpleList<T> implements SimpleContainer<T> {
 
@@ -47,10 +48,10 @@ public class SimpleList<T> implements SimpleContainer<T> {
      */
     @Override
     public T get(int position) {
-        if(!validate(position)) {
+        if (!validate(position)) {
             throw new ArrayIndexOutOfBoundsException("Bad position!");
         }
-        return (T)this.values[position];
+        return (T) this.values[position];
     }
 
     /**
@@ -60,11 +61,11 @@ public class SimpleList<T> implements SimpleContainer<T> {
      */
     @Override
     public boolean add(T value) {
-        if(!this.validate(this.cursor)) {
+        if (!this.validate(this.cursor)) {
             this.ensureCapacity();
         }
         this.values[this.cursor++] = value;
-        return this.values[this.cursor-1].equals(value);
+        return this.values[this.cursor - 1].equals(value);
     }
 
     /**
@@ -74,10 +75,10 @@ public class SimpleList<T> implements SimpleContainer<T> {
      */
     @Override
     public T remove(int position) {
-        if(!validate(position)) {
+        if (!validate(position)) {
             throw new NoSuchElementException("Element with given position not exist at the list!");
         }
-        T removed = (T)this.values[position];
+        T removed = (T) this.values[position];
         this.values[position] = null;
         this.cursor--;
         return removed;
@@ -90,12 +91,12 @@ public class SimpleList<T> implements SimpleContainer<T> {
      */
     @Override
     public boolean contains(Object object) {
-        T value = (T)object;
+        T value = (T) object;
         boolean result = false;
-        for(int index = 0; index < this.values.length; index++) {
-            T data = (T)this.values[index];
-            if(data != null) {
-                if(value.equals(data)) {
+        for (int index = 0; index < this.values.length; index++) {
+            T data = (T) this.values[index];
+            if (data != null) {
+                if (value.equals(data)) {
                     result = true;
                 }
             }
@@ -111,7 +112,7 @@ public class SimpleList<T> implements SimpleContainer<T> {
     @Override
     public int size() {
         int size = 0;
-        if(this.cursor == 1) {
+        if (this.cursor == 1) {
             size = 1;
         } else {
             size = this.cursor - 1;
@@ -138,11 +139,19 @@ public class SimpleList<T> implements SimpleContainer<T> {
         this.values = newValues;
     }
 
+    /**
+     * Foreach loop.
+     * @param action what action to do.
+     */
     @Override
     public void forEach(Consumer<? super T> action) {
 
     }
 
+    /**
+     * Something magic method.
+     * @return something magic method.
+     */
     @Override
     public Spliterator<T> spliterator() {
         return null;
@@ -182,13 +191,20 @@ public class SimpleList<T> implements SimpleContainer<T> {
          */
         @Override
         public T next() {
-            return (T)values[index++];
+            return (T) values[index++];
         }
 
+        /**
+         * Remove from collection.
+         */
         @Override
         public void remove() {
         }
 
+        /**
+         * Magic method.
+         * @param action for each element.
+         */
         @Override
         public void forEachRemaining(Consumer<? super T> action) {
 

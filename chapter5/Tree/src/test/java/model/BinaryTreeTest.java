@@ -1,16 +1,17 @@
 package model;
 
 import org.junit.Test;
-
 import java.util.Comparator;
 import java.util.List;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * @author evrnsky
  * @version 0.1
  * @since 08.09.2016
+ *
+ * Unit test for binary tree.
  */
 public class BinaryTreeTest {
 
@@ -18,8 +19,8 @@ public class BinaryTreeTest {
     /**
      * Comparator.
      */
-    private static final Comparator<Node<String>> comparator = (o1,o2) -> {
-        if(o1 == null || o2 == null) {
+    private static final Comparator<Node<String>> COMPARATOR = (o1, o2) -> {
+        if (o1 == null || o2 == null) {
             throw new IllegalArgumentException("Bad args");
         }
         return o1.getData().compareTo(o2.getData());
@@ -30,7 +31,7 @@ public class BinaryTreeTest {
      */
     @Test
     public void whenTryAddElementToTheLeftAndRightBranchShouldCheckThatBinaryTreeAcceptIt() {
-        BinaryTree<String> tree = new BinaryTree<>("Root", comparator);
+        BinaryTree<String> tree = new BinaryTree<>("Root", COMPARATOR);
         tree.addChild("Abc");
         tree.addChild("Zyxel");
         List<Node<String>> childs = tree.getChildOf(tree.getRoot());
@@ -43,7 +44,7 @@ public class BinaryTreeTest {
      */
     @Test
     public void whenTryAddElementToTheLeftBranchAtTheSecondLevelOfTreeShouldCheckThatTreeWasAdded() {
-        BinaryTree<String> tree = new BinaryTree<>("Root", comparator);
+        BinaryTree<String> tree = new BinaryTree<>("Root", COMPARATOR);
         tree.addChild("Abc");
         tree.addChild("Zyxel");
         tree.addChild("Biglion");
@@ -57,7 +58,7 @@ public class BinaryTreeTest {
      */
     @Test
     public void whenTryAddElementToTheRightBranchShouldCheckThatElementWasAddedToCorrectPosition() {
-        BinaryTree<String> tree = new BinaryTree<>("Root", comparator);
+        BinaryTree<String> tree = new BinaryTree<>("Root", COMPARATOR);
         tree.addChild("Abc");
         tree.addChild("Zyxel");
         tree.addChild("ZARA");
@@ -71,7 +72,7 @@ public class BinaryTreeTest {
      */
     @Test
     public void whenTryCheckThatSomeElementContainsAtTheTreeShouldCheckThatMethodContainsWorksCorrect() {
-        BinaryTree<String> tree = new BinaryTree<>("Root", comparator);
+        BinaryTree<String> tree = new BinaryTree<>("Root", COMPARATOR);
         Node<String> root = tree.getRoot();
         assertThat(tree.contains(root), is(true));
     }
@@ -81,7 +82,7 @@ public class BinaryTreeTest {
      */
     @Test
     public void whenTryCheckThatSomeElementContainsAtTheDeepOfTreeShouldCheckThatMethodContainsWorksCorrect() {
-        BinaryTree<String> tree = new BinaryTree<>("Root", comparator);
+        BinaryTree<String> tree = new BinaryTree<>("Root", COMPARATOR);
         tree.addChild("Abc");
         tree.addChild("Zyxel");
         tree.addChild("World");
@@ -96,7 +97,7 @@ public class BinaryTreeTest {
      */
     @Test
     public void whenTryCheckThatSomeElementNotExistShouldCheckThatMethodContainsReturnFalse() {
-        BinaryTree<String> tree = new BinaryTree<>("Root", comparator);
+        BinaryTree<String> tree = new BinaryTree<>("Root", COMPARATOR);
         tree.addChild("Value");
         assertThat(tree.contains(new Node("value")), is(false));
     }

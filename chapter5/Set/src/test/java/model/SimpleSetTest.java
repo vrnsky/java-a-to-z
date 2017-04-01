@@ -2,11 +2,10 @@ package model;
 import org.junit.Test;
 import java.util.NoSuchElementException;
 import static org.hamcrest.core.Is.is;
-import static org.hamcrest.collection.IsArrayContainingInOrder.arrayContaining;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
- * Unit test for SimpleSet.java
+ * Unit test for SimpleSet.java.
  *
  */
 public class SimpleSetTest {
@@ -58,7 +57,7 @@ public class SimpleSetTest {
     @Test(timeout = 1000)
     public void whenTryAddTenThousandsToSimpleSetShouldCheckThatSetAcceptAllDataInGiveTime() {
         SimpleSet<String> set = new SimpleSet<>();
-        for(int index = 0; index < 10000; index++) {
+        for (int index = 0; index < 10000; index++) {
             set.add(String.format("%s", index));
         }
     }

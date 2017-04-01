@@ -1,10 +1,8 @@
 package service;
 
 import org.junit.Test;
-
 import java.util.Arrays;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -15,22 +13,17 @@ import static org.hamcrest.core.Is.is;
 public class EvenIteratorTest {
 
     /**
-     * When ask iterator about has next even element when pointer at the end
+     * When ask iterator about has next even element when pointer at the end.
      * Should check that iterator return true.
      */
     @Test
     public void whenAskIteratorAboutHasNextElementsShouldCheckThatIteratorReturnFalse() {
+        EvenIterator iterator = new EvenIterator(new int[]{2, 10});
 
-        //Assign block
-        EvenIterator iterator = new EvenIterator(new int[]{2,10});
-
-
-        //Action block
         iterator.next();
         iterator.next();
         boolean actual = iterator.hasNext();
 
-        //Assert block
         assertThat(actual, is(false));
     }
 
@@ -39,19 +32,15 @@ public class EvenIteratorTest {
      */
     @Test
     public void whenTryGetNextEvenValueShouldCheckThatIteratorReturnCorrectValue() {
-
-        //Assign block
-        EvenIterator iterator = new EvenIterator(new int[]{1,2,3,4,5,6,7,8});
-        int[] expected = new int[]{2,4,6,8};
+        EvenIterator iterator = new EvenIterator(new int[]{1, 2, 3, 4, 5, 6, 7, 8});
+        int[] expected = new int[]{2, 4, 6, 8};
         int[] actual = new int[expected.length];
         int index = 0;
 
-        //Action block
-        while(iterator.hasNext()) {
-            actual[index++] = (int)iterator.next();
+        while (iterator.hasNext()) {
+            actual[index++] = (int) iterator.next();
         }
 
-        //Assert block
         assertThat(Arrays.toString(actual), is(Arrays.toString(expected)));
     }
 
@@ -60,15 +49,12 @@ public class EvenIteratorTest {
      */
     @Test
     public void whenTrySomeEvenValuesFromIteratorShouldCheckThatNextWorksAuto() {
-
-        //Assign block
-        EvenIterator iterator = new EvenIterator(new int[]{12,15,80,100});
+        EvenIterator iterator = new EvenIterator(new int[]{12, 15, 80, 100});
         int expected = 100;
 
-        //Action block
         iterator.next();
         iterator.next();
-        int actual = (int)iterator.next();
+        int actual = (int) iterator.next();
 
         assertThat(actual, is(expected));
     }

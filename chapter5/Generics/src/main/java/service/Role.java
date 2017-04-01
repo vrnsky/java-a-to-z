@@ -7,6 +7,10 @@ package service;
  */
 public class Role extends Base {
 
+    /**
+     * Create a new role.
+     * @param id role of id.
+     */
     public Role(String id) {
         super(id);
     }

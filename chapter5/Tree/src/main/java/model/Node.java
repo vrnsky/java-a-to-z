@@ -1,13 +1,10 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Implementation of tree nodes. It may accept child.
- *
  * @param <T> determine type with which tree will work.
  */
 public class Node<T> {
@@ -174,9 +171,9 @@ public class Node<T> {
      * @return true if tree is balanced, otherwise false.
      */
     private boolean checkBalanceTree(Node<T> root) {
-        if(root.getChildren().size () == 2 || root.getParent() != null) {
+        if (root.getChildren().size() == 2 || root.getParent() != null) {
             balanced = true;
-            if(root.getChildren() != null) {
+            if (root.getChildren() != null) {
                 for (Node<T> elem : root.getChildren()) {
                     checkBalanceTree(elem);
                 }

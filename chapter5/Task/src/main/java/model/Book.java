@@ -9,6 +9,8 @@ import java.util.TreeMap;
  * @author evrnsky
  * @version 0.1
  * @since 16.09.2016
+ *
+ * Model of book.
  */
 public class Book {
 
@@ -33,7 +35,7 @@ public class Book {
     /**
      * Describe how to compare in descending order.
      */
-    private static final Comparator<Float> DESC = (o1,o2) -> o2.compareTo(o1);
+    private static final Comparator<Float> DESC = (o1, o2) -> o2.compareTo(o1);
 
     /**
      * Add to sell, buy maps orders. At this place use TreeMap because it contains data
@@ -42,7 +44,7 @@ public class Book {
     public void calculate() {
         Map<Float, Order> sell = new TreeMap<Float, Order>(DESC);
         Map<Float, Order> buy = new TreeMap<Float, Order>(ASC);
-        for(Order order : orders) {
+        for (Order order : orders) {
             this.add(order.getType() == Order.Type.BUY ? buy : sell, order);
         }
         this.show(sell, buy);
@@ -56,7 +58,7 @@ public class Book {
      */
     public void add(Map<Float, Order> map, Order order) {
         Order find = map.get(order.getPrice());
-        if(find != null) {
+        if (find != null) {
             map.put(find.getPrice(), new Order(find.getBook(), find.getType(), find.getPrice(), find.getVolume() + order.getVolume(), find.getId()));
         } else {
             map.put(order.getPrice(), order);
@@ -70,10 +72,10 @@ public class Book {
      */
     public void show(Map<Float, Order> sell, Map<Float, Order> buy) {
         StringBuilder builder = new StringBuilder();
-        for(Order order : sell.values()) {
+        for (Order order : sell.values()) {
             builder.append(String.format("\t\t%5s %7s\n", order.getPrice(), order.getVolume()));
         }
-        for(Order order : buy.values()) {
+        for (Order order : buy.values()) {
             builder.append(String.format("%7s %5s\n", order.getVolume(), order.getPrice()));
         }
         System.out.println(builder);

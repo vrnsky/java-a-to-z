@@ -32,14 +32,14 @@ public class Employee {
      */
     @Override
     public boolean equals(Object object) {
-        if(object == this) {
+        if (object == this) {
             return true;
         }
-        if(object == null) {
+        if (object == null) {
             return false;
         }
 
-        Employee employee = (Employee)object;
+        Employee employee = (Employee) object;
         return employee.name.equals(this.name) && employee.salary == salary;
     }
 
@@ -74,7 +74,7 @@ public class Employee {
 
     /**
      * Return salary for this employee.
-     * @return
+     * @return salary.
      */
     public int getSalary() {
         return this.salary;

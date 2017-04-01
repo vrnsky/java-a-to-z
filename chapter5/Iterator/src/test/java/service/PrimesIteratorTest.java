@@ -1,10 +1,8 @@
 package service;
 
 import org.junit.Test;
-
 import java.util.Arrays;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -20,11 +18,8 @@ public class PrimesIteratorTest {
      */
     @Test
     public void whenTryMoveAcrossTheIntArrayShouldCheckThatIteratorGoForward() {
+        PrimesIterator iterator = new PrimesIterator(new int[]{2, 3, 4});
 
-        //Assign block
-        PrimesIterator iterator = new PrimesIterator(new int[]{2,3,4});
-
-        //Action block
         iterator.next();
         iterator.next();
         iterator.next();
@@ -39,20 +34,15 @@ public class PrimesIteratorTest {
      */
     @Test
     public void whenTryMoveAcrossTheIntArrayShouldCheckThatIteratorReturnCorrectValue() {
+        PrimesIterator iterator = new PrimesIterator(new int[]{2, 3, 4, 5});
+        int[] expected = new int[]{2, 3, 5};
 
-        //Assign block
-        PrimesIterator iterator = new PrimesIterator(new int[]{2,3,4,5});
-        int[] expected = new int[]{2,3,5};
-
-        //Action block
         int index = 0;
         int[] actual = new int[expected.length];
 
-        while(iterator.hasNext()) {
-            actual[index++] = (int)iterator.next();
+        while (iterator.hasNext()) {
+            actual[index++] = (int) iterator.next();
         }
-
-        //Assert block
         assertThat(Arrays.toString(actual), is(Arrays.toString(expected)));
     }
 }

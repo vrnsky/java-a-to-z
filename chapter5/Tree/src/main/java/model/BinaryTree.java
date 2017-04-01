@@ -7,6 +7,7 @@ import java.util.List;
  * @author evrnsky
  * @version 0.1
  * @since 07.09.2016
+ * @param <T> specify which type may store tree.
  */
 public class BinaryTree<T> {
 
@@ -82,11 +83,11 @@ public class BinaryTree<T> {
      */
     private Node<T> updateCurrentNode(int branch) {
       Node<T> result = null;
-      if(this.root.getChildren().size() <= 1) {
+      if (this.root.getChildren().size() <= 1) {
           result = this.root;
-      } else if(this.root.getChildren().size() == 2) {
+      } else if (this.root.getChildren().size() == 2) {
           Node<T> current = this.root;
-          while(current.getChildren().size() == 2) {
+          while (current.getChildren().size() == 2) {
               current = current.getChildren().get(branch);
           }
           result = current;
@@ -109,7 +110,7 @@ public class BinaryTree<T> {
      * @param idBranch number of branch.
      */
     private void addChildToBranch(Node<T> node, int idBranch) {
-        if(currentNode.getChildren().size() == 0) {
+        if (currentNode.getChildren().size() == 0) {
             currentNode.getChildren().add(node);
         } else {
             currentNode.getChildren().add(idBranch, node);
@@ -123,22 +124,22 @@ public class BinaryTree<T> {
      */
     private Node<T> findElementAtBranch(Node<T> element) {
         Node<T> result = null;
-        if(this.root.equals(element) && root.getChildren().size() == 0) {
+        if (this.root.equals(element) && root.getChildren().size() == 0) {
             result = root;
         } else {
            int correct = this.root.getChildren().size() == 1 ? 0 : 1;
            Node<T> current = this.root.getChildren().get(correct);
-           while(current.getChildren().size() != 0) {
-               for(Node<T> elem : current.getChildren()) {
-                   if(elem.equals(element)) {
+           while (current.getChildren().size() != 0) {
+               for (Node<T> elem : current.getChildren()) {
+                   if (elem.equals(element)) {
                        result = elem;
                    }
                }
-               if(current.getChildren().size() == 0) {
+               if (current.getChildren().size() == 0) {
                    break;
-               } else if(current.getChildren().size() == 1) {
+               } else if (current.getChildren().size() == 1) {
                    current = current.getChildren().get(LEFT_BRANCH);
-               } else if(current.getChildren().size() == 2){
+               } else if (current.getChildren().size() == 2) {
                    current = current.getChildren().get(RIGHT_BRANCH);
                }
            }

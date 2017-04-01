@@ -7,6 +7,7 @@ import java.util.Optional;
  * Model of storage which determine how to data hold and access to all value at the array.
  * @author evrnsky
  * @version 1.0.
+ * @param <T> describe which class storage may store.
  */
 public abstract class AbstractStorage<T extends Base> implements Store {
 
@@ -51,7 +52,7 @@ public abstract class AbstractStorage<T extends Base> implements Store {
      */
     public T get(String id) {
         Optional<T> value = this.findValueById(id);
-        if(!value.isPresent()) {
+        if (!value.isPresent()) {
             throw new NoSuchElementException("Element with given id not exist at the storage");
         } else {
             return value.get();
@@ -65,11 +66,11 @@ public abstract class AbstractStorage<T extends Base> implements Store {
      */
     public void remove(String id) {
        Optional<T> value = this.findValueById(id);
-       if(!value.isPresent()) {
+       if (!value.isPresent()) {
            throw new NoSuchElementException("Element with given id not exist at the storage!");
        } else {
-           for(int index = 0; index < this.values.size(); index++) {
-               if(value.get().equals(this.values.get(index))) {
+           for (int index = 0; index < this.values.size(); index++) {
+               if (value.get().equals(this.values.get(index))) {
                    this.values.delete(index);
                    break;
                }
@@ -85,11 +86,11 @@ public abstract class AbstractStorage<T extends Base> implements Store {
      */
     public void update(String id, T newValue) {
         Optional<T> value = this.findValueById(id);
-        if(!value.isPresent()) {
+        if (!value.isPresent()) {
             throw new NoSuchElementException("Given element not exist at the storage");
         } else {
-            for(int index = 0; index < this.values.size(); index++) {
-                if(value.get().equals(this.values.get(index))) {
+            for (int index = 0; index < this.values.size(); index++) {
+                if (value.get().equals(this.values.get(index))) {
                     this.values.update(index, newValue);
                     break;
                 }
@@ -104,10 +105,10 @@ public abstract class AbstractStorage<T extends Base> implements Store {
      */
     private Optional<T> findValueById(String id) {
         Optional<T> result = Optional.empty();
-        for(int index = 0; index < this.values.size(); index++) {
+        for (int index = 0; index < this.values.size(); index++) {
             T value = this.values.get(index);
-            if(value != null) {
-                if (value.getId().equals((id))){
+            if (value != null) {
+                if (value.getId().equals((id))) {
                     result = Optional.of(this.values.get(index));
                     break;
                 }

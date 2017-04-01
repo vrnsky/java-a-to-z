@@ -1,13 +1,10 @@
 package model;
 
-import model.Node;
 import org.junit.Test;
-
 import java.util.List;
-
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.nullValue;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for Node.java. Node.java - model of simple tree.

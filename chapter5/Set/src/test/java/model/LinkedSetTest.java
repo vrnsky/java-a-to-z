@@ -3,12 +3,11 @@ package model;
 import org.junit.Test;
 
 import java.util.NoSuchElementException;
-
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
- * Unit test for LinkedSet.java
+ * Unit test for LinkedSet.java.
  */
 public class LinkedSetTest {
 
@@ -91,7 +90,7 @@ public class LinkedSetTest {
     @Test(timeout = 5000)
     public void whenTryAddTenThousandElementToTheLinkedSetShouldCheckThatLinkedWorks() {
         LinkedSet<String> set = new LinkedSet<>();
-        for(int index = 0; index < 10000; index++) {
+        for (int index = 0; index < 10000; index++) {
             set.add(String.format("%s", index));
         }
     }

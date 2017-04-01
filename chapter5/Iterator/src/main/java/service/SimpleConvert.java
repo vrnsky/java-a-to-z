@@ -1,7 +1,6 @@
 package service;
 
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 /**
  * Iterator for double iterator.
  */
@@ -21,11 +20,11 @@ public class SimpleConvert implements Iterator {
     /**
      * Return this object which allow to across all nested iterators.
      * @param it iterator of iterator of integer.
-     * @return
+     * @return iterator of iterator.
      */
     public Iterator<Integer> convert(Iterator<Iterator<Integer>> it) {
       this.outerIterator = it;
-      if(it == null) {
+      if (it == null) {
           throw new IllegalArgumentException("Iterator not allow null");
       }
       return this;
@@ -37,7 +36,7 @@ public class SimpleConvert implements Iterator {
      */
     @Override
     public boolean hasNext() {
-        if((this.innerIterator == null) || (!this.innerIterator.hasNext() && this.outerIterator.hasNext())) {
+        if ((this.innerIterator == null) || (!this.innerIterator.hasNext() && this.outerIterator.hasNext())) {
             this.innerIterator = this.outerIterator.next();
         }
         return this.innerIterator.hasNext();
@@ -49,7 +48,7 @@ public class SimpleConvert implements Iterator {
      */
     @Override
     public Object next() {
-        if((innerIterator == null) || (!this.innerIterator.hasNext())) {
+        if ((innerIterator == null) || (!this.innerIterator.hasNext())) {
             innerIterator = outerIterator.next();
         }
         return innerIterator.next();

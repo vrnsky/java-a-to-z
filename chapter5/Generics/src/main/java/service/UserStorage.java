@@ -5,6 +5,9 @@ package service;
  */
 public class UserStorage extends AbstractStorage<User> {
 
+    /**
+     * Create a new user storage.
+     */
     public UserStorage() {
         super();
     }

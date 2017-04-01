@@ -4,6 +4,7 @@ import java.util.Iterator;
 
 /**
  * Implementation of set based on array.
+ * @param <T> specify type.
  */
 public class SortedSet<T> implements Iterator<T> {
 
@@ -68,14 +69,14 @@ public class SortedSet<T> implements Iterator<T> {
      */
     public boolean add(T value) {
         boolean added = false;
-        if(value == null) {
+        if (value == null) {
             throw new IllegalArgumentException("This set not may have null value");
         } else if (index >= 0) {
-            if(this.values[index] != null) {
+            if (this.values[index] != null) {
                 Arrays.sort(this.values);
             }
-            if(!this.contains(value)) {
-                if(this.needEnsureCapacity()) {
+            if (!this.contains(value)) {
+                if (this.needEnsureCapacity()) {
                     this.ensureCapacity();
                 }
                 this.values[index++] = value;
@@ -91,8 +92,8 @@ public class SortedSet<T> implements Iterator<T> {
      * @return true if same object already in set, otherwise false.
      */
     public boolean contains(T value) {
-        int high = index == 0 ? 0 : index-1;
-        return this.binarySearch((T[])values, value, 0, high) != -1;
+        int high = index == 0 ? 0 : index - 1;
+        return this.binarySearch((T[]) values, value, 0, high) != -1;
     }
 
     /**
@@ -108,7 +109,7 @@ public class SortedSet<T> implements Iterator<T> {
             return -1;
         }
         int mid = low + (high - low) / 2;
-        if(value == null || values[mid] == null) {
+        if (value == null || values[mid] == null) {
             return -1;
         }
         if (value.hashCode() < values[mid].hashCode()) {
@@ -127,15 +128,15 @@ public class SortedSet<T> implements Iterator<T> {
      * @return removed object.
      */
     public T remove(T value) {
-        if(!this.contains(value)) {
+        if (!this.contains(value)) {
             throw new IllegalArgumentException("Bad args");
         }
         T removed = null;
-        for(int index = 0; index < this.values.length; index++) {
-            T casted = (T)this.values[index];
-            if(casted != null) {
-                if(casted.equals(value)) {
-                    removed = (T)this.values[index];
+        for (int index = 0; index < this.values.length; index++) {
+            T casted = (T) this.values[index];
+            if (casted != null) {
+                if (casted.equals(value)) {
+                    removed = (T) this.values[index];
                     this.values[index] = null;
                 }
             }
@@ -159,7 +160,7 @@ public class SortedSet<T> implements Iterator<T> {
      */
     @Override
     public T next() {
-        return (T)this.values[this.cursor++];
+        return (T) this.values[this.cursor++];
     }
 
     /**

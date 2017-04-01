@@ -8,6 +8,7 @@ import java.util.function.Consumer;
 
 /**
  * Implementation of set.
+ * @param <T> specify type.
  */
 public class SimpleSet<T> implements Iterator<T> {
 
@@ -56,10 +57,10 @@ public class SimpleSet<T> implements Iterator<T> {
      * @return object which was removed.
      */
     public T remove(T key) {
-       if(!this.map.containsKey(key)) {
+       if (!this.map.containsKey(key)) {
            throw new NoSuchElementException("Given element not exist at the set.");
        }
-       return (T)this.map.remove(key);
+       return (T) this.map.remove(key);
     }
 
     /**
@@ -68,7 +69,7 @@ public class SimpleSet<T> implements Iterator<T> {
      */
     @Override
     public boolean hasNext() {
-        if(map.isEmpty()) {
+        if (map.isEmpty()) {
             throw new NoSuchElementException("Set not have yet elements");
         }
         return this.innerIterator.hasNext();
@@ -80,16 +81,23 @@ public class SimpleSet<T> implements Iterator<T> {
      */
     @Override
     public T next() {
-      if(map.isEmpty()) {
+      if (map.isEmpty()) {
           throw new NoSuchElementException("Set not have yet elements");
       }
       return this.innerIterator.next();
     }
 
+    /**
+     * Removing.
+     */
     @Override
     public void remove() {
     }
 
+    /**
+     * Perform some action for each element.
+     * @param action instance of action.
+     */
     @Override
     public void forEachRemaining(Consumer<? super T> action) {
     }

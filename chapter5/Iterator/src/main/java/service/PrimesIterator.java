@@ -41,8 +41,8 @@ public class PrimesIterator implements Iterator {
     @Override
     public Object next() {
         int result = 0;
-        while(this.pointer < this.values.length) {
-            if(isPrime(this.values[this.pointer])) {
+        while (this.pointer < this.values.length) {
+            if (isPrime(this.values[this.pointer])) {
                 result = this.values[this.pointer++];
                 break;
             }
@@ -63,8 +63,8 @@ public class PrimesIterator implements Iterator {
             result = false;
         } else {
             int division = 0;
-            for(int index = 2; index < number; index++) {
-                if(number % index == 0) {
+            for (int index = 2; index < number; index++) {
+                if (number % index == 0) {
                     division++;
                 }
             }

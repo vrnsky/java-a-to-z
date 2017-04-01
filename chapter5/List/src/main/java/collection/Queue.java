@@ -2,6 +2,7 @@ package collection;
 
 /**
  * Implementation of queue. Works next schema: first in, first out.
+ * @param <T> specify which element may store queue.
  */
 public class Queue<T> extends Stack<T> {
 
@@ -21,7 +22,7 @@ public class Queue<T> extends Stack<T> {
      */
     @Override
     public T poll() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             throw new IllegalArgumentException("Queue is empty!");
         }
         return super.remove(0);
@@ -32,7 +33,7 @@ public class Queue<T> extends Stack<T> {
      * @return first element at the queue.
      */
     public T peek() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             throw new IllegalArgumentException("Queue is empty!");
         }
         return super.get(0);

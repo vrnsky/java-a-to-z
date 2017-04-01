@@ -2,9 +2,12 @@ package model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ExecutionException;
+import java.util.List;
 
 /**
  * @author evrnsky
@@ -38,14 +41,14 @@ public class Splitter {
      */
     public void match() throws ExecutionException, InterruptedException {
         List<Future<Book>> futures = new ArrayList<>(orders.size());
-        for(HashMap<Integer, Order> list : orders.values()) {
+        for (HashMap<Integer, Order> list : orders.values()) {
             futures.add(EXECUTOR.submit(() -> {
                 Book book = new Book(list.values());
                 book.calculate();
                 return book;
             }));
         }
-        for(Future<Book> future : futures) {
+        for (Future<Book> future : futures) {
             future.get();
         }
         EXECUTOR.shutdown();

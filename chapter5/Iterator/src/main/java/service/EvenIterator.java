@@ -19,7 +19,6 @@ public class EvenIterator implements Iterator {
 
     /**
      * Create a new iterator with given array.
-     *
      * @param values array of int.
      */
     public EvenIterator(int[] values) {
@@ -28,7 +27,6 @@ public class EvenIterator implements Iterator {
 
     /**
      * At the loop across all value and set pointer to value which is even.
-     *
      * @return true if even value find, and otherwise false.
      */
     @Override

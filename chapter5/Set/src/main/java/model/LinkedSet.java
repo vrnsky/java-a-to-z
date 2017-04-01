@@ -7,6 +7,7 @@ import java.util.Optional;
 
 /**
  * Implementation of set based on linked list.
+ * @param <T> specify type.
  */
 public class LinkedSet<T> implements Iterator<T> {
 
@@ -34,7 +35,7 @@ public class LinkedSet<T> implements Iterator<T> {
      */
     public boolean add(T t) {
         boolean added = false;
-        if(!this.contains(t)) {
+        if (!this.contains(t)) {
             this.list.add(t);
             added = true;
         }
@@ -42,6 +43,11 @@ public class LinkedSet<T> implements Iterator<T> {
         return added;
     }
 
+    /**
+     * Check that given object already in collection.
+     * @param o object for checking.
+     * @return true if already in collection, otherwise false.
+     */
     public boolean contains(Object o) {
         return this.list.contains(o);
     }
@@ -61,18 +67,18 @@ public class LinkedSet<T> implements Iterator<T> {
      */
     public T remove(Object object) {
         Optional<T> removed = Optional.empty();
-        if(!this.contains(object)) {
+        if (!this.contains(object)) {
             throw new NoSuchElementException("Element not exist at the set");
         } else {
-            for(int index = 0; index < this.list.size(); index++) {
-                if(this.list.get(index).equals(object)) {
+            for (int index = 0; index < this.list.size(); index++) {
+                if (this.list.get(index).equals(object)) {
                     removed = Optional.of(this.list.remove(index));
                     break;
                 }
             }
         }
 
-        if(!removed.isPresent())  {
+        if (!removed.isPresent())  {
             throw new NoSuchElementException("Element not exist at the set");
         }
         return removed.get();

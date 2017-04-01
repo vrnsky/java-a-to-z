@@ -2,16 +2,21 @@ package model;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
  * @author evrnsky
  * @version 0.1
  * @since 16.09.2016
+ *
+ * Unit test for parser.
  */
 public class ParserTest {
 
+    /**
+     * Test case number one.
+     */
     @Test
     public void whenTryParseAddingOrderOperationShouldCheckThatMethodParseReturnCorrectOrder() {
         String addOrder = "<AddOrder book=\"book-2\" operation=\"BUY\" price=\"100.20\" volume=\"20\" orderId=\"184\" />";
@@ -21,6 +26,9 @@ public class ParserTest {
         assertThat(actual, is(expected));
     }
 
+    /**
+     * Test case number two.
+     */
     @Test
     public void whenTryParseDeleteOrderOperationShouldCheckThatMethodParseReturnCorrectOrder() {
         String deleteOrder = "<DeleteOrder book=\"book-2\" orderId=\"49\" />";

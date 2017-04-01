@@ -1,9 +1,14 @@
 package model;
 
-import java.util.*;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
 
 /**
  *  Implementation of associate array. It means that this storage store key-value pair.
+ *  @param <K> key.
+ *  @param <V> value.
  */
 public class Dictionary<K, V> implements Iterator<V> {
 
@@ -59,7 +64,7 @@ public class Dictionary<K, V> implements Iterator<V> {
         int hash = hash(key);
         int index = indexFor(hash, this.values.length);
         Entry<K, V> e = this.values[index];
-        if(this.needEnsureCapacity()) {
+        if (this.needEnsureCapacity()) {
             this.ensureCapacity();
         }
         if ((e == null) || (!this.contains(key))) {
@@ -104,16 +109,16 @@ public class Dictionary<K, V> implements Iterator<V> {
         int hash = this.hash(key);
         int index = this.indexFor(hash, this.values.length);
         boolean contains = false;
-        Entry<K,V> node = this.values[index];
-        if(node == null) {
+        Entry<K, V> node = this.values[index];
+        if (node == null) {
             throw new IllegalStateException("Null key is not valid key");
         }
-        if(node.next == null && key != null && key.equals(node.key) && node.hash == hash) {
+        if (node.next == null && key != null && key.equals(node.key) && node.hash == hash) {
             contains = true;
         } else {
             Entry<K, V> elem = node;
-            while(elem.next != null) {
-                if(elem.key != null && elem.key.equals(key) && hash == elem.hash) {
+            while (elem.next != null) {
+                if (elem.key != null && elem.key.equals(key) && hash == elem.hash) {
                     contains = true;
                 }
                 elem = elem.next;
@@ -143,7 +148,7 @@ public class Dictionary<K, V> implements Iterator<V> {
 
     /**
      * Return count of using element at the dictionary.
-     * @return
+     * @return size of collection.
      */
     public int size() {
         return this.size;
@@ -173,8 +178,8 @@ public class Dictionary<K, V> implements Iterator<V> {
      * @return hash of key.
      */
     private int hash(Object key) {
-        int h;
-        return key == null ? 0 : (h = key.hashCode()) ^ h >>> 16;
+        int h = key.hashCode();
+        return key == null ? 0 : h ^ h >>> 16;
     }
 
     /**
@@ -212,7 +217,7 @@ public class Dictionary<K, V> implements Iterator<V> {
      */
     private void ensureCapacity() {
         int newCapacity = (this.values.length * 3 / 2) + 1;
-        Entry<K,V>[] newValues = new Entry[newCapacity];
+        Entry<K, V>[] newValues = new Entry[newCapacity];
         System.arraycopy(this.values, 0, newValues, 0, this.values.length);
         this.values = newValues;
     }
@@ -240,7 +245,7 @@ public class Dictionary<K, V> implements Iterator<V> {
         int hash;
 
         /**
-         * Pointer to the next element
+         * Pointer to the next element.
          */
         Entry<K, V> next;
 
@@ -251,7 +256,7 @@ public class Dictionary<K, V> implements Iterator<V> {
          * @param value object.
          * @param next pointer to the next bucket.
          */
-        public Entry(int hash, K key, V value, Entry<K, V> next) {
+         Entry(int hash, K key, V value, Entry<K, V> next) {
             this.hash = hash;
             this.key = key;
             this.value = value;

@@ -2,10 +2,10 @@ package model;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
- * Unit test for SortedSet.java
+ * Unit test for SortedSet.java.
  */
 public class SortedSetTest {
 
@@ -80,7 +80,7 @@ public class SortedSetTest {
     @Test(timeout = 1200)
     public void whenTryAddTenThousandsElementToTheSortedSetShouldCheckThatTimeWasCorrect() {
         SortedSet<String> set = new SortedSet<>();
-        for(int index = 0; index < 10000; index++) {
+        for (int index = 0; index < 10000; index++) {
             set.add(String.format("%s", index));
         }
     }

@@ -4,12 +4,13 @@ import java.util.EmptyStackException;
 
 /**
  * Implementation of stack. Works next schema: last in, first out.
+ * @param <T> specify which type may store stack.
  */
 public class Stack<T> extends LinkedList<T> {
 
     /**
      * Add element to the end of the list.
-     * @param value
+     * @param value for adding.
      */
     public void push(T value) {
         super.add(value);
@@ -20,10 +21,10 @@ public class Stack<T> extends LinkedList<T> {
      * @return last element at the stack.
      */
     public T poll() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             throw new EmptyStackException();
         }
-        return super.remove(super.size()-1);
+        return super.remove(super.size() - 1);
     }
 
     /**
@@ -31,10 +32,10 @@ public class Stack<T> extends LinkedList<T> {
      * @return last element.
      */
     public T peek() {
-        if(isEmpty())  {
+        if (isEmpty())  {
             throw new EmptyStackException();
         }
-        return super.get(super.size()-1);
+        return super.get(super.size() - 1);
     }
 
     /**

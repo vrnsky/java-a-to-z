@@ -7,8 +7,17 @@ package model;
  */
 public class Order {
 
+    /**
+     * Type of operation.
+     */
     public enum Type {
+        /**
+         * Sell operation.
+         */
         SELL,
+        /**
+         * Buy operation.
+         */
         BUY
     }
 
@@ -69,7 +78,7 @@ public class Order {
         }
 
         Order order = null;
-        if(o != null) {
+        if (o != null) {
             order = (Order) o;
             equals = id == order.id;
         }

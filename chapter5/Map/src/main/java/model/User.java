@@ -94,6 +94,10 @@ public class User {
         return birthday;
     }
 
+    /**
+     * Return hash code of this object.
+     * @return hash code of this object.
+     */
     @Override
     public int hashCode() {
         int result = name.hashCode();
@@ -102,16 +106,28 @@ public class User {
         return result;
     }
 
-
+    /**
+     * Check that given object is equal to this.
+     * @param o object for checking.
+     * @return true if objects are equals, otherwise false.
+     */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         User user = (User) o;
 
-        if (children != user.children) return false;
-        if (name != null ? !name.equals(user.name) : user.name != null) return false;
+        if (children != user.children) {
+            return false;
+        }
+        if (name != null ? !name.equals(user.name) : user.name != null) {
+            return false;
+        }
         return birthday != null ? birthday.equals(user.birthday) : user.birthday == null;
 
     }

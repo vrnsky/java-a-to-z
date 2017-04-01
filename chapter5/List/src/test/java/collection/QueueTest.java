@@ -5,7 +5,7 @@ import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
- * Unit test for Queue.java
+ * Unit test for Queue.java.
  */
 public class QueueTest {
 
