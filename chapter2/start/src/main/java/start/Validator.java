@@ -28,6 +28,10 @@ public class Validator implements IO {
      */
     private IO io;
 
+    /**
+     * Create a new validator.
+     * @param io implementation of io interface.
+     */
     public Validator(IO io) {
         this.io = io;
     }

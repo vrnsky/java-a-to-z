@@ -2,8 +2,9 @@ package chess;
 
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import static org.hamcrest.core.Is.*;
+
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 /**
  * Unit test of Board.java.
@@ -29,23 +30,23 @@ public class BoardTest {
      */
     @Test
     public void whenCreateBoardShouldCheckThatBoardEmpty() {
-		
-		//Assign block
-		String[][] expected = new String[][]{
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
+
+        //Assign block
+        String[][] expected = new String[][]{
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //0
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //1
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //2
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //3
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //4
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //5
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //6
                 {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
         };
-       
-		//Act block
+
+        //Act block
         String[][] actual = board.getBoard();
-		
-		//Action block
+
+        //Action block
         assertThat(actual, is(expected));
     }
 
@@ -54,24 +55,24 @@ public class BoardTest {
      */
     @Test
     public void whenTryAddFigureToBoardShouldCheckThatBoardSaveIt() {
-		
-		//Assign block
-        board.addFigure(new Pawn(),0,0);
+
+        //Assign block
+        board.addFigure(new Pawn(), 0, 0);
         String[][] expected = new String[][]{
-                {"P", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
+                {"P", "0", "0", "0", "0", "0", "0", "0"}, //0
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //1
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //2
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //3
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //4
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //5
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //6
                 {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
         };
 
-		//Act block
+        //Act block
         String[][] actual = board.getBoard();
-		
-		//Action block
+
+        //Action block
         assertThat(actual, is(expected));
 
     }
@@ -81,25 +82,25 @@ public class BoardTest {
      */
     @Test
     public void whenTryMoveFigureInCorrectDirectionShouldMoveFigure() {
-		
-		//Assign block
-        board.addFigure(new Pawn(),0,0);
+
+        //Assign block
+        board.addFigure(new Pawn(), 0, 0);
         String[][] expected = new String[][]{
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"P", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //0
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //1
+                {"P", "0", "0", "0", "0", "0", "0", "0"}, //2
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //3
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //4
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //5
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //6
                 {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
         };
 
-		//Act block
-        board.performMove(0,0,2,0);
+        //Act block
+        board.performMove(0, 0, 2, 0);
         String[][] actual = board.getBoard();
 
-		//Action block
+        //Action block
         assertThat(actual, is(expected));
     }
 }

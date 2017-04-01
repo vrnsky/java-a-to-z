@@ -20,11 +20,12 @@ public class Elephant extends Figure {
      */
    @Override
    public  boolean canMove(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
-        boolean canMove = false;
-        if((toX > fromX && toY < fromY) || toX > fromY && toY > fromY)
-            canMove = forwardDiagonal(figures, fromX, fromY, toX, toY);
-        else if(toX < fromX && toY < fromY)
-            canMove = backwardDiagonal(figures, fromX, fromY, toX, toY);
+       boolean canMove = false;
+       if ((toX > fromX && toY < fromY) || toX > fromY && toY > fromY) {
+           canMove = forwardDiagonal(figures, fromX, fromY, toX, toY);
+       } else if (toX < fromX && toY < fromY) {
+           canMove = backwardDiagonal(figures, fromX, fromY, toX, toY);
+       }
         return canMove;
     }
 
@@ -40,11 +41,12 @@ public class Elephant extends Figure {
      */
    private boolean forwardDiagonal(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
         int count = 0;
-        int currentX = fromX+1;
-        int currentY = fromY-1;
-        while(currentX <= toX && currentY >= toY && currentY >= 0) {
-            if(figures[currentX][currentY] != null)
+        int currentX = fromX + 1;
+        int currentY = fromY - 1;
+        while (currentX <= toX && currentY >= toY && currentY >= 0) {
+            if (figures[currentX][currentY] != null) {
                 count++;
+            }
             currentX++;
             currentY++;
         }
@@ -66,9 +68,10 @@ public class Elephant extends Figure {
         int count = 0;
         int currentX = fromX - 1;
         int currentY = fromY - 1;
-        while(currentX >= toX && currentY >= toY) {
-            if(figures[currentX][currentY] != null)
+        while (currentX >= toX && currentY >= toY) {
+            if (figures[currentX][currentY] != null) {
                 count++;
+            }
             currentX--;
             currentY--;
         }
@@ -76,7 +79,7 @@ public class Elephant extends Figure {
     }
 
     /**
-     * Return a string view of figure
+     * Return a string view of figure.
      * @return elephant string.
      */
    @Override

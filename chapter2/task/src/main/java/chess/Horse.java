@@ -36,11 +36,11 @@ public class Horse extends Figure {
     @Override
     boolean canMove(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
         boolean canMove = false;
-        if(abs(fromX - toX) == 2) {
-            canMove = rook.canMove(figures,toX,fromY,toX,toY);
-        }
-        else if(abs(fromY - toY) == 2)
-            canMove = rook.canMove(figures, fromX, toY, toX, toY);
+        if (abs(fromX - toX) == 2) {
+            canMove = rook.canMove(figures, toX, fromY, toX, toY);
+        } else if (abs(fromY - toY) == 2) {
+			canMove = rook.canMove(figures, fromX, toY, toX, toY);
+		}
         return canMove;
     }
 
@@ -52,5 +52,4 @@ public class Horse extends Figure {
     public String toString() {
         return HORSE_STRING;
     }
-	
 }

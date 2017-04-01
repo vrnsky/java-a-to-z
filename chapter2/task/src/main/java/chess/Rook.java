@@ -9,7 +9,7 @@ public class Rook extends Figure {
     /**
      * String view of rook.
      */
-	private final static String ROOK_STRING = "R";
+	private static final String ROOK_STRING = "R";
 
     /**
      * Check than figure may make step at the given position.
@@ -23,14 +23,15 @@ public class Rook extends Figure {
     @Override
     public boolean canMove(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
         boolean canMove = false;
-        if(toX == fromX && toY > fromY)
-            canMove = checkRightDirection(figures, fromX, fromY,toX,toY);
-        else if (toX == fromX && toY < fromY)
-            canMove = checkLeftDirection(figures,fromX, fromY, toX, toY);
-        else if (toX > fromX && toY == fromY)
+        if (toX == fromX && toY > fromY) {
+            canMove = checkRightDirection(figures, fromX, fromY, toX, toY);
+        } else if (toX == fromX && toY < fromY) {
+            canMove = checkLeftDirection(figures, fromX, fromY, toX, toY);
+        } else if (toX > fromX && toY == fromY) {
             canMove = checkDownDirection(figures, fromX, fromY, toX, toY);
-        else if (toX < fromX && toY == fromY)
+        } else if (toX < fromX && toY == fromY) {
             canMove = checkUpDirection(figures, fromX, fromY, toX, toY);
+        }
         return canMove;
     }
 
@@ -47,9 +48,10 @@ public class Rook extends Figure {
         int index = fromY + 1;
         int length = figures[fromX].length;
         int count = 0;
-        while(index < length && index <= toY) {
-            if(figures[fromX][index] != null)
+        while (index < length && index <= toY) {
+            if (figures[fromX][index] != null) {
                 count++;
+            }
 			index++;
         }
         return count == 0;
@@ -65,12 +67,13 @@ public class Rook extends Figure {
      * @return see method above.
      */
     private boolean checkLeftDirection(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
-        int index = fromY-1;
+        int index = fromY - 1;
         int length = figures[fromX].length;
         int count = 0;
-        while(index >= 0 && index < length && index <= toX) {
-            if(figures[fromX][index] != null)
+        while (index >= 0 && index < length && index <= toX) {
+            if (figures[fromX][index] != null) {
                 count++;
+            }
             index--;
         }
         return count == 0;
@@ -87,11 +90,12 @@ public class Rook extends Figure {
      */
     private boolean checkDownDirection(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
         int count = 0;
-        int index = fromX+1;
+        int index = fromX + 1;
         int length = figures[fromY].length;
-        while(index < length && index != toX) {
-            if(figures[index][fromY] != null)
+        while (index < length && index != toX) {
+            if (figures[index][fromY] != null) {
                 count++;
+            }
             index++;
         }
         return count == 0;
@@ -110,9 +114,10 @@ public class Rook extends Figure {
         int count = 0;
         int index = fromX - 1;
         int length = figures[fromY].length;
-        while(index < length && index >= toX) {
-            if(figures[index][fromY] != null)
+        while (index < length && index >= toX) {
+            if (figures[index][fromY] != null) {
                 count++;
+            }
             index--;
         }
         return count == 0;

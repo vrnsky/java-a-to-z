@@ -2,12 +2,9 @@ package chess;
 
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
+
 import org.junit.Test;
 import org.junit.Before;
-
-/**
-	It unit test for King class
-*/
 
 /**
  * Unit test for King.java.
@@ -16,13 +13,10 @@ import org.junit.Before;
 public class KingTest {
 
     /**
-     * Instance of testring class.
+     * Instance of testing class.
      */
     private King king;
-	
-	/**
-		Init all needed variables
-	*/
+
 
     /**
      * Init all need variable, it placed there for reduce code in test.
@@ -33,7 +27,7 @@ public class KingTest {
     }
 
     /**
-     *  Check that constructor create correct figure object
+     *  Check that constructor create correct figure object.
      */
     @Test
     public void whenCreateAKingShouldCheckThanItIsNotNull() {
@@ -46,8 +40,8 @@ public class KingTest {
      */
     @Test
     public void whenTryAttachKingToBoardShouldCheckThatBoardSaveIt() {
-		
-		//Assign block
+
+        //Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"K", "0", "0", "0", "0", "0", "0", "0"},
@@ -60,7 +54,7 @@ public class KingTest {
                 {"0", "0", "0", "0", "0", "0", "0", "0"}
         };
 
-        board.addFigure(this.king,0,0);
+        board.addFigure(this.king, 0, 0);
         String[][] actual = board.getBoard();
 
         assertThat(actual, is(expected));
@@ -83,11 +77,11 @@ public class KingTest {
                 {"0", "0", "0", "0", "0", "0", "0", "0"}
         };
 
-        board.addFigure(this.king,0,0);
-        board.performMove(0,0,0,1);
+        board.addFigure(this.king, 0, 0);
+        board.performMove(0, 0, 0, 1);
         String[][] actual = board.getBoard();
 
-		assertThat(actual, is(expected));
+        assertThat(actual, is(expected));
     }
 
     /**
@@ -107,8 +101,8 @@ public class KingTest {
                 {"0", "0", "0", "0", "0", "0", "0", "0"}
         };
 
-        board.addFigure(this.king,0,0);
-        board.performMove(0,0,1,0);
+        board.addFigure(this.king, 0, 0);
+        board.performMove(0, 0, 1, 0);
         String[][] actual = board.getBoard();
 
         assertThat(actual, is(expected));
@@ -131,8 +125,8 @@ public class KingTest {
                 {"0", "0", "0", "0", "0", "0", "0", "0"}
         };
 
-        board.addFigure(this.king,0,0);
-        board.performMove(0,0,1,1);
+        board.addFigure(this.king, 0, 0);
+        board.performMove(0, 0, 1, 1);
         String[][] actual = board.getBoard();
 
         assertThat(actual, is(expected));
@@ -155,9 +149,9 @@ public class KingTest {
                 {"0", "0", "0", "0", "0", "0", "0", "0"}
         };
 
-        board.addFigure(this.king,0,0);
-        board.addFigure(new Horse(),1,1);
-        board.performMove(0,0,1,1);
+        board.addFigure(this.king, 0, 0);
+        board.addFigure(new Horse(), 1, 1);
+        board.performMove(0, 0, 1, 1);
         String[][] actual = board.getBoard();
 
         assertThat(actual, is(expected));
@@ -180,8 +174,8 @@ public class KingTest {
                 {"0", "0", "0", "0", "0", "0", "0", "0"}
         };
 
-        board.addFigure(this.king,0,0);
-        board.performMove(0,0,2,0);
+        board.addFigure(this.king, 0, 0);
+        board.performMove(0, 0, 2, 0);
         String[][] actual = board.getBoard();
 
         assertThat(actual, is(expected));
@@ -191,8 +185,8 @@ public class KingTest {
      * When king try skip figures should leave king at the current place.
      */
     @Test
-	public void whenKingTrySkipFigureShouldLeaveKingAtTheCurrentPlace() {
-		Board board = new Board();
+    public void whenKingTrySkipFigureShouldLeaveKingAtTheCurrentPlace() {
+        Board board = new Board();
         String[][] expected = new String[][]{
                 {"K", "0", "0", "0", "0", "0", "0", "0"},
                 {"P", "0", "0", "0", "0", "0", "0", "0"},
@@ -204,23 +198,23 @@ public class KingTest {
                 {"0", "0", "0", "0", "0", "0", "0", "0"}
         };
 
-        board.addFigure(this.king,0,0);
-		board.addFigure(new Pawn(),1,0);
-        board.performMove(0,0,3,0);
+        board.addFigure(this.king, 0, 0);
+        board.addFigure(new Pawn(), 1, 0);
+        board.performMove(0, 0, 3, 0);
         String[][] actual = board.getBoard();
 
-        assertThat(actual, is(expected));		
-	}
+        assertThat(actual, is(expected));
+    }
 
     /**
      * When try get string view of king chess figure should check that is acronym.
      */
-	@Test
-	public void whenTryGetStringViewOfKingShouldGetAcronym() {
-		String expected = "K";
-		String actual = king.toString();
-		assertThat(actual, is(expected));
-	}
+    @Test
+    public void whenTryGetStringViewOfKingShouldGetAcronym() {
+        String expected = "K";
+        String actual = king.toString();
+        assertThat(actual, is(expected));
+    }
 
 
 }

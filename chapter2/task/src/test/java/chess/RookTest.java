@@ -2,7 +2,8 @@ package chess;
 
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -29,11 +30,7 @@ public class RookTest {
      */
     @Test
     public void whenCreateRookShouldCheckItIsNotNull() {
-		
-		//Act block
         boolean actual = this.rook != null;
-		
-		//Action block
         assertThat(actual, is(true));
     }
 
@@ -42,25 +39,21 @@ public class RookTest {
      */
     @Test
     public void whenTryAddRookToTheBoardShouldCheckThanBoardSaveIt() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"R", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
+                {"R", "0", "0", "0", "0", "0", "0", "0"}, //0
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //1
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //2
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //3
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //4
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //5
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //6
                 {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
         };
 
-		//Act block
-        board.addFigure(this.rook,0,0);
+        board.addFigure(this.rook, 0, 0);
         String[][] actual = board.getBoard();
 
-		//Action block
         assertThat(actual, is(expected));
     }
 
@@ -69,26 +62,22 @@ public class RookTest {
      */
     @Test
     public void whenTryMovingRookInTheBoardInCorrectVerticalDirectionShouldMovePerform() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //0
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //1
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //2
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //3
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //4
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //5
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //6
                 {"R", "0", "0", "0", "0", "0", "0", "0"}//7}
         };
 
-		//Act block
-        board.addFigure(this.rook,0,0);
-        board.performMove(0,0,7,0);
+        board.addFigure(this.rook, 0, 0);
+        board.performMove(0, 0, 7, 0);
         String[][] actual = board.getBoard();
 
-		//Action block
         assertThat(actual, is(expected));
     }
 
@@ -97,26 +86,22 @@ public class RookTest {
      */
     @Test
     public void whenMovingRookInTheBoardIntCorrectHorizontalDirShouldPerformMove() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"0", "0", "0", "0", "0", "0", "0", "R"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
+                {"0", "0", "0", "0", "0", "0", "0", "R"}, //0
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //1
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //2
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //3
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //4
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //5
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //6
                 {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
         };
 
-		//Act block
-        board.addFigure(this.rook,0,0);
-        board.performMove(0,0,0,7);
+        board.addFigure(this.rook, 0, 0);
+        board.performMove(0, 0, 0, 7);
         String[][] actual = board.getBoard();
 
-		//Action blokc
         assertThat(actual, is(expected));
     }
 
@@ -125,27 +110,23 @@ public class RookTest {
      */
     @Test
     public void whenTryMoveRookToTheBusyCellInVerticalDirectShouldLeaveRookAtTheCurrentPlace() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"R", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
+                {"R", "0", "0", "0", "0", "0", "0", "0"}, //0
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //1
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //2
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //3
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //4
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //5
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //6
                 {"H", "0", "0", "0", "0", "0", "0", "0"}//7}
         };
 
-		//Act block
-        board.addFigure(this.rook,0,0);
-        board.addFigure(new Horse(),7,0);
-        board.performMove(0,0,7,0);
+        board.addFigure(this.rook, 0, 0);
+        board.addFigure(new Horse(), 7, 0);
+        board.performMove(0, 0, 7, 0);
         String[][] actual = board.getBoard();
 
-		//Action block
         assertThat(actual, is(expected));
     }
 
@@ -154,27 +135,23 @@ public class RookTest {
      */
     @Test
     public void whenTryMoveRookAcrossFigureShouldLeaveRookAtTheCurrentPlace() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"R", "0", "0", "H", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
+                {"R", "0", "0", "H", "0", "0", "0", "0"}, //0
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //1
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //2
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //3
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //4
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //5
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //6
                 {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
         };
 
-		//Act block
-        board.addFigure(this.rook,0,0);
-        board.addFigure(new Horse(),0,3);
-        board.performMove(0,0,0,7);
+        board.addFigure(this.rook, 0, 0);
+        board.addFigure(new Horse(), 0, 3);
+        board.performMove(0, 0, 0, 7);
         String[][] actual = board.getBoard();
 
-		//Action block
         assertThat(actual, is(expected));
 
     }
@@ -182,15 +159,10 @@ public class RookTest {
     /**
      * When need get string view of rook should check that it is acronym of rook.
      */
-	@Test
-	public void whenAskAboutStringFromRookShouldGetAcronymForRook() {
-		
-		//Assign block
-		String expected = "R";
-		
-		//Act block
-		String actual = rook.toString();
-		
-		assertThat(actual, is(expected));
-	}
+    @Test
+    public void whenAskAboutStringFromRookShouldGetAcronymForRook() {
+        String expected = "R";
+        String actual = rook.toString();
+        assertThat(actual, is(expected));
+    }
 }

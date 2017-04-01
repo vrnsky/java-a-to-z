@@ -35,12 +35,13 @@ public class King extends Figure {
     @Override
     boolean canMove(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
         boolean canMove = false;
-        if(abs(toX - fromX) == 1 && toY == fromY)
-            canMove = queen.canMove(figures,fromX, fromY, toX, toY);
-        else if(abs(toX - fromX) == 1 && abs(toY - fromY) == 1)
-            canMove = queen.canMove(figures, fromX, fromY, toX, toY);
-		else if(abs(fromY - toY) == 1 && toX == fromX)
+        if (abs(toX - fromX) == 1 && toY == fromY) {
 			canMove = queen.canMove(figures, fromX, fromY, toX, toY);
+		} else if (abs(toX - fromX) == 1 && abs(toY - fromY) == 1) {
+			canMove = queen.canMove(figures, fromX, fromY, toX, toY);
+		} else if (abs(fromY - toY) == 1 && toX == fromX) {
+			canMove = queen.canMove(figures, fromX, fromY, toX, toY);
+		}
         return canMove;
     }
 

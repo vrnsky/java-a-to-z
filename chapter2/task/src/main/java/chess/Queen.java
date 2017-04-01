@@ -8,7 +8,7 @@ public class Queen extends Figure {
 	/**
 	 * String view of queen chess figure.
 	 */
-	private final static String QUEEN_STRING = "Q"; 
+	private static final String QUEEN_STRING = "Q";
 
 	/**
 	 * For avoid code duplication use API of existing class rook.
@@ -41,12 +41,12 @@ public class Queen extends Figure {
      */
     @Override
     boolean canMove(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
-        boolean canMove = false;
-        if(!rook.canMove(figures,fromX,fromY,toX,toY) && elephant.canMove(figures,fromX,fromY,toX,toY))
-            canMove = true;
-         else if(rook.canMove(figures,fromX, fromY, toX, toY) && !elephant.canMove(figures,fromX,fromY,toX,toY))
-            canMove = true;
-
+		boolean canMove = false;
+		if (!rook.canMove(figures, fromX, fromY, toX, toY) && elephant.canMove(figures, fromX, fromY, toX, toY)) {
+			canMove = true;
+		} else if (rook.canMove(figures, fromX, fromY, toX, toY) && !elephant.canMove(figures, fromX, fromY, toX, toY)) {
+			canMove = true;
+	    }
         return canMove;
     }
 

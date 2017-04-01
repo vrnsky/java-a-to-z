@@ -36,11 +36,14 @@ public class Pawn extends Figure {
      * @return true if it may move to given position otherwise false.
      */
 	boolean canMove(Figure[][] figures, int fromX, int fromY, int toX, int toY) {
-		boolean canMove = false;
-		if(abs(fromX - toX) > 2) canMove = false;
-		else if(abs(fromY - toY) > 0) canMove = false;
-		else canMove = rook.canMove(figures, fromX, fromY, toX, toY);
-
+		boolean canMove;
+		if (abs(fromX - toX) > 2) {
+			canMove = false;
+		} else if (abs(fromY - toY) > 0) {
+			canMove = false;
+		} else {
+			canMove = rook.canMove(figures, fromX, fromY, toX, toY);
+		}
 		return canMove;
 	}
 

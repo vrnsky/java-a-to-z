@@ -7,7 +7,7 @@ package chess;
 public class Board {
 
 	/**
-	 * Width of board size given in cells
+	 * Width of board size given in cells.
 	 */
 	private static final int BOARD_WIDTH = 8;
 
@@ -36,7 +36,7 @@ public class Board {
      * @param y position of Y axis.
      */
 	public void addFigure(Figure figure, int x, int y) {
-		if(checkBoundaries(x,y) && checkEmpty(x,y)) {
+		if (checkBoundaries(x, y) && checkEmpty(x, y)) {
 			figures[x][y] = figure;
 		}
 	}
@@ -70,9 +70,11 @@ public class Board {
      * @return true if figure may this step, and otherwise false.
      */
 	public boolean canMove(int fromX, int fromY, int toX, int toY) {
-		return checkBoundaries(toX, toY) && 
-			   figures[fromX][fromY].canMove(figures, fromX, fromY, toX, toY) &&
-		       checkEmpty(toX,toY) && !checkEmpty(fromX,fromY);
+		return checkBoundaries(toX, toY)
+				&&
+			   figures[fromX][fromY].canMove(figures, fromX, fromY, toX, toY)
+				&&
+		       checkEmpty(toX, toY) && !checkEmpty(fromX, fromY);
 	}
 
 	/**
@@ -83,7 +85,7 @@ public class Board {
      * @param toY it is finish Y position.
      */
 	public void performMove(int fromX, int fromY, int toX, int toY) {
-		if(canMove(fromX,fromY, toX, toY) ) {
+		if (canMove(fromX, fromY, toX, toY)) {
 			figures[toX][toY] = figures[fromX][fromY];
 			figures[fromX][fromY] = null;
 		}
@@ -95,10 +97,10 @@ public class Board {
      */
 	public String[][] getBoard() {
 		String[][] board = new String[BOARD_WIDTH][BOARD_HEIGHT];
-		for(int x = 0; x < BOARD_WIDTH; x++) {
-			for(int y = 0; y < BOARD_HEIGHT; y++) {
+		for (int x = 0; x < BOARD_WIDTH; x++) {
+			for (int y = 0; y < BOARD_HEIGHT; y++) {
 				Figure figure = figures[x][y];
-				if(figure != null) {
+				if (figure != null) {
 					board[x][y] = figure.toString();
 				} else {
 					board[x][y] = "0";

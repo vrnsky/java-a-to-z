@@ -5,9 +5,6 @@ import static org.hamcrest.core.Is.is;
 import org.junit.Test;
 import org.junit.Before;
 
-/**
-	Unit test of Pawn.java
-*/
 
 /**
  * Unit test for Pawn.java.
@@ -33,11 +30,7 @@ public class PawnTest {
      */
     @Test
     public void whenCreateAPawnShouldCheckItIsNotNull() {
-		
-		//Act block
         boolean actual = pawn != null;
-		
-		//Action block
         assertThat(actual, is(true));
     }
 
@@ -47,7 +40,7 @@ public class PawnTest {
     @Test
     public void whenTryAttachPawnToTheBoardShouldAddPawnIfCellIsNotBusy() {
         Board board = new Board();
-        String[][] expected = new String[][]{
+        String[][] expected = new String[][] {
                 {"P", "0", "0", "0", "0", "0", "0", "0"},
                 {"0", "0", "0", "0", "0", "0", "0", "0"},
                 {"0", "0", "0", "0", "0", "0", "0", "0"},
@@ -62,8 +55,7 @@ public class PawnTest {
 
         board.addFigure(this.pawn, startX, startY);
         String[][] actual = board.getBoard();
-		
-		//Action block
+
         assertThat(actual, is(expected));
     }
 
@@ -73,7 +65,7 @@ public class PawnTest {
     @Test
     public void whenTryMovePawnInCorrectDirectionShouldMovePawn() {
         Board board = new Board();
-        String[][] expected = new String[][]{
+        String[][] expected = new String[][] {
                 {"0", "0", "0", "0", "0", "0", "0", "0"},
                 {"0", "0", "0", "0", "0", "0", "0", "0"},
                 {"P", "0", "0", "0", "0", "0", "0", "0"},
@@ -101,7 +93,7 @@ public class PawnTest {
     @Test
     public void whenTryMovePawnInWrongDirectionShouldLeavePawnAtTheCurrentPlace() {
         Board board = new Board();
-        String[][] expected = new String[][]{
+        String[][] expected = new String[][] {
                 {"P", "0", "0", "0", "0", "0", "0", "0"},
                 {"0", "0", "0", "0", "0", "0", "0", "0"},
                 {"0", "0", "0", "0", "0", "0", "0", "0"},
@@ -129,7 +121,7 @@ public class PawnTest {
     @Test
     public void whenTryMovePawnButInThePathFigureShouldLeavePawnAtTheCurrentPlace() {
         Board board = new Board();
-        String[][] expected = new String[][]{
+        String[][] expected = new String[][] {
                 {"P", "0", "0", "0", "0", "0", "0", "0"},
                 {"P", "0", "0", "0", "0", "0", "0", "0"},
                 {"0", "0", "0", "0", "0", "0", "0", "0"},
@@ -158,9 +150,9 @@ public class PawnTest {
      * When pawn try skip over figure or figures should leave pawn at the current position.
      */
     @Test
-    public void whenTryPawnTrySkipOverFiguresShouldLeavePawnAtTheCurrentPlace(){
+    public void whenTryPawnTrySkipOverFiguresShouldLeavePawnAtTheCurrentPlace() {
         Board board = new Board();
-        String[][] expected = new String[][]{
+        String[][] expected = new String[][] {
                 {"0", "0", "0", "0", "0", "0", "0", "0"},
                 {"P", "0", "0", "0", "0", "0", "0", "0"},
                 {"P", "0", "0", "0", "0", "0", "0", "0"},

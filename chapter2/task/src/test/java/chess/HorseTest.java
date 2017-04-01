@@ -2,7 +2,7 @@ package chess;
 
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -29,11 +29,7 @@ public class HorseTest {
      */
     @Test
     public void whenCreateAHorseShouldCheckItIsNotNull() {
-		
-		//Act block
 	    boolean actual = horse != null;
-
-	    //Action block
         assertThat(actual, is(true));
     }
 
@@ -42,22 +38,20 @@ public class HorseTest {
      */
     @Test
     public void whenTryAddHorseToTheBoardShouldCheckItSaved() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"H", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
+                {"H", "0", "0", "0", "0", "0", "0", "0"}, //0
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //1
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //2
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //3
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //4
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //5
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //6
                 {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
         };
 
 		//Act block
-        board.addFigure(horse,0,0);
+        board.addFigure(horse, 0, 0);
         String[][] actual = board.getBoard();
 
 		//Action block
@@ -69,23 +63,21 @@ public class HorseTest {
      */
     @Test
     public void whenTryMovingHorseInCorrectDirectionShouldMoveHorseToGivenPosition() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "H", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //0
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //1
+                {"0", "H", "0", "0", "0", "0", "0", "0"}, //2
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //3
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //4
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //5
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //6
                 {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
         };
 
 		//Act block
-        board.addFigure(horse,0,0);
-        board.performMove(0,0,2,1);
+        board.addFigure(horse, 0, 0);
+        board.performMove(0, 0, 2, 1);
         String[][] actual = board.getBoard();
 
 		//Action block
@@ -97,26 +89,23 @@ public class HorseTest {
      */
     @Test
     public void whenTryMovingHorseAtTheBottomInCorrectDirection() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "H", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //0
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //1
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //2
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //3
+                {"0", "H", "0", "0", "0", "0", "0", "0"}, //4
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //5
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //6
                 {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
         };
 
-		//Act block
-        board.addFigure(this.horse, 2,0);
-        board.performMove(2,0,4,1);
+
+        board.addFigure(this.horse, 2, 0);
+        board.performMove(2, 0, 4, 1);
         String[][] actual = board.getBoard();
-		
-		//Action block
+
         assertThat(actual, is(expected));
     }
 
@@ -125,26 +114,22 @@ public class HorseTest {
      */
     @Test
     public void whenTryMovingHorseByVerticalCorrectDirectionShouldMoveHorseToGivenPosition() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "H", "0", "0", "0", "0", "0"},//1
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //0
+                {"0", "0", "H", "0", "0", "0", "0", "0"}, //1
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //2
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //3
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //4
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //5
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //6
                 {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
         };
-		
-		//Act block
-        board.addFigure(this.horse,0,0);
-        board.performMove(0,0,1,2);
+
+        board.addFigure(this.horse, 0, 0);
+        board.performMove(0, 0, 1, 2);
         String[][] actual = board.getBoard();
 
-		//Action block
         assertThat(actual, is(expected));
     }
 
@@ -153,24 +138,22 @@ public class HorseTest {
      */
     @Test
     public void whenTryMovingHorseAcrossOtherFigureShouldMoveHorse() {
-		
-		//Assign block
         Board board = new Board();
         String[][] expected = new String[][]{
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//0
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//1
-                {"P", "H", "0", "0", "0", "0", "0", "0"},//2
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//3
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//4
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//5
-                {"0", "0", "0", "0", "0", "0", "0", "0"},//6
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //0
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //1
+                {"P", "H", "0", "0", "0", "0", "0", "0"}, //2
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //3
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //4
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //5
+                {"0", "0", "0", "0", "0", "0", "0", "0"}, //6
                 {"0", "0", "0", "0", "0", "0", "0", "0"}//7}
         };
 
 		//Act block
-        board.addFigure(this.horse,0,0);
-        board.addFigure(new Pawn(),2,0);
-        board.performMove(0,0,2,1);
+        board.addFigure(this.horse, 0, 0);
+        board.addFigure(new Pawn(), 2, 0);
+        board.performMove(0, 0, 2, 1);
         String[][] actual = board.getBoard();
 
 		//Action block
@@ -182,14 +165,8 @@ public class HorseTest {
      */
     @Test
 	public void whenTryGetStringViewOfHorseShouldGetAcronym() {
-		
-		//Assign block
 		String expected = "H";
-		
-		//Act block
 		String actual = this.horse.toString();
-		
-		//Action block
 		assertThat(actual, is(expected));
 	}
 }
