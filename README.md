@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/vrnsky/java-a-to-z.svg?branch=master)](https://travis-ci.org/vrnsky/java-a-to-z)
 [![codecov](https://codecov.io/gh/vrnsky/java-a-to-z/branch/master/graph/badge.svg)](https://codecov.io/gh/vrnsky/java-a-to-z)
+
 This repository contains solution of task from courses at the job4j.ru course.
 In course use next technology :
 1. Maven
