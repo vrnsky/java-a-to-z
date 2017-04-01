@@ -31,7 +31,7 @@ public class StartUI {
      * @param args key for app.
      */
     public static void main(final String[] args) {
-        new StartUI(new Validator()).init();
+        new StartUI(new Validator(new ConsoleIO())).init();
     }
 
     /**

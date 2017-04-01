@@ -2,8 +2,10 @@ package start;
 
 /**
  * Implementation of validator, is handle bad and good input.
+ * @author evrnsky <vrnsky@protonmail.ch>
+ * @version 0.2
  */
-public class Validator extends ConsoleIO {
+public class Validator implements IO {
 
     /**
      * Message about using correct option.
@@ -21,7 +23,14 @@ public class Validator extends ConsoleIO {
      */
     private static final String USE_DOUBLE = "Dear user, please type a double!";
 
+    /**
+     * It is decorator pattern, use already created class.
+     */
+    private IO io;
 
+    public Validator(IO io) {
+        this.io = io;
+    }
     /**
      * Ask user about int and return it.
      * @param question - it is String which will show to user.
@@ -35,14 +44,14 @@ public class Validator extends ConsoleIO {
         boolean invalid = true;
         do {
             try {
-                number = Integer.valueOf(super.ask(question));
+                number = this.io.ask(question, from, to);
                 if (number >= from && number <= to) {
                     invalid = false;
                 }
             } catch (NumberFormatException nfe) {
-                super.println("Dear user, please type a number");
+                this.io.println("Dear user, please type a number");
             } catch (MenuOutException moe) {
-                super.println(USE_CORRECT_OPTION);
+                this.io.println(USE_CORRECT_OPTION);
             }
         } while (invalid);
 
@@ -60,10 +69,10 @@ public class Validator extends ConsoleIO {
         boolean invalid = true;
         do {
             try {
-                result = super.askForLong(question);
+                result = this.io.ask(question, Integer.MIN_VALUE, Integer.MAX_VALUE);
                 invalid = false;
             } catch (NumberFormatException nfe) {
-                super.println(USE_NUMBER);
+                this.io.println(USE_NUMBER);
             }
         } while (invalid);
         return result;
@@ -80,12 +89,32 @@ public class Validator extends ConsoleIO {
         boolean invalid = true;
         do {
             try {
-                result = super.askForDouble(question);
+                result = this.io.askForDouble(question);
                 invalid = false;
             } catch (NumberFormatException nfe) {
-                super.println(USE_DOUBLE);
+                this.io.println(USE_DOUBLE);
             }
         } while (invalid);
         return result;
     }
+
+    /**
+     * Print object.
+     * @param value for print.
+     */
+    @Override
+    public void println(Object value) {
+        this.io.println(value);
+    }
+
+    /**
+     * Print string for user and return answer from user.
+     * @param question info for user.
+     * @return string which typed by user.
+     */
+    @Override
+    public String ask(String question) {
+        return this.io.ask(question);
+    }
+
 }
