@@ -8,6 +8,10 @@ package model;
  */
 public class SimpleCache extends AbstractCache {
 
+    /**
+     * Simple cache.
+     * @param method describe method for loading.
+     */
     public SimpleCache(LoadMethod method) {
         super(method);
     }

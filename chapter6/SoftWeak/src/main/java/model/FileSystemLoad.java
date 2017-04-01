@@ -1,7 +1,5 @@
 package model;
 
-import org.apache.commons.io.FileUtils;
-
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -23,7 +21,7 @@ public class FileSystemLoad implements LoadMethod {
     public File load(String path) {
         Path filePath = Paths.get(path);
         File resultFile = null;
-        if(Files.exists(filePath)) {
+        if (Files.exists(filePath)) {
             resultFile = filePath.toFile();
         }
         return resultFile;

@@ -1,6 +1,8 @@
 package model;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,7 +43,7 @@ public abstract class AbstractCache {
      */
     public List<String> get(String key) {
         List<String> strings;
-        if(!(this.cache.containsKey(key)) || (this.cache.get(key) == null)) {
+        if (!(this.cache.containsKey(key)) || (this.cache.get(key) == null)) {
             strings = getDataFromFile(key);
             this.cache.put(key, new SoftReference<>(strings));
         } else {
@@ -57,9 +59,10 @@ public abstract class AbstractCache {
      */
     private List<String> getDataFromFile(String fileName)   {
         List<String> strings = new ArrayList<>();
-        try(BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String string = "";
-            while((string = reader.readLine()) != null) {
+            while (string != null) {
+                string = reader.readLine();
                 strings.add(string);
             }
         } catch (IOException exp) {

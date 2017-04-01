@@ -2,15 +2,16 @@ package model;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
-
-import java.io.*;
 import java.nio.file.Files;
+import java.io.IOException;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * @author evrnsky
@@ -50,7 +51,7 @@ public class SimpleCacheTest {
 
         List<String> cached = cache.get(cachedFile.toString());
         Iterator<String> iterator = cached.iterator();
-        for(String string : strings) {
+        for (String string : strings) {
             assertThat(string, is(iterator.next()));
         }
     }

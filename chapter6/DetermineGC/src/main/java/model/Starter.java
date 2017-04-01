@@ -34,7 +34,7 @@ public class Starter {
          * @param surName of user.
          * @param age of user.
          */
-        public User(String firstName, String surName, int age) {
+         User(String firstName, String surName, int age) {
             this.firstName = firstName;
             this.surName = surName;
             this.age = age;
@@ -54,7 +54,7 @@ public class Starter {
 
     /**
      * Entry point at the program.
-     * @param args
+     * @param args keys for app.
      */
     public static void main(String[] args) {
         new Starter().tryGC();
@@ -67,7 +67,7 @@ public class Starter {
      * reference to object.
      */
     private void tryGC() {
-        for(int index = 0; index < 800; index++) {
+        for (int index = 0; index < 800; index++) {
             User user = new User(String.format("%s", index), String.format("%s", index), index);
         }
     }

@@ -18,28 +18,5 @@
 	<module>Profiling</module>
 	<module>SoftWeak</module>
 	</modules>
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-checkstyle-plugin</artifactId>
-				<configuration>
-					<skip>true</skip>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>cobertura-maven-plugin</artifactId>
-				<version>2.7</version>
-				<configuration>
-					<check>
-					</check>
-					<instrumentation>
-						<excludes>
-							<exclude>**/*</exclude>
-						</excludes>
-					</instrumentation>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+
 </project>
