@@ -1,8 +1,6 @@
 package models;
 
 import org.junit.Test;
-import start.Bug;
-import start.Comment;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -19,7 +17,7 @@ public class BugTest {
      */
     @Test
     public final void whenTryCreateBugShouldCheckThatIsCreated() {
-        start.Bug bug = new start.Bug();
+        Bug bug = new Bug();
         assertThat(bug != null, is(true));
     }
 
@@ -28,7 +26,7 @@ public class BugTest {
      */
     @Test
     public final void whenSetNameBugShouldCheckCorrect() {
-        start.Bug bug = new start.Bug();
+        Bug bug = new Bug();
         final String expected = "Issue";
         bug.setName(expected);
         assertThat(bug.getName(), is(expected));
@@ -39,7 +37,7 @@ public class BugTest {
      */
     @Test
     public final void whenSetDescShouldCheckCorrect() {
-        start.Bug bug = new start.Bug();
+        Bug bug = new Bug();
         final String desc = "Issue";
         bug.setDescription(desc);
         assertThat(bug.getDescription(), is(desc));
@@ -50,7 +48,7 @@ public class BugTest {
      */
     @Test
     public void whenCheckCreateTimeShouldCheckThatIsCorrect() {
-        start.Bug bug = new start.Bug();
+        Bug bug = new Bug();
         boolean correct = bug.getCreateTime() > 1L;
         assertThat(correct, is(true));
     }
@@ -60,7 +58,7 @@ public class BugTest {
      */
     @Test
     public void whenAddCommentShouldCheckThatCommentWasAdd() {
-        start.Bug bug = new Bug();
+        Bug bug = new Bug();
         final String comment = "First comment";
         bug.addComment(new Comment(comment));
         assertThat(bug.getComments()[0].toString(), is(String.format("%s: %s", "Comment", comment)));

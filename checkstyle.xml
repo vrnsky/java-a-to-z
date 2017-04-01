@@ -132,6 +132,7 @@
         <module name="InterfaceIsType"/>
         <module name="VisibilityModifier">
             <property name="protectedAllowed" value="true" />
+            <property name="packageAllowed" value="true" />
         </module>
 
         <!-- Miscellaneous other checks.                   -->

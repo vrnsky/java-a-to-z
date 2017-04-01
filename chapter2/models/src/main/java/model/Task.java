@@ -1,4 +1,5 @@
-package start;
+package model;
+
 
 /**
  * It is a extension of item class.

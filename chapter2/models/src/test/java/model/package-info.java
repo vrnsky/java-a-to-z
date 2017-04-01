@@ -4,4 +4,4 @@
  * @since 12.11.2016
  * Package with test for start for tracker.
  */
-package start;
+package model;

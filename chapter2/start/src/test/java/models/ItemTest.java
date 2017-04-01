@@ -1,9 +1,6 @@
 package models;
 
 import org.junit.Test;
-import start.Comment;
-import start.Item;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -18,7 +15,7 @@ public class ItemTest {
      */
     @Test
     public final void whenCreateItemShouldCheckItIsNotNull() {
-        start.Item item = new start.Item("It is my first item", "It is my first item");
+        Item item = new Item("It is my first item", "It is my first item");
         boolean expected = true;
 
         assertThat(item != null, is(true));
@@ -29,7 +26,7 @@ public class ItemTest {
      */
     @Test
     public final void whenCreateItemShouldCheckItemSaveData() {
-        start.Item item = new start.Item("first item", "It is my first item");
+        Item item = new Item("first item", "It is my first item");
         String expected = "first item";
 
         String actual = item.getName();
@@ -42,7 +39,7 @@ public class ItemTest {
      */
     @Test
     public final void whenCreateItemShouldCheckItemSaveDescription() {
-        start.Item item = new start.Item("asd", "item");
+        Item item = new Item("asd", "item");
         String expected = "item";
 
 
@@ -56,7 +53,7 @@ public class ItemTest {
      */
     @Test
     public final void whenUpdateItemNameShouldCheckItSaved() {
-        start.Item item = new start.Item();
+        Item item = new Item();
         String expected = "It is name";
 
         item.setName("It is name");
@@ -70,7 +67,7 @@ public class ItemTest {
      */
     @Test
     public final void whenUpdateItemDescShouldCheckItSaved() {
-        start.Item item = new start.Item();
+        Item item = new Item();
         String expected = "It is desc";
 
         item.setDescription("It is desc");
@@ -84,7 +81,7 @@ public class ItemTest {
      */
     @Test
     public final void whenCreateItemShouldCheckTimeOfCreateCorrect() {
-        start.Item item = new start.Item();
+        Item item = new Item();
 
         long time = item.getCreateTime();
         boolean actual = time > 1L;
@@ -97,7 +94,7 @@ public class ItemTest {
      */
     @Test
     public final void whenTryAttachCommentToItemShouldCheckCommentSave() {
-        start.Item item = new Item();
+        Item item = new Item();
         Comment comm = new Comment("It is my first comment:");
         String expected = "Comment: It is my first comment:";
 

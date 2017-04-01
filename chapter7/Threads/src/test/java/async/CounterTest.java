@@ -38,6 +38,7 @@ public class CounterTest {
 
     /**
      * This method call before even test.
+     * @throws IOException if some problem with io.
      */
     @Before
     public void setUp() throws IOException {

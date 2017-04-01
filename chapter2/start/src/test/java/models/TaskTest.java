@@ -1,9 +1,6 @@
 package models;
 
 import org.junit.Test;
-import start.Comment;
-import start.Task;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -19,7 +16,7 @@ public class TaskTest {
      */
     @Test
     public final void whenCreateTaskShouldCheckThatCreated() {
-        start.Task task = new start.Task("task", "desc");
+        Task task = new Task("task", "desc");
         assertThat(task != null, is(true));
     }
 
@@ -28,7 +25,7 @@ public class TaskTest {
      */
     @Test
     public final void whenCreateTaskShouldCheckDataSaved() {
-        start.Task task = new start.Task("task", "desc");
+        Task task = new Task("task", "desc");
         assertThat(task.getName(), is("task"));
         assertThat(task.getDescription(), is("desc"));
     }
@@ -38,7 +35,7 @@ public class TaskTest {
      */
     @Test
     public final void whenUpdateNameShouldCheckData() {
-        start.Task task = new start.Task("task", "desc");
+        Task task = new Task("task", "desc");
         task.setName("new task");
         assertThat(task.getName(), is("new task"));
     }
@@ -48,7 +45,7 @@ public class TaskTest {
      */
     @Test
     public final void whenUpdateDescShouldCheckData() {
-        start.Task task = new start.Task("task", "desc");
+        Task task = new Task("task", "desc");
         task.setDescription("new desc");
         assertThat(task.getDescription(), is("new desc"));
     }
@@ -58,7 +55,7 @@ public class TaskTest {
      */
     @Test
     public final void whenCheckCreateTimeShouldCheckThatIsCorrect() {
-        start.Task task = new start.Task("task", "desc");
+        Task task = new Task("task", "desc");
         assertThat(task.getCreateTime() > 1L, is(true));
     }
 
@@ -67,7 +64,7 @@ public class TaskTest {
      */
     @Test
     public final void whenAddCommentShouldCheckThatCommentAdd() {
-        start.Task task = new Task("task", "desc");
+        Task task = new Task("task", "desc");
         final String comment = "comment";
         task.addComment(new Comment(comment));
         assertThat(task.getComments()[0].toString(), is(String.format("%s: %s", "Comment", comment)));
