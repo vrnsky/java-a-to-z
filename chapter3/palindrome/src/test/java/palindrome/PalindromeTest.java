@@ -28,6 +28,20 @@ public class PalindromeTest {
     }
 
     /**
+     * When user add type a wrong word should check that app return false.
+     */
+    @Test
+    public void whenUserEnterWrongWordShouldCheckThatIsNotPalindrome() {
+        String[] answer = new String[]{"Vasya"};
+        StubIO io = new StubIO(answer);
+        Palindrome palindrome = new Palindrome(io);
+
+        boolean actual = palindrome.isPalindrome();
+
+        assertThat(actual, is(false));
+    }
+
+    /**
      * When user entered wrong(wrong means than is it may
      * be empty or have more or small letters than five),
      * should show user that it wrong data.
@@ -42,4 +56,6 @@ public class PalindromeTest {
 
         assertThat(stubIO.getOut(), containsString(expected));
     }
+
+
 }

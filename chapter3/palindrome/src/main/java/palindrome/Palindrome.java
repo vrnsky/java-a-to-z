@@ -28,7 +28,7 @@ public class Palindrome {
         boolean isPalindrome = false;
         String userInput = handleInput();
         char[] charsUser = userInput.toCharArray();
-        for (int index = 0; index <= charsUser.length / 2; index++) {
+        for (int index = 0; index < charsUser.length / 2; index++) {
             if (charsUser[index] != charsUser[charsUser.length - index - 1]) {
                 isPalindrome = false;
             } else {
