@@ -1,6 +1,7 @@
 package chat;
 
 import org.junit.Test;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
@@ -31,5 +32,17 @@ public class LoggerTest {
         }
         assertThat(actual, is(expected));
     }
+
+    /**
+     * When try check that logger successful closed should check that all is ok.
+     * @throws IOException if problem with creating temporary file.
+     */
+    @Test
+    public void whenTryToCloseLoggerShouldCheckThatAllIsOk() throws IOException {
+        File temp = File.createTempFile("logger", ".txt");
+        Logger logger = new Logger(temp.getAbsolutePath());
+        logger.close();
+    }
+
 }
 
