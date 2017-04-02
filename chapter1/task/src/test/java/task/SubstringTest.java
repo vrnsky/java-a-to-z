@@ -30,14 +30,11 @@ public class SubstringTest {
 	 */
 	@Test
 	public void whenCallIsSubstringMethodFromSubtringAndPassTwoCorrectStringShouldReturnTrue() {
-		//Assign block
 		String fullString = "Hello";
 		String partString = "el";
 
-		//Act block
 		boolean result = substr.isSubstring(fullString, partString);
 
-		//Action block
 		assertThat(result, is(true));
 	}
 
@@ -46,15 +43,25 @@ public class SubstringTest {
 	 * Should check that is substring method return false.
 	 */
 	@Test
-	public void whenCallIsSubtringMethodFromSubstringAndWrongArgumentShouldReturnFalse() {
-		//Assign block
+	public void whenCallIsSubstringMethodFromSubstringAndWrongArgumentShouldReturnFalse() {
 		String fullString = "Bad string";
 		String partString = "q";
 
-		//Act block
 		boolean result = substr.isSubstring(fullString, partString);
 
-		//Action block
+		assertThat(result, is(false));
+	}
+
+	/**
+	 * When call is substring method and sub string greater than original should check that false.
+	 */
+	@Test
+	public void whenCallIsSubstringMethodAndSubstringGreaterThatOriginalShouldCheckThatFalseReturned() {
+		String fullString = "String";
+		String partString = "Good evening";
+
+		boolean result = substr.isSubstring(fullString, partString);
+
 		assertThat(result, is(false));
 	}
 }

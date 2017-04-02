@@ -6,25 +6,26 @@ package task;
  */
 public class Substring {
 	/**
-	 * Check is an find sub string of string.
-	 * @param string  In this string will search.
-	 * @param find Sub string for search.
-     * @return  true if find is an substring, otherwise false.
+	 * Check is an part sub fullString of fullString.
+	 * @param fullString  In this fullString will search.
+	 * @param part Sub fullString for search.
+     * @return  true if part is an substring, otherwise false.
 	 */
-	public boolean isSubstring(String string, String find) {
-		char[] fullSub = find.toCharArray();
-		char[] charArray = string.toCharArray();
+	public boolean isSubstring(String fullString, String part) {
+		char[] partArray = part.toCharArray();
+		char[] fullArray = fullString.toCharArray();
 		int count = 0;
 		boolean result = false;
-		if (fullSub.length > charArray.length) {
+		if (partArray.length > fullArray.length) {
 			result = false;
-		}
+		} else {
 
-		for (int index = 0; index < charArray.length; index++) {
-			for (int barrier = 0; barrier < fullSub.length; barrier++) {
-				if (charArray[index] == fullSub[barrier]) {
-					count++;
-					result = count > 0;
+			for (int index = 0; index < fullArray.length; index++) {
+				for (int barrier = 0; barrier < partArray.length; barrier++) {
+					if (fullArray[index] == partArray[barrier]) {
+						count++;
+						result = count > 0;
+					}
 				}
 			}
 		}
