@@ -15,7 +15,7 @@ import javax.persistence.GenerationType;
  * Describe user model at the app.
  */
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User {
 
     /**
@@ -23,19 +23,19 @@ public class User {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
 
     /**
      * Email.
      */
-    @Column(name="email")
+    @Column(name = "email")
     private String email;
 
     /**
      * Password.
      */
-    @Column(name="password")
+    @Column(name = "password")
     private String password;
 
     /**

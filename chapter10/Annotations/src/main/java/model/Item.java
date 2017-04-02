@@ -21,7 +21,7 @@ import java.util.List;
  * Represent model of item.
  */
 @Entity
-@Table(name="items")
+@Table(name = "items")
 public class Item {
 
     /**
@@ -35,7 +35,7 @@ public class Item {
     /**
      * Description of this item.
      */
-    @Column(name="description")
+    @Column(name = "description")
     private String description;
 
     /**
@@ -48,7 +48,7 @@ public class Item {
      * List of comments for this item.
      */
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name="item_id")
+    @JoinColumn(name = "item_id")
     private List<Comment> comments;
 
     /**

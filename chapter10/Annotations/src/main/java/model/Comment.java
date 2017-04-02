@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
  * This model describe comment at system.
  */
 @Entity
-@Table(name="comments")
+@Table(name = "comments")
 public class Comment {
 
     /**
@@ -24,7 +24,7 @@ public class Comment {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
 
     /**
@@ -36,7 +36,7 @@ public class Comment {
     /**
      * Text of comment.
      */
-    @Column(name="text")
+    @Column(name = "text")
     private String text;
 
     /**
