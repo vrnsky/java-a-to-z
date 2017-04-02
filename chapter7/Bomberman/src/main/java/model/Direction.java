@@ -9,9 +9,25 @@ import java.util.Random;
  * Describe direction of moving at the game.
  */
 public enum Direction {
+
+    /**
+     * Up direction.
+     */
     UP,
+
+    /**
+     * Down direction.
+     */
     DOWN,
+
+    /**
+     * Left direction.
+     */
     LEFT,
+
+    /**
+     * Right direction.
+     */
     RIGHT;
 
     /**

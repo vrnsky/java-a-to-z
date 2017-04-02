@@ -42,9 +42,9 @@ public class Monster extends Actor implements Runnable {
         boolean makeStep = false;
 
         while (!makeStep) {
-            if(stepOperation.tryLock()) {
+            if (stepOperation.tryLock()) {
                 try {
-                    if(isValidMoving(direction)) {
+                    if (isValidMoving(direction)) {
                         int prevX = getX();
                         int prevY = getY();
                         updateCoordinates(direction);

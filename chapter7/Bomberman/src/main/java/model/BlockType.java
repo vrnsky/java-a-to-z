@@ -7,5 +7,13 @@ package model;
  * Enum which describe type of block at the bomberman game.
  */
 public enum BlockType {
-    EMPTY, FILL
+    /**
+     * Empty cell.
+     */
+    EMPTY,
+
+    /**
+     * Non empty cell.
+     */
+    FILL
 }
