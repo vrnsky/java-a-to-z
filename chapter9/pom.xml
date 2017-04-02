@@ -25,6 +25,7 @@
         <module>Bank</module>
     </modules>
 
+    <!-- Ite is made for run test in single thread mode -->
     <build>
         <plugins>
             <plugin>
