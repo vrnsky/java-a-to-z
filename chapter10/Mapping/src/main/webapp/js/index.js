@@ -20,6 +20,7 @@ window.onload = function() {
     });
     document.getElementById('producer').onchange = updateModel;
     document.getElementById('submitButton').onclick = updatePage;
+    updatePage();
 };
 
 /**
@@ -78,20 +79,21 @@ function updatePage() {
     };
     // ajax query to the controllers
     $.ajax({
-        type: 'post',
-        url: './getcar',
-        data: data,
+        type: 'get',
+        url: './index',
         complete: function(data) {
-            var cars = JSON.parse(data.responseText);
-            if (cars.length == 0) {
+            var adverts = JSON.parse(data.responseText);
+            console.log(adverts);
+            if (adverts.length == 0) {
                 document.getElementById('car').innerHTML = "Could not car with given params";
             } else {
-                for (var i = 0; i < bodies.length; i++) {
-                    var option = document.createElement("div");
-                    option.setAttribute("id", cars[i].id);
-                    option.setAttribute("value", bodies[i].id);
-                    option.innerHTML = bodies[i].name;
-                    document.getElementById('cars').appendChild(option);
+                for (var i = 0; i < adverts.length; i++) {
+                    var carImg = document.createElement("img");
+                    carImg.setAttribute("src", adverts[i].fileUrl);
+                    carImg.setAttribute("width", 250);
+                    carImg.setAttribute("height", 150);
+                    document.getElementById("adverts").appendChild(carImg);
+
                 }
             }
         }

@@ -6,6 +6,7 @@ import javax.servlet.Filter;
 import javax.servlet.ServletException;
 import javax.servlet.ServletResponse;
 import javax.servlet.FilterChain;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,7 +19,7 @@ import java.io.IOException;
  *
  * This filter allow only user which have permission edit advert.
  */
-
+@WebFilter(urlPatterns = "/ads")
 public class AuthFilter implements Filter {
 
     /**

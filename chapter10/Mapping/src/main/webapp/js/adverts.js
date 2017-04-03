@@ -4,6 +4,7 @@ window.onload = function () {
       url: './getadverts',
       complete: function(data) {
         $("#myadverts").appendChild();
+
           }
       });
 }

@@ -1,7 +1,11 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import model.Advert;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import repos.AdvertRepo;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +25,8 @@ import java.util.List;
 @WebServlet("/index")
 public class Index extends HttpServlet {
 
+    private static final Logger LOG = Logger.getLogger(Index.class);
+
     /**
      * Return all advert in json string.
      * @param req from client to server.
@@ -33,7 +39,8 @@ public class Index extends HttpServlet {
         resp.setContentType("text/json");
         PrintWriter writer = resp.getWriter();
         ObjectMapper mapper = new ObjectMapper();
-        List<Advert> adverts = AdvertRepo.getInstance().getAll();
+        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false); //FIXME when add file url
+        List<Advert> adverts = AdvertRepo.getInstance().getAdvertsByUserId(1);
         writer.append(mapper.writeValueAsString(adverts));
         writer.flush();
     }

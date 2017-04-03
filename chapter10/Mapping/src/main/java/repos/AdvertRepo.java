@@ -1,8 +1,17 @@
 package repos;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import database.DBManager;
 import model.Advert;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.Session;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.Proxy;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -11,6 +20,8 @@ import java.util.List;
  * @since 29.03.2017
  */
 public class AdvertRepo {
+
+    private static final Logger LOG = Logger.getLogger(AdvertRepo.class);
 
     /**
      * It is singleton.
@@ -96,9 +107,8 @@ public class AdvertRepo {
         List<Advert> adverts;
         Session session = this.dbManager.getFactory().openSession();
         session.beginTransaction();
-        adverts = session.createQuery(String.format("from model.Advert as ad where ad.user_id = %s", id)).list();
+        adverts = session.createQuery(String.format("from model.Advert where author_id = %s", id)).list();
         session.getTransaction().commit();
-        session.close();
         return adverts;
     }
 
@@ -107,13 +117,13 @@ public class AdvertRepo {
      * @return list of not sale adverts at the system.
      */
     public List<Advert> getAll() {
-        List<Advert> adverts;
         Session session = this.dbManager.getFactory().openSession();
         session.beginTransaction();
-        adverts = session.createQuery("from model.Advert as a where a.sale = false").list();
+        String query = "from model.Advert where sale = fale";
+        List<Advert> result = session.createQuery(query).list();
         session.getTransaction().commit();
         session.close();
-        return adverts;
+        return result;
     }
 }
 

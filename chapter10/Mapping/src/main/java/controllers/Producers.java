@@ -42,9 +42,8 @@ public class Producers extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/json");
         PrintWriter writer = resp.getWriter();
-        ObjectMapper mapper = new ObjectMapper();
         List<CarInfo> producers = CarRepo.getInstance().getAllProducers();
-        LOG.log(Level.INFO, String.format("System load %s producers from database", producers.size()));
+        ObjectMapper mapper = new ObjectMapper();
         writer.append(mapper.writeValueAsString(producers));
         writer.flush();
     }

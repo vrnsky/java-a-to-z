@@ -6,6 +6,7 @@
         <property name="price" column="price"/>
         <property name="sale" column="sale" />
         <property name="timestamp" column="added" />
+        <property name="fileUrl" column="fileUrl" />
         <many-to-one name="car" column="car_id" class="model.Car" />
         <many-to-one name="author" column="author_id" class="model.User" />
     </class>

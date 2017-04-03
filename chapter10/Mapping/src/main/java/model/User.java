@@ -9,6 +9,7 @@ package model;
  */
 public class User {
 
+
     /**
      * Unique number among all users.
      */
@@ -46,18 +47,10 @@ public class User {
         this.id = id;
     }
 
-    /**
-     * Return email of this user.
-     * @return email.
-     */
     public String getEmail() {
         return email;
     }
 
-    /**
-     * Set new version of email.
-     * @param email new version of email.
-     */
     public void setEmail(String email) {
         this.email = email;
     }

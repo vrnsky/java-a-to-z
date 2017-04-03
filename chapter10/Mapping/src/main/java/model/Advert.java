@@ -43,6 +43,12 @@ public class Advert {
     private Timestamp timestamp;
 
     /**
+     * URL to the photo file.
+     */
+    private String fileUrl;
+
+
+    /**
      * Default constructor.
      */
     public Advert() {
@@ -56,6 +62,18 @@ public class Advert {
     public Advert(Car car) {
         this.car = car;
         this.sale = false;
+    }
+
+    /**
+     * Create a ew advert with given car and user, price.
+     * @param car instance of car.
+     * @param author instance of author.
+     * @param price for car.
+     */
+    public Advert(Car car, User author, long price) {
+        this(car);
+        this.author = author;
+        this.price = price;
     }
 
     /**
@@ -126,7 +144,7 @@ public class Advert {
      * If true it means that car already sale, false - not yet sell.
      * @return true - sold, false - not sold yet.
      */
-    public boolean isSale() {
+    public boolean getSale() {
         return sale;
     }
 
@@ -155,6 +173,24 @@ public class Advert {
     }
 
     /**
+     * Return url to the image.
+     * @return url to the image.
+     */
+    public String getFileUrl() {
+        return fileUrl;
+    }
+
+    /**
+     * Set new version of url.
+     * @param fileUrl new version of url.
+     */
+    public void setFileUrl(String fileUrl) {
+        this.fileUrl = fileUrl;
+    }
+
+
+
+    /**
      * Return text view of object.
      * @return text view of advert.
      */
@@ -166,4 +202,5 @@ public class Advert {
         return String.format("%s sale %s for %s. At this moment already sale:%s. This was publish %s",
                  this.author, this.car, this.price, alreadySale, time);
     }
+
 }

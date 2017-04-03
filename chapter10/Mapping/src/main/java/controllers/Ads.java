@@ -1,6 +1,5 @@
 package controllers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import model.Advert;
 import model.User;
 import repos.AdvertRepo;
@@ -37,11 +36,9 @@ public class Ads extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/json");
         PrintWriter writer = resp.getWriter();
-        ObjectMapper mapper = new ObjectMapper();
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
         List<Advert> adverts = AdvertRepo.getInstance().getAdvertsByUserId(user.getId());
-        writer.append(mapper.writeValueAsString(adverts));
         writer.flush();
 
     }

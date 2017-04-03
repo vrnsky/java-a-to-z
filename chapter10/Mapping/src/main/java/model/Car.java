@@ -29,10 +29,6 @@ public class Car {
      */
     private CarInfo model;
 
-    /**
-     * URL to the photo file.
-     */
-    private String fileUrl;
 
     /**
      * Default constructor.
@@ -104,21 +100,6 @@ public class Car {
         this.model = model;
     }
 
-    /**
-     * Return url to the image.
-     * @return url to the image.
-     */
-    public String getFileUrl() {
-        return fileUrl;
-    }
-
-    /**
-     * Set new version of url.
-     * @param fileUrl new version of url.
-     */
-    public void setFileUrl(String fileUrl) {
-        this.fileUrl = fileUrl;
-    }
 
     /**
      * Return text view of this.
@@ -128,4 +109,6 @@ public class Car {
     public String toString() {
         return String.format("%s %s %s", producer.toString(), model.toString(), body.toString());
     }
+
+
 }
