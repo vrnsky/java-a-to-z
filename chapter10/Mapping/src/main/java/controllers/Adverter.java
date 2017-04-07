@@ -44,6 +44,17 @@ public class Adverter extends HttpServlet  {
      */
     private static final ConcurrentMap<String, String> FORM = new ConcurrentHashMap<String, String>();
 
+    /**
+     * Forward request to the view.
+     * @param req from client to server.
+     * @param resp from server to client.
+     * @throws ServletException if request for post could not be handled.
+     * @throws IOException if io error detected.
+     */
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher(String.format("%s/add.html", req.getContextPath())).forward(req, resp);
+    }
 
     /**
      * Collect data from form and processing it, and at the end add new advert.

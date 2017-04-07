@@ -20,11 +20,25 @@ import java.io.IOException;
 @WebServlet("/login")
 public class Login extends HttpServlet {
 
+    /**
+     * Forward request to the view.
+     * @param req from client to server.
+     * @param resp from server to client.
+     * @throws ServletException if request could not be handled.
+     * @throws IOException if io error detected.
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher(String.format("%s/login.html", req.getContextPath())).forward(req, resp);
     }
 
+    /**
+     * Login.
+     * @param req from client to server.
+     * @param resp from server to client.
+     * @throws ServletException if request could not be hanled.
+     * @throws IOException if io error detected.
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
@@ -33,10 +47,10 @@ public class Login extends HttpServlet {
         User user = UserRepo.getInstance().getUserByCredits(email, password);
         if (user != null) {
             session.setAttribute("user", user);
-            req.getRequestDispatcher(String.format("%s/adverts.html", req.getContextPath()));
+            resp.sendRedirect(String.format("%s/adverts.html", req.getContextPath()));
         } else {
             session.setAttribute("error", "User with given credits not exist");
-            req.getRequestDispatcher(String.format("%s/error.html", req.getContextPath()));
+            req.getRequestDispatcher(String.format("%s/login.html", req.getContextPath()));
         }
     }
 }

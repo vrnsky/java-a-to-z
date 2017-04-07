@@ -47,10 +47,18 @@ public class User {
         this.id = id;
     }
 
+    /**
+     * Return current email.
+     * @return email.
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Set new email of user.
+     * @param email new version of email.
+     */
     public void setEmail(String email) {
         this.email = email;
     }

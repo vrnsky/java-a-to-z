@@ -1,17 +1,13 @@
 package repos;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import database.DBManager;
 import model.Advert;
-import org.apache.log4j.Level;
+import model.Car;
 import org.apache.log4j.Logger;
-import org.hibernate.annotations.FetchMode;
 import org.hibernate.Session;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.Proxy;
+import org.hibernate.query.Query;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -21,6 +17,9 @@ import java.util.List;
  */
 public class AdvertRepo {
 
+    /**
+     * Logger.
+     */
     private static final Logger LOG = Logger.getLogger(AdvertRepo.class);
 
     /**
@@ -119,8 +118,37 @@ public class AdvertRepo {
     public List<Advert> getAll() {
         Session session = this.dbManager.getFactory().openSession();
         session.beginTransaction();
-        String query = "from model.Advert where sale = fale";
+        String query = "from model.Advert where sale = false";
         List<Advert> result = session.createQuery(query).list();
+        session.getTransaction().commit();
+        session.close();
+        return result;
+    }
+
+    /**
+     * Search on database advert with given car.
+     * @param producer of car.
+     * @param model of car.
+     * @param body of car.
+     * @return adverts with given params.
+     */
+    public List<Advert> getAdvertsByParam(String producer, String model, String body) {
+        List<Advert> result = new ArrayList<>();
+        Session session = this.dbManager.getFactory().openSession();
+        session.beginTransaction();
+        Query query = session.createQuery("from model.Car where producer_id =:p and model_id=:m and body_id=:b");
+        query.setParameter("p", Integer.valueOf(producer));
+        query.setParameter("m", Integer.valueOf(model));
+        query.setParameter("b", Integer.valueOf(body));
+        List<Car> cars = query.list();
+        List<Advert> adverts = session.createQuery("from model.Advert where sale = false").list();
+        for (Advert advert : adverts) {
+            for (Car car : cars) {
+                if (advert.getCar().getId() == car.getId()) {
+                    result.add(advert);
+                }
+            }
+        }
         session.getTransaction().commit();
         session.close();
         return result;

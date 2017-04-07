@@ -20,13 +20,13 @@ window.onload = function() {
     });
     document.getElementById('producer').onchange = updateModel;
     document.getElementById('submitButton').onclick = updatePage;
-    updatePage();
 };
 
 /**
  * Update models depend on producers.
 */
 function updateModel() {
+    $("#model").empty();
     var producer = document.getElementById('producer').value;
     console.log(producer);
     $.ajax({
@@ -50,6 +50,7 @@ function updateModel() {
   Fill bodies of car.
 */
 function updateBody(producer, model) {
+    $("#body").empty();
     $.ajax({
         type: 'GET',
         url: './body',
@@ -67,35 +68,55 @@ function updateBody(producer, model) {
 }
 
 //When user submit button should update page.
-function updatePage() {
-    var producer = document.getElementById('producer');
-    var model = document.getElementById('model');
-    var body = document.getElementById('body');
+function updatePage(event) {
+    event.preventDefault();
+    var producer = document.getElementById('producer').value;
+    var model = document.getElementById('model').value;
+    var body = document.getElementById('body').value;
 
     var data = {
         'producer': producer,
         'model': model,
         'body': body
     };
+
+    console.log(data);
     // ajax query to the controllers
     $.ajax({
-        type: 'get',
+        type: 'post',
         url: './index',
+        data: data,
         complete: function(data) {
-            var adverts = JSON.parse(data.responseText);
-            console.log(adverts);
-            if (adverts.length == 0) {
-                document.getElementById('car').innerHTML = "Could not car with given params";
-            } else {
-                for (var i = 0; i < adverts.length; i++) {
-                    var carImg = document.createElement("img");
-                    carImg.setAttribute("src", adverts[i].fileUrl);
-                    carImg.setAttribute("width", 250);
-                    carImg.setAttribute("height", 150);
-                    document.getElementById("adverts").appendChild(carImg);
-
-                }
+            console.log(data);
+            var advert = JSON.parse(data.responseText);
+            for (var i = 0; i < advert.length; i++) {
+                createAdvert(advert[i]);
             }
         }
     });
+    return false;
+}
+
+function createAdvert(advert) {
+    var img = document.createElement("img");
+    img.setAttribute("width", 200);
+    img.setAttribute("height", 200);
+    img.setAttribute("src", advert.fileUrl);
+    var ul = document.createElement("ul");
+    ul.setAttribute("class", "data");
+    var producer =  document.createElement("li");
+    producer.innerHTML = "Producer: " + advert.car.producer.name;
+    var model = document.createElement("li");
+    model.innerHTML = "Model: " + advert.car.model.name;
+    var body = document.createElement("li");
+    body.innerHTML = "Body: " + advert.car.body.name;
+    var price = document.createElement("li");
+    price.innerHTML = "Price: " + advert.price;
+    ul.appendChild(producer);
+    ul.appendChild(model);
+    ul.appendChild(body);
+    ul.appendChild(price);
+
+    document.getElementById("adverts").appendChild(img);
+    document.getElementById("adverts").appendChild(ul);
 }

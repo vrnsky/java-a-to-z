@@ -19,7 +19,7 @@ import java.io.IOException;
  *
  * This filter allow only user which have permission edit advert.
  */
-@WebFilter(urlPatterns = "/ads")
+@WebFilter(urlPatterns = {"/ads", "/newadvert"})
 public class AuthFilter implements Filter {
 
     /**

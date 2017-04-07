@@ -7,7 +7,7 @@
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/carshop</property>
         <property name="hibernate.connection.username">postgres</property>
-        <property name="hibernate.connection.password">55555</property>
+        <property name="hibernate.connection.password">1234</property>
         <property name="show_sql">true</property>
 
         <!-- List of XML mapping files -->

@@ -1,10 +1,8 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import model.Advert;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import repos.AdvertRepo;
 import javax.servlet.ServletException;
@@ -25,6 +23,9 @@ import java.util.List;
 @WebServlet("/index")
 public class Index extends HttpServlet {
 
+    /**
+     * Logger.
+     */
     private static final Logger LOG = Logger.getLogger(Index.class);
 
     /**
@@ -41,6 +42,27 @@ public class Index extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false); //FIXME when add file url
         List<Advert> adverts = AdvertRepo.getInstance().getAdvertsByUserId(1);
+        writer.append(mapper.writeValueAsString(adverts));
+        writer.flush();
+    }
+
+    /**
+     * Execute search for adverts with given params.
+     * @param req from client to server.
+     * @param resp from server to client.
+     * @throws ServletException if request could for POST could not be handled.
+     * @throws IOException if io error detected.
+     */
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/json");
+        String producer = req.getParameter("producer");
+        String model = req.getParameter("model");
+        String body = req.getParameter("body");
+        PrintWriter writer = resp.getWriter();
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+        List<Advert> adverts = AdvertRepo.getInstance().getAdvertsByParam(producer, model, body);
         writer.append(mapper.writeValueAsString(adverts));
         writer.flush();
     }

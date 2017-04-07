@@ -55,4 +55,15 @@
 			<version>2.9.7</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.3.3.v20150827</version>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>

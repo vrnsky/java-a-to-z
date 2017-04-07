@@ -2,10 +2,8 @@ package controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.CarInfo;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import repos.CarRepo;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

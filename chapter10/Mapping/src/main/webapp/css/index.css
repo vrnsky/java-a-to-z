@@ -1,3 +1,9 @@
 #adverts {
   margin-top: 10px;
 }
+.data {
+  position: relative;
+  margin-left: 250px;
+  margin-top: -170px;
+  list-style:none;
+}
