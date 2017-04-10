@@ -101,7 +101,7 @@ public class Adverter extends HttpServlet  {
         int producerId = Integer.valueOf(FORM.get("producer"));
         int bodyId = Integer.valueOf(FORM.get("body"));
         long price = Long.valueOf("price");
-        Car car = CarRepo.getInstance().getCarByParam(modelId, producerId, bodyId);
+        Car car = CarRepo.getInstance().getCarByParam(modelId, producerId, bodyId).get(0);
         Advert advert = new Advert(car, user, price);
         AdvertRepo.getInstance().add(advert);
     }

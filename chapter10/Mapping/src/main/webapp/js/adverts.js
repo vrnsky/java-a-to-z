@@ -1,16 +1,19 @@
-window.onload = function () {
-    $(
-        $.ajax({
-            type: 'get',
-            url: './ads',
-            complete: function (data) {
-                console.log(data);
-                var adverts = JSON.parse(data);
-                for (var i = 0; i < adverts.length; i++) {
-                    $("#myadverts").appendChild(createAdvertRow(adverts[i]));
-                }
+window.onload = loadAdverts;
+
+function loadAdverts() {
+    $.ajax({
+        url: './useradverts',
+        type : 'GET',
+        success: function(data){
+            for (var i = 0; i < data.length; i++) {
+                console.log(data[i]);
+                document.getElementById("myadverts").appendChild(createAdvertRow(data[i]));
             }
-        }));
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus);
+        }
+    });
 }
 
 function createAdvertRow(advert) {

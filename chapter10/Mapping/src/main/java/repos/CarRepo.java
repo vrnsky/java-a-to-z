@@ -1,9 +1,9 @@
 package repos;
 
-import database.DBManager;
 import model.Car;
 import model.CarInfo;
-import org.hibernate.Session;
+import org.hibernate.query.Query;
+
 import java.util.List;
 
 /**
@@ -13,23 +13,19 @@ import java.util.List;
  *
  * This is car repository.
  */
-public class CarRepo {
+public class CarRepo extends CommonRepo<Car> {
 
     /**
      * Self instance, it is singleton.
      */
     private static final CarRepo REPO = new CarRepo();
 
-    /**
-     * Wrapper for work with database.
-     */
-    private DBManager dbManager;
 
     /**
      * It is private, because it is singleton.
      */
     private CarRepo() {
-        this.dbManager = DBManager.getInstance();
+        super();
     }
 
     /**
@@ -46,13 +42,7 @@ public class CarRepo {
      * @return car which id is equals to given id.
      */
     public Car getById(int id) {
-        Car car = null;
-        Session session = this.dbManager.getFactory().openSession();
-        session.beginTransaction();
-        car = session.get(Car.class, id);
-        session.getTransaction().commit();
-        session.close();
-        return car;
+       return super.getById(session -> session.get(Car.class, id));
     }
 
     /**
@@ -61,13 +51,7 @@ public class CarRepo {
      * @return list of models.
      */
     public List<CarInfo> getModelsByProducer(String producerId) {
-        List<CarInfo> models;
-        Session session = this.dbManager.getFactory().openSession();
-        session.beginTransaction();
-        models = session.createQuery(String.format("from model.Model as m where producer_id = %s", producerId)).list();
-        session.getTransaction().commit();
-        session.close();
-        return models;
+      return CarInfoRepo.getInstance().getModelsByProducer(producerId);
     }
 
     /**
@@ -75,13 +59,7 @@ public class CarRepo {
      * @return list of all producers.
      */
     public List<CarInfo> getAllProducers() {
-        List<CarInfo> producers;
-        Session session = this.dbManager.getFactory().openSession();
-        session.beginTransaction();
-        producers = session.createQuery("from model.Producer").list();
-        session.getTransaction().commit();
-        session.close();
-        return producers;
+       return CarInfoRepo.getInstance().getAllProducers();
     }
 
     /**
@@ -89,13 +67,7 @@ public class CarRepo {
      * @return all bodies.
      */
     public List<CarInfo> getAllBodies() {
-        List<CarInfo> bodies;
-        Session session = this.dbManager.getFactory().openSession();
-        session.beginTransaction();
-        bodies = session.createQuery("from model.Body").list();
-        session.getTransaction().commit();
-        session.close();
-        return bodies;
+        return CarInfoRepo.getInstance().getAllBodies();
     }
 
     /**
@@ -105,15 +77,15 @@ public class CarRepo {
      * @param bodyId specify body of car.
      * @return car which have given params.
      */
-    public Car getCarByParam(int modelId, int producerId, int bodyId) {
-        Car cars;
-        Session session = this.dbManager.getFactory().openSession();
-        session.beginTransaction();
-        cars = (Car) session.createQuery(String.format(
-                "from model.Car as c where c.model_id = %s and c.producer_id = %s and c.body_id = %s", modelId, producerId, bodyId)).getSingleResult();
-        session.getTransaction().commit();
-        session.close();
-        return cars;
+    public List<Car> getCarByParam(int producerId, int modelId, int bodyId) {
+        return super.getAll(session -> {
+            Query query = session.createQuery("from model.Car where producer_id=:pid and model_id=:mid and body_id:=bid")
+                    .setParameter("pid", producerId)
+                    .setParameter("mid", modelId)
+                    .setParameter("bid", bodyId);
+            return query.list();
+        });
+
     }
 
 }

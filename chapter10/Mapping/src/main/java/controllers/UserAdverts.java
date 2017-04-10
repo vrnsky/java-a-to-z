@@ -1,10 +1,10 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import model.Advert;
 import model.User;
 import repos.AdvertRepo;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,8 +23,9 @@ import java.util.List;
  * This controller ask repo about adverts created by user.
  * User object gets from session. Which at this moment must exist and contains user object as attribute.
  */
-@WebServlet("/ads")
-public class Ads extends HttpServlet {
+@WebServlet("/useradverts")
+public class UserAdverts extends HttpServlet {
+
 
     /**
      * Return list of adverts which created by the current user.
@@ -38,6 +39,7 @@ public class Ads extends HttpServlet {
         resp.setContentType("text/json");
         PrintWriter writer = resp.getWriter();
         ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("user");
         List<Advert> adverts = AdvertRepo.getInstance().getAdvertsByUserId(user.getId());
