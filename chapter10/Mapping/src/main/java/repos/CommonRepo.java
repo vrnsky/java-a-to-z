@@ -1,8 +1,9 @@
 package repos;
 
-import database.AllEntity;
 import database.DBManager;
+import database.Criteria;
 import database.DatabaseOperation;
+import database.AllEntity;
 import database.ID;
 import org.hibernate.Session;
 import java.util.List;
@@ -67,6 +68,21 @@ public abstract class CommonRepo<T> {
         Session session = this.dbManager.getFactory().openSession();
         session.beginTransaction();
         values = (List<T>) allEntity.getAll(session);
+        session.getTransaction().commit();
+        session.close();
+        return values;
+    }
+
+    /**
+     * Return list of adverts with specific data.
+     * @param criteria functional interface, in child lambda expressions.
+     * @return list of adverts.
+     */
+    public List<T> getByCriteria(Criteria criteria) {
+        List<T> values = null;
+        Session session = this.dbManager.getFactory().openSession();
+        session.beginTransaction();
+        values = (List<T>) criteria.getByCriteria(session);
         session.getTransaction().commit();
         session.close();
         return values;
