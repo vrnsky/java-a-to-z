@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
+        <property name="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</property>
+        <property name="hibernate.connection.url">jdbc:hsqldb:data/todoapp</property>
+        <property name="hibernate.connection.username">sa</property>
+        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
+        <property name="hibernate.connection.isolation">4</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <!-- List of XML mapping files -->
+        <mapping resource="model/User.hbm.xml"/>
+        <mapping resource="model/Advert.hbm.xml"/>
+        <mapping resource="model/Car.hbm.xml" />
+        <mapping resource="model/Producer.hbm.xml" />
+        <mapping resource="model/Body.hbm.xml"/>
+        <mapping resource="model/Model.hbm.xml" />
+
+    </session-factory>
+</hibernate-configuration>

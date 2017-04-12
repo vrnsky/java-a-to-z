@@ -77,6 +77,46 @@ public class Advert {
     }
 
     /**
+     * Check that given object it is.
+     * @param o object for checking.
+     * @return true if object are equals, otherwise false.
+     */
+    @Override
+    public boolean equals(Object o) {
+        boolean result = false;
+        if (this == o) {
+            result = true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            result = false;
+        }
+
+        Advert advert = (Advert) o;
+
+        if (advert != null && advert.author != null) {
+            if (!timestamp.equals(advert.timestamp)) {
+                result = false;
+            }
+            if (id == advert.id && author.equals(advert.author) && timestamp.equals(advert.timestamp) && fileUrl.equals(advert.fileUrl)) {
+                result = true;
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Return hash code for this advert.
+     * @return unique number per object.
+     */
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + timestamp.hashCode();
+        return result;
+    }
+
+    /**
      * Return id of this advert.
      * @return id.
      */

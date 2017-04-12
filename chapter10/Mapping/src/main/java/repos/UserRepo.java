@@ -1,6 +1,7 @@
 package repos;
 
 import model.User;
+import org.hibernate.Session;
 
 /**
  * @author evrnsky <vrnsky@protonmail.ch>
@@ -42,6 +43,14 @@ public class UserRepo extends CommonRepo<User> {
                     .setParameter("p", password)
                     .list();
         }).get(0);
+    }
+
+    /**
+     * Add new user to the repository.
+     * @param user instance of user class.
+     */
+    public void add(User user) {
+        super.execute(Session::save, user);
     }
 
 

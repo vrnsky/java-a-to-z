@@ -11,15 +11,16 @@ create table if not exists bodies (
 id serial primary key,
 name varchar(200));
 
---create table for models
-create table if not exists models (
-id serial primary key,
-name varchar(200));
-
 --create table for car producers.
 create table if not exists producers (
 id serial primary key,
 producer varchar(200));
+
+--create table for models
+create table if not exists models (
+id serial primary key,
+name varchar(200),
+producer_id integer references producers(id));
 
 --create table for cars.
 create table if not exists cars (
@@ -33,6 +34,7 @@ create table if not exists adverts (
 id serial primary key,
 car_id integer references cars(id),
 price bigint,
+fileUrl varchar(2000),
 added timestamp default now(),
 author_id integer references users(id),
 sale boolean);
