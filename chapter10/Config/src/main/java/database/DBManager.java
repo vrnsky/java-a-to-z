@@ -1,5 +1,6 @@
 package database;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
@@ -47,7 +48,7 @@ public class DBManager {
      * Return session factory, which needs for create session.
      * @return session factory object.
      */
-    public SessionFactory getFactory() {
+    private SessionFactory getFactory() {
         return this.factory;
     }
 
@@ -65,10 +66,18 @@ public class DBManager {
      * This method calls at the when context is destroy.
      * You don not need call this method in client code.
      * It call automatically by container.
-     * Close sesssion factory.
+     * Close session factory.
      */
     public void closeSessionFactory() {
         this.factory.close();
+    }
+
+    /**
+     * Open new session if current is not exist, otherwise return current session.
+     * @return hibernate session.
+     */
+    public Session getSession() {
+        return this.getFactory().openSession();
     }
 
 }

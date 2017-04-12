@@ -15,7 +15,7 @@ import java.util.List;
 public class ItemRepository {
 
     /**
-     * Instance of itelsef, it is singleton.
+     * Instance of itself, it is singleton.
      */
     private static final ItemRepository REPO = new ItemRepository();
 
@@ -45,7 +45,7 @@ public class ItemRepository {
      * @param item instance of item class.
      */
     public void addItem(Item item) {
-        Session session = this.dbManager.getFactory().openSession();
+        Session session = this.dbManager.getSession();
         session.beginTransaction();
         session.save(item);
         session.getTransaction().commit();
@@ -57,7 +57,7 @@ public class ItemRepository {
      * @param item instance of item class.
      */
     public void editItem(Item item) {
-        Session session = this.dbManager.getFactory().openSession();
+        Session session = this.dbManager.getSession();
         session.beginTransaction();
         session.update(item);
         session.getTransaction().commit();
@@ -71,7 +71,7 @@ public class ItemRepository {
      */
     public Item getById(int id) {
         Item result = null;
-        Session session = this.dbManager.getFactory().openSession();
+        Session session = this.dbManager.getSession();
         session.beginTransaction();
         result = session.get(Item.class, id);
         session.getTransaction().commit();
@@ -84,7 +84,7 @@ public class ItemRepository {
      * @param item instance of item class.
      */
     public void remove(Item item) {
-        Session session = this.dbManager.getFactory().openSession();
+        Session session = this.dbManager.getSession();
         session.beginTransaction();
         session.remove(item);
         session.getTransaction().commit();
@@ -97,7 +97,7 @@ public class ItemRepository {
      * @return list of items.
      */
     public List<Item> getAll(boolean onlyDone) {
-        Session session = this.dbManager.getFactory().openSession();
+        Session session = this.dbManager.getSession();
         session.beginTransaction();
         String query = "";
         if (onlyDone) {
@@ -110,6 +110,5 @@ public class ItemRepository {
         session.close();
         return result;
     }
-
 
 }

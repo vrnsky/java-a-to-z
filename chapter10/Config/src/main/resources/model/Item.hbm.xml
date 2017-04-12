@@ -3,8 +3,8 @@
         <id name="id" type="int" column="id">
             <generator class="identity"/>
         </id>
-        <property name="desc" column="description" />
-        <property name="creationTime" column="created" />
-        <property name="done" column="done" />
+        <property name="desc" column="description" lazy = "false"/>
+        <property name="creationTime" column="created" lazy="false"/>
+        <property name="done" column="done" lazy="false" />
     </class>
 </hibernate-mapping>
