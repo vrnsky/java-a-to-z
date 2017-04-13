@@ -2,6 +2,7 @@ package repos;
 
 import model.Car;
 import model.CarInfo;
+import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import java.util.List;
@@ -85,7 +86,14 @@ public class CarRepo extends CommonRepo<Car> {
                     .setParameter("bid", bodyId);
             return query.list();
         });
+    }
 
+    /**
+     * Add new car to the database.
+     * @param car instance of car.
+     */
+    public void add(Car car) {
+        super.execute(Session::save, car);
     }
 
 }

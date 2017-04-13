@@ -25,6 +25,14 @@ public abstract class CarInfo {
     }
 
     /**
+     * Create a car info with given name.
+     * @param name of car info.
+     */
+    public CarInfo(String name) {
+        this.name = name;
+    }
+
+    /**
      * Return id of this property.
      * @return id of this property.
      */

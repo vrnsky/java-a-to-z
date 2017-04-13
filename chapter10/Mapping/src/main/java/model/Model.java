@@ -20,6 +20,14 @@ public class Model extends CarInfo {
     }
 
     /**
+     * Create a new model with given name.
+     * @param name of model.
+     */
+    public Model(String name) {
+        super(name);
+    }
+
+    /**
      * Return producer of this model.
      * @return producer of this model.
      */

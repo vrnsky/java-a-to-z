@@ -37,6 +37,18 @@ public class Car {
     }
 
     /**
+     * Create a new car with given params.
+     * @param body of car, for example hatchback.
+     * @param producer of car, for example Ford.
+     * @param model of car, for example Focus.
+     */
+    public Car(CarInfo producer, CarInfo body, CarInfo model) {
+        this.producer = producer;
+        this.body = body;
+        this.model = model;
+    }
+
+    /**
      * Return id of this car.
      * @return id of this car.
      */

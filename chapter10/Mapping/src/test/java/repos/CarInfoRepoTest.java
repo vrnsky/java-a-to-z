@@ -35,8 +35,7 @@ public class CarInfoRepoTest {
      */
     @Test
     public void whenTryAddSomeCarInfoShouldCheckThatAllIsOk() {
-        Body body = new Body();
-        body.setName("sedan");
+        Body body = new Body("sedan");
         CarInfoRepo.getInstance().add(body);
         assertThat(CarInfoRepo.getInstance().getBodyById(body.getId()).getName(), is("sedan"));
     }
@@ -46,8 +45,7 @@ public class CarInfoRepoTest {
      */
     @Test
     public void whenTryAddProducerShouldCheckThatAllIsOk() {
-        Producer producer = new Producer();
-        producer.setName("Ford");
+        Producer producer = new Producer("Ford");
         CarInfoRepo.getInstance().add(producer);
         assertThat(CarInfoRepo.getInstance().getProducerById(producer.getId()).getName(), is("Ford"));
     }
@@ -73,8 +71,7 @@ public class CarInfoRepoTest {
      */
     @Test
     public void whenTryGetAllProducersShouldCheckThatAllIsOk() {
-        CarInfo producer = new Producer();
-        producer.setName("Ford");
+        CarInfo producer = new Producer("Ford");
         CarInfoRepo.getInstance().add(producer);
         assertThat(CarInfoRepo.getInstance().getAllProducers().size() > 0, is(true));
     }
@@ -84,8 +81,7 @@ public class CarInfoRepoTest {
      */
     @Test
     public void whenTryGetAllBodiesShouldCheckThatAllIsOk() {
-        CarInfo body = new Body();
-        body.setName("hatchback");
+        CarInfo body = new Body("hatchback");
         CarInfoRepo.getInstance().add(body);
     }
 
@@ -94,10 +90,8 @@ public class CarInfoRepoTest {
      */
     @Test
     public void whenTryGetModelByProducerIdShouldCheckThatAllFineWorks() {
-        CarInfo producer = new Producer();
-        producer.setName("Ford");
-        Model model = new Model();
-        model.setName("Focus");
+        Producer producer = new Producer("Ford");
+        Model model = new Model("Focus");
         model.setProducer(producer);
         CarInfoRepo.getInstance().add(producer);
         CarInfoRepo.getInstance().add(model);
