@@ -2,10 +2,14 @@ package repos;
 
 import model.Body;
 import database.DBManager;
+import model.CarInfo;
+import model.Model;
 import model.Producer;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.util.List;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -62,6 +66,43 @@ public class CarInfoRepoTest {
     @Test(expected = IllegalArgumentException.class)
     public void whenTryGetNotExistProducerShouldCheckThatThrowException() {
         CarInfoRepo.getInstance().getProducerById(-1);
+    }
+
+    /**
+     * When try to get all producer in system should check that all is ok.
+     */
+    @Test
+    public void whenTryGetAllProducersShouldCheckThatAllIsOk() {
+        CarInfo producer = new Producer();
+        producer.setName("Ford");
+        CarInfoRepo.getInstance().add(producer);
+        assertThat(CarInfoRepo.getInstance().getAllProducers().size() > 0, is(true));
+    }
+
+    /**
+     * When try to get all bodies should check that all is ok.
+     */
+    @Test
+    public void whenTryGetAllBodiesShouldCheckThatAllIsOk() {
+        CarInfo body = new Body();
+        body.setName("hatchback");
+        CarInfoRepo.getInstance().add(body);
+    }
+
+    /**
+     * When try get models by producer should check that all is ok.
+     */
+    @Test
+    public void whenTryGetModelByProducerIdShouldCheckThatAllFineWorks() {
+        CarInfo producer = new Producer();
+        producer.setName("Ford");
+        Model model = new Model();
+        model.setName("Focus");
+        model.setProducer(producer);
+        CarInfoRepo.getInstance().add(producer);
+        CarInfoRepo.getInstance().add(model);
+        List<CarInfo> actual = CarInfoRepo.getInstance().getModelsByProducer(String.valueOf(producer.getId()));
+        assertThat(actual.size() >= 0, is(true));
     }
 
     /**

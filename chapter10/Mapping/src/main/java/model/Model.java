@@ -10,7 +10,7 @@ public class Model extends CarInfo {
     /**
      * Producer.
      */
-    private Producer producer;
+    private CarInfo producer;
 
     /**
      * Default constructor.
@@ -23,7 +23,7 @@ public class Model extends CarInfo {
      * Return producer of this model.
      * @return producer of this model.
      */
-    public Producer getProducer() {
+    public CarInfo getProducer() {
         return producer;
     }
 
@@ -31,7 +31,7 @@ public class Model extends CarInfo {
      * Set new producer of this model.
      * @param producer new version of producer.
      */
-    public void setProducer(Producer producer) {
+    public void setProducer(CarInfo producer) {
         this.producer = producer;
     }
 }
