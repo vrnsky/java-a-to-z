@@ -4,5 +4,6 @@
             <generator class="identity" />
         </id>
         <property name="name" column="name" lazy="false" />
+        <many-to-one name="producer" column="producer_id" class="model.Producer" lazy="false" />
     </class>
 </hibernate-mapping>
