@@ -1,4 +1,5 @@
 package start;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
@@ -88,17 +89,17 @@ public class Tracker {
     /**
      * URL for connect to the tracker database.
      */
-    private static final String URL = "jdbc:postgresql://localhost:5432/tracker";
+    private String url;
 
     /**
      * User for database server.
      */
-    private static final String USER = "postgres";
+    private String user;
 
     /**
      * Password for database server.
      */
-    private static final String PASSWORD = "55555";
+    private String password;
 
     /**
      * Instance of connection to the database.
@@ -121,9 +122,17 @@ public class Tracker {
     private ResultSet set;
 
     /**
-     * Default constructor.
+     * Settings.
      */
-    public Tracker() {
+    private Settings settings;
+
+    /**
+     * Default constructor.
+     * @param loader input stream for reading configuration for read database.
+     */
+    public Tracker(InputStream loader) {
+        this.settings = new Settings();
+        init(loader);
     }
 
     /**
@@ -379,7 +388,7 @@ public class Tracker {
     private void connect() {
         if (!connected) {
             try {
-                connection = DriverManager.getConnection(URL, USER, PASSWORD);
+                connection = DriverManager.getConnection(url, user, password);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -424,6 +433,17 @@ public class Tracker {
                 e.printStackTrace();
             }
         }
+    }
+
+    /**
+     * Init all needs variables.
+     * @param in input stream for reading data.
+     */
+    private void init(InputStream in) {
+        settings.load(in);
+        this.url = settings.getProperty("DB_URL");
+        this.user = settings.getProperty("DB_USER");
+        this.password = settings.getProperty("DB_PASSWORD");
     }
 
 }
