@@ -1,6 +1,7 @@
 package repos;
 
 import model.CarInfo;
+import model.Producer;
 import org.hibernate.Session;
 
 import java.util.List;
@@ -36,12 +37,12 @@ public class CarInfoRepo extends CommonRepo<CarInfo> {
 
     /**
      * Return list of car models by producer id.
-     * @param producerId for determine.
+     * @param producer for determine.
      * @return list of car info.
      */
-    public List<CarInfo> getModelsByProducer(String producerId) {
+    public List<CarInfo> getModelsByProducer(Producer producer) {
       return super.getAll(session -> {
-          return session.createQuery("from model.Model where id=:pid").setParameter("pid", Integer.valueOf(producerId)).list();
+          return session.createQuery("from model.Model as m where m.producer=:pid").setParameter("pid", producer).list();
       });
     }
 

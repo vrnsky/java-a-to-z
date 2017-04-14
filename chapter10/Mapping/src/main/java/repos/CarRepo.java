@@ -2,6 +2,7 @@ package repos;
 
 import model.Car;
 import model.CarInfo;
+import model.Producer;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -48,11 +49,11 @@ public class CarRepo extends CommonRepo<Car> {
 
     /**
      * Return models by producer id.
-     * @param producerId unique among all producers at the system number.
+     * @param producer object for determine producer of car..
      * @return list of models.
      */
-    public List<CarInfo> getModelsByProducer(String producerId) {
-      return CarInfoRepo.getInstance().getModelsByProducer(producerId);
+    public List<CarInfo> getModelsByProducer(Producer producer) {
+      return CarInfoRepo.getInstance().getModelsByProducer(producer);
     }
 
     /**

@@ -42,22 +42,6 @@ public class CarRepoTest {
         assertThat(CarRepo.getInstance().getById(car.getId()).getModel().getName(), is("Focus"));
     }
 
-    /**
-     * When try get models by producer should check that repo return list with positive size.
-     * FIXME
-     */
-//    @Test
-//    public void whenTryGetModelsByProducerIdShouldCheckThatRepoReturnListWithPositiveSize() {
-//        CarInfo producer = new Producer("Ford");
-//        CarInfoRepo.getInstance().add(producer);
-//        Car fiesta = new Car();
-//        Car focus = new Car();
-//        fiesta.setProducer(producer);
-//        focus.setProducer(producer);
-//        CarRepo.getInstance().add(fiesta);
-//        CarRepo.getInstance().add(focus);
-//        assertThat(CarRepo.getInstance().getModelsByProducer(String.valueOf(producer.getId())).size() > 0, is(true));
-//    }
 
     /**
      * When try get all bodies should check that list greater that zero.
@@ -85,25 +69,6 @@ public class CarRepoTest {
         assertThat(CarRepo.getInstance().getAllProducers().size() > 0, is(true));
     }
 
-    /**
-     * When try get model by producer id should check that app return correct list.
-     * FIXME
-     */
-//    @Test
-//    public void whenTryCarWithSpecifiedParamsShouldCheckThatAppReturnCorrectCar() {
-//       Producer producer = new Producer("Ford");
-//       Model model = new Model("Focus");
-//       model.setProducer(producer);
-//       CarInfo sedan = new Body("sedan");
-//       CarInfoRepo.getInstance().add(producer);
-//       CarInfoRepo.getInstance().add(model);
-//       CarInfoRepo.getInstance().add(sedan);
-//       Car car = new Car(producer, model, sedan);
-//       CarRepo.getInstance().add(car);
-//
-//       Car actual = CarRepo.getInstance().getCarByParam(producer.getId(), model.getId(), sedan.getId()).get(0);
-//       assertThat(actual.getProducer().getName(), is("Ford"));
-//    }
 
     /**
      * After all test should check close session factory.

@@ -35,6 +35,43 @@ public class User {
     }
 
     /**
+     * Return true if object are same.
+     * @param o object for checking.
+     * @return true if objects are equals, otherwise false.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        User user = (User) o;
+
+        if (id != user.id) {
+            return false;
+        }
+        if (!email.equals(user.email)) {
+            return false;
+        }
+        return password.equals(user.password);
+    }
+
+    /**
+     * Return hash code of object.
+     * @return hash code of object.
+     */
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + email.hashCode();
+        result = 31 * result + password.hashCode();
+        return result;
+    }
+
+    /**
      * Return id of this user.
      * @return id of this user.
      */

@@ -95,7 +95,7 @@ public class CarInfoRepoTest {
         model.setProducer(producer);
         CarInfoRepo.getInstance().add(producer);
         CarInfoRepo.getInstance().add(model);
-        List<CarInfo> actual = CarInfoRepo.getInstance().getModelsByProducer(String.valueOf(producer.getId()));
+        List<CarInfo> actual = CarInfoRepo.getInstance().getModelsByProducer(producer);
         assertThat(actual.size() >= 0, is(true));
     }
 

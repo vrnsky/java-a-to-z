@@ -2,6 +2,8 @@ package controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.CarInfo;
+import model.Producer;
+import repos.CarInfoRepo;
 import repos.CarRepo;
 
 import javax.servlet.ServletException;
@@ -34,9 +36,9 @@ public class Models extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/json");
-        String producer = req.getParameter("producer");
+        int producer = Integer.valueOf(req.getParameter("producerId"));
         ObjectMapper mapper = new ObjectMapper();
-        List<CarInfo> models = CarRepo.getInstance().getModelsByProducer(producer);
+        List<CarInfo> models = CarRepo.getInstance().getModelsByProducer((Producer) CarInfoRepo.getInstance().getProducerById(producer));
         PrintWriter writer = resp.getWriter();
         writer.append(mapper.writeValueAsString(models));
         writer.flush();

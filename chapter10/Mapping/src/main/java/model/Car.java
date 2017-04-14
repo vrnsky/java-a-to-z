@@ -42,7 +42,7 @@ public class Car {
      * @param producer of car, for example Ford.
      * @param model of car, for example Focus.
      */
-    public Car(CarInfo producer, CarInfo body, CarInfo model) {
+    public Car(Producer producer, CarInfo body, CarInfo model) {
         this.producer = producer;
         this.body = body;
         this.model = model;
@@ -113,14 +113,6 @@ public class Car {
     }
 
 
-    /**
-     * Return text view of this.
-     * @return text view of the object.
-     */
-    @Override
-    public String toString() {
-        return String.format("%s %s %s", producer.toString(), model.toString(), body.toString());
-    }
 
 
 }
