@@ -40,7 +40,7 @@ public class Index extends HttpServlet {
         resp.setContentType("text/json");
         PrintWriter writer = resp.getWriter();
         ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false); //FIXME when add file url
+        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false); //If some fields of entity is not fill, mapper was fail.
         List<Advert> adverts = AdvertRepo.getInstance().getAdvertsByUserId(1);
         writer.append(mapper.writeValueAsString(adverts));
         writer.flush();
