@@ -3,6 +3,9 @@ package start;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.List;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -79,7 +82,13 @@ public class TrackerTest {
      */
     @Test
     public void whenTryAddCommentToItemShouldCheckThatCommentWasAdded() {
-
+        Item item = new Item();
+        item.setName("Item with comment");
+        item.setDescription("It is my first item at this place");
+        this.tracker.addItem(item);
+        tracker.addComment(item, "my comment");
+        Comment actual = tracker.getComments(item).get(0);
+        assertThat(actual.toString(), is("Comment: my comment"));
     }
 
     /**
@@ -87,15 +96,39 @@ public class TrackerTest {
      */
     @Test
     public void whenTrySearchItemByTextShouldCheckThatTrackerFoundIt() {
-
+        Item item = new Item();
+        item.setName("item");
+        item.setDescription("New item");
+        item.setCreateTime(1L);
+        this.tracker.addItem(item);
+        List<Item> items = this.tracker.filteringByTime(0L);
+        assertThat(items.get(0).getName(), is("item"));
     }
 
     /**
      * When try get comment by item should check that all is ok.
      */
     @Test
-    public void whenTryGetCommentByItemShouldCheckThatAllIsOk() {
+    public void whenTryGetLastAndFirstOfItemShouldCheckThatAllIsOk() {
+        Item item = new Item();
+        item.setName("item");
+        item.setDescription("new Desc");
+        this.tracker.addItem(item);
+        int start = this.tracker.getStart();
+        assertThat(start, is(0));
+    }
 
+    /**
+     * When try get items by text data should check that items received.
+     */
+    @Test
+    public void whenTryGetItemByTextDataShouldCheckThatItemsReceived() {
+        Item item = new Item();
+        item.setName("item");
+        item.setDescription("any");
+        this.tracker.addItem(item);
+        List<Item> items = this.tracker.filteringByText("item");
+        assertThat(items.get(0).getDescription(), is("any"));
     }
 
     /**
