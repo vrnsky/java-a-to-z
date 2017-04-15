@@ -10,7 +10,7 @@ public class Starter {
     /**
      * Model of user.
      */
-    private static final class User {
+    public static final class User {
 
         /**
          * First name of user.
@@ -66,8 +66,8 @@ public class Starter {
      * garbage collection mechanism which remove not used object or at the program not contains
      * reference to object.
      */
-    private void tryGC() {
-        for (int index = 0; index < 800; index++) {
+    public void tryGC() {
+        for (int index = 0; index < 10000; index++) {
             User user = new User(String.format("%s", index), String.format("%s", index), index);
         }
     }
