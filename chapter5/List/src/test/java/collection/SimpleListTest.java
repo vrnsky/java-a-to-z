@@ -5,6 +5,8 @@ import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 
 /**
  * Unit test for SimpleList.java.
@@ -103,6 +105,44 @@ public class SimpleListTest {
 
         assertThat(Arrays.toString(actual), is(Arrays.toString(expected)));
 
+    }
+
+    /**
+     * When try get element from negative index should check that app throw exception.
+     */
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void whenTryGetElementWithNegativeIndexShouldCheckThatListThrowException() {
+        SimpleContainer<String> strings = new SimpleList<>();
+        strings.get(-1);
+    }
+
+    /**
+     * When try remove element from negative index should check that list throw exception.
+     */
+    @Test(expected = NoSuchElementException.class)
+    public void whenTryRemoveElementFromNegativeIndexShouldCheckThatListThrowException() {
+        SimpleContainer<String> strings = new SimpleList<>();
+        strings.remove(-1);
+    }
+
+    /**
+     * When try get size from empty list should check that list return zero.
+     */
+    @Test
+    public void whenTryGetSizeAtTheEmptyListShouldCheckThatListReturnZero() {
+        SimpleContainer<String> strings = new SimpleList<>();
+        assertThat(strings.size(), is(-1));
+    }
+
+    /**
+     * When try get size from not empty list should check that list return it size.
+     */
+    @Test
+    public void whenTryGetSizeFromNotEmptyListShouldCheckThatListReturnSize() {
+        SimpleContainer<String> strings = new SimpleList<>();
+        strings.add("first");
+        strings.add("second");
+        assertThat(strings.size(), is(1));
     }
 
 }

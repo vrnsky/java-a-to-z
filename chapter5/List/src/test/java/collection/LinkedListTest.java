@@ -107,4 +107,13 @@ public class LinkedListTest {
         assertThat(array, arrayContaining("value1", "value0"));
     }
 
+    /**
+     * When try get element with negative index should check that list throw exception.
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void whenTryGetElementWithNegativeIndexShouldCheckThatListThrowException() {
+        LinkedList<String> strings = new LinkedList<>();
+        strings.get(-1);
+    }
+
 }

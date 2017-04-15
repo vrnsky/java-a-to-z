@@ -1,6 +1,9 @@
 package collection;
 
 import org.junit.Test;
+
+import java.util.EmptyStackException;
+
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -14,17 +17,13 @@ public class StackTest {
      */
     @Test
     public void whenTryPushToStackAndPollShouldCheckThatStackReturnLastAddedValue() {
-
-        //Assign block
         Stack<String> stack = new Stack<>();
         String expected = "three";
 
-        //Action block
         stack.push("one");
         stack.push("two");
         stack.push("three");
 
-        //Assert block
         assertThat(stack.poll(), is(expected));
     }
 
@@ -33,16 +32,12 @@ public class StackTest {
      */
     @Test
     public void whenTryPeekValueFromStackShouldCheckThatElementNotRemoving() {
-
-        //Assign block
         Stack<String> stack = new Stack<>();
         String expected = "three";
 
-        //Action block
         stack.push(expected);
         stack.peek();
 
-        //Assert block
         assertThat(stack.poll(), is(expected));
     }
 
@@ -51,13 +46,36 @@ public class StackTest {
      */
     @Test
     public void whenTryCheckThatStackIsEmptyShouldCheckThatMethodReturnTrue() {
-
-        //Assign block
         Stack<String> stack = new Stack<>();
-
-        //Assert block
         assertThat(stack.isEmpty(), is(true));
     }
 
+    /**
+     * When try check that stack is empty on not empty stack should check that is false.
+     */
+    @Test
+    public void whenTryCheckThatStackIsEmptyOnNotEmptyStackShouldCheckThatFalse() {
+        Stack<String> stack = new Stack<>();
+        stack.add("Strings");
+        assertThat(stack.isEmpty(), is(false));
+    }
+
+    /**
+     * When try poll data from empty stack should check that app throw exception.
+     */
+    @Test(expected = EmptyStackException.class)
+    public void whenTryPollDataFromEmptyStackShouldCheckThatAppThrowException() {
+        Stack<String> stack = new Stack<>();
+        stack.poll();
+    }
+
+    /**
+     * Wjem try peek data from empty stack should check that app throw exception.
+     */
+    @Test(expected = EmptyStackException.class)
+    public void whenTryPeekDataFromEmptyStackShouldCheckThatAppThrowException() {
+        Stack<String> stack = new Stack<>();
+        stack.peek();
+    }
 
 }

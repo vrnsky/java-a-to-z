@@ -40,9 +40,6 @@ public class LinkedList<T> implements SimpleContainer<T> {
      */
     @Override
     public T get(int position) {
-        if (!validate(position)) {
-            throw new IllegalArgumentException("Bad args");
-        }
         return node(position).elem;
     }
 

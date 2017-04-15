@@ -44,4 +44,22 @@ public class QueueTest {
         Queue<String> queue = new Queue<>();
         assertThat(queue.isEmpty(), is(true));
     }
+
+    /**
+     * When try poll element from empty queue should check that throw exception.
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void whenTryPollElementFromEmptyCollectionShouldCheckThatQueueThrowException() {
+        Queue<String> queue = new Queue<>();
+        queue.peek();
+    }
+
+    /**
+     * When try peek element from empty queue should check that queue throw exception.
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void whenTryPeekElementFromEmptyCollectionShouldCheckThatQueueThrowException() {
+        Queue<String> strings = new Queue<>();
+        strings.peek();
+    }
 }
