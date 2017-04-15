@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.FileReader;
 import java.io.File;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -22,11 +26,11 @@ public class Answerer {
     /**
      * For holding string from file.
      */
-    private String[] answers;
+    private List<String> answers;
     /**
      * For hold file name.
      */
-    private String fileName;
+    private InputStream fileStream;
     /**
      * For hold count of string in file.
      */
@@ -34,71 +38,69 @@ public class Answerer {
 
     /**
      * Construct answerer object for give answer.
-     * @param fileName - name of file with answers.
+     * @param inputStream - stream to the file.
      * @throws IOException - throw if file was not found.
      */
-    public Answerer(String fileName) throws IOException {
-        this.fileName = fileName;
-        this.answerReader = new BufferedReader(new FileReader(new File(fileName)));
-        stringCount = countAnswerInFile();
-        fillAnswers();
+    public Answerer(InputStream inputStream) throws IOException {
+        this.fileStream = inputStream;
+        this.answerReader = new BufferedReader(new InputStreamReader(inputStream));
+        this.answers = new ArrayList<>();
+        this.loadData();
         answerReader.close();
     }
 
     /**
-     * Count strings in files.
-     * @return count of string in file.
+     * Construct answerer object for give answer from file.
+     * @param file path to the fie.
+     * @throws IOException if error occured at the open, reading or closing stream.
      */
-    private int countAnswerInFile() {
-        int stringCount = 0;
+    public Answerer(String file) throws IOException {
+        this.answerReader = new BufferedReader(new FileReader(new File(file)));
+        this.answers = new ArrayList<>();
+        this.loadData();
+        this.answerReader.close();
+    }
+
+    /**
+     * Read and store data.
+     */
+    private void loadData() {
         try {
             while (answerReader.ready()) {
-                if (!answerReader.readLine().isEmpty()) {
-                    stringCount++;
-                } else {
-                    break;
+                String line = answerReader.readLine();
+                if (!line.isEmpty()) {
+                    answers.add(line);
                 }
             }
         } catch (IOException exp) {
             exp.printStackTrace();
-        }
-
-        answerReader = null;
-        return stringCount;
-    }
-
-    /**
-     * Fill answers array by strings from file.
-     * @throws IOException throw if file was not found.
-     */
-    private void fillAnswers() throws IOException {
-        answers = new String[stringCount];
-        answerReader = new BufferedReader(new FileReader(new File(fileName)));
-        int position = 0;
-
-        try {
-            while (answerReader.ready() && position < stringCount) {
-                answers[position++] = answerReader.readLine();
+        } finally {
+            try {
+                this.answerReader.close();
+                if (fileStream != null) {
+                    this.fileStream.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException exp) {
-            exp.printStackTrace();
         }
     }
+
 
     /**
      * Return random string from array which contains strings from file.
      * @return random string from file.
      */
     public String getRandomString() {
-        int position = RN.nextInt(answers.length);
-        return answers[position];
+        int position = RN.nextInt(answers.size());
+        return answers.get(position);
     }
 
     /**
      * Return all string from file.
      * @return strings from file.
      */
-    public String[] getAllStrings() {
+    public List<String> getAllStrings() {
         return this.answers;
     }
 }

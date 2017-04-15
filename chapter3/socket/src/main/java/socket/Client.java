@@ -1,15 +1,16 @@
 package socket;
 
 import chat.Logger;
+import org.apache.commons.io.FileUtils;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.EOFException;
+import java.io.OutputStreamWriter;
+import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.SocketException;
@@ -23,15 +24,15 @@ public class Client {
     /**
      * Flag for program doesn't answer on user input.
      */
-    private static final String STOP = "стоп";
+    private static final String STOP = "stop";
     /**
      * Flag for program for start answer on user input.
      */
-    private static final String CONTINUE = "продолжить";
+    private static final String CONTINUE = "continue";
     /**
      * Flag for program fro finish work.
      */
-    private static final String FINISH = "закончить";
+    private static final String FINISH = "finish";
 
     /**
      * Logic port. It is not hardware.
@@ -43,34 +44,14 @@ public class Client {
     private static final String IP = "127.0.0.1";
 
     /**
-     * Special object for construct socket.
-     */
-    private InetAddress ipAddress;
-
-    /**
-     * Socket which connect to server.
-     */
-    private Socket clientSocket;
-
-    /**
-     * Input stream of socket.
-     */
-    private InputStream inputSocket;
-
-    /**
-     * Output stream of socket.
-     */
-    private OutputStream outputSocket;
-
-    /**
      * For read data from server.
      */
-    private DataInputStream input;
+    private BufferedReader input;
 
     /**
      * For write data to server.
      */
-    private DataOutputStream output;
+    private BufferedWriter output;
 
     /**
      * Logger instance, for write logs to file.
@@ -89,24 +70,41 @@ public class Client {
     private BufferedReader keyboard;
 
     /**
-     * Start client by send and receive data from console.
-     * @param args keys and value for start app.
+     * Socket for web exchange.
      */
-    public static void main(String[] args) {
-       new Client().start();
-    }
+    private Socket socket;
 
+    /**
+     * Stub for user input.
+     */
+    private InputStream userInput;
+
+    /**
+     * Path to the log file.
+     */
+    private String logPath;
+
+    /**
+     * Create a new client for exchange wit server.
+     * @param socket instance of worker with server.
+     * @param userInput instance of stream to collect user input.
+     * @param logPath path to the temp log file.
+     */
+    public Client(Socket socket, InputStream userInput, String logPath) {
+        this.socket = socket;
+        this.userInput = userInput;
+        this.logPath = logPath;
+    }
     /**
      * Start client instance, it connect to server and start chat.
      */
-    private void start() {
+    public void start() {
         try {
-            logger = new Logger("myLog.txt");
+            logger = new Logger(this.logPath);
             this.setConnection();
-            this.keyboard = new BufferedReader(new InputStreamReader(System.in));
-            String userMessage;
-             do {
-                userMessage = keyboard.readLine();
+            this.keyboard = new BufferedReader(new InputStreamReader(this.userInput));
+            String userMessage = "";
+            while (!FINISH.equalsIgnoreCase(userMessage = this.keyboard.readLine())) {
                 logger.log(userMessage);
                 if (STOP.equalsIgnoreCase(userMessage)) {
                     silentMode = true;
@@ -116,7 +114,7 @@ public class Client {
                 if (!silentMode) {
                     chatWithServer(userMessage);
                 }
-            } while (!FINISH.equalsIgnoreCase(userMessage));
+            }
         } catch (SocketException exp) {
             System.out.println("Server reject you...");
         } catch (Exception exp) {
@@ -138,14 +136,11 @@ public class Client {
      * @throws IOException if some socket or stream fails
      */
     private void setConnection() throws IOException {
-         ipAddress = InetAddress.getByName(IP);
-         clientSocket = new Socket(ipAddress, PORT);
+         InputStream in = this.socket.getInputStream();
+         OutputStream out = this.socket.getOutputStream();
 
-         inputSocket = clientSocket.getInputStream();
-         outputSocket = clientSocket.getOutputStream();
-
-         input = new DataInputStream(inputSocket);
-         output = new DataOutputStream(outputSocket);
+         this.input = new BufferedReader(new InputStreamReader(in));
+         this.output = new BufferedWriter(new OutputStreamWriter(out));
     }
 
     /**.
@@ -155,14 +150,25 @@ public class Client {
      * @throws IOException is output or input fails.
      */
     private void chatWithServer(String userMessage) throws IOException {
-        output.writeUTF(userMessage);
+        output.write(userMessage);
         output.flush();
         try {
-            userMessage = input.readUTF();
+            userMessage = input.readLine();
         } catch (EOFException exception) {
             System.out.println("Server not response!");
+            output.close();
         }
         System.out.println(userMessage);
+    }
+
+    /**
+     * Start client by send and receive data from console.
+     * @param args keys and value for start app.
+     * @throws IOException if io error detected.
+     */
+    public static void main(String[] args) throws IOException {
+        InetAddress address = InetAddress.getByName(IP);
+        new Client(new Socket(address, PORT), System.in, FileUtils.getTempDirectoryPath()).start();
     }
 
 }

@@ -3,13 +3,11 @@ package find;
 import chat.Answerer;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
-
 import java.io.File;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -53,7 +51,7 @@ public class FindByRegExpTest {
 
         findByMask.find(keys);
         answerer = new Answerer(keys[6]);
-        List<String> actual = Arrays.asList(answerer.getAllStrings());
+        List<String> actual = answerer.getAllStrings();
 
         assertThat(actual.containsAll(expected), is(true));
         FileTestUtils.removeDir(FIND_BY_REGEXP);

@@ -2,11 +2,13 @@ package socket;
 
 import chat.Answerer;
 
-import java.io.DataOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.DataInputStream;
-import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -23,47 +25,28 @@ public class Server {
     /**
      * Flag which signal about user finish change data with client.
      */
-    private static final String FINISH = "закончить";
-
-    /**
-     * It need for read string from file and get random string from it.
-     */
-    private Answerer answerer;
-
-    /**
-     * Socket for server, which wait a client.
-     */
-    private ServerSocket serverSocket;
-    /**
-     * Socket from client, which may send to server some data and get data from server.
-     */
-    private Socket clientSocket;
-
-    /**
-     * For accept data from client need get input stream from socket.
-     */
-    private InputStream socketInput;
-
-    /**
-     * For send data to client need get output stream from socket.
-     */
-    private OutputStream outputStream;
+    private static final String FINISH = "exit";
 
     /**
      * For read data from client.
      */
-    private DataInputStream input;
+    private BufferedReader input;
     /**
      * For write data to client.
      */
-    private DataOutputStream  output;
+    private BufferedWriter  output;
 
     /**
-     * Entry point of server.
-     * @param args - array of strings.
+     * Socket for exchange.
      */
-    public static void main(String[] args) {
-        new Server().start();
+    private final Socket socket;
+
+    /**
+     * Constructor for server.
+     * @param socket instance of socket.
+     */
+    public Server(Socket socket) {
+        this.socket = socket;
     }
 
     /**
@@ -71,14 +54,21 @@ public class Server {
      */
     public void start() {
         try {
-            Answerer answerer = new Answerer("answers.txt");
+            Answerer answerer = new Answerer(Answerer.class.getClassLoader().getResourceAsStream("answers.txt"));
             String userMessage = "msg";
             this.setConnection();
-            while (!FINISH.equalsIgnoreCase(userMessage)) {
-                userMessage = answerer.getRandomString();
-                output.writeUTF(userMessage);
+            while (!userMessage.equalsIgnoreCase(FINISH)) {
+                userMessage = input.readLine();
+                if (userMessage.equalsIgnoreCase(FINISH)) {
+                    userMessage = "Bye!";
+                    output.write(userMessage);
+                    output.flush();
+                    break;
+                } else {
+                    userMessage = answerer.getRandomString();
+                }
+                output.write(userMessage);
                 output.flush();
-                userMessage = input.readUTF();
             }
         } catch (Exception exp) {
             exp.printStackTrace();
@@ -97,13 +87,24 @@ public class Server {
      * @throws IOException if socket fails.
      */
     private void setConnection() throws IOException {
-        serverSocket = new ServerSocket(PORT);
-        clientSocket = serverSocket.accept();
-        socketInput = clientSocket.getInputStream();
-        outputStream = clientSocket.getOutputStream();
-        input = new DataInputStream(socketInput);
-        output = new DataOutputStream(outputStream);
+        InputStream socketInput = this.socket.getInputStream();
+        OutputStream outputStream = this.socket.getOutputStream();
+        input = new BufferedReader(new InputStreamReader(socketInput));
+        output = new BufferedWriter(new OutputStreamWriter(outputStream));
     }
+
+    /**
+     * Entry point of server.
+     * @param args - array of strings.
+     */
+    public static void main(String[] args)  {
+        try (final Socket socket = new ServerSocket(3001).accept()) {
+            new Server(socket);
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+    }
+
 
 }
 

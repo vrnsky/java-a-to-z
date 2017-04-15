@@ -28,7 +28,7 @@ public class Chat {
      * @throws IOException if file for answer was not found.
      */
     public void startChat() throws IOException {
-        Answerer answerer = new Answerer("answers.txt");
+        Answerer answerer = new Answerer(Answerer.class.getClassLoader().getResourceAsStream("answers.txt"));
         Logger logger = new Logger("log.txt");
 
         boolean silentMode = false;

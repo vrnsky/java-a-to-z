@@ -53,7 +53,7 @@ public class FindByNameTest {
 
         findByMask.find(keys);
         answerer = new Answerer(keys[6]);
-        List<String> actual = Arrays.asList(answerer.getAllStrings());
+        List<String> actual = answerer.getAllStrings();
 
         assertThat(actual.containsAll(expected), is(true));
         FileTestUtils.removeDir(FIND_BY_NAME);

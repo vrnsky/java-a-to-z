@@ -1,0 +1,3 @@
+Hello!
+Hello, ${username}!
+At this night we have noticed!

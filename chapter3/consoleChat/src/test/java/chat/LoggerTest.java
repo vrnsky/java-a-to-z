@@ -1,12 +1,10 @@
 package chat;
-
-import org.junit.Test;
-
-import java.io.File;
 import java.io.IOException;
+import org.junit.Test;
+import java.io.File;
 import java.util.Optional;
-import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for Logger.java.
