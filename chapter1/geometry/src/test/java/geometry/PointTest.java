@@ -1,6 +1,8 @@
 package geometry;
 
 import org.junit.Test;
+
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.number.IsCloseTo.closeTo;
 
@@ -22,5 +24,15 @@ public class PointTest {
 
 		double distance = firstPoint.distanceTo(secondPoint);
 		assertThat(expectedDistance, closeTo(distance, delta));
+	}
+
+	/**
+	 * When try get x and y should check that data return correct.
+	 */
+	@Test
+	public void whenTryGetXandYShouldCheckThatAllIsOk() {
+		Point point = new Point(1.2, 2.3);
+		assertThat(point.getX(), is(closeTo(1.2, 0.01)));
+		assertThat(point.getY(), is(closeTo(2.3, 0.01)));
 	}
 }
