@@ -227,7 +227,7 @@ public class Dictionary<K, V> implements Iterator<V> {
      * @param <K> key.
      * @param <V> value.
      */
-    private class Entry<K, V> implements Map.Entry<K, V> {
+    public class Entry<K, V> implements Map.Entry<K, V> {
 
         /**
          * Key of object.

@@ -52,6 +52,24 @@ public class SimpleSetTest {
     }
 
     /**
+     * When try remove element from empty set should check that set throw exception.
+     */
+    @Test(expected = NoSuchElementException.class)
+    public void whenTryRemoveElementFromEmptySetShouldCheckThatSetThrowException() {
+        SimpleSet<String> set = new SimpleSet<>();
+        set.remove("key");
+    }
+
+    /**
+     * When try next element from empty set should check that set throw exception.
+     */
+    @Test(expected = NoSuchElementException.class)
+    public void whenTryNextElementFromEmptySetShouldCheckThatSetThrowException() {
+        SimpleSet<String> set = new SimpleSet<>();
+        set.next();
+    }
+
+    /**
      * When try add ten thousands of string should check that set accept it all for some time.
      */
     @Test(timeout = 1000)
