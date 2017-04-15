@@ -188,7 +188,7 @@ public class PermanentStorage {
                 LOGGER.log(Level.INFO, String.format("%s database was successfully created", dbName));
             }
         } catch (SQLException e) {
-            LOGGER.log(Level.WARN, e.getMessage(), e);
+            LOGGER.log(Level.ERROR, e.getMessage(), e);
         }
     }
 
