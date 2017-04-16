@@ -6,6 +6,8 @@ import org.junit.Test;
 import java.io.File;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+
+import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,5 +52,41 @@ public class FindByMaskTest {
         assertThat(actual.containsAll(expected), is(true));
         FileTestUtils.removeDir(FIND_BY_MASK);
     }
+
+    /**
+     * When try check that method check works correct should check that works fine.
+     * @throws IOException if some error when create a temp file.
+     */
+    @Test
+    public void whenTryCheckThatMethodCheckWorksCorrectShouldCheckThatWorksFine() throws IOException {
+        File file = File.createTempFile("mask", "txt");
+        FindByMask finder = new FindByMask();
+        boolean actual = finder.check(file, file.getName());
+        assertThat(actual, is(true));
+    }
+
+    /**
+     * When try check that method check works correct should check that return false.
+     * When param is not suitable.
+     * @throws IOException if some error when temp file creation.
+     */
+    @Test
+    public void whenTryCheckThatMethodCheckWorksCorrectShouldCheckThatReturnFalse() throws IOException {
+        File file = File.createTempFile("mask", "txt");
+        FindByMask finder = new FindByMask();
+        boolean actual = finder.check(file, "random mask");
+        assertThat(actual, is(false));
+    }
+
+    /**
+     * Check that when try parse an not exist directory should check that app throw exception.
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void whenTryGiveFinderEmptyDirectoryShouldCheckThatThrowException() {
+        FindByMask findByMask = new FindByMask();
+        findByMask.find(new String[]{"1", "not exist dir", "3", "4", "5", "6", "7"});
+    }
+
+
 
 }

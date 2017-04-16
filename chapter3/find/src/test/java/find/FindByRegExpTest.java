@@ -4,6 +4,7 @@ import chat.Answerer;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -56,6 +57,39 @@ public class FindByRegExpTest {
         assertThat(actual.containsAll(expected), is(true));
         FileTestUtils.removeDir(FIND_BY_REGEXP);
     }
+
+
+    /**
+     * When try check that name suitable should check that app return correct answer.
+     * @throws IOException if io error happened.
+     */
+    @Test
+    public void whenTryCheckThatNameSuitableShouldCheckThatAppReturnCorrectAnswer() throws IOException {
+        FindByName findByName = new FindByName();
+        File file = Files.createTempFile("ram", "txt").toFile();
+        assertThat(findByName.check(file, file.getName()), is(true));
+    }
+
+    /**
+     * When try check that name is not suitable should check that app return correct answer.
+     * @throws IOException if io error happened.
+     */
+    @Test
+    public void whenTryCheckThatNameIsNotSuitableShouldCheckThatAppReturnCorrectAnswer() throws IOException {
+        FindByName findByName = new FindByName();
+        File file = Files.createTempFile("baby", "").toFile();
+        assertThat(findByName.check(file, "r*"), is(false));
+    }
+
+    /**
+     * Check that when try parse an not exist directory should check that app throw exception.
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void whenTryGiveFinderEmptyDirectoryShouldCheckThatThrowException() {
+        FindByName findByName = new FindByName();
+        findByName.find(new String[]{"1", "not exist dir", "3", "4", "5", "6", "7"});
+    }
+
 
 
 }
