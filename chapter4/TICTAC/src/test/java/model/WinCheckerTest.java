@@ -3,6 +3,7 @@ package model;
 import org.junit.Test;
 
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertEquals;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -71,5 +72,22 @@ public class WinCheckerTest {
         boolean actual = checker.isWinner(player, board);
 
         assertThat(actual, is(true));
+    }
+
+    /**
+     * When some player win by other diagonal should check that checker return true.
+     */
+    @Test
+    public void whenSomePlayerWinByOtherDiagonalShouldCheckThatCheckerReturnTrue() {
+        WinChecker checker = new WinChecker();
+        Board board = new Board();
+        Player player = new Human("X");
+
+        board.performStep(player, 0, 2);
+        board.performStep(player, 1, 1);
+        board.performStep(player, 2, 0);
+        boolean actual = checker.isWinner(player, board);
+
+        assertEquals(true, actual);
     }
 }
