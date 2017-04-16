@@ -67,7 +67,7 @@ public class Starter {
      * reference to object.
      */
     public void tryGC() {
-        for (int index = 0; index < 10000; index++) {
+        for (int index = 0; index < 55000; index++) {
             User user = new User(String.format("%s", index), String.format("%s", index), index);
         }
     }
