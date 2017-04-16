@@ -177,6 +177,21 @@ public class PawnTest {
     }
 
     /**
+     * When pawn try over three cell should check that pawn left at the current place.
+     */
+    @Test
+    public void whenPawnTryStepOverThreeCellShouldCheckThatPawnLeftAtCurrentPlace() {
+        Board board = new Board();
+        final int startX = 0;
+        final int startY = 0;
+        final int finishX = 3;
+        final int finishY = 0;
+        board.addFigure(this.pawn, startX, startY);
+        boolean actual = board.canMove(startX, startY, finishX, finishY);
+        assertThat(actual, is(false));
+    }
+
+    /**
      * When try get string view of pawn figure should check that is acronym for pawn.
      */
 	@Test

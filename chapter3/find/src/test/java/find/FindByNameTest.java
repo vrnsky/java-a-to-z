@@ -6,6 +6,8 @@ import org.junit.Test;
 import java.io.File;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
+
+import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,6 +59,38 @@ public class FindByNameTest {
 
         assertThat(actual.containsAll(expected), is(true));
         FileTestUtils.removeDir(FIND_BY_NAME);
+    }
+
+
+    /**
+     * When try check that name suitable should check that app return correct answer.
+     * @throws IOException if io error happened.
+     */
+    @Test
+    public void whenTryCheckThatNameSuitableShouldCheckThatAppReturnCorrectAnswer() throws IOException {
+        FindByName findByName = new FindByName();
+        File file = Files.createTempFile("mask", "").toFile();
+        assertThat(findByName.check(file, file.getName()), is(true));
+    }
+
+    /**
+     * When try check that name is not suitable should check that app return correct answer.
+     * @throws IOException if io error happened.
+     */
+    @Test
+    public void whenTryCheckThatNameIsNotSuitableShouldCheckThatAppReturnCorrectAnswer() throws IOException {
+        FindByName findByName = new FindByName();
+        File file = Files.createTempFile("mask", "").toFile();
+        assertThat(findByName.check(file, "random files"), is(false));
+    }
+
+    /**
+     * Check that when try parse an not exist directory should check that app throw exception.
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void whenTryGiveFinderEmptyDirectoryShouldCheckThatThrowException() {
+        FindByName findByName = new FindByName();
+        findByName.find(new String[]{"1", "not exist dir", "3", "4", "5", "6", "7"});
     }
 
 
