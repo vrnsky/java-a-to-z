@@ -92,6 +92,7 @@ public class SimpleSet<T> implements Iterator<T> {
      */
     @Override
     public void remove() {
+        throw new UnsupportedOperationException("Not implemented.");
     }
 
     /**
@@ -100,5 +101,6 @@ public class SimpleSet<T> implements Iterator<T> {
      */
     @Override
     public void forEachRemaining(Consumer<? super T> action) {
+        throw new UnsupportedOperationException("Not implemented.");
     }
 }

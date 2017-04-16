@@ -54,10 +54,20 @@ public class SimpleSetTest {
     /**
      * When try remove element from empty set should check that set throw exception.
      */
-    @Test(expected = NoSuchElementException.class)
+    @Test(expected = UnsupportedOperationException.class)
     public void whenTryRemoveElementFromEmptySetShouldCheckThatSetThrowException() {
         SimpleSet<String> set = new SimpleSet<>();
-        set.remove("key");
+        set.remove();
+    }
+
+    /**
+     * When try get iterator on empty list should check that it moving.
+     */
+    @Test
+    public void whenTryGetIteratorOnNotEmptyListShouldCheckThatSetReturnIterator() {
+        SimpleSet<String> strings = new SimpleSet<>();
+        strings.add("Andrew");
+        assertThat(strings.next(), is("Andrew"));
     }
 
     /**

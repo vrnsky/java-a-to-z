@@ -116,4 +116,13 @@ public class EmployeeTest {
         e.setSalary(100);
         assertThat(e.getSalary(), is(100));
     }
+
+    /**
+     * When try check that equals method return false when call it on the null.
+     */
+    @Test
+    public void whenTryCheckEqualsOfTwoNotEqualsObjectShouldCheckThatEqualsReturnFalse() {
+        Employee one = new Employee("Google", 1);
+        assertThat(one.equals(null), is(false));
+    }
 }

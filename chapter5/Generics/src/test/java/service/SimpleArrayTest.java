@@ -91,4 +91,13 @@ public class SimpleArrayTest {
         SimpleArray<String> list = new SimpleArray<>();
         list.delete(-1);
     }
+
+    /**
+     * When try update element with negative index should check that list throw exception.
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void whenTryUpdateElementWithNegativeIndexShouldCheckThatListThrowException() {
+        SimpleArray<String> string = new SimpleArray<>();
+        string.update(-1, "new string");
+    }
 }
