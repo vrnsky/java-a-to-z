@@ -93,8 +93,8 @@ public class WinChecker {
      * @return true if player is win by the diagonal, otherwise false.
      */
     private boolean checkOtherDiagonal(Player player, Board board) {
+        int xStart = board.getWidth() - 1;
         int yStart = 0;
-        int xStart = board.getWidth() - 1;;
         int sign = 0;
         while (xStart >= 0 && yStart < board.getHeight()) {
             if (board.showBoard()[yStart][xStart].equals(player.getSign())) {

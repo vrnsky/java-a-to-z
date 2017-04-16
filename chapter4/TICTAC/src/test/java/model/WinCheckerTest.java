@@ -3,7 +3,6 @@ package model;
 import org.junit.Test;
 
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertEquals;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -27,17 +26,7 @@ public class WinCheckerTest {
      */
     @Test
     public void whenSomePlayerWinShouldCheckThatWinnerReturnTrue() {
-        WinChecker checker = new WinChecker();
-        Board board = new Board();
-        Player player = new Human("X");
-
-        board.performStep(player, 0, 0);
-        board.performStep(player, 1, 1);
-        board.performStep(player, 2, 2);
-        System.out.println(checker.isWinner(player, board));
-        boolean actual = checker.isWinner(player, board);
-
-        assertThat(actual, is(true));
+        this.executeTest(new int[]{0, 0, 1, 1, 2, 2}, true);
     }
 
     /**
@@ -45,16 +34,7 @@ public class WinCheckerTest {
      */
     @Test
     public void whenSomePlayerWinByHorizontalShouldCheckThatWinCheckerReturnTrue() {
-        WinChecker checker = new WinChecker();
-        Board board = new Board();
-        Player player = new Human("X");
-
-        board.performStep(player, 0, 0);
-        board.performStep(player, 0, 1);
-        board.performStep(player, 0, 2);
-        boolean actual = checker.isWinner(player, board);
-
-        assertThat(actual, is(true));
+        this.executeTest(new int[]{0, 0, 0, 1, 0, 2}, true);
     }
 
     /**
@@ -62,16 +42,7 @@ public class WinCheckerTest {
      */
     @Test
     public void whenSomePlayerWinByDiagonalShouldCheckThatCheckerReturnTrue() {
-        WinChecker checker = new WinChecker();
-        Board board = new Board();
-        Player player = new Human("X");
-
-        board.performStep(player, 0, 0);
-        board.performStep(player, 1, 1);
-        board.performStep(player, 2, 2);
-        boolean actual = checker.isWinner(player, board);
-
-        assertThat(actual, is(true));
+        this.executeTest(new int[]{0, 0, 1, 1, 2, 2}, true);
     }
 
     /**
@@ -79,15 +50,24 @@ public class WinCheckerTest {
      */
     @Test
     public void whenSomePlayerWinByOtherDiagonalShouldCheckThatCheckerReturnTrue() {
+        this.executeTest(new int[]{0, 2, 1, 1, 2, 0}, true);
+    }
+
+    /**
+     * To avoid duplication common code placed at this place.
+     * @param points array of integer - it is points for step.
+     * @param expected result of win checker inspection.
+     */
+    private void executeTest(int[] points, boolean expected) {
         WinChecker checker = new WinChecker();
         Board board = new Board();
         Player player = new Human("X");
 
-        board.performStep(player, 0, 2);
-        board.performStep(player, 1, 1);
-        board.performStep(player, 2, 0);
+        board.performStep(player, points[0], points[1]);
+        board.performStep(player, points[2], points[3]);
+        board.performStep(player, points[4], points[5]);
         boolean actual = checker.isWinner(player, board);
+        assertThat(actual, is(expected));
 
-        assertEquals(true, actual);
     }
 }

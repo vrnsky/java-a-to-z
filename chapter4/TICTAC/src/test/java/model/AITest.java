@@ -33,14 +33,13 @@ public class AITest {
     }
 
     /**
-     * When AI try to make good step should check that step is performed.
+     * When try make step should check that all is ok.
      */
     @Test
-    public void whenAITryToMakeGoodStepShouldCheckThatStepIsPerformed() {
+    public void whenTryToMakeStepShouldCheckThatStepPerformed() {
+        Player computer = new AI("O");
         Board board = new Board();
-        Player player = new AI("X");
-        boolean actual = board.performStep(player, board.getWidth() - 1, board.getHeight() -  1);
-        assertThat(actual, is(true));
+        assertThat(board.performStep(computer, 0, 0), is(true));
     }
 
 }
