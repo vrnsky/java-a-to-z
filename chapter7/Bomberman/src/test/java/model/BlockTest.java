@@ -8,7 +8,7 @@ import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
- * Unit test for Block.java
+ * Unit test for Block.java.
  * @author evrnsky
  * @version 0.1
  * @since 17.04.2017
