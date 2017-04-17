@@ -55,4 +55,22 @@ public class CopyOnWriteListTest {
         CopyOnWriteList<String> strings = new CopyOnWriteList<>();
         strings.get(-1);
     }
+
+    /**
+     * When try remove element with negative index should check that list throw exception.
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void whenTryRemoveElementWithNegativeIndexShouldCheckThatListThrowException() {
+        CopyOnWriteList<String> strings = new CopyOnWriteList<>();
+        strings.remove(-1);
+    }
+
+    /**
+     * When try add element with negative index should check that list throw exception.
+     */
+    @Test(expected = IllegalStateException.class)
+    public void whenTryAddElementWithNegativeIndexShouldCheckThatListThrowException() {
+        CopyOnWriteList<String> strings = new CopyOnWriteList<>();
+        strings.add(-1, "battle");
+    }
 }

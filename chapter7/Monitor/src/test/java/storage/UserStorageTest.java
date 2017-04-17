@@ -73,4 +73,15 @@ public class UserStorageTest {
         assertThat(actualAmountOne, is(amountTwo));
         assertThat(actualAmountTwo, is(amountOne));
     }
+
+    /**
+     * When storage try execute transaction amount with null user should check that method return false.
+     * @throws Exception if some error happened.
+     */
+    @Test
+    public void whenStorageTryExecuteTransactionAmountWithNullUserShouldCheckThatOperationFalse() throws Exception {
+        boolean actual = storage.transactionAmount("", "", 10);
+        assertThat(actual, is(false));
+
+    }
 }

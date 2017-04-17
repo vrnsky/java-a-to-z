@@ -88,6 +88,14 @@ public class BlockingQueueTest {
         }
     }
 
+    /**
+     * When try create a block queye with negative or zero capacity should check that throw exception.
+     */
+    @Test(expected = IllegalStateException.class)
+    public void whenTryCreateBlockQueueWithNegativeOrZeroCapacityShouldCheckThatThrowException() {
+        new BlockingQueue<>(0);
+    }
+
 
 
 
