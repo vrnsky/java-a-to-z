@@ -81,6 +81,9 @@ public class CopyOnWriteList<T> {
      * @return element from list.
      */
     public T get(int index) {
+        if (index < 0 || index >= this.array.length) {
+            throw new IllegalArgumentException("Bad args.");
+        }
         return (T) array[index];
     }
 

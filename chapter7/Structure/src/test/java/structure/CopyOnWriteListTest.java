@@ -45,4 +45,14 @@ public class CopyOnWriteListTest {
         string.add(0, "value");
         assertThat(string.size(), is(1));
     }
+
+    /**
+     * When try get element with negative index should check that list throw exception.
+     * @throws Exception if some errors happened.
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void whenTryGetElementWithNegativeIndexShouldCheckThatListThrowException() throws Exception {
+        CopyOnWriteList<String> strings = new CopyOnWriteList<>();
+        strings.get(-1);
+    }
 }
