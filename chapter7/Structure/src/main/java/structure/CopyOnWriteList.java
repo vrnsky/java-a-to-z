@@ -13,12 +13,19 @@ public class CopyOnWriteList<T> {
     /**
      * Storage for container.
      */
-    private volatile Object[] array = new Object[0];
+    private volatile Object[] array = new Object[1];
 
     /**
      * Check that list need modification.
      */
     private boolean needsModification = false;
+
+    /**
+     * Default constructor.
+     */
+    public CopyOnWriteList() {
+        this.array[0] = new Object();
+    }
 
     /**
      * Add new item to the list.
@@ -33,7 +40,7 @@ public class CopyOnWriteList<T> {
             if (item == null) {
                 needsModification = array[index] != null;
             } else {
-                needsModification = item.equals(array[index]);
+                needsModification = !(item.equals(array[index]));
             }
         }
 
@@ -47,12 +54,14 @@ public class CopyOnWriteList<T> {
     /**
      * Remove element from list.
      * @param index position of removing element.
+     * @return removed element.
      */
-    public void remove(int index) {
+    public T remove(int index) {
         if (index < 0 || index >= array.length) {
             throw new IllegalArgumentException("");
         }
         int newSize = array.length - 1;
+        T removed = (T) this.array[index];
         if (newSize < 0) {
             newSize = 0;
         }
@@ -63,6 +72,7 @@ public class CopyOnWriteList<T> {
             System.arraycopy(array, index + 1, newArray, index, newSize - index);
         }
         array = newArray;
+        return removed;
     }
 
     /**
