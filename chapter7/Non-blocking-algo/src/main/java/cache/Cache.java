@@ -63,4 +63,12 @@ public class Cache<T extends Model> {
     }
 
 
+    /**
+     * Return element from cache.
+     * @param id of searchable element.
+     * @return null or object which is position for key.
+     */
+    public T get(long id) {
+        return this.cache.get(id);
+    }
 }

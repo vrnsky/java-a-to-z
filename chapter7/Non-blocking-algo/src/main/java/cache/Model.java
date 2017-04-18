@@ -48,4 +48,12 @@ public class Model {
     public long getId() {
         return this.id;
     }
+
+    /**
+     * Set new id.
+     * @param id new version of id.
+     */
+    public void setId(long id) {
+        this.id = id;
+    }
 }
