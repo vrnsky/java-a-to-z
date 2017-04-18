@@ -54,6 +54,47 @@ public class User {
     }
 
     /**
+     * Check that this is equal to given object.
+     * @param o object for checking.
+     * @return true if object are equals.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        User user = (User) o;
+
+        if (id != user.id) {
+            return false;
+        }
+        if (!name.equals(user.name)) {
+            return false;
+        }
+        if (!surname.equals(user.surname)) {
+            return false;
+        }
+        return email.equals(user.email);
+    }
+
+    /**
+     * Hash code of this.
+     * @return hash code of this.
+     */
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + name.hashCode();
+        result = 31 * result + surname.hashCode();
+        result = 31 * result + email.hashCode();
+        return result;
+    }
+
+    /**
      * Return name of user.
      * @return name.
      */
@@ -116,6 +157,5 @@ public class User {
     public int getId() {
         return this.id;
     }
-
 
 }

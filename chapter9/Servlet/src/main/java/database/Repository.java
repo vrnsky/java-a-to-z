@@ -118,4 +118,13 @@ public class Repository {
             return this.users;
         }
     }
+
+    /**
+     * Clear storage for user.
+     */
+    public void clear() {
+        synchronized (LOCK) {
+            this.users.clear();
+        }
+    }
 }
