@@ -18,6 +18,7 @@
         <module>Integration</module>
         <module>Mapping</module>
         <module>Annotations</module>
+        <module>Algo</module>
     </modules>
 
     <dependencies>
