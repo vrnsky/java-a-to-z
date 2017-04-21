@@ -1,12 +1,11 @@
 package model;
 
 import org.junit.Test;
-import java.util.ArrayList;
+
+import java.util.List;
 import java.util.Arrays;
-import java.util.Set;
-import java.util.Iterator;
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -17,29 +16,32 @@ import static org.junit.Assert.assertThat;
 public class SorterTest {
 
     /**
-     * When try create sorter should check that is not null.
-     * @throws Exception if some error happened.
+     * When square should check that points sorted.
+     * @throws Exception if some problems.
      */
     @Test
-    public void whenTryCreateSorterShouldCheckThatIsNotNull() throws Exception {
-        assertThat(new Sorter(new ArrayList<>()), is(notNullValue()));
+    public void whenSquareShouldCheckThatAllIsOk() throws Exception {
+        Point one = new Point(1, 1);
+        Point two = new Point(1, 2);
+        Point three = new Point(2, 2);
+        Point four = new Point(2, 1);
+        List<Point> data = Arrays.asList(two, one, three, four);
+        List<Point> actual = new Sorter(data).getSortedPoints();
+        assertThat(actual, is(contains(one, two, three, four)));
     }
 
     /**
-     * When try sort should check that points sorted.
-     * @throws Exception if some error happened.
+     * When square should check that points sorted.
+     * @throws Exception if some problems.
      */
     @Test
-    public void whenTrySortPointShouldCheckThatPointSortedFromSmallToBig() throws Exception {
-        Point one = new Point(-5, -5);
-        Point two = new Point(-5, 5);
-        Point three = new Point(5, 5);
-        Point four = new Point(5, -5);
-        Point[] points = new Point[]{two, three, four, one};
-        Set<Point> actual = new Sorter(Arrays.asList(points)).getSortedPoints();
-        Iterator<Point> iterator = actual.iterator();
-        Point first = iterator.next();
-        assertThat(first.getX(), is(-5));
-        assertThat(first.getY(), is(-5));
+    public void whenSquareShouldCheckThatPointSorted() throws Exception {
+        Point one = new Point(1, 1);
+        Point two = new Point(1, 2);
+        Point three = new Point(2, 2);
+        Point four = new Point(2, 1);
+        List<Point> data = Arrays.asList(one, two, four, three);
+        List<Point> actual = new Sorter(data).getSortedPoints();
+        assertThat(actual, is(contains(one, two, three, four)));
     }
 }
