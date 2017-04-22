@@ -19,6 +19,7 @@
 	<module>Security</module>
 	<module>TemplateAndData</module>
 	<module>Tests</module>
+        <module>SpringHW</module>
 	</modules>
 		
 </project>
