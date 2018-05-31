@@ -1,5 +1,7 @@
 package ru.vrnsky;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  * This is implementation more global storage, for hide internal work of other storages.
  * @author vrnsky
@@ -17,6 +19,7 @@ public class UserStorage {
      * Creating new storage.
      * @param storage implement of storage.
      */
+    @Autowired
     public UserStorage(final Storage storage) {
         this.storage = storage;
     }

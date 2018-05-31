@@ -1,11 +1,14 @@
 package ru.vrnsky;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Implementing database storage.
  * @author vrnsky
  * @since 31.05.2018
  * @version 0.1
  */
+@Component
 public class JdbcStorage implements Storage {
 
     /**
