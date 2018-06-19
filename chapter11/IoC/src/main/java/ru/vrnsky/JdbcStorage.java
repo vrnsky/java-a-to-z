@@ -1,6 +1,5 @@
 package ru.vrnsky;
 
-import org.springframework.stereotype.Component;
 
 /**
  * Implementing database storage.
