@@ -26,6 +26,7 @@ public class MemoryStorageTest {
      */
     private final MemoryStorage storage = context.getBean(MemoryStorage.class);
 
+
     /**
      * When add user to the  storage should check that storage safe it.
       */

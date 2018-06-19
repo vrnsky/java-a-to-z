@@ -1,5 +1,6 @@
 package ru.vrnsky;
 
+
 /**
  * Implementing database storage.
  * @author vrnsky
@@ -8,6 +9,13 @@ package ru.vrnsky;
  */
 public class JdbcStorage implements Storage {
 
+
+    /**
+     * Create a new JDBC storage.
+     */
+    public JdbcStorage() {
+
+    }
     /**
      * Adding new user to the database.
      * @param user instance of user.

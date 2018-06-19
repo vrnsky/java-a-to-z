@@ -9,4 +9,8 @@
     <bean id="memory" class="ru.vrnsky.MemoryStorage" />
     <bean id="jdbcMemory" class="ru.vrnsky.JdbcStorage"/>
 
+    <bean id="storage" class="ru.vrnsky.UserStorage">
+        <constructor-arg name="storage" ref="memory"/>
+    </bean>
+
 </beans>
