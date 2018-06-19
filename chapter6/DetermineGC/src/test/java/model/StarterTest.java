@@ -3,10 +3,8 @@ package model;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertThat;
-import static org.hamcrest.core.Is.is;
 
 /**
  * Unit test for demo how to work garbage collection.
@@ -23,7 +21,7 @@ public class StarterTest {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStream));
         usr.finalize();
-        assertThat(outputStream.toString(), is(String.format("%s%s", "User object was removed", System.getProperty("line.separator"))));
+        assertThat(outputStream.toString(), containsString(String.format("%s%s", "User object was removed", System.getProperty("line.separator"))));
     }
 
     /**
