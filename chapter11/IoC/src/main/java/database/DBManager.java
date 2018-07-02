@@ -5,12 +5,14 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.springframework.stereotype.Component;
 
 /**
  * This class wrapper for work with database.
  * @author vrnsky
  * @version 0.1
  */
+@Component
 public class DBManager {
     /**
      * Self instance, it is singleton.

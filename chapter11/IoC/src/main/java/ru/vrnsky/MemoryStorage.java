@@ -1,5 +1,7 @@
 package ru.vrnsky;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ import java.util.List;
  * @version 0.1
  * @since 31.05.2018
  */
+@Component
 public class MemoryStorage implements Storage {
 
     /**
