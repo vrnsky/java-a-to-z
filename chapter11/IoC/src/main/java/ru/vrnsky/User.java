@@ -13,6 +13,12 @@ public class User {
     private int id;
 
     /**
+     * User name.
+     */
+    private String name;
+
+
+    /**
      * Construct new user.
      * @param id unique per user number
      */
@@ -40,5 +46,21 @@ public class User {
      */
     public void setId(int id) {
         this.id = id;
+    }
+
+    /**
+     * Return name of user.
+     * @return name of user.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Set new version of name.
+     * @param name new version of name.
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 }
