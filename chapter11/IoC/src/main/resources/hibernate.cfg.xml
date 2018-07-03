@@ -2,13 +2,17 @@
 
 
 <hibernate-configuration>
+
     <session-factory>
+        <property name="current_session_context_class">thread</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/storages</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/users</property>
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">55555</property>
 
-        <mapping resources="ru/vrnsky/User.hbm.xml"/>
+        <!-- List of XML mapping files -->
+        <mapping resource="model/User.hbm.xml"/>
+
     </session-factory>
 </hibernate-configuration>
