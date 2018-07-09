@@ -10,6 +10,7 @@
 
     <!-- Scans within the base package of the application for @Component classes to configure as beans -->
     <context:component-scan base-package="controllers"/>
+    <context:component-scan base-package="database" />
 
     <context:property-placeholder location="classpath:application.properties"/>
 
