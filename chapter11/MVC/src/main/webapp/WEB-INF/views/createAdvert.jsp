@@ -11,7 +11,9 @@
         <div class="container-fluid">
             <form class="navbar-form navbar-left">
                 <div class="form-group">
-                    <a href="./logout"><button type="button" class="btn btn-default btn-danger navbar-btn">Log out</button></a>
+                    <a href="./logout">
+                        <button type="button" class="btn btn-default btn-danger navbar-btn">Log out</button>
+                    </a>
                 </div>
             </form>
         </div>
@@ -25,7 +27,8 @@
             <form class="form-class" method="post" action="/">
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text" id="title" name="title" class="form-control" autofocus placeholder="Sell Lada Granta" required />
+                    <input type="text" id="title" name="title" class="form-control" autofocus
+                           placeholder="Sell Lada Granta" required/>
                 </div>
                 <div class="form-group">
                     <label for="producer">Producer</label>
@@ -46,6 +49,13 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="gearbox">Gearbox</label>
+                    <select class="form-control" id="gearbox">
+                        <option value="1">Mechanic</option>
+                        <option value="2">Automat</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="color">Color</label>
                     <select class="form-control" id="color">
                         <option value="1">Black</option>
@@ -56,9 +66,13 @@
                 </div>
                 <div class="form-group">
                     <label for="low">Low cost</label>
-                    <input type="text" id="low" name="low" class="form-control" />
+                    <input type="text" id="low" name="low" class="form-control"/>
                     <label for="high">High cost</label>
-                    <input type="text" id="high" name="high" class="form-control" />
+                    <input type="text" id="high" name="high" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="photo">Load a photo</label>
+                    <input id="photo" name="photo" type="file" class="file"/>
                 </div>
                 <button type="submit" class="btn btn-default btn-primary">Give an advert!</button>
             </form>
