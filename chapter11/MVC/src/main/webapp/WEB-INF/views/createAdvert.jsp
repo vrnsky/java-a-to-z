@@ -65,10 +65,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="low">Low cost</label>
-                    <input type="text" id="low" name="low" class="form-control"/>
-                    <label for="high">High cost</label>
-                    <input type="text" id="high" name="high" class="form-control"/>
+                    <label for="cost">Cost</label>
+                    <input type="text" id="cost" name="cost" class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="photo">Load a photo</label>

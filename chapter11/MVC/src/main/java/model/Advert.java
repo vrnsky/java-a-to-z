@@ -24,4 +24,22 @@ public class Advert {
     @Getter @Setter
     private String title;
 
+    /**
+     * Car for selling.
+     */
+    @Getter @Setter
+    private Car sellCar;
+
+    /**
+     * Cost of car.
+     */
+    @Getter @Setter
+    private double price;
+
+    /***
+     * Author of this advert.
+     */
+    @Getter @Setter
+    private User author;
+
 }
