@@ -1,4 +1,4 @@
-package controllers;
+package dao;
 
 import database.IDatabase;
 import model.User;

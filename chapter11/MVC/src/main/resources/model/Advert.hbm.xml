@@ -1,0 +1,8 @@
+<hibernate-mapping>
+    <class name="model.Advert" table="advert">
+        <id name="id" column="id">
+            <generator class="identity" />
+        </id>
+        <property name="title" column="title" lazy="true" />
+    </class>
+</hibernate-mapping>

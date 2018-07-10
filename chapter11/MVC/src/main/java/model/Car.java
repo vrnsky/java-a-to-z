@@ -42,9 +42,5 @@ public class Car {
     @Getter @Setter
     private CarDetail model;
 
-    /**
-     * Year of when car will be released.
-     */
-    @Getter @Setter
-    private int year;
+
 }

@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col-sm"></div>
         <div class="col-sm">
-            <form class="form-class" method="post" action="/">
+            <form class="form-class" method="post" action="/createadvert">
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" id="title" name="title" class="form-control" autofocus
@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-group">
                     <label for="producer">Producer</label>
-                    <select class="form-control" id="producer">
+                    <select class="form-control" id="producer" name="producer">
                         <option value="1">Audi</option>
                         <option value="2">BMW</option>
                         <option value="3">Mersedec</option>
@@ -40,8 +40,17 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="model">Model</label>
+                    <select class="form-control" id="model" name="model">
+                        <option value="1">A4</option>
+                        <option value="2">X6</option>
+                        <option value="3">S63</option>
+                        <option value="4">Granta"</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="body">Body</label>
-                    <select class="form-control" id="body">
+                    <select class="form-control" id="body" name="body">
                         <option value="1">Sedan</option>
                         <option value="2">Hatchback</option>
                         <option value="3">Crossover</option>
@@ -50,14 +59,14 @@
                 </div>
                 <div class="form-group">
                     <label for="gearbox">Gearbox</label>
-                    <select class="form-control" id="gearbox">
+                    <select class="form-control" id="gearbox" name="gearbox">
                         <option value="1">Mechanic</option>
                         <option value="2">Automat</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="color">Color</label>
-                    <select class="form-control" id="color">
+                    <select class="form-control" id="color" name="color">
                         <option value="1">Black</option>
                         <option value="2">Gray</option>
                         <option value="3">Green</option>
@@ -65,8 +74,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="cost">Cost</label>
-                    <input type="text" id="cost" name="cost" class="form-control"/>
+                    <label for="price">Price</label>
+                    <input type="text" id="price" name="price" class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="photo">Load a photo</label>

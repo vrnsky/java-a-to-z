@@ -8,5 +8,5 @@ import lombok.NoArgsConstructor;
  * @version 0.1.
  */
 @NoArgsConstructor
-public class Gearbox {
+public class Gearbox extends CarDetail {
 }
