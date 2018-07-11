@@ -1,38 +1,46 @@
 package model;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Real user implementation.
+ *
  * @author vrnsky.
  * @version 0.1.
  */
 @NoArgsConstructor
+@Data
+@Entity
+@Table(name = "users")
 public class User {
 
     /**
      * Unique per user number.
      */
-    @Getter @Setter
+    @Id
     private int id;
 
     /**
      * Email of user.
      */
-    @Getter @Setter
+    @Column(name = "email")
     private String email;
 
     /**
      * Password of user.
      */
-    @Getter @Setter
+    @Column(name = "password")
     private String password;
 
     /**
      * Create a user without id.
-     * @param email for user.
+     * @param email    for user.
      * @param password for user.
      */
     public User(String email, String password) {

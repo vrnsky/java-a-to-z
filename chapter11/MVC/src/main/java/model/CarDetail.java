@@ -1,27 +1,31 @@
 package model;
 
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 /**
  * Car detail allow us to describe any detail of car.
+ *
  * @author vrnsky.
  * @version 0.1
  */
-@NoArgsConstructor
+@NoArgsConstructor @MappedSuperclass @Data
 public abstract class CarDetail {
 
     /**
      * Unique per detail number.
      */
-    @Getter @Setter
-    private int id;
+    @Id
+    @Column(name = "id")
+    protected int id;
 
     /**
      * Description of the detail.
      */
-    @Getter @Setter
-    private String desc;
+    @Column(name = "name")
+    protected String desc;
 }
