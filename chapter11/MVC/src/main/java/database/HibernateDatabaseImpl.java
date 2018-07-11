@@ -1,5 +1,13 @@
 package database;
 
+import model.Car;
+import model.Advert;
+import model.Producer;
+import model.Model;
+import model.User;
+import model.Gearbox;
+import model.Color;
+import model.Body;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
@@ -8,6 +16,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Database helper which create a session factory object.
+ *
  * @author vrnsky.
  * @version 0.1.
  */
@@ -35,11 +44,20 @@ public class HibernateDatabaseImpl implements IDatabase {
      * Init factory for starting work with database.
      */
     private void init() {
-        this.factory = new MetadataSources(REGISTRY).buildMetadata().buildSessionFactory();
+        this.factory = new MetadataSources(REGISTRY).
+                addAnnotatedClass(User.class).
+                addAnnotatedClass(Body.class).
+                addAnnotatedClass(Car.class).
+                addAnnotatedClass(Advert.class).
+                addAnnotatedClass(Color.class).
+                addAnnotatedClass(Gearbox.class).
+                addAnnotatedClass(Model.class).
+                addAnnotatedClass(Producer.class).buildMetadata().buildSessionFactory();
     }
 
     /**
      * Return current session factory.
+     *
      * @return session factory object.
      */
     public SessionFactory getFactory() {
