@@ -11,8 +11,6 @@
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">55555</property>
 
-        <!-- List of XML mapping files -->
-        <mapping resource="model/User.hbm.xml" />
 
-    </session-factory>
+       </session-factory>
 </hibernate-configuration>
