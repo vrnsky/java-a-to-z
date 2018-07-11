@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author vrnsky.
  * @version 0.1.
  */
-@Controller
+@Controller @RequestMapping(value = "/createadvert")
 public class CreateAdvert {
 
 
@@ -26,10 +26,9 @@ public class CreateAdvert {
 
     /**
      * If user ask about only page let show it.
-     *
      * @return reference to the create advert page.
      */
-    @RequestMapping(value = "/createadvert", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String getAddingPage() {
         return "createAdvert";
     }
@@ -40,7 +39,7 @@ public class CreateAdvert {
      * @param car instance of car.
      * @return user to the index page.mvn c
      */
-    @RequestMapping(value = "/createadvert", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public String addAdvert(@ModelAttribute Car car) {
         return "index";
     }

@@ -1,8 +1,7 @@
 package controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * Index page of the site.
@@ -14,7 +13,7 @@ public class IndexController {
      * Redirect user to the index page of site.
      * @return reference to the index page.
      */
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @GetMapping
     public String index() {
         return "index";
     }
