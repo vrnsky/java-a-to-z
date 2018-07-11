@@ -4,14 +4,14 @@ import database.IDatabase;
 import model.Car;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 /**
  * Car repository works with database it use hibernate for adding new cars.
  * @author vrnsky.
  * @version 0.1.
  */
-@Component
+@Repository
 public class CarRepository {
 
     /**

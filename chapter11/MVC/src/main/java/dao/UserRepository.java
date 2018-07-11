@@ -5,7 +5,8 @@ import model.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import java.util.List;
 
 
 /**
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Component;
  * @author vrnsky.
  * @version 0.1.
  */
-@Component
+@Repository
 public class UserRepository {
 
     /**
@@ -44,7 +45,10 @@ public class UserRepository {
         Query query = session.createQuery(hql);
         query.setParameter("email", email);
         query.setParameter("password", password);
-        user = (User) query.getSingleResult();
+        List<User> results = query.getResultList();
+        if (!results.isEmpty()) {
+            user = results.get(0);
+        }
         session.getTransaction().commit();
         session.close();
         return user;
