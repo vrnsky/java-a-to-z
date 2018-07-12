@@ -1,12 +1,11 @@
 package controllers;
 
 import dao.CarRepository;
-import model.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Creating a new advert in the system.
@@ -14,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author vrnsky.
  * @version 0.1.
  */
-@Controller @RequestMapping(value = "/createadvert")
+@Controller
+@RequestMapping(value = "/createadvert")
 public class CreateAdvert {
 
 
@@ -35,12 +35,22 @@ public class CreateAdvert {
 
 
     /**
-     * Add a new car to the system.
-     * @param car instance of car.
-     * @return user to the index page.mvn c
+     * Create a new advert.
+     * @param title of advert.
+     * @param producer of the car.
+     * @param model of the car.
+     * @param body of the car.
+     * @param color of the car.
+     * @param gearbox of the car.
+     * @param price in dollars.
+     * @return to the index page.
      */
     @RequestMapping(method = RequestMethod.POST)
-    public String addAdvert(@ModelAttribute Car car) {
+    public String addAdvert(@RequestParam String title, @RequestParam String producer,
+                            @RequestParam String model, @RequestParam String body, @RequestParam String color,
+                            @RequestParam String gearbox, @RequestParam String price) {
+        carRepo.getCarByParameters(Integer.valueOf(producer), Integer.valueOf(model), Integer.valueOf(body), Integer.valueOf(gearbox),
+                Integer.valueOf(color));
         return "index";
     }
 
