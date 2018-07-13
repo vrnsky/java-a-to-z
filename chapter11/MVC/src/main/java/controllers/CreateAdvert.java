@@ -1,15 +1,15 @@
 package controllers;
 
 import dao.CarRepository;
+import model.Advert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Creating a new advert in the system.
- *
  * @author vrnsky.
  * @version 0.1.
  */
@@ -35,24 +35,15 @@ public class CreateAdvert {
 
 
     /**
-     * Create a new advert.
-     * @param title of advert.
-     * @param producer of the car.
-     * @param model of the car.
-     * @param body of the car.
-     * @param color of the car.
-     * @param gearbox of the car.
-     * @param price in dollars.
-     * @return to the index page.
+     * Post a new advert to the system.
+     * @param advert instance of advert class.
+     * @return user to the index page.
      */
     @RequestMapping(method = RequestMethod.POST)
-    public String addAdvert(@RequestParam String title, @RequestParam String producer,
-                            @RequestParam String model, @RequestParam String body, @RequestParam String color,
-                            @RequestParam String gearbox, @RequestParam String price) {
-        carRepo.getCarByParameters(Integer.valueOf(producer), Integer.valueOf(model), Integer.valueOf(body), Integer.valueOf(gearbox),
-                Integer.valueOf(color));
+    public String postAdvert(@ModelAttribute Advert advert) {
+        System.out.println(advert.getTitle());
+        System.out.println(advert.getSellCar().getColor()); //FIXME when user try to create advert
         return "index";
     }
-
 
 }

@@ -2,10 +2,11 @@ package model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 /**
  * Implementation of car in real life.
@@ -51,6 +52,14 @@ public class Car {
      */
     @ManyToOne(targetEntity = Model.class)
     private CarDetail model;
+
+
+    /**
+     * Price for this car.
+     */
+    @Column(name = "price")
+    private int price;
+
 
 
 }

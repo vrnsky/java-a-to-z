@@ -2,6 +2,7 @@ package model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Represent advert in real world.
@@ -27,14 +28,18 @@ public class Advert {
      */
      private Car sellCar;
 
-    /**
-     * Cost of car.
-     */
-    private double price;
-
     /***
      * Author of this advert.
      */
     private User author;
+
+    /**
+     * Create a new advert with given car.
+     * @param car instance of car class.
+     */
+    @Autowired
+    public Advert(Car car) {
+        this.sellCar = car;
+    }
 
 }
