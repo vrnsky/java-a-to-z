@@ -50,9 +50,7 @@ public class Square {
      */
     private void setToZero(int index, int barrier, List<Point> points) {
         this.values[index][barrier] = 0;
-        for (Point point : points) {
-            this.values[point.getX()][point.getY()] = 0;
-        }
+        points.forEach(point -> this.values[point.getX()][point.getY()] = 0);
     }
 
     /**

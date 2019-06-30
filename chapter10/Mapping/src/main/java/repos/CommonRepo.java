@@ -35,6 +35,7 @@ public abstract class CommonRepo<T> {
      * @param db operation with database.
      * @param value for add or remove from database.
      */
+    @SuppressWarnings("unchecked")
     public void execute(DatabaseOperation db, T value) {
         Session session = this.dbManager.getFactory().openSession();
         session.beginTransaction();
@@ -48,6 +49,7 @@ public abstract class CommonRepo<T> {
      * @param operation lambda which describe how to get object.
      * @return object with given id.
      */
+    @SuppressWarnings("unchecked")
     public T getById(ID operation) {
         T value = null;
         Session session = this.dbManager.getFactory().openSession();
@@ -63,6 +65,7 @@ public abstract class CommonRepo<T> {
      * @param allEntity describe how to get and also may filter entity.
      * @return list of objects.
      */
+    @SuppressWarnings("unchecked")
     public List<T> getAll(AllEntity allEntity) {
         List<T> values = null;
         Session session = this.dbManager.getFactory().openSession();
@@ -78,6 +81,7 @@ public abstract class CommonRepo<T> {
      * @param criteria functional interface, in child lambda expressions.
      * @return list of adverts.
      */
+    @SuppressWarnings("unchecked")
     public List<T> getByCriteria(Criteria criteria) {
         List<T> values = null;
         Session session = this.dbManager.getFactory().openSession();
