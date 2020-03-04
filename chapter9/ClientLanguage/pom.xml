@@ -13,7 +13,7 @@
         <version>1.0</version>
     </parent>
     <properties>
-        <jackson.version>2.7.0</jackson.version>
+        <jackson.version>2.10.3</jackson.version>
     </properties>
 
     <dependencies>
