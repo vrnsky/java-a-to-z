@@ -16,17 +16,14 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
-			<version>1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>taglibs</groupId>
 			<artifactId>standard</artifactId>
-			<version>1.1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>4.0.0-b01</version>
 		</dependency>
 		<dependency>
 			<groupId>ru.evrnsky.chapter8.JDBC.start</groupId>
@@ -36,7 +33,6 @@
 		<dependency>
 			<groupId>org.powermock</groupId>
 			<artifactId>powermock-api-mockito</artifactId>
-			<version>1.7.0RC2</version>
 		</dependency>
 	</dependencies>
 

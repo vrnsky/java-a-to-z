@@ -1,9 +1,10 @@
 package beans;
+
 import interfaces.Helper;
+import model.User;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,11 +14,6 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class HibernateHelper implements Helper {
-
-    /**
-     * Configuration builder for hibernate.
-     */
-    private static final StandardServiceRegistry REGISTRY = new StandardServiceRegistryBuilder().configure().build();
 
     /**
      * Session factory, it is producer for session.
@@ -35,7 +31,11 @@ public class HibernateHelper implements Helper {
      * Calls when servlet context created, you do not need call this method.
      */
     private void init() {
-        factory = new MetadataSources(REGISTRY).buildMetadata().buildSessionFactory();
+        Configuration configuration = new Configuration().configure();
+        configuration.addClass(User.class);
+        StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
+                .applySettings(configuration.getProperties());
+        factory = configuration.buildSessionFactory(builder.build());
     }
 
     /**
