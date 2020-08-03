@@ -13,7 +13,7 @@
     </parent>
 
     <modules>
-        <module>Boost</module>
+        <module>Boot</module>
         <module>IoC</module>
         <module>MVC</module>
         <module>Security</module>
