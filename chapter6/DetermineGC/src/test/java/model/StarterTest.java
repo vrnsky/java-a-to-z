@@ -1,5 +1,6 @@
 package model;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -8,7 +9,10 @@ import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for demo how to work garbage collection.
+ * There is ignored test, because it especially machine specific test.
+ * You should configure JVM properly for this test
  */
+@Ignore
 public class StarterTest {
 
     /**
