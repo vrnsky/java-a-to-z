@@ -10,7 +10,7 @@ import java.sql.Statement;
  * @since 14.04.2017
  * @version 0.1.
  *
- * It class provide functions for comfort tesing.
+ * It class provide functions for comfort testing.
  */
 public class DBTestUtil {
 
