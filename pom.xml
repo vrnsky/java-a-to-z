@@ -8,7 +8,7 @@
 
     <properties>
         <jackson.version>2.11.1</jackson.version>
-        <spring.version>5.2.8.RELEASE</spring.version>
+        <spring.version>5.2.20.RELEASE</spring.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -46,7 +46,7 @@
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core</artifactId>
-                <version>5.2.9.Final</version>
+                <version>5.3.20.Final</version>
             </dependency>
             <dependency>
                 <groupId>org.hibernate.validator</groupId>
@@ -103,7 +103,7 @@
             <dependency>
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
-                <version>42.0.0</version>
+                <version>42.3.7</version>
             </dependency>
 
             <!-- logging -->
@@ -127,7 +127,7 @@
             <dependency>
                 <groupId>org.jsoup</groupId>
                 <artifactId>jsoup</artifactId>
-                <version>1.7.2</version>
+                <version>1.15.3</version>
             </dependency>
             <dependency>
                 <groupId>org.quartz-scheduler</groupId>
