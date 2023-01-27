@@ -13,12 +13,12 @@ public class CalcInit {
 	/**
 	 * Handle input from user and show data for user.
 	 */
-	private IO io;
+	private final IO io;
 
 	/**
 	 * Instance of Calculator API.
 	 */
-	private Calculator calculator;
+	private final Calculator calculator;
 
 	/**
 	 * Save a reference to io object.

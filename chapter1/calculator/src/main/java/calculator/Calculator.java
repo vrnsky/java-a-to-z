@@ -28,7 +28,7 @@ public class Calculator {
 
 	/**
 	 * Deduct second from first and write to result field.
-	 * @param number it number which will deduct.
+	 * @param number it numbs which will deduct.
      */
 	public void deduct(double number) {
 		this.result = this.prevResult - number;
@@ -109,7 +109,4 @@ public class Calculator {
 	public double getPrevResult() {
 		return this.prevResult;
 	}
-
-
-
 }

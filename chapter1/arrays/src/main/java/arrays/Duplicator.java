@@ -17,9 +17,7 @@ public class Duplicator {
         replaceNullToEnd(array);
         String[] result = new String[length];
 
-        for (int index = 0; index < length; index++) {
-            result[index] = array[index];
-        }
+        System.arraycopy(array, 0, result, 0, length);
         return result;
     }
 
