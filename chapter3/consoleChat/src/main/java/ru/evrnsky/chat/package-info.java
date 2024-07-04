@@ -5,4 +5,4 @@
  *
  * This package contains simple chat implementation.
  */
-package chat;
+package ru.evrnsky.chat;

@@ -1,6 +1,9 @@
-package chat;
+package ru.evrnsky.chat;
 import java.io.IOException;
 import org.junit.Test;
+import ru.evrnsky.chat.Answerer;
+import ru.evrnsky.chat.Logger;
+
 import java.io.File;
 import java.util.Optional;
 import static org.hamcrest.core.Is.is;

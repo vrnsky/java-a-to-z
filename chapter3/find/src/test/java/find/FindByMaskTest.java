@@ -1,6 +1,6 @@
 package find;
 
-import chat.Answerer;
+import ru.evrnsky.chat.Answerer;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import java.io.File;

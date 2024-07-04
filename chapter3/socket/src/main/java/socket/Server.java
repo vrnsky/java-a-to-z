@@ -1,6 +1,6 @@
 package socket;
 
-import chat.Answerer;
+import ru.evrnsky.chat.Answerer;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

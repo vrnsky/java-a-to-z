@@ -1,4 +1,4 @@
-package chat;
+package ru.evrnsky.chat;
 
 import java.io.BufferedWriter;
 import java.io.File;

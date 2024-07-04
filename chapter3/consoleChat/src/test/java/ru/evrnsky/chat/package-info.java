@@ -5,4 +5,4 @@
  *
  * This package contains unit test for implementation of chat.
  */
-package chat;
+package ru.evrnsky.chat;
