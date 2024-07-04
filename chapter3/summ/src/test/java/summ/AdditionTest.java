@@ -1,7 +1,7 @@
 package summ;
 
 import org.junit.Test;
-import start.StubIO;
+import ru.evrnsky.start.StubIO;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 

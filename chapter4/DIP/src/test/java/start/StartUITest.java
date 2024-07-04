@@ -1,6 +1,8 @@
 package start;
 
 import org.junit.Test;
+import ru.evrnsky.start.StartUI;
+import ru.evrnsky.start.StubIO;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -19,7 +21,7 @@ public class StartUITest {
         //Assign block
         String[] answer = new String[]{"Yegor", "19", "Yegor", "19", "0", "Egor", "0", "20", "Egor", "20", "0"};
         StubIO stubIO = new StubIO(answer);
-        StartUI app = new StartUI(stubIO);
+        ru.evrnsky.start.StartUI app = new StartUI(stubIO);
         String expected = "User was added\n"
                 +
                 "ID\tName\tAge\n"

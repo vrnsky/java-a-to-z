@@ -1,9 +1,9 @@
 package model;
 
 import org.junit.Test;
-import start.MenuTracker;
-import start.StubIO;
-import start.Tracker;
+import ru.evrnsky.start.MenuTracker;
+import ru.evrnsky.start.StubIO;
+import ru.evrnsky.start.Tracker;
 
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.StringContains.containsString;

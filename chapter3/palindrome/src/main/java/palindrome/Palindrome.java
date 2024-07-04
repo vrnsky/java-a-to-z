@@ -1,6 +1,6 @@
 package palindrome;
 
-import start.IO;
+import ru.evrnsky.start.IO;
 
 /**
  * Check that string from user is palindrome.

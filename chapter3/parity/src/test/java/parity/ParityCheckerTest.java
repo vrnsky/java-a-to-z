@@ -1,7 +1,7 @@
 package parity;
 
 import org.junit.Test;
-import start.StubIO;
+import ru.evrnsky.start.StubIO;
 import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.assertThat;
 

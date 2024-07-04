@@ -1,6 +1,6 @@
 package model;
 
-import start.IO;
+import ru.evrnsky.start.IO;
 
 /**
  * Model of user storage.

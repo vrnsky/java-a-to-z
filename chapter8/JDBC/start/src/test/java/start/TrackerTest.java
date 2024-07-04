@@ -3,6 +3,7 @@ package start;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import ru.evrnsky.start.Tracker;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class TrackerTest {
     /**
      * System under test.
      */
-    private Tracker tracker;
+    private ru.evrnsky.start.Tracker tracker;
 
     /**
      * Helper for creating database.

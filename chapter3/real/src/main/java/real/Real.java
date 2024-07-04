@@ -1,6 +1,6 @@
 package real;
 
-import start.IO;
+import ru.evrnsky.start.IO;
 import static java.lang.Math.abs;
 
 /**

@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.StringContains.containsString;
-import start.StubIO;
+import ru.evrnsky.start.StubIO;
 
 /**
  * Unit test for Real.java.

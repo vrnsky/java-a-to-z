@@ -1,7 +1,7 @@
 package model;
 
 import org.junit.Test;
-import start.StubIO;
+import ru.evrnsky.start.StubIO;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

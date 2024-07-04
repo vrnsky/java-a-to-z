@@ -1,6 +1,6 @@
 package parity;
 
-import start.IO;
+import ru.evrnsky.start.IO;
 
 /**
  * Implementation of parity checker.

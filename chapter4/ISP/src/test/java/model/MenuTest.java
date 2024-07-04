@@ -1,7 +1,7 @@
 package model;
 
 import org.junit.Test;
-import start.StubIO;
+import ru.evrnsky.start.StubIO;
 
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.StringContains.containsString;

@@ -2,6 +2,8 @@ package start;
 
 import model.EditChecker;
 import model.UserStorage;
+import ru.evrnsky.start.ConsoleIO;
+import ru.evrnsky.start.IO;
 
 /**
  *  Demo of interact class UserStorage and Checker.
@@ -26,7 +28,7 @@ public class StartUI {
      * @param args keys for app.
      */
     public static void main(String[] args) {
-       new StartUI(new ConsoleIO()).init();
+       new ru.evrnsky.start.StartUI(new ConsoleIO()).init();
     }
 
     /**

@@ -28,7 +28,7 @@
             <configuration>
                 <archive>
                     <manifest>
-                        <mainClass>start.StartUI</mainClass>
+                        <mainClass>ru.evrnsky.start.StartUI</mainClass>
                     </manifest>
                 </archive>
             </configuration>

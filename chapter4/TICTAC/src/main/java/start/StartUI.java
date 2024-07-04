@@ -2,6 +2,7 @@ package start;
 
 import model.Game;
 import model.GameIO;
+import ru.evrnsky.start.ConsoleIO;
 
 /**
  * Start UI.
@@ -13,7 +14,7 @@ public class StartUI {
      * @param args keys.
      */
     public static void main(String[] args) {
-        new StartUI().init(new GameIO(new ConsoleIO()));
+        new ru.evrnsky.start.StartUI().init(new GameIO(new ConsoleIO()));
     }
 
     /**
