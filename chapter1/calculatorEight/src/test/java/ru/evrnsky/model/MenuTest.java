@@ -1,16 +1,17 @@
 package ru.evrnsky.model;
 
-import org.junit.Before;
-import org.junit.Test;
-import ru.evrnsky.model.Menu;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Created by Egor on 13.08.2016.
  */
-public class MenuTest {
+class MenuTest {
 
     /**
      * Instance of testing.
@@ -20,7 +21,7 @@ public class MenuTest {
     /**
      * Before each test.
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         this.menu = new Menu();
     }
@@ -29,7 +30,7 @@ public class MenuTest {
      * Sum.
      */
     @Test
-    public void whenTryAddTwoIntegerShouldCheckThatAppReturnCorrectAnswer() {
+    void whenTryAddTwoIntegerShouldCheckThatAppReturnCorrectAnswer() {
 
         //Assign block
         int expected = 10;
@@ -45,7 +46,7 @@ public class MenuTest {
      * Deduct.
      */
     @Test
-    public void whenTryDeductOneIntegerFromOtherIntegerShouldCheckThatAppReturnCorrectAnswer() {
+    void whenTryDeductOneIntegerFromOtherIntegerShouldCheckThatAppReturnCorrectAnswer() {
         int expected = 1;
         int actual = menu.calculate("-", 100, 99);
         assertThat(actual, is(expected));
@@ -55,7 +56,7 @@ public class MenuTest {
      * Multiply.
      */
     @Test
-    public void whenTryMultiplyTwoNumbersShouldCheckThatAppReturnCorrectAnswer() {
+    void whenTryMultiplyTwoNumbersShouldCheckThatAppReturnCorrectAnswer() {
         int expected = 10;
         int actual = menu.calculate("*", 5, 2);
         assertThat(actual, is(expected));
@@ -65,7 +66,7 @@ public class MenuTest {
      * Division.
      */
     @Test
-    public void whenTryDivOneIntegerByOtherNotNullIntegerShouldCheckThatAppReturnCorrectAnswer() {
+    void whenTryDivOneIntegerByOtherNotNullIntegerShouldCheckThatAppReturnCorrectAnswer() {
         int expected = 10;
         int actual = menu.calculate("/", 100, 10);
         assertThat(actual, is(expected));
@@ -74,9 +75,8 @@ public class MenuTest {
     /**
      * Bad division.
      */
-    @Test(expected = IllegalArgumentException.class)
-    public void whenTryDivOneIntegerByZeroShouldCheckThatAppThrowException() {
-        int expected = 1;
-        int actual = menu.calculate("/", 100, 0);
+    @Test
+    void whenTryDivOneIntegerByZeroShouldCheckThatAppThrowException() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> menu.calculate("/", 100, 0));
     }
 }

@@ -1,27 +1,30 @@
 package ru.evrnsky.chat;
 
-import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+
 /**
  * Unit test for Answerer.java - it is return a random string from file.
  */
-public class AnswererTest {
+class AnswererTest {
 
     /**
-     * When try get a random string from from file should get random string from file.
+     * When try getting a random string from file should get random string from file.
      * Attention method can throw null pointer exception if file was not found for avoid it use absolute path.
      *
      * @throws IOException          if i/o error detected.
      * @throws InterruptedException if some problem with threads.
      */
     @Test
-    public void whenTryGetARandomStringFromAnswerFileShouldReturnAStringFromFile() throws IOException, InterruptedException {
+    void whenTryGetARandomStringFromAnswerFileShouldReturnAStringFromFile() throws IOException, InterruptedException {
         Optional<Answerer> answerer;
         String expected = "Hello!";
 
@@ -38,12 +41,11 @@ public class AnswererTest {
 
     /**
      * When answer try to read not exist file should check that app throw exception.
-     *
-     * @throws Exception instance of exception.
+     * @throws NullPointerException instance of exception.
      */
-    @Test(expected = NullPointerException.class)
-    public void whenAnswererTryToReadNotExistFileShouldCheckThatAppThrownException() throws Exception {
-        Answerer answerer = new Answerer(AnswererTest.class.getClassLoader().getResourceAsStream("abs.txt"));
+    @Test
+    void whenAnswererTryToReadNotExistFileShouldCheckThatAppThrownException() {
+        Assertions.assertThrows(NullPointerException.class, () ->  new Answerer(AnswererTest.class.getClassLoader().getResourceAsStream("abs.txt")));
     }
 
     /**
@@ -52,7 +54,7 @@ public class AnswererTest {
      * @throws IOException if something wrong with io system.
      */
     @Test
-    public void whenAnswererCreatedAndReadyToWorkShouldCheckThatAllDataSavedAtTheAnswerer() throws IOException {
+    void whenAnswererCreatedAndReadyToWorkShouldCheckThatAllDataSavedAtTheAnswerer() throws IOException {
         String expected = "Hello!\nHello, ${username}!\nAt this night we have noticed!";
         Optional<Answerer> answerer = Optional.of(new Answerer(AnswererTest.class.getClassLoader().getResourceAsStream("answers.txt")));
         List<String> actual = null;

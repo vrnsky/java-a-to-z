@@ -1,9 +1,11 @@
 package chess;
 
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import org.junit.Test;
-import org.junit.Before;
+
 
 
 /**
@@ -20,7 +22,7 @@ public class PawnTest {
     /**
      * Init all need variable at this place, it placed there for reduce code in tests.
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         this.pawn = new Pawn();
     }
@@ -29,7 +31,7 @@ public class PawnTest {
      * Check than constructor works correct.
      */
     @Test
-    public void whenCreateAPawnShouldCheckItIsNotNull() {
+    void whenCreateAPawnShouldCheckItIsNotNull() {
         boolean actual = pawn != null;
         assertThat(actual, is(true));
     }
@@ -38,7 +40,7 @@ public class PawnTest {
      * When try attach pawn to board should check that board save it.
      */
     @Test
-    public void whenTryAttachPawnToTheBoardShouldAddPawnIfCellIsNotBusy() {
+    void whenTryAttachPawnToTheBoardShouldAddPawnIfCellIsNotBusy() {
         Board board = new Board();
         String[][] expected = new String[][] {
                 {"P", "0", "0", "0", "0", "0", "0", "0"},
@@ -63,7 +65,7 @@ public class PawnTest {
      * When try move pawn in correct direction should check that pawn was moved.
      */
     @Test
-    public void whenTryMovePawnInCorrectDirectionShouldMovePawn() {
+    void whenTryMovePawnInCorrectDirectionShouldMovePawn() {
         Board board = new Board();
         String[][] expected = new String[][] {
                 {"0", "0", "0", "0", "0", "0", "0", "0"},
@@ -91,7 +93,7 @@ public class PawnTest {
      * When try move pawn in wrong direction should leave pawn at the current position.
      */
     @Test
-    public void whenTryMovePawnInWrongDirectionShouldLeavePawnAtTheCurrentPlace() {
+    void whenTryMovePawnInWrongDirectionShouldLeavePawnAtTheCurrentPlace() {
         Board board = new Board();
         String[][] expected = new String[][] {
                 {"P", "0", "0", "0", "0", "0", "0", "0"},
@@ -119,7 +121,7 @@ public class PawnTest {
      * When try move pawn but in the path have figure or figures should leave pawn at the current place.
      */
     @Test
-    public void whenTryMovePawnButInThePathFigureShouldLeavePawnAtTheCurrentPlace() {
+    void whenTryMovePawnButInThePathFigureShouldLeavePawnAtTheCurrentPlace() {
         Board board = new Board();
         String[][] expected = new String[][] {
                 {"P", "0", "0", "0", "0", "0", "0", "0"},
@@ -150,7 +152,7 @@ public class PawnTest {
      * When pawn try skip over figure or figures should leave pawn at the current position.
      */
     @Test
-    public void whenTryPawnTrySkipOverFiguresShouldLeavePawnAtTheCurrentPlace() {
+    void whenTryPawnTrySkipOverFiguresShouldLeavePawnAtTheCurrentPlace() {
         Board board = new Board();
         String[][] expected = new String[][] {
                 {"0", "0", "0", "0", "0", "0", "0", "0"},
@@ -180,7 +182,7 @@ public class PawnTest {
      * When pawn try over three cell should check that pawn left at the current place.
      */
     @Test
-    public void whenPawnTryStepOverThreeCellShouldCheckThatPawnLeftAtCurrentPlace() {
+    void whenPawnTryStepOverThreeCellShouldCheckThatPawnLeftAtCurrentPlace() {
         Board board = new Board();
         final int startX = 0;
         final int startY = 0;
@@ -195,7 +197,7 @@ public class PawnTest {
      * When try get string view of pawn figure should check that is acronym for pawn.
      */
 	@Test
-	public void whenTryGetStringViewOfPawnShoulGetStringAcronym() {
+	void whenTryGetStringViewOfPawnShouldGetStringAcronym() {
 		String expected = "P";
 		String actual = pawn.toString();
 		assertThat(actual, is(expected));

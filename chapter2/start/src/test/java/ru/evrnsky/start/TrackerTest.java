@@ -1,19 +1,17 @@
 package ru.evrnsky.start;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import ru.evrnsky.models.Item;
-import org.junit.Before;
-import org.junit.Test;
-import ru.evrnsky.start.Tracker;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
 
 /**
  * Unit test for Tracker.java.
  * It test all function from Tracker API.
  */
-public class TrackerTest {
+class TrackerTest {
 
     /**
      * Instance of testing class.
@@ -23,8 +21,8 @@ public class TrackerTest {
     /**
      * Init instance of testing class, it placed there to reduce code in test.
      */
-    @Before
-    public final void setUp() {
+    @BeforeEach
+    public void setUp() {
         tracker = new Tracker();
     }
 
@@ -32,7 +30,7 @@ public class TrackerTest {
      * When try add item should check that item was added.
      */
     @Test
-    public final void whenTryAddItemToTrackerShouldTryGetLastItemFromTracker() {
+    void whenTryAddItemToTrackerShouldTryGetLastItemFromTracker() {
         Item item = new Item();
 
         Item result = tracker.addItem(item);
@@ -44,7 +42,7 @@ public class TrackerTest {
      * When try edit item should check that changes was saved.
      */
     @Test
-    public final void whenTryEditItemShouldTryGetEditedItem() {
+    void whenTryEditItemShouldTryGetEditedItem() {
         Item item = new Item();
         tracker.addItem(item);
         String expectedResult = "Edited by me";
@@ -61,7 +59,7 @@ public class TrackerTest {
      * When try remove item should check that item was removed.
      */
     @Test
-    public final void whenTryRemoveItemShouldTrackerReturnDeletedItem() {
+    void whenTryRemoveItemShouldTrackerReturnDeletedItem() {
         Item item = new Item();
         tracker.addItem(item);
 
@@ -74,7 +72,7 @@ public class TrackerTest {
      * When try to get all items should check that items array not empty.
      */
     @Test
-    public final void whenTryGetAllItemsShouldReturnNotNullArrayOfItems() {
+    void whenTryGetAllItemsShouldReturnNotNullArrayOfItems() {
         tracker.addItem(new Item());
         tracker.addItem(new Item());
         tracker.addItem(new Item());
@@ -89,7 +87,7 @@ public class TrackerTest {
      * When find item with text should check tracker return correct items.
      */
     @Test
-    public final void whenFindFilterTextItemShouldItemWithText() {
+    void whenFindFilterTextItemShouldItemWithText() {
         tracker.addItem(new Item("Small bug", "Fix before next week"));
         tracker.addItem(new Item("Float bug", "Fix before 09.06.16"));
         tracker.addItem(new Item("Important bug", "Fix now"));
@@ -104,7 +102,7 @@ public class TrackerTest {
      * When find item by create time should check tracker return correct item.
      */
     @Test
-    public final void whenFindFilterTimeShouldItemCreatedAfterGivenTime() {
+    void whenFindFilterTimeShouldItemCreatedAfterGivenTime() {
         tracker.addItem(new Item("First name", "First description"));
         tracker.addItem(new Item("Second task", "Second description"));
         tracker.addItem(new Item("Third name", "Third description"));
@@ -120,7 +118,7 @@ public class TrackerTest {
      * Should get position of first item in items array.
      */
     @Test
-    public final void whenTryToGetIdOfFirstItemShouldReturnIdOfFirstItem() {
+    void whenTryToGetIdOfFirstItemShouldReturnIdOfFirstItem() {
         tracker.addItem(new Item("First name", "First item"));
         final int expected = 0;
 
@@ -134,7 +132,7 @@ public class TrackerTest {
      * should check that tracker return correct position.
      */
     @Test
-    public final void whenTryToGetIdOfLastItemShouldReturnIfOfLastItem() {
+    void whenTryToGetIdOfLastItemShouldReturnIfOfLastItem() {
         Item first = new Item("It is my first item", "It is my first item");
         Item second = new Item("It is my second item", "It is my second item");
         Item third = new Item("It is my third item", "It is my third item");

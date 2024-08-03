@@ -1,24 +1,23 @@
 package ru.evrnsky.start;
 
-import org.junit.Test;
-import ru.evrnsky.start.StartUI;
-import ru.evrnsky.start.StubIO;
 
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.StringContains.containsString;
 import static org.hamcrest.core.IsNot.not;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for StartUI.java.
  * It test whatever to show user.
  */
-public class StartUITest {
+class StartUITest {
 
     /**
      * When user try add item should check that item was added.
      */
     @Test
-    public final void whenAddItemToAppUseUIShouldAddItemToTracker() {
+     void whenAddItemToAppUseUIShouldAddItemToTracker() {
 
         /** Assign block
          * in variable answer write next command:
@@ -43,7 +42,7 @@ public class StartUITest {
      * When try to remove item should check that item was removed.
      */
     @Test
-    public final void whenRemoveItemFromAppUseUIShouldRemoveItemFromTracker() {
+    void whenRemoveItemFromAppUseUIShouldRemoveItemFromTracker() {
 
         /** Assign block
          * in variable answer write next command:
@@ -70,7 +69,7 @@ public class StartUITest {
      * When edit item should check that item was updated.
      */
     @Test
-    public final void whenEditItemUseUIShouldUpdateInTracker() {
+    final void whenEditItemUseUIShouldUpdateInTracker() {
 
         /** Assign block
          * in variable answer write next command:
@@ -97,7 +96,7 @@ public class StartUITest {
      * When try to commend item should check that comment was attached to item.
      */
     @Test
-    public final void whenCommentItemShouldAttachCommentToTracker() {
+    void whenCommentItemShouldAttachCommentToTracker() {
 
         /** Assign block
          * in variable answer write next command:
@@ -126,7 +125,7 @@ public class StartUITest {
      * When try find item by text data should check that app show correct items.
      */
     @Test
-    public final void whenFindItemByTextShouldShowItemsWithGivenText() {
+    void whenFindItemByTextShouldShowItemsWithGivenText() {
 
         /** Assign block
          * in variable answer write next command:
@@ -153,7 +152,7 @@ public class StartUITest {
      * When find items by time should check that app show correct item.
      */
     @Test
-    public final void whenTryFindItemsByTimeShouldShowItemsWithGivenTime() {
+    void whenTryFindItemsByTimeShouldShowItemsWithGivenTime() {
 
         /** Assign block
          * in variable answer write next command:

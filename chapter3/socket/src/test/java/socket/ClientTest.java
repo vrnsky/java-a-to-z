@@ -1,13 +1,14 @@
 package socket;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.net.Socket;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -16,7 +17,7 @@ import static org.mockito.Mockito.when;
  * @version 0.1
  * @since 15.04.2017
  */
-public class ClientTest {
+class ClientTest {
 
 
     /**
@@ -24,7 +25,7 @@ public class ClientTest {
      * @throws Exception if i/o error detected.
      */
     @Test
-    public void whenTryStartClientShouldCheckThatClientWasPushedDataToServer() throws Exception {
+    void whenTryStartClientShouldCheckThatClientWasPushedDataToServer() throws Exception {
         Socket socket = mock(Socket.class);
         File temp = File.createTempFile("logger", ".txt");
         ByteArrayInputStream userInput = new ByteArrayInputStream("finish".getBytes());

@@ -1,16 +1,17 @@
 package chess;
 
-import org.junit.Before;
-import org.junit.Test;
 
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
  * Unit test of Board.java.
  * It test showing board and adding to board new figures.
  */
-public class BoardTest {
+class BoardTest {
 
     /**
      * Instance of testing class.
@@ -20,7 +21,7 @@ public class BoardTest {
     /**
      * For reduce code in test extract init at this method.
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         board = new Board();
     }
@@ -29,7 +30,7 @@ public class BoardTest {
      * When create board should check that board is empty.
      */
     @Test
-    public void whenCreateBoardShouldCheckThatBoardEmpty() {
+    void whenCreateBoardShouldCheckThatBoardEmpty() {
 
         //Assign block
         String[][] expected = new String[][]{
@@ -54,7 +55,7 @@ public class BoardTest {
      * When try add figure to board should check that board saved it.
      */
     @Test
-    public void whenTryAddFigureToBoardShouldCheckThatBoardSaveIt() {
+    void whenTryAddFigureToBoardShouldCheckThatBoardSaveIt() {
 
         //Assign block
         board.addFigure(new Pawn(), 0, 0);
@@ -81,7 +82,7 @@ public class BoardTest {
      * When try move figure in correct direction should check that figure was moved.
      */
     @Test
-    public void whenTryMoveFigureInCorrectDirectionShouldMoveFigure() {
+    void whenTryMoveFigureInCorrectDirectionShouldMoveFigure() {
 
         //Assign block
         board.addFigure(new Pawn(), 0, 0);

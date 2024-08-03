@@ -1,7 +1,8 @@
 package find;
 
 import org.apache.commons.io.FileUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -32,7 +33,7 @@ public class UtilsTest {
      * @throws Exception if writer at the utils have problem.
      */
     @Test
-    public void whenCreateCatalogShouldCheckThatAllIsCreated() throws Exception {
+    void whenCreateCatalogShouldCheckThatAllIsCreated() throws Exception {
        FileTestUtils.createDirsAndFiles("testing", Arrays.asList("name.txt"), Arrays.asList("name.txt"));
        File rootFile = new File(String.format("%s%s%s%s%s", PATH, FileTestUtils.SEPARATOR, "testing", FileTestUtils.SEPARATOR, "name.txt"));
        assertThat(rootFile.exists(), is(true));
@@ -44,7 +45,7 @@ public class UtilsTest {
      * @throws Exception if library function remove dir have problem with removing.
      */
     @Test
-    public void whenRemoveDirShouldCheckThatAllRemoved() throws Exception {
+    void whenRemoveDirShouldCheckThatAllRemoved() throws Exception {
         FileTestUtils.createDirsAndFiles("testing", Arrays.asList("name.txt"), Arrays.asList("name.txt"));
         FileTestUtils.removeDir("testing");
         File rootFile = new File(String.format("%s%s%s", PATH, FileTestUtils.SEPARATOR, "testing"));
@@ -56,7 +57,7 @@ public class UtilsTest {
      * @throws IOException if problem with file system.
      */
     @Test
-    public void whenCreateAndFillFileShouldCheckThatAllOk() throws IOException {
+    void whenCreateAndFillFileShouldCheckThatAllOk() throws IOException {
         final String folder = "folder";
         final String fileName = "test.txt";
         List<String> expectedStrings = Arrays.asList("happy");

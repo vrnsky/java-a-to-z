@@ -1,11 +1,8 @@
 package ru.evrnsky.start;
 
-import org.junit.Test;
-import ru.evrnsky.start.MenuTracker;
-import ru.evrnsky.start.StubIO;
-import ru.evrnsky.start.Tracker;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.StringContains.containsString;
 
@@ -25,7 +22,7 @@ public class MenuTrackerTest {
      * Should check that menu is correct.
      */
     @Test
-    public final void whenWeShowUserMenuShouldShowCorrectMenu() {
+    void whenWeShowUserMenuShouldShowCorrectMenu() {
         String[] answer = new String[]{""};
         StubIO stubIO = new StubIO(answer);
         MenuTracker menuTracker = new MenuTracker(stubIO, new Tracker());
@@ -50,7 +47,7 @@ public class MenuTrackerTest {
      * Should check that item added.
      */
     @Test
-    public final void whenTryAddItemToTrackerUseMenuTrackerShouldAddItem() {
+    void whenTryAddItemToTrackerUseMenuTrackerShouldAddItem() {
 
         /** Assign block
          Which command will execute - see variable answer:
@@ -77,7 +74,7 @@ public class MenuTrackerTest {
      * Should check that item was removed.
      */
     @Test
-    public final void whenRemoveItemFromTrackerShouldRemoveItem() {
+    void whenRemoveItemFromTrackerShouldRemoveItem() {
 
         /** Assign block
          Which command will execute - see variable answer
@@ -110,7 +107,7 @@ public class MenuTrackerTest {
      * When try edit item should check that app correctly edit item.
      */
     @Test
-    public final void whenEditItemFromTrackerShouldEditTrackerItem() {
+    void whenEditItemFromTrackerShouldEditTrackerItem() {
 
         /** Assign block
          Which command will execute - see variable answer:
@@ -144,7 +141,7 @@ public class MenuTrackerTest {
      * When comment item should check that app attach comment.
      */
     @Test
-    public final void whenTryCommentItemShouldCommentItemAndSaveToTracker() {
+    void whenTryCommentItemShouldCommentItemAndSaveToTracker() {
 
         /** Assign block
          Which command will execute - see variable answer:
@@ -184,7 +181,7 @@ public class MenuTrackerTest {
      * Should check that app find item with given text.
      */
     @Test
-    public final void whenGetItemsFilterByTextShouldShowItemsWithTextData() {
+    void whenGetItemsFilterByTextShouldShowItemsWithTextData() {
 
         /** Assign block
          Which command will execute - see variable answer:
@@ -248,7 +245,7 @@ public class MenuTrackerTest {
      * Should check that id of first command is zero.
      */
     @Test
-    public final void whenTryGetIdFirstCommandShouldReturnIdOfFirstCommand() {
+    void whenTryGetIdFirstCommandShouldReturnIdOfFirstCommand() {
         String[] answer = new String[]{"Answer"};
         StubIO stubIO = new StubIO(answer);
         MenuTracker menuTracker = new MenuTracker(stubIO, new Tracker());
@@ -265,7 +262,7 @@ public class MenuTrackerTest {
      * Should check that id of last command is equals seven.
      */
     @Test
-    public final void whenGetIdLastCommandShouldIdOfLastCommand() {
+    void whenGetIdLastCommandShouldIdOfLastCommand() {
         String[] answer = new String[]{"answer"};
         StubIO stubIO = new StubIO(answer);
         final Tracker tracker = new Tracker();

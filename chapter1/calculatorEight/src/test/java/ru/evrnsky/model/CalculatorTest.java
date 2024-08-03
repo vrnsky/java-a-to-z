@@ -1,16 +1,17 @@
 package ru.evrnsky.model;
 
-import org.junit.Before;
-import org.junit.Test;
-import ru.evrnsky.model.Calculator;
 
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
  * Unit test for Calculator.java.
  */
-public class CalculatorTest {
+class CalculatorTest {
 
     /**
      * Instance of Calculator API.
@@ -21,7 +22,7 @@ public class CalculatorTest {
      * Before each test JUnit call this method.
      * Use it for init all need variables.
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         calc = new Calculator();
     }
@@ -30,7 +31,7 @@ public class CalculatorTest {
      * When try sum two integer should check that calculator return correct value.
      */
     @Test
-    public void whenTryCalculateSumShouldCheckThatCalculatorCorrectCalculate() {
+    void whenTryCalculateSumShouldCheckThatCalculatorCorrectCalculate() {
 
         //Assign block
         int expected = 2;
@@ -46,7 +47,7 @@ public class CalculatorTest {
      * When try deduct one integer from other integer should check that calculator return correct value.
      */
     @Test
-    public void whenTryCalculateDeductShouldCheckThatCalculatorCorrectCalculate() {
+    void whenTryCalculateDeductShouldCheckThatCalculatorCorrectCalculate() {
 
         //Assign bock
         int expected = 1;
@@ -62,7 +63,7 @@ public class CalculatorTest {
      * When try multiply two integers should check that calculator return correct value.
      */
     @Test
-    public void whenTryCalculateMultiplyShouldCheckThatCalculatorCorrectCalculate() {
+    void whenTryCalculateMultiplyShouldCheckThatCalculatorCorrectCalculate() {
 
         //Assign block
         int expected = 100;
@@ -78,7 +79,7 @@ public class CalculatorTest {
      * When try div one integer by other not null integer should check that calculator return correct value.
      */
     @Test
-    public void whenTryCalculateDivShouldCheckThatCalculatorGiveCorrectResult() {
+    void whenTryCalculateDivShouldCheckThatCalculatorGiveCorrectResult() {
 
         //Assign block
         int expected = 6;
@@ -93,14 +94,12 @@ public class CalculatorTest {
     /**
      * When user try div by zero should check that throw arithmetic exception.
      */
-    @Test(expected = ArithmeticException.class)
-    public void whenTryDivByZeroShouldCheckThatCalculatorThrowCorrectException() {
+    @Test
+    void whenTryDivByZeroShouldCheckThatCalculatorThrowCorrectException() {
 
-        //Assign block
-        int expected = -1;
 
         //Action block
-        int actual = calc.execute((a, b) -> a / b, 10, 0);
+        Assertions.assertThrows(ArithmeticException.class, () ->  calc.execute((a, b) -> a / b, 10, 0));
     }
 
 }

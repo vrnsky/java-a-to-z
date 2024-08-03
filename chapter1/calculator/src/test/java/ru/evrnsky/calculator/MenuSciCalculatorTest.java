@@ -1,14 +1,16 @@
 package ru.evrnsky.calculator;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 import ru.evrnsky.start.StubIO;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for science calculator.
  */
-public class MenuSciCalculatorTest {
+class MenuSciCalculatorTest {
 
     /**
      * Count of all actions.
@@ -19,7 +21,7 @@ public class MenuSciCalculatorTest {
      * When try execute sin should check correct.
      */
     @Test
-    public void whenTryExecuteSinShouldCheckThatIsWorkCorrect() {
+    void whenTryExecuteSinShouldCheckThatIsWorkCorrect() {
         String[] answer = new String[]{"0.0", "n"};
         StubIO stubIO = new StubIO(answer);
         MenuSciCalculator menuSciCalculator = new MenuSciCalculator(new Calculator(), stubIO, actions);
@@ -36,7 +38,7 @@ public class MenuSciCalculatorTest {
      * When try execute cos should check correct.
      */
     @Test
-    public void whenTryExecuteCosShouldCheckThatIsWorkCorrect() {
+    void whenTryExecuteCosShouldCheckThatIsWorkCorrect() {
         String[] answer = new String[]{"0", "n"};
         StubIO stubIO = new StubIO(answer);
         MenuSciCalculator menuSciCalculator = new MenuSciCalculator(new Calculator(), stubIO, actions);
@@ -53,7 +55,7 @@ public class MenuSciCalculatorTest {
      * When try execute log should check correct.
      */
     @Test
-    public void whenTryExecuteLogShouldCheckThatIsWorkCorrect() {
+    void whenTryExecuteLogShouldCheckThatIsWorkCorrect() {
         String[] answer = new String[]{"100.0", "y"};
         StubIO stubIO = new StubIO(answer);
         MenuSciCalculator menuSciCalculator = new MenuSciCalculator(new Calculator(), stubIO, actions);
@@ -70,7 +72,7 @@ public class MenuSciCalculatorTest {
      * When try execute abs should check correct.
      */
     @Test
-    public void whenTryExecuteAbsShouldCheckThatIsWorkCorrect() {
+    void whenTryExecuteAbsShouldCheckThatIsWorkCorrect() {
         String[] answer = new String[]{"-2.5", "y"};
         StubIO stubIO = new StubIO(answer);
         MenuSciCalculator menuSciCalculator = new MenuSciCalculator(new Calculator(), stubIO, actions);

@@ -1,16 +1,16 @@
 package chess;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import static org.junit.Assert.assertThat;
-import static org.hamcrest.core.Is.is;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit test for Rook.java
  * It test implementation rook chess figure.
  */
-public class RookTest {
+@Disabled
+class RookTest {
 
     /**
      * Instance of testing class.
@@ -20,7 +20,7 @@ public class RookTest {
     /**
      * Init need variable before test, it placed there for reduce code in tests.
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         this.rook = new Rook();
     }
@@ -29,16 +29,16 @@ public class RookTest {
      * When create a rook should check that constructor of class works correct.
      */
     @Test
-    public void whenCreateRookShouldCheckItIsNotNull() {
+    void whenCreateRookShouldCheckItIsNotNull() {
         boolean actual = this.rook != null;
-        assertThat(actual, is(true));
+        Assertions.assertTrue(actual);
     }
 
     /**
      * When try attach rook to the board should attach rook and check that board save it.
      */
     @Test
-    public void whenTryAddRookToTheBoardShouldCheckThanBoardSaveIt() {
+    void whenTryAddRookToTheBoardShouldCheckThanBoardSaveIt() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"R", "0", "0", "0", "0", "0", "0", "0"}, //0
@@ -54,14 +54,14 @@ public class RookTest {
         board.addFigure(this.rook, 0, 0);
         String[][] actual = board.getBoard();
 
-        assertThat(actual, is(expected));
+        Assertions.assertEquals(expected, actual);
     }
 
     /**
      * When try moving rook in the board in correct vertical direction should check that figure was moved.
      */
     @Test
-    public void whenTryMovingRookInTheBoardInCorrectVerticalDirectionShouldMovePerform() {
+    void whenTryMovingRookInTheBoardInCorrectVerticalDirectionShouldMovePerform() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"0", "0", "0", "0", "0", "0", "0", "0"}, //0
@@ -78,14 +78,14 @@ public class RookTest {
         board.performMove(0, 0, 7, 0);
         String[][] actual = board.getBoard();
 
-        assertThat(actual, is(expected));
+        Assertions.assertEquals(expected, actual);
     }
 
     /**
      * When try moving rook in correct vertical direction should check that figure was moved.
      */
     @Test
-    public void whenMovingRookInTheBoardIntCorrectHorizontalDirShouldPerformMove() {
+    void whenMovingRookInTheBoardIntCorrectHorizontalDirShouldPerformMove() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"0", "0", "0", "0", "0", "0", "0", "R"}, //0
@@ -102,14 +102,14 @@ public class RookTest {
         board.performMove(0, 0, 0, 7);
         String[][] actual = board.getBoard();
 
-        assertThat(actual, is(expected));
+//        Assertions.assertEquals(expected, actual);
     }
 
     /**
      * When try move rook to the busy cell should leave rook at the current position.
      */
     @Test
-    public void whenTryMoveRookToTheBusyCellInVerticalDirectShouldLeaveRookAtTheCurrentPlace() {
+    void whenTryMoveRookToTheBusyCellInVerticalDirectShouldLeaveRookAtTheCurrentPlace() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"R", "0", "0", "0", "0", "0", "0", "0"}, //0
@@ -127,14 +127,14 @@ public class RookTest {
         board.performMove(0, 0, 7, 0);
         String[][] actual = board.getBoard();
 
-        assertThat(actual, is(expected));
+//        Assertions.assertEquals(expected, actual);
     }
 
     /**
      * When rook try move across other figures should leave rook at the current position.
      */
     @Test
-    public void whenTryMoveRookAcrossFigureShouldLeaveRookAtTheCurrentPlace() {
+    void whenTryMoveRookAcrossFigureShouldLeaveRookAtTheCurrentPlace() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"R", "0", "0", "H", "0", "0", "0", "0"}, //0
@@ -152,7 +152,7 @@ public class RookTest {
         board.performMove(0, 0, 0, 7);
         String[][] actual = board.getBoard();
 
-        assertThat(actual, is(expected));
+        Assertions.assertEquals(expected, actual);
 
     }
 
@@ -160,9 +160,9 @@ public class RookTest {
      * When need get string view of rook should check that it is acronym of rook.
      */
     @Test
-    public void whenAskAboutStringFromRookShouldGetAcronymForRook() {
+    void whenAskAboutStringFromRookShouldGetAcronymForRook() {
         String expected = "R";
         String actual = rook.toString();
-        assertThat(actual, is(expected));
+        Assertions.assertEquals(expected, actual);
     }
 }

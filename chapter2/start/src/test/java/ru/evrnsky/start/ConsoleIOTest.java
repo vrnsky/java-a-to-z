@@ -1,18 +1,16 @@
 package ru.evrnsky.start;
 
-import org.junit.Before;
-import org.junit.Test;
-import ru.evrnsky.start.ConsoleIO;
-import ru.evrnsky.start.IO;
-import ru.evrnsky.start.MenuOutException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.number.IsCloseTo.closeTo;
-import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -21,7 +19,7 @@ import static org.hamcrest.core.Is.is;
  * @version 0.1
  * @since 01.04.2017
  */
-public class ConsoleIOTest {
+class ConsoleIOTest {
 
     /**
      * Depend on system.
@@ -36,7 +34,7 @@ public class ConsoleIOTest {
     /**
      * Calls before each test for not use real console.
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         System.setOut(new PrintStream(console));
 
@@ -46,7 +44,7 @@ public class ConsoleIOTest {
      * When console io type something should check that show.
      */
     @Test
-    public void whenConsoleIOTypeSomethingShouldCheckThatShow() {
+    void whenConsoleIOTypeSomethingShouldCheckThatShow() {
         String expected = "some data";
         ConsoleIO consoleIO = new ConsoleIO();
         consoleIO.println(expected);
@@ -57,7 +55,7 @@ public class ConsoleIOTest {
      * When IO ask user about some data should check that works fine.
      */
     @Test
-    public void whenIOAskUserAboutSomeDataShouldCheckThatWorksFine() {
+    void whenIOAskUserAboutSomeDataShouldCheckThatWorksFine() {
         String expected = "get from user";
         ByteArrayInputStream inputStream = new ByteArrayInputStream(expected.getBytes());
         System.setIn(new BufferedInputStream(inputStream));
@@ -70,7 +68,7 @@ public class ConsoleIOTest {
      * When IO ask about number should check that works fine.
      */
     @Test
-    public void whenIOAskAboutNumberShouldCheckThatWorksFine() {
+    void whenIOAskAboutNumberShouldCheckThatWorksFine() {
         String key = "5";
         ByteArrayInputStream inputStream = new ByteArrayInputStream(key.getBytes());
         System.setIn(new BufferedInputStream(inputStream));
@@ -82,25 +80,25 @@ public class ConsoleIOTest {
     /**
      * When user type number that unbounded in given range app should throw exception.
      */
-    @Test(expected = MenuOutException.class)
-    public void whenIOAskAboutNumberOfOptionAndUserTypeWrong() {
+    @Test
+    void whenIOAskAboutNumberOfOptionAndUserTypeWrong() {
         String key = "100";
         ByteArrayInputStream inputStream = new ByteArrayInputStream(key.getBytes());
         System.setIn(new BufferedInputStream(inputStream));
-        IO console = new ConsoleIO();
-        int value = console.ask("type", 0, 8);
+        IO testConsole = new ConsoleIO();
+        Assertions.assertThrows(MenuOutException.class, () ->  testConsole.ask("type", 0, 8));
     }
 
     /**
      * When io ask bout long should check that works fine.
      */
     @Test
-    public void whenIOAskAboutLongShouldCheckThatWorksFine() {
+    void whenIOAskAboutLongShouldCheckThatWorksFine() {
         String value = "1";
         ByteArrayInputStream inputStream = new ByteArrayInputStream(value.getBytes());
         System.setIn(new BufferedInputStream(inputStream));
-        IO console = new ConsoleIO();
-        long actual = console.askForLong("type a long");
+        IO testConsole = new ConsoleIO();
+        long actual = testConsole.askForLong("type a long");
         assertThat(actual, is(Long.valueOf(value)));
     }
 
@@ -108,7 +106,7 @@ public class ConsoleIOTest {
      * When app ask about double should check that works fine.
      */
     @Test
-    public void whenIOAskAboutDoubleShouldCheckThatAllFine() {
+    void whenIOAskAboutDoubleShouldCheckThatAllFine() {
         String value = "2.33";
         ByteArrayInputStream inputStream = new ByteArrayInputStream(value.getBytes());
         System.setIn(new BufferedInputStream(inputStream));

@@ -1,24 +1,23 @@
 package ru.evrnsky.start;
 
-import org.junit.Test;
-import ru.evrnsky.start.MenuOutException;
-import ru.evrnsky.start.StubIO;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
  * Unit test for StubIO.java
  * It must give us fake input from user.
  */
-public class StubIOTest {
+class StubIOTest {
 
     /**
      * When ask fake user about some string
      * Should check that input return string from answer array.
      */
     @Test
-    public final void whenGetInputDataShouldReturnInputData() {
+    void whenGetInputDataShouldReturnInputData() {
         String[] answer = new String[]{"Answer"};
         StubIO stubIO = new StubIO(answer);
         String expected = "Answer";
@@ -32,7 +31,7 @@ public class StubIOTest {
      * When try print something should check that it was printed.
      */
     @Test
-    public final void whenShowAtOutSomeDataShouldReturnInfo() {
+    void whenShowAtOutSomeDataShouldReturnInfo() {
         String[] answer = new String[]{"Answer"};
         StubIO stubIO = new StubIO(answer);
         String expected = "Answer\n";
@@ -48,7 +47,7 @@ public class StubIOTest {
      * Should accept this input.
      */
     @Test
-    public final void whenAskUserAboutLongShouldGetLong() {
+    void whenAskUserAboutLongShouldGetLong() {
         String[] answer = new String[]{"1"};
         StubIO stubIO = new StubIO(answer);
         long expected = 1L;
@@ -62,12 +61,12 @@ public class StubIOTest {
      * Ask fake about integer and user input int number in range
      * Should throw runtime exception.
      */
-    @Test(expected = MenuOutException.class)
-    public final void whenAskUserAboutIntIfItWrongShouldThrowException() {
+    @Test
+    void whenAskUserAboutIntIfItWrongShouldThrowException() {
         String[] answer = new String[]{"150"};
         StubIO stubIO = new StubIO(answer);
         final int to = 10;
 
-        int actual = stubIO.ask("Some int", 0, to);
+        Assertions.assertThrows(MenuOutException.class, () -> stubIO.ask("Some int", 0, to));
     }
 }

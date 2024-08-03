@@ -1,17 +1,18 @@
 package ru.evrnsky.calculator;
 
-import org.junit.Test;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import ru.evrnsky.start.StubIO;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 
 /**
  * Unit test for MenuCalculator.java.
  * It test all functionality from class.
  */
-public class MenuCalculatorTest {
+class MenuCalculatorTest {
 
     /**
      * Count of all action.
@@ -19,10 +20,10 @@ public class MenuCalculatorTest {
     private final int actions = 4;
 
     /**
-     * When try execute addition should check that operation works correct.
+     * When try to execute addition should check that operation works correct.
      */
     @Test
-    public void whenTryExecuteAdditionShouldCheckThatIsWorkCorrect() {
+    void whenTryExecuteAdditionShouldCheckThatIsWorkCorrect() {
         String[] answer = new String[]{"1.0", "y"};
         StubIO stubIO = new StubIO(answer);
         MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIO, actions);
@@ -39,7 +40,7 @@ public class MenuCalculatorTest {
      * When try execute deduct should check that operation works correct.
      */
     @Test
-    public void whenTryExecuteDeductShouldCheckThatIsWorkCorrect() {
+    void whenTryExecuteDeductShouldCheckThatIsWorkCorrect() {
         String[] answer = new String[]{"2.5", "y"};
         StubIO stubIO = new StubIO(answer);
         MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIO, actions);
@@ -56,7 +57,7 @@ public class MenuCalculatorTest {
      * When try execute multiply operation should check that operation works correct.
      */
     @Test
-    public void whenTryExecuteMultiplyShouldCheckThatIsWorkCorrect() {
+    void whenTryExecuteMultiplyShouldCheckThatIsWorkCorrect() {
         String[] answer = new String[]{"2", "2", "y"};
         StubIO stubIO = new StubIO(answer);
         MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIO, actions);
@@ -76,7 +77,7 @@ public class MenuCalculatorTest {
      * When try execute divide should check that is work correct.
      */
     @Test
-    public void whenTryExecuteDivideShouldCheckThatIsWorkCorrect() {
+    void whenTryExecuteDivideShouldCheckThatIsWorkCorrect() {
         String[] answer = new String[]{"100", "2", "y"};
         StubIO stubIo = new StubIO(answer);
         MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIo, actions);
@@ -95,21 +96,23 @@ public class MenuCalculatorTest {
     /**
      * When try div by zero should check that app throw exception.
      */
-    @Test(expected = ArithmeticException.class)
-    public void whenTryExecuteDivideByZeroShouldCheckThatAppThrowException() {
-        String[] answer = new String[]{"100", "0.0", "y"};
-        StubIO stubIO = new StubIO(answer);
-        MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIO, actions);
-        menuCalculator.fillActions();
-        String expected = String.format("%s + %s = %s\n%s / %s = %s\n",
-                               0.0, 100.0, 100.0, 100.0, 2.0, 50.0);
-        final int firstCommand = 0;
-        final int secondCommand = 3;
+    @Test
+    void whenTryExecuteDivideByZeroShouldCheckThatAppThrowException() {
+        Assertions.assertThrows(ArithmeticException.class, () -> {
+            String[] answer = new String[]{"100", "0.0", "y"};
+            StubIO stubIO = new StubIO(answer);
+            MenuCalculator menuCalculator = new MenuCalculator(new Calculator(), stubIO, actions);
+            menuCalculator.fillActions();
+            String expected = String.format("%s + %s = %s\n%s / %s = %s\n",
+                    0.0, 100.0, 100.0, 100.0, 2.0, 50.0);
+            final int firstCommand = 0;
+            final int secondCommand = 3;
 
-        menuCalculator.select(firstCommand);
-        menuCalculator.select(secondCommand);
+            menuCalculator.select(firstCommand);
+            menuCalculator.select(secondCommand);
 
-        assertThat(stubIO.getOut(), is(expected));
+            assertThat(stubIO.getOut(), is(expected));
+        });
     }
 
 }

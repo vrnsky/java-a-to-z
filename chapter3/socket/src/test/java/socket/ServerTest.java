@@ -1,12 +1,15 @@
 package socket;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import static org.junit.Assert.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -16,14 +19,14 @@ import static org.mockito.Mockito.when;
  * @since 15.04.2017
  * @version 0.1
  */
-public class ServerTest {
+class ServerTest {
 
     /**
      * When user type only exit should check that app exits.
      * @throws IOException if file not found, or some io errors detected.
      */
     @Test
-    public void whenTryStartServerShouldCheckThatAllIsOk() throws IOException {
+    void whenTryStartServerShouldCheckThatAllIsOk() throws IOException {
         Socket socket = mock(Socket.class);
         Server server = new Server(socket);
         ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -40,7 +43,7 @@ public class ServerTest {
      */
 
     @Test
-    public void whenTryStartServerAndStartExchangeShouldCheckThatAllIsOk() throws IOException {
+    void whenTryStartServerAndStartExchangeShouldCheckThatAllIsOk() throws IOException {
         Socket socket = mock(Socket.class);
         Server server = new Server(socket);
         ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -48,6 +51,6 @@ public class ServerTest {
         when(socket.getInputStream()).thenReturn(in);
         when(socket.getOutputStream()).thenReturn(out);
         server.start();
-        assertEquals(true, out.toString().contains("Bye!") && out.toString().length() > 4);
+        assertTrue(out.toString().contains("Bye!") && out.toString().length() > 4);
     }
 }

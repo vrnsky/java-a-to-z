@@ -1,11 +1,10 @@
 package ru.evrnsky.model;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
-import ru.evrnsky.model.Comment;
-import ru.evrnsky.model.Item;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 /**
  * Unit test for Item.java.
@@ -17,18 +16,16 @@ public class ItemTest {
      * When create item should check it is not null.
      */
     @Test
-    public final void whenCreateItemShouldCheckItIsNotNull() {
+    void whenCreateItemShouldCheckItIsNotNull() {
         Item item = new Item("It is my first item", "It is my first item");
-        boolean expected = true;
-
-        assertThat(item != null, is(true));
+        Assertions.assertNotNull(item);
     }
 
     /**
      * When create item should check the name of item saved.
      */
     @Test
-    public final void whenCreateItemShouldCheckItemSaveData() {
+    void whenCreateItemShouldCheckItemSaveData() {
         Item item = new Item("first item", "It is my first item");
         String expected = "first item";
 
@@ -41,7 +38,7 @@ public class ItemTest {
      * When create item should check the desc is saved.
      */
     @Test
-    public final void whenCreateItemShouldCheckItemSaveDescription() {
+    final void whenCreateItemShouldCheckItemSaveDescription() {
         Item item = new Item("asd", "item");
         String expected = "item";
 
@@ -55,7 +52,7 @@ public class ItemTest {
      * When update item should check item saved.
      */
     @Test
-    public final void whenUpdateItemNameShouldCheckItSaved() {
+    void whenUpdateItemNameShouldCheckItSaved() {
         Item item = new Item();
         String expected = "It is name";
 
@@ -69,7 +66,7 @@ public class ItemTest {
      * When update item description should check it saved.
      */
     @Test
-    public final void whenUpdateItemDescShouldCheckItSaved() {
+    void whenUpdateItemDescShouldCheckItSaved() {
         Item item = new Item();
         String expected = "It is desc";
 
@@ -83,7 +80,7 @@ public class ItemTest {
      * When create item should check than generateTime works correct.
      */
     @Test
-    public final void whenCreateItemShouldCheckTimeOfCreateCorrect() {
+    void whenCreateItemShouldCheckTimeOfCreateCorrect() {
         Item item = new Item();
 
         long time = item.getCreateTime();
@@ -96,7 +93,7 @@ public class ItemTest {
      * When try attach comment to item should check the comment is saved.
      */
     @Test
-    public final void whenTryAttachCommentToItemShouldCheckCommentSave() {
+    void whenTryAttachCommentToItemShouldCheckCommentSave() {
         Item item = new Item();
         Comment comm = new Comment("It is my first comment:");
         String expected = "Comment: It is my first comment:";

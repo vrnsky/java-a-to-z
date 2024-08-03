@@ -1,10 +1,9 @@
 package ru.evrnsky.model;
 
-import org.junit.Test;
-import ru.evrnsky.model.Bug;
-import ru.evrnsky.model.Comment;
 
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -27,7 +26,7 @@ public class BugTest {
      * when try set name for bug should check correct.
      */
     @Test
-    public final void whenSetNameBugShouldCheckCorrect() {
+    void whenSetNameBugShouldCheckCorrect() {
         Bug bug = new Bug();
         final String expected = "Issue";
         bug.setName(expected);
@@ -38,7 +37,7 @@ public class BugTest {
      * When try set desc for bug should check correct.
      */
     @Test
-    public final void whenSetDescShouldCheckCorrect() {
+    void whenSetDescShouldCheckCorrect() {
         Bug bug = new Bug();
         final String desc = "Issue";
         bug.setDescription(desc);
@@ -49,7 +48,7 @@ public class BugTest {
      * When check create time should check that correct.
      */
     @Test
-    public void whenCheckCreateTimeShouldCheckThatIsCorrect() {
+    void whenCheckCreateTimeShouldCheckThatIsCorrect() {
         Bug bug = new Bug();
         boolean correct = bug.getCreateTime() > 1L;
         assertThat(correct, is(true));
@@ -59,13 +58,10 @@ public class BugTest {
      * When add comment should check that comment was add.
      */
     @Test
-    public void whenAddCommentShouldCheckThatCommentWasAdd() {
+    void whenAddCommentShouldCheckThatCommentWasAdd() {
         Bug bug = new Bug();
         final String comment = "First comment";
         bug.addComment(new Comment(comment));
         assertThat(bug.getComments()[0].toString(), is(String.format("%s: %s", "Comment", comment)));
     }
-
-
-
 }

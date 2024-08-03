@@ -1,12 +1,9 @@
 package ru.evrnsky.start;
 
-import org.junit.Test;
-import ru.evrnsky.start.IO;
-import ru.evrnsky.start.StubIO;
-import ru.evrnsky.start.Validator;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.containsString;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -15,14 +12,14 @@ import static org.hamcrest.core.Is.is;
  * @version 0.1
  * @since 01.04.2017
  */
-public class ValidatorTest {
+class ValidatorTest {
 
 
     /**
      * When validator print should check that works fine.
      */
     @Test
-    public void whenValidatorPrintShouldCheckThatAllPrintln() {
+    void whenValidatorPrintShouldCheckThatAllPrintln() {
         String[] answer = {"type something"};
         String expected = "written from validator";
         StubIO stubIO = new StubIO(answer);
@@ -47,7 +44,7 @@ public class ValidatorTest {
      * When validator ask about long should check that all is ok.
      */
     @Test
-    public void whenValidatorAskAboutLongShouldCheckThatAllIsOk() {
+    void whenValidatorAskAboutLongShouldCheckThatAllIsOk() {
         String[] answer = {"2500"};
         StubIO stubIO = new StubIO(answer);
         IO validator = new Validator(stubIO);
@@ -59,7 +56,7 @@ public class ValidatorTest {
      * When validator ask about double should check that all is ok.
      */
     @Test
-    public void whenValidatorAskAboutDouleShouldCheckThatAllIsOk() {
+    void whenValidatorAskAboutDouleShouldCheckThatAllIsOk() {
         String[] answer = {"2.344"};
         StubIO stubIO = new StubIO(answer);
         IO validator = new Validator(stubIO);
@@ -71,7 +68,7 @@ public class ValidatorTest {
      * When ask user about number bounded in range should check that app works normal.
      */
     @Test
-    public void whenAskUserAboutNumberBoundedInSomeRangeShouldCheckThatWorkFine() {
+    void whenAskUserAboutNumberBoundedInSomeRangeShouldCheckThatWorkFine() {
         String[] answer = {"5"};
         StubIO stubIO = new StubIO(answer);
         IO validator = new Validator(stubIO);
@@ -84,7 +81,7 @@ public class ValidatorTest {
      * Should check that app informed about it.
      */
     @Test
-    public void whenAksUserAboutNumberBoundedInRangeButUserTypeNotNumberShouldCheckInfo() {
+    void whenAksUserAboutNumberBoundedInRangeButUserTypeNotNumberShouldCheckInfo() {
         String[] answer = {"it is not number", "8"};
         StubIO stubIO = new StubIO(answer);
         IO validator = new Validator(stubIO);
@@ -97,11 +94,11 @@ public class ValidatorTest {
      * Should check that app informed about it.
      */
     @Test
-    public void whenAskUserAboutMenuOptionButUserTypeAWrongNumber() {
+    void whenAskUserAboutMenuOptionButUserTypeAWrongNumber() {
         String[] answer = {"100", "8"};
         StubIO stubIO = new StubIO(answer);
         IO validator = new Validator(stubIO);
-        int value = validator.ask("type a menu options", 0, 8);
+        validator.ask("type a menu options", 0, 8);
         assertThat(stubIO.getOut(), containsString("Dear user, please choose correct options of menu"));
     }
 

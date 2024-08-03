@@ -1,9 +1,10 @@
 package ru.evrnsky.start;
 
-import org.junit.Test;
 
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * @author evrnsky
@@ -12,13 +13,13 @@ import static org.junit.Assert.assertThat;
  *
  * Unit test for user interface.
  */
-public class StartUITest {
+class StartUITest {
 
     /**
      * Try to sum.
      */
     @Test
-    public void whenTrySumTwoIntegerShouldCheckThatInUIPrintCorrectResult() {
+    void whenTrySumTwoIntegerShouldCheckThatInUIPrintCorrectResult() {
         String[] answer = new String[]{"+", "1", "1", "y"};
         StubIO stubIO  = new StubIO(answer);
         ru.evrnsky.start.StartUI starter = new ru.evrnsky.start.StartUI(stubIO);
@@ -33,7 +34,7 @@ public class StartUITest {
      * Deduct.
      */
     @Test
-    public void whenTryDeductTwoIntegerShouldCheckThatInUIPrintCorrectResult() {
+    void whenTryDeductTwoIntegerShouldCheckThatInUIPrintCorrectResult() {
         String[] answer = new String[]{"-", "100", "99", "y"};
         StubIO stubIO = new StubIO(answer);
         ru.evrnsky.start.StartUI starter = new ru.evrnsky.start.StartUI(stubIO);
@@ -48,7 +49,7 @@ public class StartUITest {
      * Try to multiply.
      */
     @Test
-    public void whenTryMultiplyTwoIntegerShouldCheckThatInUIPrintCorrectResult() {
+    void whenTryMultiplyTwoIntegerShouldCheckThatInUIPrintCorrectResult() {
         String[] answer = new String[]{"*", "6", "6", "y"};
         StubIO stubIO = new StubIO(answer);
         ru.evrnsky.start.StartUI starter = new ru.evrnsky.start.StartUI(stubIO);
@@ -63,7 +64,7 @@ public class StartUITest {
      * When try divide.
      */
     @Test
-    public void whenTryDivideTwoIntegerShouldCheckThatInUIPrintCorrectResult() {
+    void whenTryDivideTwoIntegerShouldCheckThatInUIPrintCorrectResult() {
         String[] answer = new String[]{"/", "32", "8", "y"};
         StubIO stubIO = new StubIO(answer);
         ru.evrnsky.start.StartUI starter = new StartUI(stubIO);

@@ -1,12 +1,11 @@
 package ru.evrnsky.loops;
 
-import org.junit.Test;
-import org.junit.Before;
-import ru.evrnsky.loops.Square;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertThat;
-import static org.hamcrest.number.IsCloseTo.closeTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.number.IsCloseTo.closeTo;
 
 /**
  * Unit test of Square.java.
@@ -22,7 +21,7 @@ public class SquareTest {
     /**
      * It uses for reduce code in test.
      */
-    @Before
+    @BeforeEach
     public final void setUp() {
         final int ax = 4;
         final int bx = 3;
@@ -34,7 +33,7 @@ public class SquareTest {
      * When calculate value of function should get value of function.
      */
     @Test
-    public final void whenCalculateFunctionShouldGetFuncValueInPoint() {
+    void whenCalculateFunctionShouldGetFuncValueInPoint() {
         final double expectedValue = 29.00;
         final int testValue = 2;
         final double error = 0.01;
@@ -50,7 +49,7 @@ public class SquareTest {
      * Should get string with value of function across step.
      */
     @Test
-    public final void whenNeedStringViewOfFuncValueShouldStringWithValue() {
+    void whenNeedStringViewOfFuncValueShouldStringWithValue() {
         final String expectedString = "8 29 64 ";
         final int ax = 1;
         final int bx = 3;

@@ -1,17 +1,16 @@
 package ru.evrnsky.loops;
 
-import org.junit.Test;
-import org.junit.Before;
-import ru.evrnsky.loops.Factorial;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
  * Unit test of Factorial.java.
  * It test algorithm of calculating factorial for integer numbers.
  */
-public class FactorialTest {
+class FactorialTest {
 
     /**
      * Instance of testing class.
@@ -22,8 +21,8 @@ public class FactorialTest {
      * Init instance of testing class at this place
      * for reduce size of code int tests.
      */
-    @Before
-    public final void setUp() {
+    @BeforeEach
+    public void setUp() {
         factorial = new Factorial();
     }
 
@@ -32,7 +31,7 @@ public class FactorialTest {
      * should get from factorial object factorial of given integer.
      */
     @Test
-    public final void whenTryCalculateFactorialShouldFactorialOfNumber() {
+    final void whenTryCalculateFactorialShouldFactorialOfNumber() {
         final int expectedValue = 6;
         final int testValue = 3;
 
@@ -46,7 +45,7 @@ public class FactorialTest {
      * Should check that factorial object return one/.
      */
     @Test
-    public final void whenTryCalculateZeroFactorialShouldGetOne() {
+    void whenTryCalculateZeroFactorialShouldGetOne() {
         final int expectedValue = 1;
         final int zero = 0;
 

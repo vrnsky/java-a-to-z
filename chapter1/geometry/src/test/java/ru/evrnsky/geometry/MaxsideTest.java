@@ -1,19 +1,15 @@
 package ru.evrnsky.geometry;
 
-import org.junit.Test;
-import ru.evrnsky.geometry.Maxside;
-import ru.evrnsky.geometry.Point;
-import ru.evrnsky.geometry.Triangle;
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
-import static org.hamcrest.number.IsCloseTo.closeTo;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 
 /**
  * Unit test for Maxside.java.
  * It test algorithm of find max side int triangle.
  */
-public class MaxsideTest {
+class MaxsideTest {
 
     /**
      * Delta of error.
@@ -30,7 +26,7 @@ public class MaxsideTest {
      * Should check that max side return correct length of side.
      */
     @Test
-    public void whenGiveMaxsideObjectCorrectTriangleShouldGetLengthOfMaxSideInTriangle() {
+    void whenGiveMaxsideObjectCorrectTriangleShouldGetLengthOfMaxSideInTriangle() {
         this.executeTest(new Point(4.0, 0.0),
                 new Point(8.0, 3.0), new Point(5.0, 8.0), EXPECTED_MAX);
     }
@@ -40,7 +36,7 @@ public class MaxsideTest {
      * It test check that second side also may be max side of triange.
      */
     @Test
-    public void whenTryGetMaxSideShouldCheckThatMaxSideReturnCorrectAnswer() {
+    void whenTryGetMaxSideShouldCheckThatMaxSideReturnCorrectAnswer() {
         this.executeTest(new Point(8.0, 3.0),
                 new Point(4.0, 0.0),
                 new Point(5.0, 8.0), EXPECTED_MAX);
@@ -50,7 +46,7 @@ public class MaxsideTest {
      * When try get max side should check that max side return correct side.
      */
     @Test
-    public void whenTryGetMaxSideShouldCheckThatMaxSideReturnCorrectSide() {
+    void whenTryGetMaxSideShouldCheckThatMaxSideReturnCorrectSide() {
         this.executeTest(new Point(5.0, 8.0), new Point(8.0, 3.0), new Point(4.0, 0.0), EXPECTED_MAX);
     }
 
@@ -61,7 +57,7 @@ public class MaxsideTest {
      * Should that max side return 0.0 - which means that triangle not exist.
      */
     @Test
-    public void whenGiveMaxsideObjectWrongTriangleShouldGetZeroLength() {
+    void whenGiveMaxsideObjectWrongTriangleShouldGetZeroLength() {
        this.executeTest(new Point(0.0, 0.0),
                new Point(0.0, 3.0), new Point(0.0, 0.0), 0.0);
     }
@@ -73,10 +69,10 @@ public class MaxsideTest {
      * @param three of triangle point.
      * @param expected length of max side of triangle.
      */
-    private void executeTest(Point one, Point two, Point three, double expected) {
+    void executeTest(Point one, Point two, Point three, double expected) {
         Triangle triangle = new Triangle(one, two, three);
         Maxside maxside = new Maxside();
         double actual = maxside.max(triangle);
-        assertThat(actual, is(closeTo(expected, DELTA)));
+        Assertions.assertEquals(expected, actual, DELTA);
     }
 }

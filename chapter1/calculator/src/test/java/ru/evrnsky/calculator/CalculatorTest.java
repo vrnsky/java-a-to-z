@@ -1,10 +1,10 @@
 package ru.evrnsky.calculator;
 
-import org.junit.Test;
-import org.junit.Before;
-import ru.evrnsky.calculator.Calculator;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -22,7 +22,7 @@ public class CalculatorTest {
     /**
      * Init instance of API, it is extract to this method for reduce code.
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         calc = new Calculator();
     }
@@ -32,7 +32,7 @@ public class CalculatorTest {
      * and check that actual result and expected result are equals.
      */
     @Test
-    public void whenAddTwoDoubleShouldGetSumOfIts() {
+    void whenAddTwoDoubleShouldGetSumOfIts() {
         final double first = 1.5;
         final double result = 1.5;
 
@@ -46,7 +46,7 @@ public class CalculatorTest {
      * actual result and expected result are equals.
      */
     @Test
-    public void whenDeductTwoDoubleShouldGetDifferenceBetweenDigits() {
+    void whenDeductTwoDoubleShouldGetDifferenceBetweenDigits() {
         final double first = 1.5;
         final double diff = -1.5;
 
@@ -60,7 +60,7 @@ public class CalculatorTest {
      * that actual result and expected result are equals.
      */
     @Test
-    public void whenMultiplyTwoDoubleShouldGetResultOfMulti() {
+    void whenMultiplyTwoDoubleShouldGetResultOfMulti() {
         final double first = 5.0;
         final double multiply = 2.0;
         final double result = 10.0;
@@ -76,7 +76,7 @@ public class CalculatorTest {
      * that actual result and expected result are equals.
      */
     @Test
-    public void whenDivideTwoDoubleShouldGetResultOfDivision() {
+    void whenDivideTwoDoubleShouldGetResultOfDivision() {
         final double first = 100.0;
         final double divisor = 50.0;
         final double result = 2.0;
@@ -91,17 +91,17 @@ public class CalculatorTest {
      * When try divide no-zero double number by zero should
      * check that algorithm change zero on one and return first double.
      */
-    @Test(expected = ArithmeticException.class)
-    public void whenDivideDoubleByZeroShouldReturnDividend() {
+    @Test
+    void whenDivideDoubleByZeroShouldReturnDividend() {
         final double first = 0.0;
-        calc.div(first);
+        Assertions.assertThrows(ArithmeticException.class, () -> calc.div(first));
     }
 
     /**
      * When try calculate sinus should check that is correct.
      */
     @Test
-    public void whenCalculateSinShouldCheckThatIsCorrect() {
+    void whenCalculateSinShouldCheckThatIsCorrect() {
         final double number = 0.0;
         calc.sin(number);
         assertThat(calc.getResult(), is(number));
@@ -111,7 +111,7 @@ public class CalculatorTest {
      * When try calculate cosinus should check that result is correct.
      */
     @Test
-    public void whenCalculateCosShouldCheckThatIsCorrect() {
+    void whenCalculateCosShouldCheckThatIsCorrect() {
         final double number = 0.0;
         final double result = 1.0;
         calc.cos(number);
@@ -122,7 +122,7 @@ public class CalculatorTest {
      * When try calculate decimal log should check that result is correct.
      */
     @Test
-    public void whenCalculateDecimalLogShouldCheckThatResultIsCorrect() {
+    void whenCalculateDecimalLogShouldCheckThatResultIsCorrect() {
         final double number = 100.0;
         final double result = 2.0;
         calc.log(number);
@@ -133,7 +133,7 @@ public class CalculatorTest {
      * When try calculate module for some number should check that result is correct.
      */
     @Test
-    public void whenCalculateModuleForNumberShouldCheckThaResultIsCorrect() {
+    void whenCalculateModuleForNumberShouldCheckThaResultIsCorrect() {
         final double number = -2.5;
         final double result = 2.5;
         calc.abs(number);

@@ -1,18 +1,16 @@
 package ru.evrnsky.geometry;
 
-import org.junit.Test;
-import ru.evrnsky.geometry.Point;
-import ru.evrnsky.geometry.Triangle;
+import org.testng.annotations.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
 import static org.hamcrest.number.IsCloseTo.closeTo;
 
 /**
  * Unit test for Triangle.java
  * It test algorithm of calculate area of triangle.
  */
-public class TriangleTest {
+class TriangleTest {
 
 
     /**
@@ -25,7 +23,7 @@ public class TriangleTest {
      * and check that actual result and expected result are equals.
      */
     @Test
-    public void whenCreateCorrectTriangleShouldGetItsArea() {
+    void whenCreateCorrectTriangleShouldGetItsArea() {
         this.executeTest(new Point(4.0, 0.0),
                 new Point(8.0, 3.0), new Point(5.0, 8.0), EXPECTED);
     }
@@ -34,7 +32,7 @@ public class TriangleTest {
      * When try create correct triangle with other sides should check that all is ok.
      */
     @Test
-    public void whenCreateCorrectTriangleWithOtherSidesShouldCheckFinest() {
+    void whenCreateCorrectTriangleWithOtherSidesShouldCheckFinest() {
         this.executeTest(new Point(0.0, 0.0),
                 new Point(0.0, 0.0), new Point(25.0, 0.0), 0.0);
     }
@@ -43,7 +41,7 @@ public class TriangleTest {
      * When try correct triangle with other side should that all is ok.
      */
     @Test
-    public void whenCreateCorrectTriangleWithOtherSidesShouldCheckThatWorksFine() {
+    void whenCreateCorrectTriangleWithOtherSidesShouldCheckThatWorksFine() {
         this.executeTest(new Point(25.0, 0.0),
                 new Point(0.0, 0.0), new Point(0.0, 0.0), 0.0);
     }
@@ -53,7 +51,7 @@ public class TriangleTest {
      * Should check that algorithm return 0.0 - it is means that triangle not exist.
      */
     @Test
-    public void whenCreateBadTriangleShouldGetZero() {
+    void whenCreateBadTriangleShouldGetZero() {
         this.executeTest(new Point(0.0, 0.0),
                 new Point(0.0, 0.0), new Point(0.0, 0.0), 0.0);
     }
