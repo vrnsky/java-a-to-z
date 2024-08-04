@@ -1,8 +1,10 @@
 package service;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
-import static org.junit.Assert.assertThat;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -10,14 +12,14 @@ import static org.hamcrest.core.Is.is;
  * @author evrnsky
  * @version 1.0
  */
-public class PrimesIteratorTest {
+class PrimesIteratorTest {
 
     /**
-     * When try move across the int array should check that if
+     * When try moving across the int array should check that if
      * we have not far a prime number return false.
      */
     @Test
-    public void whenTryMoveAcrossTheIntArrayShouldCheckThatIteratorGoForward() {
+    void whenTryMoveAcrossTheIntArrayShouldCheckThatIteratorGoForward() {
         PrimesIterator iterator = new PrimesIterator(new int[]{2, 3, 4});
 
         iterator.next();
@@ -29,11 +31,11 @@ public class PrimesIteratorTest {
     }
 
     /**
-     * When try move across data using the prime iterator
+     * When try moving across data using the prime iterator
      * should check that values which iterator return is prime.
      */
     @Test
-    public void whenTryMoveAcrossTheIntArrayShouldCheckThatIteratorReturnCorrectValue() {
+    void whenTryMoveAcrossTheIntArrayShouldCheckThatIteratorReturnCorrectValue() {
         PrimesIterator iterator = new PrimesIterator(new int[]{2, 3, 4, 5});
         int[] expected = new int[]{2, 3, 5};
 

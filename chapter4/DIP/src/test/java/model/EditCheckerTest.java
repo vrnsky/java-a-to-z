@@ -1,19 +1,20 @@
 package model;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for EditChecker.java.
  */
-public class EditCheckerTest {
+class EditCheckerTest {
 
     /**
      * When try check may edit exist user should check that checker return true.
      */
     @Test
-    public void whenTryCheckMayEditExistUserShouldCheckThatReturnTrue() {
+    void whenTryCheckMayEditExistUserShouldCheckThatReturnTrue() {
         User user = new StorageUser("Java", 20);
         User[] users = new User[1];
         users[0] = user;
@@ -30,7 +31,7 @@ public class EditCheckerTest {
      * When try check not exist user should check that checker return false.
      */
     @Test
-    public void whenTryCheckMayEditNonExistUserShouldCheckThatReturnFalse() {
+    void whenTryCheckMayEditNonExistUserShouldCheckThatReturnFalse() {
 
         //Assign block
         User user = new StorageUser("Java", 20);

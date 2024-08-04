@@ -1,22 +1,23 @@
 package food;
 
 import org.joda.time.DateTime;
-import org.junit.Test;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
  * Unit test for Food.java.
- * It test correct fill fields of food model.
+ * It is testing correct fill fields of food model.
  */
-public class FoodTest {
+class FoodTest {
 
 
     /**
      * Check that constructor works correct.
      */
     @Test
-    public void whenCreateFoodObjectShouldCheckThatAllFieldAreCorrectFill() {
+    void whenCreateFoodObjectShouldCheckThatAllFieldAreCorrectFill() {
         Food food = new Food("Food", new DateTime(2016, 7, 18, 0, 0, 0), new DateTime(2016, 12, 18, 0, 0, 0), 100.0, 0);
         String expected = "Name:Food\nWas added: 18.07.2016\nExpair date: 18.12.2016\nPrice: 100.0\nDiscount: 0";
 
@@ -27,7 +28,7 @@ public class FoodTest {
      * When try to set discount for food should check that product save it.
      */
     @Test
-    public void whenTryToSetDiscountShouldCheckThatIsWorkCorrect() {
+    void whenTryToSetDiscountShouldCheckThatIsWorkCorrect() {
         Food food = new Food("Food", new DateTime(), new DateTime(), 100.0, 0);
         int expected = 20;
 
@@ -37,10 +38,10 @@ public class FoodTest {
     }
 
     /**
-     * When try get name of food should check that is correct name of food.
+     * When try getting name of food should check that is correct name of food.
      */
     @Test
-    public void whenTryGetNameOfFoodShouldCheckThatIsCorrectWorks() {
+    void whenTryGetNameOfFoodShouldCheckThatIsCorrectWorks() {
 
         Food food = new Food("food", new DateTime(), new DateTime(), 100.0, 0);
         String expected = "food";
@@ -54,7 +55,7 @@ public class FoodTest {
      * When try get price for food should check that is correct price for food.
      */
     @Test
-    public void whenTryGetPriceForFoodShouldCheckThatIsCorrectWorks() {
+    void whenTryGetPriceForFoodShouldCheckThatIsCorrectWorks() {
         Food food = new Food("food", new DateTime(), new DateTime(), 100.0, 0);
         double expected = 100.0;
 

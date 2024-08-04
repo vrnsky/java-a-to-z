@@ -1,10 +1,12 @@
 package find;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import ru.evrnsky.chat.Answerer;
 import org.apache.commons.io.FileUtils;
-import org.junit.Test;
 import java.io.File;
-import static org.junit.Assert.assertThat;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 import java.io.IOException;
@@ -42,7 +44,7 @@ public class FindByNameTest {
      * @throws Exception if something was wrong.
      */
     @Test
-    public void whenTrySearchFileByNameShouldFndFileIfExistAndSavePathToItInFile() throws Exception {
+    void whenTrySearchFileByNameShouldFndFileIfExistAndSavePathToItInFile() throws Exception {
         FileTestUtils.createDirsAndFiles(FIND_BY_NAME, Arrays.asList(FILENAME), Arrays.asList(FILENAME));
         String searchFolder = String.format("%s%s%s", PATH, FileTestUtils.SEPARATOR, FIND_BY_NAME);
         File file = Files.createTempFile("mask", "").toFile();
@@ -67,7 +69,7 @@ public class FindByNameTest {
      * @throws IOException if io error happened.
      */
     @Test
-    public void whenTryCheckThatNameSuitableShouldCheckThatAppReturnCorrectAnswer() throws IOException {
+    void whenTryCheckThatNameSuitableShouldCheckThatAppReturnCorrectAnswer() throws IOException {
         FindByName findByName = new FindByName();
         File file = Files.createTempFile("mask", "").toFile();
         assertThat(findByName.check(file, file.getName()), is(true));
@@ -85,12 +87,12 @@ public class FindByNameTest {
     }
 
     /**
-     * Check that when try parse an not exist directory should check that app throw exception.
+     * Check that when try parse a not exist directory should check that app throw exception.
      */
-    @Test(expected = IllegalArgumentException.class)
-    public void whenTryGiveFinderEmptyDirectoryShouldCheckThatThrowException() {
+    @Test
+    void whenTryGiveFinderEmptyDirectoryShouldCheckThatThrowException() {
         FindByName findByName = new FindByName();
-        findByName.find(new String[]{"1", "not exist dir", "3", "4", "5", "6", "7"});
+        Assertions.assertThrows(IllegalArgumentException.class, () -> findByName.find(new String[]{"1", "not exist dir", "3", "4", "5", "6", "7"}));
     }
 
 

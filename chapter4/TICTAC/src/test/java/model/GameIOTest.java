@@ -1,13 +1,13 @@
 package model;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import ru.evrnsky.start.StubIO;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * @author evrnsky
@@ -16,13 +16,13 @@ import static org.junit.Assert.assertThat;
  *
  * It is unit test for game io implementation.
  */
-public class GameIOTest {
+class GameIOTest {
 
     /**
      * When try println should check that all is ok.
      */
     @Test
-    public void whenTryPrintlnShouldCheckThatAllIsOk() {
+    void whenTryPrintlnShouldCheckThatAllIsOk() {
         StubIO stubIO = new StubIO(new String[]{"data"});
         GameIO io = new GameIO(stubIO);
         io.println("new value");
@@ -33,7 +33,7 @@ public class GameIOTest {
      * When try print should check that all is ok.
      */
     @Test
-    public void whenTryPrintShouldCheckThatAllIsOk() {
+    void whenTryPrintShouldCheckThatAllIsOk() {
         StubIO stub = new StubIO(new String[]{"yegor"});
         GameIO io = new GameIO(stub);
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -43,10 +43,10 @@ public class GameIOTest {
     }
 
     /**
-     * When try ask shoudl check that game io return correct data.
+     * When try ask should check that game io return correct data.
      */
     @Test
-    public void whenTryAskShouldCheckThatGameIOReturnCorrectData() {
+    void whenTryAskShouldCheckThatGameIOReturnCorrectData() {
         StubIO stub = new StubIO(new String[]{"value"});
         GameIO io = new GameIO(stub);
         String actual = io.ask("type a new value");
@@ -57,7 +57,7 @@ public class GameIOTest {
      * When try ask a number should check that game io return correct number.
      */
     @Test
-    public void whenTryAskANumberShouldCheckThatGameIOReturnCorrectNumber() {
+    void whenTryAskANumberShouldCheckThatGameIOReturnCorrectNumber() {
         StubIO stub = new StubIO(new String[]{"5"});
         GameIO io = new GameIO(stub);
         int actual = io.ask("type a number", 1, 10);

@@ -1,29 +1,32 @@
 package model;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
- *  Unit test for SimpleGenerator.java.
+ * Unit test for SimpleGenerator.java.
  */
-public class SimpleGeneratorTest {
+class SimpleGeneratorTest {
 
     /**
-     * When try generate string with correct counts of place for insert data
+     * When try generating string with correct counts of place for insert data
      * Should check that is string generates correct.
      */
     @Test
-    public void whenTryGenerateWithStringWithCorrectCountParamShouldCheckThatGenerateStringIsCorrect() {
+    void whenTryGenerateWithStringWithCorrectCountParamShouldCheckThatGenerateStringIsCorrect() {
 
         //Assign block
         Template generator = new SimpleGenerator();
         String template = "Hello, ${name}!";
         Map<String, String> dictionary = new HashMap<String, String>();
         dictionary.put("name", "Egor");
-        String expected =  "Hello, Egor!";
+        String expected = "Hello, Egor!";
 
         //Action block
         String actual = generator.generate(template, dictionary);
@@ -37,31 +40,32 @@ public class SimpleGeneratorTest {
      * Check by give generator more values than in template.
      * Should check that generator throw exception.
      */
-    @Test(expected = IllegalArgumentException.class)
-    public void whenTryGenerateStringWithWrongCountMoreValuesThenKeyShouldCheckThatAppThrowException() {
+    @Test
+    void whenTryGenerateStringWithWrongCountMoreValuesThenKeyShouldCheckThatAppThrowException() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            //Assign block
+            Template generator = new SimpleGenerator();
+            String template = "Hello, ${user}!";
+            Map<String, String> dictionary = new HashMap<>();
+            dictionary.put("user", "Java");
+            dictionary.put("other", "Spring");
+            dictionary.put("HTML", "html");
+            String expected = "Hello, Java!";
 
-        //Assign block
-        Template generator = new SimpleGenerator();
-        String template = "Hello, ${user}!";
-        Map<String, String> dictionary = new HashMap<>();
-        dictionary.put("user", "Java");
-        dictionary.put("other", "Spring");
-        dictionary.put("HTML", "html");
-        String expected = "Hello, Java!";
+            //Action block
+            String actual = generator.generate(template, dictionary);
 
-        //Action block
-        String actual = generator.generate(template, dictionary);
-
-        //Assert block
-        assertThat(actual, is(expected));
+            //Assert block
+            assertThat(actual, is(expected));
+        });
     }
 
     /**
      * Check by give generator keys more than values.
      * Should check that generator throw exception.
      */
-    @Test(expected = IllegalArgumentException.class)
-    public void whenTryGenerateStringWithWrongCountMoreKeysThatValuesShouldCheckThatAppThrowException() {
+    @Test
+    void whenTryGenerateStringWithWrongCountMoreKeysThatValuesShouldCheckThatAppThrowException() {
 
         //Assign block
         Template generator = new SimpleGenerator();
@@ -72,15 +76,15 @@ public class SimpleGeneratorTest {
         dictionary.put("third", "test");
 
         //Action block
-        String actual = generator.generate(template, dictionary);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> generator.generate(template, dictionary));
     }
 
     /**
      * Check by give generator null as data.
      * Should check that app throw correct exception.
      */
-    @Test(expected = IllegalArgumentException.class)
-    public void whenTryGenerateWithNullDataShouldCheckThatAppThrowException() {
+    @Test
+    void whenTryGenerateWithNullDataShouldCheckThatAppThrowException() {
 
         //Assign block
         Template generator = new SimpleGenerator();
@@ -88,15 +92,15 @@ public class SimpleGeneratorTest {
         Map<String, String> data = null;
 
         //Action block
-        String actual = generator.generate(template, data);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> generator.generate(template, data));
     }
 
     /**
      * Check by give null string as template.
      * Should check that app throw correct exception.
      */
-    @Test(expected = IllegalArgumentException.class)
-    public void whenTryGenerateStringGiveNullStringShouldCheckThatGeneratorWorksCorrect() {
+    @Test
+    void whenTryGenerateStringGiveNullStringShouldCheckThatGeneratorWorksCorrect() {
 
         //Assign block
         Template generator = new SimpleGenerator();
@@ -105,7 +109,7 @@ public class SimpleGeneratorTest {
         data.put("one", "else");
 
         //Action block
-        String actual = generator.generate(template, data);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> generator.generate(template, data));
 
     }
 }

@@ -14,7 +14,7 @@ public class StartUI {
      * @param args keys.
      */
     public static void main(String[] args) {
-        new ru.evrnsky.start.StartUI().init(new GameIO(new ConsoleIO()));
+        new ru.evrnsky.start.StartUI(new ConsoleIO()).init();
     }
 
     /**

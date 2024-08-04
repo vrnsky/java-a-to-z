@@ -2,20 +2,21 @@ package storage;
 
 import food.Food;
 import org.joda.time.DateTime;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for Trash.java.
  */
-public class TrashTest {
+class TrashTest {
 
     /**
-     * When try add food to trash should check that trash save it.
+     * When try adding food to trash should check that trash save it.
      */
     @Test
-    public void whenTryAddFoodToTrashShouldCheckThatTrashSaveIt() {
+    void whenTryAddFoodToTrashShouldCheckThatTrashSaveIt() {
 
         //Assign block
         DateTime expaireTime = new DateTime();

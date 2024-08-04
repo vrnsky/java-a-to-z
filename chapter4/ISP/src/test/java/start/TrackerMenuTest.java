@@ -1,23 +1,23 @@
 package start;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import ru.evrnsky.start.StubIO;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.StringContains.containsString;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for TrackerMenu.java.
  * It must check all operations from TrackerMenu.
  */
-public class TrackerMenuTest {
+class TrackerMenuTest {
 
     /**
      * When use new menu should check that is show correct.
      */
     @Test
-    public void whenTryUseNewMenuShouldCheckThatWorksCorrect() {
+    void whenTryUseNewMenuShouldCheckThatWorksCorrect() {
         String[] answer = new String[]{"1", "Java", "Course", "y"};
         StubIO stubIO = new StubIO(answer);
         TrackerMenu menuTracker = new TrackerMenu(stubIO);
@@ -42,10 +42,10 @@ public class TrackerMenuTest {
     }
 
     /**
-     * When try use new menu for add new item should check that is works.
+     * When try using new menu for add new item should check that is works.
      */
     @Test
-    public void whenTryUseNewMenuForAddNewItemShouldCheckThatWorks() {
+    void whenTryUseNewMenuForAddNewItemShouldCheckThatWorks() {
         String[] answer = new String[]{"1", "test", "test", "n", "3", "y"};
         StubIO stubIO = new StubIO(answer);
         TrackerMenu menuTracker = new TrackerMenu(stubIO);
@@ -57,10 +57,10 @@ public class TrackerMenuTest {
     }
 
     /**
-     * When try use new menu for remove item should check that works.
+     * When try using new menu for remove item should check that works.
      */
     @Test
-    public void whenTryUseNewMenuForRemoveItemShouldCheckThatWorks() {
+    void whenTryUseNewMenuForRemoveItemShouldCheckThatWorks() {
         String[] answer = new String[]{"1", "test", "test", "n", "2", "1", "n", "2", "y"};
         StubIO stubIO = new StubIO(answer);
         TrackerMenu menuTracker = new TrackerMenu(stubIO);
@@ -72,10 +72,10 @@ public class TrackerMenuTest {
     }
 
     /**
-     * When try use new menu for show all items should check that all items will show.
+     * When try using new menu for show all items should check that all items will show.
      */
     @Test
-    public void whenTryUseNewMenuForShowAllItemsShouldCheckThatItsWorksCorrect() {
+    void whenTryUseNewMenuForShowAllItemsShouldCheckThatItsWorksCorrect() {
         String[] answer = new String[]{"1", "It is new item", "It is new item", "n", "3", "y"};
         StubIO stubIO = new StubIO(answer);
         TrackerMenu menu = new TrackerMenu(stubIO);
@@ -87,10 +87,10 @@ public class TrackerMenuTest {
     }
 
     /**
-     * When try use new menu for edit item should check that is works correct.
+     * When try using new menu for edit item should check that is works correct.
      */
     @Test
-    public void whenTryUseNewMenuForEditItemShouldCheckThatIsWorksCorrect() {
+    void whenTryUseNewMenuForEditItemShouldCheckThatIsWorksCorrect() {
         String[] answer = new String[]{"1", "Not edit", "Not edit", "n", "4", "1", "Edited", "Edited", "n", "3", "y"};
         StubIO stubIO = new StubIO(answer);
         TrackerMenu menuTracker = new TrackerMenu(stubIO);
@@ -102,10 +102,10 @@ public class TrackerMenuTest {
     }
 
     /**
-     * When try use new menu for comment item should check that works correct.
+     * When try using new menu for comment item should check that works correct.
      */
     @Test
-    public void whenTryUseNewMenuForCommentItemShouldCheckThatWorksCorrect() {
+    void whenTryUseNewMenuForCommentItemShouldCheckThatWorksCorrect() {
         String[] answer = new String[]{"1", "Will comments", "Will comments", "n", "5", "1", "first comment", "n", "6", "1", "y"};
         StubIO stubIO = new StubIO(answer);
         TrackerMenu menuTracker = new TrackerMenu(stubIO);
@@ -120,7 +120,7 @@ public class TrackerMenuTest {
      * When try use new menu for search item by text should check that works correct.
      */
     @Test
-    public void whenTryUseNewMenuForSearchItemsByTextShouldCheckThatWorksCorrect() {
+    void whenTryUseNewMenuForSearchItemsByTextShouldCheckThatWorksCorrect() {
         String[] answer = new String[]{"1", "find me", "find me", "n", "7", "find me", "y"};
         StubIO stubIO = new StubIO(answer);
         TrackerMenu menu = new TrackerMenu(stubIO);
@@ -134,10 +134,10 @@ public class TrackerMenuTest {
     }
 
     /**
-     * When try use new menu for search items by time should check that works correct.
+     * When try using new menu for search items by time should check that works correct.
      */
     @Test
-    public void whenTryUseNewMenuForSearchItemsByTimeShouldCheckThatWorksCorrect() {
+    void whenTryUseNewMenuForSearchItemsByTimeShouldCheckThatWorksCorrect() {
         String[] answer = new String[]{"1", "timeout", "timeout", "n", "8", "1", "y"};
         StubIO stubIO = new StubIO(answer);
         TrackerMenu menu = new TrackerMenu(stubIO);

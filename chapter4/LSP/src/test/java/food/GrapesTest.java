@@ -1,20 +1,21 @@
 package food;
 
 import org.joda.time.DateTime;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for Grapes.java.
  */
-public class GrapesTest {
+class GrapesTest {
 
     /**
      * Check that constructor works correct.
      */
     @Test
-    public void whenCreateFoodObjectShouldCheckThatAllFieldAreCorrectFill() {
+    void whenCreateFoodObjectShouldCheckThatAllFieldAreCorrectFill() {
         Food food = new Grapes("Grapes", new DateTime(2016, 7, 18, 0, 0, 0), new DateTime(2016, 12, 18, 0, 0, 0), 100.0, 0);
         String expected = "Name:Grapes\nWas added: 18.07.2016\nExpair date: 18.12.2016\nPrice: 100.0\nDiscount: 0";
 
@@ -25,7 +26,7 @@ public class GrapesTest {
      * When try to set discount for food should check that product save it.
      */
     @Test
-    public void whenTryToSetDiscountShouldCheckThatIsWorkCorrect() {
+    void whenTryToSetDiscountShouldCheckThatIsWorkCorrect() {
         Food food = new Grapes("Grapes", new DateTime(), new DateTime(), 100.0, 0);
         int expected = 20;
 
@@ -36,10 +37,10 @@ public class GrapesTest {
 
 
     /**
-     * When try get name of food should check that is correct name of food.
+     * When try getting name of food should check that is correct name of food.
      */
     @Test
-    public void whenTryGetNameOfFoodShouldCheckThatIsCorrectWorks() {
+    void whenTryGetNameOfFoodShouldCheckThatIsCorrectWorks() {
         Food food = new Grapes("Grapes", new DateTime(), new DateTime(), 100.0, 0);
         String expected = "Grapes";
 
@@ -49,10 +50,10 @@ public class GrapesTest {
     }
 
     /**
-     * When try get price for food should check that is correct price for food.
+     * When try getting price for food should check that is correct price for food.
      */
     @Test
-    public void whenTryGetPriceForFoodShouldCheckThatIsCorrectWorks() {
+    void whenTryGetPriceForFoodShouldCheckThatIsCorrectWorks() {
         Food food = new Grapes("Grapes", new DateTime(), new DateTime(), 100.0, 0);
         double expected = 100.0;
 

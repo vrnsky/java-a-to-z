@@ -1,16 +1,18 @@
 package find;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import ru.evrnsky.chat.Answerer;
 import org.apache.commons.io.FileUtils;
-import org.junit.Test;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for FindByRegExp.java.
@@ -39,7 +41,7 @@ public class FindByRegExpTest {
      * @throws Exception if something wrong.
      */
     @Test
-    public void whenTrySearchFileByRegExpShouldCheckThatWeWriteResultInFile() throws Exception {
+    void whenTrySearchFileByRegExpShouldCheckThatWeWriteResultInFile() throws Exception {
         FileTestUtils.createDirsAndFiles(FIND_BY_REGEXP, Arrays.asList("regexp.txt"), Arrays.asList("regexp.txt"));
         String searchFolder = String.format("%s%s%s", PATH, FileTestUtils.SEPARATOR, FIND_BY_REGEXP);
         File file = Files.createTempFile("regexp", "").toFile();
@@ -64,7 +66,7 @@ public class FindByRegExpTest {
      * @throws IOException if io error happened.
      */
     @Test
-    public void whenTryCheckThatNameSuitableShouldCheckThatAppReturnCorrectAnswer() throws IOException {
+    void whenTryCheckThatNameSuitableShouldCheckThatAppReturnCorrectAnswer() throws IOException {
         FindByName findByName = new FindByName();
         File file = Files.createTempFile("ram", "txt").toFile();
         assertThat(findByName.check(file, file.getName()), is(true));
@@ -75,19 +77,19 @@ public class FindByRegExpTest {
      * @throws IOException if io error happened.
      */
     @Test
-    public void whenTryCheckThatNameIsNotSuitableShouldCheckThatAppReturnCorrectAnswer() throws IOException {
+    void whenTryCheckThatNameIsNotSuitableShouldCheckThatAppReturnCorrectAnswer() throws IOException {
         FindByName findByName = new FindByName();
         File file = Files.createTempFile("baby", "").toFile();
         assertThat(findByName.check(file, "r*"), is(false));
     }
 
     /**
-     * Check that when try parse an not exist directory should check that app throw exception.
+     * Check that when try parse a not exist directory should check that app throw exception.
      */
-    @Test(expected = IllegalArgumentException.class)
-    public void whenTryGiveFinderEmptyDirectoryShouldCheckThatThrowException() {
+    @Test
+    void whenTryGiveFinderEmptyDirectoryShouldCheckThatThrowException() {
         FindByName findByName = new FindByName();
-        findByName.find(new String[]{"1", "not exist dir", "3", "4", "5", "6", "7"});
+        Assertions.assertThrows(IllegalArgumentException.class, () -> findByName.find(new String[]{"1", "not exist dir", "3", "4", "5", "6", "7"}));
     }
 
 

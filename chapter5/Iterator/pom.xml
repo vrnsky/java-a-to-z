@@ -3,7 +3,15 @@
 	<groupId>ru.evrnsky.chapter5.Iterator</groupId>
 	<artifactId>Iterator</artifactId>
 	<name>Iterator</name>
-	<version>1.0</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.1.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <version>1.0</version>
 	<packaging>jar</packaging>
 	
 	<parent>

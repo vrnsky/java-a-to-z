@@ -1,26 +1,29 @@
 package service;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for SimpleConvert.java.
- * It test additional operation for iterators.
+ * It is testing additional operation for iterators.
  */
-public class SimpleConvertTest {
+class SimpleConvertTest {
 
     /**
      * When try convert iterator of iterator should check that all value get correct.
      */
     @Test
-    public void whenTryConvertTwoNestIteratorShouldCheckThatConvertIteratorReturnCorrectValues() {
+    void whenTryConvertTwoNestIteratorShouldCheckThatConvertIteratorReturnCorrectValues() {
         SimpleConvert iterator = new SimpleConvert();
         List<Integer> one = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
         List<Integer> two = new ArrayList<>(Arrays.asList(8, 9, 5, 6));
@@ -42,17 +45,17 @@ public class SimpleConvertTest {
     /**
      * When try give converter null should check that app throw exception.
      */
-    @Test(expected = IllegalArgumentException.class)
-    public void whenTryGiveNullToTheConverterShouldCheckThatConverterThrowException() {
+    @Test
+    void whenTryGiveNullToTheConverterShouldCheckThatConverterThrowException() {
         SimpleConvert converter = new SimpleConvert();
-        converter.convert(null);
+        Assertions.assertThrows(IllegalArgumentException.class,  () -> converter.convert(null));
     }
 
     /**
      * When try give empty list should check that iterator return false.
      */
     @Test
-    public void whenTryGiveEmptyListToTheConvertShouldSomethingCheck() {
+    void whenTryGiveEmptyListToTheConvertShouldSomethingCheck() {
         SimpleConvert iterator = new SimpleConvert();
         List<Integer> one = new ArrayList<>();
         List<Iterator<Integer>> list = new ArrayList<>(Arrays.asList(one.iterator()));
@@ -65,7 +68,7 @@ public class SimpleConvertTest {
      * When try get inner iterator should check that is not null.
      */
     @Test
-    public void whenTryGetInnerIteratorShouldCheckThatAllIsOk() {
+    void whenTryGetInnerIteratorShouldCheckThatAllIsOk() {
         SimpleConvert iterator = new SimpleConvert();
         List<Integer> one = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
         List<Integer> two = new ArrayList<>(Arrays.asList(8, 9, 5, 6));

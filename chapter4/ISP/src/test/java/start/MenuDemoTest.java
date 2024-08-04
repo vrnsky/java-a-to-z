@@ -1,21 +1,22 @@
 package start;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import ru.evrnsky.start.StubIO;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+
 
 /**
  * Unit test for MenuDemo.java.
  */
-public class MenuDemoTest {
+class MenuDemoTest {
 
     /**
      * When show menu from menu demo should check that showing correct.
      */
     @Test
-    public void whenMenuStartShouldCheckThatIsCorrectLook() {
+    void whenMenuStartShouldCheckThatIsCorrectLook() {
 
         //Assign block
         String[] answer = new String[]{"", "", ""};

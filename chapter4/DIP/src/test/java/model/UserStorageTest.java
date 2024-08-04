@@ -1,9 +1,10 @@
 package model;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import ru.evrnsky.start.StubIO;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for UserStorage.java.
@@ -11,11 +12,11 @@ import static org.junit.Assert.assertThat;
 public class UserStorageTest {
 
     /**
-     * When try create new user which not exist in storage
+     * When try creating new user which not exist in storage
      * Should check that user was added.
      */
     @Test
-    public void whenTryCreateNewUserShouldCheckThatApiWorksCorrect() {
+    void whenTryCreateNewUserShouldCheckThatApiWorksCorrect() {
         String[] answer = new String[]{"Egor", "19"};
         StubIO stubIO = new StubIO(answer);
         UserStorage userStorage = new UserStorage(stubIO, new EditChecker());
@@ -32,11 +33,11 @@ public class UserStorageTest {
     }
 
     /**
-     * When try create new user which already exist in storage
+     * When try creating new user which already exist in storage
      * Should check that user was not added.
      */
     @Test
-    public void whenTryCreateNewUserWhichAlreadyInBaseShouldCanceledAddOperation() {
+    void whenTryCreateNewUserWhichAlreadyInBaseShouldCanceledAddOperation() {
         String[] answer = new String[]{"Yegor", "19", "Yegor", "19", "0"};
         StubIO stubIO = new StubIO(answer);
         UserStorage storage = new UserStorage(stubIO, new EditChecker());
@@ -54,7 +55,7 @@ public class UserStorageTest {
      * When try edit exist user should check that app correct edit.
      */
     @Test
-    public void whenTryEditExistUserShouldCheckThatApiWorksCorrect() {
+    void whenTryEditExistUserShouldCheckThatApiWorksCorrect() {
 
         //Assign block
         String[] answer = new String[]{"Egor", "19", "Egor", "19", "0", "Yegor", "0", "19"};
@@ -79,7 +80,7 @@ public class UserStorageTest {
      * When try edit not exist user should check that app notify about it.
      */
     @Test
-    public void whenTryEditNoExistingUserShouldCheckThatAppShowInfoAboutIt() {
+    void whenTryEditNoExistingUserShouldCheckThatAppShowInfoAboutIt() {
         String[] answer = new String[]{"Yegor", "19", "Egor", "25", "1"};
         StubIO stubIO = new StubIO(answer);
         UserStorage storage = new UserStorage(stubIO, new EditChecker());
@@ -97,7 +98,7 @@ public class UserStorageTest {
      * When try to remove exist user should check that user was removed.
      */
     @Test
-    public void whenTryRemoveExistingUserShouldCheckThatApiWorksCorrect() {
+    void whenTryRemoveExistingUserShouldCheckThatApiWorksCorrect() {
         String[] answer = new String[]{"Yegor", "19", "Yegor", "19", "0"};
         StubIO stubIO = new StubIO(answer);
         UserStorage userStorage = new UserStorage(stubIO, new EditChecker());
@@ -118,7 +119,7 @@ public class UserStorageTest {
      * When try remove not exist user should notify user about it.
      */
     @Test
-    public void whenTryRemoveNoExistUserShouldShowInfoAboutIt() {
+    void whenTryRemoveNoExistUserShouldShowInfoAboutIt() {
         String[] answer = new String[]{"Yegor", "19", "Egor", "20", "0"};
         StubIO stubIO = new StubIO(answer);
         UserStorage storage = new UserStorage(stubIO, new EditChecker());
