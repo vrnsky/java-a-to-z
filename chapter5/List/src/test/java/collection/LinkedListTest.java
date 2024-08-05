@@ -1,22 +1,25 @@
 package collection;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 import java.util.Iterator;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.collection.IsArrayContainingInOrder.arrayContaining;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for LinkedList.java.
  */
-public class LinkedListTest {
+class LinkedListTest {
 
     /**
-     * When try add values to linked list should check that values was added.
+     * When try adding values to linked list should check that values was added.
      */
     @Test
-    public void whenTryAddValuesToLinkedListShouldCheckThatValueWasAdded() {
+    void whenTryAddValuesToLinkedListShouldCheckThatValueWasAdded() {
         SimpleContainer<String> container = new LinkedList<>();
         String expected = "Hello";
 
@@ -30,7 +33,7 @@ public class LinkedListTest {
      * When try remove value from list should check that value was removed.
      */
     @Test
-    public void whenTryRemoveValueShouldCheckThatValueWasRemoved() {
+    void whenTryRemoveValueShouldCheckThatValueWasRemoved() {
         SimpleContainer<String> container = new LinkedList<>();
         String expected = "Hello";
 
@@ -44,7 +47,7 @@ public class LinkedListTest {
      * When try check that some object contains at the list should check that method works correct.
      */
     @Test
-    public void whenTryCheckThatSomeObjectContainsAtTheListShouldCheckThatMethodWorksCorrect() {
+    void whenTryCheckThatSomeObjectContainsAtTheListShouldCheckThatMethodWorksCorrect() {
         SimpleContainer<String> container = new LinkedList<>();
         String value = "Java";
 
@@ -58,7 +61,7 @@ public class LinkedListTest {
      * When try get iterator should check that iterator return all values from the list.
      */
     @Test
-    public void whenTryGetIteratorForMovingAcrossListShouldCheckThatIteratorWorksCorrect() {
+    void whenTryGetIteratorForMovingAcrossListShouldCheckThatIteratorWorksCorrect() {
         SimpleContainer<String> container = new LinkedList<>();
         String[] expected = {"Hello", "World", "!"};
 
@@ -76,10 +79,10 @@ public class LinkedListTest {
     }
 
     /**
-     * When try move across list use iterator should check that method iterator return true.
+     * When try moving across list use iterator should check that method iterator return true.
      */
     @Test
-    public void whenTryMoveAcrossListUseIteratorShouldCheckThatMethodHasNextOfIteratorReturnTrue() {
+    void whenTryMoveAcrossListUseIteratorShouldCheckThatMethodHasNextOfIteratorReturnTrue() {
 
         SimpleContainer<String> container = new LinkedList<>();
 
@@ -93,7 +96,7 @@ public class LinkedListTest {
      * When reverse the double linked list should check that all reversed.
      */
     @Test
-    public void whenReverseListShouldCheckThatIsReversed() {
+    void whenReverseListShouldCheckThatIsReversed() {
         LinkedList<String> strings = new LinkedList<>();
         strings.add("value0");
         strings.add("value1");
@@ -108,12 +111,12 @@ public class LinkedListTest {
     }
 
     /**
-     * When try get element with negative index should check that list throw exception.
+     * When try getting element with negative index should check that list throw exception.
      */
-    @Test(expected = IllegalArgumentException.class)
-    public void whenTryGetElementWithNegativeIndexShouldCheckThatListThrowException() {
+    @Test
+    void whenTryGetElementWithNegativeIndexShouldCheckThatListThrowException() {
         LinkedList<String> strings = new LinkedList<>();
-        strings.get(-1);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> strings.get(-1));
     }
 
 }
