@@ -1,12 +1,15 @@
 package model;
 
-import org.junit.Test;
+
+
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsNull.notNullValue;
-import static org.junit.Assert.assertThat;
+
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -15,13 +18,13 @@ import static org.hamcrest.core.Is.is;
  * @version 0.1
  * @since 16.04.2017
  */
-public class ItemTest {
+class ItemTest {
 
     /**
-     * When try create item should check that item created.
+     * When try to create item should check that item created.
      */
     @Test
-    public void whenTryCreateItemShouldCheckThatItemCreated() {
+    void whenTryCreateItemShouldCheckThatItemCreated() {
         Item item = new Item();
         assertThat(item, is(notNullValue()));
     }
@@ -30,7 +33,7 @@ public class ItemTest {
      * When try set id should check that id saved.
      */
     @Test
-    public void whenTrySetIdShouldCheckThatIdSaved() {
+    void whenTrySetIdShouldCheckThatIdSaved() {
         Item item = new Item();
         item.setId(1);
         assertThat(item.getId(), is(1));
@@ -40,7 +43,7 @@ public class ItemTest {
      * When try set text should check that text saved.
      */
     @Test
-    public void whenTrySetTextShouldCheckThatTextSaved() {
+    void whenTrySetTextShouldCheckThatTextSaved() {
         Item item = new Item();
         item.setDescription("desc");
         assertThat(item.getDescription(), is("desc"));
@@ -50,7 +53,7 @@ public class ItemTest {
      * When try set author should check that author saved.
      */
     @Test
-    public void whenTrySetAuthorShouldCheckThatAuthorSaved() {
+    void whenTrySetAuthorShouldCheckThatAuthorSaved() {
         Item item = new Item();
         User user = new User();
         item.setAuthor(user);
@@ -61,7 +64,7 @@ public class ItemTest {
      * When try set comments list should check that item saved list.
      */
     @Test
-    public void whenTrySetCommentsListShouldCheckThatItemSavedList() {
+    void whenTrySetCommentsListShouldCheckThatItemSavedList() {
         List<Comment> comments = new ArrayList<>();
         Comment comment = new Comment();
         comment.setText("value");
@@ -74,7 +77,7 @@ public class ItemTest {
      * When try to string item should check that all is ok.
      */
     @Test
-    public void whenTryToStringItemShouldCheckThatAllIsOk() {
+    void whenTryToStringItemShouldCheckThatAllIsOk() {
         User user = new User();
         user.setEmail("vrnsky@vrnsky.com");
         Item item = new Item();

@@ -1,6 +1,5 @@
-package start;
+package ru.evrnsky.start;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import ru.evrnsky.start.StartUI;
 import ru.evrnsky.start.StubIO;
@@ -17,13 +16,12 @@ class StartUITest {
      * Check that app correct works. First add new user, second edit exist user and remove.
      */
     @Test
-    @Disabled
     void whenTryStartAppShouldCheckThatMethodInitWorksCorrect() {
 
         //Assign block
         String[] answer = new String[]{"Yegor", "19", "Yegor", "19", "0", "Egor", "0", "20", "Egor", "20", "0"};
         StubIO stubIO = new StubIO(answer);
-        ru.evrnsky.start.StartUI app = new StartUI(stubIO);
+        StartUI app = new StartUI(stubIO);
         String expected = "User was added\n"
                 +
                 "ID\tName\tAge\n"

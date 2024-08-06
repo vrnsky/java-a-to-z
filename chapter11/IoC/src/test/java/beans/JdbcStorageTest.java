@@ -1,20 +1,22 @@
 package beans;
 
 import model.User;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+
 
 /**
  * This unit test for JdbcStorage.java.
  * @author vrnsky.
  * @version 1.0
  */
-public class JdbcStorageTest {
+class JdbcStorageTest {
 
 
     /**
@@ -32,7 +34,7 @@ public class JdbcStorageTest {
      * When add user to the storage should check that storage save user instance.
      */
     @Test
-    public void whenAddUserToTheSystemShouldCheckThatStorageSafeIt() {
+    void whenAddUserToTheSystemShouldCheckThatStorageSafeIt() {
         User user = new User();
         user.setName("Barsik");
         this.jdbcStorage.add(user);
@@ -44,7 +46,7 @@ public class JdbcStorageTest {
      * When get user from storage should check that getted user is not null.
      */
     @Test
-    public void whenGetUserFromStorageShouldCheckThatItReturnUser() {
+    void whenGetUserFromStorageShouldCheckThatItReturnUser() {
         User helen = new User();
         helen.setName("Helen");
         this.jdbcStorage.add(helen);
@@ -55,7 +57,7 @@ public class JdbcStorageTest {
      * When remove user should check that user was removed from storage.
      */
     @Test
-    public void whenRemoveUserShouldCheckThatItRemovedFromStorage() {
+    void whenRemoveUserShouldCheckThatItRemovedFromStorage() {
         User jerk = new User();
         jerk.setName("Jimmy");
         this.jdbcStorage.add(jerk);
@@ -67,7 +69,7 @@ public class JdbcStorageTest {
      * When update user should check that changes applied.
      */
     @Test
-    public void whenUpdateUserShouldCheckThatChangesApplied() {
+    void whenUpdateUserShouldCheckThatChangesApplied() {
         User hipster = new User();
         hipster.setName("hipster");
         this.jdbcStorage.add(hipster);
@@ -75,6 +77,4 @@ public class JdbcStorageTest {
         this.jdbcStorage.update(hipster);
         assertThat(this.jdbcStorage.get(hipster.getId()).getName(), is("newHipstor"));
     }
-
-
 }

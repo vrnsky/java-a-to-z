@@ -1,9 +1,12 @@
 package model;
 
-import org.junit.Test;
 
+
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsNull.notNullValue;
-import static org.junit.Assert.assertThat;
+
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -13,13 +16,13 @@ import static org.hamcrest.core.Is.is;
  *
  * Unit test for comments.
  */
-public class CommentTest {
+class CommentTest {
 
     /**
-     * When try create comment should check that all is ok.
+     * When try to create comment should check that all is ok.
      */
     @Test
-    public void whenTryCreateCommentShouldCheckThatAllOK() {
+    void whenTryCreateCommentShouldCheckThatAllOK() {
         Comment comment = new Comment();
         assertThat(comment, is(notNullValue()));
     }
@@ -28,7 +31,7 @@ public class CommentTest {
      * When try set id should check that id saved.
      */
     @Test
-    public void whenTrySetIdShouldCheckThatIdSaved() {
+    void whenTrySetIdShouldCheckThatIdSaved() {
         Comment comment = new Comment();
         comment.setId(1);
         assertThat(comment.getId(), is(1));
@@ -38,7 +41,7 @@ public class CommentTest {
      * When try set text should check that text saved.
      */
     @Test
-    public void whenTrySetTextShouldCheckThatTextSaved() {
+    void whenTrySetTextShouldCheckThatTextSaved() {
         Comment comment = new Comment();
         comment.setText("new text");
         assertThat(comment.getText(), is("new text"));
@@ -48,7 +51,7 @@ public class CommentTest {
      * When try set author should check that author is saved.
      */
     @Test
-    public void whenTrySetAuthorShouldCheckThatAuthorIsSaved() {
+    void whenTrySetAuthorShouldCheckThatAuthorIsSaved() {
         Comment comment = new Comment();
         User user = new User();
         comment.setAuthor(user);

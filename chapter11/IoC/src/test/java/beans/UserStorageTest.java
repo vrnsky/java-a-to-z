@@ -1,20 +1,22 @@
 package beans;
 
 import model.User;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;
-import static org.junit.Assert.assertThat;
+
 
 /**
  * This unit test for UserStorage class.
  * @author vrnsky
  * @version 1.0
  */
-public class UserStorageTest {
+class UserStorageTest {
 
     /**
      * Create a context of app.
@@ -30,7 +32,7 @@ public class UserStorageTest {
      * When add user to the storage should check that storage safe it.
      */
     @Test
-    public void whenAddUserToTheSystemShouldCheckThatStorageSafeIt() {
+    void whenAddUserToTheSystemShouldCheckThatStorageSafeIt() {
         User jhipster = new User("JHipster");
         this.userStorage.add(jhipster);
         assertThat(this.userStorage.getUser(jhipster.getId()).getName(), is("JHipster"));
@@ -40,7 +42,7 @@ public class UserStorageTest {
      * When get user from system should check that is not null.
      */
     @Test
-    public void whenGetUserFromSystemShouldCheckThatIsNotNull() {
+    void whenGetUserFromSystemShouldCheckThatIsNotNull() {
         User jayz = new User("jayz");
         this.userStorage.add(jayz);
         assertThat(this.userStorage.getUser(jayz.getId()), notNullValue());
@@ -50,7 +52,7 @@ public class UserStorageTest {
      * When remove user should check that it remove from storage.
      */
     @Test
-    public void whenRemoveUserShouldCheckThatItRemovedFromStorage() {
+    void whenRemoveUserShouldCheckThatItRemovedFromStorage() {
         User jerk = new User("jerk");
         this.userStorage.add(jerk);
         this.userStorage.removeUser(jerk.getId());
@@ -62,7 +64,7 @@ public class UserStorageTest {
      * When update user shold check that storage was updated.
      */
     @Test
-    public void whenUpdateUserShouldCheckThatSystemWasUpdated() {
+    void whenUpdateUserShouldCheckThatSystemWasUpdated() {
         User yegor = new User("yegor");
         this.userStorage.add(yegor);
         yegor.setName("Yegor Voronyansky");

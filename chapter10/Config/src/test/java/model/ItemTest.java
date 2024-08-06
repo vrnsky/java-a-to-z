@@ -1,12 +1,15 @@
 package model;
 
-import org.junit.Test;
+
+
+import org.junit.jupiter.api.Test;
 
 import java.sql.Timestamp;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+
 
 /**
  * @author evrnsky
@@ -15,13 +18,13 @@ import static org.junit.Assert.assertThat;
  *
  * It is unit test for item.java.
  */
-public class ItemTest {
+class ItemTest {
 
     /**
-     * When try create item should check that item was created.
+     * When try to create item should check that item was created.
      */
     @Test
-    public void whenTryCreateItemShouldCheckThatItemWasCreated() {
+    void whenTryCreateItemShouldCheckThatItemWasCreated() {
         Item item = new Item();
         assertThat(item, is(notNullValue()));
     }
@@ -30,7 +33,7 @@ public class ItemTest {
      * When try set id should check that item save id.
      */
     @Test
-    public void whenTrySetIdShouldCheckThatItemSaveId() {
+    void whenTrySetIdShouldCheckThatItemSaveId() {
         Item item = new Item();
         item.setId(1);
         assertThat(item.getId(), is(1));
@@ -40,7 +43,7 @@ public class ItemTest {
      * When try set description should check that item return description.
      */
     @Test
-    public void whenTrySetDescriptionShouldCheckThatItemReturnDesc() {
+    void whenTrySetDescriptionShouldCheckThatItemReturnDesc() {
         Item item = new Item();
         item.setDesc("test");
         assertThat(item.getDesc(), is("test"));
@@ -50,7 +53,7 @@ public class ItemTest {
      * When try set timestamp should check that is correct.
      */
     @Test
-    public void whenTryGetTimestampShouldCheckThatIsCorrect() {
+    void whenTryGetTimestampShouldCheckThatIsCorrect() {
         Item item = new Item();
         Timestamp time = new Timestamp(1L);
         item.setCreationTime(time);
@@ -61,7 +64,7 @@ public class ItemTest {
      * When try set done should check that item save done flag.
      */
     @Test
-    public void whenTrySetDoneShouldCheckThatItemSaveDoneFlag() {
+    void whenTrySetDoneShouldCheckThatItemSaveDoneFlag() {
         Item item = new Item();
         item.setDone(true);
         assertThat(item.isDone(), is(true));

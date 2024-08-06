@@ -1,4 +1,4 @@
-package model;
+package ru.evrnsky.model;
 
 /**
  * All checker must implement this interface.

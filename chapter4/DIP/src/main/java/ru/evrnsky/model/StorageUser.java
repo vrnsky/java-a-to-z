@@ -1,4 +1,4 @@
-package model;
+package ru.evrnsky.model;
 
 /**
  * Concrete implementation of user model.

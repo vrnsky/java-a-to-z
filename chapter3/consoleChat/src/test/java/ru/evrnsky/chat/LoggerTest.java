@@ -12,6 +12,7 @@ import static org.hamcrest.core.Is.is;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 
+
 /**
  * Unit test for Logger.java.
  */
@@ -50,13 +51,12 @@ class LoggerTest {
 
     /**
      * When something was wrong and logger closed. should check that all is ok.
-     * @throws IOException if io error detected.
      */
     @Test
     void whenTryCloseLoggerButLoggerThrowExceptionShouldCheckThatAppThrowException() {
+        Logger logger = mock(Logger.class);
+        doThrow(IOException.class).when(logger).close();
         Assertions.assertThrows(IOException.class, () -> {
-            Logger logger = mock(Logger.class);
-            doThrow(IOException.class).when(logger).close();
             logger.close();
         });
     }

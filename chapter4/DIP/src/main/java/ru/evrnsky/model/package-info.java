@@ -5,4 +5,4 @@
  *
  * This package contains a example of dependency inversion principle.
  */
-package model;
+package ru.evrnsky.model;

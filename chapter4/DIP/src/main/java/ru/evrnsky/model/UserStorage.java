@@ -1,4 +1,4 @@
-package model;
+package ru.evrnsky.model;
 
 import ru.evrnsky.start.IO;
 

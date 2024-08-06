@@ -5,4 +5,4 @@
  *
  * This package contains a user interface implementation.
  */
-package start;
+package ru.evrnsky.start;

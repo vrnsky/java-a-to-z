@@ -2,15 +2,16 @@ package controllers;
 
 import database.Repository;
 import models.User;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -21,7 +22,7 @@ import static org.mockito.Mockito.when;
  *
  * Unit test for adding new user to the system.
  */
-public class CreateUserTest {
+class CreateUserTest {
 
 
     /**
@@ -30,7 +31,7 @@ public class CreateUserTest {
      * @throws IOException if problem with data exchange.
      */
     @Test
-    public void whenAdminAddNewUserShouldCheckThatUserWasAdded() throws ServletException, IOException {
+    void whenAdminAddNewUserShouldCheckThatUserWasAdded() throws ServletException, IOException {
         CreateUser createUser = new CreateUser();
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);

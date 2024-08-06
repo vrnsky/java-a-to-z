@@ -2,14 +2,15 @@ package chess;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
 
 /**
  * Unit test for Rook.java
  * It test implementation rook chess figure.
  */
-@Disabled
+
 class RookTest {
 
     /**
@@ -35,7 +36,7 @@ class RookTest {
     }
 
     /**
-     * When try attach rook to the board should attach rook and check that board save it.
+     * When try to attach rook to the board should attach rook and check that board save it.
      */
     @Test
     void whenTryAddRookToTheBoardShouldCheckThanBoardSaveIt() {
@@ -54,7 +55,7 @@ class RookTest {
         board.addFigure(this.rook, 0, 0);
         String[][] actual = board.getBoard();
 
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(Arrays.deepEquals(expected, actual));
     }
 
     /**
@@ -78,7 +79,7 @@ class RookTest {
         board.performMove(0, 0, 7, 0);
         String[][] actual = board.getBoard();
 
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(Arrays.deepEquals(expected, actual));
     }
 
     /**
@@ -102,7 +103,7 @@ class RookTest {
         board.performMove(0, 0, 0, 7);
         String[][] actual = board.getBoard();
 
-//        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(Arrays.deepEquals(expected, actual));
     }
 
     /**
@@ -127,7 +128,7 @@ class RookTest {
         board.performMove(0, 0, 7, 0);
         String[][] actual = board.getBoard();
 
-//        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(Arrays.deepEquals(expected, actual));
     }
 
     /**
@@ -152,7 +153,7 @@ class RookTest {
         board.performMove(0, 0, 0, 7);
         String[][] actual = board.getBoard();
 
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(Arrays.deepEquals(expected, actual));
 
     }
 

@@ -1,4 +1,4 @@
-package model;
+package ru.evrnsky.model;
 
 /**
  * Model of edit checker.

@@ -2,19 +2,22 @@ package model;
 
 import org.joda.time.DateTime;
 import org.joda.time.LocalDateTime;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+
 
 /**
  * @author evrnsky
  * @version 0.1
  * @since 28.03.2017
  */
-public class BankTest {
+class BankTest {
 
     /**
      * One hour in milliseconds.
@@ -36,7 +39,7 @@ public class BankTest {
      * When only one user came at the one hour and left bank at the same hour.
      */
     @Test
-    public void whenCameOnlyOneClientAtOneHoursShouldCheckThatCalculateRight() {
+    void whenCameOnlyOneClientAtOneHoursShouldCheckThatCalculateRight() {
         List<Client> clients = new ArrayList<>();
         long inTime = START.getMillis();
         long outTime = inTime + (HOUR / 2);
@@ -50,7 +53,7 @@ public class BankTest {
      * When user came in one hour and left bank at the another hour.
      */
     @Test
-    public void whenClientCameInTheOneHourAndGoOutAtTheOtherHour() {
+    void whenClientCameInTheOneHourAndGoOutAtTheOtherHour() {
         List<Client> clients = new ArrayList<>();
         long inTime = START.getMillis();
         long outTime = inTime + (2 * HOUR);
@@ -67,7 +70,7 @@ public class BankTest {
      * When came many users at the different times and left at the different times.
      */
     @Test
-    public void whenComeMoreThanOneClientShouldCheckThatAllWorksFine() {
+    void whenComeMoreThanOneClientShouldCheckThatAllWorksFine() {
         List<Client> clients = new ArrayList<>();
         int[] expected = {1, 2, 3, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0};
         long timeIn = START.getMillis();

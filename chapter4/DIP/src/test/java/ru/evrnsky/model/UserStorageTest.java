@@ -1,6 +1,8 @@
-package model;
+package ru.evrnsky.model;
 
 import org.junit.jupiter.api.Test;
+import ru.evrnsky.model.EditChecker;
+import ru.evrnsky.model.UserStorage;
 import ru.evrnsky.start.StubIO;
 
 import static org.hamcrest.MatcherAssert.assertThat;

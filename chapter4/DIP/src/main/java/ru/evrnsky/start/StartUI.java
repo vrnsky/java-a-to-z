@@ -1,7 +1,7 @@
-package start;
+package ru.evrnsky.start;
 
-import model.EditChecker;
-import model.UserStorage;
+import ru.evrnsky.model.EditChecker;
+import ru.evrnsky.model.UserStorage;
 import ru.evrnsky.start.ConsoleIO;
 import ru.evrnsky.start.IO;
 
