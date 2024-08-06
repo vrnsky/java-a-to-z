@@ -1,8 +1,10 @@
 package storage;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.nullValue;
-import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -18,10 +20,10 @@ public class UserStorageTest {
     private final UserStorage storage = new UserStorage();
 
     /**
-     * When try add user to storage should check that user add.
+     * When try to add user to storage should check that user add.
      */
     @Test
-    public final void whenAddUserToStorageShouldCheckStorage() {
+    void whenAddUserToStorageShouldCheckStorage() {
         final int amount = 0;
         User user = new User(amount);
         boolean actual = storage.add(user);
@@ -32,7 +34,7 @@ public class UserStorageTest {
      * When update user should check that storage actual.
      */
     @Test
-    public final void whenUpdateUserShouldCheckThatAllFine() {
+    void whenUpdateUserShouldCheckThatAllFine() {
         final int amount = 120;
         final int increaseAmount = 150;
         User oldUser = new User(amount);
@@ -47,7 +49,7 @@ public class UserStorageTest {
      * When remove user should check that storage delete user.
      */
     @Test
-    public final void whenRemoveUserShouldCheckThatStorageDelUser() {
+    void whenRemoveUserShouldCheckThatStorageDelUser() {
         final int amount = 120;
         User user = new User(amount);
         storage.add(user);
@@ -59,7 +61,7 @@ public class UserStorageTest {
      * When transaction perform should check that all fine executed.
      */
     @Test
-    public final void whenTransactionPerformShouldCheckThatAllFine() {
+    void whenTransactionPerformShouldCheckThatAllFine() {
         final int amountOne = 100;
         final int amountTwo = 50;
         final int transactionValue = 50;
@@ -75,7 +77,7 @@ public class UserStorageTest {
     }
 
     /**
-     * When storage try execute transaction amount with null user should check that method return false.
+     * When storage try to execute transaction amount with null user should check that method return false.
      * @throws Exception if some error happened.
      */
     @Test

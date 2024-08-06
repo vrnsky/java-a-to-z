@@ -116,7 +116,7 @@ class SimpleListTest {
     @Test
     void whenTryGetElementWithNegativeIndexShouldCheckThatListThrowException() {
         SimpleContainer<String> strings = new SimpleList<>();
-        Assertions.assertThrows(NoSuchElementException.class, ()-> strings.get(-1));
+        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, ()-> strings.get(-1));
     }
 
     /**

@@ -1,19 +1,20 @@
-package start;
+package ru.evrnsky.start;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import ru.evrnsky.start.Tracker;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import start.Comment;
+import start.Item;
 
 import java.util.List;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for tracker which work with database.
  */
-public class TrackerTest {
+class TrackerTest {
 
     /**
      * System under test.
@@ -28,7 +29,7 @@ public class TrackerTest {
     /**
      * Before each test deploy new schema to database.
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         this.tracker = new Tracker(Settings.class.getClassLoader().getResourceAsStream("db.properties"));
         this.util = new DBTestUtil();
@@ -37,11 +38,12 @@ public class TrackerTest {
     }
 
     /**
-     * When try add item to the database should check that was added.
+     * When try to add item to the database should check that was added.
+     *
      * @throws Exception if some happended.
      */
     @Test
-    public void whenTryAddItemShouldCheckThatAllIsOk() throws Exception {
+    void whenTryAddItemShouldCheckThatAllIsOk() throws Exception {
         Item item = new Item();
         item.setId(String.valueOf("-1"));
         item.setName("My First Item");
@@ -135,7 +137,7 @@ public class TrackerTest {
     /**
      * After each test drop schema from database.
      */
-    @After
+    @AfterEach
     public void tearDown() {
         this.util.dropTable("items");
     }

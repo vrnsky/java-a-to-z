@@ -1,29 +1,31 @@
 package model;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for Dictionary.java.
  */
-public class DictionaryTest {
+class DictionaryTest {
 
     /**
-     * When try add value to the dictionary should check that value was added.
+     * When try adding value to the dictionary should check that value was added.
      */
     @Test
-    public void whenTryAddValueToTheDictionaryShouldCheckThatValueWasAdd() {
+    void whenTryAddValueToTheDictionaryShouldCheckThatValueWasAdd() {
         Dictionary<String, String> dictionary = new Dictionary<>();
         dictionary.insert("Google", "Billion");
         assertThat(dictionary.get("Google"), is("Billion"));
     }
 
     /**
-     * When try add value to the dictionary should check that value was added by call contains method.
+     * When try adding value to the dictionary should check that value was added by call contains method.
      */
     @Test
-    public void whenTryAddValueToTheDictionaryShouldCheckByCallContainsMethod() {
+    void whenTryAddValueToTheDictionaryShouldCheckByCallContainsMethod() {
         Dictionary<String, String> dictionary = new Dictionary<>();
         dictionary.insert("Java", "8");
         assertThat(dictionary.contains("Java"), is(true));
@@ -33,7 +35,7 @@ public class DictionaryTest {
      * When try update value at the dictionary should check that value was update.
      */
     @Test
-    public void whenTryUpdateValueAtTheDictionaryShouldCheckThatValueWasUpdate() {
+    void whenTryUpdateValueAtTheDictionaryShouldCheckThatValueWasUpdate() {
         Dictionary<String, String> dictionary = new Dictionary<>();
         dictionary.insert("key1", "value1");
         dictionary.insert("key1", "value2");
@@ -44,7 +46,7 @@ public class DictionaryTest {
      * When try insert value and remove should check that value was removed.
      */
     @Test
-    public void whenTryInsertValueAndRemoveShouldCheckThatValueWasRemoved() {
+    void whenTryInsertValueAndRemoveShouldCheckThatValueWasRemoved() {
         Dictionary<String, String> dictionary = new Dictionary<>();
         dictionary.insert("key", "value");
         boolean removed = dictionary.delete("key");
@@ -54,17 +56,17 @@ public class DictionaryTest {
     /**
      * When try check that in dictionary contains null value should check that method throw exception.
      */
-    @Test(expected = NullPointerException.class)
-    public void whenTryCheckThatInDictionaryContainsNullElementShouldCheckThatMethodThrowException() {
+    @Test
+    void whenTryCheckThatInDictionaryContainsNullElementShouldCheckThatMethodThrowException() {
         Dictionary<String, String> dictionary = new Dictionary<>();
-        dictionary.contains(null);
+        Assertions.assertThrows(NullPointerException.class, () -> dictionary.contains(null));
     }
 
     /**
      * When try using iterator for moving across dictionary should check that iterator works correct.
      */
     @Test
-    public void whenTryUsingIteratorForMovingAcrossDictionaryShouldCheckThatIteratorWorksCorrect() {
+    void whenTryUsingIteratorForMovingAcrossDictionaryShouldCheckThatIteratorWorksCorrect() {
         Dictionary<String, String> dictionary = new Dictionary<>();
         dictionary.insert("key1", "value1");
         assertThat(dictionary.next(), is("value1"));
@@ -74,7 +76,7 @@ public class DictionaryTest {
      * When try using iterator on empty dictionary should check that method has next return false.
      */
     @Test
-    public void whenTryUsingIteratorShouldCheckThatMethodHasNextReturnFalseIfMapIsEmpty() {
+    void whenTryUsingIteratorShouldCheckThatMethodHasNextReturnFalseIfMapIsEmpty() {
         Dictionary<String, String> dictionary = new Dictionary<>();
         assertThat(dictionary.hasNext(), is(false));
     }
@@ -83,7 +85,7 @@ public class DictionaryTest {
      * When try call size method should check that method return size of dictionary.
      */
     @Test
-    public void whenTryCallSizeMethodShouldCheckThatReturnSizeOfDictionary() {
+    void whenTryCallSizeMethodShouldCheckThatReturnSizeOfDictionary() {
         Dictionary<String, String> dictionary = new Dictionary<>();
         dictionary.insert("key1", "value1");
         assertThat(dictionary.size(), is(1));

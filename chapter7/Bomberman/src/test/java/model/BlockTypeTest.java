@@ -1,8 +1,9 @@
 package model;
 
-import org.junit.Test;
 
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -14,16 +15,16 @@ import static org.hamcrest.core.Is.is;
 public class BlockTypeTest {
 
     /**
-     * When try create block type empty should check that all is ok.
+     * When try to create block type empty should check that all is ok.
      */
     @Test
-    public void whenTryCreateBlockTypeEmptyShouldCheckThatAllIsOk() {
+    void whenTryCreateBlockTypeEmptyShouldCheckThatAllIsOk() {
         BlockType empty = BlockType.EMPTY;
         assertThat(empty, is(BlockType.EMPTY));
     }
 
     /**
-     * When try create block type fill should check that all is ok.
+     * When try to create block type fill should check that all is ok.
      */
     @Test
     public void whenTryCreateBlockTypeFillShouldCheckThatAllIsOk() {

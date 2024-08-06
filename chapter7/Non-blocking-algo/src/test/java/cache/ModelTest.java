@@ -1,10 +1,11 @@
 package cache;
 
-import org.junit.Test;
 
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;
-import static org.junit.Assert.assertThat;
 
 /**
  * @author evrnsky
@@ -13,33 +14,33 @@ import static org.junit.Assert.assertThat;
  *
  * This unit test for Model.java
  */
-public class ModelTest {
+class ModelTest {
 
     /**
-     * When try create a model should check that all is ok.
+     * When try to create a model should check that all is ok.
      * @throws Exception if some error happened.
      */
     @Test
-    public void whenTryCreateAModelShouldCheckThatAllIsOk() throws Exception {
+    void whenTryCreateAModelShouldCheckThatAllIsOk() throws Exception {
         Model model = new Model();
         assertThat(model, is(notNullValue()));
     }
 
     /**
-     * When try create a model and update version should check that all is ok.
+     * When try to create a model and update version should check that all is ok.
      */
     @Test
-    public void whenTryUpdateVersionShouldCheckThatVersionUpdated() {
+    void whenTryUpdateVersionShouldCheckThatVersionUpdated() {
         Model model = new Model();
         model.updateVersion();
         assertThat(model.getVersion(), is(1));
     }
 
     /**
-     * When try get id should check that id is good.
+     * When try to get id should check that id is good.
      */
     @Test
-    public void whenTryGetIdShouldCheckThatIdGood() {
+    void whenTryGetIdShouldCheckThatIdGood() {
         Model model = new Model();
         assertThat(model.getId(), is(notNullValue()));
     }

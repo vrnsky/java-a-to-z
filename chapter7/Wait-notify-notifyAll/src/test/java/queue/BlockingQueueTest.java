@@ -1,14 +1,17 @@
 package queue;
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.assertThat;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
  * @author evrnsky
  * @version 0.1
  * @since 26.11.2016
- *
+ * <p>
  * Unit test for BlockingQueue.java.
  * This unit test contains test case for next scenarios:
  * When few threads push data to the queue.
@@ -25,7 +28,7 @@ public class BlockingQueueTest {
     /**
      * This method calls before each test case and init testing API.
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         final int capacity = 10;
         queue = new BlockingQueue<>(capacity);
@@ -34,10 +37,11 @@ public class BlockingQueueTest {
 
     /**
      * When push to the queue should check that size of queue is changed.
+     *
      * @throws Exception if some problem with threads.
      */
     @Test
-    public void whenPushToTheQueueShouldCheckThatSizeChanged() throws Exception {
+    void whenPushToTheQueueShouldCheckThatSizeChanged() throws Exception {
         final int size = 3;
         Runnable producer = () -> queue.add(String.format("%s", System.currentTimeMillis()));
         Thread one = new Thread(producer);
@@ -54,10 +58,11 @@ public class BlockingQueueTest {
 
     /**
      * When poll elements from queue should check that size is changed.
+     *
      * @throws Exception if some problem with thread.
      */
     @Test
-    public void whenPollAllElemsFromQueueShouldCheckThatQueueIsEmpty() throws Exception {
+    void whenPollAllElemsFromQueueShouldCheckThatQueueIsEmpty() throws Exception {
         final int size = 0;
         final int threads = 3;
         for (int index = 0; index < threads; index++) {
@@ -80,23 +85,23 @@ public class BlockingQueueTest {
     /**
      * Check that user does not may put much more elements.
      */
-    @Test(expected = IllegalStateException.class)
-    public void whenPushMoreThanAcceptQueueShouldCheckElemNotAdd() {
-        final int size = 12;
-        for (int index = 0; index < size; index++) {
-            queue.add(String.format("%s", System.currentTimeMillis()));
-        }
+    @Test
+    void whenPushMoreThanAcceptQueueShouldCheckElemNotAdd() {
+        Assertions.assertThrows(IllegalStateException.class, () -> {
+            final int size = 12;
+            for (int index = 0; index < size; index++) {
+                queue.add(String.format("%s", System.currentTimeMillis()));
+            }
+        });
     }
 
     /**
-     * When try create a block queye with negative or zero capacity should check that throw exception.
+     * When try to create a block queye with negative or zero capacity should check that throw exception.
      */
-    @Test(expected = IllegalStateException.class)
-    public void whenTryCreateBlockQueueWithNegativeOrZeroCapacityShouldCheckThatThrowException() {
-        new BlockingQueue<>(0);
+    @Test
+    void whenTryCreateBlockQueueWithNegativeOrZeroCapacityShouldCheckThatThrowException() {
+        Assertions.assertThrows(IllegalStateException.class, () -> new BlockingQueue<>(0));
     }
-
-
 
 
 }

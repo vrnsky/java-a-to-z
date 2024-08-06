@@ -1,4 +1,7 @@
-package start;
+package ru.evrnsky.start;
+import start.Comment;
+import start.Item;
+
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;

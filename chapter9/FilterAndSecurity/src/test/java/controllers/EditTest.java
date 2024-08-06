@@ -2,13 +2,15 @@ package controllers;
 
 import dao.ExtendedRepo;
 import model.User;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-import static org.junit.Assert.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -19,7 +21,7 @@ import static org.mockito.Mockito.when;
  *
  * This unit test check how to work edit function.
  */
-public class EditTest {
+class EditTest {
 
 
     /**
@@ -28,7 +30,7 @@ public class EditTest {
      * @throws IOException if problem with data exchange.
      */
     @Test
-    public void whenAdminEditUserShouldCheckThatAllIsOk() throws ServletException, IOException {
+    void whenAdminEditUserShouldCheckThatAllIsOk() throws ServletException, IOException {
         Edit edit = new Edit();
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);

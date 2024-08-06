@@ -1,17 +1,19 @@
 package list;
 
 import collection.SimpleList;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 import java.util.Iterator;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * @author evrnsky
  * @version 0.1
  * @since 16.11.2016
  */
-public class SynchronizedSimpleListTest {
+class SynchronizedSimpleListTest {
 
     /**
      * Object for testing.
@@ -22,7 +24,7 @@ public class SynchronizedSimpleListTest {
      * When add data to list should check that added.
      */
     @Test
-    public final void whenAddDataToListShouldCheckThatDataAdded() {
+    void whenAddDataToListShouldCheckThatDataAdded() {
         SynchronizedList<Integer> list = new SynchronizedList<>(new SimpleList<>());
         boolean added = list.add(VALUE);
         assertThat(added, is(true));
@@ -32,7 +34,7 @@ public class SynchronizedSimpleListTest {
      * When get data from list should check that data correct.
      */
     @Test
-    public final void whenGetDataFromListShouldCheckThatCorrect() {
+    void whenGetDataFromListShouldCheckThatCorrect() {
         final int index = 0;
         SynchronizedList<Integer> list = new SynchronizedList<>(new SimpleList<>());
         list.add(VALUE);
@@ -43,7 +45,7 @@ public class SynchronizedSimpleListTest {
      * When remove data from list should check that data was removed.
      */
     @Test
-    public final void whenRemoveDataShouldCheckRemovingFromList() {
+    void whenRemoveDataShouldCheckRemovingFromList() {
         final int index = 0;
         SynchronizedList<Integer> list = new SynchronizedList<>(new SimpleList<>());
         list.add(VALUE);
@@ -54,7 +56,7 @@ public class SynchronizedSimpleListTest {
      * When check that some object contains in list should check it.
      */
     @Test
-    public final void whenCheckContainsShouldCheckThatWorksFine() {
+    void whenCheckContainsShouldCheckThatWorksFine() {
         SynchronizedList<Integer> list = new SynchronizedList<>(new SimpleList<>());
         list.add(VALUE);
         assertThat(list.contains(VALUE), is(true));
@@ -64,7 +66,7 @@ public class SynchronizedSimpleListTest {
      * When check size should check that is correct size.
      */
     @Test
-    public final void whenCheckSizeShouldCheckThatIsCorrect() {
+    void whenCheckSizeShouldCheckThatIsCorrect() {
         final int size = 1;
         SynchronizedList<Integer> list = new SynchronizedList<>(new SimpleList<>());
         list.add(VALUE);
@@ -75,7 +77,7 @@ public class SynchronizedSimpleListTest {
      * When use iterator should check that iterator works correct.
      */
     @Test
-    public final void whenUseIteratorShouldCheckThatIteratorCorrect() {
+    void whenUseIteratorShouldCheckThatIteratorCorrect() {
         SynchronizedList<Integer> list = new SynchronizedList<>(new SimpleList<>());
         list.add(VALUE);
         Iterator<Integer> iterator = list.iterator();

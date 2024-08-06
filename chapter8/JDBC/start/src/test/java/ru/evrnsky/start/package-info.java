@@ -5,4 +5,4 @@
  *
  * This package contains unit test for tracker app.
  */
-package start;
+package ru.evrnsky.start;

@@ -5,5 +5,5 @@
  *
  * This package contains simple app - tracker.
  */
-package start;
+package ru.evrnsky.start;
 

@@ -1,21 +1,25 @@
 package model;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 import java.util.NoSuchElementException;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for LinkedSet.java.
  */
-public class LinkedSetTest {
+class LinkedSetTest {
 
     /**
-     * When try create linked set should check that size is zero.
+     * When try to create linked set should check that size is zero.
      */
     @Test
-    public void whenTryCreateLinkedSetShouldCheckThatSetIsEmptyByCheckSize() {
+    void whenTryCreateLinkedSetShouldCheckThatSetIsEmptyByCheckSize() {
         LinkedSet<String> set = new LinkedSet<>();
         int actual = set.size();
         assertThat(actual, is(0));
@@ -23,10 +27,10 @@ public class LinkedSetTest {
 
 
     /**
-     * When try add element to the set should check that set saved element.
+     * When try adding element to the set should check that set saved element.
      */
     @Test
-    public void whenTryAddElementToTheSetShouldCheckThatElementWasAdded() {
+    void whenTryAddElementToTheSetShouldCheckThatElementWasAdded() {
         LinkedSet<String> set = new LinkedSet<>();
         set.add("Value");
         boolean actual = set.contains("Value");
@@ -34,10 +38,10 @@ public class LinkedSetTest {
     }
 
     /**
-     * When try add and remove element from set should check that element was removed.
+     * When try to add and remove element from set should check that element was removed.
      */
     @Test
-    public void whenTryAddAndRemoveElementFromSetShouldCheckThatElementWasRemoved() {
+    void whenTryAddAndRemoveElementFromSetShouldCheckThatElementWasRemoved() {
         LinkedSet<String> set = new LinkedSet<>();
         set.add("Value");
         set.remove("Value");
@@ -48,17 +52,17 @@ public class LinkedSetTest {
     /**
      * When try remove not exist at the set element should check that method remove throw exception.
      */
-    @Test(expected = NoSuchElementException.class)
-    public void whenTryRemoveNotExistAtTheSetElementShouldCheckThatRemoveThrowException() {
+    @Test
+    void whenTryRemoveNotExistAtTheSetElementShouldCheckThatRemoveThrowException() {
         LinkedSet<String> set = new LinkedSet<>();
-        set.remove("value");
+        Assertions.assertThrows(NoSuchElementException.class, () -> set.remove("value"));
     }
 
     /**
-     * When try move across set using iterator should check that iterator works correct.
+     * When try moving across set using iterator should check that iterator works correct.
      */
     @Test
-    public void whenTryMoveAcrossSetUsingIteratorShouldCheckThatIteratorWorksCorrect() {
+    void whenTryMoveAcrossSetUsingIteratorShouldCheckThatIteratorWorksCorrect() {
         LinkedSet<String> set = new LinkedSet<>();
         set.add("Value");
         String actual = set.next();
@@ -69,7 +73,7 @@ public class LinkedSetTest {
      * When try call method has next from empty set should check that method return false.
      */
     @Test
-    public void whenTryCallMethodHasNextOnEmptyListShouldCheckThatMethodReturnFalse() {
+    void whenTryCallMethodHasNextOnEmptyListShouldCheckThatMethodReturnFalse() {
         LinkedSet<String> set = new LinkedSet<>();
         boolean actual = set.hasNext();
         assertThat(actual, is(false));
@@ -78,17 +82,18 @@ public class LinkedSetTest {
     /**
      * When try call method next from empty set should check that method throw exception.
      */
-    @Test(expected = NullPointerException.class)
-    public void whenTryCallMethodNextFromEmptySetShouldCheckThatMethodThrowException() {
+    @Test
+    void whenTryCallMethodNextFromEmptySetShouldCheckThatMethodThrowException() {
         LinkedSet<String> set = new LinkedSet<>();
-        set.next();
+        Assertions.assertThrows(NullPointerException.class, set::next);
     }
 
     /**
-     * When try add ten thousands element to the linked set should check that linked set works correct.
+     * When try adding ten thousands element to the linked set should check that linked set works correct.
      */
-    @Test(timeout = 5000)
-    public void whenTryAddTenThousandElementToTheLinkedSetShouldCheckThatLinkedWorks() {
+    @Test
+    @Timeout(5000)
+    void whenTryAddTenThousandElementToTheLinkedSetShouldCheckThatLinkedWorks() {
         LinkedSet<String> set = new LinkedSet<>();
         for (int index = 0; index < 10000; index++) {
             set.add(String.format("%s", index));

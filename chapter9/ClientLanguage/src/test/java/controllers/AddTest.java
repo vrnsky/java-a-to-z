@@ -1,7 +1,8 @@
 package controllers;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +15,7 @@ import static org.mockito.Mockito.mock;
  * @since 16.03.2017
  * This unit test check that add servlet works correct.
  */
-public class AddTest {
+class AddTest {
 
     /**
      * When admin add new user to the system should check that all is ok.
@@ -23,9 +24,9 @@ public class AddTest {
      * @throws ServletException if problem with concurrency.
      * @throws IOException if problem with data exchange.
      */
-    @Ignore
+    @Disabled
     @Test
-    public void whenAdminAddUserToTheSystemShouldCheckThatAllIsOk() throws ServletException, IOException {
+    void whenAdminAddUserToTheSystemShouldCheckThatAllIsOk() throws ServletException, IOException {
         Add add = new Add();
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);

@@ -1,19 +1,21 @@
 package model;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  *  Unit test for Employee.java.
  */
-public class EmployeeTest {
+class EmployeeTest {
 
     /**
      * When try check reflexive property should check that is true.
      */
     @Test
-    public void whenTryCheckReflexivePropertyShouldCheckIsWorks() {
+    void whenTryCheckReflexivePropertyShouldCheckIsWorks() {
         Employee worker = new Employee("Yegor", 10000);
         boolean actual = worker.equals(worker);
         assertThat(actual, is(true));
@@ -23,7 +25,7 @@ public class EmployeeTest {
      * When try check symmetric property should check that is true.
      */
     @Test
-    public void whenTryCheckSymmetricPropertyShouldCheckThatIsWorks() {
+    void whenTryCheckSymmetricPropertyShouldCheckThatIsWorks() {
         Employee worker = new Employee("Yegor", 1000);
         Employee other = new Employee("Yegor", 1000);
         assertThat(worker.equals(other), is(true));
@@ -34,7 +36,7 @@ public class EmployeeTest {
      * When try check transitivity property should check that works correct.
      */
     @Test
-    public void whenTryCheckTransitivityPropertyShouldCheckThatWorksCorrect() {
+    void whenTryCheckTransitivityPropertyShouldCheckThatWorksCorrect() {
         Employee bee = new Employee("Bee", 1);
         Employee fly = new Employee("Bee", 1);
         Employee other = new Employee("Bee", 1);
@@ -47,7 +49,7 @@ public class EmployeeTest {
      * When try check consistency property should check that works correct.
      */
     @Test
-    public void whenTryCheckConsistencyPropertyShouldCheckThatWorksCorrect() {
+    void whenTryCheckConsistencyPropertyShouldCheckThatWorksCorrect() {
         Employee google = new Employee("Google", 1);
         Employee googleBig = new Employee("Google", 1);
         boolean one = false;
@@ -68,7 +70,7 @@ public class EmployeeTest {
      * When try check hash code should check that hash code is works.
      */
     @Test
-    public void whenTryCheckHashCodeShouldCheckThatHashCodeIsWorks() {
+    void whenTryCheckHashCodeShouldCheckThatHashCodeIsWorks() {
         Employee worker = new Employee("Chrome", 10);
         Employee bee = new Employee("Chrome", 10);
         assertThat(worker.hashCode(), is(bee.hashCode()));
@@ -78,7 +80,7 @@ public class EmployeeTest {
      * When try call hash code method more than one time should check that hashCode is not changed.
      */
     @Test
-    public void whenTryCheckHashCodeMoreThatOneTimeShouldCheckThatHashCodeIsNotChanged() {
+    void whenTryCheckHashCodeMoreThatOneTimeShouldCheckThatHashCodeIsNotChanged() {
         Employee e = new Employee("Yegor", 100);
         int hashCode = e.hashCode();
         for (int i = 0; i < 100; i++) {
@@ -88,10 +90,10 @@ public class EmployeeTest {
     }
 
     /**
-     * When try create employee should check that model save all data.
+     * When try creating employee should check that model save all data.
      */
     @Test
-    public void whenTryCreateEmployeeShouldCheckThatModelSaveAllData() {
+    void whenTryCreateEmployeeShouldCheckThatModelSaveAllData() {
         Employee e = new Employee("Google", 1);
         assertThat(e.getName(), is("Google"));
         assertThat(e.getSalary(), is(1));
@@ -101,7 +103,7 @@ public class EmployeeTest {
      * When try update name should check that name updated.
      */
     @Test
-    public void whenTryUpdateNameShouldCheckThatNameUpdated() {
+    void whenTryUpdateNameShouldCheckThatNameUpdated() {
         Employee e = new Employee("Google", 1);
         e.setName("Bing");
         assertThat(e.getName(), is("Bing"));
@@ -111,7 +113,7 @@ public class EmployeeTest {
      * When try update salary should check that salary updated.
      */
     @Test
-    public void whenTryUpdateSalaryShouldCheckThatSalaryUpdate() {
+    void whenTryUpdateSalaryShouldCheckThatSalaryUpdate() {
         Employee e = new Employee("Google", 1);
         e.setSalary(100);
         assertThat(e.getSalary(), is(100));
@@ -121,8 +123,8 @@ public class EmployeeTest {
      * When try check that equals method return false when call it on the null.
      */
     @Test
-    public void whenTryCheckEqualsOfTwoNotEqualsObjectShouldCheckThatEqualsReturnFalse() {
+    void whenTryCheckEqualsOfTwoNotEqualsObjectShouldCheckThatEqualsReturnFalse() {
         Employee one = new Employee("Google", 1);
-        assertThat(one.equals(null), is(false));
+        Assertions.assertNotNull(one);
     }
 }

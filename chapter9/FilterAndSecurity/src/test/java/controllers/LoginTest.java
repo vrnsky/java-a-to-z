@@ -1,6 +1,6 @@
 package controllers;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.powermock.api.mockito.PowerMockito;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,10 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -21,7 +22,7 @@ import static org.hamcrest.core.Is.is;
  *
  * This unit test check that login form works correctly.
  */
-public class LoginTest {
+class LoginTest {
 
 
     /**
@@ -30,7 +31,7 @@ public class LoginTest {
      * @throws IOException if problem with data exchange.
      */
     @Test
-    public void whenUserLoginWithGoodDataShouldCheckGiveAccess() throws ServletException, IOException {
+    void whenUserLoginWithGoodDataShouldCheckGiveAccess() throws ServletException, IOException {
         Login login = new Login();
         HttpSession mock = PowerMockito.mock(HttpSession.class);
         HttpServletRequest request = mock(HttpServletRequest.class);
@@ -51,7 +52,7 @@ public class LoginTest {
      * @throws IOException if problem with data exchange.
      */
     @Test
-    public void whenUserLoginWithBadDataShouldCheckDontAccess() throws ServletException, IOException {
+    void whenUserLoginWithBadDataShouldCheckDontAccess() throws ServletException, IOException {
         Login login = new Login();
         HttpSession mock = PowerMockito.mock(HttpSession.class);
         HttpServletRequest request = mock(HttpServletRequest.class);

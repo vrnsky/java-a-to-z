@@ -1,29 +1,31 @@
 package start;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * @author evrnsky
  * @version 0.1
  * @since 13.11.2016
  */
-public class BugTest {
+class BugTest {
 
     /**
-     * when try create bug should check that is created.
+     * when try to create bug should check that is created.
      */
     @Test
-    public final void whenTryCreateBugShouldCheckThatIsCreated() {
+    void whenTryCreateBugShouldCheckThatIsCreated() {
         Bug bug = new Bug();
-        assertThat(bug != null, is(true));
+        Assertions.assertNotNull(bug);
     }
 
     /**
      * when try set name for bug should check correct.
      */
     @Test
-    public final void whenSetNameBugShouldCheckCorrect() {
+    void whenSetNameBugShouldCheckCorrect() {
         Bug bug = new Bug();
         final String expected = "Issue";
         bug.setName(expected);
@@ -34,7 +36,7 @@ public class BugTest {
      * When try set desc for bug should check correct.
      */
     @Test
-    public final void whenSetDescShouldCheckCorrect() {
+    void whenSetDescShouldCheckCorrect() {
         Bug bug = new Bug();
         final String desc = "Issue";
         bug.setDescription(desc);
@@ -45,7 +47,7 @@ public class BugTest {
      * When check create time should check that correct.
      */
     @Test
-    public void whenCheckCreateTimeShouldCheckThatIsCorrect() {
+    void whenCheckCreateTimeShouldCheckThatIsCorrect() {
         Bug bug = new Bug();
         boolean correct = bug.getCreateTime() > 1L;
         assertThat(correct, is(true));
@@ -55,7 +57,7 @@ public class BugTest {
      * When add comment should check that comment was add.
      */
     @Test
-    public void whenAddCommentShouldCheckThatCommentWasAdd() {
+    void whenAddCommentShouldCheckThatCommentWasAdd() {
         Bug bug = new Bug();
         final String comment = "First comment";
         bug.addComment(new Comment(comment));

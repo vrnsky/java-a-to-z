@@ -1,25 +1,26 @@
 package structure;
 
-import org.junit.Test;
 
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * @author evrnsky
  * @version 0.1
  * @since 17.04.2017
  *
- * unit test for thread safe stack.
+ * Unit test for thread safe stack.
  */
-public class StackTest {
+class StackTest {
 
     /**
      * When try push element to the stack should check that element was added.
      * @throws Exception if some error happened.
      */
     @Test
-    public void whenTryPushElementToTheStackShouldCheckThatElementAdded() throws Exception {
+    void whenTryPushElementToTheStackShouldCheckThatElementAdded() {
         Stack<String> stack = new Stack<>();
         stack.push("yegor");
         assertThat(stack.pop(), is("yegor"));

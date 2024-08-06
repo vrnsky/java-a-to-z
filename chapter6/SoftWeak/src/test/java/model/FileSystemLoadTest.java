@@ -1,9 +1,10 @@
 package model;
 import org.apache.commons.io.FileUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.nullValue;
-import static org.junit.Assert.assertThat;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -25,7 +26,7 @@ public class FileSystemLoadTest {
      * @throws IOException if some error.
      */
     @Test
-    public void whenTryLoadExistFileShouldCheckThatMethodUploadItToMemory() throws IOException {
+    void whenTryLoadExistFileShouldCheckThatMethodUploadItToMemory() throws IOException {
         File cache = Files.createTempFile("cache", ".txt").toFile();
         LoadMethod loadMethod = new FileSystemLoad();
         File expectedFile = new File(cache.toString());
@@ -37,7 +38,7 @@ public class FileSystemLoadTest {
      * When try load not exist file should check that method upload return null.
      */
     @Test
-    public void whenTryLoadNotExistFileShouldCheckThatMethodUploadReturnNull() {
+    void whenTryLoadNotExistFileShouldCheckThatMethodUploadReturnNull() {
         LoadMethod loadMethod = new FileSystemLoad();
         File actualFile =  loadMethod.load(String.format("%s%s%s", PATH, File.separator, "bad_cache.txt"));
         assertThat(actualFile, nullValue());

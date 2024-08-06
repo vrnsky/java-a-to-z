@@ -1,14 +1,18 @@
 package model;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
+
 import java.util.NoSuchElementException;
-import static org.junit.Assert.assertThat;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
  * Unit test for ArraySet.java.
  */
-public class ArraySetTest {
+class ArraySetTest {
 
     /**
      * When create set should check that set not have element.
@@ -16,7 +20,7 @@ public class ArraySetTest {
      * For empty list size is -1.
      */
     @Test
-    public void whenCreateArraySetShouldCheckThatSizeIsZero() {
+    void whenCreateArraySetShouldCheckThatSizeIsZero() {
         ArraySet<String> set = new ArraySet<>();
         int actual = set.size();
         assertThat(actual, is(-1));
@@ -26,17 +30,17 @@ public class ArraySetTest {
      * When create set using default constructor should check that capacity is 100.
      */
     @Test
-    public void whenCreateSetUsingDefaultConstructorShouldCheckThatCapacityIsHundred() {
+    void whenCreateSetUsingDefaultConstructorShouldCheckThatCapacityIsHundred() {
         ArraySet<String> set = new ArraySet<>();
         int actual = set.capacity();
         assertThat(actual, is(100));
     }
 
     /**
-     * When try add element to the array set should that element was added.
+     * When try adding element to the array set should that element was added.
      */
     @Test
-    public void whenTryAddElementToTheArraySetShouldCheckThatElementWasAdded() {
+    void whenTryAddElementToTheArraySetShouldCheckThatElementWasAdded() {
         ArraySet<String> set = new ArraySet<>();
         set.add("Value");
         boolean actual = set.contains("Value");
@@ -44,10 +48,10 @@ public class ArraySetTest {
     }
 
     /**
-     * When try add element and remove it from array set should check that element was removed.
+     * When try adding element and remove it from array set should check that element was removed.
      */
     @Test
-    public void whenTryAddElementAndRemoveItShouldCheckThatElementWasRemoved() {
+    void whenTryAddElementAndRemoveItShouldCheckThatElementWasRemoved() {
         ArraySet<String> set = new ArraySet<>();
         set.add("Value");
         set.remove("Value");
@@ -56,10 +60,10 @@ public class ArraySetTest {
     }
 
     /**
-     * When try move across set using iterator should check that iterator works correct.
+     * When try moving across set using iterator should check that iterator works correct.
      */
     @Test
-    public void whenTryMoveAcrossSetUsingIteratorShouldCheckThatIteratorWorksCorrect() {
+    void whenTryMoveAcrossSetUsingIteratorShouldCheckThatIteratorWorksCorrect() {
         ArraySet<String> set = new ArraySet<>();
         set.add("value");
         String actual = set.next();
@@ -70,7 +74,7 @@ public class ArraySetTest {
      * When try ask about next, but next not exist.
      */
     @Test
-    public void whenTryCallMethodHasNextOnEmptySetShouldCheckThatMethodThrowException() {
+    void whenTryCallMethodHasNextOnEmptySetShouldCheckThatMethodThrowException() {
         ArraySet<String> set = new ArraySet<>();
         boolean actual = set.hasNext();
         assertThat(actual, is(false));
@@ -79,17 +83,18 @@ public class ArraySetTest {
     /**
      * When try remove not exist at the set value should check that method remove throw exception.
      */
-    @Test(expected = NoSuchElementException.class)
-    public void whenTryRemoveNotExistElementFromSetShouldCheckThatMethodRemoveThrowException() {
+    @Test
+    void whenTryRemoveNotExistElementFromSetShouldCheckThatMethodRemoveThrowException() {
         ArraySet<String> set = new ArraySet<>();
-        set.remove("value");
+        Assertions.assertThrows(NoSuchElementException.class, () -> set.remove("value"));
     }
 
     /**
-     * When try add ten thousand to the array set should check that it take a lot of time.
+     * When try adding ten thousand to the array set should check that it take a lot of time.
      */
-    @Test(timeout = 4500)
-    public void whenTryAddTenThousandsElementToTheArraySetShouldCheckThatThisOperationTakeBigTime() {
+    @Test
+    @Timeout(value = 4500)
+    void whenTryAddTenThousandsElementToTheArraySetShouldCheckThatThisOperationTakeBigTime() {
         ArraySet<String> set = new ArraySet<>();
         for (int index = 0; index < 10000; index++) {
             set.add(String.format("%s", index));

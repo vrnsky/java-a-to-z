@@ -1,7 +1,8 @@
 package cache;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author evrnsky
@@ -10,14 +11,17 @@ import org.junit.Test;
  *
  * This unit test for OptimisticException.java
  */
-public class OptimisticExceptionTest {
+class OptimisticExceptionTest {
 
     /**
      * When try throw exception should check that exception throw normally.
      * @throws Exception if some error happened.
      */
-    @Test(expected = OptimisticException.class)
-    public void whenTryThrowExceptionShouldCheckThatExceptionThrow() throws Exception {
-        throw new OptimisticException("args");
+    @Test
+    void whenTryThrowExceptionShouldCheckThatExceptionThrow() throws Exception {
+        Assertions.assertThrows(OptimisticException.class, () -> {
+            String version = "0.0.1";
+            throw new OptimisticException("args");
+        });
     }
 }

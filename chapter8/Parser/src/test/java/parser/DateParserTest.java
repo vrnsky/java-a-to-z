@@ -1,9 +1,11 @@
 package parser;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 import java.text.ParseException;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * @author evrnsky
@@ -12,7 +14,7 @@ import static org.junit.Assert.assertThat;
  *
  * Unit test for date parser.
  */
-public class DateParserTest {
+class DateParserTest {
 
 
     /**
@@ -20,7 +22,7 @@ public class DateParserTest {
      * @throws ParseException if not parseable string.
      */
     @Test
-    public void whenParseSomeDateShouldCheckThatAllIsOk() throws ParseException {
+    void whenParseSomeDateShouldCheckThatAllIsOk() throws ParseException {
         DateParser parser = new DateParser();
         String date = "5 янв 17";
         long actualTime = parser.parseDate(date);
