@@ -1,8 +1,6 @@
 package ru.evrnsky.start;
 
 import org.junit.jupiter.api.Test;
-import ru.evrnsky.start.StartUI;
-import ru.evrnsky.start.StubIO;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;

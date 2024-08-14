@@ -20,7 +20,7 @@ class JdbcStorageTest {
 
 
     /**
-     * All beans may get from context, if it register at context file.
+     * All beans may get from context, if it to register at context file.
      */
     private ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
 

@@ -19,9 +19,10 @@ public class UserStorage extends Storage {
 
     /**
      * Create a new storage with given capacity and io system.
+     *
      * @param capacity size of user array.
-     * @param io instance of io interface.
-     * @param checker method of checking.
+     * @param io       instance of io interface.
+     * @param checker  method of checking.
      */
     public UserStorage(int capacity, IO io, Checker checker) {
         super(capacity);
@@ -32,7 +33,8 @@ public class UserStorage extends Storage {
 
     /**
      * Create a new user storage with given io system and method of checking.
-     * @param io system for input and output.
+     *
+     * @param io      system for input and output.
      * @param checker method for checking.
      */
     public UserStorage(IO io, Checker checker) {

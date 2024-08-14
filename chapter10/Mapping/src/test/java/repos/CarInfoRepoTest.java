@@ -5,9 +5,11 @@ import database.DBManager;
 import model.CarInfo;
 import model.Model;
 import model.Producer;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.hamcrest.MatcherAssert;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
@@ -24,72 +26,72 @@ public class CarInfoRepoTest {
     /**
      * Before start all test need set connection to the database.
      */
-    @BeforeClass
+    @BeforeAll
     public static void setUp() {
         DBManager.getInstance().init();
     }
 
 
     /**
-     * When try add body should check that body was added.
+     * When try to  add body should check that body was added.
      */
     @Test
     public void whenTryAddSomeCarInfoShouldCheckThatAllIsOk() {
         Body body = new Body("sedan");
         CarInfoRepo.getInstance().add(body);
-        assertThat(CarInfoRepo.getInstance().getBodyById(body.getId()).getName(), is("sedan"));
+        MatcherAssert.assertThat(CarInfoRepo.getInstance().getBodyById(body.getId()).getName(), is("sedan"));
     }
 
     /**
-     * When try add producer to the table should check that all is ok.
+     * When try to add producer to the table should check that all is ok.
      */
     @Test
-    public void whenTryAddProducerShouldCheckThatAllIsOk() {
+    void whenTryAddProducerShouldCheckThatAllIsOk() {
         Producer producer = new Producer("Ford");
         CarInfoRepo.getInstance().add(producer);
-        assertThat(CarInfoRepo.getInstance().getProducerById(producer.getId()).getName(), is("Ford"));
+        MatcherAssert.assertThat(CarInfoRepo.getInstance().getProducerById(producer.getId()).getName(), is("Ford"));
     }
 
     /**
-     * When try get body which is not exist should check that app throw exception.
+     * When try to get body which is not exist should check that app throw exception.
      */
-    @Test(expected = IllegalArgumentException.class)
-    public void whenTryGetNotExistBodyShouldCheckThatThrownException() {
-        CarInfoRepo.getInstance().getBodyById(-1);
+    @Test
+    void whenTryGetNotExistBodyShouldCheckThatThrownException() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> CarInfoRepo.getInstance().getBodyById(-1));
     }
 
     /**
-     * When try get producer which not exist should check that app throw exception.
+     * When try to get producer which not exist should check that app throw exception.
      */
-    @Test(expected = IllegalArgumentException.class)
-    public void whenTryGetNotExistProducerShouldCheckThatThrowException() {
-        CarInfoRepo.getInstance().getProducerById(-1);
+    @Test
+    void whenTryGetNotExistProducerShouldCheckThatThrowException() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> CarInfoRepo.getInstance().getProducerById(-1));
     }
 
     /**
      * When try to get all producer in system should check that all is ok.
      */
     @Test
-    public void whenTryGetAllProducersShouldCheckThatAllIsOk() {
+    void whenTryGetAllProducersShouldCheckThatAllIsOk() {
         CarInfo producer = new Producer("Ford");
         CarInfoRepo.getInstance().add(producer);
-        assertThat(CarInfoRepo.getInstance().getAllProducers().size() > 0, is(true));
+        MatcherAssert.assertThat(CarInfoRepo.getInstance().getAllProducers().size() > 0, is(true));
     }
 
     /**
      * When try to get all bodies should check that all is ok.
      */
     @Test
-    public void whenTryGetAllBodiesShouldCheckThatAllIsOk() {
+    void whenTryGetAllBodiesShouldCheckThatAllIsOk() {
         CarInfo body = new Body("hatchback");
         CarInfoRepo.getInstance().add(body);
     }
 
     /**
-     * When try get models by producer should check that all is ok.
+     * When try to get models by producer should check that all is ok.
      */
     @Test
-    public void whenTryGetModelByProducerIdShouldCheckThatAllFineWorks() {
+    void whenTryGetModelByProducerIdShouldCheckThatAllFineWorks() {
         Producer producer = new Producer("Ford");
         Model model = new Model("Focus");
         model.setProducer(producer);
@@ -102,7 +104,7 @@ public class CarInfoRepoTest {
     /**
      * After all tet should close connection with database.
      */
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         DBManager.getInstance().close();
     }

@@ -6,9 +6,10 @@ import model.CarInfo;
 import model.Producer;
 import model.Body;
 import model.Model;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.hamcrest.MatcherAssert;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -25,26 +26,26 @@ public class CarRepoTest {
     /**
      * Before start all test need create a session factory object.
      */
-    @BeforeClass
+    @BeforeAll
     public static void setUp() {
         DBManager.getInstance().init();
     }
 
     /**
-     * When try add new car to the database should check that car was added.
+     * When try to add new car to the database should check that car was added.
      */
     @Test
-    public void whenTryAddSomeCarToTheDatabaseShouldCheckThatWasAdded() {
+    void whenTryAddSomeCarToTheDatabaseShouldCheckThatWasAdded() {
         Car car = new Car();
         car.setModel(new Model("Focus"));
         car.setProducer(new Producer("Ford"));
         CarRepo.getInstance().add(car);
-        assertThat(CarRepo.getInstance().getById(car.getId()).getModel().getName(), is("Focus"));
+        MatcherAssert.assertThat(CarRepo.getInstance().getById(car.getId()).getModel().getName(), is("Focus"));
     }
 
 
     /**
-     * When try get all bodies should check that list greater that zero.
+     * When try to get all bodies should check that list greater that zero.
      */
     @Test
     public void whenTryGetAllBodiesShouldCheckThatListGreaterThatZero() {
@@ -52,14 +53,14 @@ public class CarRepoTest {
         CarInfo coupe = new Body("coupe");
         CarInfoRepo.getInstance().add(sedan);
         CarInfoRepo.getInstance().add(coupe);
-        assertThat(CarRepo.getInstance().getAllBodies().size() > 0, is(true));
+        MatcherAssert.assertThat(CarRepo.getInstance().getAllBodies().size() > 0, is(true));
     }
 
     /**
-     * When try get all producers should check that list greater that zero.
+     * When try to get all producers should check that list greater that zero.
      */
     @Test
-    public void whenTryGetAllProducersShouldCheckThatRepoReturnListGreaterThatZero() {
+    void whenTryGetAllProducersShouldCheckThatRepoReturnListGreaterThatZero() {
         CarInfo ford = new Producer("Ford");
         CarInfo audi = new Producer("Audi");
         CarInfo bmw = new Producer("BMW");
@@ -73,7 +74,7 @@ public class CarRepoTest {
     /**
      * After all test should check close session factory.
      */
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         DBManager.getInstance().close();
     }

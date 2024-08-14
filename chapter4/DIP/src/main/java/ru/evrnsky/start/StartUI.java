@@ -2,11 +2,9 @@ package ru.evrnsky.start;
 
 import ru.evrnsky.model.EditChecker;
 import ru.evrnsky.model.UserStorage;
-import ru.evrnsky.start.ConsoleIO;
-import ru.evrnsky.start.IO;
 
 /**
- *  Demo of interact class UserStorage and Checker.
+ * Demo of interact class UserStorage and Checker.
  */
 public class StartUI {
 
@@ -17,6 +15,7 @@ public class StartUI {
 
     /**
      * Create a new UI with given io system.
+     *
      * @param io instance of io interface.
      */
     public StartUI(IO io) {
@@ -25,10 +24,11 @@ public class StartUI {
 
     /**
      * Start app.
+     *
      * @param args keys for app.
      */
     public static void main(String[] args) {
-       new ru.evrnsky.start.StartUI(new ConsoleIO()).init();
+        new ru.evrnsky.start.StartUI(new ConsoleIO()).init();
     }
 
     /**

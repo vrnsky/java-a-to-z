@@ -1,8 +1,6 @@
 package ru.evrnsky.model;
 
 import org.junit.jupiter.api.Test;
-import ru.evrnsky.model.EditChecker;
-import ru.evrnsky.model.UserStorage;
 import ru.evrnsky.start.StubIO;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -11,7 +9,7 @@ import static org.hamcrest.core.Is.is;
 /**
  * Unit test for UserStorage.java.
  */
-public class UserStorageTest {
+class UserStorageTest {
 
     /**
      * When try creating new user which not exist in storage

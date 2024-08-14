@@ -7,8 +7,9 @@ public class EditChecker implements Checker {
 
     /**
      * Check that given user exit in given controllers array.
+     *
      * @param users list of controllers.
-     * @param user user for checking.
+     * @param user  user for checking.
      * @return true if list have given user, otherwise false.
      */
     @Override
@@ -26,7 +27,8 @@ public class EditChecker implements Checker {
 
     /**
      * Check that name is equals.
-     * @param user from array.
+     *
+     * @param user  from array.
      * @param other given user.
      * @return true if name is equals, otherwise false.
      */
@@ -36,7 +38,8 @@ public class EditChecker implements Checker {
 
     /**
      * Check that id is equals.
-     * @param user from array.
+     *
+     * @param user  from array.
      * @param other given user.
      * @return true if name is equals, otherwise false.
      */
@@ -46,7 +49,8 @@ public class EditChecker implements Checker {
 
     /**
      * Check that ages is equals.
-     * @param user from array.
+     *
+     * @param user  from array.
      * @param other given user.
      * @return true if age is equals, otherwise false.
      */

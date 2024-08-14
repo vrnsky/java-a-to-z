@@ -55,8 +55,8 @@ class LoggerTest {
     @Test
     void whenTryCloseLoggerButLoggerThrowExceptionShouldCheckThatAppThrowException() {
         Logger logger = mock(Logger.class);
-        doThrow(IOException.class).when(logger).close();
-        Assertions.assertThrows(IOException.class, () -> {
+        doThrow(IllegalStateException.class).when(logger).close();
+        Assertions.assertThrows(IllegalStateException.class, () -> {
             logger.close();
         });
     }
