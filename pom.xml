@@ -46,7 +46,7 @@
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core</artifactId>
-                <version>5.3.20.Final</version>
+                <version>6.6.0.Final</version>
             </dependency>
             <dependency>
                 <groupId>org.hibernate.validator</groupId>
@@ -103,7 +103,7 @@
             <dependency>
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
-                <version>42.3.9</version>
+                <version>42.7.3</version>
             </dependency>
 
             <!-- logging -->
@@ -206,7 +206,7 @@
             <dependency>
                 <groupId>org.hsqldb</groupId>
                 <artifactId>hsqldb</artifactId>
-                <version>2.7.1</version>
+                <version>2.7.3</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
