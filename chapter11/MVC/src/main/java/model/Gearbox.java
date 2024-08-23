@@ -1,9 +1,9 @@
 package model;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.NoArgsConstructor;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
 /**
  * Gearbox of the car.
@@ -11,6 +11,7 @@ import javax.persistence.Table;
  * @version 0.1.
  */
 @NoArgsConstructor
-@Entity @Table(name = "gearbox")
+@Entity
+@Table(name = "gearbox")
 public class Gearbox extends CarDetail {
 }
