@@ -1,7 +1,7 @@
 package dao;
 
 
-import start.Settings;
+import ru.evrnsky.start.Settings;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

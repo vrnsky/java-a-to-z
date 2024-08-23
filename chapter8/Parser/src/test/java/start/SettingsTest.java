@@ -1,9 +1,10 @@
 package start;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * @author evrnsky
@@ -12,7 +13,7 @@ import static org.junit.Assert.assertThat;
  *
  * Unit test for Settings.java.
  */
-public class SettingsTest {
+class SettingsTest {
 
     /**
      * Name of property file.
@@ -27,7 +28,7 @@ public class SettingsTest {
     /**
      * Init variables.
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         this.settings = new Settings();
         this.settings.load(Settings.class.getClassLoader().getResourceAsStream(PROPERTIES_FILE));
@@ -37,16 +38,16 @@ public class SettingsTest {
      * When write to the properties file should check that all is ok.
      */
     @Test
-    public void whenWriteToThePropertiesFileShouldCheckThatItWrited()  {
+    void whenWriteToThePropertiesFileShouldCheckThatItWrited()  {
         settings.write("ADDITIONAL", "1");
         assertThat(this.settings.getValue("ADDITIONAL"), is("1"));
     }
 
     /**
-     * When try get value from properties should check that value right.
+     * When try to get value from properties should check that value right.
      */
     @Test
-    public void whenTryGetValueFromPropertiesShouldCheckThatValueIsRight()  {
+    void whenTryGetValueFromPropertiesShouldCheckThatValueIsRight()  {
         assertThat(this.settings.getValue("DB_PASSWORD"), is("55555"));
     }
 

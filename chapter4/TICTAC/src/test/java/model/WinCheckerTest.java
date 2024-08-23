@@ -1,31 +1,32 @@
 package model;
 
-import org.junit.Test;
 
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
  * Unit test for WinChecker.java.
  */
-public class WinCheckerTest {
+class WinCheckerTest {
 
 
     /**
-     * When try create a win check should check that is correct.
+     * When try creating a win check should check that is correct.
      */
     @Test
-    public void whenTryCreateWinCheckShouldCheckThatIsNotNull() {
+    void whenTryCreateWinCheckShouldCheckThatIsNotNull() {
         WinChecker checker = new WinChecker();
-        boolean actual = checker != null;
-        assertThat(actual, is(true));
+        Assertions.assertNotNull(checker);
     }
 
     /**
      * When some player win by vertical should check that win checker is find it.
      */
     @Test
-    public void whenSomePlayerWinShouldCheckThatWinnerReturnTrue() {
+    void whenSomePlayerWinShouldCheckThatWinnerReturnTrue() {
         this.executeTest(new int[]{0, 0, 1, 1, 2, 2}, true);
     }
 
@@ -33,7 +34,7 @@ public class WinCheckerTest {
      * When some player win by horizontal should check that win checker return true.
      */
     @Test
-    public void whenSomePlayerWinByHorizontalShouldCheckThatWinCheckerReturnTrue() {
+    void whenSomePlayerWinByHorizontalShouldCheckThatWinCheckerReturnTrue() {
         this.executeTest(new int[]{0, 0, 0, 1, 0, 2}, true);
     }
 
@@ -41,7 +42,7 @@ public class WinCheckerTest {
      * When some player win by diagonal should check that checker return true.
      */
     @Test
-    public void whenSomePlayerWinByDiagonalShouldCheckThatCheckerReturnTrue() {
+    void whenSomePlayerWinByDiagonalShouldCheckThatCheckerReturnTrue() {
         this.executeTest(new int[]{0, 0, 1, 1, 2, 2}, true);
     }
 
@@ -49,7 +50,7 @@ public class WinCheckerTest {
      * When some player win by other diagonal should check that checker return true.
      */
     @Test
-    public void whenSomePlayerWinByOtherDiagonalShouldCheckThatCheckerReturnTrue() {
+    void whenSomePlayerWinByOtherDiagonalShouldCheckThatCheckerReturnTrue() {
         this.executeTest(new int[]{0, 2, 1, 1, 2, 0}, true);
     }
 

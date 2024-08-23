@@ -1,17 +1,18 @@
 package list;
 import collection.LinkedList;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 import java.util.Iterator;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * @author evrnsky
  * @version 0.1
  * @since 16.11.2016
  */
-public class SynchronizedLinkedListTest {
+class SynchronizedLinkedListTest {
 
     /**
      * Value which will add to list.
@@ -22,7 +23,7 @@ public class SynchronizedLinkedListTest {
      * When add data to list should check that data was added.
      */
     @Test
-    public final void whenAddDataToListShouldCheckDataWasAdded() {
+    void whenAddDataToListShouldCheckDataWasAdded() {
         SynchronizedList<Integer> list = new SynchronizedList<>(new LinkedList<>());
         boolean added = list.add(VALUE);
         assertThat(added, is(true));
@@ -32,7 +33,7 @@ public class SynchronizedLinkedListTest {
      * When get data should check that data is correct.
      */
     @Test
-    public final void whenGetDataShouldCheckCorrectData() {
+    void whenGetDataShouldCheckCorrectData() {
         final int index = 0;
         SynchronizedList<Integer> list = new SynchronizedList<>(new LinkedList<>());
         list.add(VALUE);
@@ -43,7 +44,7 @@ public class SynchronizedLinkedListTest {
      * When remove data should check that is removed.
      */
     @Test
-    public final void whenRemoveDataShouldCheckThatRemoved() {
+    void whenRemoveDataShouldCheckThatRemoved() {
         final int index = 0;
         SynchronizedList<Integer> list = new SynchronizedList<>(new LinkedList<>());
         list.add(VALUE);
@@ -54,7 +55,7 @@ public class SynchronizedLinkedListTest {
      * When check contains list given object should check that contains.
      */
     @Test
-    public final void whenCheckThatObjectContainsShouldCheckCorrect() {
+    void whenCheckThatObjectContainsShouldCheckCorrect() {
         SynchronizedList<Integer> list = new SynchronizedList<>(new LinkedList<>());
         list.add(VALUE);
         assertThat(list.contains(VALUE), is(true));
@@ -64,7 +65,7 @@ public class SynchronizedLinkedListTest {
      * When check size should check that size is correct.
      */
     @Test
-    public final void whenCheckSizeShouldCheckCorrectOfSize() {
+    void whenCheckSizeShouldCheckCorrectOfSize() {
         final int size = 1;
         SynchronizedList<Integer> list = new SynchronizedList<>(new LinkedList<>());
         list.add(VALUE);
@@ -75,7 +76,7 @@ public class SynchronizedLinkedListTest {
      * When use iterator should check that iterator is correct.
      */
     @Test
-    public final void whenUseIteratorShouldCheckThatIteratorCorrect() {
+    void whenUseIteratorShouldCheckThatIteratorCorrect() {
         SynchronizedList<Integer> list = new SynchronizedList<>(new LinkedList<>());
         list.add(VALUE);
         Iterator<Integer> iterator = list.iterator();

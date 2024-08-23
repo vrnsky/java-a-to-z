@@ -1,21 +1,23 @@
 package service;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.NoSuchElementException;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for UserStorage.java.
  * @author evrnsky
  * @version 0.1
  */
-public class UserStorageTest {
+class UserStorageTest {
 
     /**
-     * When try add user to the storage should check that storage add user.
+     * When try adding user to the storage should check that storage add user.
      */
     @Test
     public void whenTryAddUserToUserStorageShouldCheckThatStorageAddedIt() {
@@ -33,10 +35,10 @@ public class UserStorageTest {
     }
 
     /**
-     * When try remove user from storage should check that storage remove it.
+     * When try removing user from storage should check that storage remove it.
      */
-    @Test(expected = NoSuchElementException.class)
-    public void whenTryRemoveUserFromStorageShouldCheckThatStorageRemoveIt() {
+    @Test
+    void whenTryRemoveUserFromStorageShouldCheckThatStorageRemoveIt() {
 
         //Assign block
         UserStorage storage = new UserStorage();
@@ -45,7 +47,8 @@ public class UserStorageTest {
         //Action block
         storage.add(user);
         storage.remove("user");
-        storage.get("user");
+
+        Assertions.assertThrows(NoSuchElementException.class, () -> storage.get("user"));
     }
 
     /**

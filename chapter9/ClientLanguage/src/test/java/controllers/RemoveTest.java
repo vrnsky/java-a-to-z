@@ -4,7 +4,7 @@ package controllers;
 import dao.UserRepository;
 import model.Address;
 import model.User;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -20,15 +20,16 @@ import static org.mockito.Mockito.when;
  * @author evrnsky
  * @version 0.1
  * @since 16.03.2017
- *
+ * <p>
  * This unit test check that remove function works correctly.
  */
 public class RemoveTest {
 
     /**
      * Remove user from system and check that it real was removed.
+     *
      * @throws ServletException if problem with concurrency.
-     * @throws IOException if problem with data exchange.
+     * @throws IOException      if problem with data exchange.
      */
     @Test
     public void whenAdminRemoveUserShouldCheckThatUserWasRemoved() throws ServletException, IOException {
@@ -44,7 +45,7 @@ public class RemoveTest {
         removeUser.doPost(request, response);
 
         User removed = repo.getUserById(user.getId());
-        assertEquals(null, removed);
+        assertNull(removed);
     }
 
 }

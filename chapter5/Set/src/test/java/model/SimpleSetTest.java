@@ -1,20 +1,24 @@
 package model;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
+
 import java.util.NoSuchElementException;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for SimpleSet.java.
  *
  */
-public class SimpleSetTest {
+class SimpleSetTest {
 
     /**
-     * When try add value to set should check that value was added.
+     * When try adding value to set should check that value was added.
      */
     @Test
-    public void whenTryAddValueToSetShouldCheckThatValueWasAdded() {
+    void whenTryAddValueToSetShouldCheckThatValueWasAdded() {
         SimpleSet<String> set = new SimpleSet<>();
         String expected = "value";
         set.add(expected);
@@ -24,12 +28,12 @@ public class SimpleSetTest {
 
 
     /**
-     * When try move across empty set should check that method hasNext throw exception.
+     * When try moving across empty set should check that method hasNext throw exception.
      */
-    @Test(expected = NoSuchElementException.class)
-    public void whenTryMoveAcrossEmptySetShouldCheckThatMethodHasNextThrowException() {
+    @Test
+    void whenTryMoveAcrossEmptySetShouldCheckThatMethodHasNextThrowException() {
         SimpleSet<String> set = new SimpleSet<>();
-        set.hasNext();
+        Assertions.assertThrows(NoSuchElementException.class, set::hasNext);
     }
 
 
@@ -37,7 +41,7 @@ public class SimpleSetTest {
      * When try check capacity of set should check that method capacity return correct value.
      */
     @Test
-    public void whenTryKnowSizeOfSetShouldCheckThatMethodSizeReturnCorrectValue() {
+    void whenTryKnowSizeOfSetShouldCheckThatMethodSizeReturnCorrectValue() {
         SimpleSet<String> set = new SimpleSet<>();
         assertThat(set.size(), is(0));
     }
@@ -45,26 +49,26 @@ public class SimpleSetTest {
     /**
      * When try remove not exist element from set should check that remove throw exception.
      */
-    @Test(expected = NoSuchElementException.class)
-    public void whenTryRemoveNotExistElemFromSetShouldCheckThatMethodThrowException() {
+    @Test
+    void whenTryRemoveNotExistElemFromSetShouldCheckThatMethodThrowException() {
         SimpleSet<String> set = new SimpleSet<>();
-        set.remove("Google");
+        Assertions.assertThrows(NoSuchElementException.class, () -> set.remove("Google"));
     }
 
     /**
-     * When try remove element from empty set should check that set throw exception.
+     * When try removing element from empty set should check that set throw exception.
      */
-    @Test(expected = UnsupportedOperationException.class)
-    public void whenTryRemoveElementFromEmptySetShouldCheckThatSetThrowException() {
+    @Test
+    void whenTryRemoveElementFromEmptySetShouldCheckThatSetThrowException() {
         SimpleSet<String> set = new SimpleSet<>();
-        set.remove();
+        Assertions.assertThrows(UnsupportedOperationException.class, set::remove);
     }
 
     /**
      * When try get iterator on empty list should check that it moving.
      */
     @Test
-    public void whenTryGetIteratorOnNotEmptyListShouldCheckThatSetReturnIterator() {
+    void whenTryGetIteratorOnNotEmptyListShouldCheckThatSetReturnIterator() {
         SimpleSet<String> strings = new SimpleSet<>();
         strings.add("Andrew");
         assertThat(strings.next(), is("Andrew"));
@@ -73,17 +77,18 @@ public class SimpleSetTest {
     /**
      * When try next element from empty set should check that set throw exception.
      */
-    @Test(expected = NoSuchElementException.class)
-    public void whenTryNextElementFromEmptySetShouldCheckThatSetThrowException() {
+    @Test
+    void whenTryNextElementFromEmptySetShouldCheckThatSetThrowException() {
         SimpleSet<String> set = new SimpleSet<>();
-        set.next();
+        Assertions.assertThrows(NoSuchElementException.class, set::next);
     }
 
     /**
-     * When try add ten thousands of string should check that set accept it all for some time.
+     * When try adding ten thousand of string should check that set accepts it all for some time.
      */
-    @Test(timeout = 1000)
-    public void whenTryAddTenThousandsToSimpleSetShouldCheckThatSetAcceptAllDataInGiveTime() {
+    @Test
+    @Timeout(1000)
+    void whenTryAddTenThousandsToSimpleSetShouldCheckThatSetAcceptAllDataInGiveTime() {
         SimpleSet<String> set = new SimpleSet<>();
         for (int index = 0; index < 10000; index++) {
             set.add(String.format("%s", index));

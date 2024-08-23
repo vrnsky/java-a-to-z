@@ -1,6 +1,6 @@
 package model;
 
-import start.MenuTracker;
+import ru.evrnsky.start.MenuTracker;
 
 /**
  *  We may also need that components may be choose by key and execute query to Tracker API.

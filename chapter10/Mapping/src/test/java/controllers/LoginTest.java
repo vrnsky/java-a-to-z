@@ -2,18 +2,21 @@ package controllers;
 
 import database.DBManager;
 import model.User;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import repos.UserRepo;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import static org.powermock.api.mockito.PowerMockito.mock;
-import static org.powermock.api.mockito.PowerMockito.when;
+import static org.mockito.Mockito.when;
 
 /**
  * @author evrnsky(vrnsky at protonmail.ch)
@@ -22,12 +25,12 @@ import static org.powermock.api.mockito.PowerMockito.when;
  *
  * Unit test for Login Servlet.
  */
-public class LoginTest {
+class LoginTest {
 
     /**
      * Before each test need setup connection.
      */
-    @BeforeClass
+    @BeforeAll
     public static void setUp() {
         DBManager.getInstance().init();
     }
@@ -38,7 +41,7 @@ public class LoginTest {
      * @throws ServletException if request for post could not be handled.
      */
     @Test
-    public void whenUserSubmitLoginFormShouldCheckThatDataHasReceivedAndPushed() throws IOException, ServletException {
+    void whenUserSubmitLoginFormShouldCheckThatDataHasReceivedAndPushed() throws IOException, ServletException {
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);
         HttpSession session = mock(HttpSession.class);
@@ -58,7 +61,7 @@ public class LoginTest {
     /**
      * After all test need close connection.
      */
-    @AfterClass
+    @AfterAll
     public static void tearDown() {
         DBManager.getInstance().close();
     }

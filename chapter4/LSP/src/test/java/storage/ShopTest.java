@@ -2,20 +2,21 @@ package storage;
 
 import food.Food;
 import org.joda.time.DateTime;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for Shop.java.
  */
-public class ShopTest {
+class ShopTest {
 
     /**
-     * When try add food to shop should check than shop save it.
+     * When try adding food to shop should check than shop save it.
      */
     @Test
-    public void whenTryAddFoodToShopShouldCheckThatShopSaveIt() {
+    void whenTryAddFoodToShopShouldCheckThatShopSaveIt() {
         DateTime createTime = new DateTime();
         DateTime expaireTime = new DateTime();
         expaireTime = expaireTime.plusMonths(2);

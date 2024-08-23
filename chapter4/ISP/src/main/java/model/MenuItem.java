@@ -1,7 +1,7 @@
 package model;
 
-import start.IO;
-import start.MenuTracker;
+import ru.evrnsky.start.IO;
+import ru.evrnsky.start.MenuTracker;
 
 /**
  * Model of menu item. It should have a name and may execute

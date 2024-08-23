@@ -1,10 +1,11 @@
 package real;
 
-import org.junit.Test;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.StringContains.containsString;
-import start.StubIO;
+
+import org.junit.jupiter.api.Test;
+import ru.evrnsky.start.StubIO;
 
 /**
  * Unit test for Real.java.
@@ -15,7 +16,7 @@ public class RealTest {
      * When user input all data correct should  find min in entered double values.
      */
     @Test
-    public void whenUserInputCorrectAllDataShouldShowResultOfComputing() {
+    void whenUserInputCorrectAllDataShouldShowResultOfComputing() {
 
         //Assign block
         String[] answer = new String[] {"1.4", "1.54", "-1.77", ""};
@@ -35,7 +36,7 @@ public class RealTest {
      * In real system exception handles and ask user about data again.
      */
     @Test
-    public void whenUserInputWrongShouldCheckThanAppThrowException() {
+    void whenUserInputWrongShouldCheckThanAppThrowException() {
 
         //Assign block
         String[] answer = new String[] {"1.3", "dd", ""};

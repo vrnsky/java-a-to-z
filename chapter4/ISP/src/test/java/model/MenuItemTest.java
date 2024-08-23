@@ -1,36 +1,34 @@
 package model;
 
-import org.junit.Test;
-import start.MenuTracker;
-import start.StubIO;
-import start.Tracker;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import ru.evrnsky.start.MenuTracker;
+import ru.evrnsky.start.StubIO;
+import ru.evrnsky.start.Tracker;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.StringContains.containsString;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for MenuItem.java.
  */
-public class MenuItemTest {
+class MenuItemTest {
 
     /**
      * When create a menu item should check that constructor works correct.
      */
     @Test
-    public void whenCreateMenuItemShouldCheckThatIsNotNull() {
+    void whenCreateMenuItemShouldCheckThatIsNotNull() {
         MenuItem menuItem = new MenuItem("Menu");
-
-        boolean actual = menuItem != null;
-
-        assertThat(actual, is(true));
+        Assertions.assertNotNull(menuItem);
     }
 
     /**
      * Check that menu item saved its name.
      */
     @Test
-    public void whenCreateMenuItemShouldCheckThatSaveName() {
+    void whenCreateMenuItemShouldCheckThatSaveName() {
         MenuItem menuItem = new MenuItem("Menu");
         String expected = "Menu";
 
@@ -43,7 +41,7 @@ public class MenuItemTest {
      * When try to show menu without sub items should check it correct.
      */
     @Test
-    public void whenTryToShowMenuItemWithoutSubItemsShouldCheckThatIsCorrect() {
+    void whenTryToShowMenuItemWithoutSubItemsShouldCheckThatIsCorrect() {
         String[] answer = new String[]{"", "", ""};
         StubIO stubIO = new StubIO(answer);
         MenuItem menuItem = new MenuItem("Start");
@@ -58,7 +56,7 @@ public class MenuItemTest {
      * When try to show menu with sub items should check that is correct.
      */
     @Test
-    public void whenTryToShowMenuWithSubItemsShouldCheckThatIsCorrect() {
+    void whenTryToShowMenuWithSubItemsShouldCheckThatIsCorrect() {
         String[] answer = new String[]{"", "", ""};
         StubIO stubIO = new StubIO(answer);
         MenuItem start = new MenuItem("Start");
@@ -81,7 +79,7 @@ public class MenuItemTest {
      * Check coherence between menu and menu tracker. It works.
      */
     @Test
-    public void whenTryToChooseOptionFromMenuTrackerShouldCheckThatExecutionWasCorrect() {
+    void whenTryToChooseOptionFromMenuTrackerShouldCheckThatExecutionWasCorrect() {
         String[] answer = new String[]{"Special", "Item", "y"};
         StubIO stubIO = new StubIO(answer);
         MenuItem addNewItem = new MenuItem("Add new item");

@@ -1,22 +1,22 @@
 package model;
 
-import org.junit.Test;
-import start.StubIO;
+import org.junit.jupiter.api.Test;
+import ru.evrnsky.start.StubIO;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.StringContains.containsString;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit for Menu.java.
  */
-public class MenuTest {
+class MenuTest {
 
     /**
-     * When try show menu with only root components should check that is works correct.
+     * When try showing menu with only root components should check that is works correct.
      */
     @Test
-    public void whenTryShowMenuWithoutSubOptionsShouldCheckThatIsWorksCorrect() {
+    void whenTryShowMenuWithoutSubOptionsShouldCheckThatIsWorksCorrect() {
         String[] answer = new String[]{""};
         StubIO stubIO = new StubIO(answer);
         Menu menu = new Menu(stubIO);
@@ -41,7 +41,7 @@ public class MenuTest {
      * When try show menu item with sub items should check that is correct.
      */
     @Test
-    public void whenTryToShowMenuWithSubItemsShouldCheckThatIsCorrect() {
+    void whenTryToShowMenuWithSubItemsShouldCheckThatIsCorrect() {
         String[] answer = new String[]{"", "", ""};
         StubIO stubIO = new StubIO(answer);
         Menu menu = new Menu(stubIO);
@@ -66,7 +66,7 @@ public class MenuTest {
      * When try show one menu item should check that works correct.
      */
     @Test
-    public void whenTryShowOneMenuItemShouldCheckThatWorksCorrect() {
+    void whenTryShowOneMenuItemShouldCheckThatWorksCorrect() {
         String[] answer = new String[]{"", "", ""};
         StubIO stubIO = new StubIO(answer);
         Menu menu = new Menu(stubIO);
@@ -80,11 +80,11 @@ public class MenuTest {
     }
 
     /**
-     * When try choose menu option should check that works correct.
+     * When try choosing menu option should check that works correct.
      * Adding and showing items from tracker.
      */
     @Test
-    public void whenTryToChooseMenuOptionShouldCheckThatWorksCorrect() {
+    void whenTryToChooseMenuOptionShouldCheckThatWorksCorrect() {
         String[] answer = new String[]{"1", "Egor", "Voronyansky", "3"};
         StubIO stubIO = new StubIO(answer);
         Menu menu = new Menu(stubIO);

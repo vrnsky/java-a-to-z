@@ -1,8 +1,8 @@
 package model;
 
-import start.IO;
-import start.MenuTracker;
-import start.Tracker;
+import ru.evrnsky.start.IO;
+import ru.evrnsky.start.MenuTracker;
+import ru.evrnsky.start.Tracker;
 
 /**
  * Model of menu, this must show menu and handle choose operation.

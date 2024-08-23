@@ -2,7 +2,8 @@ package controllers;
 
 import dao.UserRepository;
 import model.User;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +20,7 @@ import static org.mockito.Mockito.when;
  *
  * Unit test for get user servlet.
  */
-public class GetUserTest {
+class GetUserTest {
 
 
     /**
@@ -28,7 +29,7 @@ public class GetUserTest {
      * @throws IOException if problem with data exchange.
      */
     @Test
-    public void whenClientAskServerByGetShouldReturnUserWithGivenId() throws ServletException, IOException {
+    void whenClientAskServerByGetShouldReturnUserWithGivenId() throws ServletException, IOException {
         GetUser getUser = new GetUser();
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);

@@ -1,6 +1,6 @@
 package socket;
 
-import chat.Logger;
+import ru.evrnsky.chat.Logger;
 import org.apache.commons.io.FileUtils;
 
 import java.io.BufferedReader;

@@ -1,16 +1,17 @@
 package chess;
 
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-import org.junit.Test;
-import org.junit.Before;
 
 /**
  * Unit test for King.java.
  * Test all opportunity of king chess figure.
  */
-public class KingTest {
+class KingTest {
 
     /**
      * Instance of testing class.
@@ -21,7 +22,7 @@ public class KingTest {
     /**
      * Init all need variable, it placed there for reduce code in test.
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         this.king = new King();
     }
@@ -30,7 +31,7 @@ public class KingTest {
      *  Check that constructor create correct figure object.
      */
     @Test
-    public void whenCreateAKingShouldCheckThanItIsNotNull() {
+    void whenCreateAKingShouldCheckThanItIsNotNull() {
         boolean actual = this.king != null;
         assertThat(actual, is(true));
     }
@@ -39,7 +40,7 @@ public class KingTest {
      * When try attach king to the board should check than board save it.
      */
     @Test
-    public void whenTryAttachKingToBoardShouldCheckThatBoardSaveIt() {
+    void whenTryAttachKingToBoardShouldCheckThatBoardSaveIt() {
 
         //Assign block
         Board board = new Board();
@@ -64,7 +65,7 @@ public class KingTest {
      * When try move king in correct horizontal direction should check that king was moved.
      */
     @Test
-    public void whenTryMoveKingInCorrectHorizontalDirectionShouldMoveKing() {
+    void whenTryMoveKingInCorrectHorizontalDirectionShouldMoveKing() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"0", "K", "0", "0", "0", "0", "0", "0"},
@@ -88,7 +89,7 @@ public class KingTest {
      * When try move king in correct vertical direction should check that king was moved.
      */
     @Test
-    public void whenTryMoveKingInCorrectVerticalDirectionShouldMoveKing() {
+    void whenTryMoveKingInCorrectVerticalDirectionShouldMoveKing() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"0", "0", "0", "0", "0", "0", "0", "0"},
@@ -112,7 +113,7 @@ public class KingTest {
      * When try move king in correct diagonal direction should check that king was moved.
      */
     @Test
-    public void whenTryMoveKingInCorrectDiagonalDirectionShouldMoveKing() {
+    void whenTryMoveKingInCorrectDiagonalDirectionShouldMoveKing() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"0", "0", "0", "0", "0", "0", "0", "0"},
@@ -136,7 +137,7 @@ public class KingTest {
      * When try move king to the busy cell should leave king at the current place.
      */
     @Test
-    public void whenTryMoveKingToTheBusyCellShouldLeaveKingAtTheCurrentPlace() {
+    void whenTryMoveKingToTheBusyCellShouldLeaveKingAtTheCurrentPlace() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"K", "0", "0", "0", "0", "0", "0", "0"},
@@ -161,7 +162,7 @@ public class KingTest {
      * When try move king more than one cell should leave king at the current place.
      */
     @Test
-    public void whenTryMoveKingBiggerThatOneCellShouldLeaveKingAtTheCurrentPlace() {
+    void whenTryMoveKingBiggerThatOneCellShouldLeaveKingAtTheCurrentPlace() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"K", "0", "0", "0", "0", "0", "0", "0"},
@@ -185,7 +186,7 @@ public class KingTest {
      * When king try skip figures should leave king at the current place.
      */
     @Test
-    public void whenKingTrySkipFigureShouldLeaveKingAtTheCurrentPlace() {
+    void whenKingTrySkipFigureShouldLeaveKingAtTheCurrentPlace() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"K", "0", "0", "0", "0", "0", "0", "0"},
@@ -210,7 +211,7 @@ public class KingTest {
      * When try get string view of king chess figure should check that is acronym.
      */
     @Test
-    public void whenTryGetStringViewOfKingShouldGetAcronym() {
+    void whenTryGetStringViewOfKingShouldGetAcronym() {
         String expected = "K";
         String actual = king.toString();
         assertThat(actual, is(expected));

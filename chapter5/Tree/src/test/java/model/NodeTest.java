@@ -1,30 +1,32 @@
 package model;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 import java.util.List;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.nullValue;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for Node.java. Node.java - model of simple tree.
  */
-public class NodeTest {
+class NodeTest {
 
     /**
-     * When try create root element should check that method isRoot return true.
+     * When try creating root element should check that method isRoot return true.
      */
     @Test
-    public void whenTryRootShouldCheckThatRootIsCorrect() {
+    void whenTryRootShouldCheckThatRootIsCorrect() {
         Node<String> treeRoot = new Node<>("Root");
         assertThat(treeRoot.isRoot(), is(true));
     }
 
     /**
-     * When try add child to root should check that child was added.
+     * When try adding child to root should check that child was added.
      */
     @Test
-    public void whenTryAddChildToTheRootShouldCheckThatChildWasAdded() {
+    void whenTryAddChildToTheRootShouldCheckThatChildWasAdded() {
         Node<String> treeRoot = new Node<>("Root");
         Node<String> childNode = new Node<>("Child");
         treeRoot.addChild(treeRoot, childNode);
@@ -37,7 +39,7 @@ public class NodeTest {
      * When try check that some node is leaf should check that method isLeaf return true.
      */
     @Test
-    public void whenTryCheckThatSomeNodeIsLeafShouldCheckThatMethodWorksCorrect() {
+    void whenTryCheckThatSomeNodeIsLeafShouldCheckThatMethodWorksCorrect() {
         Node<String> treeRoot = new Node<>("Root");
         Node<String> childNode = new Node<>("Child");
         treeRoot.addChild(treeRoot, childNode);
@@ -45,19 +47,19 @@ public class NodeTest {
     }
 
     /**
-     * When try get data from node should check that data is correct.
+     * When try getting data from node should check that data is correct.
      */
     @Test
-    public void whenTryGetDataFromNodeShouldCheckThatDataIsCorrect() {
+    void whenTryGetDataFromNodeShouldCheckThatDataIsCorrect() {
         Node<String> treeRoot = new Node<>("Root");
         assertThat(treeRoot.getData(), is("Root"));
     }
 
     /**
-     * When try remove parent from node should check that parent was removed.
+     * When try to remove parent from node should check that parent was removed.
      */
     @Test
-    public void whenTryRemoveParentShouldCheckThatParentWasRemoved() {
+    void whenTryRemoveParentShouldCheckThatParentWasRemoved() {
         Node<String> treeRoot = new Node<>("Root");
         Node<String> childNode = new Node<>("Child");
         treeRoot.addChild(treeRoot, childNode);
@@ -66,10 +68,10 @@ public class NodeTest {
     }
 
     /**
-     * When try find find some object in tree should check that contains method return true.
+     * When try to find find some object in tree should check that contains method return true.
      */
     @Test
-    public void whenTryFindSomeObjectInTreeShouldCheckThatContainsMethodReturnTrue() {
+    void whenTryFindSomeObjectInTreeShouldCheckThatContainsMethodReturnTrue() {
         Node<String> treeRoot = new Node<>("Root");
         Node<String> subRoot = new Node<>("Subroot");
         Node<String> suberRoot = new Node<>("Suberooter");
@@ -83,7 +85,7 @@ public class NodeTest {
      * should check that method is balanced return true.
      */
     @Test
-    public void whenTryCheckThatTreeContainsOnlyRootShouldCheckThatMethodIsBalancedReturnTrue() {
+    void whenTryCheckThatTreeContainsOnlyRootShouldCheckThatMethodIsBalancedReturnTrue() {
         Node<String> treeRoot = new Node<>("Root");
         assertThat(treeRoot.isBalanced(), is(true));
     }
@@ -92,7 +94,7 @@ public class NodeTest {
      * When try check that wrong tree is balance should check that method is balanced return false.
      */
     @Test
-    public void whenTryCheckThatWrongTreeIsBalancedShouldCheckThatMethodIsBalancedReturnFalse() {
+    void whenTryCheckThatWrongTreeIsBalancedShouldCheckThatMethodIsBalancedReturnFalse() {
         Node<String> treeRoot = new Node<>("Root");
         Node<String> subRoot = new Node<>("Subroot");
         treeRoot.addChild(treeRoot, subRoot);

@@ -1,15 +1,17 @@
 package chess;
 
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.assertThat;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
  * Unit test for Elephant.java
  * It test moving of elephant in different directions.
  */
-public class ElephantTest {
+class ElephantTest {
 
     /**
      * Instance of testing class.
@@ -19,7 +21,7 @@ public class ElephantTest {
     /**
      * Init extract to this method for reduce code in test.
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         this.elephant = new Elephant();
     }
@@ -28,7 +30,7 @@ public class ElephantTest {
      * When create a new elephant should check that it is not null.
      */
     @Test
-    public void whenCreateAnElephantShouldCheckItIsNotNull() {
+    void whenCreateAnElephantShouldCheckItIsNotNull() {
         boolean actual = elephant != null;
         assertThat(actual, is(true));
     }
@@ -37,7 +39,7 @@ public class ElephantTest {
      * When try attach elephant to board should check that elephant was attached to board.
      */
     @Test
-    public void whenTryAttachElephantToBoardShouldCheckThatBoardSaveIt() {
+    void whenTryAttachElephantToBoardShouldCheckThatBoardSaveIt() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"E", "0", "0", "0", "0", "0", "0", "0"}, //0
@@ -63,7 +65,7 @@ public class ElephantTest {
      * When try move elephant in correct direction should move elephant to give position.
      */
     @Test
-    public void whenTryMovingElephantInCorrectForwardDiagonalShouldMoveElephantToGivenPosition() {
+    void whenTryMovingElephantInCorrectForwardDiagonalShouldMoveElephantToGivenPosition() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"0", "0", "0", "0", "0", "0", "0", "0"}, //0
@@ -89,7 +91,7 @@ public class ElephantTest {
      * When try moving elephant in correct backward diagonal should move elephant to given position.
      */
     @Test
-    public void whenTryMovingElephantInCorrectBackwardDirectionShouldMoveElephantToGivenPosition() {
+    void whenTryMovingElephantInCorrectBackwardDirectionShouldMoveElephantToGivenPosition() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"E", "0", "0", "0", "0", "0", "0", "0"}, //0
@@ -116,7 +118,7 @@ public class ElephantTest {
      * should leave elephant in current position.
      */
     @Test
-    public void whenTryMovingElephantInCorrectDirectionButCellIsBusy() {
+    void whenTryMovingElephantInCorrectDirectionButCellIsBusy() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"P", "0", "0", "0", "0", "0", "0", "0"}, //0s
@@ -142,7 +144,7 @@ public class ElephantTest {
      * When elephant try skip figures should leave elephant at the current position.
      */
     @Test
-    public void whenElephantTrySkipFiguresShouldLeaveElephantAtTheCurretPlace() {
+    void whenElephantTrySkipFiguresShouldLeaveElephantAtTheCurretPlace() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"0", "0", "0", "0", "0", "0", "0", "0"}, //0s
@@ -168,7 +170,7 @@ public class ElephantTest {
      * When try get string view of elephant should get acronym of elephant figure.
      */
 	@Test
-	public void whenTryGetStringViewElephantShouldGetAcronym() {
+	void whenTryGetStringViewElephantShouldGetAcronym() {
 		String expected = "E";
 		String actual = this.elephant.toString();
 		assertThat(actual, is(expected));

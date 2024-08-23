@@ -1,8 +1,10 @@
 package summ;
 
-import org.junit.Test;
-import start.StubIO;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Assertions;
+import org.testng.annotations.Test;
+import ru.evrnsky.start.StubIO;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -14,7 +16,7 @@ public class AdditionTest {
      * When try add two correct numbers should sum it and show result to user.
      */
     @Test
-    public void whenTryAdditionTwoCorrectNumbersShouldSummItAndShowUser() {
+    void whenTryAdditionTwoCorrectNumbersShouldSummItAndShowUser() {
 
         //Assign block
         String[] answer = new String[]{"1", "2"};
@@ -34,16 +36,16 @@ public class AdditionTest {
      * should catch exception. At the real system io exception
      * handle by validator and user ask again about integer.
      */
-    @Test(expected = NumberFormatException.class)
+    @Test
     public void whenTryAdditionOneWrongIntAndOneCorrectShouldAskUserAboutCorrectData() {
+        Assertions.assertThrows(NumberFormatException.class, () -> {
+            //Assign block
+            String[] answer = new String[]{"asd", "1"};
+            StubIO stubIO = new StubIO(answer);
+            Addition addition = new Addition(stubIO);
 
-        //Assign block
-        String[] answer = new String[]{"asd", "1"};
-        StubIO stubIO = new StubIO(answer);
-        Addition addition = new Addition(stubIO);
-
-        //Act & action block
-        addition.add();
-
+            //Act & action block
+            addition.add();
+        });
     }
 }

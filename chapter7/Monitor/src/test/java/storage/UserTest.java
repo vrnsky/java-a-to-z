@@ -1,8 +1,9 @@
 package storage;
 
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -10,7 +11,7 @@ import static org.hamcrest.core.Is.is;
  * @version 0.1
  * @since 13.10.2016
  */
-public class UserTest {
+class UserTest {
 
     /**
      * Instance of testing class.
@@ -25,7 +26,7 @@ public class UserTest {
     /**
      * Create user before testing.
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         final int amount = 100;
         this.user = new User(amount);
@@ -37,7 +38,7 @@ public class UserTest {
      * @throws Exception if something wrong.
      */
     @Test
-    public void getId() throws Exception {
+    void getId() throws Exception {
         assertThat(id, is(this.user.getId()));
     }
 
@@ -46,7 +47,7 @@ public class UserTest {
      * @throws Exception if something wrong.
      */
     @Test
-    public void getAmount() throws Exception {
+    void getAmount() throws Exception {
         final int expected = 100;
         assertThat(this.user.getAmount(), is(expected));
     }
@@ -56,7 +57,7 @@ public class UserTest {
      * @throws Exception if something wrong.
      */
     @Test
-    public void setAmount() throws Exception {
+    void setAmount() throws Exception {
         final int newAmount = 120;
         this.user.setAmount(newAmount);
         assertThat(user.getAmount(), is(newAmount));

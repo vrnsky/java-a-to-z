@@ -1,26 +1,29 @@
 package model;
 
-import org.junit.Test;
+
+
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Arrays;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+
 
 /**
  * @author evrnsky
  * @version 0.1
  * @since 19.04.2017
  */
-public class SorterTest {
+class SorterTest {
 
     /**
      * When square should check that points sorted.
-     * @throws Exception if some problems.
      */
     @Test
-    public void whenSquareShouldCheckThatAllIsOk() throws Exception {
+    void whenSquareShouldCheckThatAllIsOk() {
         Point one = new Point(1, 1);
         Point two = new Point(1, 2);
         Point three = new Point(2, 2);
@@ -32,10 +35,9 @@ public class SorterTest {
 
     /**
      * When square should check that points sorted.
-     * @throws Exception if some problems.
      */
     @Test
-    public void whenSquareShouldCheckThatPointSorted() throws Exception {
+    void whenSquareShouldCheckThatPointSorted() {
         Point one = new Point(1, 1);
         Point two = new Point(1, 2);
         Point three = new Point(2, 2);

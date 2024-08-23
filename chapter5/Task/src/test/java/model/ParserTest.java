@@ -1,8 +1,9 @@
 package model;
 
-import org.junit.Test;
 
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -12,13 +13,13 @@ import static org.hamcrest.core.Is.is;
  *
  * Unit test for parser.
  */
-public class ParserTest {
+class ParserTest {
 
     /**
      * Test case number one.
      */
     @Test
-    public void whenTryParseAddingOrderOperationShouldCheckThatMethodParseReturnCorrectOrder() {
+    void whenTryParseAddingOrderOperationShouldCheckThatMethodParseReturnCorrectOrder() {
         String addOrder = "<AddOrder book=\"book-2\" operation=\"BUY\" price=\"100.20\" volume=\"20\" orderId=\"184\" />";
         Parser parser = new Parser();
         Order expected = new Order("book-2", Order.Type.BUY, 100.20f, 20, 184);
@@ -30,7 +31,7 @@ public class ParserTest {
      * Test case number two.
      */
     @Test
-    public void whenTryParseDeleteOrderOperationShouldCheckThatMethodParseReturnCorrectOrder() {
+    void whenTryParseDeleteOrderOperationShouldCheckThatMethodParseReturnCorrectOrder() {
         String deleteOrder = "<DeleteOrder book=\"book-2\" orderId=\"49\" />";
         Parser parser = new Parser();
         Order expected = new Order("book-2", Order.Type.BUY, 0f, 0, 49);

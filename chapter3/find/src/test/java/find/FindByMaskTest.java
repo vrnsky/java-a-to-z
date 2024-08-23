@@ -1,11 +1,13 @@
 package find;
 
-import chat.Answerer;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import ru.evrnsky.chat.Answerer;
 import org.apache.commons.io.FileUtils;
-import org.junit.Test;
 import java.io.File;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -34,7 +36,7 @@ public class FindByMaskTest {
      * @throws Exception if something wrong.
      */
     @Test
-    public void whenTrySearchFileByMaskShouldSaveResultInSpecifiedFile() throws Exception {
+    void whenTrySearchFileByMaskShouldSaveResultInSpecifiedFile() throws Exception {
         FileTestUtils.createDirsAndFiles(FIND_BY_MASK, Arrays.asList("rmask.txt"), Arrays.asList("mask.txt"));
         String searchFolder = String.format("%s%s%s", PATH, FileTestUtils.SEPARATOR, FIND_BY_MASK);
         File file = Files.createTempFile("mask", "").toFile();
@@ -58,7 +60,7 @@ public class FindByMaskTest {
      * @throws IOException if some error when create a temp file.
      */
     @Test
-    public void whenTryCheckThatMethodCheckWorksCorrectShouldCheckThatWorksFine() throws IOException {
+    void whenTryCheckThatMethodCheckWorksCorrectShouldCheckThatWorksFine() throws IOException {
         File file = File.createTempFile("mask", "txt");
         FindByMask finder = new FindByMask();
         boolean actual = finder.check(file, file.getName());
@@ -71,7 +73,7 @@ public class FindByMaskTest {
      * @throws IOException if some error when temp file creation.
      */
     @Test
-    public void whenTryCheckThatMethodCheckWorksCorrectShouldCheckThatReturnFalse() throws IOException {
+    void whenTryCheckThatMethodCheckWorksCorrectShouldCheckThatReturnFalse() throws IOException {
         File file = File.createTempFile("mask", "txt");
         FindByMask finder = new FindByMask();
         boolean actual = finder.check(file, "random mask");
@@ -81,12 +83,10 @@ public class FindByMaskTest {
     /**
      * Check that when try parse an not exist directory should check that app throw exception.
      */
-    @Test(expected = IllegalArgumentException.class)
-    public void whenTryGiveFinderEmptyDirectoryShouldCheckThatThrowException() {
+    @Test
+    void whenTryGiveFinderEmptyDirectoryShouldCheckThatThrowException() {
         FindByMask findByMask = new FindByMask();
-        findByMask.find(new String[]{"1", "not exist dir", "3", "4", "5", "6", "7"});
+        Assertions.assertThrows(IllegalArgumentException.class, () -> findByMask.find(new String[]{"1", "not exist dir", "3", "4", "5", "6", "7"}));
     }
-
-
 
 }

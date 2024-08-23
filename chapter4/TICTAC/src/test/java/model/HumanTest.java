@@ -1,34 +1,32 @@
 package model;
 
-import org.junit.Test;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
  * Unit test for Human.java.
  */
-public class HumanTest {
+class HumanTest {
 
     /**
      * When create a human should check that is not null.
      */
     @Test
-    public void whenTryCreateHumanShouldCheckThatIsNotNull() {
+    void whenTryCreateHumanShouldCheckThatIsNotNull() {
 
         //Assign block
         Player human = new Human("x");
-
-        //Action block
-        boolean actual = human != null;
-
-        assertThat(actual, is(true));
+        Assertions.assertNotNull(human);
     }
 
     /**
-     * When try get sign of human should check that is correct sign.
+     * When try getting sign of human should check that is correct sign.
      */
     @Test
-    public void whenTryGetSignOfHumanShouldCheckThatIsCorrectSign() {
+    void whenTryGetSignOfHumanShouldCheckThatIsCorrectSign() {
         Player human = new Human("x");
         String expected = "x";
 
@@ -38,10 +36,10 @@ public class HumanTest {
     }
 
     /**
-     * When human try make step on the empty cell should check that board accept it.
+     * When human try making step on the empty cell should check that board accept it.
      */
     @Test
-    public void whenHumanTryMakeStepOnTheEmptyCellShouldCheckThatBoardAcceptIt() {
+    void whenHumanTryMakeStepOnTheEmptyCellShouldCheckThatBoardAcceptIt() {
         Player human = new Human("X");
         Board board = new Board();
         String[][] expected = {

@@ -1,8 +1,10 @@
 package service;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
-import static org.junit.Assert.assertThat;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -10,14 +12,14 @@ import static org.hamcrest.core.Is.is;
  * @author evrnsky
  * @version 1.0
  */
-public class EvenIteratorTest {
+class EvenIteratorTest {
 
     /**
      * When ask iterator about has next even element when pointer at the end.
      * Should check that iterator return true.
      */
     @Test
-    public void whenAskIteratorAboutHasNextElementsShouldCheckThatIteratorReturnFalse() {
+    void whenAskIteratorAboutHasNextElementsShouldCheckThatIteratorReturnFalse() {
         EvenIterator iterator = new EvenIterator(new int[]{2, 10});
 
         iterator.next();
@@ -28,10 +30,10 @@ public class EvenIteratorTest {
     }
 
     /**
-     * When try move across iterator should check that iterator give only even number.
+     * When try moving across iterator should check that iterator give only even number.
      */
     @Test
-    public void whenTryGetNextEvenValueShouldCheckThatIteratorReturnCorrectValue() {
+    void whenTryGetNextEvenValueShouldCheckThatIteratorReturnCorrectValue() {
         EvenIterator iterator = new EvenIterator(new int[]{1, 2, 3, 4, 5, 6, 7, 8});
         int[] expected = new int[]{2, 4, 6, 8};
         int[] actual = new int[expected.length];
@@ -45,10 +47,10 @@ public class EvenIteratorTest {
     }
 
     /**
-     * When try get value from iterator without call hasNext should check that value is correct.
+     * When try getting value from iterator without call hasNext should check that value is correct.
      */
     @Test
-    public void whenTrySomeEvenValuesFromIteratorShouldCheckThatNextWorksAuto() {
+    void whenTrySomeEvenValuesFromIteratorShouldCheckThatNextWorksAuto() {
         EvenIterator iterator = new EvenIterator(new int[]{12, 15, 80, 100});
         int expected = 100;
 

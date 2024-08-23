@@ -1,20 +1,23 @@
 package service;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import java.util.NoSuchElementException;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for RoleStorage.java.
  */
-public class RoleStorageTest {
+class RoleStorageTest {
 
     /**
-     * When try add role to role storage should check that role storage accept role.
+     * When try adding role to role storage should check that role storage accept role.
      */
     @Test
-    public void whenTryAddRoleToTheStorageShouldCheckThatWorksCorrect() {
+    void whenTryAddRoleToTheStorageShouldCheckThatWorksCorrect() {
         Role role = new Role("author");
         RoleStorage storage = new RoleStorage();
         storage.add(role);
@@ -25,15 +28,15 @@ public class RoleStorageTest {
     }
 
     /**
-     * When try remove role from storage should check that in role storage it not exist.
+     * When try removing role from storage should check that in role storage it not exists.
      */
-    @Test(expected = NoSuchElementException.class)
-    public void whenTryRemoveRoleFromStorageShouldCheckThatRoleWasRemoved() {
+    @Test
+    void whenTryRemoveRoleFromStorageShouldCheckThatRoleWasRemoved() {
         RoleStorage storage = new RoleStorage();
         storage.add(new Role("programmer"));
 
         storage.remove("programmer");
-        Role actual = storage.get("programmer");
+        Assertions.assertThrows(NoSuchElementException.class, () -> storage.get("programmer"));
 
     }
 
@@ -41,12 +44,12 @@ public class RoleStorageTest {
      * When try update exist role at the role storage should check that storage accept changes.
      */
     @Test
-    public void whenTryUpdateExistValueShouldCheckThatStorageAcceptChanges() {
+    void whenTryUpdateExistValueShouldCheckThatStorageAcceptChanges() {
         RoleStorage storage = new RoleStorage();
-        Role codemonkey = new Role("codemonkey");
-        storage.add(codemonkey);
+        Role codeMonkey = new Role("codemonkey");
+        storage.add(codeMonkey);
 
-        storage.update(codemonkey.getId(), new Role("senior java"));
+        storage.update(codeMonkey.getId(), new Role("senior java"));
 
         assertThat(storage.get("senior java").getId(), is("senior java"));
     }

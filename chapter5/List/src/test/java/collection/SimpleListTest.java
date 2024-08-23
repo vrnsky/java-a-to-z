@@ -1,7 +1,10 @@
 package collection;
 
-import org.junit.Test;
-import static org.junit.Assert.assertThat;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -11,13 +14,13 @@ import java.util.NoSuchElementException;
 /**
  * Unit test for SimpleList.java.
  */
-public class SimpleListTest {
+class SimpleListTest {
 
     /**
-     * When try add value to dynamic list should check that value was added.
+     * When try aadding value to dynamic list should check that value was added.
      */
     @Test
-    public void whenTryAddValueToDynamicListShouldCheckThatValueWasAdded() {
+    void whenTryAddValueToDynamicListShouldCheckThatValueWasAdded() {
         SimpleContainer<String> container = new SimpleList<>();
         String expected = "Hello";
 
@@ -28,10 +31,10 @@ public class SimpleListTest {
     }
 
     /**
-     * When try remove value from dynamic list should check that method remove return removed value.
+     * When try removing value from dynamic list should check that method remove return removed value.
      */
     @Test
-    public void whenTryRemoveValueFromDynamicListShouldCheckThatRemoveMethodReturnCorrectObject() {
+    void whenTryRemoveValueFromDynamicListShouldCheckThatRemoveMethodReturnCorrectObject() {
         SimpleContainer<String> container = new SimpleList<>();
         String expected = "Java";
 
@@ -45,7 +48,7 @@ public class SimpleListTest {
      * When try check that some object contains at the list should check that contains return true.
      */
     @Test
-    public void whenTryCheckThatSomeObjectContainsAtTheListShouldCheckThatContainsReturnTrue() {
+    void whenTryCheckThatSomeObjectContainsAtTheListShouldCheckThatContainsReturnTrue() {
         SimpleContainer<String> container = new SimpleList<>();
         String value = "Spring";
 
@@ -56,10 +59,10 @@ public class SimpleListTest {
     }
 
     /**
-     * When try add value but list is full should check that list ensureCapacity and accept new value.
+     * When try adding value but list is full should check that list ensureCapacity and accept new value.
      */
     @Test
-    public void whenTryAddValueButListIsFullShouldCheckThatListAcceptNewValue() {
+    void whenTryAddValueButListIsFullShouldCheckThatListAcceptNewValue() {
 
         SimpleContainer<String> container = new SimpleList<>(1);
         String expected = "Second element";
@@ -75,7 +78,7 @@ public class SimpleListTest {
      * When try use iterator from the list should check that iterator works correct.
      */
     @Test
-    public void whenTryGetIteratorFromListShouldCheckThatIteratorWorksCorrect() {
+    void whenTryGetIteratorFromListShouldCheckThatIteratorWorksCorrect() {
         SimpleContainer<String> container = new SimpleList<>();
 
         container.add("String");
@@ -86,10 +89,10 @@ public class SimpleListTest {
     }
 
     /**
-     * When try move across values using iterator should check that iterator return all values.
+     * When try moving across values using iterator should check that iterator return all values.
      */
     @Test
-    public void whenTryMoveAcrossValueUsingIteratorShouldCheckThatIteratorReturnAllValues() {
+    void whenTryMoveAcrossValueUsingIteratorShouldCheckThatIteratorReturnAllValues() {
         SimpleContainer<String> container = new SimpleList<>();
         String[] expected = {"String", "Values", "Remove"};
 
@@ -108,28 +111,28 @@ public class SimpleListTest {
     }
 
     /**
-     * When try get element from negative index should check that app throw exception.
-     */
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
-    public void whenTryGetElementWithNegativeIndexShouldCheckThatListThrowException() {
-        SimpleContainer<String> strings = new SimpleList<>();
-        strings.get(-1);
-    }
-
-    /**
-     * When try remove element from negative index should check that list throw exception.
-     */
-    @Test(expected = NoSuchElementException.class)
-    public void whenTryRemoveElementFromNegativeIndexShouldCheckThatListThrowException() {
-        SimpleContainer<String> strings = new SimpleList<>();
-        strings.remove(-1);
-    }
-
-    /**
-     * When try get size from empty list should check that list return zero.
+     * When try getting element from negative index should check that app throw exception.
      */
     @Test
-    public void whenTryGetSizeAtTheEmptyListShouldCheckThatListReturnZero() {
+    void whenTryGetElementWithNegativeIndexShouldCheckThatListThrowException() {
+        SimpleContainer<String> strings = new SimpleList<>();
+        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, ()-> strings.get(-1));
+    }
+
+    /**
+     * When try removing element from negative index should check that list throw exception.
+     */
+    @Test
+    void whenTryRemoveElementFromNegativeIndexShouldCheckThatListThrowException() {
+        SimpleContainer<String> strings = new SimpleList<>();
+        Assertions.assertThrows(NoSuchElementException.class, ()-> strings.remove(-1));
+    }
+
+    /**
+     * When try getting size from empty list should check that list return zero.
+     */
+    @Test
+    void whenTryGetSizeAtTheEmptyListShouldCheckThatListReturnZero() {
         SimpleContainer<String> strings = new SimpleList<>();
         assertThat(strings.size(), is(-1));
     }
@@ -138,7 +141,7 @@ public class SimpleListTest {
      * When try get size from not empty list should check that list return it size.
      */
     @Test
-    public void whenTryGetSizeFromNotEmptyListShouldCheckThatListReturnSize() {
+    void whenTryGetSizeFromNotEmptyListShouldCheckThatListReturnSize() {
         SimpleContainer<String> strings = new SimpleList<>();
         strings.add("first");
         strings.add("second");

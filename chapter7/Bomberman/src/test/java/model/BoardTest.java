@@ -1,11 +1,13 @@
 package model;
 
-import org.junit.Test;
+
+
+import org.testng.annotations.Test;
 
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * @author evrnsky
@@ -16,39 +18,39 @@ import static org.junit.Assert.assertThat;
 public class BoardTest {
 
     /**
-     * When try create board should check that all is ok.
+     * When try to create board should check that all is ok.
      */
     @Test
-    public void whenTryCreateBoardShouldCheckThatAllIsOK() {
+    void whenTryCreateBoardShouldCheckThatAllIsOK() {
         Board board = new Board(10, 10);
         assertThat(board, is(notNullValue()));
     }
 
     /**
-     * When try get height of board should check that all is ok.
+     * When try to get height of board should check that all is ok.
      * @throws Exception if error happened.
      */
     @Test
-    public void whenTryGetHeightOfBoardShouldCheckThatAllIsOk() throws Exception {
+    void whenTryGetHeightOfBoardShouldCheckThatAllIsOk() throws Exception {
         Board board = new Board(10, 10);
         assertThat(board.getHeight(), is(10));
     }
 
     /**
-     * When try get width of board should check that all is ok.
+     * When try to get width of board should check that all is ok.
      * @throws Exception if error happened.
      */
     @Test
-    public void whenTryGetWidthOfBoardShouldCheckThatAlIsOk() throws Exception {
+    void whenTryGetWidthOfBoardShouldCheckThatAlIsOk() throws Exception {
         Board board = new Board(10, 10);
         assertThat(board.getWidth(), is(10));
     }
 
     /**
-     * When try get block should check that all is ok.
+     * When try to get block should check that all is ok.
      */
     @Test
-    public void whenTryGetBlockShouldCheckThatAllIsOk() {
+    void whenTryGetBlockShouldCheckThatAllIsOk() {
         Board board = new Board(10, 10);
         assertThat(board.getBlock(5, 5), is(notNullValue()));
     }
@@ -58,7 +60,7 @@ public class BoardTest {
      * @throws Exception if error happened.
      */
     @Test
-    public void whenTryGetNotValidBlockShouldCheckThatMethodReturnNull() throws Exception {
+    void whenTryGetNotValidBlockShouldCheckThatMethodReturnNull() throws Exception {
         Board board = new Board(3, 3);
         assertThat(board.getBlock(5, 5), is(nullValue()));
     }

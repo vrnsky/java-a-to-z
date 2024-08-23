@@ -1,21 +1,23 @@
 package model;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for User.java.
  */
-public class UserTest {
+class UserTest {
 
     /**
      * When create a simple user should check that user have name.
      */
     @Test
-    public void whenCreateASimpleUserShouldCheckThatUserHaveName() {
+    void whenCreateASimpleUserShouldCheckThatUserHaveName() {
 
         //Assign block
         String expected = "Google";
@@ -29,10 +31,10 @@ public class UserTest {
     }
 
     /**
-     * When create a middle full profile should check that user have childrens.
+     * When create a middle full profile should check that user have children.
      */
     @Test
-    public void whenCreateAMiddleUserShouldCheckThatUserHaveCountOfKids() {
+    void whenCreateAMiddleUserShouldCheckThatUserHaveCountOfKids() {
 
         //Assign block
         int expected = 2;
@@ -46,10 +48,10 @@ public class UserTest {
     }
 
     /**
-     * When create full fill profile should check that birthday is legal.
+     * When create full profile should check that birthday is legal.
      */
     @Test
-    public void whenCreateFullUserShouldCheckThatUserHaveBirthday() {
+    void whenCreateFullUserShouldCheckThatUserHaveBirthday() {
 
         //Assign block
         Calendar birthday = new GregorianCalendar(1996, 10, 1);
@@ -66,7 +68,7 @@ public class UserTest {
      * When try update name of user should check that object saved chages.
      */
     @Test
-    public void whenTryUpdateNameOfUserShouldCheckThatUserNameWasUpdated() {
+    void whenTryUpdateNameOfUserShouldCheckThatUserNameWasUpdated() {
 
         //Assign block
         User user = new User("Elixir");
@@ -85,7 +87,7 @@ public class UserTest {
      * When try update count of children should check that field of object was updated.
      */
     @Test
-    public void whenTryUpdateCountOfChildrenShouldCheckThatFieldOfObjectWasUpdated() {
+    void whenTryUpdateCountOfChildrenShouldCheckThatFieldOfObjectWasUpdated() {
 
         //Assign block
         User user = new User("Update", 1);
@@ -102,7 +104,7 @@ public class UserTest {
      * When try update birthday should check that object saved changes.
      */
     @Test
-    public void whenTryUpdateBirthdayShouldCheckThatModelWasSaveChanges() {
+    void whenTryUpdateBirthdayShouldCheckThatModelWasSaveChanges() {
 
         //Assign block
         User user = new User("Update", 1, new GregorianCalendar(1996, 10, 1));

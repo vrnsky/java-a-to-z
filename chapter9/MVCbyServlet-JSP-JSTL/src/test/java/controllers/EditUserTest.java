@@ -2,7 +2,7 @@ package controllers;
 
 import dao.Repository;
 import models.User;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
  * @version 0.1
  * @since 05.03.2017
  */
-public class EditUserTest {
+class EditUserTest {
 
 
     /**
@@ -28,7 +28,7 @@ public class EditUserTest {
      * @throws IOException if problem with data exchange.
      */
     @Test
-    public void whenAdminEditUserShouldCheckThatDataWasChanged() throws ServletException, IOException {
+    void whenAdminEditUserShouldCheckThatDataWasChanged() throws ServletException, IOException {
         CreateUser createUser = new CreateUser();
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);
@@ -47,6 +47,6 @@ public class EditUserTest {
         editUser.doPost(request, response);
 
         User user = Repository.getInstance().getUserById(userId);
-        assertEquals(user.getEmail(), "a@vrngroup.com");
+        assertEquals("a@vrngroup.com", user.getFirstName());
     }
 }

@@ -1,10 +1,12 @@
 package model;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 import java.util.Comparator;
 import java.util.List;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * @author evrnsky
@@ -13,7 +15,7 @@ import static org.junit.Assert.assertThat;
  *
  * Unit test for binary tree.
  */
-public class BinaryTreeTest {
+class BinaryTreeTest {
 
 
     /**
@@ -27,10 +29,10 @@ public class BinaryTreeTest {
     };
 
     /**
-     * When try add element to the left and right should check that binary tree accept it both.
+     * When try adding element to the left and right should check that binary tree accept it both.
      */
     @Test
-    public void whenTryAddElementToTheLeftAndRightBranchShouldCheckThatBinaryTreeAcceptIt() {
+    void whenTryAddElementToTheLeftAndRightBranchShouldCheckThatBinaryTreeAcceptIt() {
         BinaryTree<String> tree = new BinaryTree<>("Root", COMPARATOR);
         tree.addChild("Abc");
         tree.addChild("Zyxel");
@@ -40,10 +42,10 @@ public class BinaryTreeTest {
     }
 
     /**
-     * When try add element to the left branch should check that tree was add node.
+     * When try adding element to the left branch should check that tree was add node.
      */
     @Test
-    public void whenTryAddElementToTheLeftBranchAtTheSecondLevelOfTreeShouldCheckThatTreeWasAdded() {
+    void whenTryAddElementToTheLeftBranchAtTheSecondLevelOfTreeShouldCheckThatTreeWasAdded() {
         BinaryTree<String> tree = new BinaryTree<>("Root", COMPARATOR);
         tree.addChild("Abc");
         tree.addChild("Zyxel");
@@ -54,10 +56,10 @@ public class BinaryTreeTest {
     }
 
     /**
-     * When try add element to the right branch should check that element was added.
+     * When try adding element to the right branch should check that element was added.
      */
     @Test
-    public void whenTryAddElementToTheRightBranchShouldCheckThatElementWasAddedToCorrectPosition() {
+    void whenTryAddElementToTheRightBranchShouldCheckThatElementWasAddedToCorrectPosition() {
         BinaryTree<String> tree = new BinaryTree<>("Root", COMPARATOR);
         tree.addChild("Abc");
         tree.addChild("Zyxel");

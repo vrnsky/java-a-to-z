@@ -2,14 +2,16 @@ package controllers;
 
 import dao.ExtendedRepo;
 import model.Role;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import static org.junit.Assert.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -18,7 +20,7 @@ import static org.mockito.Mockito.when;
  * @version 0.1
  * @since 05.03.2017
  */
-public class RemoveRoleTest {
+class RemoveRoleTest {
 
     /**
      * Add new role to the system - it unit test for this.
@@ -26,7 +28,7 @@ public class RemoveRoleTest {
      * @throws IOException if problem with data exchange.
      */
     @Test
-    public void whenAdminAddNewRoleToSystemShouldCheckThatIsOk() throws ServletException, IOException {
+    void whenAdminAddNewRoleToSystemShouldCheckThatIsOk() throws ServletException, IOException {
         AddRole addRole = new AddRole();
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);
@@ -43,6 +45,6 @@ public class RemoveRoleTest {
             description.add(role.getDesc());
         }
 
-        assertEquals(false, description.contains("subcriber"));
+        assertFalse(description.contains("subcriber"));
     }
 }

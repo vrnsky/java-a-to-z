@@ -3,16 +3,17 @@ package controllers;
 
 import dao.UserRepository;
 import model.User;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * @author evrnsky
@@ -21,7 +22,7 @@ import static org.junit.Assert.assertThat;
  *
  * This unit test check that edit function works correctly.
  */
-public class EditTest {
+class EditTest {
 
     /**
      * When admin edit user should check that user was updated.
@@ -29,7 +30,7 @@ public class EditTest {
      * @throws IOException if problem with data exchange.
      */
     @Test
-    public void whenAdminEditUserShouldCheckThatDataSaved() throws ServletException, IOException {
+    void whenAdminEditUserShouldCheckThatDataSaved() throws ServletException, IOException {
         Edit edit = new Edit();
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);

@@ -1,11 +1,11 @@
 package model;
 
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 
 /**
  * Car detail allow us to describe any detail of car.
@@ -13,7 +13,9 @@ import javax.persistence.MappedSuperclass;
  * @author vrnsky.
  * @version 0.1
  */
-@NoArgsConstructor @MappedSuperclass @Data
+@Data
+@NoArgsConstructor
+@MappedSuperclass
 public abstract class CarDetail {
 
     /**

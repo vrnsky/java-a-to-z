@@ -1,19 +1,20 @@
 package model;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for Board.java.
  */
-public class BoardTest {
+class BoardTest {
 
     /**
      * When board is only created should check that all cells are empty.
      */
     @Test
-    public void whenCreateBoardShouldCheckThatBoardIsEmpty() {
+    void whenCreateBoardShouldCheckThatBoardIsEmpty() {
 
         //Assign block
         Board board = new Board();
@@ -31,10 +32,10 @@ public class BoardTest {
     }
 
     /**
-     * When someone try make step on the empty cell should check that board accept it.
+     * When someone try making step on the empty cell should check that board accept it.
      */
     @Test
-    public void whenSomeoneTryMakeStepOnTheEmptyCellShouldCheckThatBoardAcceptIt() {
+    void whenSomeoneTryMakeStepOnTheEmptyCellShouldCheckThatBoardAcceptIt() {
 
         //Assign block
         Board board = new Board();
@@ -54,10 +55,10 @@ public class BoardTest {
     }
 
     /**
-     * When someone try make on the busy cell should check that step is not perform.
+     * When someone try making on the busy cell should check that step is not perform.
      */
     @Test
-    public void whenSomeoneTryMakeStepOnTheBusyCellShouldCheckThatStepIsNotPerform() {
+    void whenSomeoneTryMakeStepOnTheBusyCellShouldCheckThatStepIsNotPerform() {
 
         //Assign block
         Board board = new Board();

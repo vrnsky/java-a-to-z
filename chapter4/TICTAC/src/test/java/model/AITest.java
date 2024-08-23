@@ -1,29 +1,30 @@
 package model;
 
-import org.junit.Test;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
  * Unit test for AI.java.
  */
-public class AITest {
+class AITest {
 
     /**
-     * When try create a AI should check that is not null.
+     * When try creating an AI should check that is not null.
      */
     @Test
-    public void whenTryCreateAIShouldCheckThatIsNotNull() {
+    void whenTryCreateAIShouldCheckThatIsNotNull() {
         Player computer = new AI("o");
-        boolean actual = computer != null;
-        assertThat(actual, is(true));
+        Assertions.assertNotNull(computer);
     }
 
     /**
-     * When try get sign of ai should check that is correct sign.
+     * When try getting sign of AI should check that is correct sign.
      */
     @Test
-    public void whenTryGetSignOfAIShouldCheckThatIsCorrectSign() {
+    void whenTryGetSignOfAIShouldCheckThatIsCorrectSign() {
         Player computer = new AI("O");
         String expected = "O";
 
@@ -33,10 +34,10 @@ public class AITest {
     }
 
     /**
-     * When try make step should check that all is ok.
+     * When try making step should check that all is ok.
      */
     @Test
-    public void whenTryToMakeStepShouldCheckThatStepPerformed() {
+    void whenTryToMakeStepShouldCheckThatStepPerformed() {
         Player computer = new AI("O");
         Board board = new Board();
         assertThat(board.performStep(computer, 0, 0), is(true));

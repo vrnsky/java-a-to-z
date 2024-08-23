@@ -1,8 +1,11 @@
 package service;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.IsNull.nullValue;
 
 /**
@@ -10,13 +13,13 @@ import static org.hamcrest.core.IsNull.nullValue;
  * @author evrnsky
  * @version 1.0
  */
-public class SimpleArrayTest {
+class SimpleArrayTest {
 
     /**
-     * When try add value to the simple array should check that saved value.
+     * When try adding value to the simple array should check that saved value.
      */
     @Test
-    public void whenTryAddValuesToTheSimpleArrayShouldCheckThatAddedCorrect() {
+    void whenTryAddValuesToTheSimpleArrayShouldCheckThatAddedCorrect() {
         SimpleArray<String> list = new SimpleArray<>();
         String expected = "first value";
 
@@ -30,7 +33,7 @@ public class SimpleArrayTest {
      * When try update some value in list should check that list save changes.
      */
     @Test
-    public void whenTryUpdateSomeValueInListShouldCheckThatValueIsUpdate() {
+    void whenTryUpdateSomeValueInListShouldCheckThatValueIsUpdate() {
         SimpleArray<String> list = new SimpleArray<>();
         String expected = "Updated!";
 
@@ -44,18 +47,18 @@ public class SimpleArrayTest {
     /**
      * When try update value in list using bad position should check that method throw exception.
      */
-    @Test(expected = IllegalArgumentException.class)
-    public void whenTryUpdateUseBadPositionShouldCheckThatMethodUpdateThrowException() {
+    @Test
+    void whenTryUpdateUseBadPositionShouldCheckThatMethodUpdateThrowException() {
         SimpleArray<String> list = new SimpleArray<>();
 
-        list.get(-1);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> list.get(-1));
     }
 
     /**
-     * When try add new value but array is full should check that value was add.
+     * When try adding new value but array is full should check that value was add.
      */
     @Test
-    public void whenTryAddNewValueToTheListButListIsFullShouldCheckThatListIsResize() {
+    void whenTryAddNewValueToTheListButListIsFullShouldCheckThatListIsResize() {
         SimpleArray<String> list = new SimpleArray<>(2);
         int expected = 4;
 
@@ -68,10 +71,10 @@ public class SimpleArrayTest {
     }
 
     /**
-     * When try delete value from list should check value was removed.
+     * When try deleting value from list should check value was removed.
      */
     @Test
-    public void whenTryDeleteValueFromListShouldCheckThatValueWasRemoved() {
+    void whenTryDeleteValueFromListShouldCheckThatValueWasRemoved() {
         SimpleArray<String> list = new SimpleArray<>();
 
         list.add("one");
@@ -86,18 +89,18 @@ public class SimpleArrayTest {
     /**
      * When delete value from simple array should check that method throw exception.
      */
-    @Test(expected =  IllegalArgumentException.class)
-    public void whenTryDeleteElementUsingBadPositionShouldCheckThatMethodThrowException() {
+    @Test
+    void whenTryDeleteElementUsingBadPositionShouldCheckThatMethodThrowException() {
         SimpleArray<String> list = new SimpleArray<>();
-        list.delete(-1);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> list.delete(-1));
     }
 
     /**
      * When try update element with negative index should check that list throw exception.
      */
-    @Test(expected = IllegalArgumentException.class)
-    public void whenTryUpdateElementWithNegativeIndexShouldCheckThatListThrowException() {
+    @Test
+    void whenTryUpdateElementWithNegativeIndexShouldCheckThatListThrowException() {
         SimpleArray<String> string = new SimpleArray<>();
-        string.update(-1, "new string");
+        Assertions.assertThrows(IllegalArgumentException.class, ()-> string.update(-1, "new string"));
     }
 }

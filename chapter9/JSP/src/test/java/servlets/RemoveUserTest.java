@@ -2,7 +2,7 @@ package servlets;
 
 import dao.Repository;
 import models.User;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.nullValue;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -23,16 +23,16 @@ import static org.mockito.Mockito.when;
  *
  * This unit test check controller's work for removing user from app.
  */
-public class RemoveUserTest {
+class RemoveUserTest {
 
 
     /**
-     * Remove user from system and check that it real was removed.
+     * Remove user from system and check that it really was removed.
      * @throws ServletException if problem with concurrency.
      * @throws IOException if problem with data exchange.
      */
     @Test
-    public void whenAdminRemoveUserShouldCheckThatUserWasRemoved() throws ServletException, IOException {
+    void whenAdminRemoveUserShouldCheckThatUserWasRemoved() throws ServletException, IOException {
         CreateUser createUser = new CreateUser();
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);

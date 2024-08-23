@@ -1,10 +1,11 @@
 package palindrome;
 
-import org.junit.Test;
-import start.StubIO;
+import org.junit.jupiter.api.Test;
+import ru.evrnsky.start.StubIO;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.StringContains.containsString;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for Palindrome.java.

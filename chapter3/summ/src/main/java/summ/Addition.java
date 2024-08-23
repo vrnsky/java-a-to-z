@@ -1,5 +1,5 @@
 package summ;
-import start.IO;
+import ru.evrnsky.start.IO;
 
 /**
  * Addition two integers.

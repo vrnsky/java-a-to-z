@@ -1,8 +1,10 @@
 package models;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 import java.util.List;
-import static org.junit.Assert.assertThat;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsCollectionContaining.hasItem;
 
 /**
@@ -12,14 +14,14 @@ import static org.hamcrest.core.IsCollectionContaining.hasItem;
  *
  * Unit test for Square.java
  */
-public class SquareTest {
+class SquareTest {
 
 
     /**
      * Check that algorithm correct works with one island.
      */
     @Test
-    public void whenCalculateSimpleArrayShouldCheckThatAllIsCorrect() {
+    void whenCalculateSimpleArrayShouldCheckThatAllIsCorrect() {
         final int[][] values = new int[][]{{0, 0}, {0, 1}};
         Square square = new Square(values);
         List<Integer> actual = square.findOne();
@@ -31,7 +33,7 @@ public class SquareTest {
      * Check that algorithm correct works with other data.
      */
     @Test
-    public void whenCalculateMiddleArrayShouldCheckThatAllIsCorrect() {
+    void whenCalculateMiddleArrayShouldCheckThatAllIsCorrect() {
         final int[][] values = new int[][]
                 {
                         {0, 0, 1},
@@ -47,7 +49,7 @@ public class SquareTest {
      * Check that algorithm correct works with complicated data.
      */
     @Test
-    public void whenCalculateTwoIslandShouldCheckAllCorrectness() {
+    void whenCalculateTwoIslandShouldCheckAllCorrectness() {
         final int[][] values = new int[][]{
                 {0, 1, 0},
                 {1, 0, 0},

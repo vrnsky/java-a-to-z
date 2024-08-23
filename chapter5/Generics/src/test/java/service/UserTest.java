@@ -1,19 +1,20 @@
 package service;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Unit test for User.java.
  */
-public class UserTest {
+class UserTest {
 
     /**
-     * When try get id of user should check that is correct.
+     * When try getting id of user should check that is correct.
      */
     @Test
-    public void whenTryGetIdOfUserShouldCheckThatIdIsCorrect() {
+    void whenTryGetIdOfUserShouldCheckThatIdIsCorrect() {
 
         //Assign block
         User user = new User("id");
@@ -29,7 +30,7 @@ public class UserTest {
      * When try set new id for user should check that object save it.
      */
     @Test
-    public void whenTrySetIdShouldCheckThatUserAcceptChanges() {
+    void whenTrySetIdShouldCheckThatUserAcceptChanges() {
 
         //Assign block
         User user = new User("");

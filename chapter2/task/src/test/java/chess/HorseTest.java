@@ -1,8 +1,9 @@
 package chess;
 
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
@@ -19,7 +20,7 @@ public class HorseTest {
     /**
      * To reduce code in test init action perform at this method.
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         this.horse = new Horse();
     }
@@ -28,7 +29,7 @@ public class HorseTest {
      * Check than constructor of horse work correct.
      */
     @Test
-    public void whenCreateAHorseShouldCheckItIsNotNull() {
+    void whenCreateAHorseShouldCheckItIsNotNull() {
 	    boolean actual = horse != null;
         assertThat(actual, is(true));
     }
@@ -37,7 +38,7 @@ public class HorseTest {
      * When try attach horse to board should check that board saved it.
      */
     @Test
-    public void whenTryAddHorseToTheBoardShouldCheckItSaved() {
+    void whenTryAddHorseToTheBoardShouldCheckItSaved() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"H", "0", "0", "0", "0", "0", "0", "0"}, //0
@@ -62,7 +63,7 @@ public class HorseTest {
      * Try moving horse one of possible step should check that figure was moved.
      */
     @Test
-    public void whenTryMovingHorseInCorrectDirectionShouldMoveHorseToGivenPosition() {
+    void whenTryMovingHorseInCorrectDirectionShouldMoveHorseToGivenPosition() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"0", "0", "0", "0", "0", "0", "0", "0"}, //0
@@ -88,7 +89,7 @@ public class HorseTest {
      * Try moving horse in one of possible position should check that figure was moved.
      */
     @Test
-    public void whenTryMovingHorseAtTheBottomInCorrectDirection() {
+    void whenTryMovingHorseAtTheBottomInCorrectDirection() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"0", "0", "0", "0", "0", "0", "0", "0"}, //0
@@ -113,7 +114,7 @@ public class HorseTest {
      * When try moving horse in one of possible position should check that figure was moved.
      */
     @Test
-    public void whenTryMovingHorseByVerticalCorrectDirectionShouldMoveHorseToGivenPosition() {
+    void whenTryMovingHorseByVerticalCorrectDirectionShouldMoveHorseToGivenPosition() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"0", "0", "0", "0", "0", "0", "0", "0"}, //0
@@ -137,7 +138,7 @@ public class HorseTest {
      * When try moving horse across other figure should move horse.
      */
     @Test
-    public void whenTryMovingHorseAcrossOtherFigureShouldMoveHorse() {
+    void whenTryMovingHorseAcrossOtherFigureShouldMoveHorse() {
         Board board = new Board();
         String[][] expected = new String[][]{
                 {"0", "0", "0", "0", "0", "0", "0", "0"}, //0
@@ -164,7 +165,7 @@ public class HorseTest {
      * When try get string view of horse should check that is acronym for figure.
      */
     @Test
-	public void whenTryGetStringViewOfHorseShouldGetAcronym() {
+	void whenTryGetStringViewOfHorseShouldGetAcronym() {
 		String expected = "H";
 		String actual = this.horse.toString();
 		assertThat(actual, is(expected));
