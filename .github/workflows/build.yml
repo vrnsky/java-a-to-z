@@ -23,5 +23,3 @@ jobs:
       run: mvn clean install
     - name: Publish Pitest Report
       uses: Bonajo/pitest-report-action@v0.5
-      with:
-        file: "**/target/pit-reports/mutations.xml"
