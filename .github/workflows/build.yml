@@ -8,6 +8,8 @@ on:
 
 jobs:
   build:
+    permissions:
+      checks: write
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -19,3 +21,7 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Publish Pitest Report
+      uses: Bonajo/pitest-report-action@v0.5
+      with:
+        file: "**/target/pit-reports/mutations.xml"

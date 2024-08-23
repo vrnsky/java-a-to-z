@@ -9,7 +9,7 @@ import static org.hamcrest.core.Is.is;
 
 /**
  * Unit test of Board.java.
- * It test showing board and adding to board new figures.
+ * It's testing showing board and adding to board new figures.
  */
 class BoardTest {
 
@@ -52,7 +52,7 @@ class BoardTest {
     }
 
     /**
-     * When try add figure to board should check that board saved it.
+     * When try to add figure to board should check that board saved it.
      */
     @Test
     void whenTryAddFigureToBoardShouldCheckThatBoardSaveIt() {
@@ -79,7 +79,7 @@ class BoardTest {
     }
 
     /**
-     * When try move figure in correct direction should check that figure was moved.
+     * When try to move figure in correct direction should check that figure was moved.
      */
     @Test
     void whenTryMoveFigureInCorrectDirectionShouldMoveFigure() {
