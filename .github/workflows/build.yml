@@ -20,7 +20,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn clean install
     - name: Publish Pitest Report
       uses: Bonajo/pitest-report-action@v0.5
       with:
