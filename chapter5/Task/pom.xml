@@ -3,13 +3,13 @@
 	<groupId>ru.evrnsky.chapter5.Task</groupId>
 	<artifactId>Task</artifactId>
 	<name>Task</name>
-	<version>1.0</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	
 	<parent>
 		<groupId>ru.evrnsky.chapter5</groupId>
 		<artifactId>chapter5</artifactId>
-		<version>1.0</version>
+		<version>1.0.0</version>
 	</parent>
 
 </project>

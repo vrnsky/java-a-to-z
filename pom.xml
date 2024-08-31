@@ -3,7 +3,7 @@
     <groupId>ru.evrnsky</groupId>
     <artifactId>tracker</artifactId>
     <name>Tracker</name>
-    <version>1.0</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <properties>

@@ -3,20 +3,20 @@
     <groupId>ru.evrnsky.chapter7.Monitor</groupId>
     <artifactId>Monitor</artifactId>
     <name>Monitor</name>
-    <version>1.0</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <parent>
         <groupId>ru.evrnsky.chapter7</groupId>
         <artifactId>chapter7</artifactId>
-        <version>1.0</version>
+        <version>1.0.0</version>
     </parent>
 
     <dependencies>
         <dependency>
             <groupId>ru.evrnsky.chapter5.List</groupId>
             <artifactId>List</artifactId>
-            <version>1.0</version>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 </project>

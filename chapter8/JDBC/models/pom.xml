@@ -4,9 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>ru.evrnsky.chapter8.JDBC</groupId>
+        <artifactId>JDBC</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
     <groupId>ru.evrnsky.chapter8.JDBC.models</groupId>
     <artifactId>models</artifactId>
-    <version>1.0</version>
+    <version>1.0.0</version>
 
     <dependencies>
         <dependency>
@@ -18,12 +24,6 @@
             <artifactId>hibernate-jpa-2.0-api</artifactId>
         </dependency>
     </dependencies>
-
-    <parent>
-        <groupId>ru.evrnsky.chapter8.JDBC</groupId>
-        <artifactId>JDBC</artifactId>
-        <version>1.0</version>
-    </parent>
 
 
 </project>

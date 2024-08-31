@@ -3,14 +3,14 @@
     <groupId>ru.evrnsky.chapter9.ClientLanguage</groupId>
     <artifactId>ClientLanguage</artifactId>
     <name>ClientLanguage</name>
-    <version>1.0</version>
+    <version>1.0.0</version>
     <packaging>war</packaging>
 
 
     <parent>
         <groupId>ru.evrnsky.chapter9</groupId>
         <artifactId>chapter9</artifactId>
-        <version>1.0</version>
+        <version>1.0.0</version>
     </parent>
 
     <dependencies>

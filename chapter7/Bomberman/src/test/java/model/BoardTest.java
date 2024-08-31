@@ -2,7 +2,8 @@ package model;
 
 
 
-import org.testng.annotations.Test;
+
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.nullValue;

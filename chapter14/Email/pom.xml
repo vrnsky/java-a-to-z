@@ -3,12 +3,12 @@
 	<groupId>ru.evrnsky.chapter14.Email</groupId>
 	<artifactId>Email</artifactId>
 	<name>Email</name>
-	<version>1.0</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	
 	<parent>
 		<groupId>ru.evrnsky.chapter14</groupId>
 		<artifactId>chapter14</artifactId>
-		<version>1.0</version>
+		<version>1.0.0</version>
 	</parent>
 </project>

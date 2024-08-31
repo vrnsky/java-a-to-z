@@ -3,13 +3,13 @@
 	<groupId>ru.evrnsky.chapter6</groupId>
 	<artifactId>chapter6</artifactId>
 	<name>chapter6</name>
-	<version>1.0</version>
+	<version>1.0.0</version>
 	<packaging>pom</packaging>
 	
 	<parent>
 		<groupId>ru.evrnsky</groupId>
 		<artifactId>tracker</artifactId>
-		<version>1.0</version>
+		<version>1.0.0</version>
 	</parent>
 	
 	<modules>

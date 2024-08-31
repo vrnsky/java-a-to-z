@@ -3,20 +3,20 @@
     <groupId>ru.evrnsky.chapter2.start</groupId>
     <artifactId>start</artifactId>
     <name>start</name>
-    <version>1.0</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <parent>
         <groupId>ru.evrnsky.chapter2</groupId>
         <artifactId>chapter2</artifactId>
-        <version>1.0</version>
+        <version>1.0.0</version>
     </parent>
 
     <dependencies>
         <dependency>
             <groupId>ru.evrnsky.chapter2.models</groupId>
             <artifactId>models</artifactId>
-            <version>1.0</version>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
