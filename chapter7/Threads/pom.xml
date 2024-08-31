@@ -16,12 +16,12 @@
 		<dependency>
 			<groupId>ru.evrnsky.chapter6.SoftWeak</groupId>
 			<artifactId>SoftWeak</artifactId>
-			<version>1.0</version>
+			<version>1.0.0</version>
 		</dependency>
         <dependency>
             <groupId>ru.evrnsky.chapter3.find</groupId>
             <artifactId>find</artifactId>
-            <version>1.0</version>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 </project>
