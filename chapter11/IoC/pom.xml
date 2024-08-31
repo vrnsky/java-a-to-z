@@ -3,13 +3,13 @@
 	<groupId>ru.evrnsky.chapter11.IoC</groupId>
 	<artifactId>IoC</artifactId>
 	<name>IoC</name>
-	<version>1.0</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	
 	<parent>
 		<groupId>ru.evrnsky.chapter11</groupId>
 		<artifactId>chapter11</artifactId>
-		<version>1.0</version>
+		<version>1.0.0</version>
 	</parent>
 
 	<properties>

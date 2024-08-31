@@ -15,7 +15,7 @@ import static org.hamcrest.core.IsNull.notNullValue;
  * This unit test for UserStorage class.
  *
  * @author vrnsky
- * @version 1.0
+ * @version 1.0.0
  */
 class UserStorageTest {
 

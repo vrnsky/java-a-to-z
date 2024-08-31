@@ -3,13 +3,13 @@
     <groupId>ru.evrnsky.chapter9.FilterAndSecurity</groupId>
     <artifactId>FilterAndSecurity</artifactId>
     <name>FilterAndSecurity</name>
-    <version>1.0</version>
+    <version>1.0.0</version>
     <packaging>war</packaging>
 
     <parent>
         <groupId>ru.evrnsky.chapter9</groupId>
         <artifactId>chapter9</artifactId>
-        <version>1.0</version>
+        <version>1.0.0</version>
     </parent>
 
     <dependencies>
@@ -28,17 +28,11 @@
         <dependency>
             <groupId>ru.evrnsky.chapter8.JDBC.start</groupId>
             <artifactId>start</artifactId>
-            <version>1.0</version>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-api-mockito</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.1.0</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 

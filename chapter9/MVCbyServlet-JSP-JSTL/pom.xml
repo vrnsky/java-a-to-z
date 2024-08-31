@@ -3,13 +3,13 @@
 	<groupId>ru.evrnsky.chapter9.MVCbyServlet-JSP-JSTL</groupId>
 	<artifactId>MVCbyServlet-JSP-JSTL</artifactId>
 	<name>MVCbyServlet-JSP-JSTL</name>
-	<version>1.0</version>
+	<version>1.0.0</version>
 	<packaging>war</packaging>
 
 	<parent>
 		<groupId>ru.evrnsky.chapter9</groupId>
 		<artifactId>chapter9</artifactId>
-		<version>1.0</version>
+		<version>1.0.0</version>
 	</parent>
 
 	<dependencies>
@@ -26,7 +26,7 @@
         <dependency>
 			<groupId>ru.evrnsky.chapter9.JSP</groupId>
 			<artifactId>JSP</artifactId>
-			<version>1.0</version>
+			<version>1.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>

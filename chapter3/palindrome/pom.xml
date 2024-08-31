@@ -9,14 +9,14 @@
 	<parent>
 		<groupId>ru.evrnsky.chapter3</groupId>
 		<artifactId>chapter3</artifactId>
-		<version>1.0</version>
+		<version>1.0.0</version>
 	</parent>
 
 	<dependencies>
 		<dependency>
 			<groupId>ru.evrnsky.chapter2.start</groupId>
 			<artifactId>start</artifactId>
-			<version>1.0</version>
+			<version>1.0.0</version>
 		</dependency>
 	</dependencies>
 

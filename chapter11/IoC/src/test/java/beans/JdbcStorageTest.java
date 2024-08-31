@@ -14,7 +14,7 @@ import static org.hamcrest.core.Is.is;
 /**
  * This unit test for JdbcStorage.java.
  * @author vrnsky.
- * @version 1.0
+ * @version 1.0.0
  */
 class JdbcStorageTest {
 
