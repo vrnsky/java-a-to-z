@@ -21,5 +21,9 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean install
+    - name: Upload CodeCov report
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
     - name: Publish Pitest Report
-      uses: Bonajo/pitest-report-action@v0.5
+      uses: Bonajo/pitest-report-action@v0.7
