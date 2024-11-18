@@ -21,6 +21,8 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean install
+    - name: Prepare reports
+      run: mvn clean verify site
     - name: Upload CodeCov report
       uses: codecov/codecov-action@v4.0.1
       with:
