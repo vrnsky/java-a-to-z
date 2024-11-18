@@ -12,7 +12,7 @@ import static org.hamcrest.core.Is.is;
  * @version 0.1
  * @since 13.10.2016
  */
-class UserStorageTest {
+public class UserStorageTest {
 
     /**
      * Instance of storage.
