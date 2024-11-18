@@ -81,7 +81,7 @@ class UserStorageTest {
      * @throws Exception if some error happened.
      */
     @Test
-    public void whenStorageTryExecuteTransactionAmountWithNullUserShouldCheckThatOperationFalse() throws Exception {
+    void whenStorageTryExecuteTransactionAmountWithNullUserShouldCheckThatOperationFalse() throws Exception {
         boolean actual = storage.transactionAmount("", "", 10);
         assertThat(actual, is(false));
 

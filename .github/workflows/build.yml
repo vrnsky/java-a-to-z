@@ -26,4 +26,4 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
     - name: Publish Pitest Report
-      uses: Bonajo/pitest-report-action@v0.7
+      uses: Bonajo/pitest-report-action@v0.8
