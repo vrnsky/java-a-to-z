@@ -22,7 +22,7 @@ jobs:
     - name: Build with Maven
       run: mvn clean install
     - name: Prepare reports
-      run: mvn clean verify site
+      run: mvn clean verify
     - name: Upload CodeCov report
       uses: codecov/codecov-action@v4.0.1
       with:
