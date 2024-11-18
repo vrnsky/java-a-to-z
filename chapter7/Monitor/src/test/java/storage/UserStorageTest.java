@@ -12,7 +12,7 @@ import static org.hamcrest.core.Is.is;
  * @version 0.1
  * @since 13.10.2016
  */
-public class UserStorageTest {
+class UserStorageTest {
 
     /**
      * Instance of storage.
@@ -81,7 +81,7 @@ public class UserStorageTest {
      * @throws Exception if some error happened.
      */
     @Test
-    public void whenStorageTryExecuteTransactionAmountWithNullUserShouldCheckThatOperationFalse() throws Exception {
+    void whenStorageTryExecuteTransactionAmountWithNullUserShouldCheckThatOperationFalse() throws Exception {
         boolean actual = storage.transactionAmount("", "", 10);
         assertThat(actual, is(false));
 

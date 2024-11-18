@@ -11,7 +11,7 @@ import static org.hamcrest.core.Is.is;
  * @version 0.1
  * @since 13.10.2016
  */
-public class UserTest {
+class UserTest {
 
     /**
      * Instance of testing class.
