@@ -1,13 +1,13 @@
 package dao;
 
 import model.MusicType;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -21,7 +21,7 @@ public class DaoMusicType extends CommonDAO<MusicType> {
     /**
      * Instance of logger.
      */
-    private static final Logger LOG = Logger.getLogger(DaoMusicType.class);
+    private static final Logger LOG = Logger.getLogger(DaoMusicType.class.getName());
 
     /**
      * Self instance, it is singleton.
@@ -98,7 +98,7 @@ public class DaoMusicType extends CommonDAO<MusicType> {
         try {
             statement.setString(1, object.getType());
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            LOG.log(Level.SEVERE, e.getMessage(), e);
         }
     }
 
@@ -113,7 +113,7 @@ public class DaoMusicType extends CommonDAO<MusicType> {
             statement.setString(1, object.getType());
             statement.setInt(2, object.getId());
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            LOG.log(Level.SEVERE, e.getMessage(), e);
         }
     }
 
@@ -132,7 +132,7 @@ public class DaoMusicType extends CommonDAO<MusicType> {
                 list.add(new MusicType(id, type));
             }
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            LOG.log(Level.SEVERE, e.getMessage(), e);
         }
 
         return list;

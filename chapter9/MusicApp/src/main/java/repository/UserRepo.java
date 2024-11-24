@@ -6,8 +6,6 @@ import model.Address;
 import model.MusicType;
 import model.Role;
 import model.User;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 
 import service.DBManager;
 
@@ -17,6 +15,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -28,10 +28,10 @@ public class UserRepo {
     /**
      * Instance of logger.
      */
-    private static final Logger LOG = Logger.getLogger(UserRepo.class);
+    private static final Logger LOG = Logger.getLogger(UserRepo.class.getSimpleName());
 
     /**
-     * Instance of itselft.
+     * Instance of itself.
      */
     private static final UserRepo REPO = new UserRepo();
 
@@ -98,7 +98,7 @@ public class UserRepo {
                 }
             }
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            LOG.log(Level.WARNING, e.getMessage(), e);
         }
         return users;
     }
@@ -123,7 +123,7 @@ public class UserRepo {
                 }
             }
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            LOG.log(Level.WARNING, e.getMessage(), e);
         }
         return users;
     }
@@ -151,13 +151,13 @@ public class UserRepo {
                 }
             }
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            LOG.log(Level.WARNING, e.getMessage(), e);
         }
         return users;
     }
 
     /**
-     * Return user by it credits if it exist at the system, otherwise return false.
+     * Return user by it credits if it exists at the system, otherwise return false.
      * @param login of user.
      * @param password of user.
      * @return user object, if user exist at the system, otherwise false.
@@ -181,7 +181,7 @@ public class UserRepo {
                 }
             }
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            LOG.log(Level.SEVERE, e.getMessage());
         }
         return user;
     }

@@ -7,8 +7,6 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import repos.AdvertRepo;
 import repos.CarRepo;
 import javax.servlet.ServletContext;
@@ -23,6 +21,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author evrnsky(vrnsky at protonmail.ch)
@@ -37,7 +37,7 @@ public class Adverter extends HttpServlet  {
     /**
      * Instance of logger.
      */
-    private static final Logger LOG = Logger.getLogger(Adverter.class);
+    private static final Logger LOG = Logger.getLogger(Adverter.class.getSimpleName());
 
     /**
      * Contains data which collected from the form.
@@ -77,7 +77,7 @@ public class Adverter extends HttpServlet  {
                 fillMapFromParsedRequest((User) session.getAttribute("user"), items);
                 FORM.clear();
             } catch (FileUploadException fue) {
-                LOG.log(Level.ERROR, fue.getMessage(), fue);
+                LOG.log(Level.SEVERE, fue.getMessage(), fue);
             }
 
         }

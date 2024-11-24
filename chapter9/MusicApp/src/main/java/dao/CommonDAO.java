@@ -1,8 +1,6 @@
 package dao;
 
 import model.IDInterface;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import service.DBManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -25,7 +25,7 @@ public abstract class CommonDAO<T> implements IDao<T> {
     /**
      * Instance of logger.
      */
-    private static final Logger LOG = Logger.getLogger(CommonDAO.class);
+    private static final Logger LOG = Logger.getLogger(CommonDAO.class.getSimpleName());
 
     /**
      * Wrapper for work with database connection.
@@ -107,7 +107,7 @@ public abstract class CommonDAO<T> implements IDao<T> {
             statement.executeUpdate();
             id = getIdFromResultSet(statement.getGeneratedKeys());
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            LOG.log(Level.SEVERE, e.getMessage(), e);
         }
         return id;
     }
@@ -123,7 +123,7 @@ public abstract class CommonDAO<T> implements IDao<T> {
             prepareStatementForUpdate(statement, value);
             statement.executeUpdate();
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            LOG.log(Level.SEVERE, e.getMessage(), e);
         }
     }
 
@@ -140,7 +140,7 @@ public abstract class CommonDAO<T> implements IDao<T> {
              prepareStatementForReadById(statement, id);
              list = parseResultSet(statement.executeQuery());
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            LOG.log(Level.SEVERE, e.getMessage(), e);
         }
         return list.get(0);
     }
@@ -157,7 +157,7 @@ public abstract class CommonDAO<T> implements IDao<T> {
              ResultSet set = statement.executeQuery(getSelectAll());
              list = parseResultSet(set);
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            LOG.log(Level.SEVERE, e.getMessage(), e);
         }
 
         return list;
@@ -174,7 +174,7 @@ public abstract class CommonDAO<T> implements IDao<T> {
             statement.setInt(1, idInterface.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            LOG.log(Level.SEVERE, e.getMessage(), e);
         }
     }
 
@@ -204,7 +204,7 @@ public abstract class CommonDAO<T> implements IDao<T> {
         try {
             statement.setInt(1, id);
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            LOG.log(Level.SEVERE, e.getMessage(), e);
         }
     }
 

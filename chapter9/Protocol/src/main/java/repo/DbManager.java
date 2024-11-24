@@ -1,7 +1,5 @@
 package repo;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
@@ -11,6 +9,8 @@ import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -29,7 +29,7 @@ public class DbManager {
     /**
      * Logger for detect reason of failure.
      */
-    private static final Logger LOG = Logger.getLogger(DbManager.class);
+    private static final Logger LOG = Logger.getLogger(DbManager.class.getSimpleName());
 
     /**
      * Connection to the database.
@@ -70,7 +70,7 @@ public class DbManager {
             }
 
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            LOG.log(Level.WARNING, e.getMessage(), e);
         }
         try {
             if (set != null) {
@@ -100,7 +100,7 @@ public class DbManager {
             statement.executeUpdate();
             this.closeConnection();
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            LOG.log(Level.WARNING, e.getMessage(), e);
         }
         this.closeConnection();
     }
@@ -117,7 +117,7 @@ public class DbManager {
             statement.executeUpdate();
             this.closeConnection();
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            LOG.log(Level.WARNING, e.getMessage(), e);
         }
     }
 
@@ -183,7 +183,7 @@ public class DbManager {
         try {
             set = statement.executeQuery();
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            LOG.log(Level.WARNING, e.getMessage(), e);
         }
         return set;
     }
@@ -198,7 +198,7 @@ public class DbManager {
             Statement statement = this.connection.createStatement();
             statement.executeUpdate(sql);
         } catch (Exception e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            LOG.log(Level.WARNING, e.getMessage(), e);
         }
 
     }
@@ -213,9 +213,9 @@ public class DbManager {
                 connection = DriverManager.getConnection(SETTINGS.getProperty("DB_URL"), SETTINGS.getProperty("DB_USER"), SETTINGS.getProperty("DB_PASSWORD"));
                 this.connected.set(true);
             } catch (SQLException e) {
-                LOG.log(Level.WARN, e.getMessage(), e);
+                LOG.log(Level.WARNING, e.getMessage(), e);
             } catch (ClassNotFoundException exp) {
-                LOG.log(Level.WARN, exp.getMessage(), exp);
+                LOG.log(Level.WARNING, exp.getMessage(), exp);
             }
         }
     }
@@ -229,7 +229,7 @@ public class DbManager {
                 this.connection.close();
                 this.connected.set(false);
             } catch (SQLException e) {
-                LOG.log(Level.WARN, e.getMessage(), e);
+                LOG.log(Level.WARNING, e.getMessage(), e);
             }
         }
     }

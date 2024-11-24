@@ -4,8 +4,6 @@ import db.PermanentStorage;
 import start.Settings;
 import start.TextSimilarityChecker;
 import start.Vacancy;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -22,13 +20,15 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author evrnsky
  * @version 0.1
  * @since 07.01.2017
  *
- * Main class of parser. It parsing vacancy and adding it to database.
+ * Main class of parser. It parses vacancy and adding it to database.
  */
 public class Parser implements Job {
 
@@ -36,7 +36,7 @@ public class Parser implements Job {
     /**
      * Instance of logger.
      */
-    private static final Logger LOGGER = Logger.getLogger(Parser.class);
+    private static final Logger LOGGER = Logger.getLogger(Parser.class.getSimpleName());
 
     /**
      * Root page for parsing.
@@ -137,7 +137,7 @@ public class Parser implements Job {
      * Start parsing.
      */
     private void startSearch() {
-        LOGGER.log(Level.INFO, "Parser start search offers.");
+        LOGGER.info("Parser start search offers.");
         List<Vacancy> offers = new ArrayList<>(100);
         try {
             if (this.firstStart) {
@@ -147,7 +147,7 @@ public class Parser implements Job {
                 offers = this.collectVacancy();
             }
         } catch (IOException ioe) {
-            LOGGER.log(Level.WARN, ioe.getMessage(), ioe);
+            LOGGER.warning(ioe.getMessage());
         }
         this.addVacanciesToDatabase(offers);
     }
@@ -166,7 +166,7 @@ public class Parser implements Job {
                         vacancy.setId(set.getInt("id"));
                     }
                 } catch (SQLException sql) {
-                    LOGGER.log(Level.INFO, sql.getMessage(), sql);
+                    LOGGER.info(sql.getMessage());
                 } finally {
                     if (set != null) {
                         try {
@@ -195,7 +195,7 @@ public class Parser implements Job {
                 }
             }
         } catch (IOException ioex) {
-            LOGGER.log(Level.WARN, ioex.getMessage(), ioex);
+            LOGGER.warning(ioex.getMessage());
         }
 
         return vacancies;
@@ -291,10 +291,8 @@ public class Parser implements Job {
             LOGGER.log(Level.INFO, String.format("With next desc:\n%s", description));
             LOGGER.log(Level.INFO, String.format("Was published at: %s", this.getPublishDate(worksPage)));
             vacancy = new Vacancy(worksTopic.text(), description, this.dateParser.parseDate(getPublishDate(worksPage)), url);
-        } catch (IOException ioe) {
-            LOGGER.log(Level.WARN, ioe.getMessage(), ioe);
-        } catch (ParseException par) {
-            LOGGER.log(Level.WARN, par.getMessage(), par);
+        } catch (IOException | ParseException ioe) {
+            LOGGER.log(Level.WARNING, ioe.getMessage(), ioe);
         }
         return vacancy;
     }

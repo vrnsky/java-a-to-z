@@ -2,8 +2,6 @@ package repository;
 
 import model.Role;
 import model.User;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import service.DBManager;
 
 import java.sql.ResultSet;
@@ -12,6 +10,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -25,7 +25,7 @@ public class RoleRepo {
     /**
      * Logger.
      */
-    private static final Logger LOG = Logger.getLogger(RoleRepo.class);
+    private static final Logger LOG = Logger.getLogger(RoleRepo.class.getSimpleName());
 
     /**
      * Self instance, it is singleton.
@@ -75,7 +75,7 @@ public class RoleRepo {
                 }
             }
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            LOG.log(Level.WARNING, e.getMessage(), e);
         }
         return users;
     }

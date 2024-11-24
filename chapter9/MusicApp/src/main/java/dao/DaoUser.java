@@ -3,13 +3,13 @@ package dao;
 import model.Address;
 import model.Role;
 import model.User;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -23,7 +23,7 @@ public class DaoUser extends CommonDAO<User> {
     /**
      * Instance of logger.
      */
-    private static final Logger LOG = Logger.getLogger(DaoUser.class);
+    private static final Logger LOG = Logger.getLogger(DaoUser.class.getSimpleName());
 
     /**
      * Self instance, it is singleton.
@@ -91,7 +91,7 @@ public class DaoUser extends CommonDAO<User> {
             statement.setInt(3, this.daoRole.add(user.getRole()));
             statement.setInt(4, this.daoAddress.add(user.getAddress()));
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            LOG.log(Level.SEVERE, e.getMessage(), e);
         }
     }
 
@@ -104,7 +104,7 @@ public class DaoUser extends CommonDAO<User> {
             statement.setString(2, user.getPassword());
             statement.setInt(3, user.getId());
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            LOG.log(Level.SEVERE, e.getMessage(), e);
         }
     }
 
@@ -124,7 +124,7 @@ public class DaoUser extends CommonDAO<User> {
                 users.add(user);
             }
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            LOG.log(Level.SEVERE, e.getMessage(), e);
         }
 
         return users;

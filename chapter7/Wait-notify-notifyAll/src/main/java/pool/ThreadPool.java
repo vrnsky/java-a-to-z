@@ -1,9 +1,8 @@
 package pool;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 
 import java.util.LinkedList;
+import java.util.logging.Logger;
 
 
 /**
@@ -18,7 +17,7 @@ public class ThreadPool {
     /**
      * Instance of logger.
      */
-    private static final Logger LOG = Logger.getLogger(ThreadPool.class);
+    private static final Logger LOG = Logger.getLogger(ThreadPool.class.getSimpleName());
 
     /**
      * Boundary for count of thread which may accept this queue.
@@ -70,13 +69,13 @@ public class ThreadPool {
                 synchronized (queue) {
                     while (queue.isEmpty()) {
                         try {
-                            LOG.log(Level.INFO, "Pool at this moment is empty and wait task.");
+                            LOG.info("Pool at this moment is empty and wait task.");
                             queue.wait();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
-                    LOG.log(Level.INFO, "Pool going execute head of the list async task.");
+                    LOG.info("Pool going execute head of the list async task.");
                     r = queue.removeFirst();
                 }
 
@@ -95,12 +94,7 @@ public class ThreadPool {
      */
     public static void main(String[] args) {
         ThreadPool pool = new ThreadPool();
-        Runnable timer = new Runnable() {
-            @Override
-            public void run() {
-                System.out.println(System.currentTimeMillis());
-            }
-        };
+        Runnable timer = () -> System.out.println(System.currentTimeMillis());
         pool.execute(timer);
     }
 }

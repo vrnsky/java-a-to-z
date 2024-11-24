@@ -1,9 +1,7 @@
 package queue;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -16,7 +14,7 @@ public class ProducerCustomer {
     /**
      * Instance of logger, show usefully information about program execution.
      */
-    private static final Logger LOG = Logger.getLogger(ProducerCustomer.class);
+    private static final Logger LOG = Logger.getLogger(ProducerCustomer.class.getSimpleName());
 
     /**
      * Instance of blocking queue which provide a thread safe access to the elements.
@@ -32,7 +30,7 @@ public class ProducerCustomer {
      * Producer method which put data to the end of the queue.
      */
     public void produce() {
-        LOG.log(Level.INFO, String.format("%s %s", "Now push to the end of queue is", number.get()));
+        LOG.info(String.format("%s %s", "Now push to the end of queue is", number.get()));
         queue.add(String.format("%s", number.get()));
         number.incrementAndGet();
     }
@@ -41,7 +39,7 @@ public class ProducerCustomer {
      * Consume method which takes data from the head of the queue.
      */
     public void consume() {
-        LOG.log(Level.INFO, String.format("%s %s", "Received from producer: ", queue.poll()));
+        LOG.info(String.format("%s %s", "Received from producer: ", queue.poll()));
     }
 
     /**
@@ -71,6 +69,4 @@ public class ProducerCustomer {
         subscriber.start();
         publisher.start();
     }
-
-
 }

@@ -7,8 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import java.util.logging.Logger;
 
 
 /**
@@ -16,15 +15,16 @@ import org.apache.log4j.Logger;
  * @version 0.1
  * @since 17.11.2016
  * Implementation of searching text from file system.
- * It search in readable and not hidden files.
+ * It searches in readable and not hidden files.
  * Also check that contains file path searching text.
  */
+
 public class TextSearcher extends Thread {
 
     /**
      * Logger for this class.
      */
-    private static final Logger LOG = Logger.getLogger(TextSearcher.class);
+    private static final Logger LOG = Logger.getLogger(TextSearcher.class.getSimpleName());
 
     /**
      * Flag which signal about find text or not.
@@ -140,9 +140,9 @@ public class TextSearcher extends Thread {
      */
     private void processingFile(File file, String text) {
         this.founded = readFile(file.getAbsolutePath(), text);
-        LOG.log(Level.INFO, String.format("SEARCH AT: %s", file.getAbsolutePath()));
+        LOG.info(String.format("SEARCH AT: %s", file.getAbsolutePath()));
         if (this.founded) {
-            LOG.log(Level.INFO, String.format("FOUND AT: %s", file.getAbsolutePath()));
+            LOG.info(String.format("FOUND AT: %s", file.getAbsolutePath()));
             synchronized (this.resultFiles) {
                 this.resultFiles.add(file.getAbsolutePath());
             }

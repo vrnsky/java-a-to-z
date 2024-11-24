@@ -3,7 +3,6 @@ package controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import model.Advert;
-import org.apache.log4j.Logger;
 import repos.AdvertRepo;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,12 +21,6 @@ import java.util.List;
  */
 @WebServlet("/index")
 public class Index extends HttpServlet {
-
-    /**
-     * Logger.
-     */
-    private static final Logger LOG = Logger.getLogger(Index.class);
-
     /**
      * Return all advert in json string.
      * @param req from client to server.

@@ -1,8 +1,9 @@
 package model;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -16,7 +17,7 @@ public class Client  {
     /**
      * Instance of logger for checking time in and time out of client.
      */
-    private static final Logger LOG = Logger.getLogger(Client.class);
+    private static final Logger LOG = Logger.getLogger(Client.class.getSimpleName());
 
     /**
      * At this time client came in bank.

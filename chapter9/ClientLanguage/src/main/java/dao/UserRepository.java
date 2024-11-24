@@ -2,8 +2,6 @@ package dao;
 
 import model.Address;
 import model.User;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,6 +9,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -24,7 +24,7 @@ public class UserRepository {
     /**
      * Logger, needs for debug and understand what happens.
      */
-    private static final Logger LOG = Logger.getLogger(UserRepository.class);
+    private static final Logger LOG = Logger.getLogger(UserRepository.class.getSimpleName());
 
     /**
      * Self instance, it is singleton.
@@ -79,7 +79,7 @@ public class UserRepository {
                 user.setId(this.set.getInt("id"));
             }
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            LOG.log(Level.WARNING, e.getMessage(), e);
         } finally {
             closeDbStructures();
         }
@@ -100,7 +100,7 @@ public class UserRepository {
             this.statement.setInt(6, user.getId());
             this.statement.executeUpdate();
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            LOG.log(Level.WARNING, e.getMessage(), e);
         } finally {
             this.closeDbStructures();
         }
@@ -116,7 +116,7 @@ public class UserRepository {
             this.statement.setInt(1, user.getId());
             this.statement.executeUpdate();
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            LOG.log(Level.WARNING, e.getMessage(), e);
         } finally {
             closeDbStructures();
         }
@@ -168,14 +168,14 @@ public class UserRepository {
                 users.add(new User(id, email, password, cvFile, new Address(country, city)));
             }
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            LOG.log(Level.WARNING, e.getMessage(), e);
         } finally {
             this.closeDbStructures();
             if (statement != null) {
                 try {
                     statement.close();
                 } catch (SQLException e) {
-                    LOG.log(Level.WARN, e.getMessage(), e);
+                    LOG.log(Level.WARNING, e.getMessage(), e);
                 }
             }
         }
@@ -220,7 +220,7 @@ public class UserRepository {
             try {
                 this.statement.close();
             } catch (SQLException e) {
-                LOG.log(Level.WARN, e.getMessage(), e);
+                LOG.log(Level.WARNING, e.getMessage(), e);
             }
         }
 
@@ -228,7 +228,7 @@ public class UserRepository {
             try {
                 this.set.close();
             } catch (SQLException e) {
-                LOG.log(Level.WARN, e.getMessage(), e);
+                LOG.log(Level.WARNING, e.getMessage(), e);
             }
         }
     }

@@ -1,10 +1,9 @@
 package ru.evrnsky.start;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -18,7 +17,7 @@ public class Settings {
     /**
      * Instance of logger.
      */
-    private static final Logger LOG = Logger.getLogger(Settings.class);
+    private static final Logger LOG = Logger.getLogger(Settings.class.getSimpleName());
 
     /**
      * Properties.
@@ -33,7 +32,7 @@ public class Settings {
         try {
            this.properties.load(load);
         } catch (IOException ioe) {
-            LOG.log(Level.WARN, ioe.getMessage(), ioe);
+            LOG.info(ioe.getMessage());
         }
     }
 

@@ -1,16 +1,15 @@
 package queue;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 /**
  * @author evrnsky
  * @version 0.1
  * @since 23.11.2016
  * @param <T> type of data which may contain this queue.
- * This is thread safe queue. It block access to the storage of objects.
+ * This is thread safe queue. It blocks access to the storage of objects.
  * Thread safe provide by synchronize blocks on the inner lock.
  */
 public class BlockingQueue<T> {
@@ -18,7 +17,7 @@ public class BlockingQueue<T> {
     /**
      * Instance of logger.
      */
-    private static final Logger LOG = Logger.getLogger(BlockingQueue.class);
+    private static final Logger LOG = Logger.getLogger(BlockingQueue.class.getSimpleName());
 
     /**
      * Head of the queue.
@@ -61,11 +60,11 @@ public class BlockingQueue<T> {
             if (this.tail == 0) {
                 this.tail++;
                 this.objects.add(data);
-                LOG.log(Level.INFO, "Now all threads get signal about resource is free.");
+                LOG.info("Now all threads get signal about resource is free.");
                 lock.notifyAll();
             } else if (this.tail != this.objects.size()) {
                 this.objects.add(data);
-                LOG.log(Level.INFO, "Now all threads get signal about resource is free.");
+                LOG.info("Now all threads get signal about resource is free.");
                 this.lock.notifyAll();
             } else {
                 throw new IllegalStateException("Queue is full.");
@@ -82,7 +81,7 @@ public class BlockingQueue<T> {
         synchronized (lock) {
             while (this.isEmpty()) {
                 try {
-                    LOG.log(Level.INFO, "Wait until producer put data to the queue.");
+                    LOG.info("Wait until producer put data to the queue.");
                     lock.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
