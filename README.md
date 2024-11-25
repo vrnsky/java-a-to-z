@@ -1,9 +1,8 @@
 [![Build](https://github.com/vrnsky/java-a-to-z/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/vrnsky/java-a-to-z/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/vrnsky/java-a-to-z/branch/master/graph/badge.svg)](https://codecov.io/gh/vrnsky/java-a-to-z)
 [![Java](https://img.shields.io/badge/Java-17-%23ED8B00.svg?logo=openjdk&logoColor=white)](#)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.5-6DB33F?logo=springboot&logoColor=fff)](#)
 [![JUnit5](https://img.shields.io/badge/Tested_with-JUnit_5-1?logo=junit5)](#)
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=vrnsky_java-a-to-z)](https://sonarcloud.io/summary/new_code?id=vrnsky_java-a-to-z)[![Linear](https://img.shields.io/badge/Task_tracker_we_prefer-Linear-5E6AD2?logo=linear&logoColor=fff)](#)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=vrnsky_java-a-to-z&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=vrnsky_java-a-to-z)
 
 This repository contains solution of task from courses at the job4j.ru course.
 In course use next technology :
