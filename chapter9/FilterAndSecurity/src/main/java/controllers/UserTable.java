@@ -2,8 +2,8 @@ package controllers;
 
 import dao.ExtendedRepo;
 import model.User;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +27,7 @@ public class UserTable extends HttpServlet {
     /**
      * Logger.
      */
-    private static final Logger LOG = Logger.getLogger(UserTable.class);
+    private static final Logger log = LoggerFactory.getLogger(UserTable.class);
 
     /**
      * Forward user to the main page of app.
@@ -39,7 +39,7 @@ public class UserTable extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<User> users = ExtendedRepo.getInstance().getAllUsers();
-        LOG.log(Level.INFO, String.format("%s users loaded", users.size()));
+        log.info("{} users loaded", users.size());
         req.setAttribute("users", users);
         req.getRequestDispatcher("/WEB-INF/views/users.jsp").forward(req, resp);
     }

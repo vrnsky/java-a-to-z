@@ -1,12 +1,12 @@
 package start;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.Trigger;
 import org.quartz.impl.StdSchedulerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import parser.Parser;
 
 import static org.quartz.JobBuilder.newJob;
@@ -25,7 +25,7 @@ public class Starter {
     /**
      * Instance of logger.
      */
-    private static final Logger LOGGER = Logger.getLogger(Starter.class);
+    private static final Logger log = LoggerFactory.getLogger(Starter.class);
 
     /**
      * Entry point of application.
@@ -53,7 +53,7 @@ public class Starter {
             scheduler.start();
             scheduler.scheduleJob(parserJob, trigger);
         } catch (SchedulerException exception) {
-            LOGGER.log(Level.WARN, exception.getMessage(), exception);
+            log.warn(exception.getMessage());
         }
     }
 }

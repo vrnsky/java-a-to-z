@@ -1,9 +1,9 @@
 package db;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import start.Settings;
 import start.Vacancy;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
@@ -24,7 +24,7 @@ public class PermanentStorage {
     /**
      * Instance of logger.
      */
-    private static final Logger LOGGER = Logger.getLogger(PermanentStorage.class);
+    private static final Logger log = LoggerFactory.getLogger(PermanentStorage.class);
 
     /**
      * SQL query for create database.
@@ -141,7 +141,7 @@ public class PermanentStorage {
             Statement statement = this.connection.createStatement();
             updated = statement.executeUpdate(sql);
         } catch (SQLException exc) {
-            LOGGER.log(Level.WARN, exc.getMessage(), exc);
+            log.warn(exc.getMessage());
         } finally {
             this.closeConnection();
         }
@@ -157,7 +157,7 @@ public class PermanentStorage {
             this.connection = DriverManager.getConnection(dbParserUrl, dbUser, dbPassword);
             this.connected = true;
         } catch (SQLException e) {
-            LOGGER.log(Level.INFO, e.getMessage(), e);
+            log.warn(e.getMessage());
         }
     }
 
@@ -185,10 +185,10 @@ public class PermanentStorage {
         try {
             if (!this.databaseExist(dbName)) {
                 this.executeUpdate(String.format("create database %s", dbName));
-                LOGGER.log(Level.INFO, String.format("%s database was successfully created", dbName));
+                log.info("{} database was successfully created", dbName);
             }
         } catch (SQLException e) {
-            LOGGER.log(Level.ERROR, e.getMessage(), e);
+            log.warn(e.getMessage());
         }
     }
 
@@ -201,7 +201,7 @@ public class PermanentStorage {
                 this.connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
                 connected = true;
             } catch (SQLException e) {
-                LOGGER.log(Level.WARN, e.getMessage(), e);
+                log.warn(e.getMessage());
             }
         }
     }
@@ -215,7 +215,7 @@ public class PermanentStorage {
                 this.connection.close();
                 connected = false;
             } catch (SQLException e) {
-                LOGGER.log(Level.WARN, e.getMessage(), e);
+                log.warn(e.getMessage());
             }
         }
     }
@@ -239,7 +239,7 @@ public class PermanentStorage {
                 exist = set.getInt("?column?") == 1;
             }
         } catch (SQLException e) {
-            LOGGER.log(Level.WARN, e.getMessage(), e);
+            log.warn(e.getMessage());
         } finally {
             if (sqlStatement != null) {
                 sqlStatement.close();

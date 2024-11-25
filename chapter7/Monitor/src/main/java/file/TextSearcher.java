@@ -1,5 +1,8 @@
 package file;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -7,8 +10,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 
 
 /**
@@ -16,15 +17,16 @@ import org.apache.log4j.Logger;
  * @version 0.1
  * @since 17.11.2016
  * Implementation of searching text from file system.
- * It search in readable and not hidden files.
+ * It searches in readable and not hidden files.
  * Also check that contains file path searching text.
  */
+
 public class TextSearcher extends Thread {
 
     /**
      * Logger for this class.
      */
-    private static final Logger LOG = Logger.getLogger(TextSearcher.class);
+    private static final Logger log = LoggerFactory.getLogger(TextSearcher.class);
 
     /**
      * Flag which signal about find text or not.
@@ -59,6 +61,7 @@ public class TextSearcher extends Thread {
 
     /**
      * Constructor for text searcher thread.
+     *
      * @param text    search text.
      * @param storage instance of file storage for store already checked file.
      */
@@ -70,6 +73,7 @@ public class TextSearcher extends Thread {
 
     /**
      * Return true if something was found.
+     *
      * @return true if something was found, otherwise false.
      */
     public boolean getFounded() {
@@ -96,6 +100,7 @@ public class TextSearcher extends Thread {
 
     /**
      * Return list of found files.
+     *
      * @return list of found files.
      */
     public List<String> getFileList() {
@@ -110,12 +115,13 @@ public class TextSearcher extends Thread {
      */
     private void searchFromDisk() {
         for (File disk : disks) {
-                search(disk.getAbsolutePath());
+            search(disk.getAbsolutePath());
         }
     }
 
     /**
      * Recursive search from directory to file.
+     *
      * @param disk start of search.
      * @return true if text is find, otherwise false.
      */
@@ -126,7 +132,7 @@ public class TextSearcher extends Thread {
                 if (file.isDirectory()) {
                     search(file.getAbsolutePath());
                 } else if (isCorrectFile(file) && !this.isInterrupted()) {
-                    processingFile(file, this.searchText);
+                    processFile(file, this.searchText);
                 }
             }
         }
@@ -135,23 +141,28 @@ public class TextSearcher extends Thread {
 
     /**
      * Read file and set founded flag.
+     *
      * @param file for reading.
      * @param text for searching.
      */
-    private void processingFile(File file, String text) {
+    private void processFile(File file, String text) {
         this.founded = readFile(file.getAbsolutePath(), text);
-        LOG.log(Level.INFO, String.format("SEARCH AT: %s", file.getAbsolutePath()));
-        if (this.founded) {
-            LOG.log(Level.INFO, String.format("FOUND AT: %s", file.getAbsolutePath()));
-            synchronized (this.resultFiles) {
-                this.resultFiles.add(file.getAbsolutePath());
-            }
+        if (log.isInfoEnabled()) {
+            log.info("SEARCH AT: {}", file.getAbsolutePath());
+        }
+        if (this.founded && log.isInfoEnabled()) {
+            log.info("FOUND AT: {}", file.getAbsolutePath());
+        }
+
+        synchronized (this.resultFiles) {
+            this.resultFiles.add(file.getAbsolutePath());
         }
         this.fileStorage.addCheckedFile(file.getAbsolutePath());
     }
 
     /**
      * Read file.
+     *
      * @param file for reading.
      * @param text for searching.
      * @return true if some string in file contains text or
@@ -180,6 +191,7 @@ public class TextSearcher extends Thread {
     /**
      * Checked that current file correct.
      * Correct means that file not read yet, not hidden and can read.
+     *
      * @param file instance of file.
      * @return true if all expression is true, otherwise false.
      */

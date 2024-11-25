@@ -1,8 +1,9 @@
 package dao;
 
 import model.Role;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,7 +22,7 @@ public class DaoRole extends CommonDAO<Role> {
     /**
      * Instance of logger.
      */
-    private static final Logger LOG = Logger.getLogger(DaoRole.class);
+    private static final Logger log = LoggerFactory.getLogger(DaoRole.class.getName());
 
     /**
      * Self instance of this.
@@ -99,7 +100,7 @@ public class DaoRole extends CommonDAO<Role> {
         try {
             statement.setString(1, role.getRole());
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
     }
 
@@ -114,7 +115,7 @@ public class DaoRole extends CommonDAO<Role> {
             statement.setString(1, role.getRole());
             statement.setInt(2, role.getId());
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
     }
 
@@ -133,7 +134,7 @@ public class DaoRole extends CommonDAO<Role> {
                 roles.add(new Role(id, roleName));
             }
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
         return roles;
     }

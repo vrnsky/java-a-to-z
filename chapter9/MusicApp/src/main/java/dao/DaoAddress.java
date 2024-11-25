@@ -1,8 +1,9 @@
 package dao;
 
 import model.Address;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,7 +22,7 @@ public class DaoAddress extends CommonDAO<Address> {
     /**
      * Instance of logger.
      */
-    private static final Logger LOG = Logger.getLogger(DaoAddress.class);
+    private static final Logger log = LoggerFactory.getLogger(DaoAddress.class);
 
     /**
      * Instance of itself, it is singleton.
@@ -99,7 +100,7 @@ public class DaoAddress extends CommonDAO<Address> {
             statement.setString(1, address.getCountry());
             statement.setString(2, address.getCity());
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
     }
 
@@ -115,7 +116,7 @@ public class DaoAddress extends CommonDAO<Address> {
             statement.setString(2, address.getCity());
             statement.setInt(3, address.getId());
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
     }
 
@@ -135,7 +136,7 @@ public class DaoAddress extends CommonDAO<Address> {
                 addresses.add(new Address(id, country, city));
             }
         } catch (SQLException sqlEx) {
-            LOG.log(Level.ERROR, sqlEx.getMessage(), sqlEx);
+            log.warn(sqlEx.getMessage(), sqlEx);
         }
         return addresses;
     }

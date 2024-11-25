@@ -2,14 +2,14 @@ package repository;
 
 import model.Role;
 import model.User;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.DBManager;
 
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,13 +19,14 @@ import java.util.List;
  * @since 16.03.2017
  * <p>
  * Role repository.
+ * </p>
  */
 public class RoleRepo {
 
     /**
      * Logger.
      */
-    private static final Logger LOG = Logger.getLogger(RoleRepo.class);
+    private static final Logger log = LoggerFactory.getLogger(RoleRepo.class);
 
     /**
      * Self instance, it is singleton.
@@ -46,6 +47,7 @@ public class RoleRepo {
 
     /**
      * Return instance of itself.
+     *
      * @return itself.
      */
     public static RoleRepo getInstance() {
@@ -54,6 +56,7 @@ public class RoleRepo {
 
     /**
      * Return all user with roles.
+     *
      * @return all users with role.
      */
     public List<User> getReferences() {
@@ -75,7 +78,7 @@ public class RoleRepo {
                 }
             }
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            log.warn("Failed to fetch user-role references: {}", e.getMessage(), e);
         }
         return users;
     }

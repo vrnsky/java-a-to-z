@@ -2,8 +2,8 @@ package dao;
 
 import model.Address;
 import model.User;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +16,7 @@ import java.util.List;
  * @author evrnsky
  * @version 0.1
  * @since 07.03.2017
- *
+ * <p>
  * This user repository.
  */
 public class UserRepository {
@@ -24,7 +24,7 @@ public class UserRepository {
     /**
      * Logger, needs for debug and understand what happens.
      */
-    private static final Logger LOG = Logger.getLogger(UserRepository.class);
+    private static final Logger log = LoggerFactory.getLogger(UserRepository.class);
 
     /**
      * Self instance, it is singleton.
@@ -55,6 +55,7 @@ public class UserRepository {
 
     /**
      * Return instance of this.
+     *
      * @return instance.
      */
     public static UserRepository getInstance() {
@@ -63,6 +64,7 @@ public class UserRepository {
 
     /**
      * Add new user to the system.
+     *
      * @param user instance of user class.
      */
     public void addUser(User user) {
@@ -79,7 +81,7 @@ public class UserRepository {
                 user.setId(this.set.getInt("id"));
             }
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         } finally {
             closeDbStructures();
         }
@@ -87,6 +89,7 @@ public class UserRepository {
 
     /**
      * Edit already exist user at the system.
+     *
      * @param user instance of user class.
      */
     public void editUser(User user) {
@@ -100,7 +103,7 @@ public class UserRepository {
             this.statement.setInt(6, user.getId());
             this.statement.executeUpdate();
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         } finally {
             this.closeDbStructures();
         }
@@ -108,6 +111,7 @@ public class UserRepository {
 
     /**
      * Remove user from database.
+     *
      * @param user instance of user.
      */
     public void removeUser(User user) {
@@ -116,7 +120,7 @@ public class UserRepository {
             this.statement.setInt(1, user.getId());
             this.statement.executeUpdate();
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         } finally {
             closeDbStructures();
         }
@@ -126,7 +130,8 @@ public class UserRepository {
 
     /**
      * Checking that user with given credits exist at the db.
-     * @param email of user.
+     *
+     * @param email    of user.
      * @param password of user.
      * @return user if it exist at the db, otherwise false.
      */
@@ -150,6 +155,7 @@ public class UserRepository {
 
     /**
      * Return list of all users.
+     *
      * @return list of all users.
      */
     public List<User> getAllUsers() {
@@ -160,7 +166,7 @@ public class UserRepository {
             this.set = statement.executeQuery("SELECT * FROM users ORDER BY id ASC");
             while (set.next()) {
                 int id = set.getInt("id");
-                String email =  set.getString("email");
+                String email = set.getString("email");
                 String password = set.getString("password");
                 String cvFile = set.getString("cvFile");
                 String country = set.getString("country");
@@ -168,14 +174,14 @@ public class UserRepository {
                 users.add(new User(id, email, password, cvFile, new Address(country, city)));
             }
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         } finally {
             this.closeDbStructures();
             if (statement != null) {
                 try {
                     statement.close();
                 } catch (SQLException e) {
-                    LOG.log(Level.WARN, e.getMessage(), e);
+                    log.warn(e.getMessage(), e);
                 }
             }
         }
@@ -185,6 +191,7 @@ public class UserRepository {
 
     /**
      * Return user by id.
+     *
      * @param id unique number per user.
      * @return user from database if it exist, otherwise return null.
      */
@@ -220,7 +227,7 @@ public class UserRepository {
             try {
                 this.statement.close();
             } catch (SQLException e) {
-                LOG.log(Level.WARN, e.getMessage(), e);
+                log.warn(e.getMessage(), e);
             }
         }
 
@@ -228,7 +235,7 @@ public class UserRepository {
             try {
                 this.set.close();
             } catch (SQLException e) {
-                LOG.log(Level.WARN, e.getMessage(), e);
+                log.warn(e.getMessage(), e);
             }
         }
     }

@@ -3,8 +3,9 @@ package dao;
 import model.Address;
 import model.Role;
 import model.User;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,7 +24,7 @@ public class DaoUser extends CommonDAO<User> {
     /**
      * Instance of logger.
      */
-    private static final Logger LOG = Logger.getLogger(DaoUser.class);
+    private static final Logger log = LoggerFactory.getLogger(DaoUser.class);
 
     /**
      * Self instance, it is singleton.
@@ -91,7 +92,8 @@ public class DaoUser extends CommonDAO<User> {
             statement.setInt(3, this.daoRole.add(user.getRole()));
             statement.setInt(4, this.daoAddress.add(user.getAddress()));
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            log.error("Failed to prepare statement for user insert");
+            log.debug("Technical details: {}", e.getMessage());
         }
     }
 
@@ -104,7 +106,7 @@ public class DaoUser extends CommonDAO<User> {
             statement.setString(2, user.getPassword());
             statement.setInt(3, user.getId());
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            log.error("Failed to prepare statement for user update: {}", e.getMessage());
         }
     }
 
@@ -124,7 +126,7 @@ public class DaoUser extends CommonDAO<User> {
                 users.add(user);
             }
         } catch (SQLException e) {
-            LOG.log(Level.ERROR, e.getMessage(), e);
+            log.error("Failed to parse result set: {}", e.getMessage());
         }
 
         return users;

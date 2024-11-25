@@ -1,13 +1,14 @@
 package repo;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import java.sql.ResultSet;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -16,7 +17,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * @author evrnsky
  * @version 0.1
  * @since 11.02.2017
- *
+ * <p>
  * Database management.
  */
 public class DbManager {
@@ -29,7 +30,7 @@ public class DbManager {
     /**
      * Logger for detect reason of failure.
      */
-    private static final Logger LOG = Logger.getLogger(DbManager.class);
+    private static final Logger log = LoggerFactory.getLogger(DbManager.class);
 
     /**
      * Connection to the database.
@@ -52,6 +53,7 @@ public class DbManager {
 
     /**
      * Adding user to the system.
+     *
      * @param user instance of user class.
      */
     public void addUser(User user) {
@@ -70,7 +72,7 @@ public class DbManager {
             }
 
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
         try {
             if (set != null) {
@@ -84,10 +86,11 @@ public class DbManager {
 
     /**
      * Edit user.
-     * @param id of user.
-     * @param name new version of name for user.
+     *
+     * @param id      of user.
+     * @param name    new version of name for user.
      * @param surname new version of surname for user.
-     * @param email new version of email for user.
+     * @param email   new version of email for user.
      */
     public void editUser(int id, String name, String surname, String email) {
         this.connect();
@@ -100,13 +103,14 @@ public class DbManager {
             statement.executeUpdate();
             this.closeConnection();
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
         this.closeConnection();
     }
 
     /**
      * Remove user from system.
+     *
      * @param id unique key for user.
      */
     public void removeUser(int id) {
@@ -117,12 +121,13 @@ public class DbManager {
             statement.executeUpdate();
             this.closeConnection();
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
     }
 
     /**
      * Return user with given id, if exist otherwise return null.
+     *
      * @param id of user.
      * @return null if user is not in database, otherwise return user from database.
      */
@@ -137,7 +142,7 @@ public class DbManager {
                 String userName = set.getString("user_name");
                 String surname = set.getString("surname");
                 String email = set.getString("email");
-                user  = new User(userName, surname, email);
+                user = new User(userName, surname, email);
                 user.setId(userId);
             }
             this.closeConnection();
@@ -149,6 +154,7 @@ public class DbManager {
 
     /**
      * Return all user at the system.
+     *
      * @return list of all controllers.
      */
     public List<User> getAllUsers() {
@@ -174,6 +180,7 @@ public class DbManager {
 
     /**
      * Execute sql prepared statement.
+     *
      * @param statement instance of prepared statement.
      * @return result set of execution sql statement.
      */
@@ -183,13 +190,14 @@ public class DbManager {
         try {
             set = statement.executeQuery();
         } catch (SQLException e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
         return set;
     }
 
     /**
      * Update query.
+     *
      * @param sql string view of sql statement.
      */
     private void updateQuery(String sql) {
@@ -198,7 +206,7 @@ public class DbManager {
             Statement statement = this.connection.createStatement();
             statement.executeUpdate(sql);
         } catch (Exception e) {
-            LOG.log(Level.WARN, e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
 
     }
@@ -212,10 +220,8 @@ public class DbManager {
                 Class.forName(SETTINGS.getProperty("DB_DRIVER"));
                 connection = DriverManager.getConnection(SETTINGS.getProperty("DB_URL"), SETTINGS.getProperty("DB_USER"), SETTINGS.getProperty("DB_PASSWORD"));
                 this.connected.set(true);
-            } catch (SQLException e) {
-                LOG.log(Level.WARN, e.getMessage(), e);
-            } catch (ClassNotFoundException exp) {
-                LOG.log(Level.WARN, exp.getMessage(), exp);
+            } catch (SQLException | ClassNotFoundException e) {
+                log.warn(e.getMessage(), e);
             }
         }
     }
@@ -229,7 +235,7 @@ public class DbManager {
                 this.connection.close();
                 this.connected.set(false);
             } catch (SQLException e) {
-                LOG.log(Level.WARN, e.getMessage(), e);
+                log.warn(e.getMessage(), e);
             }
         }
     }

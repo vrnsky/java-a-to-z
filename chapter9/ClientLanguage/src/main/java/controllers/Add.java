@@ -7,10 +7,10 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,7 +34,7 @@ public class Add extends HttpServlet {
     /**
      * Logger.
      */
-    private static final Logger LOG = Logger.getLogger(Add.class);
+    private static final Logger log = LoggerFactory.getLogger(Add.class);
 
     /**
      * Important: Apache FileUpload grabs all data from form.
@@ -45,13 +45,13 @@ public class Add extends HttpServlet {
 
     /**
      * Add new user to the system.
+     *
      * @param req  from client to server.
      * @param resp from server to client.
-     * @throws ServletException if problem with concurrency.
-     * @throws IOException      if problem with data exchange.
+     * @throws IOException if problem with data exchange.
      */
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String cvFileLink = "";
         if (ServletFileUpload.isMultipartContent(req)) {
             DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -66,7 +66,9 @@ public class Add extends HttpServlet {
                         String name = item.getFieldName();
                         String value = item.getString();
                         values.put(name, value);
-                        LOG.log(Level.INFO, value);
+                        if (log.isDebugEnabled()) {
+                            log.debug("Form field value: {}", sanitizeLogInput(value));
+                        }
                     } else {
                         cvFileLink = item.getName();
                     }
@@ -79,6 +81,21 @@ public class Add extends HttpServlet {
         UserRepository.getInstance().addUser(user);
         this.values.clear();
         resp.sendRedirect(String.format("%s/index.html", req.getContextPath()));
+    }
+
+    /**
+     * Sanitize input string.
+     *
+     * @param input string to sanitize.
+     * @return sanitized string.
+     */
+    private String sanitizeLogInput(String input) {
+        if (input == null || input.isEmpty()) {
+            return "";
+        }
+        return input.replaceAll("[\n\r\t%\\\"]", " ")
+                .replaceAll("\\s+", " ")
+                .trim();
     }
 }
 

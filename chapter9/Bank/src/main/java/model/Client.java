@@ -1,8 +1,9 @@
 package model;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 /**
  * @author evrnsky
@@ -16,7 +17,7 @@ public class Client  {
     /**
      * Instance of logger for checking time in and time out of client.
      */
-    private static final Logger LOG = Logger.getLogger(Client.class);
+    private static final Logger log = LoggerFactory.getLogger(Client.class);
 
     /**
      * At this time client came in bank.
@@ -37,7 +38,9 @@ public class Client  {
         this.checkTime(timeIn, timeOut);
         this.timeIn = timeIn;
         this.timeOut = timeOut;
-        LOG.log(Level.INFO, this.toString());
+        if (log.isInfoEnabled()) {
+            log.info(this.toString());
+        }
     }
 
     /**

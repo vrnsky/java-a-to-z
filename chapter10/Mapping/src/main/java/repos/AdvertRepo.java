@@ -6,9 +6,9 @@ import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import model.Advert;
 import model.Car;
-import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -19,11 +19,6 @@ import java.util.Map;
  * @since 29.03.2017
  */
 public class AdvertRepo extends CommonRepo<Advert> {
-
-    /**
-     * Logger.
-     */
-    private static final Logger LOG = Logger.getLogger(AdvertRepo.class);
 
     /**
      * It is singleton.
