@@ -2,9 +2,11 @@ package start;
 
 import db.PermanentStorage;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -18,7 +20,7 @@ public class TextSimilarityChecker {
     /**
      * Instance of logger.
      */
-    private static final Logger LOGGER = Logger.getLogger(TextSimilarityChecker.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(TextSimilarityChecker.class.getSimpleName());
 
     /**
      * Instance of permanent storage. Provide access to the database.
@@ -46,13 +48,13 @@ public class TextSimilarityChecker {
                 String description = savedVacancies.getString("description");
                 double percentage = StringUtils.getJaroWinklerDistance(text, description) * 100;
 
-                LOGGER.info(String.format("%.2f percentage between vacancies", percentage));
+                log.info(String.format("%.2f percentage between vacancies", percentage));
                 if (Double.compare(percentage, 45.0d) > 0) {
                     haveSimilar = true;
                 }
             }
         } catch (SQLException sql) {
-            LOGGER.warning(sql.getMessage());
+            log.warn(sql.getMessage());
         }
 
         return haveSimilar;

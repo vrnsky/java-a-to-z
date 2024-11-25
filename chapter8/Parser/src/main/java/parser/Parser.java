@@ -1,9 +1,6 @@
 package parser;
 
 import db.PermanentStorage;
-import start.Settings;
-import start.TextSimilarityChecker;
-import start.Vacancy;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -11,23 +8,27 @@ import org.jsoup.select.Elements;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import start.Settings;
+import start.TextSimilarityChecker;
+import start.Vacancy;
+
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
 
 /**
  * @author evrnsky
  * @version 0.1
  * @since 07.01.2017
- *
+ * <p>
  * Main class of parser. It parses vacancy and adding it to database.
  */
 public class Parser implements Job {
@@ -36,7 +37,7 @@ public class Parser implements Job {
     /**
      * Instance of logger.
      */
-    private static final Logger LOGGER = Logger.getLogger(Parser.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(Parser.class.getSimpleName());
 
     /**
      * Root page for parsing.
@@ -122,6 +123,7 @@ public class Parser implements Job {
 
     /**
      * Method which executing as async task.
+     *
      * @param jobExecutionContext context for executing job.
      * @throws JobExecutionException if something problem with scheduler.
      */
@@ -137,7 +139,7 @@ public class Parser implements Job {
      * Start parsing.
      */
     private void startSearch() {
-        LOGGER.info("Parser start search offers.");
+        log.info("Parser start search offers.");
         List<Vacancy> offers = new ArrayList<>(100);
         try {
             if (this.firstStart) {
@@ -147,13 +149,14 @@ public class Parser implements Job {
                 offers = this.collectVacancy();
             }
         } catch (IOException ioe) {
-            LOGGER.warning(ioe.getMessage());
+            log.warn(ioe.getMessage());
         }
         this.addVacanciesToDatabase(offers);
     }
 
     /**
      * Add vacancies to the database.
+     *
      * @param vacancies list of vacancies.
      */
     private void addVacanciesToDatabase(List<Vacancy> vacancies) {
@@ -166,7 +169,7 @@ public class Parser implements Job {
                         vacancy.setId(set.getInt("id"));
                     }
                 } catch (SQLException sql) {
-                    LOGGER.info(sql.getMessage());
+                    log.info(sql.getMessage());
                 } finally {
                     if (set != null) {
                         try {
@@ -182,6 +185,7 @@ public class Parser implements Job {
 
     /**
      * Collect recently vacancies which placed at the root page.
+     *
      * @return recently vacancies.
      */
     private List<Vacancy> collectVacancy() {
@@ -195,7 +199,7 @@ public class Parser implements Job {
                 }
             }
         } catch (IOException ioex) {
-            LOGGER.warning(ioex.getMessage());
+            log.warn(ioex.getMessage());
         }
 
         return vacancies;
@@ -203,6 +207,7 @@ public class Parser implements Job {
 
     /**
      * Parse vacancy from the year start.
+     *
      * @return all vacancies from the year start.
      * @throws IOException if problem with connect to the site.
      */
@@ -228,8 +233,9 @@ public class Parser implements Job {
 
     /**
      * Parse a page from forum and create a list of good job offer.
+     *
      * @param jobsOffers elements of html which intresting for searching vacancy.
-     * @param year specify time.
+     * @param year       specify time.
      * @return list of vacancies.
      */
     private List<Vacancy> parseSheetOfWorks(Elements jobsOffers, int year) {
@@ -245,8 +251,9 @@ public class Parser implements Job {
 
     /**
      * Removing vacancies which was published after given time.
+     *
      * @param vacancies list of vacancy.
-     * @param year specify time.
+     * @param year      specify time.
      */
     private void removeOlderVacancies(List<Vacancy> vacancies, int year) {
         Calendar calendar = Calendar.getInstance();
@@ -262,6 +269,7 @@ public class Parser implements Job {
 
     /**
      * Checking that vacancy that is suitable for java.
+     *
      * @param title of job offer.
      * @return true if vacancy good, otherwise false.
      */
@@ -278,6 +286,7 @@ public class Parser implements Job {
 
     /**
      * Parsing vacancy from work page.
+     *
      * @param worksTopic html element which contain link to the work page.
      * @return vacancy object.
      */
@@ -287,18 +296,19 @@ public class Parser implements Job {
         try {
             Document worksPage = Jsoup.connect(url).get();
             String description = worksPage.getElementsByClass(MSG_BODY).select(TD_TAG).text();
-            LOGGER.log(Level.INFO, String.format("Found vacancy: %s", worksTopic.text()));
-            LOGGER.log(Level.INFO, String.format("With next desc:\n%s", description));
-            LOGGER.log(Level.INFO, String.format("Was published at: %s", this.getPublishDate(worksPage)));
+            log.info("Found vacancy: {}", worksTopic.text());
+            log.info("With next desc:\n{}", description);
+            log.info("Was published at: {}", this.getPublishDate(worksPage));
             vacancy = new Vacancy(worksTopic.text(), description, this.dateParser.parseDate(getPublishDate(worksPage)), url);
         } catch (IOException | ParseException ioe) {
-            LOGGER.log(Level.WARNING, ioe.getMessage(), ioe);
+            log.warn(ioe.getMessage(), ioe);
         }
         return vacancy;
     }
 
     /**
      * Return parseable data string.
+     *
      * @param doc element of html which contain time.
      * @return parseable string.
      */

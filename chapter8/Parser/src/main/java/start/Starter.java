@@ -5,9 +5,9 @@ import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.Trigger;
 import org.quartz.impl.StdSchedulerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import parser.Parser;
-
-import java.util.logging.Logger;
 
 import static org.quartz.JobBuilder.newJob;
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
@@ -25,7 +25,7 @@ public class Starter {
     /**
      * Instance of logger.
      */
-    private static final Logger LOGGER = Logger.getLogger(Starter.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(Starter.class.getSimpleName());
 
     /**
      * Entry point of application.
@@ -53,7 +53,7 @@ public class Starter {
             scheduler.start();
             scheduler.scheduleJob(parserJob, trigger);
         } catch (SchedulerException exception) {
-            LOGGER.warning(exception.getMessage());
+            log.warn(exception.getMessage());
         }
     }
 }

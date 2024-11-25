@@ -1,13 +1,14 @@
 package dao;
 
 import model.MusicType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -21,7 +22,7 @@ public class DaoMusicType extends CommonDAO<MusicType> {
     /**
      * Instance of logger.
      */
-    private static final Logger LOG = Logger.getLogger(DaoMusicType.class.getName());
+    private static final Logger log = LoggerFactory.getLogger(DaoMusicType.class.getName());
 
     /**
      * Self instance, it is singleton.
@@ -98,7 +99,8 @@ public class DaoMusicType extends CommonDAO<MusicType> {
         try {
             statement.setString(1, object.getType());
         } catch (SQLException e) {
-            LOG.log(Level.SEVERE, e.getMessage(), e);
+            log.error(e.getMessage(), e);
+            throw new RuntimeException("Failed to prepare insert statement", e);
         }
     }
 
@@ -113,7 +115,8 @@ public class DaoMusicType extends CommonDAO<MusicType> {
             statement.setString(1, object.getType());
             statement.setInt(2, object.getId());
         } catch (SQLException e) {
-            LOG.log(Level.SEVERE, e.getMessage(), e);
+            log.error(e.getMessage(), e);
+            throw new RuntimeException("Failed to prepare update statement", e);
         }
     }
 
@@ -132,7 +135,8 @@ public class DaoMusicType extends CommonDAO<MusicType> {
                 list.add(new MusicType(id, type));
             }
         } catch (SQLException e) {
-            LOG.log(Level.SEVERE, e.getMessage(), e);
+            log.error(e.getMessage(), e);
+            throw new RuntimeException("Failed to parse result set", e);
         }
 
         return list;

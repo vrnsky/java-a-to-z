@@ -1,8 +1,9 @@
 package queue;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
-import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -17,7 +18,7 @@ public class BlockingQueue<T> {
     /**
      * Instance of logger.
      */
-    private static final Logger LOG = Logger.getLogger(BlockingQueue.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(BlockingQueue.class.getSimpleName());
 
     /**
      * Head of the queue.
@@ -60,11 +61,11 @@ public class BlockingQueue<T> {
             if (this.tail == 0) {
                 this.tail++;
                 this.objects.add(data);
-                LOG.info("Now all threads get signal about resource is free.");
+                log.info("Now all threads get signal about resource is free.");
                 lock.notifyAll();
             } else if (this.tail != this.objects.size()) {
                 this.objects.add(data);
-                LOG.info("Now all threads get signal about resource is free.");
+                log.info("Now all threads get signal about resource is free.");
                 this.lock.notifyAll();
             } else {
                 throw new IllegalStateException("Queue is full.");
@@ -81,7 +82,7 @@ public class BlockingQueue<T> {
         synchronized (lock) {
             while (this.isEmpty()) {
                 try {
-                    LOG.info("Wait until producer put data to the queue.");
+                    log.info("Wait until producer put data to the queue.");
                     lock.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();

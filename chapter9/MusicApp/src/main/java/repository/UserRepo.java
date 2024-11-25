@@ -7,6 +7,8 @@ import model.MusicType;
 import model.Role;
 import model.User;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import service.DBManager;
 
 import java.sql.SQLException;
@@ -15,8 +17,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -28,7 +28,7 @@ public class UserRepo {
     /**
      * Instance of logger.
      */
-    private static final Logger LOG = Logger.getLogger(UserRepo.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(UserRepo.class.getSimpleName());
 
     /**
      * Instance of itself.
@@ -98,7 +98,7 @@ public class UserRepo {
                 }
             }
         } catch (SQLException e) {
-            LOG.log(Level.WARNING, e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
         return users;
     }
@@ -123,7 +123,7 @@ public class UserRepo {
                 }
             }
         } catch (SQLException e) {
-            LOG.log(Level.WARNING, e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
         return users;
     }
@@ -151,7 +151,7 @@ public class UserRepo {
                 }
             }
         } catch (SQLException e) {
-            LOG.log(Level.WARNING, e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
         return users;
     }
@@ -181,7 +181,7 @@ public class UserRepo {
                 }
             }
         } catch (SQLException e) {
-            LOG.log(Level.SEVERE, e.getMessage());
+            log.warn(e.getMessage());
         }
         return user;
     }

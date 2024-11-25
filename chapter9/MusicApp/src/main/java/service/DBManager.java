@@ -1,10 +1,11 @@
 package service;
 
 import org.postgresql.ds.PGSimpleDataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -16,7 +17,7 @@ public class DBManager {
     /**
      * Instance of logger.
      */
-    private static final Logger LOG = Logger.getLogger(DBManager.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(DBManager.class.getSimpleName());
 
     /**
      * Settings class, provide access to the properties files.
@@ -79,7 +80,7 @@ public class DBManager {
         try {
             connection = this.dataSource.getConnection();
         } catch (SQLException e) {
-            LOG.log(Level.WARNING, e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
         return connection;
     }

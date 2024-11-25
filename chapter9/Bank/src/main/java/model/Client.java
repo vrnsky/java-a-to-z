@@ -1,9 +1,9 @@
 package model;
 
 import org.joda.time.DateTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -17,7 +17,7 @@ public class Client  {
     /**
      * Instance of logger for checking time in and time out of client.
      */
-    private static final Logger LOG = Logger.getLogger(Client.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(Client.class.getSimpleName());
 
     /**
      * At this time client came in bank.
@@ -38,7 +38,7 @@ public class Client  {
         this.checkTime(timeIn, timeOut);
         this.timeIn = timeIn;
         this.timeOut = timeOut;
-        LOG.log(Level.INFO, this.toString());
+        log.info(this.toString());
     }
 
     /**

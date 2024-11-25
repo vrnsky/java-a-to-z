@@ -1,13 +1,14 @@
 package dao;
 
 import model.Address;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -21,7 +22,7 @@ public class DaoAddress extends CommonDAO<Address> {
     /**
      * Instance of logger.
      */
-    private static final Logger LOG = Logger.getLogger(DaoAddress.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(DaoAddress.class.getSimpleName());
 
     /**
      * Instance of itself, it is singleton.
@@ -99,7 +100,7 @@ public class DaoAddress extends CommonDAO<Address> {
             statement.setString(1, address.getCountry());
             statement.setString(2, address.getCity());
         } catch (SQLException e) {
-            LOG.log(Level.SEVERE, e.getMessage(), e);
+            log.error(e.getMessage(), e);
         }
     }
 
@@ -115,7 +116,7 @@ public class DaoAddress extends CommonDAO<Address> {
             statement.setString(2, address.getCity());
             statement.setInt(3, address.getId());
         } catch (SQLException e) {
-            LOG.log(Level.SEVERE, e.getMessage(), e);
+            log.error(e.getMessage(), e);
         }
     }
 
@@ -135,7 +136,7 @@ public class DaoAddress extends CommonDAO<Address> {
                 addresses.add(new Address(id, country, city));
             }
         } catch (SQLException sqlEx) {
-            LOG.log(Level.SEVERE, sqlEx.getMessage(), sqlEx);
+            log.error(sqlEx.getMessage(), sqlEx);
         }
         return addresses;
     }

@@ -1,7 +1,9 @@
 package queue;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -14,7 +16,7 @@ public class ProducerCustomer {
     /**
      * Instance of logger, show usefully information about program execution.
      */
-    private static final Logger LOG = Logger.getLogger(ProducerCustomer.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(ProducerCustomer.class.getSimpleName());
 
     /**
      * Instance of blocking queue which provide a thread safe access to the elements.
@@ -30,7 +32,7 @@ public class ProducerCustomer {
      * Producer method which put data to the end of the queue.
      */
     public void produce() {
-        LOG.info(String.format("%s %s", "Now push to the end of queue is", number.get()));
+        log.info("{} {}", "Now push to the end of queue is", number.get());
         queue.add(String.format("%s", number.get()));
         number.incrementAndGet();
     }
@@ -39,29 +41,24 @@ public class ProducerCustomer {
      * Consume method which takes data from the head of the queue.
      */
     public void consume() {
-        LOG.info(String.format("%s %s", "Received from producer: ", queue.poll()));
+        String item = queue.poll();
+        if (item != null) {
+            log.info("Received from producer: {}", item);
+        } else {
+            log.warn("Received a null from queue");
+        }
     }
 
     /**
      * Entry point of app.
+     *
      * @param args keys for app.
-     * @throws InterruptedException if some problem with threads.
      */
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         ProducerCustomer template = new ProducerCustomer();
-        Runnable producer = new Runnable() {
-            @Override
-            public void run() {
-                template.produce();
-            }
-        };
+        Runnable producer = template::produce;
 
-        Runnable consumer = new Runnable() {
-            @Override
-            public void run() {
-                template.consume();
-            }
-        };
+        Runnable consumer = template::consume;
 
         Thread publisher = new Thread(producer);
         Thread subscriber = new Thread(consumer);

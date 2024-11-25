@@ -1,5 +1,8 @@
 package file;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -7,7 +10,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.logging.Logger;
 
 
 /**
@@ -24,7 +26,7 @@ public class TextSearcher extends Thread {
     /**
      * Logger for this class.
      */
-    private static final Logger LOG = Logger.getLogger(TextSearcher.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(TextSearcher.class.getSimpleName());
 
     /**
      * Flag which signal about find text or not.
@@ -140,9 +142,9 @@ public class TextSearcher extends Thread {
      */
     private void processingFile(File file, String text) {
         this.founded = readFile(file.getAbsolutePath(), text);
-        LOG.info(String.format("SEARCH AT: %s", file.getAbsolutePath()));
+        log.info(String.format("SEARCH AT: %s", file.getAbsolutePath()));
         if (this.founded) {
-            LOG.info(String.format("FOUND AT: %s", file.getAbsolutePath()));
+            log.info(String.format("FOUND AT: %s", file.getAbsolutePath()));
             synchronized (this.resultFiles) {
                 this.resultFiles.add(file.getAbsolutePath());
             }

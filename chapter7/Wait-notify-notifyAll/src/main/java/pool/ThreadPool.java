@@ -1,9 +1,10 @@
 package pool;
 
 
-import java.util.LinkedList;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.util.LinkedList;
 
 /**
  * @author evrnsky
@@ -17,7 +18,7 @@ public class ThreadPool {
     /**
      * Instance of logger.
      */
-    private static final Logger LOG = Logger.getLogger(ThreadPool.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(ThreadPool.class.getSimpleName());
 
     /**
      * Boundary for count of thread which may accept this queue.
@@ -69,13 +70,14 @@ public class ThreadPool {
                 synchronized (queue) {
                     while (queue.isEmpty()) {
                         try {
-                            LOG.info("Pool at this moment is empty and wait task.");
+                            log.info("Pool at this moment is empty and wait task");
                             queue.wait();
                         } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            log.warn("Thread interrupted while waiting for tasks: {}", e.getMessage());
+                            Thread.currentThread().interrupt();
                         }
                     }
-                    LOG.info("Pool going execute head of the list async task.");
+                    log.info("Pool going execute head of the list async task.");
                     r = queue.removeFirst();
                 }
 

@@ -7,6 +7,9 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,8 +21,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * @author evrnsky
@@ -34,7 +35,7 @@ public class Add extends HttpServlet {
     /**
      * Logger.
      */
-    private static final Logger LOG = Logger.getLogger(Add.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(Add.class.getSimpleName());
 
     /**
      * Important: Apache FileUpload grabs all data from form.
@@ -66,7 +67,7 @@ public class Add extends HttpServlet {
                         String name = item.getFieldName();
                         String value = item.getString();
                         values.put(name, value);
-                        LOG.log(Level.INFO, value);
+                        log.info(value);
                     } else {
                         cvFileLink = item.getName();
                     }
