@@ -66,7 +66,9 @@ public class Add extends HttpServlet {
                         String name = item.getFieldName();
                         String value = item.getString();
                         values.put(name, value);
-                        log.info("Form field value: {}", sanitizeLogInput(value));
+                        if (log.isDebugEnabled()) {
+                            log.debug("Form field value: {}", sanitizeLogInput(value));
+                        }
                     } else {
                         cvFileLink = item.getName();
                     }

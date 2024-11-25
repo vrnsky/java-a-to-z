@@ -94,11 +94,13 @@ public class Adverter extends HttpServlet {
      */
     private void fillMapFromParsedRequest(User user, List<FileItem> items) {
         for (FileItem item : items) {
-            log.info("Processing form field: {}", sanitizeLogInput(item.getFieldName()));
+            if (log.isDebugEnabled()) {
+                log.debug("Processing form field: {}", sanitizeLogInput(item.getFieldName()));
+            }
             if (log.isDebugEnabled()) {
                 String value = item.getString();
                 value = item.getFieldName().toLowerCase().contains("password") ? "*****" : sanitizeLogInput(value);
-                log.info("Field:{} | Value:{}", item.getFieldName(), value);
+                log.debug("Field:{} | Value:{}", item.getFieldName(), value);
             }
             if (item.isFormField()) {
                 FORM.put(item.getFieldName(), item.getString());
