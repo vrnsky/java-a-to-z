@@ -94,7 +94,7 @@ public class Adverter extends HttpServlet {
      */
     private void fillMapFromParsedRequest(User user, List<FileItem> items) {
         for (FileItem item : items) {
-            log.info("Field:{} | Value:{}", item.getFieldName(), item.getString());
+            log.info("Field:{} | Value:{}", item.getFieldName(), sanitizeLogInput(item.getString()));
             if (item.isFormField()) {
                 FORM.put(item.getFieldName(), item.getString());
             } else {
@@ -108,5 +108,17 @@ public class Adverter extends HttpServlet {
         Car car = CarRepo.getInstance().getCarByParam(modelId, producerId, bodyId).get(0);
         Advert advert = new Advert(car, user, price);
         AdvertRepo.getInstance().add(advert);
+    }
+
+    /**
+     * Sanitization of input string.
+     * @param input string to sanitize.
+     * @return sanitized string.
+     */
+    private String sanitizeLogInput(String input) {
+        if (input == null || input.isEmpty()) {
+            return "";
+        }
+        return input.replaceAll("[\n\r]", "");
     }
 }

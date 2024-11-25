@@ -117,6 +117,7 @@ public class DaoAddress extends CommonDAO<Address> {
             statement.setInt(3, address.getId());
         } catch (SQLException e) {
             log.error(e.getMessage(), e);
+            throw new RuntimeException(e.getMessage(), e);
         }
     }
 
@@ -137,6 +138,7 @@ public class DaoAddress extends CommonDAO<Address> {
             }
         } catch (SQLException sqlEx) {
             log.error(sqlEx.getMessage(), sqlEx);
+            throw new RuntimeException(sqlEx.getMessage(), sqlEx);
         }
         return addresses;
     }

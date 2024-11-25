@@ -32,10 +32,14 @@ public class Settings {
      * @param load input stream for loading.
      */
     public void load(InputStream load) {
+        if (load == null) {
+            throw new IllegalArgumentException("Input stream cannot be null");
+        }
         try {
             this.properties.load(load);
         } catch (IOException ioe) {
-            log.info(ioe.getMessage());
+            log.error("Failed to load configuration", ioe);
+            throw new IllegalStateException("Unable to load configuration", ioe);
         }
     }
 

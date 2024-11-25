@@ -67,7 +67,7 @@ public class Add extends HttpServlet {
                         String name = item.getFieldName();
                         String value = item.getString();
                         values.put(name, value);
-                        log.info(value);
+                        log.info("Form field value: {}", sanitizeInput(value));
                     } else {
                         cvFileLink = item.getName();
                     }
@@ -80,6 +80,18 @@ public class Add extends HttpServlet {
         UserRepository.getInstance().addUser(user);
         this.values.clear();
         resp.sendRedirect(String.format("%s/index.html", req.getContextPath()));
+    }
+
+    /**
+     * Sanitize input string.
+     * @param input string to sanitize.
+     * @return sanitized string.
+     */
+    private String sanitizeInput(String input) {
+        if (input == null || input.isEmpty()) {
+            return "";
+        }
+        return input.replaceAll("[\r\n]", "");
     }
 }
 

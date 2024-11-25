@@ -93,8 +93,9 @@ public class DaoUser extends CommonDAO<User> {
             statement.setInt(3, this.daoRole.add(user.getRole()));
             statement.setInt(4, this.daoAddress.add(user.getAddress()));
         } catch (SQLException e) {
-            log.error("Failed to prepare statement for user insert: {}", e.getMessage());
-            throw new DaoException(e.getMessage());
+            log.error("Failed to prepare statement for user insert");
+            log.debug("Technical details: {}", e.getMessage());
+            throw new DaoException("Database operation failed");
         }
     }
 
