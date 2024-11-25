@@ -100,7 +100,7 @@ public class DaoAddress extends CommonDAO<Address> {
             statement.setString(1, address.getCountry());
             statement.setString(2, address.getCity());
         } catch (SQLException e) {
-            log.error(e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
     }
 
@@ -116,8 +116,7 @@ public class DaoAddress extends CommonDAO<Address> {
             statement.setString(2, address.getCity());
             statement.setInt(3, address.getId());
         } catch (SQLException e) {
-            log.error(e.getMessage(), e);
-            throw new RuntimeException(e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
     }
 
@@ -137,8 +136,7 @@ public class DaoAddress extends CommonDAO<Address> {
                 addresses.add(new Address(id, country, city));
             }
         } catch (SQLException sqlEx) {
-            log.error(sqlEx.getMessage(), sqlEx);
-            throw new RuntimeException(sqlEx.getMessage(), sqlEx);
+            log.warn(sqlEx.getMessage(), sqlEx);
         }
         return addresses;
     }
