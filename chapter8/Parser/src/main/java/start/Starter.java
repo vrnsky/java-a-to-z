@@ -25,7 +25,7 @@ public class Starter {
     /**
      * Instance of logger.
      */
-    private static final Logger log = LoggerFactory.getLogger(Starter.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(Starter.class);
 
     /**
      * Entry point of application.

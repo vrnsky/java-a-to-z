@@ -38,12 +38,12 @@ public class Adverter extends HttpServlet {
     /**
      * Instance of logger.
      */
-    private static final Logger log = LoggerFactory.getLogger(Adverter.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(Adverter.class);
 
     /**
      * Contains data which collected from the form.
      */
-    private static final ConcurrentMap<String, String> FORM = new ConcurrentHashMap<String, String>();
+    private static final ConcurrentMap<String, String> FORM = new ConcurrentHashMap<>();
 
     /**
      * Forward request to the view.
@@ -94,7 +94,12 @@ public class Adverter extends HttpServlet {
      */
     private void fillMapFromParsedRequest(User user, List<FileItem> items) {
         for (FileItem item : items) {
-            log.info("Field:{} | Value:{}", item.getFieldName(), sanitizeLogInput(item.getString()));
+            log.info("Processing form filed: {}", item.getFieldName());
+            if (log.isDebugEnabled()) {
+                String value = item.getString();
+                value = item.getFieldName().toLowerCase().contains("password") ? "*****" : sanitizeLogInput(value);
+                log.info("Field:{} | Value:{}", item.getFieldName(), value);
+            }
             if (item.isFormField()) {
                 FORM.put(item.getFieldName(), item.getString());
             } else {
@@ -112,6 +117,7 @@ public class Adverter extends HttpServlet {
 
     /**
      * Sanitization of input string.
+     *
      * @param input string to sanitize.
      * @return sanitized string.
      */
@@ -119,6 +125,8 @@ public class Adverter extends HttpServlet {
         if (input == null || input.isEmpty()) {
             return "";
         }
-        return input.replaceAll("[\n\r]", "");
+        return input.replaceAll("[\n\r\t%\\\"]", " ")
+                .replaceAll("\\s+", " ")
+                .trim();
     }
 }

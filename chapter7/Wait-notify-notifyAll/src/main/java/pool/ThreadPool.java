@@ -18,7 +18,7 @@ public class ThreadPool {
     /**
      * Instance of logger.
      */
-    private static final Logger log = LoggerFactory.getLogger(ThreadPool.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(ThreadPool.class);
 
     /**
      * Boundary for count of thread which may accept this queue.
@@ -96,7 +96,7 @@ public class ThreadPool {
      */
     public static void main(String[] args) {
         ThreadPool pool = new ThreadPool();
-        Runnable timer = () -> System.out.println(System.currentTimeMillis());
+        Runnable timer = () -> log.info("Current time: {}", System.currentTimeMillis());
         pool.execute(timer);
     }
 }

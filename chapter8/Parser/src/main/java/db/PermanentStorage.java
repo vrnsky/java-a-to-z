@@ -24,7 +24,7 @@ public class PermanentStorage {
     /**
      * Instance of logger.
      */
-    private static final Logger log = LoggerFactory.getLogger(PermanentStorage.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(PermanentStorage.class);
 
     /**
      * SQL query for create database.

@@ -26,7 +26,7 @@ public class TextSearcher extends Thread {
     /**
      * Logger for this class.
      */
-    private static final Logger log = LoggerFactory.getLogger(TextSearcher.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(TextSearcher.class);
 
     /**
      * Flag which signal about find text or not.

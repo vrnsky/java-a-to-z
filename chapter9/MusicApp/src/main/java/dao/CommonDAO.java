@@ -25,7 +25,7 @@ public abstract class CommonDAO<T> implements IDao<T> {
     /**
      * Instance of logger.
      */
-    private static final Logger log = LoggerFactory.getLogger(CommonDAO.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(CommonDAO.class);
 
     /**
      * Wrapper for work with database connection.

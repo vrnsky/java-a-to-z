@@ -16,7 +16,7 @@ public class ProducerCustomer {
     /**
      * Instance of logger, show usefully information about program execution.
      */
-    private static final Logger log = LoggerFactory.getLogger(ProducerCustomer.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(ProducerCustomer.class);
 
     /**
      * Instance of blocking queue which provide a thread safe access to the elements.

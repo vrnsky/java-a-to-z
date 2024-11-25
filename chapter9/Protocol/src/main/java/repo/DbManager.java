@@ -30,7 +30,7 @@ public class DbManager {
     /**
      * Logger for detect reason of failure.
      */
-    private static final Logger log = LoggerFactory.getLogger(DbManager.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(DbManager.class);
 
     /**
      * Connection to the database.

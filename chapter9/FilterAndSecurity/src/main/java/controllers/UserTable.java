@@ -27,7 +27,7 @@ public class UserTable extends HttpServlet {
     /**
      * Logger.
      */
-    private static final Logger log = LoggerFactory.getLogger(UserTable.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(UserTable.class);
 
     /**
      * Forward user to the main page of app.

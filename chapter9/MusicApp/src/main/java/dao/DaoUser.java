@@ -1,6 +1,5 @@
 package dao;
 
-import exception.DaoException;
 import model.Address;
 import model.Role;
 import model.User;
@@ -25,7 +24,7 @@ public class DaoUser extends CommonDAO<User> {
     /**
      * Instance of logger.
      */
-    private static final Logger log = LoggerFactory.getLogger(DaoUser.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(DaoUser.class);
 
     /**
      * Self instance, it is singleton.
@@ -95,7 +94,6 @@ public class DaoUser extends CommonDAO<User> {
         } catch (SQLException e) {
             log.error("Failed to prepare statement for user insert");
             log.debug("Technical details: {}", e.getMessage());
-            throw new DaoException("Database operation failed");
         }
     }
 
@@ -109,7 +107,6 @@ public class DaoUser extends CommonDAO<User> {
             statement.setInt(3, user.getId());
         } catch (SQLException e) {
             log.error("Failed to prepare statement for user update: {}", e.getMessage());
-            throw new DaoException(e.getMessage());
         }
     }
 
@@ -130,7 +127,6 @@ public class DaoUser extends CommonDAO<User> {
             }
         } catch (SQLException e) {
             log.error("Failed to parse result set: {}", e.getMessage());
-            throw new DaoException(e.getMessage());
         }
 
         return users;

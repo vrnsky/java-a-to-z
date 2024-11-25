@@ -37,7 +37,7 @@ public class Parser implements Job {
     /**
      * Instance of logger.
      */
-    private static final Logger log = LoggerFactory.getLogger(Parser.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(Parser.class);
 
     /**
      * Root page for parsing.

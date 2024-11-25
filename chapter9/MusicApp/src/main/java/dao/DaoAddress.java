@@ -22,7 +22,7 @@ public class DaoAddress extends CommonDAO<Address> {
     /**
      * Instance of logger.
      */
-    private static final Logger log = LoggerFactory.getLogger(DaoAddress.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(DaoAddress.class);
 
     /**
      * Instance of itself, it is singleton.

@@ -18,7 +18,7 @@ public class BlockingQueue<T> {
     /**
      * Instance of logger.
      */
-    private static final Logger log = LoggerFactory.getLogger(BlockingQueue.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(BlockingQueue.class);
 
     /**
      * Head of the queue.

@@ -17,7 +17,7 @@ public class Client  {
     /**
      * Instance of logger for checking time in and time out of client.
      */
-    private static final Logger log = LoggerFactory.getLogger(Client.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(Client.class);
 
     /**
      * At this time client came in bank.

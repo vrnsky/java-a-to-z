@@ -20,7 +20,7 @@ public class TextSimilarityChecker {
     /**
      * Instance of logger.
      */
-    private static final Logger log = LoggerFactory.getLogger(TextSimilarityChecker.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(TextSimilarityChecker.class);
 
     /**
      * Instance of permanent storage. Provide access to the database.

@@ -19,7 +19,7 @@ public class Settings {
     /**
      * Instance of logger.
      */
-    private static final Logger log = LoggerFactory.getLogger(Settings.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(Settings.class);
 
     /**
      * Properties.
@@ -39,7 +39,6 @@ public class Settings {
             this.properties.load(load);
         } catch (IOException ioe) {
             log.error("Failed to load configuration", ioe);
-            throw new IllegalStateException("Unable to load configuration", ioe);
         }
     }
 

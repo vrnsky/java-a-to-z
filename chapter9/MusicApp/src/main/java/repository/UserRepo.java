@@ -28,7 +28,7 @@ public class UserRepo {
     /**
      * Instance of logger.
      */
-    private static final Logger log = LoggerFactory.getLogger(UserRepo.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(UserRepo.class);
 
     /**
      * Instance of itself.

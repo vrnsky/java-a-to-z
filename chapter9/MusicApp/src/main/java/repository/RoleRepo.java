@@ -1,6 +1,5 @@
 package repository;
 
-import exception.RepositoryException;
 import model.Role;
 import model.User;
 import org.slf4j.Logger;
@@ -27,7 +26,7 @@ public class RoleRepo {
     /**
      * Logger.
      */
-    private static final Logger log = LoggerFactory.getLogger(RoleRepo.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(RoleRepo.class);
 
     /**
      * Self instance, it is singleton.
@@ -80,7 +79,6 @@ public class RoleRepo {
             }
         } catch (SQLException e) {
             log.warn("Failed to fetch user-role references: {}", e.getMessage(), e);
-            throw new RepositoryException(e.getMessage());
         }
         return users;
     }

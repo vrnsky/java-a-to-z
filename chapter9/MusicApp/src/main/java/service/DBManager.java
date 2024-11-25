@@ -17,7 +17,7 @@ public class DBManager {
     /**
      * Instance of logger.
      */
-    private static final Logger log = LoggerFactory.getLogger(DBManager.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(DBManager.class);
 
     /**
      * Settings class, provide access to the properties files.

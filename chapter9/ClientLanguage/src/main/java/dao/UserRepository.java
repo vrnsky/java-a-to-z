@@ -24,7 +24,7 @@ public class UserRepository {
     /**
      * Logger, needs for debug and understand what happens.
      */
-    private static final Logger log = LoggerFactory.getLogger(UserRepository.class.getSimpleName());
+    private static final Logger log = LoggerFactory.getLogger(UserRepository.class);
 
     /**
      * Self instance, it is singleton.
