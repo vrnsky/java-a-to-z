@@ -296,9 +296,11 @@ public class Parser implements Job {
         try {
             Document worksPage = Jsoup.connect(url).get();
             String description = worksPage.getElementsByClass(MSG_BODY).select(TD_TAG).text();
-            log.info("Found vacancy: {}", worksTopic.text());
+            if (log.isInfoEnabled()) {
+                log.info("Found vacancy: {}", worksTopic.text());
+                log.info("Was published at: {}", this.getPublishDate(worksPage));
+            }
             log.info("With next desc:\n{}", description);
-            log.info("Was published at: {}", this.getPublishDate(worksPage));
             vacancy = new Vacancy(worksTopic.text(), description, this.dateParser.parseDate(getPublishDate(worksPage)), url);
         } catch (IOException | ParseException ioe) {
             log.warn(ioe.getMessage(), ioe);

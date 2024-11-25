@@ -38,7 +38,9 @@ public class Client  {
         this.checkTime(timeIn, timeOut);
         this.timeIn = timeIn;
         this.timeOut = timeOut;
-        log.info(this.toString());
+        if (log.isInfoEnabled()) {
+            log.info(this.toString());
+        }
     }
 
     /**

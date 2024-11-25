@@ -61,6 +61,7 @@ public class TextSearcher extends Thread {
 
     /**
      * Constructor for text searcher thread.
+     *
      * @param text    search text.
      * @param storage instance of file storage for store already checked file.
      */
@@ -72,6 +73,7 @@ public class TextSearcher extends Thread {
 
     /**
      * Return true if something was found.
+     *
      * @return true if something was found, otherwise false.
      */
     public boolean getFounded() {
@@ -98,6 +100,7 @@ public class TextSearcher extends Thread {
 
     /**
      * Return list of found files.
+     *
      * @return list of found files.
      */
     public List<String> getFileList() {
@@ -112,12 +115,13 @@ public class TextSearcher extends Thread {
      */
     private void searchFromDisk() {
         for (File disk : disks) {
-                search(disk.getAbsolutePath());
+            search(disk.getAbsolutePath());
         }
     }
 
     /**
      * Recursive search from directory to file.
+     *
      * @param disk start of search.
      * @return true if text is find, otherwise false.
      */
@@ -128,7 +132,7 @@ public class TextSearcher extends Thread {
                 if (file.isDirectory()) {
                     search(file.getAbsolutePath());
                 } else if (isCorrectFile(file) && !this.isInterrupted()) {
-                    processingFile(file, this.searchText);
+                    processFile(file, this.searchText);
                 }
             }
         }
@@ -137,23 +141,28 @@ public class TextSearcher extends Thread {
 
     /**
      * Read file and set founded flag.
+     *
      * @param file for reading.
      * @param text for searching.
      */
-    private void processingFile(File file, String text) {
+    private void processFile(File file, String text) {
         this.founded = readFile(file.getAbsolutePath(), text);
-        log.info(String.format("SEARCH AT: %s", file.getAbsolutePath()));
-        if (this.founded) {
-            log.info(String.format("FOUND AT: %s", file.getAbsolutePath()));
-            synchronized (this.resultFiles) {
-                this.resultFiles.add(file.getAbsolutePath());
-            }
+        if (log.isInfoEnabled()) {
+            log.info("SEARCH AT: {}", file.getAbsolutePath());
+        }
+        if (this.founded && log.isInfoEnabled()) {
+            log.info("FOUND AT: {}", file.getAbsolutePath());
+        }
+
+        synchronized (this.resultFiles) {
+            this.resultFiles.add(file.getAbsolutePath());
         }
         this.fileStorage.addCheckedFile(file.getAbsolutePath());
     }
 
     /**
      * Read file.
+     *
      * @param file for reading.
      * @param text for searching.
      * @return true if some string in file contains text or
@@ -182,6 +191,7 @@ public class TextSearcher extends Thread {
     /**
      * Checked that current file correct.
      * Correct means that file not read yet, not hidden and can read.
+     *
      * @param file instance of file.
      * @return true if all expression is true, otherwise false.
      */

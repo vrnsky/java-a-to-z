@@ -48,7 +48,9 @@ public class TextSimilarityChecker {
                 String description = savedVacancies.getString("description");
                 double percentage = StringUtils.getJaroWinklerDistance(text, description) * 100;
 
-                log.info(String.format("%.2f percentage between vacancies", percentage));
+                if (log.isInfoEnabled()) {
+                    log.info(String.format("%.2f percentage between vacancies", percentage));
+                }
                 if (Double.compare(percentage, 45.0d) > 0) {
                     haveSimilar = true;
                 }
