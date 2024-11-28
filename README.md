@@ -29,17 +29,30 @@ Chapters:
 13. [Design Patterns](./chapter13)
 14. [Integration](./chapter14)
 
-In project uses checkstyle maven plugin and cobertura for measure coverage.
-For continuous integration using [GitHub Actions](https://github.com/features/actions), also for measure coverage use [Сodecov](https://codecov.io).
-This project have module based architecture. One lesson - one module. This division made for more comortable work with internal dependencies.
+In the project, we use Checkstyle Maven plugin to prevent malformed code and JaCoCo Maven plugin
+for measuring coverage. For continuous integration using [GitHub Actions](https://github.com/features/actions),
+we also use [CodeCov](https://codecov.io) for measuring coverage. In the recent updates, we have introduced mutation testing with the PIT Maven plugin.
 
-At the second chapter I was build my first java application. It is simple tracker which run in the console and have minimum function such as add new item, edit item and remove, comment item. It runs by the next way:
+The project has a module-based architecture. 
+One lesson - one module. We made this division for more comfortable work with internal dependencies.
+
+At the second chapter, we built our first Java application. It is a simple console task tracker.
+It has minimal functions: adding, editing, and removing or commenting on an item. It runs
+by the following way
 ```
 java -jar start-1.0.jar
 ```
 
-At the chapter №10 I was made similar app to the app, which I made at the second chapter of this course. But now this app have a web interface based on Bootstrap. And instead use JDBC using Hibernate ORM. At the app use Ajax for send request to the server without update the page.
+In chapter 10, I created a similar app to the one I made in the second chapter of 
+this course. But now this app has a web interface based on Bootstrap. Instead
+of using JDBC, I am using Hibernate ORM. In the app, I use Ajax to send requests 
+to the server without updating the page.
+
 
 ---
-Contact: 
-[Yegor Voronyansky](https://twitter.com/voronyanskye)
+Contacts:
+
+[![Medium](https://img.shields.io/badge/Medium-%23000000.svg?logo=medium&logoColor=white)](https://vrnsky.medium.com)
+[![Substack](https://img.shields.io/badge/Substack-FF6719?logo=substack&logoColor=fff)](https://vrnsky.substack.com)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white)](https://vrnsky.github.io)
+[![Mastodon](https://img.shields.io/badge/Mastodon-6364FF?logo=mastodon&logoColor=fff)](https://me.dm/@vrnsky)
